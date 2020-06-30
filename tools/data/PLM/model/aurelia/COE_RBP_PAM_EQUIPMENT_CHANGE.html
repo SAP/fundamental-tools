@@ -1,0 +1,665 @@
+<!-- /COE/RBP_PAM_EQUIPMENT_CHANGE 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<!-- IS_DATA_SPECIFIC BAPI_ITOB_EQ_ONLY ?de: PM: BAPI-Struktur für ITOBAPI_CREATE_EQ_ONLY + READ-Felder -->
+<ui-combo value.bind="IS_DATA_SPECIFIC.BATCH" shlp.bind='{"type":"b'CT'", "id":"b'MCH1'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"CHA"}'
+          label="Batch Number"></ui-combo>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.CONFIGMAT" shlp.bind='{"type":"b'SH'", "id":"b'MAT1'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}' alpha-exit="MATN1" 
+          label="Configurable Material"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.CONFIGMAT_EXTERNAL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.CONFIGMAT_GUID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="External GUID for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.CONFIGMAT_LONG" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Configurable Material"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.CONFIGMAT_VERSION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="MATNW" 
+          label="Version Number for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.CONFIG_CONTROL_IND" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+          label="General Indicator (Single Character)"></ui-input>
+
+<ui-date date.bind="IS_DATA_SPECIFIC.DELIVDATE" label="First delivery date of the equipment"></ui-date>
+
+<ui-combo value.bind="IS_DATA_SPECIFIC.EQUICATGRY" shlp.bind='{"type":"b'CT'", "id":"b'T370T'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1", "mid":"EQT"}'
+          label="Equipment category"></ui-combo>
+
+<ui-date date.bind="IS_DATA_SPECIFIC.FREE_DATE1" label="Date, intended for SAP internal use"></ui-date>
+
+<ui-date date.bind="IS_DATA_SPECIFIC.FREE_DATE2" label="Date, intended for SAP internal use"></ui-date>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.FREE_NOTE1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Technical information, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.FREE_NOTE2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Technical information, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.FREE_NUM1" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"9"}'
+          label="Numerical field, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.FREE_NUM2" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"9"}'
+          label="Numerical field, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.FUNC_ID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Function Identifier"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.INST_POS" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4"}'
+          label="Equipment position at InstallLoc (Superior Equip./FunctLoc)"></ui-input>
+
+<ui-text value.bind="IS_DATA_SPECIFIC.IPPE_GUID" data-abap.bind='{"ddic":"RAW", "type":"string", "length":"16"}'
+         label="Internal Identification for PVS Objects"></ui-text>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.IUID_TYPE" shlp.bind='{"type":"b'SH'", "id":"b'H_IUID_TYPE'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Structure Type of UII"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.LICENSE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Equipment license number"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.MANDRAWNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer drawing number"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.MATERIAL" shlp.bind='{"type":"b'SH'", "id":"b'S_MAT1'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"MAT"}' alpha-exit="MATN1" 
+          label="Material Number"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.MATERIAL_EXTERNAL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.MATERIAL_GUID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="External GUID for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.MATERIAL_LONG" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Material Number (40 Characters, needed f. technical reasons)"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.MATERIAL_VERSION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="MATNW" 
+          label="Version Number for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.READ_CUOBJ" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"18", "mid":"CUX"}'
+          label="Configuration (internal object number)"></ui-input>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC.READ_CUREF" label="Referenced Configuration"></ui-checkbox>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.READ_FLOC" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Functional Location Label"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.READ_MAINTENANCE_PLAN" shlp.bind='{"type":"b'SH'", "id":"b'MPLAL'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12", "mid":"MPL"}' alpha-exit="ALPHA" 
+          label="Maintenance Plan"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.READ_MEASURING_POINT" shlp.bind='{"type":"b'SH'", "id":"b'IMPM'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12", "mid":"IPT"}' alpha-exit="ALPHA" 
+          label="Measuring Point"></ui-input>
+
+<ui-combo value.bind="IS_DATA_SPECIFIC.READ_SUPEQ" shlp.bind='{"type":"b'CT'", "id":"b'EQUI'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}' alpha-exit="ALPHA" 
+          label="Superordinate Equipment"></ui-combo>
+
+<ui-date date.bind="IS_DATA_SPECIFIC.READ_VALID_FROM" label="Valid-From Date"></ui-date>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.SERIALNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"SER"}' alpha-exit="GERNR" 
+          label="Serial Number"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.TECHID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"25"}'
+          label="Technical identification number"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.TECHS" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+          label="Parameter Variant/Standard Variant"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.UII" shlp.bind='{"type":"b'SH'", "id":"b'H_UII'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"72", "mid":"UII"}'
+          label="Unique Item Identifier"></ui-input>
+
+<ui-input value.bind="IS_DATA_SPECIFIC.UII_PLANT" shlp.bind='{"type":"b'SH'", "id":"b'H_T001W_C'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"WRK"}'
+          label="Plant Responsible for UII"></ui-input>
+
+
+<!-- IS_DATA_SPECIFIC_X BAPI_ITOB_EQ_ONLYX ?de: PM: Zu BAPI_ITOB_EQ_ONLY gehörige Flagstruktur (Change-BAPI) -->
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.BATCH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.CONFIGMAT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.CONFIGMAT_EXTERNAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.CONFIGMAT_GUID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.CONFIGMAT_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.CONFIGMAT_VERSION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.DELIVDATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.EQUICATGRY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.EQUIPMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.FREE_DATE1" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.FREE_DATE2" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.FREE_NOTE1" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.FREE_NOTE2" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.FREE_NUM1" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.FREE_NUM2" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.FUNC_ID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.INST_POS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.IPPE_GUID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.IUID_TYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.LICENSE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.MANDRAWNO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.MATERIAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.MATERIAL_EXTERNAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.MATERIAL_GUID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.MATERIAL_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.MATERIAL_VERSION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.READ_CUOBJ" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.READ_CUREF" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.READ_FLOC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.READ_MAINTENANCE_PLAN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.READ_MEASURING_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.READ_SUPEQ" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.READ_VALID_FROM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.SERIALNO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.TECHID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.TECHS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.UII" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_DATA_SPECIFIC_X.UII_PLANT" label="Updated information in related user data field"></ui-checkbox>
+
+
+<!-- IS_HEADER /COE/RBP_S_PAM_EQUI_HEADER ?de: Equipment Header -->
+<ui-combo value.bind="IS_HEADER.ABCINDIC" shlp.bind='{"type":"b'CT'", "id":"b'T370C'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+          label="ABC indicator for technical object"></ui-combo>
+
+<ui-date date.bind="IS_HEADER.ACQDATE" label="Acquisition date"></ui-date>
+
+<ui-input value.bind="IS_HEADER.ACQUISVAL" unit.bind="IS_HEADER.CURRENCY" data-abap.bind='{"ddic":"CURR", "type":"number", "format":"currency", "length":"+12.2"}'
+          label="Acquisition Value"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.ASSET_NO" shlp.bind='{"type":"b'CT'", "id":"b'ANLH'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12", "mid":"AN1"}' alpha-exit="ALPHA" 
+          label="Main Asset Number"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.AUTHGRP" shlp.bind='{"type":"b'SH'", "id":"b'H_T370B'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4"}'
+          label="Technical object authorization group"></ui-input>
+
+<ui-input value.bind="IS_HEADER.BUS_AREA" shlp.bind='{"type":"b'SH'", "id":"b'H_TGSB'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"GSB"}'
+          label="Business Area"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.CATPROFILE" shlp.bind='{"type":"b'CT'", "id":"b'T352B'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"9"}'
+          label="Catalog Profile"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.COMP_CODE" shlp.bind='{"type":"b'SH'", "id":"b'C_T001'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"BUK"}'
+          label="Company Code"></ui-input>
+
+<ui-input value.bind="IS_HEADER.CONSTMONTH" shlp.bind='{"type":"b'FV'", "id":"b'BAUMM'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Month of construction"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.CONSTTYPE" shlp.bind='{"type":"b'CT'", "id":"b'MARA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"MAT"}' alpha-exit="MATN1" 
+          label="Construction type material of the object"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.CONSTTYPE_EXTERNAL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="IS_HEADER.CONSTTYPE_GUID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="External GUID for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="IS_HEADER.CONSTTYPE_LONG" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40", "mid":"MAT"}'
+          label="Construction type material of the object"></ui-input>
+
+<ui-input value.bind="IS_HEADER.CONSTTYPE_VERSION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="MATNW" 
+          label="Version Number for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="IS_HEADER.CONSTYEAR" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4"}' alpha-exit="GJAHR" 
+          label="Year of construction"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.COSTCENTER" shlp.bind='{"type":"b'CT'", "id":"b'CSKS'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"KOS"}' alpha-exit="ALPHA" 
+          label="Cost Center"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.COUNTR_ISO" shlp.bind='{"type":"b'SH'", "id":"b'F4_INTCA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Country ISO code"></ui-input>
+
+<ui-input value.bind="IS_HEADER.CURR_ISO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="ISO currency code"></ui-input>
+
+<ui-input value.bind="IS_HEADER.DESCRIPT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Description of Technical Object"></ui-input>
+
+<ui-input value.bind="IS_HEADER.DISTR_CHAN" shlp.bind='{"type":"b'SH'", "id":"b'CSH_TVTW'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2", "mid":"VTW"}'
+          label="Distribution Channel"></ui-input>
+
+<ui-input value.bind="IS_HEADER.DIVISION" shlp.bind='{"type":"b'SH'", "id":"b'CSH_TSPA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2", "mid":"SPA"}'
+          label="Division"></ui-input>
+
+<ui-input value.bind="IS_HEADER.END_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_LINEAR_POINT'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="End Point"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.FIRST_OFFSET_TYPE_CODE" shlp.bind='{"type":"b'CT'", "id":"b'EAML_D_OFFSET_TC'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Type of First Offset"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.FIRST_OFFSET_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit of Measurement for Offset 1 in ISO Code"></ui-input>
+
+<ui-input value.bind="IS_HEADER.FIRST_OFFSET_VALUE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Value of Offset 1"></ui-input>
+
+<ui-input value.bind="IS_HEADER.INVENTORY" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"25"}'
+          label="Inventory number"></ui-input>
+
+<ui-input value.bind="IS_HEADER.LINEAR_LENGTH" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Length"></ui-input>
+
+<ui-input value.bind="IS_HEADER.LINEAR_REFERENCE_PATTERN" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SHLP_LRPID'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"LRP"}'
+          label="Linear Reference Pattern"></ui-input>
+
+<ui-input value.bind="IS_HEADER.LINEAR_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit of Measurement for Linear Data in ISO Code"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MAINTLOC" shlp.bind='{"type":"b'SH'", "id":"b'H_T499S'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Asset location"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MAINTPLANT" shlp.bind='{"type":"b'SH'", "id":"b'H_T001W'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"SWK"}'
+          label="Maintenance plant"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MAINTROOM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"8"}'
+          label="Room"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.MANCOUNTRY" shlp.bind='{"type":"b'CT'", "id":"b'T005'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Country of manufacture"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.MANFACTURE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer of asset"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MANMODEL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Manufacturer model number"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MANPARNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer part number"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MANSERNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer serial number"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MARKER_DISTANCE_END_POINT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Length Spec for Distance between Marker and End Point"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MARKER_DISTANCE_START_POINT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Distance between Marker and Start Point"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MARKER_DISTANCE_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit for the Distance from Marker in ISO Code"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MARKER_END_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_MARKER'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Marker for End Point"></ui-input>
+
+<ui-input value.bind="IS_HEADER.MARKER_START_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_MARKER'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Marker for Start Point"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.OBJECTTYPE" shlp.bind='{"type":"b'CT'", "id":"b'T370K'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Type of Technical Object"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.OBJ_SIZE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Size/dimension"></ui-input>
+
+<ui-input value.bind="IS_HEADER.OBJ_WEIGHT" unit.bind="IS_HEADER.UNIT_OF_WT" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"10.3"}'
+          label="Weight of object"></ui-input>
+
+<ui-input value.bind="IS_HEADER.PLANGROUP" shlp.bind='{"type":"b'SH'", "id":"b'H_T024I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3", "mid":"IHG"}'
+          label="Planner Group for Customer Service and Plant Maintenance"></ui-input>
+
+<ui-input value.bind="IS_HEADER.PLANPLANT" shlp.bind='{"type":"b'SH'", "id":"b'H_T399I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"IWK"}'
+          label="Maintenance Planning Plant"></ui-input>
+
+<ui-input value.bind="IS_HEADER.PLSECTN" shlp.bind='{"type":"b'SH'", "id":"b'H_T357'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3", "mid":"BBE"}'
+          label="Plant section"></ui-input>
+
+<ui-input value.bind="IS_HEADER.PP_WKCTR" shlp.bind='{"type":"b'CT'", "id":"b'CRID'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8"}'
+          label="Object ID of PP work center"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.READ_ADRNR" shlp.bind='{"type":"b'CT'", "id":"b'ADRC'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"ADR"}' alpha-exit="ALPHA" 
+          label="Address number"></ui-combo>
+
+<ui-date date.bind="IS_HEADER.READ_CHDAT" label="Date of Last Change"></ui-date>
+
+<ui-input value.bind="IS_HEADER.READ_CHNAM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+          label="Name of person who changed object"></ui-input>
+
+<ui-date date.bind="IS_HEADER.READ_CRDAT" label="Date on Which Record Was Created"></ui-date>
+
+<ui-input value.bind="IS_HEADER.READ_CRNAM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+          label="Name of Person who Created the Object"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.READ_OBJNR" shlp.bind='{"type":"b'CT'", "id":"b'ONR00'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"22", "mid":"ONR"}'
+          label="Object number"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.SALES_GRP" shlp.bind='{"type":"b'SH'", "id":"b'H_TVKGR'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3", "mid":"VKG"}'
+          label="Sales group"></ui-input>
+
+<ui-input value.bind="IS_HEADER.SALES_OFF" shlp.bind='{"type":"b'SH'", "id":"b'H_TVBUR'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"VKB"}'
+          label="Sales office"></ui-input>
+
+<ui-input value.bind="IS_HEADER.SALES_ORG" shlp.bind='{"type":"b'SH'", "id":"b'H_TVKO'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"VKO"}'
+          label="Sales Organization"></ui-input>
+
+<ui-input value.bind="IS_HEADER.SECOND_OFFSET_TYPE_CODE" shlp.bind='{"type":"b'CT'", "id":"b'EAML_D_OFFSET_TC'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Type of Second Offset"></ui-input>
+
+<ui-input value.bind="IS_HEADER.SECOND_OFFSET_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit of Measurement for Offset 2 in ISO Code"></ui-input>
+
+<ui-input value.bind="IS_HEADER.SECOND_OFFSET_VALUE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Value of Offset 2"></ui-input>
+
+<ui-input value.bind="IS_HEADER.SETTLORDER" shlp.bind='{"type":"b'SH'", "id":"b'ORDE'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' alpha-exit="ALPHA" 
+          label="Settlement order"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.SHIFT_NOTE_NOTIFICATION_TYPE" shlp.bind='{"type":"b'CT'", "id":"b'TQ80'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Notification Type for Shift Note for Object"></ui-combo>
+
+<ui-input value.bind="IS_HEADER.SHIFT_REPORT_TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Shift Report Type for Object"></ui-input>
+
+<ui-input value.bind="IS_HEADER.SORTFIELD" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Sort field"></ui-input>
+
+<ui-input value.bind="IS_HEADER.STANDORDER" shlp.bind='{"type":"b'SH'", "id":"b'ORDP'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' alpha-exit="ALPHA" 
+          label="Standing order number"></ui-input>
+
+<ui-date date.bind="IS_HEADER.START_FROM" label="Start-up Date of the Technical Object"></ui-date>
+
+<ui-input value.bind="IS_HEADER.START_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_LINEAR_POINT'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Start Point"></ui-input>
+
+<ui-combo value.bind="IS_HEADER.SUB_NUMBER" shlp.bind='{"type":"b'CT'", "id":"b'ANLA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"AN2"}' alpha-exit="ALPHA" 
+          label="Asset Subnumber"></ui-combo>
+
+<ui-combo value.bind="IS_HEADER.UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-combo value.bind="IS_HEADER.WBS_ELEM" shlp.bind='{"type":"b'CT'", "id":"b'PRPS'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8"}' alpha-exit="ABPSP" 
+          label="Work Breakdown Structure Element (WBS Element)"></ui-combo>
+
+<ui-combo value.bind="IS_HEADER.WORK_CTR" shlp.bind='{"type":"b'CT'", "id":"b'CRID'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8"}'
+          label="Object ID of the Work Center"></ui-combo>
+
+
+<!-- IS_HEADER_X /COE/RBP_S_PAM_EQUI_HEADERX ?de: Equipment Header (X) -->
+<ui-checkbox value.bind="IS_HEADER_X.ABCINDIC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ACQDATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ACQUISVAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ASSET_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.AUTHGRP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.BUS_AREA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CATPROFILE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.COMP_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CONSTMONTH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CONSTTYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CONSTTYPE_EXTERNAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CONSTTYPE_GUID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CONSTTYPE_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CONSTTYPE_VERSION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CONSTYEAR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.COSTCENTER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.COUNTR_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CURRENCY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CURR_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.DESCRIPT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.DISTR_CHAN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.DIVISION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.INVENTORY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LINEAR_LENGTH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LINEAR_REFERENCE_PATTERN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LINEAR_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LINEAR_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MAINTLOC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MAINTPLANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MAINTROOM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MANCOUNTRY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MANFACTURE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MANMODEL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MANPARNO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MANSERNO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.OBJECTTYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.OBJ_SIZE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.OBJ_WEIGHT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PLANGROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PLANPLANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PLSECTN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PP_WKCTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.READ_ADRNR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.READ_CHDAT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.READ_CHNAM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.READ_CRDAT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.READ_CRNAM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.READ_OBJNR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SALES_GRP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SALES_OFF" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SALES_ORG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SETTLORDER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SHIFT_NOTE_NOTIFICATION_TYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SHIFT_REPORT_TYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SORTFIELD" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.STANDORDER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.START_FROM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SUB_NUMBER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.UNIT_OF_WT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.WBS_ELEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.WORK_CTR" label="Updated information in related user data field"></ui-checkbox>
+
+
+<!-- IT_CHARACTERISTICS /COE/RBP_T_PAM_CHARACT_FOR_CHG ?de: Characteristics -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_CHANGE IT_CHARACTERISTICS" title="?de: Characteristics"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="CHARACT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "mid":"FEA"}' label="Characteristic Name"></ui-dg-column>
+    <ui-dg-column sortable field="CLASS" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"KLA"}' label="Class number"></ui-dg-column>
+    <ui-dg-column sortable field="VALUE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}' label="Characteristic Value"></ui-dg-column>
+    <ui-dg-column sortable field="VALUE_FROM" data-abap.bind='{"ddic":"FLTP", "type":"number", "format":"float", "length":"+1.15"}' label="Internal floating point from"></ui-dg-column>
+    <ui-dg-column sortable field="VALUE_TO" data-abap.bind='{"ddic":"FLTP", "type":"number", "format":"float", "length":"+1.15"}' label="Internal floating point value to"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- IT_CHARACTERISTICS /COE/RBP_T_PAM_CHARACT_FOR_CHG ?de: Characteristics -->
+<ui-input value.bind="IT_CHARACTERISTICS.CHARACT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "mid":"FEA"}'
+          label="Characteristic Name"></ui-input>
+
+<ui-input value.bind="IT_CHARACTERISTICS.CLASS" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"KLA"}'
+          label="Class number"></ui-input>
+
+<ui-input value.bind="IT_CHARACTERISTICS.VALUE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Characteristic Value"></ui-input>
+
+<ui-input value.bind="IT_CHARACTERISTICS.VALUE_FROM" data-abap.bind='{"ddic":"FLTP", "type":"number", "format":"float", "length":"+1.15"}'
+          label="Internal floating point from"></ui-input>
+
+<ui-input value.bind="IT_CHARACTERISTICS.VALUE_TO" data-abap.bind='{"ddic":"FLTP", "type":"number", "format":"float", "length":"+1.15"}'
+          label="Internal floating point value to"></ui-input>
+
+<ui-input value.bind="IV_EQUIID" shlp.bind='{"type":"b'SH'", "id":"b'EQUI'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"EQN"}' alpha-exit="ALPHA" 
+          label="Equipment Number"></ui-input>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_CHANGE ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="FIELD" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "shlp":{"type":"b'CT'", "id":"b'DD03L'"}}' label="Field in parameter"></ui-dg-column>
+    <ui-dg-column sortable field="ID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20", "shlp":{"type":"b'CT'", "id":"b'T100A'"}}' label="Message Class"></ui-dg-column>
+    <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"6", "shlp":{"type":"b'CH'", "id":"b'BALM'"}}' label="Application log: Internal message serial number"></ui-dg-column>
+    <ui-dg-column sortable field="LOG_NO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20", "shlp":{"type":"b'CH'", "id":"b'BALHDR'"}}' label="Application log: log number"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"220"}' label="Message Text"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="NUMBER" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"3"}' label="Message Number"></ui-dg-column>
+    <ui-dg-column sortable field="PARAMETER" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}' label="Parameter Name"></ui-dg-column>
+    <ui-dg-column sortable field="ROW" data-abap.bind='{"ddic":"INT4", "type":"number", "format":"integer", "length":"+10"}' label="Lines in parameter"></ui-dg-column>
+    <ui-dg-column sortable field="SYSTEM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "shlp":{"type":"b'CT'", "id":"b'TBDLS'"}}' alpha-exit="ALPHA"  label="Logical system from which message originates"></ui-dg-column>
+    <ui-dg-column sortable field="TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}' label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-combo value.bind="ET_RETURN.FIELD" shlp.bind='{"type":"b'CT'", "id":"b'DD03L'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Field in parameter"></ui-combo>
+
+<ui-combo value.bind="ET_RETURN.ID" shlp.bind='{"type":"b'CT'", "id":"b'T100A'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Message Class"></ui-combo>
+
+<ui-combo value.bind="ET_RETURN.LOG_MSG_NO" shlp.bind='{"type":"b'CH'", "id":"b'BALM'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"6"}'
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-combo value.bind="ET_RETURN.LOG_NO" shlp.bind='{"type":"b'CH'", "id":"b'BALHDR'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Application log: log number"></ui-combo>
+
+<ui-input value.bind="ET_RETURN.MESSAGE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"220"}'
+          label="Message Text"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V3" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V4" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.NUMBER" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"3"}'
+          label="Message Number"></ui-input>
+
+<ui-input value.bind="ET_RETURN.PARAMETER" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="Parameter Name"></ui-input>
+
+<ui-input value.bind="ET_RETURN.ROW" data-abap.bind='{"ddic":"INT4", "type":"number", "format":"integer", "length":"+10"}'
+          label="Lines in parameter"></ui-input>
+
+<ui-combo value.bind="ET_RETURN.SYSTEM" shlp.bind='{"type":"b'CT'", "id":"b'TBDLS'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="ALPHA" 
+          label="Logical system from which message originates"></ui-combo>
+
+<ui-input value.bind="ET_RETURN.TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+

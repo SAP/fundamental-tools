@@ -1,0 +1,1637 @@
+<!-- /COE/RBP_PAM_EQUIPMENT_CHANGE 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<!-- IS_DATA_SPECIFIC BAPI_ITOB_EQ_ONLY ?de: PM: BAPI-Struktur für ITOBAPI_CREATE_EQ_ONLY + READ-Felder -->
+
+<div fd-form-item>
+    <label fd-form-label>Batch Number</label>
+    <fd-combobox
+        [(ngModel)]="IS_DATA_SPECIFIC.BATCH"
+        [dropdownValues]="{type:'CT', id:'MCH1'}"
+        data-abap="{type: 'string', length: '10', mid: 'CHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Configurable Material</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.CONFIGMAT"
+            data-abap="{type: 'string', length: '18', alpha: 'MATN1'}"
+            data-shlp="{type:'SH', id:'MAT1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for CONFIGMAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.CONFIGMAT_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for CONFIGMAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.CONFIGMAT_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Configurable Material</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.CONFIGMAT_LONG"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for CONFIGMAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.CONFIGMAT_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>General Indicator (Single Character)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.CONFIG_CONTROL_IND"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First delivery date of the equipment</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_DATA_SPECIFIC.DELIVDATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment category</label>
+    <fd-combobox
+        [(ngModel)]="IS_DATA_SPECIFIC.EQUICATGRY"
+        [dropdownValues]="{type:'CT', id:'T370T'}"
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date, intended for SAP internal use</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_DATA_SPECIFIC.FREE_DATE1"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date, intended for SAP internal use</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_DATA_SPECIFIC.FREE_DATE2"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical information, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.FREE_NOTE1"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical information, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.FREE_NOTE2"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Numerical field, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.FREE_NUM1"
+            data-abap="{type: 'string', length: '9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Numerical field, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.FREE_NUM2"
+            data-abap="{type: 'string', length: '9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Function Identifier</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.FUNC_ID"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.INST_POS"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal Identification for PVS Objects</label>
+    <textarea fd-form-control
+        [(ngModel)]="IS_DATA_SPECIFIC.IPPE_GUID"
+        data-abap="{type: 'string', length: '16'}"
+        aria-required="true"
+    ></textarea>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Structure Type of UII</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.IUID_TYPE"
+            data-abap="{type: 'string', length: '10'}"
+            data-shlp="{type:'SH', id:'H_IUID_TYPE'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment license number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.LICENSE"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer drawing number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.MANDRAWNO"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.MATERIAL"
+            data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+            data-shlp="{type:'SH', id:'S_MAT1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.MATERIAL_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.MATERIAL_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Number (40 Characters, needed f. technical reasons)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.MATERIAL_LONG"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.MATERIAL_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Configuration (internal object number)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.READ_CUOBJ"
+            data-abap="{type: 'string', length: '18', mid: 'CUX'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Referenced Configuration" [(ngModel)]="IS_DATA_SPECIFIC.READ_CUREF"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Location Label</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.READ_FLOC"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Plan</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.READ_MAINTENANCE_PLAN"
+            data-abap="{type: 'string', length: '12', mid: 'MPL', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'MPLAL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Measuring Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.READ_MEASURING_POINT"
+            data-abap="{type: 'string', length: '12', mid: 'IPT', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'IMPM'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Superordinate Equipment</label>
+    <fd-combobox
+        [(ngModel)]="IS_DATA_SPECIFIC.READ_SUPEQ"
+        [dropdownValues]="{type:'CT', id:'EQUI'}"
+        data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Valid-From Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_DATA_SPECIFIC.READ_VALID_FROM"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Serial Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.SERIALNO"
+            data-abap="{type: 'string', length: '18', mid: 'SER', alpha: 'GERNR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical identification number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.TECHID"
+            data-abap="{type: 'string', length: '25'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Parameter Variant/Standard Variant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.TECHS"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unique Item Identifier</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.UII"
+            data-abap="{type: 'string', length: '72', mid: 'UII'}"
+            data-shlp="{type:'SH', id:'H_UII'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Plant Responsible for UII</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_DATA_SPECIFIC.UII_PLANT"
+            data-abap="{type: 'string', length: '4', mid: 'WRK'}"
+            data-shlp="{type:'SH', id:'H_T001W_C'}"
+        />
+</div>
+
+
+<!-- IS_DATA_SPECIFIC_X BAPI_ITOB_EQ_ONLYX ?de: PM: Zu BAPI_ITOB_EQ_ONLY gehörige Flagstruktur (Change-BAPI) -->
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.BATCH"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.CONFIGMAT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.CONFIGMAT_EXTERNAL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.CONFIGMAT_GUID"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.CONFIGMAT_LONG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.CONFIGMAT_VERSION"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.DELIVDATE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.EQUICATGRY"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.EQUIPMENT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.FREE_DATE1"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.FREE_DATE2"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.FREE_NOTE1"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.FREE_NOTE2"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.FREE_NUM1"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.FREE_NUM2"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.FUNC_ID"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.INST_POS"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.IPPE_GUID"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.IUID_TYPE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.LICENSE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.MANDRAWNO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.MATERIAL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.MATERIAL_EXTERNAL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.MATERIAL_GUID"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.MATERIAL_LONG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.MATERIAL_VERSION"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.READ_CUOBJ"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.READ_CUREF"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.READ_FLOC"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.READ_MAINTENANCE_PLAN"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.READ_MEASURING_POINT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.READ_SUPEQ"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.READ_VALID_FROM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.SERIALNO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.TECHID"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.TECHS"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.UII"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_DATA_SPECIFIC_X.UII_PLANT"></fd-checkbox>
+</div> 
+
+
+<!-- IS_HEADER /COE/RBP_S_PAM_EQUI_HEADER ?de: Equipment Header -->
+
+<div fd-form-item>
+    <label fd-form-label>ABC indicator for technical object</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.ABCINDIC"
+        [dropdownValues]="{type:'CT', id:'T370C'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Acquisition date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_HEADER.ACQDATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Acquisition Value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.ACQUISVAL"
+            data-abap="{type: 'number', length: '+12.2'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Main Asset Number</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.ASSET_NO"
+        [dropdownValues]="{type:'CT', id:'ANLH'}"
+        data-abap="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical object authorization group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.AUTHGRP"
+            data-abap="{type: 'string', length: '4'}"
+            data-shlp="{type:'SH', id:'H_T370B'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Business Area</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.BUS_AREA"
+            data-abap="{type: 'string', length: '4', mid: 'GSB'}"
+            data-shlp="{type:'SH', id:'H_TGSB'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Catalog Profile</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.CATPROFILE"
+        [dropdownValues]="{type:'CT', id:'T352B'}"
+        data-abap="{type: 'string', length: '9'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Company Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.COMP_CODE"
+            data-abap="{type: 'string', length: '4', mid: 'BUK'}"
+            data-shlp="{type:'SH', id:'C_T001'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Month of construction</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.CONSTMONTH"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'FV', id:'BAUMM'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Construction type material of the object</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.CONSTTYPE"
+        [dropdownValues]="{type:'CT', id:'MARA'}"
+        data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for CONSTTYPE Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.CONSTTYPE_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for CONSTTYPE Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.CONSTTYPE_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Construction type material of the object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.CONSTTYPE_LONG"
+            data-abap="{type: 'string', length: '40', mid: 'MAT'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for CONSTTYPE Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.CONSTTYPE_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Year of construction</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.CONSTYEAR"
+            data-abap="{type: 'string', length: '4', alpha: 'GJAHR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cost Center</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.COSTCENTER"
+        [dropdownValues]="{type:'CT', id:'CSKS'}"
+        data-abap="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country ISO code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.COUNTR_ISO"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'SH', id:'F4_INTCA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO currency code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.CURR_ISO"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.DESCRIPT"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Distribution Channel</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.DISTR_CHAN"
+            data-abap="{type: 'string', length: '2', mid: 'VTW'}"
+            data-shlp="{type:'SH', id:'CSH_TVTW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Division</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.DIVISION"
+            data-abap="{type: 'string', length: '2', mid: 'SPA'}"
+            data-shlp="{type:'SH', id:'CSH_TSPA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>End Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.END_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of First Offset</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.FIRST_OFFSET_TYPE_CODE"
+        [dropdownValues]="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+        data-abap="{type: 'string', length: '2'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit of Measurement for Offset 1 in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.FIRST_OFFSET_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Value of Offset 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.FIRST_OFFSET_VALUE"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inventory number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.INVENTORY"
+            data-abap="{type: 'string', length: '25'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Length</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.LINEAR_LENGTH"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Linear Reference Pattern</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.LINEAR_REFERENCE_PATTERN"
+            data-abap="{type: 'string', length: '10', mid: 'LRP'}"
+            data-shlp="{type:'SH', id:'EAML_SHLP_LRPID'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit of Measurement for Linear Data in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.LINEAR_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Asset location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MAINTLOC"
+            data-abap="{type: 'string', length: '10'}"
+            data-shlp="{type:'SH', id:'H_T499S'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MAINTPLANT"
+            data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Room</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MAINTROOM"
+            data-abap="{type: 'string', length: '8'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country of manufacture</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.MANCOUNTRY"
+        [dropdownValues]="{type:'CT', id:'T005'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer of asset</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MANFACTURE"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer model number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MANMODEL"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer part number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MANPARNO"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer serial number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MANSERNO"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Length Spec for Distance between Marker and End Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MARKER_DISTANCE_END_POINT"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Distance between Marker and Start Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MARKER_DISTANCE_START_POINT"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit for the Distance from Marker in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MARKER_DISTANCE_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Marker for End Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MARKER_END_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Marker for Start Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.MARKER_START_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of Technical Object</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.OBJECTTYPE"
+        [dropdownValues]="{type:'CT', id:'T370K'}"
+        data-abap="{type: 'string', length: '10'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Size/dimension</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.OBJ_SIZE"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Weight of object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.OBJ_WEIGHT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.PLANGROUP"
+            data-abap="{type: 'string', length: '3', mid: 'IHG'}"
+            data-shlp="{type:'SH', id:'H_T024I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Planning Plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.PLANPLANT"
+            data-abap="{type: 'string', length: '4', mid: 'IWK'}"
+            data-shlp="{type:'SH', id:'H_T399I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Plant section</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.PLSECTN"
+            data-abap="{type: 'string', length: '3', mid: 'BBE'}"
+            data-shlp="{type:'SH', id:'H_T357'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object ID of PP work center</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.PP_WKCTR"
+            data-abap="{type: 'string', length: '8'}"
+            data-shlp="{type:'CT', id:'CRID'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Address number</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.READ_ADRNR"
+        [dropdownValues]="{type:'CT', id:'ADRC'}"
+        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date of Last Change</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_HEADER.READ_CHDAT"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of person who changed object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.READ_CHNAM"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date on Which Record Was Created</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_HEADER.READ_CRDAT"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of Person who Created the Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.READ_CRNAM"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object number</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.READ_OBJNR"
+        [dropdownValues]="{type:'CT', id:'ONR00'}"
+        data-abap="{type: 'string', length: '22', mid: 'ONR'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SALES_GRP"
+            data-abap="{type: 'string', length: '3', mid: 'VKG'}"
+            data-shlp="{type:'SH', id:'H_TVKGR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales office</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SALES_OFF"
+            data-abap="{type: 'string', length: '4', mid: 'VKB'}"
+            data-shlp="{type:'SH', id:'H_TVBUR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales Organization</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SALES_ORG"
+            data-abap="{type: 'string', length: '4', mid: 'VKO'}"
+            data-shlp="{type:'SH', id:'H_TVKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of Second Offset</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SECOND_OFFSET_TYPE_CODE"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit of Measurement for Offset 2 in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SECOND_OFFSET_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Value of Offset 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SECOND_OFFSET_VALUE"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Settlement order</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SETTLORDER"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'ORDE'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Notification Type for Shift Note for Object</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.SHIFT_NOTE_NOTIFICATION_TYPE"
+        [dropdownValues]="{type:'CT', id:'TQ80'}"
+        data-abap="{type: 'string', length: '2'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Shift Report Type for Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SHIFT_REPORT_TYPE"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sort field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.SORTFIELD"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Standing order number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.STANDORDER"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'ORDP'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Start-up Date of the Technical Object</label>
+    <fd-date-picker [type]="single" [(ngModel)]="IS_HEADER.START_FROM"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Start Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IS_HEADER.START_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Asset Subnumber</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.SUB_NUMBER"
+        [dropdownValues]="{type:'CT', id:'ANLA'}"
+        data-abap="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO code for unit of measurement</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.UNIT_ISO"
+        [dropdownValues]="{type:'CT', id:'T006I'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Work Breakdown Structure Element (WBS Element)</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.WBS_ELEM"
+        [dropdownValues]="{type:'CT', id:'PRPS'}"
+        data-abap="{type: 'string', length: '8', alpha: 'ABPSP'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object ID of the Work Center</label>
+    <fd-combobox
+        [(ngModel)]="IS_HEADER.WORK_CTR"
+        [dropdownValues]="{type:'CT', id:'CRID'}"
+        data-abap="{type: 'string', length: '8'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- IS_HEADER_X /COE/RBP_S_PAM_EQUI_HEADERX ?de: Equipment Header (X) -->
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.ABCINDIC"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.ACQDATE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.ACQUISVAL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.ASSET_NO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.AUTHGRP"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.BUS_AREA"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CATPROFILE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.COMP_CODE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CONSTMONTH"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CONSTTYPE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CONSTTYPE_EXTERNAL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CONSTTYPE_GUID"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CONSTTYPE_LONG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CONSTTYPE_VERSION"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CONSTYEAR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.COSTCENTER"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.COUNTR_ISO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CURRENCY"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.CURR_ISO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.DESCRIPT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.DISTR_CHAN"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.DIVISION"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.END_POINT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.FIRST_OFFSET_TYPE_CODE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.FIRST_OFFSET_UNIT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.FIRST_OFFSET_UNIT_ISO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.FIRST_OFFSET_VALUE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.INVENTORY"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.LINEAR_LENGTH"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.LINEAR_REFERENCE_PATTERN"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.LINEAR_UNIT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.LINEAR_UNIT_ISO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MAINTLOC"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MAINTPLANT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MAINTROOM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MANCOUNTRY"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MANFACTURE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MANMODEL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MANPARNO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MANSERNO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MARKER_DISTANCE_END_POINT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MARKER_DISTANCE_START_POINT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MARKER_DISTANCE_UNIT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MARKER_DISTANCE_UNIT_ISO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MARKER_END_POINT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.MARKER_START_POINT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.OBJECTTYPE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.OBJ_SIZE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.OBJ_WEIGHT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.PLANGROUP"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.PLANPLANT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.PLSECTN"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.PP_WKCTR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.READ_ADRNR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.READ_CHDAT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.READ_CHNAM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.READ_CRDAT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.READ_CRNAM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.READ_OBJNR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SALES_GRP"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SALES_OFF"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SALES_ORG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SECOND_OFFSET_TYPE_CODE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SECOND_OFFSET_UNIT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SECOND_OFFSET_UNIT_ISO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SECOND_OFFSET_VALUE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SETTLORDER"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SHIFT_NOTE_NOTIFICATION_TYPE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SHIFT_REPORT_TYPE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SORTFIELD"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.STANDORDER"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.START_FROM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.START_POINT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.SUB_NUMBER"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.UNIT_ISO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.UNIT_OF_WT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.WBS_ELEM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Updated information in related user data field" [(ngModel)]="IS_HEADER_X.WORK_CTR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IV_EQUIID"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<!-- OUTPUT PARAMETERS -->

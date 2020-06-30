@@ -1,0 +1,100 @@
+<!-- /COE/RBP_PAM_FUNC_LOC_GETLIST 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+<ui-input value.bind="IV_LOCATION" shlp.bind='{"type":"b'SH'", "id":"b'IFLM'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "mid":"IFL"}' alpha-exit="TPLNR" 
+          label="Functional Location"></ui-input>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ET_FUNC_LOC_LIST /COE/RBP_T_PAM_FUNC_LOC ?de: Function Location -->
+<ui-datagrid data.bind="/COE/RBP_PAM_FUNC_LOC_GETLIST ET_FUNC_LOC_LIST" title="?de: Function Location"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="DESCRIPT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' label="Description of Technical Object"></ui-dg-column>
+    <ui-dg-column sortable field="EQFNR" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}' label="Sort field"></ui-dg-column>
+    <ui-dg-column sortable field="FUNCTLOCATION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "mid":"IFL", "shlp":{"type":"b'SH'", "id":"b'IFLM'"}}' alpha-exit="TPLNR"  label="Functional Location"></ui-dg-column>
+    <ui-dg-column sortable field="SUPFLOC" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "shlp":{"type":"b'SH'", "id":"b'IFLM'"}}' alpha-exit="TPLNR"  label="Superior functional location"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_FUNC_LOC_LIST /COE/RBP_T_PAM_FUNC_LOC ?de: Function Location -->
+<ui-input value.bind="ET_FUNC_LOC_LIST.DESCRIPT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Description of Technical Object"></ui-input>
+
+<ui-input value.bind="ET_FUNC_LOC_LIST.EQFNR" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Sort field"></ui-input>
+
+<ui-input value.bind="ET_FUNC_LOC_LIST.FUNCTLOCATION" shlp.bind='{"type":"b'SH'", "id":"b'IFLM'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "mid":"IFL"}' alpha-exit="TPLNR" 
+          label="Functional Location"></ui-input>
+
+<ui-input value.bind="ET_FUNC_LOC_LIST.SUPFLOC" shlp.bind='{"type":"b'SH'", "id":"b'IFLM'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}' alpha-exit="TPLNR" 
+          label="Superior functional location"></ui-input>
+
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_FUNC_LOC_GETLIST ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="FIELD" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "shlp":{"type":"b'CT'", "id":"b'DD03L'"}}' label="Field in parameter"></ui-dg-column>
+    <ui-dg-column sortable field="ID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20", "shlp":{"type":"b'CT'", "id":"b'T100A'"}}' label="Message Class"></ui-dg-column>
+    <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"6", "shlp":{"type":"b'CH'", "id":"b'BALM'"}}' label="Application log: Internal message serial number"></ui-dg-column>
+    <ui-dg-column sortable field="LOG_NO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20", "shlp":{"type":"b'CH'", "id":"b'BALHDR'"}}' label="Application log: log number"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"220"}' label="Message Text"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}' label="Message Variable"></ui-dg-column>
+    <ui-dg-column sortable field="NUMBER" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"3"}' label="Message Number"></ui-dg-column>
+    <ui-dg-column sortable field="PARAMETER" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}' label="Parameter Name"></ui-dg-column>
+    <ui-dg-column sortable field="ROW" data-abap.bind='{"ddic":"INT4", "type":"number", "format":"integer", "length":"+10"}' label="Lines in parameter"></ui-dg-column>
+    <ui-dg-column sortable field="SYSTEM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "shlp":{"type":"b'CT'", "id":"b'TBDLS'"}}' alpha-exit="ALPHA"  label="Logical system from which message originates"></ui-dg-column>
+    <ui-dg-column sortable field="TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}' label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-combo value.bind="ET_RETURN.FIELD" shlp.bind='{"type":"b'CT'", "id":"b'DD03L'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Field in parameter"></ui-combo>
+
+<ui-combo value.bind="ET_RETURN.ID" shlp.bind='{"type":"b'CT'", "id":"b'T100A'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Message Class"></ui-combo>
+
+<ui-combo value.bind="ET_RETURN.LOG_MSG_NO" shlp.bind='{"type":"b'CH'", "id":"b'BALM'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"6"}'
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-combo value.bind="ET_RETURN.LOG_NO" shlp.bind='{"type":"b'CH'", "id":"b'BALHDR'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Application log: log number"></ui-combo>
+
+<ui-input value.bind="ET_RETURN.MESSAGE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"220"}'
+          label="Message Text"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V3" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.MESSAGE_V4" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="ET_RETURN.NUMBER" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"3"}'
+          label="Message Number"></ui-input>
+
+<ui-input value.bind="ET_RETURN.PARAMETER" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="Parameter Name"></ui-input>
+
+<ui-input value.bind="ET_RETURN.ROW" data-abap.bind='{"ddic":"INT4", "type":"number", "format":"integer", "length":"+10"}'
+          label="Lines in parameter"></ui-input>
+
+<ui-combo value.bind="ET_RETURN.SYSTEM" shlp.bind='{"type":"b'CT'", "id":"b'TBDLS'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="ALPHA" 
+          label="Logical system from which message originates"></ui-combo>
+
+<ui-input value.bind="ET_RETURN.TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
