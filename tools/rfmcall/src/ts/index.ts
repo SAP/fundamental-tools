@@ -85,7 +85,7 @@ class parseRFM {
   private client: Client;
   private RFM_NAME: string;
   private LANGU: string;
-  private FUNCTIONNAMES: RfcTable;
+  private FUNCTIONNAMES: Array<string>;
   private Params: Map<string, object> = new Map();
   private Fields: Map<string, object> = new Map();
 
@@ -100,11 +100,7 @@ class parseRFM {
     this.LANGU = CN.iso2langu.get(rfm_lang);
     this.client = new Client(connectionParameters);
     this.FUNCTIONNAMES = [];
-    if (Array.isArray(rfm_name)) {
-      rfm_name.forEach((e) => this.FUNCTIONNAMES.push(e.toUpperCase()));
-    } else {
-      this.FUNCTIONNAMES.push(rfm_name.toUpperCase());
-    }
+    this.FUNCTIONNAMES.push(rfm_name.toUpperCase());
   }
 
   get_param_initializer(param) {

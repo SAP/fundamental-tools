@@ -63,6 +63,10 @@ $
 $ cd fundamental-tools
 ```
 
+### Example: NodeJS RFM Call Template
+
+A handy CLI tool, providing ABAP RFM call templates: [ffmcall](./tools/rfmcall)
+
 ### Example: Backend
 
 Maintain ABAP backend connection parameters in [systems.py](tools/generator/systems.py) and ABAP backend API RFM list in [business_objects.py](tools/generator/business_objects.py), following given examples.

@@ -52,6 +52,8 @@ The RFM call template starts with ABAP RFM parameters initialization, followed b
 - The structure name is provided in a comment, with the detailed field level initialization following below
 - The name of conversion (ALPHA) exit, if relevant for certain parameter or field, is provided in a comment (see BAPICOMREM/LANGU below )
 
+**BAPI_USER_GET_DETAIL.js**
+
 ```js
 //
 // BAPI_USER_GET_DETAIL
