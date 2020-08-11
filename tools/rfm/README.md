@@ -1,18 +1,20 @@
 ## rfmcall
 
 Calling an ABAP RFM from NodeJS requires mapping the NodeJS data into ABAP RFM input parameters.
-The developer has to check the ABAP RFM structure in ABAP system (or SAP Help) and code the RFM
-call from NodeJS accordingly. With many parameters, complex ABAP data structures,
+
+One has to check the ABAP system of documentation, to find out the ABAP RFM parameters' structure
+and code the RFM call from NodeJS accordingly. With many parameters, complex ABAP data structures,
 some mandatory, others not, some with conversion ("ALPHA") exits etc., this work can be
 tedious and error prone.
 
-The `rfmcall` CLI utility helps here, providing a RFM call template with correct data
-structures and comments, further saving the developer's time.
+The `rfmcall` CLI utility provides a RFM call template, with pre-initialized ABAP data
+structures and with helpful comments, saving the developers' time.
 
 ### Usage
 
-Invoking the utility with ABAP backend destination (maintained in `sapnwrfc.ini`) and ABAP RFM name,
-the RFM call template is echoed to console, with RFM parameters initialization and RFM invocation:
+Invoke the utility with ABAP backend destination (maintained in `sapnwrfc.ini`) and ABAP RFM name.
+
+The RFM call template is by default echoed to console, with RFM parameters initialization and RFM invocation:
 
 ```shell
 $ npm install rfmcall
@@ -40,12 +42,14 @@ $ rfmcall MME BAPI_USER_GET_DETAIL -s
 $ cat BAPI_USER_GET_DETAIL.js
 ```
 
-The `rfmcall` output template starts with ABAP RFM parameters initialization, followed by RFM call.
+### RFM Template
+
+The RFM call template starts with ABAP RFM parameters initialization, followed by RFM call.
 
 - Optional parameters are commented out
-- Parameters of elementary type (variable) are initialized with a NodeJS number of string
-- Parameters of ABAP structure or table type are initialized with object `{}` or array `[]`.
-  The structure name is provided in a comment, with the detailed field level initialization following below
+- RFM elementary parameters (variables) are initialized with a NodeJS number of string
+- RFM structure and table parameters are initialized with empty object `{}` or array `[]`
+- The structure name is provided in a comment, with the detailed field level initialization following below
 - The name of conversion (ALPHA) exit, if relevant for certain parameter or field, is provided in a comment (see BAPICOMREM/LANGU below )
 
 ```js
@@ -96,3 +100,5 @@ let BAPICOMREM = {
   LANGU_ISO                        :   "", // CHAR (2) 2-Character SAP Language Code
 };
 ```
+
+Enjoy!
