@@ -1,6 +1,6 @@
 # fundamental-tools
 
-ABAP business logic consumption by [SAP Fundamental Styles](https://github.com/SAP/fundamental-styles) frontends:
+ABAP business logic consumption by [Fundamental Library Styles](https://github.com/SAP/fundamental-styles) frontends:
 
 - Simple and fast
 - New and old ABAP systems
@@ -42,7 +42,7 @@ git clone https://github.com/SAP/fundamental-tools
 
 ## Usage
 
-- **ABAP Backend:** Define/implement ABAP backend API as a set of remote-enabled ABAP Function Modules (RFMs), required for SAP Fundamental Style based frontend
+- **ABAP Backend:** Define/implement ABAP backend API as a set of remote-enabled ABAP Function Modules (RFMs), required for Fundamental Library Styles based frontend
 
 * **Server Model:** Expose the backend API via server runtime of choice.
 
@@ -181,7 +181,7 @@ DATA_FLEET = {
   FLEET_LEN                     : 0,  // Maximum fleet object length
 ```
 
-Copy/paste UI elements required for the app, into [SAP Fundamental Styles](https://sap.github.io/fundamental-styles/layouts/index.html) layouts. Elements can be of course modified, or written from scratch,
+Copy/paste UI elements required for the app, into [Fundamental Library Styles](https://sap.github.io/fundamental-styles/layouts/index.html) layouts. Elements can be of course modified, or written from scratch,
 
 ```html
 <!-- prettier-ignore -->
