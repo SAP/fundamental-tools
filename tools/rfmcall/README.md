@@ -9,7 +9,7 @@ Calling an ABAP RFM from NodeJS requires mapping the NodeJS data into ABAP RFM i
 [![dt](https://img.shields.io/npm/dt/rfmcall.svg)](https://www.npmjs.com/package/node-rfc)
 [![dm](https://img.shields.io/npm/dm/rfmcall.svg)](https://www.npmjs.com/package/rfmcall)
 
-One has to check the ABAP system of documentation, to find out the ABAP RFM parameters' structure
+One has to check the ABAP system or the documentation, to find out the ABAP RFM parameters' structure
 and code the RFM call from NodeJS accordingly. With many parameters, complex ABAP data structures,
 some mandatory, others not, some with conversion ("ALPHA") exits etc., this work can be
 tedious and error prone.
