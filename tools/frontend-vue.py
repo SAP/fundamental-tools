@@ -1,5 +1,9 @@
 #!/home/pos/.virtualenvs/picoUI/bin/python
 
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # -*- coding: utf-8 -*-
 
 """ Parse 1 RFM metadata into UI7 elements

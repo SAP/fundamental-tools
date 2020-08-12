@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 """ Returns RFM metadata
 
 For a given list of RFM names, read parameters,

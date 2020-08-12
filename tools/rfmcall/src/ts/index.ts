@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+// SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import fs from "fs";
 const sprintf = require("sprintf-js").sprintf;
 import * as CN from "./constants";

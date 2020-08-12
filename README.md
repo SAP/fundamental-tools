@@ -1,5 +1,7 @@
 # fundamental-tools
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
+
 ABAP business logic consumption by [Fundamental Library Styles](https://github.com/SAP/fundamental-styles) frontends:
 
 - Simple and fast
