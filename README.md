@@ -1,4 +1,4 @@
-# fundamental-tools
+# Fundamental Library for ABAP
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 

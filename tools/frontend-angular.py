@@ -918,7 +918,7 @@ if __name__ == "__main__":
 
     for rfmset in sorted(rfm_sets):
 
-        print("Model %s (%u)" % (rfmset, len(catalog[rfmset])))
+        print("Processed (%u) ABAP API of model %s" % (len(catalog[rfmset]), rfmset))
 
         model_parser = ModelParser(rfmset)
 
