@@ -638,6 +638,7 @@ class ModelParser:
             data_abap += "}"
 
             # print(abap_attrs)
+            element1 = False
             if "combobox" in ngx_markup[HTML_TAG]:
                 element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
@@ -652,6 +653,28 @@ class ModelParser:
                     data_abap,
                     abap_attrs["shlp"] if "shlp" in abap_attrs else "",
                 )
+            elif "lang" in ngx_markup[HTML_TAG]:
+                element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
+                    abap_attrs["label"],
+                    bind_target,
+                    data_abap,
+                    abap_attrs["shlp"] if "shlp" in abap_attrs else "",
+                )
+            elif "checkbox" in ngx_markup[HTML_TAG]:
+                element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
+                    abap_attrs["label"],
+                    bind_target,
+                )
+            elif "datepicker" in ngx_markup[HTML_TAG]:
+                element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
+                    abap_attrs["label"],
+                    bind_target,
+                )
+            elif "timepicker" in ngx_markup[HTML_TAG]:
+                element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
+                    abap_attrs["label"],
+                    bind_target,
+                )
             elif "textarea" in ngx_markup[HTML_TAG]:
                 element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
@@ -659,15 +682,16 @@ class ModelParser:
                     data_abap,
                 )
             else:
-                element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
-                    abap_attrs["label"],
-                    bind_target,
-                )
+                print(ngx_markup[HTML_TAG][3:])
+                # element1 = fundamental_vue[ngx_markup[HTML_TAG][3:]] % (
+                #    abap_attrs["label"],
+                #    bind_target,
+                # )
 
             # remove empty shlp elements
-            element1 = re.sub(r'\s+data-shlp=""', "", element1)
-
-            model.write(element1)
+            if element1:
+                element1 = re.sub(r'\s+data-shlp=""', "", element1)
+                model.write(element1)
 
             model.newline()
 

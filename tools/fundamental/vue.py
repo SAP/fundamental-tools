@@ -50,4 +50,12 @@ fundamental_vue = {
         aria-required="true"
     ></fd-textarea>
 </fd-form-item>""",
+    "lang": """
+<fd-form-item>
+    <fd-form-label>%s</fd-form-label>
+        <fd-input v-model="%s"
+            data-abap="%s"
+            data-shlp="%s"
+        />
+</fd-form-item>""",
 }

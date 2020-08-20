@@ -51,4 +51,14 @@ fundamental_ngx = {
         aria-required="true"
     ></textarea>
 </div>""",
+    "lang": """
+<div fd-form-item>
+    <label fd-form-label>%s</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="%s"
+            data-abap="%s"
+            data-shlp="%s"
+        />
+</div>
+""",
 }

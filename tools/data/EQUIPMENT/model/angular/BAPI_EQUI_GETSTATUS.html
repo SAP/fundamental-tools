@@ -1,0 +1,193 @@
+<!-- BAPI_EQUI_GETSTATUS 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Language Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="LANGUAGE"
+            data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</div>
+
+
+
+<div fd-form-item>
+    <label fd-form-label>2-Character SAP Language Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="LANGUAGE_ISO"
+            data-abap="{type: 'string', length: '2'}"
+        />
+</div>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameters -->
+
+<div fd-form-item>
+    <label fd-form-label>Field in parameter</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.FIELD"
+        [dropdownValues]="{type:'CT', id:'DD03L'}"
+        data-abap="{type: 'string', length: '30'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Class</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.ID"
+        [dropdownValues]="{type:'CT', id:'T100A'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: Internal message serial number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_MSG_NO"
+        [dropdownValues]="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: log number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_NO"
+        [dropdownValues]="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE"
+            data-abap="{type: 'string', length: '220'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V1"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V2"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V3"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V4"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.NUMBER"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Parameter Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.PARAMETER"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Lines in parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.ROW"
+            data-abap="{type: 'number', length: '+10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Logical system from which message originates</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.SYSTEM"
+        [dropdownValues]="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.TYPE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System status line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="SYSTEMSTATUS"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>User Status</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="USERSTATUS"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<!-- TABLE PARAMETERS -->

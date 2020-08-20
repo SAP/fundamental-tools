@@ -44,6 +44,8 @@ QUIET = False
 for arg in sys.argv:
     if arg == "-q":
         QUIET = True
+    if arg in rfm_sets:
+        rfm_sets = [arg]
 
 # backend
 # abap_backend = 'S16-5010'

@@ -5,6 +5,7 @@
 # -*- coding: utf-8 -*-
 
 catalog = {
+    ""
     "TRANSPORT": [
         "CTS_API_CREATE_CHANGE_REQUEST",
         "BAPI_CTREQUEST_CREATE",
@@ -270,13 +271,13 @@ catalog = {
 # default set of RFMs, if no rfm names arguments supplied
 rfm_sets = [
     # 'BUSINESS_PARTNER',
-    # "EQUIPMENT",
+    "EQUIPMENT",
     # 'FI',
     # 'INSPECTION_LOT',
     # 'KANBAN',
     # 'PERSONAL_DATA',
     # 'PLANNED_ORDER',
-    "PLM",
+    # "PLM",
     # 'PMCS_NOTIFICATION',
     # 'PLANNED_ORDER',
     # 'PROCESS_ORDER',

@@ -1,0 +1,435 @@
+<!-- BAPI_EQUI_CREATE_BY_REFERENCE 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<!-- COPY_FLAGS BAPI_ITOB_EQ_COPY_FLAGS Indicators for Sub-Objects to be Copied from Reference -->
+<ui-checkbox value.bind="COPY_FLAGS.CP_DOCUMT" label="Checkbox: Copy document assignments"></ui-checkbox>
+
+<ui-checkbox value.bind="COPY_FLAGS.CP_INSTLOC" label="Checkbox: Copy installation location"></ui-checkbox>
+
+<ui-checkbox value.bind="COPY_FLAGS.CP_INTNOTE" label="Checkbox: Copy internal note"></ui-checkbox>
+
+<ui-checkbox value.bind="COPY_FLAGS.CP_LONGTXT" label="Checkbox: Copy long text in logon language"></ui-checkbox>
+
+<ui-checkbox value.bind="COPY_FLAGS.CP_MEASPT" label="Checkbox: Copy measuring points and counters"></ui-checkbox>
+
+<ui-checkbox value.bind="COPY_FLAGS.CP_MPT_DOC" label="Checkbox: Copy measuring points with document allocations"></ui-checkbox>
+
+<ui-checkbox value.bind="COPY_FLAGS.CP_MPT_TXT" label="Checkbox: Copy measuring points with long text"></ui-checkbox>
+
+<ui-checkbox value.bind="COPY_FLAGS.CP_PARTNER" label="Checkbox: Copy partner allocation"></ui-checkbox>
+
+<ui-input value.bind="EXTERNAL_NUMBER" shlp.bind='{"type":"b'SH'", "id":"b'EQUI'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"EQN"}' alpha-exit="ALPHA" 
+          label="Equipment Number"></ui-input>
+
+<ui-input value.bind="REFERENCE_NUMBER" shlp.bind='{"type":"b'SH'", "id":"b'EQUI'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"EQN"}' alpha-exit="ALPHA" 
+          label="Equipment Number"></ui-input>
+
+<ui-date date.bind="VALID_DATE" label="Date on which installation location of equipment was changed"></ui-date>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- DATA_GENERAL_EXP BAPI_ITOB General Data for Technical Objects -->
+<ui-combo value.bind="DATA_GENERAL_EXP.ABCINDIC" shlp.bind='{"type":"b'CT'", "id":"b'T370C'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+          label="ABC indicator for technical object"></ui-combo>
+
+<ui-date date.bind="DATA_GENERAL_EXP.ACQDATE" label="Acquisition date"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.ACQUISVAL" unit.bind="DATA_GENERAL_EXP.CURRENCY" data-abap.bind='{"ddic":"CURR", "type":"number", "format":"currency", "length":"+12.2"}'
+          label="Acquisition Value"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.ASSET_NO" shlp.bind='{"type":"b'CT'", "id":"b'ANLH'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12", "mid":"AN1"}' alpha-exit="ALPHA" 
+          label="Main Asset Number"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.AUTHGRP" shlp.bind='{"type":"b'SH'", "id":"b'H_T370B'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4"}'
+          label="Technical object authorization group"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.BUS_AREA" shlp.bind='{"type":"b'SH'", "id":"b'H_TGSB'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"GSB"}'
+          label="Business Area"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.CATPROFILE" shlp.bind='{"type":"b'CT'", "id":"b'T352B'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"9"}'
+          label="Catalog Profile"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.COMP_CODE" shlp.bind='{"type":"b'SH'", "id":"b'C_T001'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"BUK"}'
+          label="Company Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTMONTH" shlp.bind='{"type":"b'FV'", "id":"b'BAUMM'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Month of construction"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.CONSTTYPE" shlp.bind='{"type":"b'CT'", "id":"b'MARA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"MAT"}' alpha-exit="MATN1" 
+          label="Construction type material of the object"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_EXTERNAL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_GUID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="External GUID for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_LONG" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40", "mid":"MAT"}'
+          label="Construction type material of the object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_VERSION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="MATNW" 
+          label="Version Number for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTYEAR" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4"}' alpha-exit="GJAHR" 
+          label="Year of construction"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.COSTCENTER" shlp.bind='{"type":"b'CT'", "id":"b'CSKS'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"KOS"}' alpha-exit="ALPHA" 
+          label="Cost Center"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.COUNTR_ISO" shlp.bind='{"type":"b'SH'", "id":"b'F4_INTCA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Country ISO code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CURR_ISO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="ISO currency code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.DESCRIPT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Description of Technical Object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.DISTR_CHAN" shlp.bind='{"type":"b'SH'", "id":"b'CSH_TVTW'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2", "mid":"VTW"}'
+          label="Distribution Channel"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.DIVISION" shlp.bind='{"type":"b'SH'", "id":"b'CSH_TSPA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2", "mid":"SPA"}'
+          label="Division"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.END_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_LINEAR_POINT'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="End Point"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.FIRST_OFFSET_TYPE_CODE" shlp.bind='{"type":"b'CT'", "id":"b'EAML_D_OFFSET_TC'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Type of First Offset"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.FIRST_OFFSET_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit of Measurement for Offset 1 in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.FIRST_OFFSET_VALUE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Value of Offset 1"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.INVENTORY" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"25"}'
+          label="Inventory number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.LINEAR_LENGTH" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Length"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.LINEAR_REFERENCE_PATTERN" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SHLP_LRPID'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"LRP"}'
+          label="Linear Reference Pattern"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.LINEAR_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit of Measurement for Linear Data in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MAINTLOC" shlp.bind='{"type":"b'SH'", "id":"b'H_T499S'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Asset location"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MAINTPLANT" shlp.bind='{"type":"b'SH'", "id":"b'H_T001W'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"SWK"}'
+          label="Maintenance plant"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MAINTROOM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"8"}'
+          label="Room"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.MANCOUNTRY" shlp.bind='{"type":"b'CT'", "id":"b'T005'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Country of manufacture"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANFACTURE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer of asset"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANMODEL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Manufacturer model number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANPARNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer part number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANSERNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer serial number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_DISTANCE_END_POINT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Length Spec for Distance between Marker and End Point"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_DISTANCE_START_POINT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Distance between Marker and Start Point"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_DISTANCE_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit for the Distance from Marker in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_END_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_MARKER'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Marker for End Point"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_START_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_MARKER'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Marker for Start Point"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.OBJECTTYPE" shlp.bind='{"type":"b'CT'", "id":"b'T370K'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Type of Technical Object"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.OBJ_SIZE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Size/dimension"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.OBJ_WEIGHT" unit.bind="DATA_GENERAL_EXP.UNIT_OF_WT" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"10.3"}'
+          label="Weight of object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PLANGROUP" shlp.bind='{"type":"b'SH'", "id":"b'H_T024I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3", "mid":"IHG"}'
+          label="Planner Group for Customer Service and Plant Maintenance"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PLANPLANT" shlp.bind='{"type":"b'SH'", "id":"b'H_T399I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"IWK"}'
+          label="Maintenance Planning Plant"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PLSECTN" shlp.bind='{"type":"b'SH'", "id":"b'H_T357'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3", "mid":"BBE"}'
+          label="Plant section"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PP_WKCTR" shlp.bind='{"type":"b'CT'", "id":"b'CRID'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8"}'
+          label="Object ID of PP work center"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.READ_ADRNR" shlp.bind='{"type":"b'CT'", "id":"b'ADRC'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"ADR"}' alpha-exit="ALPHA" 
+          label="Address number"></ui-combo>
+
+<ui-date date.bind="DATA_GENERAL_EXP.READ_CHDAT" label="Date of Last Change"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.READ_CHNAM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+          label="Name of person who changed object"></ui-input>
+
+<ui-date date.bind="DATA_GENERAL_EXP.READ_CRDAT" label="Date on Which Record Was Created"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.READ_CRNAM" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+          label="Name of Person who Created the Object"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.READ_OBJNR" shlp.bind='{"type":"b'CT'", "id":"b'ONR00'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"22", "mid":"ONR"}'
+          label="Object number"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SALES_GRP" shlp.bind='{"type":"b'SH'", "id":"b'H_TVKGR'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3", "mid":"VKG"}'
+          label="Sales group"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SALES_OFF" shlp.bind='{"type":"b'SH'", "id":"b'H_TVBUR'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"VKB"}'
+          label="Sales office"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SALES_ORG" shlp.bind='{"type":"b'SH'", "id":"b'H_TVKO'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"VKO"}'
+          label="Sales Organization"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SECOND_OFFSET_TYPE_CODE" shlp.bind='{"type":"b'CT'", "id":"b'EAML_D_OFFSET_TC'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Type of Second Offset"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SECOND_OFFSET_UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="Unit of Measurement for Offset 2 in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SECOND_OFFSET_VALUE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Value of Offset 2"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SETTLORDER" shlp.bind='{"type":"b'SH'", "id":"b'ORDE'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' alpha-exit="ALPHA" 
+          label="Settlement order"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.SHIFT_NOTE_NOTIFICATION_TYPE" shlp.bind='{"type":"b'CT'", "id":"b'TQ80'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2"}'
+          label="Notification Type for Shift Note for Object"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SHIFT_REPORT_TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Shift Report Type for Object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SORTFIELD" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Sort field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.STANDORDER" shlp.bind='{"type":"b'SH'", "id":"b'ORDP'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' alpha-exit="ALPHA" 
+          label="Standing order number"></ui-input>
+
+<ui-date date.bind="DATA_GENERAL_EXP.START_FROM" label="Start-up Date of the Technical Object"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.START_POINT" shlp.bind='{"type":"b'SH'", "id":"b'EAML_SH_LINEAR_POINT'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}'
+          label="Start Point"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.SUB_NUMBER" shlp.bind='{"type":"b'CT'", "id":"b'ANLA'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"AN2"}' alpha-exit="ALPHA" 
+          label="Asset Subnumber"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.UNIT_ISO" shlp.bind='{"type":"b'CT'", "id":"b'T006I'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.WBS_ELEM" shlp.bind='{"type":"b'CT'", "id":"b'PRPS'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8"}' alpha-exit="ABPSP" 
+          label="Work Breakdown Structure Element (WBS Element)"></ui-combo>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.WORK_CTR" shlp.bind='{"type":"b'CT'", "id":"b'CRID'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8"}'
+          label="Object ID of the Work Center"></ui-combo>
+
+
+<!-- DATA_SPECIFIC_EXP BAPI_ITOB_EQ_ONLY Equipment-Specific data -->
+<ui-combo value.bind="DATA_SPECIFIC_EXP.BATCH" shlp.bind='{"type":"b'CT'", "id":"b'MCH1'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "mid":"CHA"}'
+          label="Batch Number"></ui-combo>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT" shlp.bind='{"type":"b'SH'", "id":"b'MAT1'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}' alpha-exit="MATN1" 
+          label="Configurable Material"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_EXTERNAL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_GUID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="External GUID for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_LONG" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Configurable Material"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_VERSION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="MATNW" 
+          label="Version Number for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIG_CONTROL_IND" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+          label="General Indicator (Single Character)"></ui-input>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.DELIVDATE" label="First delivery date of the equipment"></ui-date>
+
+<ui-combo value.bind="DATA_SPECIFIC_EXP.EQUICATGRY" shlp.bind='{"type":"b'CT'", "id":"b'T370T'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1", "mid":"EQT"}'
+          label="Equipment category"></ui-combo>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.FREE_DATE1" label="Date, intended for SAP internal use"></ui-date>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.FREE_DATE2" label="Date, intended for SAP internal use"></ui-date>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NOTE1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Technical information, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NOTE2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Technical information, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NUM1" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"9"}'
+          label="Numerical field, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NUM2" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"9"}'
+          label="Numerical field, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FUNC_ID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Function Identifier"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.INST_POS" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4"}'
+          label="Equipment position at InstallLoc (Superior Equip./FunctLoc)"></ui-input>
+
+<ui-text value.bind="DATA_SPECIFIC_EXP.IPPE_GUID" data-abap.bind='{"ddic":"RAW", "type":"string", "length":"16"}'
+         label="Internal Identification for PVS Objects"></ui-text>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.IUID_TYPE" shlp.bind='{"type":"b'SH'", "id":"b'H_IUID_TYPE'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}'
+          label="Structure Type of UII"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.LICENSE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Equipment license number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MANDRAWNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Manufacturer drawing number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL" shlp.bind='{"type":"b'SH'", "id":"b'S_MAT1'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"MAT"}' alpha-exit="MATN1" 
+          label="Material Number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_EXTERNAL" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_GUID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="External GUID for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_LONG" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Material Number (40 Characters, needed f. technical reasons)"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_VERSION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="MATNW" 
+          label="Version Number for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_CUOBJ" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"18", "mid":"CUX"}'
+          label="Configuration (internal object number)"></ui-input>
+
+<ui-checkbox value.bind="DATA_SPECIFIC_EXP.READ_CUREF" label="Referenced Configuration"></ui-checkbox>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_FLOC" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+          label="Functional Location Label"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_MAINTENANCE_PLAN" shlp.bind='{"type":"b'SH'", "id":"b'MPLAL'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12", "mid":"MPL"}' alpha-exit="ALPHA" 
+          label="Maintenance Plan"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_MEASURING_POINT" shlp.bind='{"type":"b'SH'", "id":"b'IMPM'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12", "mid":"IPT"}' alpha-exit="ALPHA" 
+          label="Measuring Point"></ui-input>
+
+<ui-combo value.bind="DATA_SPECIFIC_EXP.READ_SUPEQ" shlp.bind='{"type":"b'CT'", "id":"b'EQUI'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18"}' alpha-exit="ALPHA" 
+          label="Superordinate Equipment"></ui-combo>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.READ_VALID_FROM" label="Valid-From Date"></ui-date>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.SERIALNO" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"SER"}' alpha-exit="GERNR" 
+          label="Serial Number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.TECHID" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"25"}'
+          label="Technical identification number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.TECHS" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+          label="Parameter Variant/Standard Variant"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.UII" shlp.bind='{"type":"b'SH'", "id":"b'H_UII'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"72", "mid":"UII"}'
+          label="Unique Item Identifier"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.UII_PLANT" shlp.bind='{"type":"b'SH'", "id":"b'H_T001W_C'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"WRK"}'
+          label="Plant Responsible for UII"></ui-input>
+
+<ui-input value.bind="EQUIPMENT" shlp.bind='{"type":"b'SH'", "id":"b'EQUI'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"EQN"}' alpha-exit="ALPHA" 
+          label="Equipment Number"></ui-input>
+
+
+<!-- RETURN BAPIRET2 Return Parameter -->
+<ui-combo value.bind="RETURN.FIELD" shlp.bind='{"type":"b'CT'", "id":"b'DD03L'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Field in parameter"></ui-combo>
+
+<ui-combo value.bind="RETURN.ID" shlp.bind='{"type":"b'CT'", "id":"b'T100A'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Message Class"></ui-combo>
+
+<ui-combo value.bind="RETURN.LOG_MSG_NO" shlp.bind='{"type":"b'CH'", "id":"b'BALM'"}' data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"6"}'
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-combo value.bind="RETURN.LOG_NO" shlp.bind='{"type":"b'CH'", "id":"b'BALHDR'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"20"}'
+          label="Application log: log number"></ui-combo>
+
+<ui-input value.bind="RETURN.MESSAGE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"220"}'
+          label="Message Text"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V3" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V4" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.NUMBER" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"3"}'
+          label="Message Number"></ui-input>
+
+<ui-input value.bind="RETURN.PARAMETER" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"32"}'
+          label="Parameter Name"></ui-input>
+
+<ui-input value.bind="RETURN.ROW" data-abap.bind='{"ddic":"INT4", "type":"number", "format":"integer", "length":"+10"}'
+          label="Lines in parameter"></ui-input>
+
+<ui-combo value.bind="RETURN.SYSTEM" shlp.bind='{"type":"b'CT'", "id":"b'TBDLS'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10"}' alpha-exit="ALPHA" 
+          label="Logical system from which message originates"></ui-combo>
+
+<ui-input value.bind="RETURN.TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONOUT BAPIPAREX ?de: Bezugsstruktur für BAPI-Parameter ExtensionIn / ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE_BY_REFERENCE EXTENSIONOUT" title="?de: Bezugsstruktur für BAPI-Parameter ExtensionIn / ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="STRUCTURE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30", "shlp":{"type":"b'CT'", "id":"b'DD02L'"}}' label="Structure name of  BAPI table extension"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}' label="Data part of BAPI extension parameter"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}' label="Data part of BAPI extension parameter"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART3" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}' label="Data part of BAPI extension parameter"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART4" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}' label="Data part of BAPI extension parameter"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONOUT BAPIPAREX ?de: Bezugsstruktur für BAPI-Parameter ExtensionIn / ExtensionOut -->
+<ui-combo value.bind="EXTENSIONOUT.STRUCTURE" shlp.bind='{"type":"b'CT'", "id":"b'DD02L'"}' data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"30"}'
+          label="Structure name of  BAPI table extension"></ui-combo>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART1" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART2" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART3" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART4" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
