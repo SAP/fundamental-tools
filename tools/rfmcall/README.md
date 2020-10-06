@@ -9,12 +9,6 @@ ABAP RFM invocation from NodeJS even easier.
 [![dt](https://img.shields.io/npm/dt/rfmcall.svg)](https://www.npmjs.com/package/node-rfc)
 [![dm](https://img.shields.io/npm/dm/rfmcall.svg)](https://www.npmjs.com/package/rfmcall)
 
-Calling an ABAP RFM from NodeJS requires mapping the NodeJS data into ABAP RFM input parameters.
-One has to look into ABAP RFM source code or the documentation, to find out the ABAP RFM parameters' structure
-and map the NodeJS data to RFM parameters accordingly. With many parameters, complex ABAP data structures,
-some parameters mandatory, others not, some with conversion ("ALPHA") exits etc., this work can be
-tedious and error prone.
-
 The `rfmcall` CLI utility provides a RFM call template, with pre-initialized ABAP data
 structures and helpful comments, saving the developers' time.
 

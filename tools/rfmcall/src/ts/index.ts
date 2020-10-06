@@ -18,7 +18,8 @@ const [, , ...args] = process.argv;
     "-stat echo the number of variables, structures and tables\n";
   try {
     if (args.length === 0) {
-      throw new TypeError(Usage);
+      console.log(Usage);
+      return;
     }
 
     if (args.length === 1) {
