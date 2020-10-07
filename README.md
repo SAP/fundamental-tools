@@ -286,7 +286,7 @@ The implementation is under full developer's control, without any magic added by
 
 ![](assets/Equipment.jpg)
 
-## ALPHA Exits
+## Conversion Exits
 
 Conversion exits for a given RFM set are parsed by `alpha.py` script:
 
@@ -321,6 +321,20 @@ Alternatively you can grep frontend HTMLs by "alpha" and optionally filter by bu
 
 ```shell
 grep -R "alpha" . | sort | grep BO_RECIPE
+```
+
+or use the NodeJS [`rfmcall`](https://www.npmjs.com/package/rfmcall) utility:
+
+```shell
+$ npm install rfmcall
+
+$ rfmcall MME BAPI_BUPA_CENTRAL_GETDETAIL | grep ALPHA
+  BUSINESSPARTNER                  :   "", // CHAR (10) ALPHA=ALPHA Business Partner Number
+  BUSINESSPARTNER                  :   "", // CHAR (10) ALPHA=ALPHA Business Partner Number
+  LANGU                            :   "", // LANG (1) ALPHA=ISOLA Language Key
+  E_MAIL                           :   "", // CHAR (241) ALPHA=SXIDN E-Mail Address
+  PRINT_DEST                       :   "", // CHAR (4) ALPHA=SPDEV Spool: Output device
+  SYSTEM                           :   "", // CHAR (10) ALPHA=ALPHA Logical system from which message originates
 ```
 
 ## Value Input Helps
