@@ -219,7 +219,7 @@ export const DDIC_JS = {
   // Character String of Variable Length
   STRG: { JS_TYPE: "string", HTML_TAG: "text" },
   // Uninterpreted sequence of bytes
-  RAW: { JS_TYPE: "string", HTML_TAG: "text" },
+  RAW: { JS_TYPE: "string", HTML_TAG: "text", INITIAL: `Buffer.from("")` },
   // Long byte string, requires preceding INT2 field
   LRAW: { JS_TYPE: "string", HTML_TAG: "text" },
 
