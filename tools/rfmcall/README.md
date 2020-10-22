@@ -16,9 +16,9 @@ Maintained as a part of [SAP Fundamental Library for ABAP](https://github.com/SA
 
 ### Usage
 
-Invoke the utility with ABAP backend destination (maintained in `sapnwrfc.ini`) and ABAP RFM name.
+Invoke the utility with ABAP backend destination (maintained in `sapnwrfc.ini`) and ABAP RFM name. The RFM call template is by default echoed to console, with the source code for RFM parameters initialization and invocation.
 
-The RFM call template is by default echoed to console, with RFM parameters initialization and RFM invocation:
+More details: https://blogs.sap.com/2020/10/22/calling-abap-from-nodejs-even-easier/
 
 ```shell
 $ npm install rfmcall
