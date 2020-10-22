@@ -10,7 +10,9 @@ ABAP RFM invocation from NodeJS even easier.
 [![dm](https://img.shields.io/npm/dm/rfmcall.svg)](https://www.npmjs.com/package/rfmcall)
 
 The `rfmcall` CLI utility provides a RFM call template, with pre-initialized ABAP data
-structures and helpful comments, saving the developers' time.
+structures and helpful comments, saving the development and troubleshooting time.
+
+Maintained as a part of [SAP Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools), it can be used also independent.
 
 ### Usage
 
@@ -49,7 +51,7 @@ $ cat BAPI_USER_GET_DETAIL.js
 The RFM call template starts with ABAP RFM parameters initialization, followed by RFM call.
 
 - Optional parameters are commented out
-- RFM elementary parameters (variables) are initialized with a NodeJS number of string
+- RFM elementary parameters (variables) are initialized with a NodeJS number, string of Buffer
 - RFM structure and table parameters are initialized with empty object `{}` or array `[]`
 - The structure name is provided in a comment, with the detailed field level initialization following below
 - The name of conversion (ALPHA) exit, if relevant for certain parameter or field, is provided in a comment (see BAPICOMREM/LANGU below )
