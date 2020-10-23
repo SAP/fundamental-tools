@@ -146,6 +146,9 @@ export class parseRFM {
         if (result.leng) {
           result.abaptype += ` (${result.leng})`;
         }
+        if ("default" in param) {
+          result.init = param.default;
+        }
         break;
       default:
         throw `Unknown parameter type ${param.paramType}`;
@@ -275,8 +278,8 @@ export class parseRFM {
       if (p.TABNAME === "I") p.TABNAME = "INT4";
 
       // set optional/required
-      p.required = p.OPTIONAL.trim().length == 0;
-      if (p.required) {
+      p.required = p.OPTIONAL.trim().length === 0;
+      if (!p.required) {
         p.default = p.DEFAULT;
       }
       delete p.DEFAULT;
@@ -418,6 +421,7 @@ export class parseRFM {
     paramClass = "";
     this.Params.forEach((paramData, paramKey) => {
       if (
+        paramData["paramType"] !== "var" &&
         [
           CN.PARAMCLASS_IMPORT,
           CN.PARAMCLASS_CHANGING,
