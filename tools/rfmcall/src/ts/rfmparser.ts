@@ -149,6 +149,9 @@ export class parseRFM {
         if ("default" in param) {
           result.init = param.default;
         }
+        if (typeof result.init === "string") {
+          result.init = result.init.replace(/'/g, `"`) || `""`;
+        }
         break;
       default:
         throw `Unknown parameter type ${param.paramType}`;

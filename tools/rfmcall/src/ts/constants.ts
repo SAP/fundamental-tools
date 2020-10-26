@@ -196,18 +196,18 @@ export const DDIC_JS = {
   // Precision of a QUAN field
   PREC: { JS_TYPE: "number", JS_FORMAT: "integer", HTML_TAG: "number" },
   // Decimal floats
-  D16R: {
+  DECFLOAT16: {
     JS_TYPE: "number",
     JS_FORMAT: "decimal",
     HTML_TAG: "input",
-    INITIAL: `0.0`,
+    INITIAL: `"0.0"`,
     COMMENT: "Decimal float",
   },
-  D34R: {
+  DECFLOAT34: {
     JS_TYPE: "number",
     JS_FORMAT: "decimal",
     HTML_TAG: "input",
-    INITIAL: `0.0`,
+    INITIAL: `"0.0"`,
     COMMENT: "Decimal float",
   },
   // Long character string, requires preceding INT2 field

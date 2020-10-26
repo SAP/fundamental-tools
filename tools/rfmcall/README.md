@@ -1,6 +1,6 @@
 ## rfmcall
 
-ABAP RFM invocation from NodeJS even easier.
+ABAP RFM calls from NodeJS even easier.
 
 [![NPM](https://nodei.co/npm/rfmcall.png?downloads=true&downloadRank=true)](https://nodei.co/npm/node-rfc/)
 
@@ -9,16 +9,15 @@ ABAP RFM invocation from NodeJS even easier.
 [![dt](https://img.shields.io/npm/dt/rfmcall.svg)](https://www.npmjs.com/package/node-rfc)
 [![dm](https://img.shields.io/npm/dm/rfmcall.svg)](https://www.npmjs.com/package/rfmcall)
 
-The `rfmcall` CLI utility provides a RFM call template, with pre-initialized ABAP data
-structures and helpful comments, saving the development and troubleshooting time.
+RFM call templates, with pre-initialized ABAP data
+structures, saving the development and troubleshooting time:
+[rfmcall @ SAP SCN](https://blogs.sap.com/2020/10/22/calling-abap-from-nodejs-even-easier/)
 
-Maintained as a part of [SAP Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools), it can be used also independent.
+Maintained as a part of [SAP Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools), can be used also independent.
 
 ### Usage
 
 Invoke the utility with ABAP backend destination (maintained in `sapnwrfc.ini`) and ABAP RFM name. The RFM call template is by default echoed to console, with the source code for RFM parameters initialization and invocation.
-
-More details: https://blogs.sap.com/2020/10/22/calling-abap-from-nodejs-even-easier/
 
 ```shell
 $ npm install rfmcall
