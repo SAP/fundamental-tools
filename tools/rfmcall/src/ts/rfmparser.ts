@@ -114,6 +114,7 @@ export class parseRFM {
       leng: "",
       abaptype: "",
       init: "",
+      optional: false,
       alpha: "",
     };
     let field: any = false;
@@ -146,11 +147,12 @@ export class parseRFM {
         if (result.leng) {
           result.abaptype += ` (${result.leng})`;
         }
-        if ("default" in param) {
+        result.optional = "default" in param;
+        if (result.optional) {
           result.init = param.default;
-        }
-        if (typeof result.init === "string") {
-          result.init = result.init.replace(/'/g, `"`) || `""`;
+          if (typeof result.init === "string") {
+            result.init = result.init.replace(/'/g, `"`) || `""`;
+          }
         }
         break;
       default:
@@ -391,6 +393,9 @@ export class parseRFM {
         let paramName = this.JSToPKey(paramKey)[1];
         let left = paramData["required"] ? paramName : `//${paramName}`;
         let right = this.get_param_initializer(paramData);
+        let paramText = paramData["PARAMTEXT"];
+        if (right.optional) paramText = "[abap] " + paramText;
+
         if (right.alpha.length > 0) {
           writer.write(
             sprintf(
@@ -399,7 +404,7 @@ export class parseRFM {
               right.init,
               right.abaptype,
               right.alpha,
-              paramData["PARAMTEXT"]
+              paramText
             )
           );
         } else {
@@ -409,7 +414,7 @@ export class parseRFM {
               left,
               right.init,
               right.abaptype,
-              paramData["PARAMTEXT"]
+              paramText
             )
           );
         }

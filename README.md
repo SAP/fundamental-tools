@@ -2,7 +2,7 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 
-ABAP business logic consumption by [Fundamental Library Styles](https://github.com/SAP/fundamental-styles) frontends:
+Low-code [Fundamental Library Styles](https://github.com/SAP/fundamental-styles) frontends, for direct ABAP business logic consumption
 
 - Simple and fast
 - New and old ABAP systems
@@ -10,8 +10,6 @@ ABAP business logic consumption by [Fundamental Library Styles](https://github.c
 - Servers: Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
 - On-premise and cloud deployments
-
-![](assets/deployments.png)
 
 ## Prerequisites
 
