@@ -1,0 +1,152 @@
+<!-- BAPI_EQUI_GETSTATUS 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">Equipment Number</FormLabel>
+    <FormInput id="4711" value={this.EQUIPMENT}
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="Language Key">
+    <Input value={this.LANGUAGE}
+           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
+           data-shlp="{type:'SH', id:'H_T002'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">2-Character SAP Language Code</FormLabel>
+    <FormInput id="4711" value={this.LANGUAGE_ISO}
+        data-abap="{type: 'string', length: '2'}"
+    />
+</FormItem>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameters -->
+
+<ComboboxInput id="4711" label="Field in parameter"
+    value={this.RETURN.FIELD}
+    options="{type:'CT', id:'DD03L'}"
+    data-abap="{{type: 'string', length: '30'}}"/>
+
+
+<ComboboxInput id="4711" label="Message Class"
+    value={this.RETURN.ID}
+    options="{type:'CT', id:'T100A'}"
+    data-abap="{{type: 'string', length: '20'}}"/>
+
+
+<ComboboxInput id="4711" label="Application log: Internal message serial number"
+    value={this.RETURN.LOG_MSG_NO}
+    options="{type:'CH', id:'BALM'}"
+    data-abap="{{type: 'string', length: '6'}}"/>
+
+
+<ComboboxInput id="4711" label="Application log: log number"
+    value={this.RETURN.LOG_NO}
+    options="{type:'CH', id:'BALHDR'}"
+    data-abap="{{type: 'string', length: '20'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Text</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE}
+        data-abap="{type: 'string', length: '220'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V1}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V2}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V3}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V4}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Number</FormLabel>
+    <FormInput id="4711" value={this.RETURN.NUMBER}
+        data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Parameter Name</FormLabel>
+    <FormInput id="4711" value={this.RETURN.PARAMETER}
+        data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Lines in parameter</FormLabel>
+    <FormInput id="4711" value={this.RETURN.ROW}
+        data-abap="{type: 'number', length: '+10'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Logical system from which message originates"
+    value={this.RETURN.SYSTEM}
+    options="{type:'CT', id:'TBDLS'}"
+    data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message type: S Success, E Error, W Warning, I Info, A Abort</FormLabel>
+    <FormInput id="4711" value={this.RETURN.TYPE}
+        data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">System status line</FormLabel>
+    <FormInput id="4711" value={this.SYSTEMSTATUS}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">User Status</FormLabel>
+    <FormInput id="4711" value={this.USERSTATUS}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<!-- TABLE PARAMETERS -->
