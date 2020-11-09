@@ -2,11 +2,29 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 
-Low-code [Fundamental Library Styles](https://github.com/SAP/fundamental-styles) frontends, for direct ABAP business logic consumption
+<a href="https://sap.github.io/fundamental-styles/?path=/docs/introduction-overview--page">
+<img src="assets/logo/logo-fs.jpg" alt="Fundamental
+Library" width="160"/>
+</a>
+
+<a href="https://www.sap.com/products/cloud-platform.html/">
+<img src="assets/logo/logo-scp.jpg" alt="SAP Cloud Platform" width="160"/>
+</a>
+
+<a href="https://sap.github.io/ui5-webcomponents/">
+<img src="assets/logo/logo-ui5-wc.jpg" alt="UI5 WebComponents" width="160"/>
+</a>
+
+Low-code Fiori frontends for direct ABAP business logic consumption:
 
 - Simple and fast
-- New and old ABAP systems
-- Frontends: Vue, Angular, React, aurelia ...
+- Any old or new ABAP system
+- Supported frontends
+  - [Fundamental Library for Angular](https://sap.github.io/fundamental-ngx)
+  - [Fundamental Library for React](https://sap.github.io/fundamental-react)
+  - [Fundamental Library for Vue](https://sap.github.io/fundamental-vue)
+  - [UI5 WebComponents for React](https://github.com/SAP/ui5-webcomponents-react)
+  - [Aurelia](http://aurelia.io/)
 - Servers: Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
 - On-premise and cloud deployments
@@ -15,41 +33,31 @@ Low-code [Fundamental Library Styles](https://github.com/SAP/fundamental-styles)
 
 - ABAP backend: from latest releases, down to 4.6C, with couple of [abap-helpers](/abap-helpers)
 
-- App server platforms: Windows, Linux, macOS, cloud
+- App server
 
-- App server runtimes:
+  - Platforms: SAP Cloud Platform or on-premise Windows, Linux and Darwin
+  - Runtimes
+    - Python with [PyRFC](https://github.com/SAP/PyRFC)
+    - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
+    - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
 
-  - Python with [PyRFC](https://github.com/SAP/PyRFC)
-  - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
-  - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
-
-- Development notebook
-
-  - Same as App server
-  - VIM, Emacs, IDEA, VSCode ...
-
-- Frontend: modern web browser
+- Web browsers
+  - Supported by [SAP Fundamental Library Styles](https://github.com/SAP/fundamental-styles) and [UI5 Web Components](https://sap.github.io/ui5-webcomponents/)
 
 :bulb: ABAP Value Input Help run-time component [fundamental-shlp](https://github.com/SAP/fundamental-shelp) for now runs on Python only
 
 :bulb: Design-time tools run on Python and you can use them from docker as well.
 
-## Installation
-
-```shell
-git clone https://github.com/SAP/fundamental-tools
-```
-
 ## Usage
 
-- **ABAP Backend:** Define/implement ABAP backend API as a set of remote-enabled ABAP Function Modules (RFMs), required for Fundamental Library Styles based frontend
+- **ABAP:** Expose the ABAP backend logic as a set of remote-enabled Function Modules (RFMs)
 
-* **Server Model:** Expose the backend API via server runtime of choice.
+* **App Server:** Map ABAP API end-points to app server routes
 
 * **View (HTML):**
 
-  - Run the toolset scripts, generating flat-list of annotated SAP Fundamental Style UI elements, with default bi-directional bindings to backend API fields
-  - Copy/paste UI elements required for the app, into SAP Fundamental Style layouts and views
+  - Run the toolset script to generate flat-lists of annotated Fiori UI components, with default bi-directional bindings to ABAP API
+  - Copy/paste Fiori UI components required for the app, into frontend layouts and views
 
 - **View Model (ES/TS):** Implement the View Model logic, required for the app.
 
@@ -63,17 +71,26 @@ $
 $ cd fundamental-tools
 ```
 
-### Example: NodeJS RFM Call Template
+### Step 1: ABAP API
 
-A handy CLI tool, providing ABAP RFM call templates: [ffmcall](./tools/rfmcall)
+Maintain ABAP system connection parameters in [systems.py](tools/generator/systems.py) and ABAP API RFM names in [business_objects.py](tools/generator/business_objects.py), following given examples.
 
-### Example: Backend
+Run `backend.py` script:
 
-Maintain ABAP backend connection parameters in [systems.py](tools/generator/systems.py) and ABAP backend API RFM list in [business_objects.py](tools/generator/business_objects.py), following given examples.
+```shell
+$ cd tools
+$
+$ # read ABAP API metadata into local JSON file
+$ python backend.py
+```
 
-### Example: Server Model
+This script requires a connection to ABAP system and the result are ABAP API annotations cached in local JSON files.
 
-The example below shows Python Flask app server, exposing ABAP backend API for Equipment maintenance app. NodeJS or Java implementations looks almost identical:
+You may also use the **[rfmcall](./tools/rfmcall)** tool, to test ABAP API or generate more detailed RFM call templates for the App server model (see below).
+
+### Step 2: App Server Model
+
+Manually implemented. The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app. NodeJS or Java implementations looks almost identical:
 
 ```python
 # Equipment
@@ -101,21 +118,26 @@ def equipment(path):
         return serverError(e), 500
 ```
 
-### Example: View
+### Step 3: View
 
-Run `backend.py` and `frontend.py` scripts:
+Run one of the frontend scripts, to generate Fiori components for you:
 
 ```shell
 $ cd tools
 $
-$ # read ABAP API metadata into local JSON file; backend connectivity required
-$ python backend.py
-$
-$ # generate annotated HTML UI elements and frontend model initializers (ES/TS)
-$ python frontend.py
+$ python fundamental-ngx.py    # Angular with Fundamental Styles
+$ python fundamental-react.py  # React with Fundamental Styles
+$ python fundamental-vue.py    # Vue with Fundamental Styles
+$ python ui5-react.py          # React with ui5-webcomponents
+$ python frontend-aurelia.py   # Aurelia
+                               # more to come ...
 ```
 
-These sripts generate flat lists of UI elements, with default bi-directional binding to ABAP API fields and with custom-attributes, to be interpreted by reusable UI components:
+The output HTML and JavaScript flat files are written in a data model sub-directory, for example:
+
+<img src="assets/toolset/output.png" alt="SAP Cloud Platform" width="350"/>
+
+HTML files contain Fiori UI components annotated with default bi-directional bindings to ABAP data model and with custom-attributes for:
 
 - Data type, length
 - Texts (label, caption)
@@ -125,7 +147,7 @@ These sripts generate flat lists of UI elements, with default bi-directional bin
 
 Attributes can be modified, added or removed manually, from any UI element, no matter of generator default output.
 
-HTML files with annotated UI elements look like:
+HTML files look like:
 
 ```html
 <!-- prettier-ignore -->
@@ -181,7 +203,7 @@ DATA_FLEET = {
   FLEET_LEN                     : 0,  // Maximum fleet object length
 ```
 
-Copy/paste UI elements required for the app, into [Fundamental Library Styles](https://sap.github.io/fundamental-styles/layouts/index.html) layouts. Elements can be of course modified, or written from scratch,
+HTML UI components can be copy/pasted to your app layouts and views, with or withot modifications. Components can be of also written from scratch, without using this toolset.
 
 ```html
 <!-- prettier-ignore -->
