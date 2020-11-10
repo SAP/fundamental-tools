@@ -28,6 +28,7 @@ Low-code Fiori frontends for direct ABAP business logic consumption:
 - Servers: Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
 - On-premise and cloud deployments
+- Blog: [Fundamental Library for ABAP](https://blogs.sap.com/2020/08/23/fundamental-library-for-abap/)
 
 ## Prerequisites
 
