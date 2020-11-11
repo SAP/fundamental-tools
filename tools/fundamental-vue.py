@@ -257,11 +257,11 @@ class ModelParser:
 
         # read the backend model
         with codecs.open("data/%s/Params.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Parameters = json.load(fin, encoding="utf-8")
+            self.Parameters = json.load(fin)
         with codecs.open("data/%s/Fields.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Fields = OrderedDict(json.load(fin, encoding="utf-8"))
+            self.Fields = OrderedDict(json.load(fin))
         with codecs.open("data/%s/Helps.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Helps = OrderedDict(json.load(fin, encoding="utf-8"))
+            self.Helps = OrderedDict(json.load(fin))
 
     def escape_quotes(self, ucstr):
         return ucstr.replace('"', "&quot")
