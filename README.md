@@ -20,11 +20,11 @@ Low-code Fiori frontends for direct ABAP business logic consumption:
 - Simple and fast
 - Any old or new ABAP system
 - Supported frontends
+  - [Aurelia](http://aurelia.io/)
   - [Fundamental Library for Angular](https://sap.github.io/fundamental-ngx)
   - [Fundamental Library for React](https://sap.github.io/fundamental-react)
   - [Fundamental Library for Vue](https://sap.github.io/fundamental-vue)
   - [UI5 WebComponents for React](https://github.com/SAP/ui5-webcomponents-react)
-  - [Aurelia](http://aurelia.io/)
 - Servers: Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
 - On-premise and cloud deployments
