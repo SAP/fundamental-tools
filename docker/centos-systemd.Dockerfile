@@ -21,7 +21,7 @@ ENV container docker
 ENV TZ=Europe/Berlin
 
 ARG adminuser=www-admin
-ARG dev_tools="sudo curl wget git unzip vim tree tmux"
+ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
 ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
 
 ARG nwrfc_pl=PL7
