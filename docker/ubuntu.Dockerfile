@@ -34,7 +34,7 @@ ARG dev_libs="build-essential make libssl-dev zlib1g-dev libbz2-dev libreadline-
 ARG nwrfc_pl=PL7
 ARG nwrfc_source=/NWRFCSDK/${nwrfc_pl}
 ARG nwrfc_target=/usr/local/sap
-ARG CMAKE_VERSION=3.18.4
+ARG CMAKE_VERSION=3.19.1
 
 ENV container docker
 

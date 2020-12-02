@@ -20,7 +20,7 @@ LABEL description="NodeJS RFC Connector"
 
 ARG adminuser=www-admin
 ARG nvm_version=0.36.0
-ARG CMAKE_VERSION=3.18.4
+ARG CMAKE_VERSION=3.19.1
 
 # cmake
 USER ${adminuser}
