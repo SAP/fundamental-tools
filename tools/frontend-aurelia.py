@@ -6,13 +6,6 @@
 
 # -*- coding: utf-8 -*-
 
-""" Parse 1 RFM metadata into UI7 elements
-
-    :param  rfm name, Params, Fields
-
-    :return: RFM Parameters/Field View and Parameters Model
-"""
-
 import os
 import json
 import codecs

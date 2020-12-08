@@ -6,13 +6,6 @@
 
 # -*- coding: utf-8 -*-
 
-""" Parse 1 RFM metadata into UI7 elements
-
-    :param  rfm name, Params, Fields
-
-    :return: RFM Parameters/Field View and Parameters Model
-"""
-
 import os
 import json
 import codecs
@@ -152,7 +145,7 @@ ELEMENT_PREFIX = "fd-"
 HTML_TAG = "ui-tag"
 INPUT_TYPE_BINARY_TAG = "checkbox"
 INPUT_TYPE_LIST_TAG = "combobox"
-COLUMN_TAGNAME = "dg-column"
+COLUMN_TAGNAME = "fd-column"
 DATE_TAGNAME = "datepicker"
 TIME_TAGNAME = "timepicker"
 MODEL_PREFIX = "model/angular"

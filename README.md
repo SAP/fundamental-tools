@@ -15,11 +15,11 @@ Library" width="160"/>
 <img src="assets/logo/logo-ui5-wc.jpg" alt="UI5 WebComponents" width="160"/>
 </a>
 
-Low-code Fiori frontends for direct ABAP business logic consumption:
+Fiori and cloud apps, with any front-end you like, the way you like.
 
-- Simple and fast
-- Any old or new ABAP system
-- Supported frontends
+- Simple and fast, with any old or new ABAP system
+- The same code and programming model for on-premise and cloud
+- Front-ends
   - [Aurelia](http://aurelia.io/)
   - [Fundamental Library for Angular](https://sap.github.io/fundamental-ngx)
   - [Fundamental Library for React](https://sap.github.io/fundamental-react)
@@ -27,7 +27,6 @@ Low-code Fiori frontends for direct ABAP business logic consumption:
   - [UI5 WebComponents for React](https://github.com/SAP/ui5-webcomponents-react)
 - Servers: Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
-- On-premise and cloud deployments
 - Blog: [Fundamental Library for ABAP](https://blogs.sap.com/2020/08/23/fundamental-library-for-abap/)
 
 ## Prerequisites
@@ -36,7 +35,7 @@ Low-code Fiori frontends for direct ABAP business logic consumption:
 
 - App server
 
-  - Platforms: SAP Cloud Platform or on-premise Windows, Linux and Darwin
+  - Running on SAP Cloud Platform or on-premise Windows, Linux, Darwin
   - Runtimes
     - Python with [PyRFC](https://github.com/SAP/PyRFC)
     - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
@@ -126,10 +125,10 @@ Run one of the frontend scripts, to generate Fiori components for you:
 ```shell
 $ cd tools
 $
-$ python fundamental-ngx.py    # Angular with Fundamental Styles
-$ python fundamental-react.py  # React with Fundamental Styles
-$ python fundamental-vue.py    # Vue with Fundamental Styles
-$ python ui5-react.py          # React with ui5-webcomponents
+$ python fundamental-ngx.py    # Fundamental Styles Angular
+$ python fundamental-react.py  # Fundamental Styles React
+$ python fundamental-vue.py    # Fundamental Styles Vue
+$ python ui5-react.py          # ui5-webcomponents for React
 $ python frontend-aurelia.py   # Aurelia
                                # more to come ...
 ```
