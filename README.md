@@ -118,12 +118,13 @@ Run one of the frontend scripts, to generate Fiori components for you:
 ```shell
 $ cd tools
 $
-$ python fundamental-ngx.py    # Fundamental Styles Angular
-$ python fundamental-react.py  # Fundamental Styles React
-$ python fundamental-vue.py    # Fundamental Styles Vue
-$ python ui5-react.py          # ui5-webcomponents for React
-$ python frontend-aurelia.py   # Aurelia
-                               # more to come ...
+$ python fast-angular.py         # Microsoft FAST Angular
+$ python fundamental-angulat.py  # Fundamental Styles Angular
+$ python fundamental-react.py    # Fundamental Styles React
+$ python fundamental-vue.py      # Fundamental Styles Vue
+$ python ui5-react.py            # ui5-webcomponents for React
+$ python frontend-aurelia.py     # Aurelia
+                                 # more to come ...
 ```
 
 The output HTML and JavaScript flat files are written in a data model sub-directory, for example:
