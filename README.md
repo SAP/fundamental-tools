@@ -7,19 +7,12 @@
 Library" width="160"/>
 </a>
 
-<a href="https://www.sap.com/products/cloud-platform.html/">
-<img src="assets/logo/logo-scp.jpg" alt="SAP Cloud Platform" width="160"/>
-</a>
-
-<a href="https://sap.github.io/ui5-webcomponents/">
-<img src="assets/logo/logo-ui5-wc.jpg" alt="UI5 WebComponents" width="160"/>
-</a>
-
 Fiori and cloud apps, with any front-end you like, the way you like.
 
 - Simple and fast, with any old or new ABAP system
 - The same code and programming model for on-premise and cloud
 - Front-ends
+  - [Microsoft FAST Angular](https://www.fast.design/docs/integrations/angular)
   - [Aurelia](http://aurelia.io/)
   - [Fundamental Library for Angular](https://sap.github.io/fundamental-ngx)
   - [Fundamental Library for React](https://sap.github.io/fundamental-react)

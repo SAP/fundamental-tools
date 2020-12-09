@@ -1,0 +1,123 @@
+<!-- BAPI_EQUI_GETSTATUS 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<fast-text-field [(label)]="Equipment Number"
+    [(value)]="EQUIPMENT"
+    [(abap)]="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+/>
+
+
+<fast-text-field [(label)]="Language Key"
+    [(value)]="LANGUAGE"
+    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+/>
+
+
+<fast-text-field [(label)]="2-Character SAP Language Code"
+    [(value)]="LANGUAGE_ISO"
+    [(abap)]="{type: 'string', length: '2'}"
+/>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameters -->
+
+<fast-combobox [(label)]="Field in parameter"
+    [(value)]="RETURN.FIELD" [(options)]="{type:'CT', id:'DD03L'}"
+    [(abap)]="{type: 'string', length: '30'}"
+></fast-combobox>
+
+
+<fast-combobox [(label)]="Message Class"
+    [(value)]="RETURN.ID" [(options)]="{type:'CT', id:'T100A'}"
+    [(abap)]="{type: 'string', length: '20'}"
+></fast-combobox>
+
+
+<fast-combobox [(label)]="Application log: Internal message serial number"
+    [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
+    [(abap)]="{type: 'string', length: '6'}"
+></fast-combobox>
+
+
+<fast-combobox [(label)]="Application log: log number"
+    [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
+    [(abap)]="{type: 'string', length: '20'}"
+></fast-combobox>
+
+
+<fast-text-field [(label)]="Message Text"
+    [(value)]="RETURN.MESSAGE"
+    [(abap)]="{type: 'string', length: '220'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V1"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V2"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V3"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V4"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Number"
+    [(value)]="RETURN.NUMBER"
+    [(abap)]="{type: 'string', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Parameter Name"
+    [(value)]="RETURN.PARAMETER"
+    [(abap)]="{type: 'string', length: '32'}"
+/>
+
+
+<fast-text-field [(label)]="Lines in parameter"
+    [(value)]="RETURN.ROW"
+    [(abap)]="{type: 'number', length: '+10'}"
+/>
+
+
+<fast-combobox [(label)]="Logical system from which message originates"
+    [(value)]="RETURN.SYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
+></fast-combobox>
+
+
+<fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
+    [(value)]="RETURN.TYPE"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-text-field [(label)]="System status line"
+    [(value)]="SYSTEMSTATUS"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="User Status"
+    [(value)]="USERSTATUS"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<!-- TABLE PARAMETERS -->

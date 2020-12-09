@@ -148,7 +148,7 @@ INPUT_TYPE_LIST_TAG = "combobox"
 COLUMN_TAGNAME = "fd-column"
 DATE_TAGNAME = "datepicker"
 TIME_TAGNAME = "timepicker"
-MODEL_PREFIX = "model/angular"
+MODEL_PREFIX = "model/fundamental/angular"
 JS_FORMAT = "format"
 JS_TYPE = "type"
 ABAP_TYPE = "abap-ddic"
@@ -227,6 +227,7 @@ DDIC_JS = {
     "STRING": {JS_TYPE: "string", HTML_TAG: "textarea"},
 }
 
+
 # field initial value
 def get_field_inital(rfm_field):
     init = {"number": "0", "string": "''"}
@@ -250,11 +251,11 @@ class ModelParser:
 
         # read the backend model
         with codecs.open("data/%s/Params.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Parameters = json.load(fin, encoding="utf-8")
+            self.Parameters = json.load(fin)
         with codecs.open("data/%s/Fields.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Fields = OrderedDict(json.load(fin, encoding="utf-8"))
+            self.Fields = OrderedDict(json.load(fin))
         with codecs.open("data/%s/Helps.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Helps = OrderedDict(json.load(fin, encoding="utf-8"))
+            self.Helps = OrderedDict(json.load(fin))
 
     def escape_quotes(self, ucstr):
         return ucstr.replace('"', "&quot")
@@ -283,9 +284,7 @@ class ModelParser:
                 if len(shlp["valueProperty"]) == 1:
                     value_property = "'%s'" % shlp["valueProperty"][0]
                 else:
-                    shlp["valueProperty"] = [
-                        "'%s'" % name.encode("utf-8") for name in shlp["valueProperty"]
-                    ]
+                    shlp["valueProperty"] = ["'%s'" % name.encode("utf-8") for name in shlp["valueProperty"]]
                     value_property = "[%s]" % ",".join(shlp["valueProperty"])
 
                 requested_fields = value_property
@@ -294,10 +293,7 @@ class ModelParser:
                     "%s: {type: '%s', id: '%s', valueProperty: %s,"
                     % (shlp_key.replace(" ", "_"), shlp_type, shlp_id, value_property)
                 )
-                help_js.write(
-                    "    displayProperty: [], selection: [], requestedFields: %s },"
-                    % requested_fields
-                )
+                help_js.write("    displayProperty: [], selection: [], requestedFields: %s }," % requested_fields)
                 help_js.write("")
 
                 help_js.save()
@@ -360,15 +356,12 @@ class ModelParser:
                             else:
                                 field_ddic["format"]["LENG"] = -1
 
-                        ttype = (
-                            field_ddic["format"]["DATATYPE"] + "(%u)" % field_ddic["format"]["LENG"]
-                        )
+                        ttype = field_ddic["format"]["DATATYPE"] + "(%u)" % field_ddic["format"]["LENG"]
 
                         model_js.write(
                             u"{0: <40} {1: <30}".format(
                                 "%s: %s%s" % (parameter_name, get_field_inital(field_ddic), comma),
-                                "// %-10s %-30s %s"
-                                % (ttype, rfm_parameter["FIELDKEY"], rfm_parameter["PARAMTEXT"]),
+                                "// %-10s %-30s %s" % (ttype, rfm_parameter["FIELDKEY"], rfm_parameter["PARAMTEXT"]),
                             )
                         )
 
@@ -376,8 +369,7 @@ class ModelParser:
                         model_js.write(
                             u"{0: <40} {1: <30}".format(
                                 "%s: {}%s" % (parameter_name, comma),
-                                "// %s : %s"
-                                % (rfm_parameter["FIELDKEY"], rfm_parameter["PARAMTEXT"]),
+                                "// %s : %s" % (rfm_parameter["FIELDKEY"], rfm_parameter["PARAMTEXT"]),
                             )
                         )
 
@@ -385,8 +377,7 @@ class ModelParser:
                         model_js.write(
                             u"{0: <40} {1: <30}".format(
                                 "%s: []%s" % (parameter_name, comma),
-                                "// %s : %s"
-                                % (rfm_parameter["FIELDKEY"], rfm_parameter["PARAMTEXT"]),
+                                "// %s : %s" % (rfm_parameter["FIELDKEY"], rfm_parameter["PARAMTEXT"]),
                             )
                         )
 
@@ -735,19 +726,14 @@ class ModelParser:
                     # empty SHLP happen sometimes
                     if ddic["input"]["SHLP"].strip():
                         try:
-                            markup["abap-shlp"] = "{type:'%s', id:'%s'}" % tuple(
-                                ddic["input"]["SHLP"].split()
-                            )
+                            markup["abap-shlp"] = "{type:'%s', id:'%s'}" % tuple(ddic["input"]["SHLP"].split())
                         except Exception:
                             raise ValueError("Invalid SHLP format: [%s]" % ddic["input"]["SHLP"])
 
                 if "MEMORYID" in ddic["input"]:
                     markup["abap-mid"] = ddic["input"]["MEMORYID"]
 
-            if (
-                ddic["format"]["DATATYPE"] not in ["DATS", "TIMS", "ACCP"]
-                and "BOOLEAN" not in ddic["format"]
-            ):
+            if ddic["format"]["DATATYPE"] not in ["DATS", "TIMS", "ACCP"] and "BOOLEAN" not in ddic["format"]:
                 markup["abap-length"] = field_length(ddic)
 
             if "abap-shlp" in markup:

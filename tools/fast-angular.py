@@ -16,7 +16,7 @@ from collections import OrderedDict
 from datetime import datetime
 from generator import VERSION, catalog, rfm_sets
 from backend import INPUT_TYPE_KEY, INPUT_TYPE_BINARY, INPUT_TYPE_LIST
-from fundamental import fundamental_react
+from fast import fast_ngx
 
 REMOVE_DDIC = False
 for arg in sys.argv:
@@ -148,7 +148,7 @@ INPUT_TYPE_LIST_TAG = "combobox"
 COLUMN_TAGNAME = "fd-column"
 DATE_TAGNAME = "datepicker"
 TIME_TAGNAME = "timepicker"
-MODEL_PREFIX = "model/fundamental/react"
+MODEL_PREFIX = "model/fast/angular"
 JS_FORMAT = "format"
 JS_TYPE = "type"
 ABAP_TYPE = "abap-ddic"
@@ -226,6 +226,7 @@ DDIC_JS = {
     # native
     "STRING": {JS_TYPE: "string", HTML_TAG: "textarea"},
 }
+
 
 # field initial value
 def get_field_inital(rfm_field):
@@ -623,57 +624,57 @@ class ModelParser:
             # print(abap_attrs)
             element1 = False
             if "combobox" in ngx_markup[HTML_TAG]:
-                element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+                element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
                     bind_target,
                     abap_attrs["shlp"],
                     data_abap,
                 )
             elif "input" in ngx_markup[HTML_TAG]:
-                element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+                element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
                     bind_target,
                     data_abap,
                     abap_attrs["shlp"] if "shlp" in abap_attrs else "",
                 )
             elif "lang" in ngx_markup[HTML_TAG]:
-                element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+                element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
                     bind_target,
                     data_abap,
                     abap_attrs["shlp"] if "shlp" in abap_attrs else "",
                 )
             elif "checkbox" in ngx_markup[HTML_TAG]:
-                element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
-                    bind_target,
+                element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
+                    bind_target,
                 )
             elif "datepicker" in ngx_markup[HTML_TAG]:
-                element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+                element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
                     bind_target,
                 )
             elif "timepicker" in ngx_markup[HTML_TAG]:
-                element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+                element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
                     bind_target,
                 )
             elif "textarea" in ngx_markup[HTML_TAG]:
-                element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+                element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                     abap_attrs["label"],
                     bind_target,
                     data_abap,
                 )
             else:
                 print(ngx_markup[HTML_TAG][3:])
-                # element1 = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+                # element1 = fast_ngx[ngx_markup[HTML_TAG][3:]] % (
                 #    abap_attrs["label"],
                 #    bind_target,
                 # )
 
             # remove empty shlp elements
             if element1:
-                element1 = re.sub(r'\s+data-shlp=""', "", element1)
+                element1 = re.sub(r'\s+\[\(shlp\)\]=""', "", element1)
                 model.write(element1)
 
             model.newline()
