@@ -4,11 +4,11 @@
 
 #
 # Build:
-# docker build -t rfcqa -f ubuntu.Dockerfile .
-# docker run --name rfcqa -v /Users/d037732/src:/home/www-admin/src -it rfcqa
+# docker build -t ubuntu-test -f ubuntu-test.Dockerfile .
+# docker run --name ubuntu-test -v /Users/d037732/src:/home/www-admin/src -it ubuntu-test
 #
 # Run:
-# docker start -ai rfcqa
+# docker start -ai ubuntu-test
 #
 
 FROM ubuntu:latest
@@ -19,14 +19,14 @@ LABEL description="Ubuntu QAS"
 
 ARG adminuser=www-admin
 ARG venv_base=/home/${adminuser}/.virtualenvs
-ARG nvm_version=0.36.0
+ARG nvm_version=0.37.2
 ARG py36=3.6.12
 ARG py36venv=py36
 ARG py37=3.7.9
 ARG py37venv=py37
 ARG py38=3.8.6
 ARG py38venv=py38
-ARG py39=3.9.0
+ARG py39=3.9.1
 ARG py39venv=py39
 ARG dev_python="pip wheel pytest cython ipython"
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute2 iputils-ping"
@@ -34,7 +34,7 @@ ARG dev_libs="build-essential make libssl-dev zlib1g-dev libbz2-dev libreadline-
 ARG nwrfc_pl=PL7
 ARG nwrfc_source=/NWRFCSDK/${nwrfc_pl}
 ARG nwrfc_target=/usr/local/sap
-ARG CMAKE_VERSION=3.19.1
+# ARG CMAKE_VERSION=3.19.1
 
 ENV container docker
 
@@ -121,8 +121,7 @@ RUN git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/py
 
 # cmake
 RUN cd /tmp && \
-  # CMAKE_VERSION=$(curl -s https://api.github.com/repos/Kitware/CMake/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/') && \
-  CMAKE_VERSION=3.18.4 && \
+  CMAKE_VERSION=$(curl -s https://api.github.com/repos/Kitware/CMake/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/') && \
   wget -q https://github.com/Kitware/CMake/releases/latest/download/cmake-${CMAKE_VERSION}.tar.gz && \
   tar -xzvf cmake-${CMAKE_VERSION}.tar.gz && \
   cd cmake-${CMAKE_VERSION} && \

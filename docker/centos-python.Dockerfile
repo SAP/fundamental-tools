@@ -25,7 +25,7 @@ ARG py37=3.7.9
 ARG py37venv=py37
 ARG py38=3.8.6
 ARG py38venv=py38
-ARG py39=3.9.0
+ARG py39=3.9.1
 ARG py39venv=py39
 ARG dev_python="pip wheel pytest cython ipython"
 

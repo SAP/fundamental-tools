@@ -8,10 +8,10 @@ fast_ngx = {
 <fast-checkbox [(label)]="%s" [(checked)]="%s"/>""",
     # todo
     "combobox": """
-<fast-combobox [(label)]="%s"
+<fast-select [(label)]="%s"
     [(value)]="%s" [(options)]="%s"
     [(abap)]="%s"
-></fast-combobox>""",
+></fast-select>""",
     # todo
     "datepicker": """
 <fast-datepicker label="%s" [(value)]="%s"/>""",
@@ -25,7 +25,7 @@ fast_ngx = {
     [(value)]="%s"
     [(abap)]="%s" [(shlp)]="%s"
 />""",
-    #https://www.fast.design/docs/components/text-area
+    # https://www.fast.design/docs/components/text-area
     "textarea": """
 <fast-text-area [(label)]="%s"
         [(value)]="%s"

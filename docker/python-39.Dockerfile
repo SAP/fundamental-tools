@@ -8,7 +8,7 @@
 # docker run --name python-39 -v /Users/d037732/src:/home/www-admin/src -it python-39 /bin/bash
 #
 # Run:
-# docker start -ai python-slim
+# docker start -ai python-39
 #
 
 FROM python:3.9-slim-buster
