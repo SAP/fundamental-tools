@@ -14,8 +14,7 @@ const [, , ...args] = process.argv;
     "-h    quick help on rfmcall\n" +
     "-s    save RFM call template to local .js file\n" +
     "-c    cache the metadata into params.json and fields.json\n" +
-    "-q    quiet mode, no console echo\n" +
-    "-stat echo the number of variables, structures and tables\n";
+    "-q    quiet mode, no console echo\n";
   try {
     if (args.length === 0) {
       console.log(Usage);
@@ -39,9 +38,6 @@ const [, , ...args] = process.argv;
         case "-s":
           options["saveJS"] = true; // no console echo
           break;
-        case "-t":
-          options["echoTotals"] = true; // echo totals to console
-          break;
         case "-c":
           options["cacheMetadata"] = true;
           break;
@@ -54,7 +50,6 @@ const [, , ...args] = process.argv;
     }
     const rfmParser = new parseRFM(destination, rfmName);
     const metadata: object = await rfmParser.parse(options);
-    if (options["echoTotals"]) console.log(metadata["stat"]);
   } catch (ex) {
     console.error(ex);
   }

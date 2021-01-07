@@ -264,9 +264,15 @@ export class parseRFM {
     }
 
     // parameter type counters
-    let cv = 0,
-      cs = 0,
-      ct = 0;
+    const param_type_stat = {};
+    for (const k of [
+      CN.PARAMTYPE_VAR,
+      CN.PARAMTYPE_STRUCT,
+      CN.PARAMTYPE_TABLE,
+      CN.PARAMTYPE_EXC,
+    ]) {
+      param_type_stat[k] = 0;
+    }
 
     // Cleanup
     let i = (R.PARAMETERS as RfcTable).length;
@@ -292,17 +298,17 @@ export class parseRFM {
       //  set param type
       if (p.PARAMCLASS == "X" || p.EXID.trim().length == 0) {
         p.paramType = CN.PARAMTYPE_EXC;
-        continue;
       } else if (p.EXID === "h" || p.PARAMCLASS === "T") {
         p.paramType = CN.PARAMTYPE_TABLE;
-        ct++;
       } else if ("uv".indexOf(p.EXID) != -1) {
         p.paramType = CN.PARAMTYPE_STRUCT;
-        cs++;
       } else {
         p.paramType = CN.PARAMTYPE_VAR;
-        cv++;
       }
+      param_type_stat[p.paramType]++;
+
+      // skip exception parameters
+      if (p.paramType == CN.PARAMTYPE_EXC) continue;
 
       // set ddic ref
       await this.getDFIES(p, this.LANGU);
@@ -317,6 +323,7 @@ export class parseRFM {
     // sort and count parameters
     const paramsSorted = new Map([...this.Params.entries()].sort());
     this.Params = new Map();
+
     // required IMPORT
     paramsSorted.forEach((v, k) => {
       if (["I"].includes(v["PARAMCLASS"]) && v["required"]) {
@@ -329,13 +336,13 @@ export class parseRFM {
         this.Params.set(k, v);
       }
     });
+
     // required CHANGING
     paramsSorted.forEach((v, k) => {
       if (["C"].includes(v["PARAMCLASS"]) && v["required"]) {
         this.Params.set(k, v);
       }
     });
-
     // optional CHANGING
     paramsSorted.forEach((v, k) => {
       if (["C"].includes(v["PARAMCLASS"]) && !v["required"]) {
@@ -366,16 +373,27 @@ export class parseRFM {
     const result = {
       parameters: this.Params,
       fields: this.Fields,
-      stat: {
-        variables: cv,
-        structures: cs,
-        tables: ct,
-      },
+      stat: param_type_stat,
     };
 
     await this.client.close();
 
     const writer = new Writer(this.RFM_NAME);
+
+    for (const k in param_type_stat) {
+      let name;
+      if (k === CN.PARAMTYPE_VAR) {
+        name = "Variables ";
+      } else if (k === CN.PARAMTYPE_STRUCT) {
+        name = "Structures";
+      } else if (k === CN.PARAMTYPE_TABLE) {
+        name = "Tables    ";
+      } else if (k === CN.PARAMTYPE_EXC) {
+        name = "Exceptions";
+      } else throw `Unknown parameter type : ${k}`;
+      writer.write(`// ${name}: ${param_type_stat[k]}`);
+    }
+    writer.write();
 
     writer.write(`let params = {`);
     writer.addindent();
