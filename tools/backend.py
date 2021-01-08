@@ -18,6 +18,7 @@ as JSON dictionaries:
         Helps.json
 """
 
+import argparse
 import os
 import json
 import sys
@@ -126,7 +127,14 @@ def markup(dfies):
             if i in ("DECIMALS", "MASKLEN", "LENG", "OUTPUTLEN", "INTLEN"):
                 if int(dfies[i]):
                     markup["format"][i] = int(dfies[i])  # dfies[i].strip('0')
-            elif i in ("SIGN", "MASK", "LTRFLDDIS", "LOWERCASE", "REFTABLE", "REFFIELD",):
+            elif i in (
+                "SIGN",
+                "MASK",
+                "LTRFLDDIS",
+                "LOWERCASE",
+                "REFTABLE",
+                "REFFIELD",
+            ):
                 if not (not dfies[i]):
                     markup["format"][i] = dfies[i]
             else:
@@ -143,7 +151,9 @@ def markup(dfies):
     # value input help
     if dfies["F4AVAILABL"] == "X":
         shlp_descriptor = __conn.call(
-            rfm_get_search_help, IV_TABNAME=dfies["TABNAME"], IV_FIELDNAME=dfies["FIELDNAME"],
+            rfm_get_search_help,
+            IV_TABNAME=dfies["TABNAME"],
+            IV_FIELDNAME=dfies["FIELDNAME"],
         )
         shlp = shlp_descriptor["ES_SHLP"]
         shlp_title = shlp_descriptor["EV_SHLP_TITLE"]
@@ -156,9 +166,7 @@ def markup(dfies):
             shlp_values = __conn.call(rfm_get_dom_values, IV_DOMNAME=shlp["SHLPNAME"])["ET_VALUES"]
             # if two elements list DOMVALUE_L set to 'X' and '', consider as binary input
             if len(shlp_values) == 2:
-                if (
-                    BINARY_VALUES & {shlp_values[0]["DOMVALUE_L"], shlp_values[1]["DOMVALUE_L"]}
-                ) == BINARY_VALUES:
+                if (BINARY_VALUES & {shlp_values[0]["DOMVALUE_L"], shlp_values[1]["DOMVALUE_L"]}) == BINARY_VALUES:
                     markup["format"][INPUT_TYPE_KEY] = INPUT_TYPE_BINARY
                     shlp_values = None
                     del markup["input"]["SHLP"]
@@ -168,9 +176,7 @@ def markup(dfies):
 
     # add domain CT if no other shelp found
     if "DOMNAME" in markup["format"] and "SHLP" not in markup["input"]:
-        domain_ct = __conn.call("DD_DOMA_GET", DOMAIN_NAME=markup["format"]["DOMNAME"])[
-            "DD01V_WA_A"
-        ]["ENTITYTAB"]
+        domain_ct = __conn.call("DD_DOMA_GET", DOMAIN_NAME=markup["format"]["DOMNAME"])["DD01V_WA_A"]["ENTITYTAB"]
         if domain_ct:
             shlp = {"SHLPTYPE": "CT", "SHLPNAME": domain_ct}
             shlp_key = "%s %s" % (shlp["SHLPTYPE"], shlp["SHLPNAME"])
@@ -181,9 +187,7 @@ def markup(dfies):
             if shlp["SHLPTYPE"] in "CH,CT":
                 markup["format"][INPUT_TYPE_KEY] = INPUT_TYPE_LIST
                 tab_fields = __conn.call("BDL_DDIF_TABL_GET", NAME=shlp["SHLPNAME"])["DD03P_TAB"]
-                tab_metadata = __conn.call("FDT_GET_DDIC_METADATA", IV_TYPENAME=shlp["SHLPNAME"])[
-                    "ES_METADATA"
-                ]
+                tab_metadata = __conn.call("FDT_GET_DDIC_METADATA", IV_TYPENAME=shlp["SHLPNAME"])["ES_METADATA"]
                 tab_text = tab_metadata["TEXT"]
                 if not tab_text:
                     tab_text = tab_metadata["SHORT_TEXT"]
@@ -192,11 +196,7 @@ def markup(dfies):
                 sh_val_fields = []
                 # sh_disp_fields = []
                 for tf in tab_fields:
-                    if (
-                        tf["KEYFLAG"]
-                        and tf["FIELDNAME"] != ".INCLUDE"
-                        and tf["ROLLNAME"] != "MANDT"
-                    ):
+                    if tf["KEYFLAG"] and tf["FIELDNAME"] != ".INCLUDE" and tf["ROLLNAME"] != "MANDT":
                         sh_val_fields.append(tf["FIELDNAME"])
                 shlp_values = {
                     "valueProperty": sh_val_fields,
@@ -295,14 +295,14 @@ def get_dfies(p):
             if "locale" not in dfies:
                 dfies["locale"] = {}
 
-            if (
-                dfies["TABNAME"] + dfies["FIELDNAME"]
-                == dfies_lang["TABNAME"] + dfies_lang["FIELDNAME"]
-            ):
+            if dfies["TABNAME"] + dfies["FIELDNAME"] == dfies_lang["TABNAME"] + dfies_lang["FIELDNAME"]:
                 dfies["locale"][lang] = get_text(dfies_lang)
                 # FIELDTEXT fallback to locale
                 if not dfies["FIELDTEXT"] and "FIELDTEXT" in dfies["locale"][lang]:
-                    dfies["FIELDTEXT"] = "?%s: %s" % (lang, dfies["locale"][lang]["FIELDTEXT"],)
+                    dfies["FIELDTEXT"] = "?%s: %s" % (
+                        lang,
+                        dfies["locale"][lang]["FIELDTEXT"],
+                    )
             else:
                 raise ValueError(
                     "Locale [%s] field key mismatch: [%s %s] [%s %s]"
@@ -361,30 +361,53 @@ def get_dfies(p):
     elif type(dfies) is bool:
         pass  # print 'No DDIC for' ,p['PARAMETER']
     else:
-        raise ValueError(
-            "Parameter [%s] dfis type invalid: %s" % (p["PARAMETER"], str(type(dfies)))
-        )
+        raise ValueError("Parameter [%s] dfis type invalid: %s" % (p["PARAMETER"], str(type(dfies))))
 
     return dfies
 
 
+def get_arg_parser():
+
+    arg_usage = """python backend.py <abap_system id> <rfm_set name> [<option>]
+"""
+    arg_parser = argparse.ArgumentParser(
+        # prog = sys.argv[0],
+        usage=arg_usage,
+        description="ABAP RFM call template",
+    )
+    arg_parser.add_argument("abap_system", type=str, help="ABAP system id")
+    arg_parser.add_argument("rfmset", nargs="?", type=str, help="ABAP RFM set name")
+    return arg_parser
+
+
 if __name__ == "__main__":
 
-    if len(rfm_sets) == 0:
-        rfm_sets = catalog
+    args = get_arg_parser().parse_args()
 
-    e, __conn = get_connection(BACKEND[abap_backend])
+    if args.rfmset is None:
+        RFMLIST = rfm_sets
+    else:
+        if args.rfmset not in catalog:
+            raise ValueError(f"RFM set not defined in BO catalog: {args.rfmset}")
+        else:
+            RFMLIST = [args.rfmset]
+
+    if len(RFMLIST) == 0:
+        RFMLIST = catalog
+
+    e, __conn = get_connection(args.abap_system)
     if __conn:
         a = __conn.get_connection_attributes()
         print(
-            "Connected to host: %s sid: %s client: %s kernel: %s user: %s lang: %s"
-            % (a["partnerHost"], a["sysId"], a["client"], a["kernelRel"], a["user"], a["language"],)
+            "Connected to "
+            f"host: {a['partnerHost']} sid: {a['sysId']} "
+            f"client: {a['client']} kernel: {a['kernelRel']} user: {a['user']} lang: {a['language']}"
         )
     else:
         print(e)
         sys.exit(-1)
 
-    for rfmset in sorted(rfm_sets):
+    for rfmset in sorted(RFMLIST):
 
         if not os.path.exists("data/%s" % rfmset):
             os.makedirs("data/%s" % rfmset)
@@ -405,7 +428,7 @@ if __name__ == "__main__":
             FUNCTIONNAMES=[{"FUNCTIONNAME": rfm_name} for rfm_name in rfm_list],
         )
         if r["FUNC_ERRORS"]:
-            if r["FUNC_ERRORS"][0]["EXCEPTION"] == u"FU_NOT_FOUND":
+            if r["FUNC_ERRORS"][0]["EXCEPTION"] == "FU_NOT_FOUND":
                 print("!! RFM not found:", r["FUNC_ERRORS"][0]["FUNCNAME"])
                 # raise ValueError(r['FUNC_ERRORS'])
             continue
@@ -458,9 +481,9 @@ if __name__ == "__main__":
             if not p["PARAMTEXT"]:
                 # fallback to locale, if any maintained
                 if "locale" in p:
-                    for l in p["locale"]:
-                        if p["locale"][l]:
-                            p["PARAMTEXT"] = "?%s: %s" % (l, p["locale"][l])
+                    for lc in p["locale"]:
+                        if p["locale"][lc]:
+                            p["PARAMTEXT"] = "?%s: %s" % (lc, p["locale"][lc])
                             break
             # still not set ?
             if not p["PARAMTEXT"]:
@@ -631,18 +654,29 @@ if __name__ == "__main__":
 
         Fields = sorted(Fields.items())  # dict -> sortedlist
 
-        with codecs.open("data/%s/Params.json" % rfmset, encoding="utf-8", mode="wb") as fout:
+        with codecs.open("data/%s/Params.json" % rfmset, encoding="utf-8", mode="w") as fout:
             json.dump(
-                Params, fout, indent=4, ensure_ascii=False, sort_keys=True,  # encoding="utf-8",
+                Params,
+                fout,
+                indent=4,
+                ensure_ascii=False,
+                sort_keys=True,
             )
 
-        with codecs.open("data/%s/Fields.json" % rfmset, encoding="utf-8", mode="wb") as fout:
+        with codecs.open("data/%s/Fields.json" % rfmset, encoding="utf-8", mode="w") as fout:
             json.dump(
-                Fields, fout, indent=4, ensure_ascii=False, sort_keys=True,  # encoding="utf-8",
+                Fields,
+                fout,
+                indent=4,
+                ensure_ascii=False,
+                sort_keys=True,
             )
 
-        with codecs.open("data/%s/Helps.json" % rfmset, encoding="utf-8", mode="wb") as fout:
+        with codecs.open("data/%s/Helps.json" % rfmset, encoding="utf-8", mode="w") as fout:
             json.dump(
-                Helps, fout, indent=4, ensure_ascii=False, sort_keys=True,  # encoding="utf-8",
+                Helps,
+                fout,
+                indent=4,
+                ensure_ascii=False,
+                sort_keys=True,
             )
-

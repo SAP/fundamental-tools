@@ -1,0 +1,1844 @@
+<!-- /COE/RBP_PAM_EQUIPMENT_GET 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<FormItem label="General Flag">
+    <CheckBox value={this.IV_CHARACTERISTICS}/>
+</FormItem>
+
+
+<FormItem label="General Flag">
+    <CheckBox value={this.IV_DOCUMENT}/>
+</FormItem>
+
+
+<FormItem label="Equipment Number">
+    <Input value={this.IV_EQUIID}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="General Flag">
+    <CheckBox value={this.IV_WITH_TIMESTATS}/>
+</FormItem>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ES_HEADER /COE/RBP_S_PAM_EQUI_HEADER ?de: Equipment Header -->
+
+<FormItem label="ABC indicator for technical object">
+    <ComboBox value={this.ES_HEADER.ABCINDIC}
+        items="{type:'CT', id:'T370C'}"
+        data-abap="{type: 'string', length: '1'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Acquisition date">
+    <DatePicker value={this.ES_HEADER.ACQDATE}/>
+</FormItem>
+
+
+<FormItem label="Acquisition Value">
+    <Input value={this.ES_HEADER.ACQUISVAL}
+           data-abap="{type: 'number', length: '+12.2'}"
+    />
+</FormItem>
+
+
+<FormItem label="Main Asset Number">
+    <ComboBox value={this.ES_HEADER.ASSET_NO}
+        items="{type:'CT', id:'ANLH'}"
+        data-abap="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Technical object authorization group">
+    <Input value={this.ES_HEADER.AUTHGRP}
+           data-abap="{type: 'string', length: '4'}"
+           data-shlp="{type:'SH', id:'H_T370B'}"
+    />
+</FormItem>
+
+
+<FormItem label="Business Area">
+    <Input value={this.ES_HEADER.BUS_AREA}
+           data-abap="{type: 'string', length: '4', mid: 'GSB'}"
+           data-shlp="{type:'SH', id:'H_TGSB'}"
+    />
+</FormItem>
+
+
+<FormItem label="Catalog Profile">
+    <ComboBox value={this.ES_HEADER.CATPROFILE}
+        items="{type:'CT', id:'T352B'}"
+        data-abap="{type: 'string', length: '9'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Company Code">
+    <Input value={this.ES_HEADER.COMP_CODE}
+           data-abap="{type: 'string', length: '4', mid: 'BUK'}"
+           data-shlp="{type:'SH', id:'C_T001'}"
+    />
+</FormItem>
+
+
+<FormItem label="Month of construction">
+    <Input value={this.ES_HEADER.CONSTMONTH}
+           data-abap="{type: 'string', length: '2'}"
+           data-shlp="{type:'FV', id:'BAUMM'}"
+    />
+</FormItem>
+
+
+<FormItem label="Construction type material of the object">
+    <ComboBox value={this.ES_HEADER.CONSTTYPE}
+        items="{type:'CT', id:'MARA'}"
+        data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Long Material Number for CONSTTYPE Field">
+    <Input value={this.ES_HEADER.CONSTTYPE_EXTERNAL}
+           data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+    />
+</FormItem>
+
+
+<FormItem label="External GUID for CONSTTYPE Field">
+    <Input value={this.ES_HEADER.CONSTTYPE_GUID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Construction type material of the object">
+    <Input value={this.ES_HEADER.CONSTTYPE_LONG}
+           data-abap="{type: 'string', length: '40', mid: 'MAT'}"
+    />
+</FormItem>
+
+
+<FormItem label="Version Number for CONSTTYPE Field">
+    <Input value={this.ES_HEADER.CONSTTYPE_VERSION}
+           data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+    />
+</FormItem>
+
+
+<FormItem label="Year of construction">
+    <Input value={this.ES_HEADER.CONSTYEAR}
+           data-abap="{type: 'string', length: '4', alpha: 'GJAHR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Cost Center">
+    <ComboBox value={this.ES_HEADER.COSTCENTER}
+        items="{type:'CT', id:'CSKS'}"
+        data-abap="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Country ISO code">
+    <Input value={this.ES_HEADER.COUNTR_ISO}
+           data-abap="{type: 'string', length: '2'}"
+           data-shlp="{type:'SH', id:'F4_INTCA'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO currency code">
+    <Input value={this.ES_HEADER.CURR_ISO}
+           data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Description of Technical Object">
+    <Input value={this.ES_HEADER.DESCRIPT}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Distribution Channel">
+    <Input value={this.ES_HEADER.DISTR_CHAN}
+           data-abap="{type: 'string', length: '2', mid: 'VTW'}"
+           data-shlp="{type:'SH', id:'CSH_TVTW'}"
+    />
+</FormItem>
+
+
+<FormItem label="Division">
+    <Input value={this.ES_HEADER.DIVISION}
+           data-abap="{type: 'string', length: '2', mid: 'SPA'}"
+           data-shlp="{type:'SH', id:'CSH_TSPA'}"
+    />
+</FormItem>
+
+
+<FormItem label="End Point">
+    <Input value={this.ES_HEADER.END_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of First Offset">
+    <ComboBox value={this.ES_HEADER.FIRST_OFFSET_TYPE_CODE}
+        items="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Unit of Measurement for Offset 1 in ISO Code">
+    <Input value={this.ES_HEADER.FIRST_OFFSET_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Value of Offset 1">
+    <Input value={this.ES_HEADER.FIRST_OFFSET_VALUE}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Inventory number">
+    <Input value={this.ES_HEADER.INVENTORY}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Length">
+    <Input value={this.ES_HEADER.LINEAR_LENGTH}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Linear Reference Pattern">
+    <Input value={this.ES_HEADER.LINEAR_REFERENCE_PATTERN}
+           data-abap="{type: 'string', length: '10', mid: 'LRP'}"
+           data-shlp="{type:'SH', id:'EAML_SHLP_LRPID'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unit of Measurement for Linear Data in ISO Code">
+    <Input value={this.ES_HEADER.LINEAR_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Asset location">
+    <Input value={this.ES_HEADER.MAINTLOC}
+           data-abap="{type: 'string', length: '10'}"
+           data-shlp="{type:'SH', id:'H_T499S'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance plant">
+    <Input value={this.ES_HEADER.MAINTPLANT}
+           data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+           data-shlp="{type:'SH', id:'H_T001W'}"
+    />
+</FormItem>
+
+
+<FormItem label="Room">
+    <Input value={this.ES_HEADER.MAINTROOM}
+           data-abap="{type: 'string', length: '8'}"
+    />
+</FormItem>
+
+
+<FormItem label="Country of manufacture">
+    <ComboBox value={this.ES_HEADER.MANCOUNTRY}
+        items="{type:'CT', id:'T005'}"
+        data-abap="{type: 'string', length: '3'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Manufacturer of asset">
+    <Input value={this.ES_HEADER.MANFACTURE}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer model number">
+    <Input value={this.ES_HEADER.MANMODEL}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer part number">
+    <Input value={this.ES_HEADER.MANPARNO}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer serial number">
+    <Input value={this.ES_HEADER.MANSERNO}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Length Spec for Distance between Marker and End Point">
+    <Input value={this.ES_HEADER.MARKER_DISTANCE_END_POINT}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Distance between Marker and Start Point">
+    <Input value={this.ES_HEADER.MARKER_DISTANCE_START_POINT}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unit for the Distance from Marker in ISO Code">
+    <Input value={this.ES_HEADER.MARKER_DISTANCE_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Marker for End Point">
+    <Input value={this.ES_HEADER.MARKER_END_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+    />
+</FormItem>
+
+
+<FormItem label="Marker for Start Point">
+    <Input value={this.ES_HEADER.MARKER_START_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of Technical Object">
+    <ComboBox value={this.ES_HEADER.OBJECTTYPE}
+        items="{type:'CT', id:'T370K'}"
+        data-abap="{type: 'string', length: '10'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Size/dimension">
+    <Input value={this.ES_HEADER.OBJ_SIZE}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Weight of object">
+    <Input value={this.ES_HEADER.OBJ_WEIGHT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <Input value={this.ES_HEADER.PLANGROUP}
+           data-abap="{type: 'string', length: '3', mid: 'IHG'}"
+           data-shlp="{type:'SH', id:'H_T024I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance Planning Plant">
+    <Input value={this.ES_HEADER.PLANPLANT}
+           data-abap="{type: 'string', length: '4', mid: 'IWK'}"
+           data-shlp="{type:'SH', id:'H_T399I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Plant section">
+    <Input value={this.ES_HEADER.PLSECTN}
+           data-abap="{type: 'string', length: '3', mid: 'BBE'}"
+           data-shlp="{type:'SH', id:'H_T357'}"
+    />
+</FormItem>
+
+
+<FormItem label="Object ID of PP work center">
+    <Input value={this.ES_HEADER.PP_WKCTR}
+           data-abap="{type: 'string', length: '8'}"
+           data-shlp="{type:'CT', id:'CRID'}"
+    />
+</FormItem>
+
+
+<FormItem label="Address number">
+    <ComboBox value={this.ES_HEADER.READ_ADRNR}
+        items="{type:'CT', id:'ADRC'}"
+        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Date of Last Change">
+    <DatePicker value={this.ES_HEADER.READ_CHDAT}/>
+</FormItem>
+
+
+<FormItem label="Name of person who changed object">
+    <Input value={this.ES_HEADER.READ_CHNAM}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Date on Which Record Was Created">
+    <DatePicker value={this.ES_HEADER.READ_CRDAT}/>
+</FormItem>
+
+
+<FormItem label="Name of Person who Created the Object">
+    <Input value={this.ES_HEADER.READ_CRNAM}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Object number">
+    <ComboBox value={this.ES_HEADER.READ_OBJNR}
+        items="{type:'CT', id:'ONR00'}"
+        data-abap="{type: 'string', length: '22', mid: 'ONR'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Sales group">
+    <Input value={this.ES_HEADER.SALES_GRP}
+           data-abap="{type: 'string', length: '3', mid: 'VKG'}"
+           data-shlp="{type:'SH', id:'H_TVKGR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Sales office">
+    <Input value={this.ES_HEADER.SALES_OFF}
+           data-abap="{type: 'string', length: '4', mid: 'VKB'}"
+           data-shlp="{type:'SH', id:'H_TVBUR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Sales Organization">
+    <Input value={this.ES_HEADER.SALES_ORG}
+           data-abap="{type: 'string', length: '4', mid: 'VKO'}"
+           data-shlp="{type:'SH', id:'H_TVKO'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of Second Offset">
+    <Input value={this.ES_HEADER.SECOND_OFFSET_TYPE_CODE}
+           data-abap="{type: 'string', length: '2'}"
+           data-shlp="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unit of Measurement for Offset 2 in ISO Code">
+    <Input value={this.ES_HEADER.SECOND_OFFSET_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Value of Offset 2">
+    <Input value={this.ES_HEADER.SECOND_OFFSET_VALUE}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Settlement order">
+    <Input value={this.ES_HEADER.SETTLORDER}
+           data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'ORDE'}"
+    />
+</FormItem>
+
+
+<FormItem label="Notification Type for Shift Note for Object">
+    <ComboBox value={this.ES_HEADER.SHIFT_NOTE_NOTIFICATION_TYPE}
+        items="{type:'CT', id:'TQ80'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Shift Report Type for Object">
+    <Input value={this.ES_HEADER.SHIFT_REPORT_TYPE}
+           data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Sort field">
+    <Input value={this.ES_HEADER.SORTFIELD}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Standing order number">
+    <Input value={this.ES_HEADER.STANDORDER}
+           data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'ORDP'}"
+    />
+</FormItem>
+
+
+<FormItem label="Start-up Date of the Technical Object">
+    <DatePicker value={this.ES_HEADER.START_FROM}/>
+</FormItem>
+
+
+<FormItem label="Start Point">
+    <Input value={this.ES_HEADER.START_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+    />
+</FormItem>
+
+
+<FormItem label="Asset Subnumber">
+    <ComboBox value={this.ES_HEADER.SUB_NUMBER}
+        items="{type:'CT', id:'ANLA'}"
+        data-abap="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.ES_HEADER.UNIT_ISO}
+        items="{type:'CT', id:'T006I'}"
+        data-abap="{type: 'string', length: '3'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Work Breakdown Structure Element (WBS Element)">
+    <ComboBox value={this.ES_HEADER.WBS_ELEM}
+        items="{type:'CT', id:'PRPS'}"
+        data-abap="{type: 'string', length: '8', alpha: 'ABPSP'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Object ID of the Work Center">
+    <ComboBox value={this.ES_HEADER.WORK_CTR}
+        items="{type:'CT', id:'CRID'}"
+        data-abap="{type: 'string', length: '8'}">
+    </ComboBox>
+</FormItem>
+
+
+<!-- ES_SPECIFIC BAPI_ITOB_EQ_ONLY ?de: PM: BAPI-Struktur für ITOBAPI_CREATE_EQ_ONLY + READ-Felder -->
+
+<FormItem label="Batch Number">
+    <ComboBox value={this.ES_SPECIFIC.BATCH}
+        items="{type:'CT', id:'MCH1'}"
+        data-abap="{type: 'string', length: '10', mid: 'CHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Configurable Material">
+    <Input value={this.ES_SPECIFIC.CONFIGMAT}
+           data-abap="{type: 'string', length: '18', alpha: 'MATN1'}"
+           data-shlp="{type:'SH', id:'MAT1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Long Material Number for CONFIGMAT Field">
+    <Input value={this.ES_SPECIFIC.CONFIGMAT_EXTERNAL}
+           data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+    />
+</FormItem>
+
+
+<FormItem label="External GUID for CONFIGMAT Field">
+    <Input value={this.ES_SPECIFIC.CONFIGMAT_GUID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Configurable Material">
+    <Input value={this.ES_SPECIFIC.CONFIGMAT_LONG}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Version Number for CONFIGMAT Field">
+    <Input value={this.ES_SPECIFIC.CONFIGMAT_VERSION}
+           data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+    />
+</FormItem>
+
+
+<FormItem label="General Indicator (Single Character)">
+    <Input value={this.ES_SPECIFIC.CONFIG_CONTROL_IND}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="First delivery date of the equipment">
+    <DatePicker value={this.ES_SPECIFIC.DELIVDATE}/>
+</FormItem>
+
+
+<FormItem label="Equipment category">
+    <ComboBox value={this.ES_SPECIFIC.EQUICATGRY}
+        items="{type:'CT', id:'T370T'}"
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Date, intended for SAP internal use">
+    <DatePicker value={this.ES_SPECIFIC.FREE_DATE1}/>
+</FormItem>
+
+
+<FormItem label="Date, intended for SAP internal use">
+    <DatePicker value={this.ES_SPECIFIC.FREE_DATE2}/>
+</FormItem>
+
+
+<FormItem label="Technical information, intended for SAP internal use">
+    <Input value={this.ES_SPECIFIC.FREE_NOTE1}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Technical information, intended for SAP internal use">
+    <Input value={this.ES_SPECIFIC.FREE_NOTE2}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Numerical field, intended for SAP internal use">
+    <Input value={this.ES_SPECIFIC.FREE_NUM1}
+           data-abap="{type: 'string', length: '9'}"
+    />
+</FormItem>
+
+
+<FormItem label="Numerical field, intended for SAP internal use">
+    <Input value={this.ES_SPECIFIC.FREE_NUM2}
+           data-abap="{type: 'string', length: '9'}"
+    />
+</FormItem>
+
+
+<FormItem label="Function Identifier">
+    <Input value={this.ES_SPECIFIC.FUNC_ID}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment position at InstallLoc (Superior Equip./FunctLoc)">
+    <Input value={this.ES_SPECIFIC.INST_POS}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem label="Internal Identification for PVS Objects">
+    <TextArea value={this.ES_SPECIFIC.IPPE_GUID}
+           data-abap="{type: 'string', length: '16'}"
+    />
+</FormItem>
+
+
+<FormItem label="Structure Type of UII">
+    <Input value={this.ES_SPECIFIC.IUID_TYPE}
+           data-abap="{type: 'string', length: '10'}"
+           data-shlp="{type:'SH', id:'H_IUID_TYPE'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment license number">
+    <Input value={this.ES_SPECIFIC.LICENSE}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer drawing number">
+    <Input value={this.ES_SPECIFIC.MANDRAWNO}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Material Number">
+    <Input value={this.ES_SPECIFIC.MATERIAL}
+           data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+           data-shlp="{type:'SH', id:'S_MAT1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Long Material Number for MATERIAL Field">
+    <Input value={this.ES_SPECIFIC.MATERIAL_EXTERNAL}
+           data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+    />
+</FormItem>
+
+
+<FormItem label="External GUID for MATERIAL Field">
+    <Input value={this.ES_SPECIFIC.MATERIAL_GUID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Material Number (40 Characters, needed f. technical reasons)">
+    <Input value={this.ES_SPECIFIC.MATERIAL_LONG}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Version Number for MATERIAL Field">
+    <Input value={this.ES_SPECIFIC.MATERIAL_VERSION}
+           data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+    />
+</FormItem>
+
+
+<FormItem label="Configuration (internal object number)">
+    <Input value={this.ES_SPECIFIC.READ_CUOBJ}
+           data-abap="{type: 'string', length: '18', mid: 'CUX'}"
+    />
+</FormItem>
+
+
+<FormItem label="Referenced Configuration">
+    <CheckBox value={this.ES_SPECIFIC.READ_CUREF}/>
+</FormItem>
+
+
+<FormItem label="Functional Location Label">
+    <Input value={this.ES_SPECIFIC.READ_FLOC}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance Plan">
+    <Input value={this.ES_SPECIFIC.READ_MAINTENANCE_PLAN}
+           data-abap="{type: 'string', length: '12', mid: 'MPL', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'MPLAL'}"
+    />
+</FormItem>
+
+
+<FormItem label="Measuring Point">
+    <Input value={this.ES_SPECIFIC.READ_MEASURING_POINT}
+           data-abap="{type: 'string', length: '12', mid: 'IPT', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'IMPM'}"
+    />
+</FormItem>
+
+
+<FormItem label="Superordinate Equipment">
+    <ComboBox value={this.ES_SPECIFIC.READ_SUPEQ}
+        items="{type:'CT', id:'EQUI'}"
+        data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Valid-From Date">
+    <DatePicker value={this.ES_SPECIFIC.READ_VALID_FROM}/>
+</FormItem>
+
+
+<FormItem label="Serial Number">
+    <Input value={this.ES_SPECIFIC.SERIALNO}
+           data-abap="{type: 'string', length: '18', mid: 'SER', alpha: 'GERNR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Technical identification number">
+    <Input value={this.ES_SPECIFIC.TECHID}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Parameter Variant/Standard Variant">
+    <Input value={this.ES_SPECIFIC.TECHS}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unique Item Identifier">
+    <Input value={this.ES_SPECIFIC.UII}
+           data-abap="{type: 'string', length: '72', mid: 'UII'}"
+           data-shlp="{type:'SH', id:'H_UII'}"
+    />
+</FormItem>
+
+
+<FormItem label="Plant Responsible for UII">
+    <Input value={this.ES_SPECIFIC.UII_PLANT}
+           data-abap="{type: 'string', length: '4', mid: 'WRK'}"
+           data-shlp="{type:'SH', id:'H_T001W_C'}"
+    />
+</FormItem>
+
+
+<!-- ET_BRKDWN_EFF /COE/RBP_T_MCIT_BRKDWN_EFF ?de: Breakdown Effective -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_BRKDWN_EFF" title="?de: Breakdown Effective"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="EBDNR" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="EBGND" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="System Date"></fd-dg-column>
+    <fd-dg-column sortable field="EBGNT" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}' label="System Time"></fd-dg-column>
+    <fd-dg-column sortable field="EENDD" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="System Date"></fd-dg-column>
+    <fd-dg-column sortable field="EENDT" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}' label="System Time"></fd-dg-column>
+    <fd-dg-column sortable field="ELSTD" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="System Date"></fd-dg-column>
+    <fd-dg-column sortable field="ELSTT" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}' label="System Time"></fd-dg-column>
+    <fd-dg-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA"  label="Equipment Number"></fd-dg-column>
+    <fd-dg-column sortable field="NBDREP" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="SPMON" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6"}' alpha-exit="PERI"  label="Period to analyze - month"></fd-dg-column>
+    <fd-dg-column sortable field="TBRMIN" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR"  label="Functional Location"></fd-dg-column>
+    <fd-dg-column sortable field="TTRMIN" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8"}' label="todo: no field text"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_BRKDWN_EFF /COE/RBP_T_MCIT_BRKDWN_EFF ?de: Breakdown Effective -->
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_EFF.EBDNR}
+           data-abap="{type: 'number', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="System Date">
+    <DatePicker value={this.ET_BRKDWN_EFF.EBGND}/>
+</FormItem>
+
+
+<FormItem label="System Time">
+    <TimePicker value={this.ET_BRKDWN_EFF.EBGNT}/>
+</FormItem>
+
+
+<FormItem label="System Date">
+    <DatePicker value={this.ET_BRKDWN_EFF.EENDD}/>
+</FormItem>
+
+
+<FormItem label="System Time">
+    <TimePicker value={this.ET_BRKDWN_EFF.EENDT}/>
+</FormItem>
+
+
+<FormItem label="System Date">
+    <DatePicker value={this.ET_BRKDWN_EFF.ELSTD}/>
+</FormItem>
+
+
+<FormItem label="System Time">
+    <TimePicker value={this.ET_BRKDWN_EFF.ELSTT}/>
+</FormItem>
+
+
+<FormItem label="Equipment Number">
+    <Input value={this.ET_BRKDWN_EFF.EQUNR}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_EFF.NBDREP}
+           data-abap="{type: 'number', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Period to analyze - month">
+    <Input value={this.ET_BRKDWN_EFF.SPMON}
+           data-abap="{type: 'string', length: '6', alpha: 'PERI'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_EFF.TBRMIN}
+           data-abap="{type: 'number', length: '8'}"
+    />
+</FormItem>
+
+
+<FormItem label="Functional Location">
+    <Input value={this.ET_BRKDWN_EFF.TPLNR}
+           data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+           data-shlp="{type:'SH', id:'IFLM'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_EFF.TTRMIN}
+           data-abap="{type: 'number', length: '8'}"
+    />
+</FormItem>
+
+
+<!-- ET_BRKDWN_REP /COE/RBP_T_MCIT_BRKDWN_REP ?de: Breakdown Report -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_BRKDWN_REP" title="?de: Breakdown Report"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="AUSBS" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="System Date"></fd-dg-column>
+    <fd-dg-column sortable field="AUSVN" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="System Date"></fd-dg-column>
+    <fd-dg-column sortable field="AUSZT" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"1.15"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="AUZTB" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}' label="System Time"></fd-dg-column>
+    <fd-dg-column sortable field="AUZTV" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}' label="System Time"></fd-dg-column>
+    <fd-dg-column sortable field="EBDNR" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA"  label="Equipment Number"></fd-dg-column>
+    <fd-dg-column sortable field="HAUSZT" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"9.2"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="HIDDEN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="QMNUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"IQM", shlp:{type:'CT', id:'QMEL'}}' alpha-exit="ALPHA"  label="Notification No"></fd-dg-column>
+    <fd-dg-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR"  label="Functional Location"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_BRKDWN_REP /COE/RBP_T_MCIT_BRKDWN_REP ?de: Breakdown Report -->
+
+<FormItem label="System Date">
+    <DatePicker value={this.ET_BRKDWN_REP.AUSBS}/>
+</FormItem>
+
+
+<FormItem label="System Date">
+    <DatePicker value={this.ET_BRKDWN_REP.AUSVN}/>
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_REP.AUSZT}
+           data-abap="{type: 'number', length: '1.15'}"
+    />
+</FormItem>
+
+
+<FormItem label="System Time">
+    <TimePicker value={this.ET_BRKDWN_REP.AUZTB}/>
+</FormItem>
+
+
+<FormItem label="System Time">
+    <TimePicker value={this.ET_BRKDWN_REP.AUZTV}/>
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_REP.EBDNR}
+           data-abap="{type: 'number', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment Number">
+    <Input value={this.ET_BRKDWN_REP.EQUNR}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_REP.HAUSZT}
+           data-abap="{type: 'number', length: '9.2'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_BRKDWN_REP.HIDDEN}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Notification No">
+    <ComboBox value={this.ET_BRKDWN_REP.QMNUM}
+        items="{type:'CT', id:'QMEL'}"
+        data-abap="{type: 'string', length: '12', mid: 'IQM', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Functional Location">
+    <Input value={this.ET_BRKDWN_REP.TPLNR}
+           data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+           data-shlp="{type:'SH', id:'IFLM'}"
+    />
+</FormItem>
+
+
+<!-- ET_CHARACTERISTICS /COE/RBP_T_PAM_CHARACTERISTICS ?de: Characteristics -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_CHARACTERISTICS" title="?de: Characteristics"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="ADDITIONAL_VAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ATXFE'}}' label="Indicator: Additional Values"></fd-dg-column>
+    <fd-dg-column sortable field="BASE_UOM_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T006I'}}' label="Base unit of measure in ISO code"></fd-dg-column>
+    <fd-dg-column sortable field="CASE_SENSITIVE" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Case Sensitive"></fd-dg-column>
+    <fd-dg-column sortable field="CHARACT_GROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TCMG'}}' label="Characteristics Group"></fd-dg-column>
+    <fd-dg-column sortable field="CHAR_INHERITED" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}' label="Indicator: characteristic is inherited"></fd-dg-column>
+    <fd-dg-column sortable field="CLASS" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"KLA"}' label="Class number"></fd-dg-column>
+    <fd-dg-column sortable field="CURRENCY_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}' label="ISO Currency Code"></fd-dg-column>
+    <fd-dg-column sortable field="DATA_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'FV', id:'ATFOR'}}' label="Data type of characteristic"></fd-dg-column>
+    <fd-dg-column sortable field="DEPARTMENT_VIEW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"VIEW"}' label="Organizational Area"></fd-dg-column>
+    <fd-dg-column sortable field="DESCR_CHAR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Characteristic description"></fd-dg-column>
+    <fd-dg-column sortable field="DIN_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}' label="Code letter"></fd-dg-column>
+    <fd-dg-column sortable field="ENTRY_OBLIGATORY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ATXFE'}}' label="Entry Required"></fd-dg-column>
+    <fd-dg-column sortable field="INTERVALS_ALLOWED" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ATXFE'}}' label="Interval Values Allowed"></fd-dg-column>
+    <fd-dg-column sortable field="NAME_CHAR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"FEA"}' label="Characteristic Name"></fd-dg-column>
+    <fd-dg-column sortable field="NUMBER_DECIMALS" data-abap.bind='{ddic:"INT2", type:"number", format:"integer", length:"5"}' label="Number of Decimal Places"></fd-dg-column>
+    <fd-dg-column sortable field="NUMBER_DIGITS" data-abap.bind='{ddic:"INT2", type:"number", format:"integer", length:"5"}' label="Number of Characters"></fd-dg-column>
+    <fd-dg-column sortable field="OBJECT_TABLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Table Name"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Value with Plus or Minus Sign"></fd-dg-column>
+    <fd-dg-column sortable field="SINGLE_VALUE" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Single Value"></fd-dg-column>
+    <fd-dg-column sortable field="TABLE_FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}' label="Field Name"></fd-dg-column>
+    <fd-dg-column sortable field="TEMPLATE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Value with template"></fd-dg-column>
+    <fd-dg-column sortable field="TEMPLATE_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"70"}' label="Value with template (70 length, technically needed)"></fd-dg-column>
+    <fd-dg-column sortable field="UNIT_T_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"6"}' label="External Unit of Measurement in Technical Format (6-Char.)"></fd-dg-column>
+    <fd-dg-column sortable field="VALUE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Characteristic Value"></fd-dg-column>
+    <fd-dg-column sortable field="VALUE_FROM" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"+1.15"}' label="Internal floating point from"></fd-dg-column>
+    <fd-dg-column sortable field="VALUE_TO" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"+1.15"}' label="Internal floating point value to"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_CHARACTERISTICS /COE/RBP_T_PAM_CHARACTERISTICS ?de: Characteristics -->
+
+<FormItem label="Indicator: Additional Values">
+    <ComboBox value={this.ET_CHARACTERISTICS.ADDITIONAL_VAL}
+        items="{type:'FV', id:'ATXFE'}"
+        data-abap="{type: 'string', length: '1'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Base unit of measure in ISO code">
+    <Input value={this.ET_CHARACTERISTICS.BASE_UOM_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Case Sensitive">
+    <CheckBox value={this.ET_CHARACTERISTICS.CASE_SENSITIVE}/>
+</FormItem>
+
+
+<FormItem label="Characteristics Group">
+    <ComboBox value={this.ET_CHARACTERISTICS.CHARACT_GROUP}
+        items="{type:'CT', id:'TCMG'}"
+        data-abap="{type: 'string', length: '10'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Indicator: characteristic is inherited">
+    <Input value={this.ET_CHARACTERISTICS.CHAR_INHERITED}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Class number">
+    <Input value={this.ET_CHARACTERISTICS.CLASS}
+           data-abap="{type: 'string', length: '18', mid: 'KLA'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO Currency Code">
+    <Input value={this.ET_CHARACTERISTICS.CURRENCY_ISO}
+           data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Data type of characteristic">
+    <ComboBox value={this.ET_CHARACTERISTICS.DATA_TYPE}
+        items="{type:'FV', id:'ATFOR'}"
+        data-abap="{type: 'string', length: '4'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Organizational Area">
+    <Input value={this.ET_CHARACTERISTICS.DEPARTMENT_VIEW}
+           data-abap="{type: 'string', length: '10', mid: 'VIEW'}"
+    />
+</FormItem>
+
+
+<FormItem label="Characteristic description">
+    <Input value={this.ET_CHARACTERISTICS.DESCR_CHAR}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Code letter">
+    <Input value={this.ET_CHARACTERISTICS.DIN_KEY}
+           data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Entry Required">
+    <ComboBox value={this.ET_CHARACTERISTICS.ENTRY_OBLIGATORY}
+        items="{type:'FV', id:'ATXFE'}"
+        data-abap="{type: 'string', length: '1'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Interval Values Allowed">
+    <ComboBox value={this.ET_CHARACTERISTICS.INTERVALS_ALLOWED}
+        items="{type:'FV', id:'ATXFE'}"
+        data-abap="{type: 'string', length: '1'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Characteristic Name">
+    <Input value={this.ET_CHARACTERISTICS.NAME_CHAR}
+           data-abap="{type: 'string', length: '30', mid: 'FEA'}"
+    />
+</FormItem>
+
+
+<FormItem label="Number of Decimal Places">
+    <Input value={this.ET_CHARACTERISTICS.NUMBER_DECIMALS}
+           data-abap="{type: 'number', length: '5'}"
+    />
+</FormItem>
+
+
+<FormItem label="Number of Characters">
+    <Input value={this.ET_CHARACTERISTICS.NUMBER_DIGITS}
+           data-abap="{type: 'number', length: '5'}"
+    />
+</FormItem>
+
+
+<FormItem label="Table Name">
+    <Input value={this.ET_CHARACTERISTICS.OBJECT_TABLE}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Value with Plus or Minus Sign">
+    <CheckBox value={this.ET_CHARACTERISTICS.SIGN}/>
+</FormItem>
+
+
+<FormItem label="Single Value">
+    <CheckBox value={this.ET_CHARACTERISTICS.SINGLE_VALUE}/>
+</FormItem>
+
+
+<FormItem label="Field Name">
+    <Input value={this.ET_CHARACTERISTICS.TABLE_FIELD}
+           data-abap="{type: 'string', length: '30'}"
+           data-shlp="{type:'CT', id:'DD03L'}"
+    />
+</FormItem>
+
+
+<FormItem label="Value with template">
+    <Input value={this.ET_CHARACTERISTICS.TEMPLATE}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Value with template (70 length, technically needed)">
+    <Input value={this.ET_CHARACTERISTICS.TEMPLATE_LONG}
+           data-abap="{type: 'string', length: '70'}"
+    />
+</FormItem>
+
+
+<FormItem label="External Unit of Measurement in Technical Format (6-Char.)">
+    <Input value={this.ET_CHARACTERISTICS.UNIT_T_EXT}
+           data-abap="{type: 'string', length: '6'}"
+    />
+</FormItem>
+
+
+<FormItem label="Characteristic Value">
+    <Input value={this.ET_CHARACTERISTICS.VALUE}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Internal floating point from">
+    <Input value={this.ET_CHARACTERISTICS.VALUE_FROM}
+           data-abap="{type: 'number', length: '+1.15'}"
+    />
+</FormItem>
+
+
+<FormItem label="Internal floating point value to">
+    <Input value={this.ET_CHARACTERISTICS.VALUE_TO}
+           data-abap="{type: 'number', length: '+1.15'}"
+    />
+</FormItem>
+
+
+<!-- ET_CHARACT_GROUP /COE/RBP_T_PAM_CHARACT_GROUP ?de: Characteristics Group -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_CHARACT_GROUP" title="?de: Characteristics Group"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="CHARACT_GROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TCMG'}}' label="Characteristics Group"></fd-dg-column>
+    <fd-dg-column sortable field="CHARACT_GROUP_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' label="Characteristics Group Description"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_CHARACT_GROUP /COE/RBP_T_PAM_CHARACT_GROUP ?de: Characteristics Group -->
+
+<FormItem label="Characteristics Group">
+    <Input value={this.ET_CHARACT_GROUP.CHARACT_GROUP}
+           data-abap="{type: 'string', length: '10'}"
+           data-shlp="{type:'CT', id:'TCMG'}"
+    />
+</FormItem>
+
+
+<FormItem label="Characteristics Group Description">
+    <Input value={this.ET_CHARACT_GROUP.CHARACT_GROUP_NAME}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<!-- ET_DOCUMENT /COE/RBP_T_PAM_DOCUMENT ?de: DMS Document Info -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_DOCUMENT" title="?de: DMS Document Info"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="BINARY_FLG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Flag for binary files"></fd-dg-column>
+    <fd-dg-column sortable field="CHANGED_AT" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"14"}' alpha-exit="TSTLC"  label="Time of change (UTC)"></fd-dg-column>
+    <fd-dg-column sortable field="CHANGED_BY" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' label="Name of person responsible"></fd-dg-column>
+    <fd-dg-column sortable field="CLASS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'SDOKIOCL'}}' label="Document class"></fd-dg-column>
+    <fd-dg-column sortable field="CREATED_AT" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"14"}' alpha-exit="TSTLC"  label="Time of change (UTC)"></fd-dg-column>
+    <fd-dg-column sortable field="CREATED_BY" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' label="Name of person responsible"></fd-dg-column>
+    <fd-dg-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"64"}' label="Short Description"></fd-dg-column>
+    <fd-dg-column sortable field="DOCUMENTNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"25", mid:"CV1", shlp:{type:'CT', id:'DRAW'}}' alpha-exit="ALPHA"  label="Document number"></fd-dg-column>
+    <fd-dg-column sortable field="DOCUMENTPART" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"CV4"}' label="Document part"></fd-dg-column>
+    <fd-dg-column sortable field="DOCUMENTTYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"CV2", shlp:{type:'CT', id:'TDWA'}}' label="Document Type"></fd-dg-column>
+    <fd-dg-column sortable field="DOCUMENTVERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", mid:"CV3"}' label="Document version"></fd-dg-column>
+    <fd-dg-column sortable field="FILE_ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}' label="ID for documents and relations"></fd-dg-column>
+    <fd-dg-column sortable field="FILE_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"255"}' label="Relative storage location of physical document"></fd-dg-column>
+    <fd-dg-column sortable field="FILE_SIZE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"12"}' label="File size (in bytes)"></fd-dg-column>
+    <fd-dg-column sortable field="FIRST_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"12"}' label="Line number in internal table"></fd-dg-column>
+    <fd-dg-column sortable field="LAST_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"12"}' label="Line number in internal table"></fd-dg-column>
+    <fd-dg-column sortable field="MIMETYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"128"}' label="HTML content type"></fd-dg-column>
+    <fd-dg-column sortable field="OBJID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}' label="ID for documents and relations"></fd-dg-column>
+    <fd-dg-column sortable field="PROPERTY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}' label="Component attribute for the application"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_DOCUMENT /COE/RBP_T_PAM_DOCUMENT ?de: DMS Document Info -->
+
+<FormItem label="Flag for binary files">
+    <CheckBox value={this.ET_DOCUMENT.BINARY_FLG}/>
+</FormItem>
+
+
+<FormItem label="Time of change (UTC)">
+    <Input value={this.ET_DOCUMENT.CHANGED_AT}
+           data-abap="{type: 'string', length: '14', alpha: 'TSTLC'}"
+    />
+</FormItem>
+
+
+<FormItem label="Name of person responsible">
+    <Input value={this.ET_DOCUMENT.CHANGED_BY}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Document class">
+    <ComboBox value={this.ET_DOCUMENT.CLASS}
+        items="{type:'CT', id:'SDOKIOCL'}"
+        data-abap="{type: 'string', length: '10'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Time of change (UTC)">
+    <Input value={this.ET_DOCUMENT.CREATED_AT}
+           data-abap="{type: 'string', length: '14', alpha: 'TSTLC'}"
+    />
+</FormItem>
+
+
+<FormItem label="Name of person responsible">
+    <Input value={this.ET_DOCUMENT.CREATED_BY}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Short Description">
+    <Input value={this.ET_DOCUMENT.DESCRIPTION}
+           data-abap="{type: 'string', length: '64'}"
+    />
+</FormItem>
+
+
+<FormItem label="Document number">
+    <ComboBox value={this.ET_DOCUMENT.DOCUMENTNUMBER}
+        items="{type:'CT', id:'DRAW'}"
+        data-abap="{type: 'string', length: '25', mid: 'CV1', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Document part">
+    <Input value={this.ET_DOCUMENT.DOCUMENTPART}
+           data-abap="{type: 'string', length: '3', mid: 'CV4'}"
+    />
+</FormItem>
+
+
+<FormItem label="Document Type">
+    <ComboBox value={this.ET_DOCUMENT.DOCUMENTTYPE}
+        items="{type:'CT', id:'TDWA'}"
+        data-abap="{type: 'string', length: '3', mid: 'CV2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Document version">
+    <Input value={this.ET_DOCUMENT.DOCUMENTVERSION}
+           data-abap="{type: 'string', length: '2', mid: 'CV3'}"
+    />
+</FormItem>
+
+
+<FormItem label="ID for documents and relations">
+    <Input value={this.ET_DOCUMENT.FILE_ID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Relative storage location of physical document">
+    <Input value={this.ET_DOCUMENT.FILE_NAME}
+           data-abap="{type: 'string', length: '255'}"
+    />
+</FormItem>
+
+
+<FormItem label="File size (in bytes)">
+    <Input value={this.ET_DOCUMENT.FILE_SIZE}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Line number in internal table">
+    <Input value={this.ET_DOCUMENT.FIRST_LINE}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Line number in internal table">
+    <Input value={this.ET_DOCUMENT.LAST_LINE}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="HTML content type">
+    <Input value={this.ET_DOCUMENT.MIMETYPE}
+           data-abap="{type: 'string', length: '128'}"
+    />
+</FormItem>
+
+
+<FormItem label="ID for documents and relations">
+    <Input value={this.ET_DOCUMENT.OBJID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Component attribute for the application">
+    <Input value={this.ET_DOCUMENT.PROPERTY}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<!-- ET_MCIQMADD /COE/RBP_T_MCIQMADD ?de: Zusatzfelder Meldungskopf PMIS -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_MCIQMADD" title="?de: Zusatzfelder Meldungskopf PMIS"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="SABTG" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="No. processing days creation to completion"></fd-dg-column>
+    <fd-dg-column sortable field="SACODE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="PMIS: number of activity codes"></fd-dg-column>
+    <fd-dg-column sortable field="SAUSZT" unit="SUNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}' label="Time To Repair"></fd-dg-column>
+    <fd-dg-column sortable field="SEQTBR" unit="SUNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}' label="Time Between Repair"></fd-dg-column>
+    <fd-dg-column sortable field="SGAUSZT" unit="SUNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}' label="Downtime entered"></fd-dg-column>
+    <fd-dg-column sortable field="SGMSAUS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="Number of machine breakdowns reported"></fd-dg-column>
+    <fd-dg-column sortable field="SMMAB" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="No. of completed notifications"></fd-dg-column>
+    <fd-dg-column sortable field="SMOFN" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="No.of recorded notifications"></fd-dg-column>
+    <fd-dg-column sortable field="SMSAUS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="Number of actual machine breakdowns"></fd-dg-column>
+    <fd-dg-column sortable field="SPMON" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6"}' alpha-exit="PERI"  label="Period to analyze - month"></fd-dg-column>
+    <fd-dg-column sortable field="SSCODE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="PMIS: No.of damages"></fd-dg-column>
+    <fd-dg-column sortable field="SUCODE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}' label="PMIS: No. of cause of damage codes"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_MCIQMADD /COE/RBP_T_MCIQMADD ?de: Zusatzfelder Meldungskopf PMIS -->
+
+<FormItem label="No. processing days creation to completion">
+    <Input value={this.ET_MCIQMADD.SABTG}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<FormItem label="PMIS: number of activity codes">
+    <Input value={this.ET_MCIQMADD.SACODE}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<FormItem label="Time To Repair">
+    <Input value={this.ET_MCIQMADD.SAUSZT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Time Between Repair">
+    <Input value={this.ET_MCIQMADD.SEQTBR}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Downtime entered">
+    <Input value={this.ET_MCIQMADD.SGAUSZT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Number of machine breakdowns reported">
+    <Input value={this.ET_MCIQMADD.SGMSAUS}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<FormItem label="No. of completed notifications">
+    <Input value={this.ET_MCIQMADD.SMMAB}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<FormItem label="No.of recorded notifications">
+    <Input value={this.ET_MCIQMADD.SMOFN}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<FormItem label="Number of actual machine breakdowns">
+    <Input value={this.ET_MCIQMADD.SMSAUS}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<FormItem label="Period to analyze - month">
+    <Input value={this.ET_MCIQMADD.SPMON}
+           data-abap="{type: 'string', length: '6', alpha: 'PERI'}"
+    />
+</FormItem>
+
+
+<FormItem label="PMIS: No.of damages">
+    <Input value={this.ET_MCIQMADD.SSCODE}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<FormItem label="PMIS: No. of cause of damage codes">
+    <Input value={this.ET_MCIQMADD.SUCODE}
+           data-abap="{type: 'number', length: '+9'}"
+    />
+</FormItem>
+
+
+<!-- ET_RESULT /COE/RBP_T_MCIT_RESULT ?de: Startup Iflo -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_RESULT" title="?de: Startup Iflo"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA"  label="Equipment Number"></fd-dg-column>
+    <fd-dg-column sortable field="NBDEFF" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="SNBDREP" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="SPMON" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6"}' alpha-exit="PERI"  label="Period to analyze - month"></fd-dg-column>
+    <fd-dg-column sortable field="STBRHRS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"11.3"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="STTRHRS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"11.3"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR"  label="Functional Location"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RESULT /COE/RBP_T_MCIT_RESULT ?de: Startup Iflo -->
+
+<FormItem label="Equipment Number">
+    <Input value={this.ET_RESULT.EQUNR}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_RESULT.NBDEFF}
+           data-abap="{type: 'number', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_RESULT.SNBDREP}
+           data-abap="{type: 'number', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Period to analyze - month">
+    <Input value={this.ET_RESULT.SPMON}
+           data-abap="{type: 'string', length: '6', alpha: 'PERI'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_RESULT.STBRHRS}
+           data-abap="{type: 'number', length: '11.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_RESULT.STTRHRS}
+           data-abap="{type: 'number', length: '11.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Functional Location">
+    <Input value={this.ET_RESULT.TPLNR}
+           data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+           data-shlp="{type:'SH', id:'IFLM'}"
+    />
+</FormItem>
+
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}' label="Field in parameter"></fd-dg-column>
+    <fd-dg-column sortable field="ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'T100A'}}' label="Message Class"></fd-dg-column>
+    <fd-dg-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}' label="Application log: Internal message serial number"></fd-dg-column>
+    <fd-dg-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}' label="Application log: log number"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}' label="Message Text"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="NUMBER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}' label="Message Number"></fd-dg-column>
+    <fd-dg-column sortable field="PARAMETER" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}' label="Parameter Name"></fd-dg-column>
+    <fd-dg-column sortable field="ROW" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}' label="Lines in parameter"></fd-dg-column>
+    <fd-dg-column sortable field="SYSTEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA"  label="Logical system from which message originates"></fd-dg-column>
+    <fd-dg-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}' label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+
+<FormItem label="Field in parameter">
+    <ComboBox value={this.ET_RETURN.FIELD}
+        items="{type:'CT', id:'DD03L'}"
+        data-abap="{type: 'string', length: '30'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Message Class">
+    <ComboBox value={this.ET_RETURN.ID}
+        items="{type:'CT', id:'T100A'}"
+        data-abap="{type: 'string', length: '20'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.ET_RETURN.LOG_MSG_NO}
+        items="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Application log: log number">
+    <ComboBox value={this.ET_RETURN.LOG_NO}
+        items="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Message Text">
+    <Input value={this.ET_RETURN.MESSAGE}
+           data-abap="{type: 'string', length: '220'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V1}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V2}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V3}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V4}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Number">
+    <Input value={this.ET_RETURN.NUMBER}
+           data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Parameter Name">
+    <Input value={this.ET_RETURN.PARAMETER}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Lines in parameter">
+    <Input value={this.ET_RETURN.ROW}
+           data-abap="{type: 'number', length: '+10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Logical system from which message originates">
+    <ComboBox value={this.ET_RETURN.SYSTEM}
+        items="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.ET_RETURN.TYPE}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<!-- ET_STARTUP_EQUI /COE/RBP_T_MCIT_STARTUP_EQUI ?de: Startup Equi -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_STARTUP_EQUI" title="?de: Startup Equi"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA"  label="Equipment Number"></fd-dg-column>
+    <fd-dg-column sortable field="SOURCE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="STARTUP" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="System Date"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_STARTUP_EQUI /COE/RBP_T_MCIT_STARTUP_EQUI ?de: Startup Equi -->
+
+<FormItem label="Equipment Number">
+    <Input value={this.ET_STARTUP_EQUI.EQUNR}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_STARTUP_EQUI.SOURCE}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="System Date">
+    <DatePicker value={this.ET_STARTUP_EQUI.STARTUP}/>
+</FormItem>
+
+
+<!-- ET_STARTUP_IFLO /COE/RBP_T_MCIT_STARTUP_IFLO ?de: Startup Iflo -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_STARTUP_IFLO" title="?de: Startup Iflo"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="SOURCE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}' label="todo: no field text"></fd-dg-column>
+    <fd-dg-column sortable field="STARTUP" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="System Date"></fd-dg-column>
+    <fd-dg-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR"  label="Functional Location"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_STARTUP_IFLO /COE/RBP_T_MCIT_STARTUP_IFLO ?de: Startup Iflo -->
+
+<FormItem label="todo: no field text">
+    <Input value={this.ET_STARTUP_IFLO.SOURCE}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="System Date">
+    <DatePicker value={this.ET_STARTUP_IFLO.STARTUP}/>
+</FormItem>
+
+
+<FormItem label="Functional Location">
+    <Input value={this.ET_STARTUP_IFLO.TPLNR}
+           data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+           data-shlp="{type:'SH', id:'IFLM'}"
+    />
+</FormItem>
+
+
+<!-- ET_USER_STATUS CWD_TT_ITOB_STATUS todo: param text -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_USER_STATUS" title="todo: param text"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Object status"></fd-dg-column>
+    <fd-dg-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}' label="Object status"></fd-dg-column>
+    <fd-dg-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}' label="Individual status of an object (short form)"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_USER_STATUS CWD_TT_ITOB_STATUS todo: param text -->
+
+<FormItem label="Object status">
+    <Input value={this.ET_USER_STATUS.DESCRIPTION}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Object status">
+    <Input value={this.ET_USER_STATUS.STATUS}
+           data-abap="{type: 'string', length: '5'}"
+    />
+</FormItem>
+
+
+<FormItem label="Individual status of an object (short form)">
+    <Input value={this.ET_USER_STATUS.TEXT}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+

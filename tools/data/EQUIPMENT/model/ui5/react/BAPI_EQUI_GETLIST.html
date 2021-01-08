@@ -32,7 +32,7 @@
 <FormItem label="Field in parameter">
     <ComboBox value={this.RETURN.FIELD}
         items="{type:'CT', id:'DD03L'}"
-        data-abap="{{type: 'string', length: '30'}}">
+        data-abap="{type: 'string', length: '30'}">
     </ComboBox>
 </FormItem>
 
@@ -40,7 +40,7 @@
 <FormItem label="Message Class">
     <ComboBox value={this.RETURN.ID}
         items="{type:'CT', id:'T100A'}"
-        data-abap="{{type: 'string', length: '20'}}">
+        data-abap="{type: 'string', length: '20'}">
     </ComboBox>
 </FormItem>
 
@@ -48,7 +48,7 @@
 <FormItem label="Application log: Internal message serial number">
     <ComboBox value={this.RETURN.LOG_MSG_NO}
         items="{type:'CH', id:'BALM'}"
-        data-abap="{{type: 'string', length: '6'}}">
+        data-abap="{type: 'string', length: '6'}">
     </ComboBox>
 </FormItem>
 
@@ -56,7 +56,7 @@
 <FormItem label="Application log: log number">
     <ComboBox value={this.RETURN.LOG_NO}
         items="{type:'CH', id:'BALHDR'}"
-        data-abap="{{type: 'string', length: '20'}}">
+        data-abap="{type: 'string', length: '20'}">
     </ComboBox>
 </FormItem>
 
@@ -120,7 +120,7 @@
 <FormItem label="Logical system from which message originates">
     <ComboBox value={this.RETURN.SYSTEM}
         items="{type:'CT', id:'TBDLS'}"
-        data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}">
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}">
     </ComboBox>
 </FormItem>
 
@@ -133,3 +133,744 @@
 
 
 <!-- TABLE PARAMETERS -->
+
+<!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_CITY_RA" title="BAPI Communication Structure: Range for Address City"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="City name in Uppercase for Search Help"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="City name in Uppercase for Search Help"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
+
+<FormItem label="City name in Uppercase for Search Help">
+    <Input value={this.ADDRESS_CITY_RA.HIGH}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="City name in Uppercase for Search Help">
+    <Input value={this.ADDRESS_CITY_RA.LOW}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.ADDRESS_CITY_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.ADDRESS_CITY_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- ADDRESS_NAME_RA BAPI_ITOB_SEL_ADDR_NAME BAPI Communication Structure: Range for Address Name -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_NAME_RA" title="BAPI Communication Structure: Range for Address Name"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="Name (Field NAME1) in Uppercase for Search Help"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="Name (Field NAME1) in Uppercase for Search Help"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_NAME_RA BAPI_ITOB_SEL_ADDR_NAME BAPI Communication Structure: Range for Address Name -->
+
+<FormItem label="Name (Field NAME1) in Uppercase for Search Help">
+    <Input value={this.ADDRESS_NAME_RA.HIGH}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Name (Field NAME1) in Uppercase for Search Help">
+    <Input value={this.ADDRESS_NAME_RA.LOW}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.ADDRESS_NAME_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.ADDRESS_NAME_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- ADDRESS_POST_CODE_RA BAPI_ITOB_SEL_ADDR_POST_CODE BAPI Communication Structure: Range for Address Postal Code -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_POST_CODE_RA" title="BAPI Communication Structure: Range for Address Postal Code"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' label="City postal code"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' label="City postal code"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_POST_CODE_RA BAPI_ITOB_SEL_ADDR_POST_CODE BAPI Communication Structure: Range for Address Postal Code -->
+
+<FormItem label="City postal code">
+    <Input value={this.ADDRESS_POST_CODE_RA.HIGH}
+           data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="City postal code">
+    <Input value={this.ADDRESS_POST_CODE_RA.LOW}
+           data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.ADDRESS_POST_CODE_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.ADDRESS_POST_CODE_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- ADDRESS_SEARCH_TERM_1_RA BAPI_ITOB_SEL_ADDR_SORT1 BAPI Communication Structure: Range for Address Search Term 1 -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_SEARCH_TERM_1_RA" title="BAPI Communication Structure: Range for Address Search Term 1"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}' label="Search Term 1"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}' label="Search Term 1"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_SEARCH_TERM_1_RA BAPI_ITOB_SEL_ADDR_SORT1 BAPI Communication Structure: Range for Address Search Term 1 -->
+
+<FormItem label="Search Term 1">
+    <Input value={this.ADDRESS_SEARCH_TERM_1_RA.HIGH}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Search Term 1">
+    <Input value={this.ADDRESS_SEARCH_TERM_1_RA.LOW}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.ADDRESS_SEARCH_TERM_1_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.ADDRESS_SEARCH_TERM_1_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- ADDRESS_SEARCH_TERM_2_RA BAPI_ITOB_SEL_ADDR_SORT2 BAPI Communication Structure: Range for Address Search Term 2 -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_SEARCH_TERM_2_RA" title="BAPI Communication Structure: Range for Address Search Term 2"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}' label="Search Term 2"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}' label="Search Term 2"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_SEARCH_TERM_2_RA BAPI_ITOB_SEL_ADDR_SORT2 BAPI Communication Structure: Range for Address Search Term 2 -->
+
+<FormItem label="Search Term 2">
+    <Input value={this.ADDRESS_SEARCH_TERM_2_RA.HIGH}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Search Term 2">
+    <Input value={this.ADDRESS_SEARCH_TERM_2_RA.LOW}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.ADDRESS_SEARCH_TERM_2_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.ADDRESS_SEARCH_TERM_2_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- ADDRESS_STREET_RA BAPI_ITOB_SEL_ADDR_STREET BAPI Communication Structure: Range for Address Street -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_STREET_RA" title="BAPI Communication Structure: Range for Address Street"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="Street Name in Uppercase for Search Help"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="Street Name in Uppercase for Search Help"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_STREET_RA BAPI_ITOB_SEL_ADDR_STREET BAPI Communication Structure: Range for Address Street -->
+
+<FormItem label="Street Name in Uppercase for Search Help">
+    <Input value={this.ADDRESS_STREET_RA.HIGH}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Street Name in Uppercase for Search Help">
+    <Input value={this.ADDRESS_STREET_RA.LOW}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.ADDRESS_STREET_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.ADDRESS_STREET_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- DESCRIPT_RA BAPI_ITOB_SEL_DESCRIPT BAPI Communication Structure: Description Range -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST DESCRIPT_RA" title="BAPI Communication Structure: Description Range"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' label="Description of Technical Object"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' label="Description of Technical Object"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}' label="Selection operator OPTION for range tables"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}' label="Inclusion/exclusion criterion SIGN for range tables"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- DESCRIPT_RA BAPI_ITOB_SEL_DESCRIPT BAPI Communication Structure: Description Range -->
+
+<FormItem label="Description of Technical Object">
+    <Input value={this.DESCRIPT_RA.HIGH}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Description of Technical Object">
+    <Input value={this.DESCRIPT_RA.LOW}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Selection operator OPTION for range tables">
+    <ComboBox value={this.DESCRIPT_RA.OPTION}
+        items="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Inclusion/exclusion criterion SIGN for range tables">
+    <Input value={this.DESCRIPT_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'BAPISIGN'}"
+    />
+</FormItem>
+
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_LIST" title="BAPI Communication Structure: Results List for GetList"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' label="Description of Technical Object"></fd-dg-column>
+    <fd-dg-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}' label="Equipment category"></fd-dg-column>
+    <fd-dg-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA"  label="Equipment Number"></fd-dg-column>
+    <fd-dg-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}' label="Maintenance plant"></fd-dg-column>
+    <fd-dg-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}' label="Planner Group for Customer Service and Plant Maintenance"></fd-dg-column>
+    <fd-dg-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}' label="Maintenance Planning Plant"></fd-dg-column>
+    <fd-dg-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Sort field"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+
+<FormItem label="Description of Technical Object">
+    <Input value={this.EQUIPMENT_LIST.DESCRIPT}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment category">
+    <Input value={this.EQUIPMENT_LIST.EQUICATGRY}
+           data-abap="{type: 'string', length: '1', mid: 'EQT'}"
+           data-shlp="{type:'CT', id:'T370T'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment Number">
+    <Input value={this.EQUIPMENT_LIST.EQUIPMENT}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance plant">
+    <Input value={this.EQUIPMENT_LIST.MAINTPLANT}
+           data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+           data-shlp="{type:'CT', id:'T001W'}"
+    />
+</FormItem>
+
+
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <ComboBox value={this.EQUIPMENT_LIST.PLANGROUP}
+        items="{type:'CT', id:'T024I'}"
+        data-abap="{type: 'string', length: '3', mid: 'IHG'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Maintenance Planning Plant">
+    <ComboBox value={this.EQUIPMENT_LIST.PLANPLANT}
+        items="{type:'CT', id:'T001W'}"
+        data-abap="{type: 'string', length: '4', mid: 'IWK'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Sort field">
+    <Input value={this.EQUIPMENT_LIST.SORTFIELD}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<!-- EQUIPMENT_RA BAPI_ITOB_SEL_EQUIPMENT BAPI Communication Structure: Range for Functional Location -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_RA" title="BAPI Communication Structure: Range for Functional Location"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA"  label="Equipment Number"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA"  label="Equipment Number"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}' label="Selection operator OPTION for range tables"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}' label="Inclusion/exclusion criterion SIGN for range tables"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_RA BAPI_ITOB_SEL_EQUIPMENT BAPI Communication Structure: Range for Functional Location -->
+
+<FormItem label="Equipment Number">
+    <Input value={this.EQUIPMENT_RA.HIGH}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment Number">
+    <Input value={this.EQUIPMENT_RA.LOW}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem label="Selection operator OPTION for range tables">
+    <ComboBox value={this.EQUIPMENT_RA.OPTION}
+        items="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Inclusion/exclusion criterion SIGN for range tables">
+    <Input value={this.EQUIPMENT_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'BAPISIGN'}"
+    />
+</FormItem>
+
+
+<!-- MAINTPLANT_RA BAPI_ITOB_SEL_MAINTPLANT BApi Communication Structure: Range for Maintenance Plant -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST MAINTPLANT_RA" title="BApi Communication Structure: Range for Maintenance Plant"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}' label="Maintenance plant"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}' label="Maintenance plant"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}' label="Selection operator OPTION for range tables"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}' label="Inclusion/exclusion criterion SIGN for range tables"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- MAINTPLANT_RA BAPI_ITOB_SEL_MAINTPLANT BApi Communication Structure: Range for Maintenance Plant -->
+
+<FormItem label="Maintenance plant">
+    <Input value={this.MAINTPLANT_RA.HIGH}
+           data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+           data-shlp="{type:'CT', id:'T001W'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance plant">
+    <Input value={this.MAINTPLANT_RA.LOW}
+           data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+           data-shlp="{type:'CT', id:'T001W'}"
+    />
+</FormItem>
+
+
+<FormItem label="Selection operator OPTION for range tables">
+    <ComboBox value={this.MAINTPLANT_RA.OPTION}
+        items="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Inclusion/exclusion criterion SIGN for range tables">
+    <Input value={this.MAINTPLANT_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'BAPISIGN'}"
+    />
+</FormItem>
+
+
+<!-- OBJECTTYPE_RA BAPI_ITOB_SEL_OBJECTTYPE BAPI Communication Structure: Range for Object Type -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST OBJECTTYPE_RA" title="BAPI Communication Structure: Range for Object Type"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}' label="Type of Technical Object"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}' label="Type of Technical Object"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- OBJECTTYPE_RA BAPI_ITOB_SEL_OBJECTTYPE BAPI Communication Structure: Range for Object Type -->
+
+<FormItem label="Type of Technical Object">
+    <Input value={this.OBJECTTYPE_RA.HIGH}
+           data-abap="{type: 'string', length: '10'}"
+           data-shlp="{type:'CT', id:'T370K'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of Technical Object">
+    <Input value={this.OBJECTTYPE_RA.LOW}
+           data-abap="{type: 'string', length: '10'}"
+           data-shlp="{type:'CT', id:'T370K'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.OBJECTTYPE_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.OBJECTTYPE_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- PARTNER_RA BAPI_ITOB_SEL_PARTNER BAPI Communication Structure: Range for Partner -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PARTNER_RA" title="BAPI Communication Structure: Range for Partner"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA"  label="Partner"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA"  label="Partner"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PARTNER_RA BAPI_ITOB_SEL_PARTNER BAPI Communication Structure: Range for Partner -->
+
+<FormItem label="Partner">
+    <Input value={this.PARTNER_RA.HIGH}
+           data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+    />
+</FormItem>
+
+
+<FormItem label="Partner">
+    <Input value={this.PARTNER_RA.LOW}
+           data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.PARTNER_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.PARTNER_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- PLANGROUP_RA BAPI_ITOB_SEL_PLANGROUP BAPI Communication Structure: Range for Maintenance Planner Group -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PLANGROUP_RA" title="BAPI Communication Structure: Range for Maintenance Planner Group"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}' label="Planner Group for Customer Service and Plant Maintenance"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}' label="Planner Group for Customer Service and Plant Maintenance"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}' label="Selection operator OPTION for range tables"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}' label="Inclusion/exclusion criterion SIGN for range tables"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PLANGROUP_RA BAPI_ITOB_SEL_PLANGROUP BAPI Communication Structure: Range for Maintenance Planner Group -->
+
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <Input value={this.PLANGROUP_RA.HIGH}
+           data-abap="{type: 'string', length: '3', mid: 'IHG'}"
+           data-shlp="{type:'CT', id:'T024I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <Input value={this.PLANGROUP_RA.LOW}
+           data-abap="{type: 'string', length: '3', mid: 'IHG'}"
+           data-shlp="{type:'CT', id:'T024I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Selection operator OPTION for range tables">
+    <ComboBox value={this.PLANGROUP_RA.OPTION}
+        items="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Inclusion/exclusion criterion SIGN for range tables">
+    <Input value={this.PLANGROUP_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'BAPISIGN'}"
+    />
+</FormItem>
+
+
+<!-- PLANPLANT_RA BAPI_ITOB_SEL_PLANPLANT BAPI Communication Structure: Range for Maintenance Planning -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PLANPLANT_RA" title="BAPI Communication Structure: Range for Maintenance Planning"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}' label="Maintenance Planning Plant"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}' label="Maintenance Planning Plant"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}' label="Selection operator OPTION for range tables"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}' label="Inclusion/exclusion criterion SIGN for range tables"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PLANPLANT_RA BAPI_ITOB_SEL_PLANPLANT BAPI Communication Structure: Range for Maintenance Planning -->
+
+<FormItem label="Maintenance Planning Plant">
+    <Input value={this.PLANPLANT_RA.HIGH}
+           data-abap="{type: 'string', length: '4', mid: 'IWK'}"
+           data-shlp="{type:'CT', id:'T001W'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance Planning Plant">
+    <Input value={this.PLANPLANT_RA.LOW}
+           data-abap="{type: 'string', length: '4', mid: 'IWK'}"
+           data-shlp="{type:'CT', id:'T001W'}"
+    />
+</FormItem>
+
+
+<FormItem label="Selection operator OPTION for range tables">
+    <ComboBox value={this.PLANPLANT_RA.OPTION}
+        items="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Inclusion/exclusion criterion SIGN for range tables">
+    <Input value={this.PLANPLANT_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'BAPISIGN'}"
+    />
+</FormItem>
+
+
+<!-- SORTFIELD_RA BAPI_ITOB_SEL_SORTFIELD BAPI Communication Structure: Range for Sort Field -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST SORTFIELD_RA" title="BAPI Communication Structure: Range for Sort Field"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Sort field"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Sort field"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}' label="Selection operator OPTION for range tables"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}' label="Inclusion/exclusion criterion SIGN for range tables"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- SORTFIELD_RA BAPI_ITOB_SEL_SORTFIELD BAPI Communication Structure: Range for Sort Field -->
+
+<FormItem label="Sort field">
+    <Input value={this.SORTFIELD_RA.HIGH}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Sort field">
+    <Input value={this.SORTFIELD_RA.LOW}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Selection operator OPTION for range tables">
+    <ComboBox value={this.SORTFIELD_RA.OPTION}
+        items="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Inclusion/exclusion criterion SIGN for range tables">
+    <Input value={this.SORTFIELD_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'BAPISIGN'}"
+    />
+</FormItem>
+
+
+<!-- STATUS_RA BAPI_ITOB_SEL_STATUS BAPI Communication Structure: Range for Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST STATUS_RA" title="BAPI Communication Structure: Range for Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}' label="Individual status of an object (short form)"></fd-dg-column>
+    <fd-dg-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}' label="Individual status of an object (short form)"></fd-dg-column>
+    <fd-dg-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}' label="Type of OPTION component in row type of a Ranges type"></fd-dg-column>
+    <fd-dg-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}' label="Type of SIGN component in row type of a Ranges type"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- STATUS_RA BAPI_ITOB_SEL_STATUS BAPI Communication Structure: Range for Status -->
+
+<FormItem label="Individual status of an object (short form)">
+    <Input value={this.STATUS_RA.HIGH}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem label="Individual status of an object (short form)">
+    <Input value={this.STATUS_RA.LOW}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of OPTION component in row type of a Ranges type">
+    <ComboBox value={this.STATUS_RA.OPTION}
+        items="{type:'FV', id:'DDOPTION'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Type of SIGN component in row type of a Ranges type">
+    <Input value={this.STATUS_RA.SIGN}
+           data-abap="{type: 'string', length: '1'}"
+           data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+

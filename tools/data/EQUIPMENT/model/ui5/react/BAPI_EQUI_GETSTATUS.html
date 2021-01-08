@@ -32,7 +32,7 @@
 <FormItem label="Field in parameter">
     <ComboBox value={this.RETURN.FIELD}
         items="{type:'CT', id:'DD03L'}"
-        data-abap="{{type: 'string', length: '30'}}">
+        data-abap="{type: 'string', length: '30'}">
     </ComboBox>
 </FormItem>
 
@@ -40,7 +40,7 @@
 <FormItem label="Message Class">
     <ComboBox value={this.RETURN.ID}
         items="{type:'CT', id:'T100A'}"
-        data-abap="{{type: 'string', length: '20'}}">
+        data-abap="{type: 'string', length: '20'}">
     </ComboBox>
 </FormItem>
 
@@ -48,7 +48,7 @@
 <FormItem label="Application log: Internal message serial number">
     <ComboBox value={this.RETURN.LOG_MSG_NO}
         items="{type:'CH', id:'BALM'}"
-        data-abap="{{type: 'string', length: '6'}}">
+        data-abap="{type: 'string', length: '6'}">
     </ComboBox>
 </FormItem>
 
@@ -56,7 +56,7 @@
 <FormItem label="Application log: log number">
     <ComboBox value={this.RETURN.LOG_NO}
         items="{type:'CH', id:'BALHDR'}"
-        data-abap="{{type: 'string', length: '20'}}">
+        data-abap="{type: 'string', length: '20'}">
     </ComboBox>
 </FormItem>
 
@@ -120,7 +120,7 @@
 <FormItem label="Logical system from which message originates">
     <ComboBox value={this.RETURN.SYSTEM}
         items="{type:'CT', id:'TBDLS'}"
-        data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}">
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}">
     </ComboBox>
 </FormItem>
 
@@ -147,3 +147,71 @@
 
 
 <!-- TABLE PARAMETERS -->
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS SYSTEM_STATUS" title="Equipment System Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Object status"></fd-dg-column>
+    <fd-dg-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}' label="Object status"></fd-dg-column>
+    <fd-dg-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}' label="Individual status of an object (short form)"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+
+<FormItem label="Object status">
+    <Input value={this.SYSTEM_STATUS.DESCRIPTION}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Object status">
+    <Input value={this.SYSTEM_STATUS.STATUS}
+           data-abap="{type: 'string', length: '5'}"
+    />
+</FormItem>
+
+
+<FormItem label="Individual status of an object (short form)">
+    <Input value={this.SYSTEM_STATUS.TEXT}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS USER_STATUS" title="Equipment User Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Object status"></fd-dg-column>
+    <fd-dg-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}' label="Object status"></fd-dg-column>
+    <fd-dg-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}' label="Individual status of an object (short form)"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+
+<FormItem label="Object status">
+    <Input value={this.USER_STATUS.DESCRIPTION}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Object status">
+    <Input value={this.USER_STATUS.STATUS}
+           data-abap="{type: 'string', length: '5'}"
+    />
+</FormItem>
+
+
+<FormItem label="Individual status of an object (short form)">
+    <Input value={this.USER_STATUS.TEXT}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+

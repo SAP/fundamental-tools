@@ -191,3 +191,89 @@
 
 
 <!-- TABLE PARAMETERS -->
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS SYSTEM_STATUS" title="Equipment System Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+              label="Individual status of an object (short form)"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+
+<div fd-form-item>
+    <label fd-form-label>Object status</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="SYSTEM_STATUS.DESCRIPTION"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object status</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="SYSTEM_STATUS.STATUS"
+            data-abap="{type: 'string', length: '5'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Individual status of an object (short form)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="SYSTEM_STATUS.TEXT"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</div>
+
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS USER_STATUS" title="Equipment User Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+              label="Individual status of an object (short form)"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+
+<div fd-form-item>
+    <label fd-form-label>Object status</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="USER_STATUS.DESCRIPTION"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object status</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="USER_STATUS.STATUS"
+            data-abap="{type: 'string', length: '5'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Individual status of an object (short form)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="USER_STATUS.TEXT"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</div>
+

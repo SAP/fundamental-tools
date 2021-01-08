@@ -73,8 +73,8 @@ Run `backend.py` script:
 ```shell
 $ cd tools
 $
-$ # read ABAP API metadata into local JSON file
-$ python backend.py
+$ # cache ABAP API metadata to local files
+$ python backend.py MME PURCHASE_ORDER
 ```
 
 This script requires a connection to ABAP system and the result are ABAP API annotations cached in local JSON files.
@@ -113,19 +113,21 @@ def equipment(path):
 
 ### Step 3: View
 
-Run one of the frontend scripts, to generate Fiori components for you:
+Run the frontend script, to generate Fiori components:
 
 ```shell
 $ cd tools
 $
-$ python fast-angular.py         # Microsoft FAST Angular
-$ python fundamental-angulat.py  # Fundamental Styles Angular
-$ python fundamental-react.py    # Fundamental Styles React
-$ python fundamental-vue.py      # Fundamental Styles Vue
-$ python ui5-react.py            # ui5-webcomponents for React
-$ python frontend-aurelia.py     # Aurelia
-                                 # more to come ...
+$ python frontend.py fast-ngx PURCHASE_ORDER
 ```
+
+Currently supported ui-frameworks:
+- aurelia
+- fast-ngx
+- fundamental-ngx
+- fundamental-react
+- fundamental-vue
+- ui5-react
 
 The output HTML and JavaScript flat files are written in a data model sub-directory, for example:
 

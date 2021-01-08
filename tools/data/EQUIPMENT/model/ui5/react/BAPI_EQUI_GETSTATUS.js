@@ -55,3 +55,25 @@ RETURN = {
 //
 // TABLE PARAMETERS
 //
+
+// SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status
+
+/* eslint-disable key-spacing */
+// prettier-ignore
+SYSTEM_STATUS = {
+  DESCRIPTION                   : '',  // Object status
+  STATUS                        : '',  // Object status
+  TEXT                          : ''   // Individual status of an object (short form)
+};
+/* eslint-enable key-spacing */
+
+// USER_STATUS BAPI_ITOB_STATUS Equipment User Status
+
+/* eslint-disable key-spacing */
+// prettier-ignore
+USER_STATUS = {
+  DESCRIPTION                   : '',  // Object status
+  STATUS                        : '',  // Object status
+  TEXT                          : ''   // Individual status of an object (short form)
+};
+/* eslint-enable key-spacing */

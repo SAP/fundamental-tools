@@ -1,0 +1,1583 @@
+<!-- /COE/RBP_PAM_EQUIPMENT_CHANGE 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<!-- IS_DATA_SPECIFIC BAPI_ITOB_EQ_ONLY ?de: PM: BAPI-Struktur für ITOBAPI_CREATE_EQ_ONLY + READ-Felder -->
+
+<FormItem label="Batch Number">
+    <ComboBox value={this.IS_DATA_SPECIFIC.BATCH}
+        items="{type:'CT', id:'MCH1'}"
+        data-abap="{type: 'string', length: '10', mid: 'CHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Configurable Material">
+    <Input value={this.IS_DATA_SPECIFIC.CONFIGMAT}
+           data-abap="{type: 'string', length: '18', alpha: 'MATN1'}"
+           data-shlp="{type:'SH', id:'MAT1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Long Material Number for CONFIGMAT Field">
+    <Input value={this.IS_DATA_SPECIFIC.CONFIGMAT_EXTERNAL}
+           data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+    />
+</FormItem>
+
+
+<FormItem label="External GUID for CONFIGMAT Field">
+    <Input value={this.IS_DATA_SPECIFIC.CONFIGMAT_GUID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Configurable Material">
+    <Input value={this.IS_DATA_SPECIFIC.CONFIGMAT_LONG}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Version Number for CONFIGMAT Field">
+    <Input value={this.IS_DATA_SPECIFIC.CONFIGMAT_VERSION}
+           data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+    />
+</FormItem>
+
+
+<FormItem label="General Indicator (Single Character)">
+    <Input value={this.IS_DATA_SPECIFIC.CONFIG_CONTROL_IND}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="First delivery date of the equipment">
+    <DatePicker value={this.IS_DATA_SPECIFIC.DELIVDATE}/>
+</FormItem>
+
+
+<FormItem label="Equipment category">
+    <ComboBox value={this.IS_DATA_SPECIFIC.EQUICATGRY}
+        items="{type:'CT', id:'T370T'}"
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Date, intended for SAP internal use">
+    <DatePicker value={this.IS_DATA_SPECIFIC.FREE_DATE1}/>
+</FormItem>
+
+
+<FormItem label="Date, intended for SAP internal use">
+    <DatePicker value={this.IS_DATA_SPECIFIC.FREE_DATE2}/>
+</FormItem>
+
+
+<FormItem label="Technical information, intended for SAP internal use">
+    <Input value={this.IS_DATA_SPECIFIC.FREE_NOTE1}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Technical information, intended for SAP internal use">
+    <Input value={this.IS_DATA_SPECIFIC.FREE_NOTE2}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Numerical field, intended for SAP internal use">
+    <Input value={this.IS_DATA_SPECIFIC.FREE_NUM1}
+           data-abap="{type: 'string', length: '9'}"
+    />
+</FormItem>
+
+
+<FormItem label="Numerical field, intended for SAP internal use">
+    <Input value={this.IS_DATA_SPECIFIC.FREE_NUM2}
+           data-abap="{type: 'string', length: '9'}"
+    />
+</FormItem>
+
+
+<FormItem label="Function Identifier">
+    <Input value={this.IS_DATA_SPECIFIC.FUNC_ID}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment position at InstallLoc (Superior Equip./FunctLoc)">
+    <Input value={this.IS_DATA_SPECIFIC.INST_POS}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem label="Internal Identification for PVS Objects">
+    <TextArea value={this.IS_DATA_SPECIFIC.IPPE_GUID}
+           data-abap="{type: 'string', length: '16'}"
+    />
+</FormItem>
+
+
+<FormItem label="Structure Type of UII">
+    <Input value={this.IS_DATA_SPECIFIC.IUID_TYPE}
+           data-abap="{type: 'string', length: '10'}"
+           data-shlp="{type:'SH', id:'H_IUID_TYPE'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment license number">
+    <Input value={this.IS_DATA_SPECIFIC.LICENSE}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer drawing number">
+    <Input value={this.IS_DATA_SPECIFIC.MANDRAWNO}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Material Number">
+    <Input value={this.IS_DATA_SPECIFIC.MATERIAL}
+           data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+           data-shlp="{type:'SH', id:'S_MAT1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Long Material Number for MATERIAL Field">
+    <Input value={this.IS_DATA_SPECIFIC.MATERIAL_EXTERNAL}
+           data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+    />
+</FormItem>
+
+
+<FormItem label="External GUID for MATERIAL Field">
+    <Input value={this.IS_DATA_SPECIFIC.MATERIAL_GUID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Material Number (40 Characters, needed f. technical reasons)">
+    <Input value={this.IS_DATA_SPECIFIC.MATERIAL_LONG}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Version Number for MATERIAL Field">
+    <Input value={this.IS_DATA_SPECIFIC.MATERIAL_VERSION}
+           data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+    />
+</FormItem>
+
+
+<FormItem label="Configuration (internal object number)">
+    <Input value={this.IS_DATA_SPECIFIC.READ_CUOBJ}
+           data-abap="{type: 'string', length: '18', mid: 'CUX'}"
+    />
+</FormItem>
+
+
+<FormItem label="Referenced Configuration">
+    <CheckBox value={this.IS_DATA_SPECIFIC.READ_CUREF}/>
+</FormItem>
+
+
+<FormItem label="Functional Location Label">
+    <Input value={this.IS_DATA_SPECIFIC.READ_FLOC}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance Plan">
+    <Input value={this.IS_DATA_SPECIFIC.READ_MAINTENANCE_PLAN}
+           data-abap="{type: 'string', length: '12', mid: 'MPL', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'MPLAL'}"
+    />
+</FormItem>
+
+
+<FormItem label="Measuring Point">
+    <Input value={this.IS_DATA_SPECIFIC.READ_MEASURING_POINT}
+           data-abap="{type: 'string', length: '12', mid: 'IPT', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'IMPM'}"
+    />
+</FormItem>
+
+
+<FormItem label="Superordinate Equipment">
+    <ComboBox value={this.IS_DATA_SPECIFIC.READ_SUPEQ}
+        items="{type:'CT', id:'EQUI'}"
+        data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Valid-From Date">
+    <DatePicker value={this.IS_DATA_SPECIFIC.READ_VALID_FROM}/>
+</FormItem>
+
+
+<FormItem label="Serial Number">
+    <Input value={this.IS_DATA_SPECIFIC.SERIALNO}
+           data-abap="{type: 'string', length: '18', mid: 'SER', alpha: 'GERNR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Technical identification number">
+    <Input value={this.IS_DATA_SPECIFIC.TECHID}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Parameter Variant/Standard Variant">
+    <Input value={this.IS_DATA_SPECIFIC.TECHS}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unique Item Identifier">
+    <Input value={this.IS_DATA_SPECIFIC.UII}
+           data-abap="{type: 'string', length: '72', mid: 'UII'}"
+           data-shlp="{type:'SH', id:'H_UII'}"
+    />
+</FormItem>
+
+
+<FormItem label="Plant Responsible for UII">
+    <Input value={this.IS_DATA_SPECIFIC.UII_PLANT}
+           data-abap="{type: 'string', length: '4', mid: 'WRK'}"
+           data-shlp="{type:'SH', id:'H_T001W_C'}"
+    />
+</FormItem>
+
+
+<!-- IS_DATA_SPECIFIC_X BAPI_ITOB_EQ_ONLYX ?de: PM: Zu BAPI_ITOB_EQ_ONLY gehörige Flagstruktur (Change-BAPI) -->
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.BATCH}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.CONFIGMAT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.CONFIGMAT_EXTERNAL}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.CONFIGMAT_GUID}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.CONFIGMAT_LONG}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.CONFIGMAT_VERSION}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.DELIVDATE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.EQUICATGRY}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.EQUIPMENT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.FREE_DATE1}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.FREE_DATE2}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.FREE_NOTE1}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.FREE_NOTE2}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.FREE_NUM1}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.FREE_NUM2}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.FUNC_ID}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.INST_POS}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.IPPE_GUID}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.IUID_TYPE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.LICENSE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.MANDRAWNO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.MATERIAL}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.MATERIAL_EXTERNAL}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.MATERIAL_GUID}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.MATERIAL_LONG}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.MATERIAL_VERSION}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.READ_CUOBJ}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.READ_CUREF}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.READ_FLOC}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.READ_MAINTENANCE_PLAN}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.READ_MEASURING_POINT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.READ_SUPEQ}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.READ_VALID_FROM}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.SERIALNO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.TECHID}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.TECHS}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.UII}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_DATA_SPECIFIC_X.UII_PLANT}/>
+</FormItem>
+
+
+<!-- IS_HEADER /COE/RBP_S_PAM_EQUI_HEADER ?de: Equipment Header -->
+
+<FormItem label="ABC indicator for technical object">
+    <ComboBox value={this.IS_HEADER.ABCINDIC}
+        items="{type:'CT', id:'T370C'}"
+        data-abap="{type: 'string', length: '1'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Acquisition date">
+    <DatePicker value={this.IS_HEADER.ACQDATE}/>
+</FormItem>
+
+
+<FormItem label="Acquisition Value">
+    <Input value={this.IS_HEADER.ACQUISVAL}
+           data-abap="{type: 'number', length: '+12.2'}"
+    />
+</FormItem>
+
+
+<FormItem label="Main Asset Number">
+    <ComboBox value={this.IS_HEADER.ASSET_NO}
+        items="{type:'CT', id:'ANLH'}"
+        data-abap="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Technical object authorization group">
+    <Input value={this.IS_HEADER.AUTHGRP}
+           data-abap="{type: 'string', length: '4'}"
+           data-shlp="{type:'SH', id:'H_T370B'}"
+    />
+</FormItem>
+
+
+<FormItem label="Business Area">
+    <Input value={this.IS_HEADER.BUS_AREA}
+           data-abap="{type: 'string', length: '4', mid: 'GSB'}"
+           data-shlp="{type:'SH', id:'H_TGSB'}"
+    />
+</FormItem>
+
+
+<FormItem label="Catalog Profile">
+    <ComboBox value={this.IS_HEADER.CATPROFILE}
+        items="{type:'CT', id:'T352B'}"
+        data-abap="{type: 'string', length: '9'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Company Code">
+    <Input value={this.IS_HEADER.COMP_CODE}
+           data-abap="{type: 'string', length: '4', mid: 'BUK'}"
+           data-shlp="{type:'SH', id:'C_T001'}"
+    />
+</FormItem>
+
+
+<FormItem label="Month of construction">
+    <Input value={this.IS_HEADER.CONSTMONTH}
+           data-abap="{type: 'string', length: '2'}"
+           data-shlp="{type:'FV', id:'BAUMM'}"
+    />
+</FormItem>
+
+
+<FormItem label="Construction type material of the object">
+    <ComboBox value={this.IS_HEADER.CONSTTYPE}
+        items="{type:'CT', id:'MARA'}"
+        data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Long Material Number for CONSTTYPE Field">
+    <Input value={this.IS_HEADER.CONSTTYPE_EXTERNAL}
+           data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+    />
+</FormItem>
+
+
+<FormItem label="External GUID for CONSTTYPE Field">
+    <Input value={this.IS_HEADER.CONSTTYPE_GUID}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Construction type material of the object">
+    <Input value={this.IS_HEADER.CONSTTYPE_LONG}
+           data-abap="{type: 'string', length: '40', mid: 'MAT'}"
+    />
+</FormItem>
+
+
+<FormItem label="Version Number for CONSTTYPE Field">
+    <Input value={this.IS_HEADER.CONSTTYPE_VERSION}
+           data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+    />
+</FormItem>
+
+
+<FormItem label="Year of construction">
+    <Input value={this.IS_HEADER.CONSTYEAR}
+           data-abap="{type: 'string', length: '4', alpha: 'GJAHR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Cost Center">
+    <ComboBox value={this.IS_HEADER.COSTCENTER}
+        items="{type:'CT', id:'CSKS'}"
+        data-abap="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Country ISO code">
+    <Input value={this.IS_HEADER.COUNTR_ISO}
+           data-abap="{type: 'string', length: '2'}"
+           data-shlp="{type:'SH', id:'F4_INTCA'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO currency code">
+    <Input value={this.IS_HEADER.CURR_ISO}
+           data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Description of Technical Object">
+    <Input value={this.IS_HEADER.DESCRIPT}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Distribution Channel">
+    <Input value={this.IS_HEADER.DISTR_CHAN}
+           data-abap="{type: 'string', length: '2', mid: 'VTW'}"
+           data-shlp="{type:'SH', id:'CSH_TVTW'}"
+    />
+</FormItem>
+
+
+<FormItem label="Division">
+    <Input value={this.IS_HEADER.DIVISION}
+           data-abap="{type: 'string', length: '2', mid: 'SPA'}"
+           data-shlp="{type:'SH', id:'CSH_TSPA'}"
+    />
+</FormItem>
+
+
+<FormItem label="End Point">
+    <Input value={this.IS_HEADER.END_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of First Offset">
+    <ComboBox value={this.IS_HEADER.FIRST_OFFSET_TYPE_CODE}
+        items="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Unit of Measurement for Offset 1 in ISO Code">
+    <Input value={this.IS_HEADER.FIRST_OFFSET_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Value of Offset 1">
+    <Input value={this.IS_HEADER.FIRST_OFFSET_VALUE}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Inventory number">
+    <Input value={this.IS_HEADER.INVENTORY}
+           data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem label="Length">
+    <Input value={this.IS_HEADER.LINEAR_LENGTH}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Linear Reference Pattern">
+    <Input value={this.IS_HEADER.LINEAR_REFERENCE_PATTERN}
+           data-abap="{type: 'string', length: '10', mid: 'LRP'}"
+           data-shlp="{type:'SH', id:'EAML_SHLP_LRPID'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unit of Measurement for Linear Data in ISO Code">
+    <Input value={this.IS_HEADER.LINEAR_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Asset location">
+    <Input value={this.IS_HEADER.MAINTLOC}
+           data-abap="{type: 'string', length: '10'}"
+           data-shlp="{type:'SH', id:'H_T499S'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance plant">
+    <Input value={this.IS_HEADER.MAINTPLANT}
+           data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+           data-shlp="{type:'SH', id:'H_T001W'}"
+    />
+</FormItem>
+
+
+<FormItem label="Room">
+    <Input value={this.IS_HEADER.MAINTROOM}
+           data-abap="{type: 'string', length: '8'}"
+    />
+</FormItem>
+
+
+<FormItem label="Country of manufacture">
+    <ComboBox value={this.IS_HEADER.MANCOUNTRY}
+        items="{type:'CT', id:'T005'}"
+        data-abap="{type: 'string', length: '3'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Manufacturer of asset">
+    <Input value={this.IS_HEADER.MANFACTURE}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer model number">
+    <Input value={this.IS_HEADER.MANMODEL}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer part number">
+    <Input value={this.IS_HEADER.MANPARNO}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer serial number">
+    <Input value={this.IS_HEADER.MANSERNO}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Length Spec for Distance between Marker and End Point">
+    <Input value={this.IS_HEADER.MARKER_DISTANCE_END_POINT}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Distance between Marker and Start Point">
+    <Input value={this.IS_HEADER.MARKER_DISTANCE_START_POINT}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unit for the Distance from Marker in ISO Code">
+    <Input value={this.IS_HEADER.MARKER_DISTANCE_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Marker for End Point">
+    <Input value={this.IS_HEADER.MARKER_END_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+    />
+</FormItem>
+
+
+<FormItem label="Marker for Start Point">
+    <Input value={this.IS_HEADER.MARKER_START_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of Technical Object">
+    <ComboBox value={this.IS_HEADER.OBJECTTYPE}
+        items="{type:'CT', id:'T370K'}"
+        data-abap="{type: 'string', length: '10'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Size/dimension">
+    <Input value={this.IS_HEADER.OBJ_SIZE}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Weight of object">
+    <Input value={this.IS_HEADER.OBJ_WEIGHT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <Input value={this.IS_HEADER.PLANGROUP}
+           data-abap="{type: 'string', length: '3', mid: 'IHG'}"
+           data-shlp="{type:'SH', id:'H_T024I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maintenance Planning Plant">
+    <Input value={this.IS_HEADER.PLANPLANT}
+           data-abap="{type: 'string', length: '4', mid: 'IWK'}"
+           data-shlp="{type:'SH', id:'H_T399I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Plant section">
+    <Input value={this.IS_HEADER.PLSECTN}
+           data-abap="{type: 'string', length: '3', mid: 'BBE'}"
+           data-shlp="{type:'SH', id:'H_T357'}"
+    />
+</FormItem>
+
+
+<FormItem label="Object ID of PP work center">
+    <Input value={this.IS_HEADER.PP_WKCTR}
+           data-abap="{type: 'string', length: '8'}"
+           data-shlp="{type:'CT', id:'CRID'}"
+    />
+</FormItem>
+
+
+<FormItem label="Address number">
+    <ComboBox value={this.IS_HEADER.READ_ADRNR}
+        items="{type:'CT', id:'ADRC'}"
+        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Date of Last Change">
+    <DatePicker value={this.IS_HEADER.READ_CHDAT}/>
+</FormItem>
+
+
+<FormItem label="Name of person who changed object">
+    <Input value={this.IS_HEADER.READ_CHNAM}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Date on Which Record Was Created">
+    <DatePicker value={this.IS_HEADER.READ_CRDAT}/>
+</FormItem>
+
+
+<FormItem label="Name of Person who Created the Object">
+    <Input value={this.IS_HEADER.READ_CRNAM}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Object number">
+    <ComboBox value={this.IS_HEADER.READ_OBJNR}
+        items="{type:'CT', id:'ONR00'}"
+        data-abap="{type: 'string', length: '22', mid: 'ONR'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Sales group">
+    <Input value={this.IS_HEADER.SALES_GRP}
+           data-abap="{type: 'string', length: '3', mid: 'VKG'}"
+           data-shlp="{type:'SH', id:'H_TVKGR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Sales office">
+    <Input value={this.IS_HEADER.SALES_OFF}
+           data-abap="{type: 'string', length: '4', mid: 'VKB'}"
+           data-shlp="{type:'SH', id:'H_TVBUR'}"
+    />
+</FormItem>
+
+
+<FormItem label="Sales Organization">
+    <Input value={this.IS_HEADER.SALES_ORG}
+           data-abap="{type: 'string', length: '4', mid: 'VKO'}"
+           data-shlp="{type:'SH', id:'H_TVKO'}"
+    />
+</FormItem>
+
+
+<FormItem label="Type of Second Offset">
+    <Input value={this.IS_HEADER.SECOND_OFFSET_TYPE_CODE}
+           data-abap="{type: 'string', length: '2'}"
+           data-shlp="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+    />
+</FormItem>
+
+
+<FormItem label="Unit of Measurement for Offset 2 in ISO Code">
+    <Input value={this.IS_HEADER.SECOND_OFFSET_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Value of Offset 2">
+    <Input value={this.IS_HEADER.SECOND_OFFSET_VALUE}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Settlement order">
+    <Input value={this.IS_HEADER.SETTLORDER}
+           data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'ORDE'}"
+    />
+</FormItem>
+
+
+<FormItem label="Notification Type for Shift Note for Object">
+    <ComboBox value={this.IS_HEADER.SHIFT_NOTE_NOTIFICATION_TYPE}
+        items="{type:'CT', id:'TQ80'}"
+        data-abap="{type: 'string', length: '2'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Shift Report Type for Object">
+    <Input value={this.IS_HEADER.SHIFT_REPORT_TYPE}
+           data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Sort field">
+    <Input value={this.IS_HEADER.SORTFIELD}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Standing order number">
+    <Input value={this.IS_HEADER.STANDORDER}
+           data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'ORDP'}"
+    />
+</FormItem>
+
+
+<FormItem label="Start-up Date of the Technical Object">
+    <DatePicker value={this.IS_HEADER.START_FROM}/>
+</FormItem>
+
+
+<FormItem label="Start Point">
+    <Input value={this.IS_HEADER.START_POINT}
+           data-abap="{type: 'string', length: '18'}"
+           data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+    />
+</FormItem>
+
+
+<FormItem label="Asset Subnumber">
+    <ComboBox value={this.IS_HEADER.SUB_NUMBER}
+        items="{type:'CT', id:'ANLA'}"
+        data-abap="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IS_HEADER.UNIT_ISO}
+        items="{type:'CT', id:'T006I'}"
+        data-abap="{type: 'string', length: '3'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Work Breakdown Structure Element (WBS Element)">
+    <ComboBox value={this.IS_HEADER.WBS_ELEM}
+        items="{type:'CT', id:'PRPS'}"
+        data-abap="{type: 'string', length: '8', alpha: 'ABPSP'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Object ID of the Work Center">
+    <ComboBox value={this.IS_HEADER.WORK_CTR}
+        items="{type:'CT', id:'CRID'}"
+        data-abap="{type: 'string', length: '8'}">
+    </ComboBox>
+</FormItem>
+
+
+<!-- IS_HEADER_X /COE/RBP_S_PAM_EQUI_HEADERX ?de: Equipment Header (X) -->
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.ABCINDIC}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.ACQDATE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.ACQUISVAL}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.ASSET_NO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.AUTHGRP}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.BUS_AREA}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CATPROFILE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.COMP_CODE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CONSTMONTH}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CONSTTYPE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CONSTTYPE_EXTERNAL}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CONSTTYPE_GUID}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CONSTTYPE_LONG}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CONSTTYPE_VERSION}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CONSTYEAR}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.COSTCENTER}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.COUNTR_ISO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CURRENCY}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.CURR_ISO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.DESCRIPT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.DISTR_CHAN}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.DIVISION}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.END_POINT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.FIRST_OFFSET_TYPE_CODE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.FIRST_OFFSET_UNIT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.FIRST_OFFSET_UNIT_ISO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.FIRST_OFFSET_VALUE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.INVENTORY}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.LINEAR_LENGTH}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.LINEAR_REFERENCE_PATTERN}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.LINEAR_UNIT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.LINEAR_UNIT_ISO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MAINTLOC}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MAINTPLANT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MAINTROOM}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MANCOUNTRY}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MANFACTURE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MANMODEL}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MANPARNO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MANSERNO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MARKER_DISTANCE_END_POINT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MARKER_DISTANCE_START_POINT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MARKER_DISTANCE_UNIT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MARKER_DISTANCE_UNIT_ISO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MARKER_END_POINT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.MARKER_START_POINT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.OBJECTTYPE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.OBJ_SIZE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.OBJ_WEIGHT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.PLANGROUP}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.PLANPLANT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.PLSECTN}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.PP_WKCTR}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.READ_ADRNR}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.READ_CHDAT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.READ_CHNAM}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.READ_CRDAT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.READ_CRNAM}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.READ_OBJNR}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SALES_GRP}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SALES_OFF}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SALES_ORG}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SECOND_OFFSET_TYPE_CODE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SECOND_OFFSET_UNIT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SECOND_OFFSET_UNIT_ISO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SECOND_OFFSET_VALUE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SETTLORDER}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SHIFT_NOTE_NOTIFICATION_TYPE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SHIFT_REPORT_TYPE}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SORTFIELD}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.STANDORDER}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.START_FROM}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.START_POINT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.SUB_NUMBER}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.UNIT_ISO}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.UNIT_OF_WT}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.WBS_ELEM}/>
+</FormItem>
+
+
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IS_HEADER_X.WORK_CTR}/>
+</FormItem>
+
+
+<!-- IT_CHARACTERISTICS /COE/RBP_T_PAM_CHARACT_FOR_CHG ?de: Characteristics -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_CHANGE IT_CHARACTERISTICS" title="?de: Characteristics"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="CHARACT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"FEA"}' label="Characteristic Name"></fd-dg-column>
+    <fd-dg-column sortable field="CLASS" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"KLA"}' label="Class number"></fd-dg-column>
+    <fd-dg-column sortable field="VALUE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Characteristic Value"></fd-dg-column>
+    <fd-dg-column sortable field="VALUE_FROM" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"+1.15"}' label="Internal floating point from"></fd-dg-column>
+    <fd-dg-column sortable field="VALUE_TO" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"+1.15"}' label="Internal floating point value to"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- IT_CHARACTERISTICS /COE/RBP_T_PAM_CHARACT_FOR_CHG ?de: Characteristics -->
+
+<FormItem label="Characteristic Name">
+    <Input value={this.IT_CHARACTERISTICS.CHARACT}
+           data-abap="{type: 'string', length: '30', mid: 'FEA'}"
+    />
+</FormItem>
+
+
+<FormItem label="Class number">
+    <Input value={this.IT_CHARACTERISTICS.CLASS}
+           data-abap="{type: 'string', length: '18', mid: 'KLA'}"
+    />
+</FormItem>
+
+
+<FormItem label="Characteristic Value">
+    <Input value={this.IT_CHARACTERISTICS.VALUE}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Internal floating point from">
+    <Input value={this.IT_CHARACTERISTICS.VALUE_FROM}
+           data-abap="{type: 'number', length: '+1.15'}"
+    />
+</FormItem>
+
+
+<FormItem label="Internal floating point value to">
+    <Input value={this.IT_CHARACTERISTICS.VALUE_TO}
+           data-abap="{type: 'number', length: '+1.15'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment Number">
+    <Input value={this.IV_EQUIID}
+           data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+           data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_CHANGE ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}' label="Field in parameter"></fd-dg-column>
+    <fd-dg-column sortable field="ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'T100A'}}' label="Message Class"></fd-dg-column>
+    <fd-dg-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}' label="Application log: Internal message serial number"></fd-dg-column>
+    <fd-dg-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}' label="Application log: log number"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}' label="Message Text"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable"></fd-dg-column>
+    <fd-dg-column sortable field="NUMBER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}' label="Message Number"></fd-dg-column>
+    <fd-dg-column sortable field="PARAMETER" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}' label="Parameter Name"></fd-dg-column>
+    <fd-dg-column sortable field="ROW" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}' label="Lines in parameter"></fd-dg-column>
+    <fd-dg-column sortable field="SYSTEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA"  label="Logical system from which message originates"></fd-dg-column>
+    <fd-dg-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}' label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+
+<FormItem label="Field in parameter">
+    <ComboBox value={this.ET_RETURN.FIELD}
+        items="{type:'CT', id:'DD03L'}"
+        data-abap="{type: 'string', length: '30'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Message Class">
+    <ComboBox value={this.ET_RETURN.ID}
+        items="{type:'CT', id:'T100A'}"
+        data-abap="{type: 'string', length: '20'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.ET_RETURN.LOG_MSG_NO}
+        items="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Application log: log number">
+    <ComboBox value={this.ET_RETURN.LOG_NO}
+        items="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Message Text">
+    <Input value={this.ET_RETURN.MESSAGE}
+           data-abap="{type: 'string', length: '220'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V1}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V2}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V3}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V4}
+           data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem label="Message Number">
+    <Input value={this.ET_RETURN.NUMBER}
+           data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Parameter Name">
+    <Input value={this.ET_RETURN.PARAMETER}
+           data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem label="Lines in parameter">
+    <Input value={this.ET_RETURN.ROW}
+           data-abap="{type: 'number', length: '+10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Logical system from which message originates">
+    <ComboBox value={this.ET_RETURN.SYSTEM}
+        items="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.ET_RETURN.TYPE}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+

@@ -1,0 +1,398 @@
+<!-- /COE/RBP_PAM_EQUIP_HIER_GET 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<ComboboxInput id="4711" label="Boolean Variable (X=true, -=false, space=unknown)"
+    value={this.IV_DEF_VAL}
+    options="{type:'FV', id:'BOOLEAN'}"
+    data-abap="{{type: 'string', length: '1'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Material Group</FormLabel>
+    <FormInput id="4711" value={this.IV_EQUIP_TYPE}
+        data-abap="{type: 'string', length: '9', mid: 'MKL'}"
+        data-shlp="{type:'SH', id:'S_WBWG'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Functional Location</FormLabel>
+    <FormInput id="4711" value={this.IV_LOCATION}
+        data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+        data-shlp="{type:'SH', id:'IFLM'}"
+    />
+</FormItem>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- ET_DEF_VAL /COE/RBP_T_PAM_DEF_VALS_EQ ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIP_HIER_GET ET_DEF_VAL" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DEF_VALUE" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="?de: WevPoS: Default Value"></fd-fd-column>
+    <fd-fd-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="FIELDNAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'/COE/PAM_FLD_VAL'}}'
+              label="?de: WebPoS: Fieldname"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_DEF_VAL /COE/RBP_T_PAM_DEF_VALS_EQ ?de: Fehlermeldungen -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">?de: WevPoS: Default Value</FormLabel>
+    <FormInput id="4711" value={this.ET_DEF_VAL.DEF_VALUE}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Equipment Number</FormLabel>
+    <FormInput id="4711" value={this.ET_DEF_VAL.EQUNR}
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="?de: WebPoS: Fieldname"
+    value={this.ET_DEF_VAL.FIELDNAME}
+    options="{type:'CT', id:'/COE/PAM_FLD_VAL'}"
+    data-abap="{{type: 'string', length: '30'}}"/>
+
+
+<!-- ET_EQUIP_LIST /COE/RBP_T_PAM_EQUI_DAT_HIER_L ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIP_HIER_GET ET_EQUIP_LIST" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="EQUIPMENT_DESCR" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Description of Technical Object"></fd-fd-column>
+    <fd-fd-column sortable field="EQUIP_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'S_WBWG'}}'
+              label="Material Group"></fd-fd-column>
+    <fd-fd-column sortable field="H_EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="INVENT_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
+              label="Inventory number"></fd-fd-column>
+    <fd-fd-column sortable field="LOCATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Functional Location"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'SH', id:'S_MAT1'}}' alpha-exit="MATN1" 
+              label="Material Number"></fd-fd-column>
+    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"SER"}' alpha-exit="GERNR" 
+              label="Serial Number"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+              label="Individual status of an object (short form)"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS_DESCR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="VALID_FROM" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Valid-From Date"></fd-fd-column>
+    <fd-fd-column sortable field="VALID_TO" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Valid To Date"></fd-fd-column>
+    <fd-fd-column sortable field="WEIGHT" unit="UOM" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Weight of object"></fd-fd-column>
+    <fd-fd-column sortable field="YEAR_OF_CONSTRUCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}' alpha-exit="GJAHR" 
+              label="Year of construction"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_EQUIP_LIST /COE/RBP_T_PAM_EQUI_DAT_HIER_L ?de: Fehlermeldungen -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">Equipment Number</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.EQUIPMENT}
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Description of Technical Object</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.EQUIPMENT_DESCR}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Material Group</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.EQUIP_TYPE}
+        data-abap="{type: 'string', length: '9', mid: 'MKL'}"
+        data-shlp="{type:'SH', id:'S_WBWG'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Equipment Number</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.H_EQUIPMENT}
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Inventory number</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.INVENT_NO}
+        data-abap="{type: 'string', length: '25'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Functional Location</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.LOCATION}
+        data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+        data-shlp="{type:'SH', id:'IFLM'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Material Number</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.MATERIAL}
+        data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+        data-shlp="{type:'SH', id:'S_MAT1'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Serial Number</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.SERIAL_NO}
+        data-abap="{type: 'string', length: '18', mid: 'SER', alpha: 'GERNR'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Individual status of an object (short form)</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.STATUS}
+        data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Object status</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.STATUS_DESCR}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Valid-From Date</FormLabel>
+    <DatePicker id="4711" value={this.ET_EQUIP_LIST.VALID_FROM}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Valid To Date</FormLabel>
+    <DatePicker id="4711" value={this.ET_EQUIP_LIST.VALID_TO}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Weight of object</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.WEIGHT}
+        data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Year of construction</FormLabel>
+    <FormInput id="4711" value={this.ET_EQUIP_LIST.YEAR_OF_CONSTRUCT}
+        data-abap="{type: 'string', length: '4', alpha: 'GJAHR'}"
+    />
+</FormItem>
+
+
+<!-- ET_FUNC_LOC_LIST /COE/RBP_T_PAM_FUNC_LOC_EQUI_L ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIP_HIER_GET ET_FUNC_LOC_LIST" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Description of Technical Object"></fd-fd-column>
+    <fd-fd-column sortable field="FUNCTLOCATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Functional Location"></fd-fd-column>
+    <fd-fd-column sortable field="FUNC_LOC_CAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"15", shlp:{type:'FV', id:'/COE/PAM_DOM_FUNC_LOC_CAT'}}'
+              label="?de: data element for function location category"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_FUNC_LOC_LIST /COE/RBP_T_PAM_FUNC_LOC_EQUI_L ?de: Fehlermeldungen -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">Description of Technical Object</FormLabel>
+    <FormInput id="4711" value={this.ET_FUNC_LOC_LIST.DESCRIPT}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Functional Location</FormLabel>
+    <FormInput id="4711" value={this.ET_FUNC_LOC_LIST.FUNCTLOCATION}
+        data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+        data-shlp="{type:'SH', id:'IFLM'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="?de: data element for function location category"
+    value={this.ET_FUNC_LOC_LIST.FUNC_LOC_CAT}
+    options="{type:'FV', id:'/COE/PAM_DOM_FUNC_LOC_CAT'}"
+    data-abap="{{type: 'string', length: '15'}}"/>
+
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIP_HIER_GET ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}'
+              label="Field in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'T100A'}}'
+              label="Message Class"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="NUMBER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}'
+              label="Message Number"></fd-fd-column>
+    <fd-fd-column sortable field="PARAMETER" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="Parameter Name"></fd-fd-column>
+    <fd-fd-column sortable field="ROW" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
+              label="Lines in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="SYSTEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA" 
+              label="Logical system from which message originates"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+
+<ComboboxInput id="4711" label="Field in parameter"
+    value={this.ET_RETURN.FIELD}
+    options="{type:'CT', id:'DD03L'}"
+    data-abap="{{type: 'string', length: '30'}}"/>
+
+
+<ComboboxInput id="4711" label="Message Class"
+    value={this.ET_RETURN.ID}
+    options="{type:'CT', id:'T100A'}"
+    data-abap="{{type: 'string', length: '20'}}"/>
+
+
+<ComboboxInput id="4711" label="Application log: Internal message serial number"
+    value={this.ET_RETURN.LOG_MSG_NO}
+    options="{type:'CH', id:'BALM'}"
+    data-abap="{{type: 'string', length: '6'}}"/>
+
+
+<ComboboxInput id="4711" label="Application log: log number"
+    value={this.ET_RETURN.LOG_NO}
+    options="{type:'CH', id:'BALHDR'}"
+    data-abap="{{type: 'string', length: '20'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Text</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.MESSAGE}
+        data-abap="{type: 'string', length: '220'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.MESSAGE_V1}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.MESSAGE_V2}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.MESSAGE_V3}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.MESSAGE_V4}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Number</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.NUMBER}
+        data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Parameter Name</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.PARAMETER}
+        data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Lines in parameter</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.ROW}
+        data-abap="{type: 'number', length: '+10'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Logical system from which message originates"
+    value={this.ET_RETURN.SYSTEM}
+    options="{type:'CT', id:'TBDLS'}"
+    data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message type: S Success, E Error, W Warning, I Info, A Abort</FormLabel>
+    <FormInput id="4711" value={this.ET_RETURN.TYPE}
+        data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+

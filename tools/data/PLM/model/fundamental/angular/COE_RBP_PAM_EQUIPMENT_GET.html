@@ -1,0 +1,2408 @@
+<!-- /COE/RBP_PAM_EQUIPMENT_GET 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<div fd-form-item>
+    <fd-checkbox label="General Flag" [(ngModel)]="IV_CHARACTERISTICS"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="General Flag" [(ngModel)]="IV_DOCUMENT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IV_EQUIID"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="General Flag" [(ngModel)]="IV_WITH_TIMESTATS"></fd-checkbox>
+</div> 
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ES_HEADER /COE/RBP_S_PAM_EQUI_HEADER ?de: Equipment Header -->
+
+<div fd-form-item>
+    <label fd-form-label>ABC indicator for technical object</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.ABCINDIC"
+        [dropdownValues]="{type:'CT', id:'T370C'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Acquisition date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_HEADER.ACQDATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Acquisition Value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.ACQUISVAL"
+            data-abap="{type: 'number', length: '+12.2'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Main Asset Number</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.ASSET_NO"
+        [dropdownValues]="{type:'CT', id:'ANLH'}"
+        data-abap="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical object authorization group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.AUTHGRP"
+            data-abap="{type: 'string', length: '4'}"
+            data-shlp="{type:'SH', id:'H_T370B'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Business Area</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.BUS_AREA"
+            data-abap="{type: 'string', length: '4', mid: 'GSB'}"
+            data-shlp="{type:'SH', id:'H_TGSB'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Catalog Profile</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.CATPROFILE"
+        [dropdownValues]="{type:'CT', id:'T352B'}"
+        data-abap="{type: 'string', length: '9'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Company Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.COMP_CODE"
+            data-abap="{type: 'string', length: '4', mid: 'BUK'}"
+            data-shlp="{type:'SH', id:'C_T001'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Month of construction</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.CONSTMONTH"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'FV', id:'BAUMM'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Construction type material of the object</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.CONSTTYPE"
+        [dropdownValues]="{type:'CT', id:'MARA'}"
+        data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for CONSTTYPE Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.CONSTTYPE_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for CONSTTYPE Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.CONSTTYPE_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Construction type material of the object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.CONSTTYPE_LONG"
+            data-abap="{type: 'string', length: '40', mid: 'MAT'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for CONSTTYPE Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.CONSTTYPE_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Year of construction</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.CONSTYEAR"
+            data-abap="{type: 'string', length: '4', alpha: 'GJAHR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cost Center</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.COSTCENTER"
+        [dropdownValues]="{type:'CT', id:'CSKS'}"
+        data-abap="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country ISO code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.COUNTR_ISO"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'SH', id:'F4_INTCA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO currency code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.CURR_ISO"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.DESCRIPT"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Distribution Channel</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.DISTR_CHAN"
+            data-abap="{type: 'string', length: '2', mid: 'VTW'}"
+            data-shlp="{type:'SH', id:'CSH_TVTW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Division</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.DIVISION"
+            data-abap="{type: 'string', length: '2', mid: 'SPA'}"
+            data-shlp="{type:'SH', id:'CSH_TSPA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>End Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.END_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of First Offset</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.FIRST_OFFSET_TYPE_CODE"
+        [dropdownValues]="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+        data-abap="{type: 'string', length: '2'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit of Measurement for Offset 1 in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.FIRST_OFFSET_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Value of Offset 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.FIRST_OFFSET_VALUE"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inventory number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.INVENTORY"
+            data-abap="{type: 'string', length: '25'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Length</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.LINEAR_LENGTH"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Linear Reference Pattern</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.LINEAR_REFERENCE_PATTERN"
+            data-abap="{type: 'string', length: '10', mid: 'LRP'}"
+            data-shlp="{type:'SH', id:'EAML_SHLP_LRPID'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit of Measurement for Linear Data in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.LINEAR_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Asset location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MAINTLOC"
+            data-abap="{type: 'string', length: '10'}"
+            data-shlp="{type:'SH', id:'H_T499S'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MAINTPLANT"
+            data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Room</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MAINTROOM"
+            data-abap="{type: 'string', length: '8'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country of manufacture</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.MANCOUNTRY"
+        [dropdownValues]="{type:'CT', id:'T005'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer of asset</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MANFACTURE"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer model number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MANMODEL"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer part number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MANPARNO"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer serial number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MANSERNO"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Length Spec for Distance between Marker and End Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MARKER_DISTANCE_END_POINT"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Distance between Marker and Start Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MARKER_DISTANCE_START_POINT"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit for the Distance from Marker in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MARKER_DISTANCE_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Marker for End Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MARKER_END_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Marker for Start Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.MARKER_START_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of Technical Object</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.OBJECTTYPE"
+        [dropdownValues]="{type:'CT', id:'T370K'}"
+        data-abap="{type: 'string', length: '10'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Size/dimension</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.OBJ_SIZE"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Weight of object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.OBJ_WEIGHT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.PLANGROUP"
+            data-abap="{type: 'string', length: '3', mid: 'IHG'}"
+            data-shlp="{type:'SH', id:'H_T024I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Planning Plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.PLANPLANT"
+            data-abap="{type: 'string', length: '4', mid: 'IWK'}"
+            data-shlp="{type:'SH', id:'H_T399I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Plant section</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.PLSECTN"
+            data-abap="{type: 'string', length: '3', mid: 'BBE'}"
+            data-shlp="{type:'SH', id:'H_T357'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object ID of PP work center</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.PP_WKCTR"
+            data-abap="{type: 'string', length: '8'}"
+            data-shlp="{type:'CT', id:'CRID'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Address number</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.READ_ADRNR"
+        [dropdownValues]="{type:'CT', id:'ADRC'}"
+        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date of Last Change</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_HEADER.READ_CHDAT"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of person who changed object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.READ_CHNAM"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date on Which Record Was Created</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_HEADER.READ_CRDAT"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of Person who Created the Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.READ_CRNAM"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object number</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.READ_OBJNR"
+        [dropdownValues]="{type:'CT', id:'ONR00'}"
+        data-abap="{type: 'string', length: '22', mid: 'ONR'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SALES_GRP"
+            data-abap="{type: 'string', length: '3', mid: 'VKG'}"
+            data-shlp="{type:'SH', id:'H_TVKGR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales office</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SALES_OFF"
+            data-abap="{type: 'string', length: '4', mid: 'VKB'}"
+            data-shlp="{type:'SH', id:'H_TVBUR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales Organization</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SALES_ORG"
+            data-abap="{type: 'string', length: '4', mid: 'VKO'}"
+            data-shlp="{type:'SH', id:'H_TVKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of Second Offset</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SECOND_OFFSET_TYPE_CODE"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'EAML_D_OFFSET_TC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unit of Measurement for Offset 2 in ISO Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SECOND_OFFSET_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Value of Offset 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SECOND_OFFSET_VALUE"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Settlement order</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SETTLORDER"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'ORDE'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Notification Type for Shift Note for Object</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.SHIFT_NOTE_NOTIFICATION_TYPE"
+        [dropdownValues]="{type:'CT', id:'TQ80'}"
+        data-abap="{type: 'string', length: '2'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Shift Report Type for Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SHIFT_REPORT_TYPE"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sort field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.SORTFIELD"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Standing order number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.STANDORDER"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'ORDP'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Start-up Date of the Technical Object</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_HEADER.START_FROM"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Start Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_HEADER.START_POINT"
+            data-abap="{type: 'string', length: '18'}"
+            data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Asset Subnumber</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.SUB_NUMBER"
+        [dropdownValues]="{type:'CT', id:'ANLA'}"
+        data-abap="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO code for unit of measurement</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.UNIT_ISO"
+        [dropdownValues]="{type:'CT', id:'T006I'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Work Breakdown Structure Element (WBS Element)</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.WBS_ELEM"
+        [dropdownValues]="{type:'CT', id:'PRPS'}"
+        data-abap="{type: 'string', length: '8', alpha: 'ABPSP'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object ID of the Work Center</label>
+    <fd-combobox
+        [(ngModel)]="ES_HEADER.WORK_CTR"
+        [dropdownValues]="{type:'CT', id:'CRID'}"
+        data-abap="{type: 'string', length: '8'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- ES_SPECIFIC BAPI_ITOB_EQ_ONLY ?de: PM: BAPI-Struktur für ITOBAPI_CREATE_EQ_ONLY + READ-Felder -->
+
+<div fd-form-item>
+    <label fd-form-label>Batch Number</label>
+    <fd-combobox
+        [(ngModel)]="ES_SPECIFIC.BATCH"
+        [dropdownValues]="{type:'CT', id:'MCH1'}"
+        data-abap="{type: 'string', length: '10', mid: 'CHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Configurable Material</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.CONFIGMAT"
+            data-abap="{type: 'string', length: '18', alpha: 'MATN1'}"
+            data-shlp="{type:'SH', id:'MAT1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for CONFIGMAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.CONFIGMAT_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for CONFIGMAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.CONFIGMAT_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Configurable Material</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.CONFIGMAT_LONG"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for CONFIGMAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.CONFIGMAT_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>General Indicator (Single Character)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.CONFIG_CONTROL_IND"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First delivery date of the equipment</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_SPECIFIC.DELIVDATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment category</label>
+    <fd-combobox
+        [(ngModel)]="ES_SPECIFIC.EQUICATGRY"
+        [dropdownValues]="{type:'CT', id:'T370T'}"
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date, intended for SAP internal use</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_SPECIFIC.FREE_DATE1"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date, intended for SAP internal use</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_SPECIFIC.FREE_DATE2"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical information, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.FREE_NOTE1"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical information, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.FREE_NOTE2"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Numerical field, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.FREE_NUM1"
+            data-abap="{type: 'string', length: '9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Numerical field, intended for SAP internal use</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.FREE_NUM2"
+            data-abap="{type: 'string', length: '9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Function Identifier</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.FUNC_ID"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.INST_POS"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal Identification for PVS Objects</label>
+    <textarea fd-form-control
+        [(ngModel)]="ES_SPECIFIC.IPPE_GUID"
+        data-abap="{type: 'string', length: '16'}"
+        aria-required="true"
+    ></textarea>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Structure Type of UII</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.IUID_TYPE"
+            data-abap="{type: 'string', length: '10'}"
+            data-shlp="{type:'SH', id:'H_IUID_TYPE'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment license number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.LICENSE"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer drawing number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.MANDRAWNO"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.MATERIAL"
+            data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+            data-shlp="{type:'SH', id:'S_MAT1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.MATERIAL_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.MATERIAL_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Number (40 Characters, needed f. technical reasons)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.MATERIAL_LONG"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.MATERIAL_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Configuration (internal object number)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.READ_CUOBJ"
+            data-abap="{type: 'string', length: '18', mid: 'CUX'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Referenced Configuration" [(ngModel)]="ES_SPECIFIC.READ_CUREF"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Location Label</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.READ_FLOC"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Plan</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.READ_MAINTENANCE_PLAN"
+            data-abap="{type: 'string', length: '12', mid: 'MPL', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'MPLAL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Measuring Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.READ_MEASURING_POINT"
+            data-abap="{type: 'string', length: '12', mid: 'IPT', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'IMPM'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Superordinate Equipment</label>
+    <fd-combobox
+        [(ngModel)]="ES_SPECIFIC.READ_SUPEQ"
+        [dropdownValues]="{type:'CT', id:'EQUI'}"
+        data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Valid-From Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ES_SPECIFIC.READ_VALID_FROM"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Serial Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.SERIALNO"
+            data-abap="{type: 'string', length: '18', mid: 'SER', alpha: 'GERNR'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Technical identification number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.TECHID"
+            data-abap="{type: 'string', length: '25'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Parameter Variant/Standard Variant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.TECHS"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Unique Item Identifier</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.UII"
+            data-abap="{type: 'string', length: '72', mid: 'UII'}"
+            data-shlp="{type:'SH', id:'H_UII'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Plant Responsible for UII</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ES_SPECIFIC.UII_PLANT"
+            data-abap="{type: 'string', length: '4', mid: 'WRK'}"
+            data-shlp="{type:'SH', id:'H_T001W_C'}"
+        />
+</div>
+
+
+<!-- ET_BRKDWN_EFF /COE/RBP_T_MCIT_BRKDWN_EFF ?de: Breakdown Effective -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_BRKDWN_EFF" title="?de: Breakdown Effective"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="EBDNR" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="EBGND" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="System Date"></fd-fd-column>
+    <fd-fd-column sortable field="EBGNT" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}'
+              label="System Time"></fd-fd-column>
+    <fd-fd-column sortable field="EENDD" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="System Date"></fd-fd-column>
+    <fd-fd-column sortable field="EENDT" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}'
+              label="System Time"></fd-fd-column>
+    <fd-fd-column sortable field="ELSTD" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="System Date"></fd-fd-column>
+    <fd-fd-column sortable field="ELSTT" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}'
+              label="System Time"></fd-fd-column>
+    <fd-fd-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="NBDREP" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="SPMON" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6"}' alpha-exit="PERI" 
+              label="Period to analyze - month"></fd-fd-column>
+    <fd-fd-column sortable field="TBRMIN" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Functional Location"></fd-fd-column>
+    <fd-fd-column sortable field="TTRMIN" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8"}'
+              label="todo: no field text"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_BRKDWN_EFF /COE/RBP_T_MCIT_BRKDWN_EFF ?de: Breakdown Effective -->
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_EFF.EBDNR"
+            data-abap="{type: 'number', length: '10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ET_BRKDWN_EFF.EBGND"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Time</label>
+    <fd-time-picker [(ngModel)]="ET_BRKDWN_EFF.EBGNT"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ET_BRKDWN_EFF.EENDD"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Time</label>
+    <fd-time-picker [(ngModel)]="ET_BRKDWN_EFF.EENDT"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ET_BRKDWN_EFF.ELSTD"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Time</label>
+    <fd-time-picker [(ngModel)]="ET_BRKDWN_EFF.ELSTT"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_EFF.EQUNR"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_EFF.NBDREP"
+            data-abap="{type: 'number', length: '10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Period to analyze - month</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_EFF.SPMON"
+            data-abap="{type: 'string', length: '6', alpha: 'PERI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_EFF.TBRMIN"
+            data-abap="{type: 'number', length: '8'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_EFF.TPLNR"
+            data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+            data-shlp="{type:'SH', id:'IFLM'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_EFF.TTRMIN"
+            data-abap="{type: 'number', length: '8'}"
+        />
+</div>
+
+
+<!-- ET_BRKDWN_REP /COE/RBP_T_MCIT_BRKDWN_REP ?de: Breakdown Report -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_BRKDWN_REP" title="?de: Breakdown Report"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="AUSBS" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="System Date"></fd-fd-column>
+    <fd-fd-column sortable field="AUSVN" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="System Date"></fd-fd-column>
+    <fd-fd-column sortable field="AUSZT" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"1.15"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="AUZTB" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}'
+              label="System Time"></fd-fd-column>
+    <fd-fd-column sortable field="AUZTV" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}'
+              label="System Time"></fd-fd-column>
+    <fd-fd-column sortable field="EBDNR" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="HAUSZT" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"9.2"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="HIDDEN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="QMNUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"IQM", shlp:{type:'CT', id:'QMEL'}}' alpha-exit="ALPHA" 
+              label="Notification No"></fd-fd-column>
+    <fd-fd-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Functional Location"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_BRKDWN_REP /COE/RBP_T_MCIT_BRKDWN_REP ?de: Breakdown Report -->
+
+<div fd-form-item>
+    <label fd-form-label>System Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ET_BRKDWN_REP.AUSBS"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ET_BRKDWN_REP.AUSVN"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_REP.AUSZT"
+            data-abap="{type: 'number', length: '1.15'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Time</label>
+    <fd-time-picker [(ngModel)]="ET_BRKDWN_REP.AUZTB"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Time</label>
+    <fd-time-picker [(ngModel)]="ET_BRKDWN_REP.AUZTV"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_REP.EBDNR"
+            data-abap="{type: 'number', length: '10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_REP.EQUNR"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_REP.HAUSZT"
+            data-abap="{type: 'number', length: '9.2'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_REP.HIDDEN"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Notification No</label>
+    <fd-combobox
+        [(ngModel)]="ET_BRKDWN_REP.QMNUM"
+        [dropdownValues]="{type:'CT', id:'QMEL'}"
+        data-abap="{type: 'string', length: '12', mid: 'IQM', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_BRKDWN_REP.TPLNR"
+            data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+            data-shlp="{type:'SH', id:'IFLM'}"
+        />
+</div>
+
+
+<!-- ET_CHARACTERISTICS /COE/RBP_T_PAM_CHARACTERISTICS ?de: Characteristics -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_CHARACTERISTICS" title="?de: Characteristics"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ADDITIONAL_VAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ATXFE'}}'
+              label="Indicator: Additional Values"></fd-fd-column>
+    <fd-fd-column sortable field="BASE_UOM_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T006I'}}'
+              label="Base unit of measure in ISO code"></fd-fd-column>
+    <fd-fd-column sortable field="CASE_SENSITIVE" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Case Sensitive"></fd-fd-column>
+    <fd-fd-column sortable field="CHARACT_GROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TCMG'}}'
+              label="Characteristics Group"></fd-fd-column>
+    <fd-fd-column sortable field="CHAR_INHERITED" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Indicator: characteristic is inherited"></fd-fd-column>
+    <fd-fd-column sortable field="CLASS" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"KLA"}'
+              label="Class number"></fd-fd-column>
+    <fd-fd-column sortable field="CURRENCY_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+              label="ISO Currency Code"></fd-fd-column>
+    <fd-fd-column sortable field="DATA_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'FV', id:'ATFOR'}}'
+              label="Data type of characteristic"></fd-fd-column>
+    <fd-fd-column sortable field="DEPARTMENT_VIEW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"VIEW"}'
+              label="Organizational Area"></fd-fd-column>
+    <fd-fd-column sortable field="DESCR_CHAR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Characteristic description"></fd-fd-column>
+    <fd-fd-column sortable field="DIN_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+              label="Code letter"></fd-fd-column>
+    <fd-fd-column sortable field="ENTRY_OBLIGATORY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ATXFE'}}'
+              label="Entry Required"></fd-fd-column>
+    <fd-fd-column sortable field="INTERVALS_ALLOWED" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ATXFE'}}'
+              label="Interval Values Allowed"></fd-fd-column>
+    <fd-fd-column sortable field="NAME_CHAR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"FEA"}'
+              label="Characteristic Name"></fd-fd-column>
+    <fd-fd-column sortable field="NUMBER_DECIMALS" data-abap.bind='{ddic:"INT2", type:"number", format:"integer", length:"5"}'
+              label="Number of Decimal Places"></fd-fd-column>
+    <fd-fd-column sortable field="NUMBER_DIGITS" data-abap.bind='{ddic:"INT2", type:"number", format:"integer", length:"5"}'
+              label="Number of Characters"></fd-fd-column>
+    <fd-fd-column sortable field="OBJECT_TABLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Table Name"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Value with Plus or Minus Sign"></fd-fd-column>
+    <fd-fd-column sortable field="SINGLE_VALUE" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Single Value"></fd-fd-column>
+    <fd-fd-column sortable field="TABLE_FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}'
+              label="Field Name"></fd-fd-column>
+    <fd-fd-column sortable field="TEMPLATE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Value with template"></fd-fd-column>
+    <fd-fd-column sortable field="TEMPLATE_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"70"}'
+              label="Value with template (70 length, technically needed)"></fd-fd-column>
+    <fd-fd-column sortable field="UNIT_T_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"6"}'
+              label="External Unit of Measurement in Technical Format (6-Char.)"></fd-fd-column>
+    <fd-fd-column sortable field="VALUE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Characteristic Value"></fd-fd-column>
+    <fd-fd-column sortable field="VALUE_FROM" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"+1.15"}'
+              label="Internal floating point from"></fd-fd-column>
+    <fd-fd-column sortable field="VALUE_TO" data-abap.bind='{ddic:"FLTP", type:"number", format:"float", length:"+1.15"}'
+              label="Internal floating point value to"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_CHARACTERISTICS /COE/RBP_T_PAM_CHARACTERISTICS ?de: Characteristics -->
+
+<div fd-form-item>
+    <label fd-form-label>Indicator: Additional Values</label>
+    <fd-combobox
+        [(ngModel)]="ET_CHARACTERISTICS.ADDITIONAL_VAL"
+        [dropdownValues]="{type:'FV', id:'ATXFE'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Base unit of measure in ISO code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.BASE_UOM_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Case Sensitive" [(ngModel)]="ET_CHARACTERISTICS.CASE_SENSITIVE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Characteristics Group</label>
+    <fd-combobox
+        [(ngModel)]="ET_CHARACTERISTICS.CHARACT_GROUP"
+        [dropdownValues]="{type:'CT', id:'TCMG'}"
+        data-abap="{type: 'string', length: '10'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Indicator: characteristic is inherited</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.CHAR_INHERITED"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Class number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.CLASS"
+            data-abap="{type: 'string', length: '18', mid: 'KLA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO Currency Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.CURRENCY_ISO"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Data type of characteristic</label>
+    <fd-combobox
+        [(ngModel)]="ET_CHARACTERISTICS.DATA_TYPE"
+        [dropdownValues]="{type:'FV', id:'ATFOR'}"
+        data-abap="{type: 'string', length: '4'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Organizational Area</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.DEPARTMENT_VIEW"
+            data-abap="{type: 'string', length: '10', mid: 'VIEW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Characteristic description</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.DESCR_CHAR"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Code letter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.DIN_KEY"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Entry Required</label>
+    <fd-combobox
+        [(ngModel)]="ET_CHARACTERISTICS.ENTRY_OBLIGATORY"
+        [dropdownValues]="{type:'FV', id:'ATXFE'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Interval Values Allowed</label>
+    <fd-combobox
+        [(ngModel)]="ET_CHARACTERISTICS.INTERVALS_ALLOWED"
+        [dropdownValues]="{type:'FV', id:'ATXFE'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Characteristic Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.NAME_CHAR"
+            data-abap="{type: 'string', length: '30', mid: 'FEA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of Decimal Places</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.NUMBER_DECIMALS"
+            data-abap="{type: 'number', length: '5'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of Characters</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.NUMBER_DIGITS"
+            data-abap="{type: 'number', length: '5'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Table Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.OBJECT_TABLE"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Value with Plus or Minus Sign" [(ngModel)]="ET_CHARACTERISTICS.SIGN"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Single Value" [(ngModel)]="ET_CHARACTERISTICS.SINGLE_VALUE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Field Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.TABLE_FIELD"
+            data-abap="{type: 'string', length: '30'}"
+            data-shlp="{type:'CT', id:'DD03L'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Value with template</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.TEMPLATE"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Value with template (70 length, technically needed)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.TEMPLATE_LONG"
+            data-abap="{type: 'string', length: '70'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External Unit of Measurement in Technical Format (6-Char.)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.UNIT_T_EXT"
+            data-abap="{type: 'string', length: '6'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Characteristic Value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.VALUE"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal floating point from</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.VALUE_FROM"
+            data-abap="{type: 'number', length: '+1.15'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal floating point value to</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACTERISTICS.VALUE_TO"
+            data-abap="{type: 'number', length: '+1.15'}"
+        />
+</div>
+
+
+<!-- ET_CHARACT_GROUP /COE/RBP_T_PAM_CHARACT_GROUP ?de: Characteristics Group -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_CHARACT_GROUP" title="?de: Characteristics Group"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CHARACT_GROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TCMG'}}'
+              label="Characteristics Group"></fd-fd-column>
+    <fd-fd-column sortable field="CHARACT_GROUP_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Characteristics Group Description"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_CHARACT_GROUP /COE/RBP_T_PAM_CHARACT_GROUP ?de: Characteristics Group -->
+
+<div fd-form-item>
+    <label fd-form-label>Characteristics Group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACT_GROUP.CHARACT_GROUP"
+            data-abap="{type: 'string', length: '10'}"
+            data-shlp="{type:'CT', id:'TCMG'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Characteristics Group Description</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_CHARACT_GROUP.CHARACT_GROUP_NAME"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<!-- ET_DOCUMENT /COE/RBP_T_PAM_DOCUMENT ?de: DMS Document Info -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_DOCUMENT" title="?de: DMS Document Info"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="BINARY_FLG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Flag for binary files"></fd-fd-column>
+    <fd-fd-column sortable field="CHANGED_AT" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"14"}' alpha-exit="TSTLC" 
+              label="Time of change (UTC)"></fd-fd-column>
+    <fd-fd-column sortable field="CHANGED_BY" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+              label="Name of person responsible"></fd-fd-column>
+    <fd-fd-column sortable field="CLASS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'SDOKIOCL'}}'
+              label="Document class"></fd-fd-column>
+    <fd-fd-column sortable field="CREATED_AT" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"14"}' alpha-exit="TSTLC" 
+              label="Time of change (UTC)"></fd-fd-column>
+    <fd-fd-column sortable field="CREATED_BY" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+              label="Name of person responsible"></fd-fd-column>
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"64"}'
+              label="Short Description"></fd-fd-column>
+    <fd-fd-column sortable field="DOCUMENTNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"25", mid:"CV1", shlp:{type:'CT', id:'DRAW'}}' alpha-exit="ALPHA" 
+              label="Document number"></fd-fd-column>
+    <fd-fd-column sortable field="DOCUMENTPART" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"CV4"}'
+              label="Document part"></fd-fd-column>
+    <fd-fd-column sortable field="DOCUMENTTYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"CV2", shlp:{type:'CT', id:'TDWA'}}'
+              label="Document Type"></fd-fd-column>
+    <fd-fd-column sortable field="DOCUMENTVERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", mid:"CV3"}'
+              label="Document version"></fd-fd-column>
+    <fd-fd-column sortable field="FILE_ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="ID for documents and relations"></fd-fd-column>
+    <fd-fd-column sortable field="FILE_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"255"}'
+              label="Relative storage location of physical document"></fd-fd-column>
+    <fd-fd-column sortable field="FILE_SIZE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"12"}'
+              label="File size (in bytes)"></fd-fd-column>
+    <fd-fd-column sortable field="FIRST_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"12"}'
+              label="Line number in internal table"></fd-fd-column>
+    <fd-fd-column sortable field="LAST_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"12"}'
+              label="Line number in internal table"></fd-fd-column>
+    <fd-fd-column sortable field="MIMETYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"128"}'
+              label="HTML content type"></fd-fd-column>
+    <fd-fd-column sortable field="OBJID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="ID for documents and relations"></fd-fd-column>
+    <fd-fd-column sortable field="PROPERTY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+              label="Component attribute for the application"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_DOCUMENT /COE/RBP_T_PAM_DOCUMENT ?de: DMS Document Info -->
+
+<div fd-form-item>
+    <fd-checkbox label="Flag for binary files" [(ngModel)]="ET_DOCUMENT.BINARY_FLG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Time of change (UTC)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.CHANGED_AT"
+            data-abap="{type: 'string', length: '14', alpha: 'TSTLC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of person responsible</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.CHANGED_BY"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Document class</label>
+    <fd-combobox
+        [(ngModel)]="ET_DOCUMENT.CLASS"
+        [dropdownValues]="{type:'CT', id:'SDOKIOCL'}"
+        data-abap="{type: 'string', length: '10'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Time of change (UTC)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.CREATED_AT"
+            data-abap="{type: 'string', length: '14', alpha: 'TSTLC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of person responsible</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.CREATED_BY"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Short Description</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.DESCRIPTION"
+            data-abap="{type: 'string', length: '64'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Document number</label>
+    <fd-combobox
+        [(ngModel)]="ET_DOCUMENT.DOCUMENTNUMBER"
+        [dropdownValues]="{type:'CT', id:'DRAW'}"
+        data-abap="{type: 'string', length: '25', mid: 'CV1', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Document part</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.DOCUMENTPART"
+            data-abap="{type: 'string', length: '3', mid: 'CV4'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Document Type</label>
+    <fd-combobox
+        [(ngModel)]="ET_DOCUMENT.DOCUMENTTYPE"
+        [dropdownValues]="{type:'CT', id:'TDWA'}"
+        data-abap="{type: 'string', length: '3', mid: 'CV2'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Document version</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.DOCUMENTVERSION"
+            data-abap="{type: 'string', length: '2', mid: 'CV3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ID for documents and relations</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.FILE_ID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Relative storage location of physical document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.FILE_NAME"
+            data-abap="{type: 'string', length: '255'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>File size (in bytes)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.FILE_SIZE"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Line number in internal table</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.FIRST_LINE"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Line number in internal table</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.LAST_LINE"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>HTML content type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.MIMETYPE"
+            data-abap="{type: 'string', length: '128'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ID for documents and relations</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.OBJID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Component attribute for the application</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_DOCUMENT.PROPERTY"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</div>
+
+
+<!-- ET_MCIQMADD /COE/RBP_T_MCIQMADD ?de: Zusatzfelder Meldungskopf PMIS -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_MCIQMADD" title="?de: Zusatzfelder Meldungskopf PMIS"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="SABTG" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="No. processing days creation to completion"></fd-fd-column>
+    <fd-fd-column sortable field="SACODE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="PMIS: number of activity codes"></fd-fd-column>
+    <fd-fd-column sortable field="SAUSZT" unit="SUNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Time To Repair"></fd-fd-column>
+    <fd-fd-column sortable field="SEQTBR" unit="SUNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Time Between Repair"></fd-fd-column>
+    <fd-fd-column sortable field="SGAUSZT" unit="SUNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Downtime entered"></fd-fd-column>
+    <fd-fd-column sortable field="SGMSAUS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="Number of machine breakdowns reported"></fd-fd-column>
+    <fd-fd-column sortable field="SMMAB" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="No. of completed notifications"></fd-fd-column>
+    <fd-fd-column sortable field="SMOFN" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="No.of recorded notifications"></fd-fd-column>
+    <fd-fd-column sortable field="SMSAUS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="Number of actual machine breakdowns"></fd-fd-column>
+    <fd-fd-column sortable field="SPMON" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6"}' alpha-exit="PERI" 
+              label="Period to analyze - month"></fd-fd-column>
+    <fd-fd-column sortable field="SSCODE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="PMIS: No.of damages"></fd-fd-column>
+    <fd-fd-column sortable field="SUCODE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"+9"}'
+              label="PMIS: No. of cause of damage codes"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_MCIQMADD /COE/RBP_T_MCIQMADD ?de: Zusatzfelder Meldungskopf PMIS -->
+
+<div fd-form-item>
+    <label fd-form-label>No. processing days creation to completion</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SABTG"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PMIS: number of activity codes</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SACODE"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Time To Repair</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SAUSZT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Time Between Repair</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SEQTBR"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Downtime entered</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SGAUSZT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of machine breakdowns reported</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SGMSAUS"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>No. of completed notifications</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SMMAB"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>No.of recorded notifications</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SMOFN"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of actual machine breakdowns</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SMSAUS"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Period to analyze - month</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SPMON"
+            data-abap="{type: 'string', length: '6', alpha: 'PERI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PMIS: No.of damages</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SSCODE"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PMIS: No. of cause of damage codes</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_MCIQMADD.SUCODE"
+            data-abap="{type: 'number', length: '+9'}"
+        />
+</div>
+
+
+<!-- ET_RESULT /COE/RBP_T_MCIT_RESULT ?de: Startup Iflo -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_RESULT" title="?de: Startup Iflo"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="NBDEFF" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="SNBDREP" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"10"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="SPMON" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6"}' alpha-exit="PERI" 
+              label="Period to analyze - month"></fd-fd-column>
+    <fd-fd-column sortable field="STBRHRS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"11.3"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="STTRHRS" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"11.3"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Functional Location"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RESULT /COE/RBP_T_MCIT_RESULT ?de: Startup Iflo -->
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RESULT.EQUNR"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RESULT.NBDEFF"
+            data-abap="{type: 'number', length: '10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RESULT.SNBDREP"
+            data-abap="{type: 'number', length: '10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Period to analyze - month</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RESULT.SPMON"
+            data-abap="{type: 'string', length: '6', alpha: 'PERI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RESULT.STBRHRS"
+            data-abap="{type: 'number', length: '11.3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RESULT.STTRHRS"
+            data-abap="{type: 'number', length: '11.3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RESULT.TPLNR"
+            data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+            data-shlp="{type:'SH', id:'IFLM'}"
+        />
+</div>
+
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}'
+              label="Field in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'T100A'}}'
+              label="Message Class"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="NUMBER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}'
+              label="Message Number"></fd-fd-column>
+    <fd-fd-column sortable field="PARAMETER" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="Parameter Name"></fd-fd-column>
+    <fd-fd-column sortable field="ROW" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
+              label="Lines in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="SYSTEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA" 
+              label="Logical system from which message originates"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+
+<div fd-form-item>
+    <label fd-form-label>Field in parameter</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.FIELD"
+        [dropdownValues]="{type:'CT', id:'DD03L'}"
+        data-abap="{type: 'string', length: '30'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Class</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.ID"
+        [dropdownValues]="{type:'CT', id:'T100A'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: Internal message serial number</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.LOG_MSG_NO"
+        [dropdownValues]="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: log number</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.LOG_NO"
+        [dropdownValues]="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE"
+            data-abap="{type: 'string', length: '220'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V1"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V2"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V3"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V4"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.NUMBER"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Parameter Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.PARAMETER"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Lines in parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.ROW"
+            data-abap="{type: 'number', length: '+10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Logical system from which message originates</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.SYSTEM"
+        [dropdownValues]="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.TYPE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<!-- ET_STARTUP_EQUI /COE/RBP_T_MCIT_STARTUP_EQUI ?de: Startup Equi -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_STARTUP_EQUI" title="?de: Startup Equi"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="EQUNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="SOURCE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="STARTUP" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="System Date"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_STARTUP_EQUI /COE/RBP_T_MCIT_STARTUP_EQUI ?de: Startup Equi -->
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_STARTUP_EQUI.EQUNR"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_STARTUP_EQUI.SOURCE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ET_STARTUP_EQUI.STARTUP"></fd-date-picker>
+</div>
+
+
+<!-- ET_STARTUP_IFLO /COE/RBP_T_MCIT_STARTUP_IFLO ?de: Startup Iflo -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_STARTUP_IFLO" title="?de: Startup Iflo"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="SOURCE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="todo: no field text"></fd-fd-column>
+    <fd-fd-column sortable field="STARTUP" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="System Date"></fd-fd-column>
+    <fd-fd-column sortable field="TPLNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Functional Location"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_STARTUP_IFLO /COE/RBP_T_MCIT_STARTUP_IFLO ?de: Startup Iflo -->
+
+<div fd-form-item>
+    <label fd-form-label>todo: no field text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_STARTUP_IFLO.SOURCE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>System Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="ET_STARTUP_IFLO.STARTUP"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_STARTUP_IFLO.TPLNR"
+            data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+            data-shlp="{type:'SH', id:'IFLM'}"
+        />
+</div>
+
+
+<!-- ET_USER_STATUS CWD_TT_ITOB_STATUS todo: param text -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GET ET_USER_STATUS" title="todo: param text"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+              label="Individual status of an object (short form)"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_USER_STATUS CWD_TT_ITOB_STATUS todo: param text -->
+
+<div fd-form-item>
+    <label fd-form-label>Object status</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_USER_STATUS.DESCRIPTION"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Object status</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_USER_STATUS.STATUS"
+            data-abap="{type: 'string', length: '5'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Individual status of an object (short form)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_USER_STATUS.TEXT"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</div>
+

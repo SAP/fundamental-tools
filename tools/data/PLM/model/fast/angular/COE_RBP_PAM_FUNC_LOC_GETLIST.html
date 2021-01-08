@@ -1,0 +1,175 @@
+<!-- /COE/RBP_PAM_FUNC_LOC_GETLIST 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<fast-text-field [(label)]="Functional Location"
+    [(value)]="IV_LOCATION"
+    [(abap)]="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}" [(shlp)]="{type:'SH', id:'IFLM'}"
+/>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ET_FUNC_LOC_LIST /COE/RBP_T_PAM_FUNC_LOC ?de: Function Location -->
+<ui-datagrid data.bind="/COE/RBP_PAM_FUNC_LOC_GETLIST ET_FUNC_LOC_LIST" title="?de: Function Location"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Description of Technical Object"></fd-fd-column>
+    <fd-fd-column sortable field="EQFNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Sort field"></fd-fd-column>
+    <fd-fd-column sortable field="FUNCTLOCATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"IFL", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Functional Location"></fd-fd-column>
+    <fd-fd-column sortable field="SUPFLOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'SH', id:'IFLM'}}' alpha-exit="TPLNR" 
+              label="Superior functional location"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_FUNC_LOC_LIST /COE/RBP_T_PAM_FUNC_LOC ?de: Function Location -->
+
+<fast-text-field [(label)]="Description of Technical Object"
+    [(value)]="ET_FUNC_LOC_LIST.DESCRIPT"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Sort field"
+    [(value)]="ET_FUNC_LOC_LIST.EQFNR"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Functional Location"
+    [(value)]="ET_FUNC_LOC_LIST.FUNCTLOCATION"
+    [(abap)]="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}" [(shlp)]="{type:'SH', id:'IFLM'}"
+/>
+
+
+<fast-text-field [(label)]="Superior functional location"
+    [(value)]="ET_FUNC_LOC_LIST.SUPFLOC"
+    [(abap)]="{type: 'string', length: '30', alpha: 'TPLNR'}" [(shlp)]="{type:'SH', id:'IFLM'}"
+/>
+
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_FUNC_LOC_GETLIST ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}'
+              label="Field in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'T100A'}}'
+              label="Message Class"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="NUMBER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}'
+              label="Message Number"></fd-fd-column>
+    <fd-fd-column sortable field="PARAMETER" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="Parameter Name"></fd-fd-column>
+    <fd-fd-column sortable field="ROW" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
+              label="Lines in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="SYSTEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA" 
+              label="Logical system from which message originates"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+
+<fast-select [(label)]="Field in parameter"
+    [(value)]="ET_RETURN.FIELD" [(options)]="{type:'CT', id:'DD03L'}"
+    [(abap)]="{type: 'string', length: '30'}"
+></fast-select>
+
+
+<fast-select [(label)]="Message Class"
+    [(value)]="ET_RETURN.ID" [(options)]="{type:'CT', id:'T100A'}"
+    [(abap)]="{type: 'string', length: '20'}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: Internal message serial number"
+    [(value)]="ET_RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
+    [(abap)]="{type: 'string', length: '6'}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: log number"
+    [(value)]="ET_RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
+    [(abap)]="{type: 'string', length: '20'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message Text"
+    [(value)]="ET_RETURN.MESSAGE"
+    [(abap)]="{type: 'string', length: '220'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="ET_RETURN.MESSAGE_V1"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="ET_RETURN.MESSAGE_V2"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="ET_RETURN.MESSAGE_V3"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="ET_RETURN.MESSAGE_V4"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Number"
+    [(value)]="ET_RETURN.NUMBER"
+    [(abap)]="{type: 'string', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Parameter Name"
+    [(value)]="ET_RETURN.PARAMETER"
+    [(abap)]="{type: 'string', length: '32'}"
+/>
+
+
+<fast-text-field [(label)]="Lines in parameter"
+    [(value)]="ET_RETURN.ROW"
+    [(abap)]="{type: 'number', length: '+10'}"
+/>
+
+
+<fast-select [(label)]="Logical system from which message originates"
+    [(value)]="ET_RETURN.SYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
+    [(value)]="ET_RETURN.TYPE"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+

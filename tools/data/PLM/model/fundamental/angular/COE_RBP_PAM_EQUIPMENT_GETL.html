@@ -1,0 +1,241 @@
+<!-- /COE/RBP_PAM_EQUIPMENT_GETL 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IV_EQUIPMENT_DESCR"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IV_FUNC_LOC"
+            data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+            data-shlp="{type:'SH', id:'IFLM'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="IV_PLANT"
+            data-abap="{type: 'string', length: '4', mid: 'WRK'}"
+            data-shlp="{type:'SH', id:'H_T001W_C'}"
+        />
+</div>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ET_EQUIPMENT /COE/RBP_T_PAM_EQUIPMENT ?de: Equipment -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GETL ET_EQUIPMENT" title="?de: Equipment"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number"></fd-fd-column>
+    <fd-fd-column sortable field="EQUIPMENT_DESCR" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Description of Technical Object"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_EQUIPMENT /COE/RBP_T_PAM_EQUIPMENT ?de: Equipment -->
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_EQUIPMENT.EQUIPMENT"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_EQUIPMENT.EQUIPMENT_DESCR"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_GETL ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}'
+              label="Field in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'T100A'}}'
+              label="Message Class"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="NUMBER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}'
+              label="Message Number"></fd-fd-column>
+    <fd-fd-column sortable field="PARAMETER" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="Parameter Name"></fd-fd-column>
+    <fd-fd-column sortable field="ROW" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
+              label="Lines in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="SYSTEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA" 
+              label="Logical system from which message originates"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+
+<div fd-form-item>
+    <label fd-form-label>Field in parameter</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.FIELD"
+        [dropdownValues]="{type:'CT', id:'DD03L'}"
+        data-abap="{type: 'string', length: '30'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Class</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.ID"
+        [dropdownValues]="{type:'CT', id:'T100A'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: Internal message serial number</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.LOG_MSG_NO"
+        [dropdownValues]="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: log number</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.LOG_NO"
+        [dropdownValues]="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE"
+            data-abap="{type: 'string', length: '220'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V1"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V2"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V3"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.MESSAGE_V4"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.NUMBER"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Parameter Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.PARAMETER"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Lines in parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.ROW"
+            data-abap="{type: 'number', length: '+10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Logical system from which message originates</label>
+    <fd-combobox
+        [(ngModel)]="ET_RETURN.SYSTEM"
+        [dropdownValues]="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ET_RETURN.TYPE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</div>
+

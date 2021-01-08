@@ -56,6 +56,8 @@ iso2_to_LANGU = {"en": "E", "de": "D", "nl": "N", "es": "S", "jp": "J"}
 
 # Connect to ABAP system
 def get_connection(abapsys):
+    if isinstance(abapsys, str):
+        abapsys = {"dest": abapsys}
     try:
         return (None, Connection(**abapsys))
     except RFCError as ex:

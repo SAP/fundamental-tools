@@ -204,3 +204,16 @@ RETURN = {
 //
 // TABLE PARAMETERS
 //
+
+// EXTENSIONOUT BAPIPAREX ?de: Bezugsstruktur für BAPI-Parameter ExtensionIn / ExtensionOut
+
+/* eslint-disable key-spacing */
+// prettier-ignore
+EXTENSIONOUT = {
+  STRUCTURE                     : '',  // Structure name of  BAPI table extension
+  VALUEPART1                    : '',  // Data part of BAPI extension parameter
+  VALUEPART2                    : '',  // Data part of BAPI extension parameter
+  VALUEPART3                    : '',  // Data part of BAPI extension parameter
+  VALUEPART4                    : ''   // Data part of BAPI extension parameter
+};
+/* eslint-enable key-spacing */

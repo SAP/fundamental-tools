@@ -24,28 +24,28 @@
 
 <!-- RETURN BAPIRET2 Return Parameters -->
 
-<fast-combobox [(label)]="Field in parameter"
+<fast-select [(label)]="Field in parameter"
     [(value)]="RETURN.FIELD" [(options)]="{type:'CT', id:'DD03L'}"
     [(abap)]="{type: 'string', length: '30'}"
-></fast-combobox>
+></fast-select>
 
 
-<fast-combobox [(label)]="Message Class"
+<fast-select [(label)]="Message Class"
     [(value)]="RETURN.ID" [(options)]="{type:'CT', id:'T100A'}"
     [(abap)]="{type: 'string', length: '20'}"
-></fast-combobox>
+></fast-select>
 
 
-<fast-combobox [(label)]="Application log: Internal message serial number"
+<fast-select [(label)]="Application log: Internal message serial number"
     [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
     [(abap)]="{type: 'string', length: '6'}"
-></fast-combobox>
+></fast-select>
 
 
-<fast-combobox [(label)]="Application log: log number"
+<fast-select [(label)]="Application log: log number"
     [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
     [(abap)]="{type: 'string', length: '20'}"
-></fast-combobox>
+></fast-select>
 
 
 <fast-text-field [(label)]="Message Text"
@@ -96,10 +96,10 @@
 />
 
 
-<fast-combobox [(label)]="Logical system from which message originates"
+<fast-select [(label)]="Logical system from which message originates"
     [(value)]="RETURN.SYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
     [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
-></fast-combobox>
+></fast-select>
 
 
 <fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
@@ -121,3 +121,71 @@
 
 
 <!-- TABLE PARAMETERS -->
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS SYSTEM_STATUS" title="Equipment System Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+              label="Individual status of an object (short form)"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="SYSTEM_STATUS.DESCRIPTION"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="SYSTEM_STATUS.STATUS"
+    [(abap)]="{type: 'string', length: '5'}"
+/>
+
+
+<fast-text-field [(label)]="Individual status of an object (short form)"
+    [(value)]="SYSTEM_STATUS.TEXT"
+    [(abap)]="{type: 'string', length: '4'}"
+/>
+
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS USER_STATUS" title="Equipment User Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Object status"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+              label="Individual status of an object (short form)"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="USER_STATUS.DESCRIPTION"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="USER_STATUS.STATUS"
+    [(abap)]="{type: 'string', length: '5'}"
+/>
+
+
+<fast-text-field [(label)]="Individual status of an object (short form)"
+    [(value)]="USER_STATUS.TEXT"
+    [(abap)]="{type: 'string', length: '4'}"
+/>
+

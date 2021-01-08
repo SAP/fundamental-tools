@@ -1,0 +1,188 @@
+<!-- /COE/RBP_PAM_EQUIPMENT_INSTALL 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<fd-form-item>
+    <fd-form-label>Equipment Number</fd-form-label>
+        <fd-input v-model="IV_EQUIID"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Functional Location</fd-form-label>
+        <fd-input v-model="IV_FUNC_LOCATION"
+            data-abap="{type: 'string', length: '30', mid: 'IFL', alpha: 'TPLNR'}"
+            data-shlp="{type:'SH', id:'IFLM'}"
+        />
+</fd-form-item>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+<ui-datagrid data.bind="/COE/RBP_PAM_EQUIPMENT_INSTALL ET_RETURN" title="?de: Fehlermeldungen"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="FIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD03L'}}'
+              label="Field in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'T100A'}}'
+              label="Message Class"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="NUMBER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}'
+              label="Message Number"></fd-fd-column>
+    <fd-fd-column sortable field="PARAMETER" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="Parameter Name"></fd-fd-column>
+    <fd-fd-column sortable field="ROW" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
+              label="Lines in parameter"></fd-fd-column>
+    <fd-fd-column sortable field="SYSTEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA" 
+              label="Logical system from which message originates"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ET_RETURN BAPIRET2_TAB ?de: Fehlermeldungen -->
+
+<fd-form-item>
+    <fd-form-label>Field in parameter</fd-form-label>
+    <fd-select v-model="ET_RETURN.FIELD"
+        options="{type:'CT', id:'DD03L'}"
+        data-abap="{type: 'string', length: '30'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Message Class</fd-form-label>
+    <fd-select v-model="ET_RETURN.ID"
+        options="{type:'CT', id:'T100A'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
+        options="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_NO"
+        options="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE"
+            data-abap="{type: 'string', length: '220'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V1"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V2"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V3"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V4"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Number</fd-form-label>
+        <fd-input v-model="ET_RETURN.NUMBER"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Parameter Name</fd-form-label>
+        <fd-input v-model="ET_RETURN.PARAMETER"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Lines in parameter</fd-form-label>
+        <fd-input v-model="ET_RETURN.ROW"
+            data-abap="{type: 'number', length: '+10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Logical system from which message originates</fd-form-label>
+    <fd-select v-model="ET_RETURN.SYSTEM"
+        options="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="ET_RETURN.TYPE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</fd-form-item>
+
