@@ -1,0 +1,152 @@
+<!-- BAPI_PROCOPERATION_GETCATALOGS 0.2 -->
+
+<!-- INPUT PARAMETERS -->
+
+<fast-text-field [(label)]="Material Group"
+    [(value)]="MATERIAL_GROUP"
+    [(abap)]="{type: 'string', length: '9', mid: 'MKL'}" [(shlp)]="{type:'SH', id:'H_T023'}"
+/>
+
+
+<fast-text-field [(label)]="Plant"
+    [(value)]="PLANT"
+    [(abap)]="{type: 'string', length: '4', mid: 'WRK'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
+/>
+
+
+<fast-select [(label)]="Selection flag"
+    [(value)]="WITHOUT_MATERIAL_GRP" [(options)]="{type:'FV', id:'SELKZ'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- RETURN BAPIRETURN Return Messages -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS RETURN" title="Return Messages"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Message code"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RETURN BAPIRETURN Return Messages -->
+
+<fast-text-field [(label)]="Message code"
+    [(value)]="RETURN.CODE"
+    [(abap)]="{type: 'string', length: '5'}"
+/>
+
+
+<fast-select [(label)]="Application log: Internal message serial number"
+    [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
+    [(abap)]="{type: 'string', length: '6'}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: log number"
+    [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
+    [(abap)]="{type: 'string', length: '20'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message Text"
+    [(value)]="RETURN.MESSAGE"
+    [(abap)]="{type: 'string', length: '220'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V1"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V2"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V3"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V4"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
+    [(value)]="RETURN.TYPE"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
+              label="Identifier for allowed catalogs"></fd-fd-column>
+    <fd-fd-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Name of catalog"></fd-fd-column>
+    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
+              label="Purchasing organization"></fd-fd-column>
+    <fd-fd-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Indicator: SAP product catalog: business-to-business"></fd-fd-column>
+    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Vendor's account number"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+
+<fast-select [(label)]="Identifier for allowed catalogs"
+    [(value)]="VALID_CATALOGS.CATALOG" [(options)]="{type:'CT', id:'TMW3T'}"
+    [(abap)]="{type: 'string', length: '20'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Name of catalog"
+    [(value)]="VALID_CATALOGS.CAT_TEXT"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing organization"
+    [(value)]="VALID_CATALOGS.PURCH_ORG"
+    [(abap)]="{type: 'string', length: '4', mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
+/>
+
+
+<fast-checkbox [(label)]="Indicator: SAP product catalog: business-to-business" [(checked)]="VALID_CATALOGS.SD_CATALOG"/>
+
+
+<fast-text-field [(label)]="Vendor's account number"
+    [(value)]="VALID_CATALOGS.VENDOR"
+    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+/>
+

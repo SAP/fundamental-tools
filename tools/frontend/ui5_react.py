@@ -34,6 +34,13 @@ ui5_react = {
            data-shlp="%s"
     />
 </FormItem>""",
+    "number": """
+<FormItem label="%s">
+    <Input value={this.%s}
+           data-abap="%s"
+           data-shlp="%s"
+    />
+</FormItem>""",
     # https://sap.github.io/fundamental-ngx/#/core/textarea
     "textarea": """
 <FormItem label="%s">

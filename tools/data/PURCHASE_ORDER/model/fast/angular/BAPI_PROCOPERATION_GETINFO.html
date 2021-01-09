@@ -1,0 +1,748 @@
+<!-- BAPI_PROCOPERATION_GETINFO 0.2 -->
+
+<!-- TABLE PARAMETERS -->
+
+<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO PROCUREMENT_ACCOUNT" title="Account Assignment Data"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACTIVITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VGN"}' alpha-exit="NUMCV" 
+              label="Activity Number"></fd-fd-column>
+    <fd-fd-column sortable field="ASSET_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"AN1", shlp:{type:'CT', id:'ANLH'}}' alpha-exit="ALPHA" 
+              label="Main Asset Number"></fd-fd-column>
+    <fd-fd-column sortable field="BUDGET_PERIOD" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BUDPER", shlp:{type:'CT', id:'FMFUNDBPD'}}'
+              label="FM: Budget Period"></fd-fd-column>
+    <fd-fd-column sortable field="BUS_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"GSB", shlp:{type:'CT', id:'TGSB'}}'
+              label="Business Area"></fd-fd-column>
+    <fd-fd-column sortable field="CMMT_ITEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"14", mid:"FIP", shlp:{type:'CT', id:'FMFXPO'}}' alpha-exit="FMCIS" 
+              label="Commitment Item"></fd-fd-column>
+    <fd-fd-column sortable field="CMMT_ITEM_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"FPS", shlp:{type:'CT', id:'FMCI'}}' alpha-exit="FMCIL" 
+              label="Commitment item"></fd-fd-column>
+    <fd-fd-column sortable field="COST_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KOS", shlp:{type:'CT', id:'CSKS'}}' alpha-exit="ALPHA" 
+              label="Cost Center"></fd-fd-column>
+    <fd-fd-column sortable field="COST_OBJ" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"KTR", shlp:{type:'CT', id:'CKPH'}}'
+              label="Cost Object"></fd-fd-column>
+    <fd-fd-column sortable field="COUNTER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"8"}'
+              label="Internal counter"></fd-fd-column>
+    <fd-fd-column sortable field="CO_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"CAC", shlp:{type:'CT', id:'TKA01'}}'
+              label="Controlling Area"></fd-fd-column>
+    <fd-fd-column sortable field="DISTR_PERC" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"2.1"}'
+              label="Distribution percentage in the case of multiple acct assgt"></fd-fd-column>
+    <fd-fd-column sortable field="FUNC_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"FBE"}'
+              label="Functional Area"></fd-fd-column>
+    <fd-fd-column sortable field="FUNC_AREA_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FBE", shlp:{type:'CT', id:'TFKB'}}'
+              label="Functional Area"></fd-fd-column>
+    <fd-fd-column sortable field="FUND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"FIC", shlp:{type:'CT', id:'FMFINCODE'}}'
+              label="Fund"></fd-fd-column>
+    <fd-fd-column sortable field="FUNDS_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FIS", shlp:{type:'CT', id:'FMFCTR'}}'
+              label="Funds Center"></fd-fd-column>
+    <fd-fd-column sortable field="GRANT_NBR" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", mid:"GM_GRANT_NBR", shlp:{type:'SH', id:'GRANTS_GENERIC'}}' alpha-exit="ALPHA" 
+              label="Grant"></fd-fd-column>
+    <fd-fd-column sortable field="GR_RCPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+              label="Goods recipient"></fd-fd-column>
+    <fd-fd-column sortable field="G_L_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"SAK", shlp:{type:'SH', id:'C_SAKNR'}}' alpha-exit="ALPHA" 
+              label="G/L Account Number"></fd-fd-column>
+    <fd-fd-column sortable field="NETWORK" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"NET", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA" 
+              label="Network Number for Account Assignment"></fd-fd-column>
+    <fd-fd-column sortable field="ORDER_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"ANR", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA" 
+              label="Order Number"></fd-fd-column>
+    <fd-fd-column sortable field="PART_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'KNA1'}}' alpha-exit="ALPHA" 
+              label="Partner account number"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CT', id:'EBAN'}}'
+              label="Item number of purchase requisition"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_QTY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Purchase requisition quantity"></fd-fd-column>
+    <fd-fd-column sortable field="PROFIT_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"PRC", shlp:{type:'SH', id:'PRCTR_EMPTY'}}' alpha-exit="ALPHA" 
+              label="Profit Center"></fd-fd-column>
+    <fd-fd-column sortable field="PROF_SEGM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
+              label="Profitability Segment Number (CO-PA)"></fd-fd-column>
+    <fd-fd-column sortable field="PROJ_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"PSP", shlp:{type:'SH', id:'PD_C'}}' alpha-exit="ABPSN" 
+              label="Project definition"></fd-fd-column>
+    <fd-fd-column sortable field="REC_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T8JJ'}}' alpha-exit="ALPHA" 
+              label="Recovery Indicator"></fd-fd-column>
+    <fd-fd-column sortable field="REF_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Reference date for settlement"></fd-fd-column>
+    <fd-fd-column sortable field="RL_EST_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="IMKEY" 
+              label="Internal Key for Real Estate Object"></fd-fd-column>
+    <fd-fd-column sortable field="ROUTING_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
+              label="Routing number of operations in the order"></fd-fd-column>
+    <fd-fd-column sortable field="SCHED_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4", shlp:{type:'CT', id:'VBEP'}}'
+              label="Schedule line"></fd-fd-column>
+    <fd-fd-column sortable field="SDOC_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", mid:"APO", shlp:{type:'CT', id:'VBUP'}}'
+              label="Sales Document Item"></fd-fd-column>
+    <fd-fd-column sortable field="SD_DOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"AUN", shlp:{type:'CT', id:'VBUK'}}' alpha-exit="ALPHA" 
+              label="Sales and Distribution Document Number"></fd-fd-column>
+    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
+              label="Serial number for PReq account assignment segment"></fd-fd-column>
+    <fd-fd-column sortable field="SUB_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"AN2", shlp:{type:'CT', id:'ANLA'}}' alpha-exit="ALPHA" 
+              label="Asset Subnumber"></fd-fd-column>
+    <fd-fd-column sortable field="TO_COSTCTR" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Posting to cost center?"></fd-fd-column>
+    <fd-fd-column sortable field="TO_ORDER" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Post To Order"></fd-fd-column>
+    <fd-fd-column sortable field="TO_PROJECT" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Post to project"></fd-fd-column>
+    <fd-fd-column sortable field="UNLOAD_PT" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
+              label="Unloading Point"></fd-fd-column>
+    <fd-fd-column sortable field="WBS_ELEM_E" data-abap.bind='{ddic:"CHAR", type:"string", length:"24"}' alpha-exit="ABPSN" 
+              label="Work breakdown structure element (WBS element)"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
+
+<fast-text-field [(label)]="Activity Number"
+    [(value)]="PROCUREMENT_ACCOUNT.ACTIVITY"
+    [(abap)]="{type: 'string', length: '4', mid: 'VGN', alpha: 'NUMCV'}"
+/>
+
+
+<fast-select [(label)]="Main Asset Number"
+    [(value)]="PROCUREMENT_ACCOUNT.ASSET_NO" [(options)]="{type:'CT', id:'ANLH'}"
+    [(abap)]="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="FM: Budget Period"
+    [(value)]="PROCUREMENT_ACCOUNT.BUDGET_PERIOD"
+    [(abap)]="{type: 'string', length: '10', mid: 'BUDPER'}" [(shlp)]="{type:'CT', id:'FMFUNDBPD'}"
+/>
+
+
+<fast-select [(label)]="Business Area"
+    [(value)]="PROCUREMENT_ACCOUNT.BUS_AREA" [(options)]="{type:'CT', id:'TGSB'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'GSB'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Commitment Item"
+    [(value)]="PROCUREMENT_ACCOUNT.CMMT_ITEM"
+    [(abap)]="{type: 'string', length: '14', mid: 'FIP', alpha: 'FMCIS'}" [(shlp)]="{type:'CT', id:'FMFXPO'}"
+/>
+
+
+<fast-text-field [(label)]="Commitment item"
+    [(value)]="PROCUREMENT_ACCOUNT.CMMT_ITEM_LONG"
+    [(abap)]="{type: 'string', length: '24', mid: 'FPS', alpha: 'FMCIL'}" [(shlp)]="{type:'CT', id:'FMCI'}"
+/>
+
+
+<fast-text-field [(label)]="Cost Center"
+    [(value)]="PROCUREMENT_ACCOUNT.COST_CTR"
+    [(abap)]="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'CSKS'}"
+/>
+
+
+<fast-select [(label)]="Cost Object"
+    [(value)]="PROCUREMENT_ACCOUNT.COST_OBJ" [(options)]="{type:'CT', id:'CKPH'}"
+    [(abap)]="{type: 'string', length: '12', mid: 'KTR'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Internal counter"
+    [(value)]="PROCUREMENT_ACCOUNT.COUNTER"
+    [(abap)]="{type: 'string', length: '8'}"
+/>
+
+
+<fast-select [(label)]="Controlling Area"
+    [(value)]="PROCUREMENT_ACCOUNT.CO_AREA" [(options)]="{type:'CT', id:'TKA01'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'CAC'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Distribution percentage in the case of multiple acct assgt"
+    [(value)]="PROCUREMENT_ACCOUNT.DISTR_PERC"
+    [(abap)]="{type: 'number', length: '2.1'}"
+/>
+
+
+<fast-text-field [(label)]="Functional Area"
+    [(value)]="PROCUREMENT_ACCOUNT.FUNC_AREA"
+    [(abap)]="{type: 'string', length: '4', mid: 'FBE'}"
+/>
+
+
+<fast-text-field [(label)]="Functional Area"
+    [(value)]="PROCUREMENT_ACCOUNT.FUNC_AREA_LONG"
+    [(abap)]="{type: 'string', length: '16', mid: 'FBE'}" [(shlp)]="{type:'CT', id:'TFKB'}"
+/>
+
+
+<fast-text-field [(label)]="Fund"
+    [(value)]="PROCUREMENT_ACCOUNT.FUND"
+    [(abap)]="{type: 'string', length: '10', mid: 'FIC'}" [(shlp)]="{type:'CT', id:'FMFINCODE'}"
+/>
+
+
+<fast-text-field [(label)]="Funds Center"
+    [(value)]="PROCUREMENT_ACCOUNT.FUNDS_CTR"
+    [(abap)]="{type: 'string', length: '16', mid: 'FIS'}" [(shlp)]="{type:'CT', id:'FMFCTR'}"
+/>
+
+
+<fast-text-field [(label)]="Grant"
+    [(value)]="PROCUREMENT_ACCOUNT.GRANT_NBR"
+    [(abap)]="{type: 'string', length: '20', mid: 'GM_GRANT_NBR', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'GRANTS_GENERIC'}"
+/>
+
+
+<fast-text-field [(label)]="Goods recipient"
+    [(value)]="PROCUREMENT_ACCOUNT.GR_RCPT"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="G/L Account Number"
+    [(value)]="PROCUREMENT_ACCOUNT.G_L_ACCT"
+    [(abap)]="{type: 'string', length: '10', mid: 'SAK', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'C_SAKNR'}"
+/>
+
+
+<fast-text-field [(label)]="Network Number for Account Assignment"
+    [(value)]="PROCUREMENT_ACCOUNT.NETWORK"
+    [(abap)]="{type: 'string', length: '12', mid: 'NET', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'AUFK'}"
+/>
+
+
+<fast-select [(label)]="Order Number"
+    [(value)]="PROCUREMENT_ACCOUNT.ORDER_NO" [(options)]="{type:'CT', id:'AUFK'}"
+    [(abap)]="{type: 'string', length: '12', mid: 'ANR', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Partner account number"
+    [(value)]="PROCUREMENT_ACCOUNT.PART_ACCT"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'KNA1'}"
+/>
+
+
+<fast-select [(label)]="Item number of purchase requisition"
+    [(value)]="PROCUREMENT_ACCOUNT.PREQ_ITEM" [(options)]="{type:'CT', id:'EBAN'}"
+    [(abap)]="{type: 'string', length: '5', mid: 'BAP'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Purchase requisition quantity"
+    [(value)]="PROCUREMENT_ACCOUNT.PREQ_QTY"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Profit Center"
+    [(value)]="PROCUREMENT_ACCOUNT.PROFIT_CTR"
+    [(abap)]="{type: 'string', length: '10', mid: 'PRC', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'PRCTR_EMPTY'}"
+/>
+
+
+<fast-text-field [(label)]="Profitability Segment Number (CO-PA)"
+    [(value)]="PROCUREMENT_ACCOUNT.PROF_SEGM"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="Project definition"
+    [(value)]="PROCUREMENT_ACCOUNT.PROJ_EXT"
+    [(abap)]="{type: 'string', length: '24', mid: 'PSP', alpha: 'ABPSN'}" [(shlp)]="{type:'SH', id:'PD_C'}"
+/>
+
+
+<fast-select [(label)]="Recovery Indicator"
+    [(value)]="PROCUREMENT_ACCOUNT.REC_IND" [(options)]="{type:'CT', id:'T8JJ'}"
+    [(abap)]="{type: 'string', length: '2', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-datepicker label="Reference date for settlement" [(value)]="PROCUREMENT_ACCOUNT.REF_DATE"/>
+
+
+<fast-text-field [(label)]="Internal Key for Real Estate Object"
+    [(value)]="PROCUREMENT_ACCOUNT.RL_EST_KEY"
+    [(abap)]="{type: 'string', length: '8', alpha: 'IMKEY'}"
+/>
+
+
+<fast-text-field [(label)]="Routing number of operations in the order"
+    [(value)]="PROCUREMENT_ACCOUNT.ROUTING_NO"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-select [(label)]="Schedule line"
+    [(value)]="PROCUREMENT_ACCOUNT.SCHED_LINE" [(options)]="{type:'CT', id:'VBEP'}"
+    [(abap)]="{type: 'string', length: '4'}"
+></fast-select>
+
+
+<fast-select [(label)]="Sales Document Item"
+    [(value)]="PROCUREMENT_ACCOUNT.SDOC_ITEM" [(options)]="{type:'CT', id:'VBUP'}"
+    [(abap)]="{type: 'string', length: '6', mid: 'APO'}"
+></fast-select>
+
+
+<fast-select [(label)]="Sales and Distribution Document Number"
+    [(value)]="PROCUREMENT_ACCOUNT.SD_DOC" [(options)]="{type:'CT', id:'VBUK'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'AUN', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Serial number for PReq account assignment segment"
+    [(value)]="PROCUREMENT_ACCOUNT.SERIAL_NO"
+    [(abap)]="{type: 'string', length: '2'}"
+/>
+
+
+<fast-select [(label)]="Asset Subnumber"
+    [(value)]="PROCUREMENT_ACCOUNT.SUB_NUMBER" [(options)]="{type:'CT', id:'ANLA'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-checkbox [(label)]="Posting to cost center?" [(checked)]="PROCUREMENT_ACCOUNT.TO_COSTCTR"/>
+
+
+<fast-checkbox [(label)]="Post To Order" [(checked)]="PROCUREMENT_ACCOUNT.TO_ORDER"/>
+
+
+<fast-checkbox [(label)]="Post to project" [(checked)]="PROCUREMENT_ACCOUNT.TO_PROJECT"/>
+
+
+<fast-text-field [(label)]="Unloading Point"
+    [(value)]="PROCUREMENT_ACCOUNT.UNLOAD_PT"
+    [(abap)]="{type: 'string', length: '25'}"
+/>
+
+
+<fast-text-field [(label)]="Work breakdown structure element (WBS element)"
+    [(value)]="PROCUREMENT_ACCOUNT.WBS_ELEM_E"
+    [(abap)]="{type: 'string', length: '24', alpha: 'ABPSN'}"
+/>
+
+
+<!-- PROCUREMENT_ITEM BAPIPOGN Item Data -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO PROCUREMENT_ITEM" title="Item Data"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACCTASSCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"KNT", shlp:{type:'SH', id:'H_T163K'}}'
+              label="Account assignment category"></fd-fd-column>
+    <fd-fd-column sortable field="AGMT_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item number of principal purchase agreement"></fd-fd-column>
+    <fd-fd-column sortable field="AGREEMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KTR", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Number of principal purchase agreement"></fd-fd-column>
+    <fd-fd-column sortable field="AVAIL_QTY" unit="PREQ_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Available quantity of material as at delivery date"></fd-fd-column>
+    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
+              label="Identifier for allowed catalogs"></fd-fd-column>
+    <fd-fd-column sortable field="CONF_VEND" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Item confirmed/acknowledged by vendor"></fd-fd-column>
+    <fd-fd-column sortable field="C_AMT_BAPI" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"22.4"}'
+              label="Price in purchase requisition"></fd-fd-column>
+    <fd-fd-column sortable field="DELIV_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Delivery date"></fd-fd-column>
+    <fd-fd-column sortable field="DEL_DATCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'PRGRS'}}'
+              label="Date type (day, week, month, interval)"></fd-fd-column>
+    <fd-fd-column sortable field="DOC_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"BSA", shlp:{type:'CT', id:'T161'}}'
+              label="Purchasing Document Type"></fd-fd-column>
+    <fd-fd-column sortable field="FIXED_VEND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Fixed vendor"></fd-fd-column>
+    <fd-fd-column sortable field="INFO_REC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"INF", shlp:{type:'CH', id:'EINA'}}' alpha-exit="ALPHA" 
+              label="Number of purchasing info record"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'SH', id:'H_T163'}}'
+              label="Item category in purchasing document"></fd-fd-column>
+    <fd-fd-column sortable field="MANUF_PROF" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TMPPF'}}'
+              label="Mfr part profile"></fd-fd-column>
+    <fd-fd-column sortable field="MANU_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Manufacturer Part Number"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material Number"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for MATERIAL Field"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="External GUID for MATERIAL Field"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Material Number (40 Characters, needed f. technical reasons)"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for MATERIAL Field"></fd-fd-column>
+    <fd-fd-column sortable field="MAT_GRP" data-abap.bind='{ddic:"CHAR", type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'H_T023'}}'
+              label="Material Group"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'LFA1'}}' alpha-exit="ALPHA" 
+              label="Manufacturer number"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="External manufacturer code name or number"></fd-fd-column>
+    <fd-fd-column sortable field="MOVE_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"BWA", shlp:{type:'SH', id:'H_T156'}}'
+              label="Movement type (inventory management)"></fd-fd-column>
+    <fd-fd-column sortable field="NO_OBJ_POS" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="No MM object possible"></fd-fd-column>
+    <fd-fd-column sortable field="OBJ_TO_GEN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'OBJ_TO_GEN'}}'
+              label="Analysis result: object to be generated"></fd-fd-column>
+    <fd-fd-column sortable field="PLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"WRK", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Plant"></fd-fd-column>
+    <fd-fd-column sortable field="PO_PRICE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BPUEB'}}'
+              label="Use Requisition Price in Purchase Order"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CT', id:'EBAN'}}'
+              label="Item number of purchase requisition"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+              label="Name of requisitioner/requester"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_UNIT" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
+              label="Price unit"></fd-fd-column>
+    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
+              label="Purchasing organization"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_GROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"EKG", shlp:{type:'SH', id:'H_T024'}}'
+              label="Purchasing group"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material number"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for PUR_MAT Field"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="External GUID for PUR_MAT Field"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Material Number (40 Characters, Technical Requirement)"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for PUR_MAT Field"></fd-fd-column>
+    <fd-fd-column sortable field="QUANTITY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Purchase requisition quantity"></fd-fd-column>
+    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Short Text"></fd-fd-column>
+    <fd-fd-column sortable field="STORE_LOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"LAG", shlp:{type:'SH', id:'H_T001L'}}'
+              label="Storage location"></fd-fd-column>
+    <fd-fd-column sortable field="SUPPL_PLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Supplying (issuing) plant in case of stock transport order"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
+              label="Material number used by vendor"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PROCUREMENT_ITEM BAPIPOGN Item Data -->
+
+<fast-text-field [(label)]="Account assignment category"
+    [(value)]="PROCUREMENT_ITEM.ACCTASSCAT"
+    [(abap)]="{type: 'string', length: '1', mid: 'KNT'}" [(shlp)]="{type:'SH', id:'H_T163K'}"
+/>
+
+
+<fast-text-field [(label)]="Item number of principal purchase agreement"
+    [(value)]="PROCUREMENT_ITEM.AGMT_ITEM"
+    [(abap)]="{type: 'string', length: '5'}" [(shlp)]="{type:'CH', id:'EKPO'}"
+/>
+
+
+<fast-text-field [(label)]="Number of principal purchase agreement"
+    [(value)]="PROCUREMENT_ITEM.AGREEMENT"
+    [(abap)]="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-text-field [(label)]="Available quantity of material as at delivery date"
+    [(value)]="PROCUREMENT_ITEM.AVAIL_QTY"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Identifier for allowed catalogs"
+    [(value)]="PROCUREMENT_ITEM.CATALOG"
+    [(abap)]="{type: 'string', length: '20'}" [(shlp)]="{type:'CT', id:'TMW3T'}"
+/>
+
+
+<fast-checkbox [(label)]="Item confirmed/acknowledged by vendor" [(checked)]="PROCUREMENT_ITEM.CONF_VEND"/>
+
+
+<fast-text-field [(label)]="Price in purchase requisition"
+    [(value)]="PROCUREMENT_ITEM.C_AMT_BAPI"
+    [(abap)]="{type: 'number', length: '22.4'}"
+/>
+
+
+<fast-datepicker label="Delivery date" [(value)]="PROCUREMENT_ITEM.DELIV_DATE"/>
+
+
+<fast-select [(label)]="Date type (day, week, month, interval)"
+    [(value)]="PROCUREMENT_ITEM.DEL_DATCAT" [(options)]="{type:'FV', id:'PRGRS'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-select [(label)]="Purchasing Document Type"
+    [(value)]="PROCUREMENT_ITEM.DOC_TYPE" [(options)]="{type:'CT', id:'T161'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'BSA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Fixed vendor"
+    [(value)]="PROCUREMENT_ITEM.FIXED_VEND"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+/>
+
+
+<fast-text-field [(label)]="Number of purchasing info record"
+    [(value)]="PROCUREMENT_ITEM.INFO_REC"
+    [(abap)]="{type: 'string', length: '10', mid: 'INF', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EINA'}"
+/>
+
+
+<fast-text-field [(label)]="Item category in purchasing document"
+    [(value)]="PROCUREMENT_ITEM.ITEM_CAT"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'SH', id:'H_T163'}"
+/>
+
+
+<fast-text-field [(label)]="Mfr part profile"
+    [(value)]="PROCUREMENT_ITEM.MANUF_PROF"
+    [(abap)]="{type: 'string', length: '4'}" [(shlp)]="{type:'CT', id:'TMPPF'}"
+/>
+
+
+<fast-text-field [(label)]="Manufacturer Part Number"
+    [(value)]="PROCUREMENT_ITEM.MANU_MAT"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Material Number"
+    [(value)]="PROCUREMENT_ITEM.MATERIAL"
+    [(abap)]="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}" [(shlp)]="{type:'CT', id:'MARA'}"
+/>
+
+
+<fast-text-field [(label)]="Long Material Number for MATERIAL Field"
+    [(value)]="PROCUREMENT_ITEM.MATERIAL_EXTERNAL"
+    [(abap)]="{type: 'string', length: '40', alpha: 'MATNL'}"
+/>
+
+
+<fast-text-field [(label)]="External GUID for MATERIAL Field"
+    [(value)]="PROCUREMENT_ITEM.MATERIAL_GUID"
+    [(abap)]="{type: 'string', length: '32'}"
+/>
+
+
+<fast-text-field [(label)]="Material Number (40 Characters, needed f. technical reasons)"
+    [(value)]="PROCUREMENT_ITEM.MATERIAL_LONG"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Version Number for MATERIAL Field"
+    [(value)]="PROCUREMENT_ITEM.MATERIAL_VERSION"
+    [(abap)]="{type: 'string', length: '10', alpha: 'MATNW'}"
+/>
+
+
+<fast-text-field [(label)]="Material Group"
+    [(value)]="PROCUREMENT_ITEM.MAT_GRP"
+    [(abap)]="{type: 'string', length: '9', mid: 'MKL'}" [(shlp)]="{type:'SH', id:'H_T023'}"
+/>
+
+
+<fast-text-field [(label)]="Manufacturer number"
+    [(value)]="PROCUREMENT_ITEM.MFR_NO"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'LFA1'}"
+/>
+
+
+<fast-text-field [(label)]="External manufacturer code name or number"
+    [(value)]="PROCUREMENT_ITEM.MFR_NO_EXT"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="Movement type (inventory management)"
+    [(value)]="PROCUREMENT_ITEM.MOVE_TYPE"
+    [(abap)]="{type: 'string', length: '3', mid: 'BWA'}" [(shlp)]="{type:'SH', id:'H_T156'}"
+/>
+
+
+<fast-checkbox [(label)]="No MM object possible" [(checked)]="PROCUREMENT_ITEM.NO_OBJ_POS"/>
+
+
+<fast-select [(label)]="Analysis result: object to be generated"
+    [(value)]="PROCUREMENT_ITEM.OBJ_TO_GEN" [(options)]="{type:'FV', id:'OBJ_TO_GEN'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Plant"
+    [(value)]="PROCUREMENT_ITEM.PLANT"
+    [(abap)]="{type: 'string', length: '4', mid: 'WRK'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
+/>
+
+
+<fast-select [(label)]="Use Requisition Price in Purchase Order"
+    [(value)]="PROCUREMENT_ITEM.PO_PRICE" [(options)]="{type:'FV', id:'BPUEB'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Item number of purchase requisition"
+    [(value)]="PROCUREMENT_ITEM.PREQ_ITEM"
+    [(abap)]="{type: 'string', length: '5', mid: 'BAP'}" [(shlp)]="{type:'CT', id:'EBAN'}"
+/>
+
+
+<fast-text-field [(label)]="Name of requisitioner/requester"
+    [(value)]="PROCUREMENT_ITEM.PREQ_NAME"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="Price unit"
+    [(value)]="PROCUREMENT_ITEM.PRICE_UNIT"
+    [(abap)]="{type: 'number', length: '5'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing organization"
+    [(value)]="PROCUREMENT_ITEM.PURCH_ORG"
+    [(abap)]="{type: 'string', length: '4', mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing group"
+    [(value)]="PROCUREMENT_ITEM.PUR_GROUP"
+    [(abap)]="{type: 'string', length: '3', mid: 'EKG'}" [(shlp)]="{type:'SH', id:'H_T024'}"
+/>
+
+
+<fast-text-field [(label)]="Material number"
+    [(value)]="PROCUREMENT_ITEM.PUR_MAT"
+    [(abap)]="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}" [(shlp)]="{type:'CT', id:'MARA'}"
+/>
+
+
+<fast-text-field [(label)]="Long Material Number for PUR_MAT Field"
+    [(value)]="PROCUREMENT_ITEM.PUR_MAT_EXTERNAL"
+    [(abap)]="{type: 'string', length: '40', alpha: 'MATNL'}"
+/>
+
+
+<fast-text-field [(label)]="External GUID for PUR_MAT Field"
+    [(value)]="PROCUREMENT_ITEM.PUR_MAT_GUID"
+    [(abap)]="{type: 'string', length: '32'}"
+/>
+
+
+<fast-text-field [(label)]="Material Number (40 Characters, Technical Requirement)"
+    [(value)]="PROCUREMENT_ITEM.PUR_MAT_LONG"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Version Number for PUR_MAT Field"
+    [(value)]="PROCUREMENT_ITEM.PUR_MAT_VERSION"
+    [(abap)]="{type: 'string', length: '10', alpha: 'MATNW'}"
+/>
+
+
+<fast-text-field [(label)]="Purchase requisition quantity"
+    [(value)]="PROCUREMENT_ITEM.QUANTITY"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Short Text"
+    [(value)]="PROCUREMENT_ITEM.SHORT_TEXT"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Storage location"
+    [(value)]="PROCUREMENT_ITEM.STORE_LOC"
+    [(abap)]="{type: 'string', length: '4', mid: 'LAG'}" [(shlp)]="{type:'SH', id:'H_T001L'}"
+/>
+
+
+<fast-text-field [(label)]="Supplying (issuing) plant in case of stock transport order"
+    [(value)]="PROCUREMENT_ITEM.SUPPL_PLANT"
+    [(abap)]="{type: 'string', length: '4'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
+/>
+
+
+<fast-text-field [(label)]="Material number used by vendor"
+    [(value)]="PROCUREMENT_ITEM.VEND_MAT"
+    [(abap)]="{type: 'string', length: '22'}"
+/>
+
+
+<!-- RETURN BAPIRETURN Processing Errors -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO RETURN" title="Processing Errors"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Message code"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RETURN BAPIRETURN Processing Errors -->
+
+<fast-text-field [(label)]="Message code"
+    [(value)]="RETURN.CODE"
+    [(abap)]="{type: 'string', length: '5'}"
+/>
+
+
+<fast-select [(label)]="Application log: Internal message serial number"
+    [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
+    [(abap)]="{type: 'string', length: '6'}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: log number"
+    [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
+    [(abap)]="{type: 'string', length: '20'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message Text"
+    [(value)]="RETURN.MESSAGE"
+    [(abap)]="{type: 'string', length: '220'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V1"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V2"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V3"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V4"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
+    [(value)]="RETURN.TYPE"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+

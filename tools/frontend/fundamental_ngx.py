@@ -41,6 +41,15 @@ fundamental_ngx = {
             data-shlp="%s"
         />
 </div>""",
+    "number": """
+<div fd-form-item>
+    <label fd-form-label>%s</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="%s"
+            data-abap="%s"
+            data-shlp="%s"
+        />
+</div>""",
     # https://sap.github.io/fundamental-ngx/#/core/textarea
     "textarea": """
 <div fd-form-item>

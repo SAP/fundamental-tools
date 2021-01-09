@@ -1,0 +1,1022 @@
+<!-- BAPI_PROCOPERATION_GETINFO 0.2 -->
+
+<!-- TABLE PARAMETERS -->
+
+<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO PROCUREMENT_ACCOUNT" title="Account Assignment Data"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACTIVITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VGN"}' alpha-exit="NUMCV" 
+              label="Activity Number"></fd-fd-column>
+    <fd-fd-column sortable field="ASSET_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"AN1", shlp:{type:'CT', id:'ANLH'}}' alpha-exit="ALPHA" 
+              label="Main Asset Number"></fd-fd-column>
+    <fd-fd-column sortable field="BUDGET_PERIOD" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BUDPER", shlp:{type:'CT', id:'FMFUNDBPD'}}'
+              label="FM: Budget Period"></fd-fd-column>
+    <fd-fd-column sortable field="BUS_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"GSB", shlp:{type:'CT', id:'TGSB'}}'
+              label="Business Area"></fd-fd-column>
+    <fd-fd-column sortable field="CMMT_ITEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"14", mid:"FIP", shlp:{type:'CT', id:'FMFXPO'}}' alpha-exit="FMCIS" 
+              label="Commitment Item"></fd-fd-column>
+    <fd-fd-column sortable field="CMMT_ITEM_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"FPS", shlp:{type:'CT', id:'FMCI'}}' alpha-exit="FMCIL" 
+              label="Commitment item"></fd-fd-column>
+    <fd-fd-column sortable field="COST_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KOS", shlp:{type:'CT', id:'CSKS'}}' alpha-exit="ALPHA" 
+              label="Cost Center"></fd-fd-column>
+    <fd-fd-column sortable field="COST_OBJ" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"KTR", shlp:{type:'CT', id:'CKPH'}}'
+              label="Cost Object"></fd-fd-column>
+    <fd-fd-column sortable field="COUNTER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"8"}'
+              label="Internal counter"></fd-fd-column>
+    <fd-fd-column sortable field="CO_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"CAC", shlp:{type:'CT', id:'TKA01'}}'
+              label="Controlling Area"></fd-fd-column>
+    <fd-fd-column sortable field="DISTR_PERC" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"2.1"}'
+              label="Distribution percentage in the case of multiple acct assgt"></fd-fd-column>
+    <fd-fd-column sortable field="FUNC_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"FBE"}'
+              label="Functional Area"></fd-fd-column>
+    <fd-fd-column sortable field="FUNC_AREA_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FBE", shlp:{type:'CT', id:'TFKB'}}'
+              label="Functional Area"></fd-fd-column>
+    <fd-fd-column sortable field="FUND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"FIC", shlp:{type:'CT', id:'FMFINCODE'}}'
+              label="Fund"></fd-fd-column>
+    <fd-fd-column sortable field="FUNDS_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FIS", shlp:{type:'CT', id:'FMFCTR'}}'
+              label="Funds Center"></fd-fd-column>
+    <fd-fd-column sortable field="GRANT_NBR" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", mid:"GM_GRANT_NBR", shlp:{type:'SH', id:'GRANTS_GENERIC'}}' alpha-exit="ALPHA" 
+              label="Grant"></fd-fd-column>
+    <fd-fd-column sortable field="GR_RCPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+              label="Goods recipient"></fd-fd-column>
+    <fd-fd-column sortable field="G_L_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"SAK", shlp:{type:'SH', id:'C_SAKNR'}}' alpha-exit="ALPHA" 
+              label="G/L Account Number"></fd-fd-column>
+    <fd-fd-column sortable field="NETWORK" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"NET", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA" 
+              label="Network Number for Account Assignment"></fd-fd-column>
+    <fd-fd-column sortable field="ORDER_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"ANR", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA" 
+              label="Order Number"></fd-fd-column>
+    <fd-fd-column sortable field="PART_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'KNA1'}}' alpha-exit="ALPHA" 
+              label="Partner account number"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CT', id:'EBAN'}}'
+              label="Item number of purchase requisition"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_QTY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Purchase requisition quantity"></fd-fd-column>
+    <fd-fd-column sortable field="PROFIT_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"PRC", shlp:{type:'SH', id:'PRCTR_EMPTY'}}' alpha-exit="ALPHA" 
+              label="Profit Center"></fd-fd-column>
+    <fd-fd-column sortable field="PROF_SEGM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
+              label="Profitability Segment Number (CO-PA)"></fd-fd-column>
+    <fd-fd-column sortable field="PROJ_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"PSP", shlp:{type:'SH', id:'PD_C'}}' alpha-exit="ABPSN" 
+              label="Project definition"></fd-fd-column>
+    <fd-fd-column sortable field="REC_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T8JJ'}}' alpha-exit="ALPHA" 
+              label="Recovery Indicator"></fd-fd-column>
+    <fd-fd-column sortable field="REF_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Reference date for settlement"></fd-fd-column>
+    <fd-fd-column sortable field="RL_EST_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="IMKEY" 
+              label="Internal Key for Real Estate Object"></fd-fd-column>
+    <fd-fd-column sortable field="ROUTING_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
+              label="Routing number of operations in the order"></fd-fd-column>
+    <fd-fd-column sortable field="SCHED_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4", shlp:{type:'CT', id:'VBEP'}}'
+              label="Schedule line"></fd-fd-column>
+    <fd-fd-column sortable field="SDOC_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", mid:"APO", shlp:{type:'CT', id:'VBUP'}}'
+              label="Sales Document Item"></fd-fd-column>
+    <fd-fd-column sortable field="SD_DOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"AUN", shlp:{type:'CT', id:'VBUK'}}' alpha-exit="ALPHA" 
+              label="Sales and Distribution Document Number"></fd-fd-column>
+    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
+              label="Serial number for PReq account assignment segment"></fd-fd-column>
+    <fd-fd-column sortable field="SUB_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"AN2", shlp:{type:'CT', id:'ANLA'}}' alpha-exit="ALPHA" 
+              label="Asset Subnumber"></fd-fd-column>
+    <fd-fd-column sortable field="TO_COSTCTR" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Posting to cost center?"></fd-fd-column>
+    <fd-fd-column sortable field="TO_ORDER" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Post To Order"></fd-fd-column>
+    <fd-fd-column sortable field="TO_PROJECT" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Post to project"></fd-fd-column>
+    <fd-fd-column sortable field="UNLOAD_PT" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
+              label="Unloading Point"></fd-fd-column>
+    <fd-fd-column sortable field="WBS_ELEM_E" data-abap.bind='{ddic:"CHAR", type:"string", length:"24"}' alpha-exit="ABPSN" 
+              label="Work breakdown structure element (WBS element)"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
+
+<fd-form-item>
+    <fd-form-label>Activity Number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.ACTIVITY"
+            data-abap="{type: 'string', length: '4', mid: 'VGN', alpha: 'NUMCV'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Main Asset Number</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.ASSET_NO"
+        options="{type:'CT', id:'ANLH'}"
+        data-abap="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>FM: Budget Period</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.BUDGET_PERIOD"
+            data-abap="{type: 'string', length: '10', mid: 'BUDPER'}"
+            data-shlp="{type:'CT', id:'FMFUNDBPD'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Business Area</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.BUS_AREA"
+        options="{type:'CT', id:'TGSB'}"
+        data-abap="{type: 'string', length: '4', mid: 'GSB'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Commitment Item</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.CMMT_ITEM"
+            data-abap="{type: 'string', length: '14', mid: 'FIP', alpha: 'FMCIS'}"
+            data-shlp="{type:'CT', id:'FMFXPO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Commitment item</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.CMMT_ITEM_LONG"
+            data-abap="{type: 'string', length: '24', mid: 'FPS', alpha: 'FMCIL'}"
+            data-shlp="{type:'CT', id:'FMCI'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cost Center</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.COST_CTR"
+            data-abap="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'CSKS'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cost Object</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.COST_OBJ"
+        options="{type:'CT', id:'CKPH'}"
+        data-abap="{type: 'string', length: '12', mid: 'KTR'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Internal counter</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.COUNTER"
+            data-abap="{type: 'string', length: '8'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Controlling Area</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.CO_AREA"
+        options="{type:'CT', id:'TKA01'}"
+        data-abap="{type: 'string', length: '4', mid: 'CAC'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Distribution percentage in the case of multiple acct assgt</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.DISTR_PERC"
+            data-abap="{type: 'number', length: '2.1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Functional Area</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.FUNC_AREA"
+            data-abap="{type: 'string', length: '4', mid: 'FBE'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Functional Area</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.FUNC_AREA_LONG"
+            data-abap="{type: 'string', length: '16', mid: 'FBE'}"
+            data-shlp="{type:'CT', id:'TFKB'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Fund</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.FUND"
+            data-abap="{type: 'string', length: '10', mid: 'FIC'}"
+            data-shlp="{type:'CT', id:'FMFINCODE'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Funds Center</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.FUNDS_CTR"
+            data-abap="{type: 'string', length: '16', mid: 'FIS'}"
+            data-shlp="{type:'CT', id:'FMFCTR'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Grant</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.GRANT_NBR"
+            data-abap="{type: 'string', length: '20', mid: 'GM_GRANT_NBR', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'GRANTS_GENERIC'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Goods recipient</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.GR_RCPT"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>G/L Account Number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.G_L_ACCT"
+            data-abap="{type: 'string', length: '10', mid: 'SAK', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'C_SAKNR'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Network Number for Account Assignment</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.NETWORK"
+            data-abap="{type: 'string', length: '12', mid: 'NET', alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'AUFK'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Order Number</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.ORDER_NO"
+        options="{type:'CT', id:'AUFK'}"
+        data-abap="{type: 'string', length: '12', mid: 'ANR', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Partner account number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.PART_ACCT"
+            data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'KNA1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item number of purchase requisition</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.PREQ_ITEM"
+        options="{type:'CT', id:'EBAN'}"
+        data-abap="{type: 'string', length: '5', mid: 'BAP'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Purchase requisition quantity</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.PREQ_QTY"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Profit Center</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.PROFIT_CTR"
+            data-abap="{type: 'string', length: '10', mid: 'PRC', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'PRCTR_EMPTY'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Profitability Segment Number (CO-PA)</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.PROF_SEGM"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Project definition</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.PROJ_EXT"
+            data-abap="{type: 'string', length: '24', mid: 'PSP', alpha: 'ABPSN'}"
+            data-shlp="{type:'SH', id:'PD_C'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Recovery Indicator</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.REC_IND"
+        options="{type:'CT', id:'T8JJ'}"
+        data-abap="{type: 'string', length: '2', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Reference date for settlement</fd-form-label>
+    <fd-date-picker v-model="PROCUREMENT_ACCOUNT.REF_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Internal Key for Real Estate Object</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.RL_EST_KEY"
+            data-abap="{type: 'string', length: '8', alpha: 'IMKEY'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Routing number of operations in the order</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.ROUTING_NO"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Schedule line</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.SCHED_LINE"
+        options="{type:'CT', id:'VBEP'}"
+        data-abap="{type: 'string', length: '4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Sales Document Item</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.SDOC_ITEM"
+        options="{type:'CT', id:'VBUP'}"
+        data-abap="{type: 'string', length: '6', mid: 'APO'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Sales and Distribution Document Number</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.SD_DOC"
+        options="{type:'CT', id:'VBUK'}"
+        data-abap="{type: 'string', length: '10', mid: 'AUN', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Serial number for PReq account assignment segment</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.SERIAL_NO"
+            data-abap="{type: 'string', length: '2'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Asset Subnumber</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ACCOUNT.SUB_NUMBER"
+        options="{type:'CT', id:'ANLA'}"
+        data-abap="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item-checkbox label="Posting to cost center?">
+    <fd-checkbox v-model="PROCUREMENT_ACCOUNT.TO_COSTCTR">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item-checkbox label="Post To Order">
+    <fd-checkbox v-model="PROCUREMENT_ACCOUNT.TO_ORDER">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item-checkbox label="Post to project">
+    <fd-checkbox v-model="PROCUREMENT_ACCOUNT.TO_PROJECT">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Unloading Point</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.UNLOAD_PT"
+            data-abap="{type: 'string', length: '25'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Work breakdown structure element (WBS element)</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ACCOUNT.WBS_ELEM_E"
+            data-abap="{type: 'string', length: '24', alpha: 'ABPSN'}"
+        />
+</fd-form-item>
+
+
+<!-- PROCUREMENT_ITEM BAPIPOGN Item Data -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO PROCUREMENT_ITEM" title="Item Data"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACCTASSCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"KNT", shlp:{type:'SH', id:'H_T163K'}}'
+              label="Account assignment category"></fd-fd-column>
+    <fd-fd-column sortable field="AGMT_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item number of principal purchase agreement"></fd-fd-column>
+    <fd-fd-column sortable field="AGREEMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KTR", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Number of principal purchase agreement"></fd-fd-column>
+    <fd-fd-column sortable field="AVAIL_QTY" unit="PREQ_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Available quantity of material as at delivery date"></fd-fd-column>
+    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
+              label="Identifier for allowed catalogs"></fd-fd-column>
+    <fd-fd-column sortable field="CONF_VEND" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Item confirmed/acknowledged by vendor"></fd-fd-column>
+    <fd-fd-column sortable field="C_AMT_BAPI" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"22.4"}'
+              label="Price in purchase requisition"></fd-fd-column>
+    <fd-fd-column sortable field="DELIV_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Delivery date"></fd-fd-column>
+    <fd-fd-column sortable field="DEL_DATCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'PRGRS'}}'
+              label="Date type (day, week, month, interval)"></fd-fd-column>
+    <fd-fd-column sortable field="DOC_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"BSA", shlp:{type:'CT', id:'T161'}}'
+              label="Purchasing Document Type"></fd-fd-column>
+    <fd-fd-column sortable field="FIXED_VEND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Fixed vendor"></fd-fd-column>
+    <fd-fd-column sortable field="INFO_REC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"INF", shlp:{type:'CH', id:'EINA'}}' alpha-exit="ALPHA" 
+              label="Number of purchasing info record"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'SH', id:'H_T163'}}'
+              label="Item category in purchasing document"></fd-fd-column>
+    <fd-fd-column sortable field="MANUF_PROF" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TMPPF'}}'
+              label="Mfr part profile"></fd-fd-column>
+    <fd-fd-column sortable field="MANU_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Manufacturer Part Number"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material Number"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for MATERIAL Field"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="External GUID for MATERIAL Field"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Material Number (40 Characters, needed f. technical reasons)"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for MATERIAL Field"></fd-fd-column>
+    <fd-fd-column sortable field="MAT_GRP" data-abap.bind='{ddic:"CHAR", type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'H_T023'}}'
+              label="Material Group"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'LFA1'}}' alpha-exit="ALPHA" 
+              label="Manufacturer number"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="External manufacturer code name or number"></fd-fd-column>
+    <fd-fd-column sortable field="MOVE_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"BWA", shlp:{type:'SH', id:'H_T156'}}'
+              label="Movement type (inventory management)"></fd-fd-column>
+    <fd-fd-column sortable field="NO_OBJ_POS" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="No MM object possible"></fd-fd-column>
+    <fd-fd-column sortable field="OBJ_TO_GEN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'OBJ_TO_GEN'}}'
+              label="Analysis result: object to be generated"></fd-fd-column>
+    <fd-fd-column sortable field="PLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"WRK", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Plant"></fd-fd-column>
+    <fd-fd-column sortable field="PO_PRICE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BPUEB'}}'
+              label="Use Requisition Price in Purchase Order"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CT', id:'EBAN'}}'
+              label="Item number of purchase requisition"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+              label="Name of requisitioner/requester"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_UNIT" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
+              label="Price unit"></fd-fd-column>
+    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
+              label="Purchasing organization"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_GROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"EKG", shlp:{type:'SH', id:'H_T024'}}'
+              label="Purchasing group"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material number"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for PUR_MAT Field"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="External GUID for PUR_MAT Field"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Material Number (40 Characters, Technical Requirement)"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for PUR_MAT Field"></fd-fd-column>
+    <fd-fd-column sortable field="QUANTITY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Purchase requisition quantity"></fd-fd-column>
+    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Short Text"></fd-fd-column>
+    <fd-fd-column sortable field="STORE_LOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"LAG", shlp:{type:'SH', id:'H_T001L'}}'
+              label="Storage location"></fd-fd-column>
+    <fd-fd-column sortable field="SUPPL_PLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Supplying (issuing) plant in case of stock transport order"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
+              label="Material number used by vendor"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PROCUREMENT_ITEM BAPIPOGN Item Data -->
+
+<fd-form-item>
+    <fd-form-label>Account assignment category</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.ACCTASSCAT"
+            data-abap="{type: 'string', length: '1', mid: 'KNT'}"
+            data-shlp="{type:'SH', id:'H_T163K'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item number of principal purchase agreement</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.AGMT_ITEM"
+            data-abap="{type: 'string', length: '5'}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Number of principal purchase agreement</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.AGREEMENT"
+            data-abap="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Available quantity of material as at delivery date</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.AVAIL_QTY"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Identifier for allowed catalogs</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.CATALOG"
+            data-abap="{type: 'string', length: '20'}"
+            data-shlp="{type:'CT', id:'TMW3T'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Item confirmed/acknowledged by vendor">
+    <fd-checkbox v-model="PROCUREMENT_ITEM.CONF_VEND">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Price in purchase requisition</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.C_AMT_BAPI"
+            data-abap="{type: 'number', length: '22.4'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Delivery date</fd-form-label>
+    <fd-date-picker v-model="PROCUREMENT_ITEM.DELIV_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Date type (day, week, month, interval)</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ITEM.DEL_DATCAT"
+        options="{type:'FV', id:'PRGRS'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Type</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ITEM.DOC_TYPE"
+        options="{type:'CT', id:'T161'}"
+        data-abap="{type: 'string', length: '4', mid: 'BSA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Fixed vendor</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.FIXED_VEND"
+            data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Number of purchasing info record</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.INFO_REC"
+            data-abap="{type: 'string', length: '10', mid: 'INF', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EINA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item category in purchasing document</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.ITEM_CAT"
+            data-abap="{type: 'string', length: '1'}"
+            data-shlp="{type:'SH', id:'H_T163'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Mfr part profile</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MANUF_PROF"
+            data-abap="{type: 'string', length: '4'}"
+            data-shlp="{type:'CT', id:'TMPPF'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Manufacturer Part Number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MANU_MAT"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MATERIAL"
+            data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+            data-shlp="{type:'CT', id:'MARA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MATERIAL_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MATERIAL_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MATERIAL_LONG"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MATERIAL_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Group</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MAT_GRP"
+            data-abap="{type: 'string', length: '9', mid: 'MKL'}"
+            data-shlp="{type:'SH', id:'H_T023'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Manufacturer number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MFR_NO"
+            data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'LFA1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>External manufacturer code name or number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MFR_NO_EXT"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Movement type (inventory management)</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.MOVE_TYPE"
+            data-abap="{type: 'string', length: '3', mid: 'BWA'}"
+            data-shlp="{type:'SH', id:'H_T156'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="No MM object possible">
+    <fd-checkbox v-model="PROCUREMENT_ITEM.NO_OBJ_POS">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Analysis result: object to be generated</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ITEM.OBJ_TO_GEN"
+        options="{type:'FV', id:'OBJ_TO_GEN'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Plant</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PLANT"
+            data-abap="{type: 'string', length: '4', mid: 'WRK'}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Use Requisition Price in Purchase Order</fd-form-label>
+    <fd-select v-model="PROCUREMENT_ITEM.PO_PRICE"
+        options="{type:'FV', id:'BPUEB'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Item number of purchase requisition</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PREQ_ITEM"
+            data-abap="{type: 'string', length: '5', mid: 'BAP'}"
+            data-shlp="{type:'CT', id:'EBAN'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name of requisitioner/requester</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PREQ_NAME"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Price unit</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PRICE_UNIT"
+            data-abap="{type: 'number', length: '5'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing organization</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PURCH_ORG"
+            data-abap="{type: 'string', length: '4', mid: 'EKO'}"
+            data-shlp="{type:'SH', id:'H_T024E'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing group</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PUR_GROUP"
+            data-abap="{type: 'string', length: '3', mid: 'EKG'}"
+            data-shlp="{type:'SH', id:'H_T024'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material number</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PUR_MAT"
+            data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+            data-shlp="{type:'CT', id:'MARA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Long Material Number for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PUR_MAT_EXTERNAL"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>External GUID for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PUR_MAT_GUID"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Number (40 Characters, Technical Requirement)</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PUR_MAT_LONG"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Version Number for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.PUR_MAT_VERSION"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchase requisition quantity</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.QUANTITY"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Short Text</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.SHORT_TEXT"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Storage location</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.STORE_LOC"
+            data-abap="{type: 'string', length: '4', mid: 'LAG'}"
+            data-shlp="{type:'SH', id:'H_T001L'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Supplying (issuing) plant in case of stock transport order</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.SUPPL_PLANT"
+            data-abap="{type: 'string', length: '4'}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material number used by vendor</fd-form-label>
+        <fd-input v-model="PROCUREMENT_ITEM.VEND_MAT"
+            data-abap="{type: 'string', length: '22'}"
+        />
+</fd-form-item>
+
+
+<!-- RETURN BAPIRETURN Processing Errors -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO RETURN" title="Processing Errors"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Message code"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RETURN BAPIRETURN Processing Errors -->
+
+<fd-form-item>
+    <fd-form-label>Message code</fd-form-label>
+        <fd-input v-model="RETURN.CODE"
+            data-abap="{type: 'string', length: '5'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_MSG_NO"
+        options="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_NO"
+        options="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE"
+            data-abap="{type: 'string', length: '220'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V1"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V2"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V3"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V4"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="RETURN.TYPE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</fd-form-item>
+

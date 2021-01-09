@@ -19,10 +19,12 @@ as JSON dictionaries:
 """
 
 import argparse
-import os
-import json
-import sys
 import codecs
+import json
+import logging
+import os
+import sys
+from generator.utils import get_log_level
 
 from generator.systems import (
     BACKEND,
@@ -41,10 +43,7 @@ Params = {}
 Fields = {}
 Helps = {}
 
-QUIET = False
 for arg in sys.argv:
-    if arg == "-q":
-        QUIET = True
     if arg in rfm_sets:
         rfm_sets = [arg]
 
@@ -239,18 +238,17 @@ def get_dfies_backend(p, language=LANGUAGES[0]):
         )
     except Exception as e:
         if p["PARAMTYPE"] == "VARIABLE" and e.key == "NOT_FOUND":
-            if not QUIET:
-                print(
-                    "!1 %1s %-30s %-10s        %-30s %-30s %s"
-                    % (
-                        p["PARAMCLASS"],
-                        p["PARAMETER"],
-                        p["PARAMTYPE"],
-                        p["TABNAME"],
-                        p["FIELDNAME"],
-                        p["PARAMTEXT"],
-                    )
+            print(
+                "!1 %1s %-30s %-10s        %-30s %-30s %s"
+                % (
+                    p["PARAMCLASS"],
+                    p["PARAMETER"],
+                    p["PARAMTYPE"],
+                    p["TABNAME"],
+                    p["FIELDNAME"],
+                    p["PARAMTEXT"],
                 )
+            )
             return False
         else:
             raise e  # unexpected error
@@ -377,12 +375,16 @@ def get_arg_parser():
     )
     arg_parser.add_argument("abap_system", type=str, help="ABAP system id")
     arg_parser.add_argument("rfmset", nargs="?", type=str, help="ABAP RFM set name")
+    arg_parser.add_argument("-l", "--loglevel", dest="log_level", default=None, type=str, choices=['info', 'debug'], help="log level")
     return arg_parser
 
 
 if __name__ == "__main__":
 
     args = get_arg_parser().parse_args()
+
+    if args.log_level is not None:
+        logging.basicConfig(level=get_log_level(args.log_level))
 
     if args.rfmset is None:
         RFMLIST = rfm_sets
@@ -409,12 +411,12 @@ if __name__ == "__main__":
 
     for rfmset in sorted(RFMLIST):
 
-        if not os.path.exists("data/%s" % rfmset):
-            os.makedirs("data/%s" % rfmset)
+        if not os.path.exists(f"data/{rfmset}"):
+            os.makedirs(f"data/{rfmset}")
 
         rfm_list = catalog[rfmset]
 
-        print("\nModel %s (%u)" % (rfmset, len(rfm_list)))
+        print(f"\nAPI {rfmset}:  {len(rfm_list)}")
 
         # get RFM metadata
         r = __conn.call(
@@ -460,7 +462,7 @@ if __name__ == "__main__":
         # remove exception parameters
         for p in list(r["PARAMETERS"]):
             if p["PARAMCLASS"] == "X" or not p["EXID"]:
-                print(
+                logging.info(
                     "!2 EXCEPTION parameter removed: %1s %-30s %-30s"
                     % (p["PARAMCLASS"], p["FUNCNAME"], p["PARAMETER"])
                 )
@@ -506,11 +508,9 @@ if __name__ == "__main__":
         # get backend parameters and fields metadata
         rfm_out = ""
         for p in r["PARAMETERS"]:
-
             if rfm_out != p["FUNCNAME"]:
                 rfm_out = p["FUNCNAME"]
-                if not QUIET:
-                    print("\n%s\n" % rfm_out)
+                print(f"\n{rfm_out}\n")
 
             if p["FIELDKEY"] in Fields:
                 dfies = Fields[p["FIELDKEY"]]
@@ -530,19 +530,18 @@ if __name__ == "__main__":
 
                 del p["INTLENGTH"], p["DECIMALS"], p["DEFAULT"]
 
-                if not QUIET:
-                    print(
-                        "%1s %-30s %-10s (%4u) %-30s %-30s %s"
-                        % (
-                            p["PARAMCLASS"],
-                            p["PARAMETER"],
-                            p["PARAMTYPE"],
-                            len(dfies),
-                            p["TABNAME"],
-                            p["FIELDNAME"],
-                            p["PARAMTEXT"],
-                        )
+                print(
+                    "%1s %-30s %-10s (%4u) %-30s %-30s %s"
+                    % (
+                        p["PARAMCLASS"],
+                        p["PARAMETER"],
+                        p["PARAMTYPE"],
+                        len(dfies),
+                        p["TABNAME"],
+                        p["FIELDNAME"],
+                        p["PARAMTEXT"],
                     )
+                )
 
             # Structures
             elif p["EXID"] in "uv":
@@ -557,19 +556,18 @@ if __name__ == "__main__":
 
                 del p["INTLENGTH"], p["DECIMALS"], p["DEFAULT"]
 
-                if not QUIET:
-                    print(
-                        "%1s %-30s %-10s (%4u) %-30s %-30s %s"
-                        % (
-                            p["PARAMCLASS"],
-                            p["PARAMETER"],
-                            p["PARAMTYPE"],
-                            len(dfies),
-                            p["TABNAME"],
-                            p["FIELDNAME"],
-                            p["PARAMTEXT"],
-                        )
+                print(
+                    "%1s %-30s %-10s (%4u) %-30s %-30s %s"
+                    % (
+                        p["PARAMCLASS"],
+                        p["PARAMETER"],
+                        p["PARAMTYPE"],
+                        len(dfies),
+                        p["TABNAME"],
+                        p["FIELDNAME"],
+                        p["PARAMTEXT"],
                     )
+                )
 
             # Variables
             else:  # p['EXID'] not in 'uvh':
@@ -582,18 +580,17 @@ if __name__ == "__main__":
                         continue
                     Fields[p["FIELDKEY"]] = annotation(dfies)
 
-                if not QUIET:
-                    print(
-                        "%1s %-30s %-10s        %-30s %-30s %s"
-                        % (
-                            p["PARAMCLASS"],
-                            p["PARAMETER"],
-                            p["PARAMTYPE"],
-                            p["TABNAME"],
-                            p["FIELDNAME"],
-                            p["PARAMTEXT"],
-                        )
+                print(
+                    "%1s %-30s %-10s        %-30s %-30s %s"
+                    % (
+                        p["PARAMCLASS"],
+                        p["PARAMETER"],
+                        p["PARAMTYPE"],
+                        p["TABNAME"],
+                        p["FIELDNAME"],
+                        p["PARAMTEXT"],
                     )
+                )
 
                 # p['PARAMTEXT'] 79
                 # p['OPTIONAL'] 1
@@ -630,29 +627,32 @@ if __name__ == "__main__":
         # stat
         #
 
-        if not QUIET:
-            print(
-                "\nrfms:   %4u\nparams: %4u\nvars:   %4u\nstrucs: %4u\ntables: %4u\nall:    %4u\nfields: %4u"
-                % (len(rfm_list), len(r["PARAMETERS"]), v, s, t, v + s + t, len(Fields))
-            )
+        print(
+            "rfms:   %4u\nparams: %4u\nvars:   %4u\nstrucs: %4u\ntables: %4u\nall:    %4u\nfields: %4u"
+            % (len(rfm_list), len(r["PARAMETERS"]), v, s, t, v + s + t, len(Fields))
+        )
 
         help_stat = {}
-        if len(Helps) and not QUIET:
+        if len(Helps):
             for h in Helps:
                 help_type, help_name = h.split()
                 if help_type not in help_stat:
                     help_stat[help_type] = 1
                 else:
                     help_stat[help_type] += 1
-            print("helps:  %4u" % len(Helps))
+            print(f"helps:    {len(Helps)}")
             for h in sorted(help_stat):
-                print("    %2s: %4u" % (h, help_stat[h]))
+                print("   %2s: %5u" % (h, help_stat[h]))
 
         #
         # save the backend model
         #
 
         Fields = sorted(Fields.items())  # dict -> sortedlist
+
+        for rfm_name in Params:
+            for rfm_param in Params[rfm_name]:
+                Params[rfm_name][rfm_param]["RFM"] = sorted(Params[rfm_name][rfm_param]["RFM"])
 
         with codecs.open("data/%s/Params.json" % rfmset, encoding="utf-8", mode="w") as fout:
             json.dump(

@@ -43,7 +43,7 @@ catalog = {
         # "/COE/RBP_PAM_SYMPSOL_SEARCH",
         # "/COE/RBP_PAM_SOLUTION_DET_GET",
     ],
-    # "__TEST__": ["/COE/RBP_FE_DATATYPES"],
+    "__TEST__": ["/COE/RBP_FE_DATATYPES"],
     # 'Adobe': [
     #    'ZCREATE_MAT_10305_1'
     # ],
@@ -270,7 +270,7 @@ catalog = {
 # default set of RFMs, if no rfm names arguments supplied
 rfm_sets = [
     # 'BUSINESS_PARTNER',
-    # "EQUIPMENT",
+     "EQUIPMENT",
     # 'FI',
     # 'INSPECTION_LOT',
     # 'KANBAN',
@@ -281,12 +281,12 @@ rfm_sets = [
     # 'PLANNED_ORDER',
     # 'PROCESS_ORDER',
     # 'PRODUCTION_ORDER',
-    # 'PURCHASE_ORDER',
+     'PURCHASE_ORDER',
     # 'SALES_ORDER',
     # 'SERVICE_MASTER_RECORD',
     # 'TRANSFER_ORDER',
     # 'TRANSPORT',
     # 'WORK_ORDER',
     # 'WORK_ORDER_CONFIRMATION',
-    # "__TEST__"
+     "__TEST__"
 ]

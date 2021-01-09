@@ -25,6 +25,11 @@ fast_ngx = {
     [(value)]="%s"
     [(abap)]="%s" [(shlp)]="%s"
 />""",
+    "number": """
+<fast-text-field [(label)]="%s"
+    [(value)]="%s"
+    [(abap)]="%s" [(shlp)]="%s"
+/>""",
     # https://www.fast.design/docs/components/text-area
     "textarea": """
 <fast-text-area [(label)]="%s"

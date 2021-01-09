@@ -6,26 +6,27 @@
 
 # -*- coding: utf-8 -*-
 
+import sys
 
 from generator import rfm_sets, catalog
 
 from frontend import get_arg_parser, get_frontend_parser, SUPPORTED_FRAMEWORKS
 
 if __name__ == "__main__":
-
     if len(rfm_sets) == 0:
         RFMLIST = catalog
     else:
         RFMLIST = rfm_sets
 
     for ui in SUPPORTED_FRAMEWORKS:
+        sys.argv = [sys.argv[0]]
+        sys.argv.extend([ui])
+        args = get_arg_parser().parse_args()
 
         print(f"\nfrontend: {ui}\n")
 
         for rfmset_name in sorted(RFMLIST):
-
-            print("Processed (%u) ABAP API of model %s" % (len(catalog[rfmset_name]), rfmset_name))
-
-            frontend_parser = get_frontend_parser(ui, rfmset_name)
-
+            frontend_parser = get_frontend_parser(rfmset_name, args)
             frontend_parser.parse()
+
+            print(f"Processed {len(catalog[rfmset_name])} RFMs of ABAP API {rfmset_name}")

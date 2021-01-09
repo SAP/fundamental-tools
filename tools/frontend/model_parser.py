@@ -7,16 +7,17 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import os
-import json
 import codecs
+import json
+import logging
 import re
 import shutil
+import os
 import sys
 from collections import OrderedDict
 from datetime import datetime
 from generator import VERSION, catalog
-from generator.utils import Writer
+from generator.utils import Writer, get_log_level
 from backend import INPUT_TYPE_KEY, INPUT_TYPE_BINARY, INPUT_TYPE_LIST
 from . import fundamental_ngx, fundamental_react, fundamental_vue, fast_ngx, fast_react, fast_vue, ui5_react
 
@@ -170,18 +171,11 @@ FIELD_ATTRIBUTES = [ABAP_TYPE, JS_TYPE, JS_FORMAT, "abap-length", "abap-mid", "a
 
 
 class ModelParser:
-    def __init__(self, rfm_set, parser_type="aurelia"):
-        self.parser_type = parser_type
+    def __init__(self, rfm_set, args):
+        self.ui = args.ui
         self.rfm_set = rfm_set
-
-        self.ELEMENT_PREFIX = "ui-"
-        self.INPUT_TYPE_BINARY_TAG = "checkbox"
-        self.INPUT_TYPE_LIST_TAG = "combo"
-        self.COLUMN_TAGNAME = "dg-column"
-        self.DATE_TAGNAME = "date"
-        self.TIME_TAGNAME = "time"
-        self.TEXT_TAGNAME = "text"
-        self.MODEL_PREFIX = "model/aurelia"
+        if args.log_level is not None:
+            logging.basicConfig(level=get_log_level(args.log_level))
 
     def initialize(self):
         self.DDIC_JS = {
@@ -257,7 +251,6 @@ class ModelParser:
                 f"Local metadata not found for: {self.rfm_set}; Run: python backend.py <abap system> {self.rfm_set}"
             ) from None
 
-    # field initial value
     def get_field_inital(self, rfm_field):
         init = {"number": "0", "string": "''"}
         try:
@@ -283,7 +276,6 @@ class ModelParser:
         self.helps()
 
     def helps(self):
-
         help_js = Writer(rfm_name="valueInput", rfm_set=self.rfm_set, model_prefix=self.MODEL_PREFIX, write_to="js")
         for shlp_key in sorted(self.Helps):
             [shlp_type, shlp_id] = shlp_key.split()
@@ -311,7 +303,6 @@ class ModelParser:
                 help_js.save()
 
     def headers(self):
-
         for rfm_name in sorted(self.Parameters):
 
             model = Writer(rfm_name=rfm_name, rfm_set=self.rfm_set, model_prefix=self.MODEL_PREFIX)
@@ -324,7 +315,6 @@ class ModelParser:
             model_js.save()
 
     def rfm_init(self):
-
         for rfm_name in sorted(self.Parameters):
 
             rfm_params = self.Parameters[rfm_name]
@@ -348,6 +338,8 @@ class ModelParser:
 
                     if rfm_parameter["PARAMCLASS"] != param_class:
                         continue
+
+                    logging.info(f"rfm init rfm: {rfm_name} : {parameter_name}")
 
                     if not paramclass_header:
                         paramclass_header = True
@@ -400,6 +392,51 @@ class ModelParser:
             model_js.write("};")
             model_js.save()
 
+    def get_abap_field_attrs(self, markup):
+        element = ""
+        if REMOVE_DDIC:
+            del markup[ABAP_TYPE]
+        if REMOVE_TYPE:
+            del markup[JS_TYPE]
+        abap = " data-abap.bind='{"
+        lena = len(abap)
+        for attr in FIELD_ATTRIBUTES:
+            if attr in markup:
+                if len(abap) > lena:
+                    abap += ", "
+                if attr == "abap-shlp":
+                    abap += "%s:%s" % (attr.replace("abap-", ""), markup[attr])
+                else:
+                    abap += '%s:"%s"' % (attr.replace("abap-", ""), markup[attr])
+                del markup[attr]
+        abap += "}'"
+        tagname = markup[HTML_TAG].replace(self.ELEMENT_PREFIX, "")
+
+        # no attributes required for ui-checkbox, date, time
+        if tagname in [self.INPUT_TYPE_BINARY_TAG, self.DATE_TAGNAME, self.TIME_TAGNAME]:
+            abap = ""
+
+        if "alpha-exit" in markup:
+            abap += ' alpha-exit="%s" ' % markup["alpha-exit"]
+            del markup["alpha-exit"]
+
+        element += abap
+
+        if tagname not in [self.COLUMN_TAGNAME, self.INPUT_TYPE_BINARY_TAG, self.DATE_TAGNAME, self.TIME_TAGNAME]:
+            element += "\n " + " " * len(markup[HTML_TAG])
+
+        element += ' label="%s"' % markup["abap-text"]
+        del markup["abap-text"]
+        if len(markup) > 1:  # only self.HTML_TAGleft
+            # remove 'ui:tag:', '<tagname>'
+            markup_text = str(markup)
+            m = re.search("(.+?), 'ui-tag(.+?)}", markup_text)
+            if m:
+                markup_text = m.group(1) + "}"
+            element += ' markup="%s"' % str(markup_text)
+
+        return element
+
     def get_abap_table_attrs(self, markup):
         element = ""
         if REMOVE_DDIC:
@@ -445,9 +482,6 @@ class ModelParser:
 
         return element
 
-    def get_abap_field_attrs(self, markup):
-        return self.get_abap_table_attrs(markup)
-
     def field_length(self, ddic):
         length = 0
         if "DECIMALS" in ddic["format"]:
@@ -479,9 +513,6 @@ class ModelParser:
         return length
 
     def html_markup(self, ddic, bind, tagname=""):
-
-        if "format" not in ddic:
-            print(3, ddic.keys())
 
         markup = {ABAP_TYPE: ddic["format"]["DATATYPE"], "bind": bind}
 
@@ -561,6 +592,8 @@ class ModelParser:
         return markup
 
     def html_field(self, model, rfm_parameter, rfm_field):
+        logging.info(f"  html field {rfm_parameter['PARAMETER']}-{rfm_field}")
+
         if type(rfm_field) is dict:
             param_ddic = rfm_field
             bind = rfm_parameter["PARAMETER"]
@@ -594,6 +627,7 @@ class ModelParser:
 
     def parameter_init(self):
         def structure_init(model_js, rfm_parameter):
+            logging.info(f"  structure init {rfm_parameter['PARAMETER']}")
 
             param_ddic = self.Fields[rfm_parameter["FIELDKEY"]]
 
@@ -610,12 +644,9 @@ class ModelParser:
 
                 line = "%-30s: %s" % (field_name, self.get_field_inital(field_ddic))
                 line += "," if index < index_last else " "
-                if "FIELDTEXT" not in field_ddic["text"]:
-                    print(1, rfm_parameter["PARAMETER"], field_name)
                 if "FIELDTEXT" in field_ddic["text"]:
                     line += "  // %s" % field_ddic["text"]["FIELDTEXT"]
                 else:
-                    print(2, field_ddic)
                     raise ValueError("%s: %s" % (rfm_parameter["PARAMETER"], field_name))
                 model_js.write(line)
             model_js.deindent()
@@ -623,6 +654,8 @@ class ModelParser:
             model_js.write("/* eslint-enable key-spacing */")
 
         def html_table(model, rfm_parameter):
+            logging.info(f"  html table {rfm_parameter['PARAMETER']}")
+
             param_ddic = self.Fields[rfm_parameter["FIELDKEY"]]
             model.newline()
             model.write(
@@ -667,6 +700,7 @@ class ModelParser:
             html_structure(model, rfm_parameter)
 
         def html_structure(model, rfm_parameter):
+            logging.info(f"  html structure {rfm_parameter['PARAMETER']}")
             param_ddic = self.Fields[rfm_parameter["FIELDKEY"]]
             if rfm_parameter["PARAMTYPE"] not in ["TABLE", "STRUCTURE"]:
                 raise ValueError(rfm_parameter["PARAMTYPE"])
@@ -701,6 +735,8 @@ class ModelParser:
                     if rfm_parameter["PARAMCLASS"] != param_class:
                         continue
 
+                    logging.info(f"parameter init rfm: {rfm_name} : {parameter_name}")
+
                     if not paramclass_header:
                         paramclass_header = True
                         model.write(HEADER_PARAMCLASS % PARAMCLASS[param_class])
@@ -730,10 +766,22 @@ class ModelParser:
         # self.writer_close()
         pass
 
+class ParserAurelia(ModelParser):
+    def __init__(self, rfm_set, args):
+        super().__init__(rfm_set, args)
+
+        self.ELEMENT_PREFIX = "ui-"
+        self.INPUT_TYPE_BINARY_TAG = "checkbox"
+        self.INPUT_TYPE_LIST_TAG = "combo"
+        self.COLUMN_TAGNAME = "dg-column"
+        self.DATE_TAGNAME = "date"
+        self.TIME_TAGNAME = "time"
+        self.TEXT_TAGNAME = "text"
+        self.MODEL_PREFIX = "model/aurelia"
 
 class ParserFastAngular(ModelParser):
-    def __init__(self, rfm_set):
-        super().__init__(rfm_set, "fast/angular")
+    def __init__(self, rfm_set, args):
+        super().__init__(rfm_set, args)
 
         self.ELEMENT_PREFIX = "fd-"
         self.INPUT_TYPE_BINARY_TAG = "checkbox"
@@ -779,10 +827,11 @@ class ParserFastAngular(ModelParser):
             if m:
                 markup_text = m.group(1) + "}"
             attrs["markup"] = str(markup_text)
-        # print(attrs)
         return attrs
 
     def html_field(self, model, rfm_parameter, rfm_field):
+        logging.info(f"  html field {rfm_parameter['PARAMETER']}-{rfm_field}")
+
         if type(rfm_field) is dict:
             param_ddic = rfm_field
             bind = rfm_parameter["PARAMETER"]
@@ -801,12 +850,14 @@ class ParserFastAngular(ModelParser):
             bind_attr = "value"
         bind_target = markup["bind"]
         del markup["bind"]
-        markup = dict(markup)
 
         abap_attrs = self.get_abap_field_attrs(markup)
         data_abap = "{"
         if "type" in abap_attrs:
-            data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            if "length" in abap_attrs:
+                data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            else:
+                data_abap += "type: '%s'" % (abap_attrs["type"])
         if "mid" in abap_attrs:
             data_abap += ", mid: '%s'" % abap_attrs["mid"]
         if "alpha-exit" in abap_attrs:
@@ -822,6 +873,13 @@ class ParserFastAngular(ModelParser):
                 data_abap,
             )
         elif "input" in markup[HTML_TAG]:
+            element = fast_ngx[markup[HTML_TAG][3:]] % (
+                abap_attrs["label"],
+                bind_target,
+                data_abap,
+                abap_attrs["shlp"] if "shlp" in abap_attrs else "",
+            )
+        elif "number" in markup[HTML_TAG]:
             element = fast_ngx[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
@@ -871,8 +929,8 @@ class ParserFastAngular(ModelParser):
 
 
 class ParserFundamentalAngular(ModelParser):
-    def __init__(self, rfm_set):
-        super().__init__(rfm_set, "fundamental/angular")
+    def __init__(self, rfm_set, args):
+        super().__init__(rfm_set, args)
 
         self.ELEMENT_PREFIX = "fd-"
         self.INPUT_TYPE_BINARY_TAG = "checkbox"
@@ -925,10 +983,11 @@ class ParserFundamentalAngular(ModelParser):
             if m:
                 markup_text = m.group(1) + "}"
             attrs["markup"] = str(markup_text)
-        # print(attrs)
         return attrs
 
     def html_field(self, model, rfm_parameter, rfm_field):
+        logging.info(f"  html field {rfm_parameter['PARAMETER']}-{rfm_field}")
+
         if type(rfm_field) is dict:
             param_ddic = rfm_field
             bind = rfm_parameter["PARAMETER"]
@@ -951,14 +1010,16 @@ class ParserFundamentalAngular(ModelParser):
         abap_attrs = self.get_abap_field_attrs(markup)
         data_abap = "{"
         if "type" in abap_attrs:
-            data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            if "length" in abap_attrs:
+                data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            else:
+                data_abap += "type: '%s'" % (abap_attrs["type"])
         if "mid" in abap_attrs:
             data_abap += ", mid: '%s'" % abap_attrs["mid"]
         if "alpha-exit" in abap_attrs:
             data_abap += ", alpha: '%s'" % abap_attrs["alpha-exit"]
         data_abap += "}"
 
-        # print(abap_attrs)
         element = False
         if "combobox" in markup[HTML_TAG]:
             element = fundamental_ngx[markup[HTML_TAG][3:]] % (
@@ -968,6 +1029,13 @@ class ParserFundamentalAngular(ModelParser):
                 data_abap,
             )
         elif "input" in markup[HTML_TAG]:
+            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+                abap_attrs["label"],
+                bind_target,
+                data_abap,
+                abap_attrs["shlp"] if "shlp" in abap_attrs else "",
+            )
+        elif "number" in markup[HTML_TAG]:
             element = fundamental_ngx[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
@@ -1003,11 +1071,7 @@ class ParserFundamentalAngular(ModelParser):
                 data_abap,
             )
         else:
-            print(markup[HTML_TAG][3:])
-            # element = fundamental_ngx[ngx_markup[HTML_TAG][3:]] % (
-            #    abap_attrs["label"],
-            #    bind_target,
-            # )
+            print(f"Tag not supported: {markup[HTML_TAG][3:]}")
 
         # remove empty shlp elements
         if element:
@@ -1018,8 +1082,8 @@ class ParserFundamentalAngular(ModelParser):
 
 
 class ParserFundamentalReact(ModelParser):
-    def __init__(self, rfm_set):
-        super().__init__(rfm_set, "fundamental/react")
+    def __init__(self, rfm_set, args):
+        super().__init__(rfm_set, args)
 
         self.ELEMENT_PREFIX = "fd-"
         self.INPUT_TYPE_BINARY_TAG = "checkbox"
@@ -1072,10 +1136,11 @@ class ParserFundamentalReact(ModelParser):
             if m:
                 markup_text = m.group(1) + "}"
             attrs["markup"] = str(markup_text)
-        # print(attrs)
         return attrs
 
     def html_field(self, model, rfm_parameter, rfm_field):
+        logging.info(f"  html field {rfm_parameter['PARAMETER']}-{rfm_field}")
+
         if type(rfm_field) is dict:
             param_ddic = rfm_field
             bind = rfm_parameter["PARAMETER"]
@@ -1095,67 +1160,71 @@ class ParserFundamentalReact(ModelParser):
         bind_target = markup["bind"]
         del markup["bind"]
 
-        ngx_markup = dict(markup)
-        abap_attrs = self.get_abap_field_attrs(ngx_markup)
+        abap_attrs = self.get_abap_field_attrs(markup)
         data_abap = "{"
         if "type" in abap_attrs:
-            data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            if "length" in abap_attrs:
+                data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            else:
+                data_abap += "type: '%s'" % (abap_attrs["type"])
         if "mid" in abap_attrs:
             data_abap += ", mid: '%s'" % abap_attrs["mid"]
         if "alpha-exit" in abap_attrs:
             data_abap += ", alpha: '%s'" % abap_attrs["alpha-exit"]
         data_abap += "}"
 
-        # print(abap_attrs)
         element = False
-        if "combobox" in ngx_markup[HTML_TAG]:
-            element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+        if "combobox" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 abap_attrs["shlp"],
                 data_abap,
             )
-        elif "input" in ngx_markup[HTML_TAG]:
-            element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+        elif "input" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 data_abap,
                 abap_attrs["shlp"] if "shlp" in abap_attrs else "",
             )
-        elif "lang" in ngx_markup[HTML_TAG]:
-            element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+        elif "number" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 data_abap,
                 abap_attrs["shlp"] if "shlp" in abap_attrs else "",
             )
-        elif "checkbox" in ngx_markup[HTML_TAG]:
-            element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+        elif "lang" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
+                abap_attrs["label"],
+                bind_target,
+                data_abap,
+                abap_attrs["shlp"] if "shlp" in abap_attrs else "",
+            )
+        elif "checkbox" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
                 bind_target,
                 abap_attrs["label"],
             )
-        elif "datepicker" in ngx_markup[HTML_TAG]:
-            element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+        elif "datepicker" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
             )
-        elif "timepicker" in ngx_markup[HTML_TAG]:
-            element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+        elif "timepicker" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
             )
-        elif "textarea" in ngx_markup[HTML_TAG]:
-            element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
+        elif "textarea" in markup[HTML_TAG]:
+            element = fundamental_react[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 data_abap,
             )
         else:
-            print(ngx_markup[HTML_TAG][3:])
-            # element = fundamental_react[ngx_markup[HTML_TAG][3:]] % (
-            #    abap_attrs["label"],
-            #    bind_target,
-            # )
+            print(f"Tag not supported: {markup[HTML_TAG][3:]}")
 
         # remove empty shlp elements
         if element:
@@ -1166,8 +1235,8 @@ class ParserFundamentalReact(ModelParser):
 
 
 class ParserFundamentalVue(ModelParser):
-    def __init__(self, rfm_set):
-        super().__init__(rfm_set, "fundamental/vue")
+    def __init__(self, rfm_set, args):
+        super().__init__(rfm_set, args)
 
         self.ELEMENT_PREFIX = "fd-"
         self.INPUT_TYPE_BINARY_TAG = "checkbox"
@@ -1220,10 +1289,11 @@ class ParserFundamentalVue(ModelParser):
             if m:
                 markup_text = m.group(1) + "}"
             attrs["markup"] = str(markup_text)
-        # print(attrs)
         return attrs
 
     def html_field(self, model, rfm_parameter, rfm_field):
+        logging.info(f"  html field {rfm_parameter['PARAMETER']}-{rfm_field}")
+
         if type(rfm_field) is dict:
             param_ddic = rfm_field
             bind = rfm_parameter["PARAMETER"]
@@ -1246,14 +1316,16 @@ class ParserFundamentalVue(ModelParser):
         abap_attrs = self.get_abap_field_attrs(markup)
         data_abap = "{"
         if "type" in abap_attrs:
-            data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            if "length" in abap_attrs:
+                data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            else:
+                data_abap += "type: '%s'" % (abap_attrs["type"])
         if "mid" in abap_attrs:
             data_abap += ", mid: '%s'" % abap_attrs["mid"]
         if "alpha-exit" in abap_attrs:
             data_abap += ", alpha: '%s'" % abap_attrs["alpha-exit"]
         data_abap += "}"
 
-        # print(abap_attrs)
         element = False
         if "combobox" in markup[HTML_TAG]:
             element = fundamental_vue[markup[HTML_TAG][3:]] % (
@@ -1263,6 +1335,13 @@ class ParserFundamentalVue(ModelParser):
                 data_abap,
             )
         elif "input" in markup[HTML_TAG]:
+            element = fundamental_vue[markup[HTML_TAG][3:]] % (
+                abap_attrs["label"],
+                bind_target,
+                data_abap,
+                abap_attrs["shlp"] if "shlp" in abap_attrs else "",
+            )
+        elif "number" in markup[HTML_TAG]:
             element = fundamental_vue[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
@@ -1298,11 +1377,7 @@ class ParserFundamentalVue(ModelParser):
                 data_abap,
             )
         else:
-            print(markup[HTML_TAG][3:])
-            # element = fundamental_vue[markup[HTML_TAG][3:]] % (
-            #    abap_attrs["label"],
-            #    bind_target,
-            # )
+            print(f"Tag not supported: {markup[HTML_TAG][3:]}")
 
         # remove empty shlp elements
         if element:
@@ -1313,8 +1388,8 @@ class ParserFundamentalVue(ModelParser):
 
 
 class ParserUi5React(ModelParser):
-    def __init__(self, rfm_set):
-        super().__init__(rfm_set, "ui5/react")
+    def __init__(self, rfm_set, args):
+        super().__init__(rfm_set, args)
 
         self.ELEMENT_PREFIX = "fd-"
         self.INPUT_TYPE_BINARY_TAG = "checkbox"
@@ -1367,10 +1442,11 @@ class ParserUi5React(ModelParser):
             if m:
                 markup_text = m.group(1) + "}"
             attrs["markup"] = str(markup_text)
-        # print(attrs)
         return attrs
 
     def html_field(self, model, rfm_parameter, rfm_field):
+        logging.info(f"  html field {rfm_parameter['PARAMETER']}-{rfm_field}")
+
         if type(rfm_field) is dict:
             param_ddic = rfm_field
             bind = rfm_parameter["PARAMETER"]
@@ -1394,14 +1470,16 @@ class ParserUi5React(ModelParser):
         abap_attrs = self.get_abap_field_attrs(markup)
         data_abap = "{"
         if "type" in abap_attrs:
-            data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            if "length" in abap_attrs:
+                data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+            else:
+                data_abap += "type: '%s'" % (abap_attrs["type"])
         if "mid" in abap_attrs:
             data_abap += ", mid: '%s'" % abap_attrs["mid"]
         if "alpha-exit" in abap_attrs:
             data_abap += ", alpha: '%s'" % abap_attrs["alpha-exit"]
         data_abap += "}"
 
-        # print(abap_attrs)
         element = False
         if "combobox" in markup[HTML_TAG]:
             element = ui5_react[markup[HTML_TAG][3:]] % (
@@ -1411,6 +1489,13 @@ class ParserUi5React(ModelParser):
                 data_abap,
             )
         elif "input" in markup[HTML_TAG]:
+            element = ui5_react[markup[HTML_TAG][3:]] % (
+                abap_attrs["label"],
+                bind_target,
+                data_abap,
+                abap_attrs["shlp"] if "shlp" in abap_attrs else "",
+            )
+        elif "number" in markup[HTML_TAG]:
             element = ui5_react[markup[HTML_TAG][3:]] % (
                 abap_attrs["label"],
                 bind_target,
@@ -1446,11 +1531,7 @@ class ParserUi5React(ModelParser):
                 data_abap,
             )
         else:
-            print(markup[HTML_TAG][3:])
-            # element = ui5_react[markup[HTML_TAG][3:]] % (
-            #    abap_attrs["label"],
-            #    bind_target,
-            # )
+            print(f"Tag not supported: {markup[HTML_TAG][3:]}")
 
         # remove empty shlp elements
         if element:
@@ -1462,7 +1543,7 @@ class ParserUi5React(ModelParser):
 
 SUPPORTED_FRAMEWORKS = OrderedDict(
     {
-        "aurelia": ModelParser,
+        "aurelia": ParserAurelia,
         "fast-ngx": ParserFastAngular,
         "fundamental-ngx": ParserFundamentalAngular,
         "fundamental-react": ParserFundamentalReact,
@@ -1472,11 +1553,11 @@ SUPPORTED_FRAMEWORKS = OrderedDict(
 )
 
 
-def get_frontend_parser(ui, rfm_set):
+def get_frontend_parser(rfm_set, args):
     try:
-        return SUPPORTED_FRAMEWORKS[ui](rfm_set)
+        return SUPPORTED_FRAMEWORKS[args.ui](rfm_set, args)
     except Exception as ex:
-        raise ValueError(f"Frontend not supported: {ui}") from None
+        raise ValueError(f"Frontend not supported: {args.ui}")
 
 
 def get_arg_parser():
@@ -1503,4 +1584,5 @@ def get_arg_parser():
         type=str,
         help="rfm set name",
     )
+    arg_parser.add_argument("-l", "--loglevel", default=None, dest="log_level", help="log level", choices=['info', 'debug'])
     return arg_parser

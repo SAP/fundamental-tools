@@ -6,7 +6,18 @@
 
 import codecs
 
+import logging
 
+def get_log_level(level_text):
+    LEVEL = {
+        'NOTSET': logging.NOTSET,
+        'DEBUG': logging.DEBUG,
+        'INFO': logging.INFO,
+        'WARNING': logging.WARNING,
+        'ERROR': logging.ERROR,
+        'CRITICAL': logging.CRITICAL,
+    }
+    return LEVEL[level_text.upper()]
 class Writer:
     def __init__(self, rfm_name, rfm_set="n/a", model_prefix="", write_to="HTML"):
 

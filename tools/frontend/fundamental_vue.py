@@ -41,6 +41,14 @@ fundamental_vue = {
             data-shlp="%s"
         />
 </fd-form-item>""",
+    "number": """
+<fd-form-item>
+    <fd-form-label>%s</fd-form-label>
+        <fd-input v-model="%s"
+            data-abap="%s"
+            data-shlp="%s"
+        />
+</fd-form-item>""",
     # https://sap.github.io/fundamental-ngx/#/core/textarea
     "textarea": """
 <fd-form-item>

@@ -33,6 +33,14 @@ fundamental_react = {
         data-shlp="%s"
     />
 </FormItem>""",
+    "number": """
+<FormItem>
+    <FormLabel htmlFor="4711">%s</FormLabel>
+    <FormInput id="4711" value={this.%s}
+        data-abap="%s"
+        data-shlp="%s"
+    />
+</FormItem>""",
     # https://sap.github.io/fundamental-react/?path=/docs/component-api-forms-formtextarea--primary
     "textarea": """
 <FormItem>
