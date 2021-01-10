@@ -25,8 +25,10 @@ if __name__ == "__main__":
 
     for rfmset_name in sorted(RFMLIST):
 
-        print("Processed (%u) ABAP API of model %s" % (len(catalog[rfmset_name]), rfmset_name))
+        print(f"{args.ui}: {len(catalog[rfmset_name])} ABAP API of {rfmset_name}")
 
         frontend_parser = get_frontend_parser(rfmset_name, args)
 
         frontend_parser.parse()
+
+        print("done")
