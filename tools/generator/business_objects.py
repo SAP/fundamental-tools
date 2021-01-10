@@ -270,7 +270,7 @@ catalog = {
 # default set of RFMs, if no rfm names arguments supplied
 rfm_sets = [
     # 'BUSINESS_PARTNER',
-     "EQUIPMENT",
+    "EQUIPMENT",
     # 'FI',
     # 'INSPECTION_LOT',
     # 'KANBAN',
@@ -281,12 +281,12 @@ rfm_sets = [
     # 'PLANNED_ORDER',
     # 'PROCESS_ORDER',
     # 'PRODUCTION_ORDER',
-     'PURCHASE_ORDER',
+    "PURCHASE_ORDER",
     # 'SALES_ORDER',
     # 'SERVICE_MASTER_RECORD',
     # 'TRANSFER_ORDER',
     # 'TRANSPORT',
     # 'WORK_ORDER',
     # 'WORK_ORDER_CONFIRMATION',
-     "__TEST__"
+    "__TEST__"
 ]

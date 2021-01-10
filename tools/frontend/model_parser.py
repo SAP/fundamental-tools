@@ -21,20 +21,6 @@ from generator.utils import Writer, get_log_level
 from backend import INPUT_TYPE_KEY, INPUT_TYPE_BINARY, INPUT_TYPE_LIST
 from . import fundamental_ngx, fundamental_react, fundamental_vue, fast_ngx, fast_react, fast_vue, ui5_react
 
-# from tools.fundamental import n
-
-REMOVE_DDIC = False
-for arg in sys.argv:
-    if arg == "-d":
-        REMOVE_DDIC = True
-        break
-
-REMOVE_TYPE = False
-for arg in sys.argv:
-    if arg == "-t":
-        REMOVE_TYPE = True
-        break
-
 """
     There are ca. 30 predefined ABAP Dictionary Data Types, maintained as domain values of DATATYPE_D data-element:
         https://help.sap.com/viewer/ec1c9c8191b74de98feb94001a95dd76/7.4.16/en-US/cf21f2e5446011d189700000e8322d00.html
@@ -169,11 +155,11 @@ HEADER_JS_PARAMCLASS = """// %s PARAMETERS"""
 
 FIELD_ATTRIBUTES = [ABAP_TYPE, JS_TYPE, JS_FORMAT, "abap-length", "abap-mid", "abap-shlp"]
 
-
 class ModelParser:
     def __init__(self, rfm_set, args):
         self.ui = args.ui
         self.rfm_set = rfm_set
+        self.args = args
         if args.log_level is not None:
             logging.basicConfig(level=get_log_level(args.log_level))
 
@@ -394,9 +380,9 @@ class ModelParser:
 
     def get_abap_field_attrs(self, markup):
         element = ""
-        if REMOVE_DDIC:
+        if self.args.no_ddic:
             del markup[ABAP_TYPE]
-        if REMOVE_TYPE:
+        if self.args.no_type:
             del markup[JS_TYPE]
         abap = " data-abap.bind='{"
         lena = len(abap)
@@ -439,9 +425,9 @@ class ModelParser:
 
     def get_abap_table_attrs(self, markup):
         element = ""
-        if REMOVE_DDIC:
+        if self.args.no_ddic:
             del markup[ABAP_TYPE]
-        if REMOVE_TYPE:
+        if self.args.no_type:
             del markup[JS_TYPE]
         abap = " data-abap.bind='{"
         lena = len(abap)
@@ -794,9 +780,9 @@ class ParserFastAngular(ModelParser):
 
     def get_abap_field_attrs(self, markup):
         attrs = {}
-        if REMOVE_DDIC:
+        if self.args.no_ddic:
             del markup[ABAP_TYPE]
-        if REMOVE_TYPE:
+        if self.args.no_type:
             del markup[JS_TYPE]
         for attr in FIELD_ATTRIBUTES:
             if attr == "bind":
@@ -943,9 +929,9 @@ class ParserFundamentalAngular(ModelParser):
 
     def get_abap_field_attrs(self, markup):
         attrs = {}
-        if REMOVE_DDIC:
+        if self.args.no_ddic:
             del markup[ABAP_TYPE]
-        if REMOVE_TYPE:
+        if self.args.no_type:
             del markup[JS_TYPE]
         # abap = " data-abap.bind='{"
         # lena = len(abap)
@@ -1096,9 +1082,9 @@ class ParserFundamentalReact(ModelParser):
 
     def get_abap_field_attrs(self, markup):
         attrs = {}
-        if REMOVE_DDIC:
+        if self.args.no_ddic:
             del markup[ABAP_TYPE]
-        if REMOVE_TYPE:
+        if self.args.no_type:
             del markup[JS_TYPE]
         # abap = " data-abap.bind='{"
         # lena = len(abap)
@@ -1249,9 +1235,9 @@ class ParserFundamentalVue(ModelParser):
 
     def get_abap_field_attrs(self, markup):
         attrs = {}
-        if REMOVE_DDIC:
+        if self.args.no_ddic:
             del markup[ABAP_TYPE]
-        if REMOVE_TYPE:
+        if self.args.no_type:
             del markup[JS_TYPE]
         # abap = " data-abap.bind='{"
         # lena = len(abap)
@@ -1402,9 +1388,9 @@ class ParserUi5React(ModelParser):
 
     def get_abap_field_attrs(self, markup):
         attrs = {}
-        if REMOVE_DDIC:
+        if self.args.no_ddic:
             del markup[ABAP_TYPE]
-        if REMOVE_TYPE:
+        if self.args.no_type:
             del markup[JS_TYPE]
         # abap = " data-abap.bind='{"
         # lena = len(abap)
@@ -1583,6 +1569,18 @@ def get_arg_parser():
         default=None,
         type=str,
         help="rfm set name",
+    )
+    arg_parser.add_argument(
+        "-d", "--ddic",
+        dest="no_ddic",
+        action="store_true",
+        help="no ddic annotations"
+    )
+    arg_parser.add_argument(
+        "-t", "--type",
+        dest="no_type",
+        action="store_true",
+        help="no type annotations"
     )
     arg_parser.add_argument("-l", "--loglevel", default=None, dest="log_level", help="log level", choices=['info', 'debug'])
     return arg_parser
