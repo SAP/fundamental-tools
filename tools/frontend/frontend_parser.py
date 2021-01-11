@@ -253,36 +253,27 @@ class ModelParser:
                                     right["init"],
                                     right["abaptype"],
                                     right["alpha"],
-                                    param_text
+                                    param_text,
                                 )
                             )
                         else:
                             model_js.write(
                                 "{:<33}: {:>4}, // {} {}".format(
-                                    left,
-                                    right["init"],
-                                    right["abaptype"],
-                                    param_text
+                                    left, right["init"], right["abaptype"], param_text
                                 )
                             )
 
                     elif rfm_parameter["PARAMTYPE"] == "STRUCTURE":
                         model_js.write(
                             "{:<33}: {:>4}, // {} {}".format(
-                                left,
-                                right["init"],
-                                right["abaptype"],
-                                param_text
+                                left, right["init"], right["abaptype"], param_text
                             )
                         )
 
                     elif rfm_parameter["PARAMTYPE"] == "TABLE":
                         model_js.write(
                             "{:<33}: {:>4}, // {} {}".format(
-                                left,
-                                right["init"],
-                                right["abaptype"],
-                                param_text
+                                left, right["init"], right["abaptype"], param_text
                             )
                         )
                     else:
