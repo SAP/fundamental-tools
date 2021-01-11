@@ -1,0 +1,1500 @@
+<!-- BAPI_PO_GETITEMSREL 0.3 -->
+
+<!-- INPUT PARAMETERS -->
+
+<fd-form-item>
+    <fd-form-label>Selection flag</fd-form-label>
+    <fd-select v-model="ITEMS_FOR_RELEASE"
+        options="{type:'FV', id:'SELKZ'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Purchase requisition release code</fd-form-label>
+    <fd-select v-model="REL_CODE"
+        options="{type:'CT', id:'T161E'}"
+        data-abap="{, mid: 'BFC'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Release group</fd-form-label>
+        <fd-input v-model="REL_GROUP"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'T16FG'}"
+        />
+</fd-form-item>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- PO_HEADERS BAPIEKKOL PO Header Data -->
+<ui-datagrid data.bind="BAPI_PO_GETITEMSREL PO_HEADERS" title="PO Header Data"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="AGREEMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KTR", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="APPLIC_BY" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Closing Date for Applications" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="BIDINV_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Bid invitation number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BINDG_PER" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Binding Period for Quotation" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="CASH_DISC1" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"4.3"}'
+              label="Cash discount percentage 1" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="CASH_DISC2" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"4.3"}'
+              label="Cash Discount Percentage 2" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="CNTRL_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BSAKZ'}}'
+              label="Control indicator for purchasing document type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COLL_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Collective Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COMPL_DLV" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Complete Delivery Stipulated for Each Purchase Order" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CO_CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"BUK", shlp:{type:'SH', id:'C_T001'}}'
+              label="Company Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CREATED_BY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+              label="Name of Person who Created the Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CREATED_ON" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Date on Which Record Was Created" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="CURRENCY_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+              label="ISO Currency Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CUSTOMER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KUN", shlp:{type:'SH', id:'DEBI'}}' alpha-exit="ALPHA" 
+              label="Customer Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Deletion indicator in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DIFF_INV" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LRE", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Different Invoicing Party" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DOC_CAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'EBSTYP'}}'
+              label="Purchasing Document Category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DOC_COND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Number of the document condition" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DOC_DATE" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Purchasing Document Date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="DOC_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"BSA", shlp:{type:'SH', id:'H_T161'}}'
+              label="Purchasing Document Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DSCNT1_TO" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"3"}'
+              label="Cash discount days 1" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="DSCNT2_TO" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"3"}'
+              label="Cash discount days 2" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="DSCNT3_TO" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"3"}'
+              label="Cash discount days 3" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXCH_RATE" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"8.5"}'
+              label="Direct Quoted Exchange Rate" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXCH_RATE_CM" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"8.5"}'
+              label="Indirect Quoted Exchange Rate" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXPORT_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CH', id:'EIKP'}}'
+              label="Number of foreign trade data in MM and SD documents" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EX_RATE_FX" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator: Fixing of Exchange Rate" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="GR_MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator: Goods Receipt Message" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="HOLD" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Purchase order not yet complete" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="INCOTERMS1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'SH', id:'H_TINC'}}'
+              label="Incoterms (Part 1)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="INCOTERMS2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"28"}'
+              label="Incoterms (Part 2)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_INTVL" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5"}'
+              label="Item Number Interval" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LANGUAGE" data-abap.bind='{ddic:"LANG", js-type:"string", js-format:"lang", length:"1", mid:"SPR", shlp:{type:'SH', id:'H_T002'}}' alpha-exit="ISOLA" 
+              label="Language Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': '1-char lang'}"></fd-fd-column>
+    <fd-fd-column sortable field="LAST_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
+              label="Last Item Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOGSYSTEM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'TBDLS'}}' alpha-exit="ALPHA" 
+              label="Logical System" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAST_COND" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Document with time-dependent conditions" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OUR_REF" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+              label="Our Reference" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PMNTTRMS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+              label="Terms of Payment Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PROCEDURE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"6", shlp:{type:'CT', id:'T683'}}'
+              label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
+              label="Purchasing organization" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_GROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"EKG", shlp:{type:'SH', id:'H_T024'}}'
+              label="Purchasing Group" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUOTATION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Quotation Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUOT_DATE" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Quotation Submission Date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUOT_DEAD" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Deadline for Submission of Bid/Quotation" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="RCVG_VEND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Field not used" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REF_1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+              label="Your Reference" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REJ_REASON" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+              label="Reason for rejection of quotations and sales orders" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_GROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'CT', id:'T16FG'}}'
+              label="Release group" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'CT', id:'T16FB'}}'
+              label="Release Indicator: Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"8"}'
+              label="Release State" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_STRAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'CT', id:'T16FS'}}'
+              label="Release Strategy" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SALES_PERS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Responsible Salesperson at Vendor's Office" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SCHED_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator for scheduling agreement release documentation" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'ESTAK'}}'
+              label="Status of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUBITEMINT" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5"}'
+              label="Item Number Interval for Subitems" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUBJ_TO_R" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Release Not Yet Completely Effected" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUPPL_PLNT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Supplying (issuing) plant in case of stock transport order" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUPPL_VEND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LLI", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Supplying Vendor" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TARGET_VAL" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Cumulative Planned Value" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAXR_CNTRY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'CT', id:'T005'}}'
+              label="Country for Tax Return" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TELEPHONE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"16"}'
+              label="Vendor's Telephone Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="UPDATE_GRP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"6", mid:"MCF", shlp:{type:'SH', id:'H_TMCB'}}' alpha-exit="ALPHA" 
+              label="Update group for statistics update" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Vendor's account number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_NAME" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"35"}'
+              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VPER_END" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="End of Validity Period" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="VPER_START" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Start of Validity Period" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="WARRANTY" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Warranty Date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_HEADERS BAPIEKKOL PO Header Data -->
+
+<fd-form-item>
+    <fd-form-label>Number of principal purchase agreement</fd-form-label>
+        <fd-input v-model="PO_HEADERS.AGREEMENT"
+            data-abap="{, mid: 'KTR', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Closing Date for Applications</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.APPLIC_BY"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Bid invitation number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.BIDINV_NO"
+            data-abap="{, mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Binding Period for Quotation</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.BINDG_PER"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount percentage 1</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CASH_DISC1"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash Discount Percentage 2</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CASH_DISC2"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Control indicator for purchasing document type</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CNTRL_IND"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'BSAKZ'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Collective Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.COLL_NO"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Complete Delivery Stipulated for Each Purchase Order">
+    <fd-checkbox v-model="PO_HEADERS.COMPL_DLV">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Company Code</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CO_CODE"
+            data-abap="{, mid: 'BUK'}"
+            data-shlp="{type:'SH', id:'C_T001'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CREATED_BY"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.CREATED_ON"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO Currency Code</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CURRENCY_ISO"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CUSTOMER"
+            data-abap="{, mid: 'KUN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'DEBI'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Deletion indicator in purchasing document</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DELETE_IND"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Different Invoicing Party</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DIFF_INV"
+            data-abap="{, mid: 'LRE', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Category</fd-form-label>
+    <fd-select v-model="PO_HEADERS.DOC_CAT"
+        options="{type:'FV', id:'EBSTYP'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Number of the document condition</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DOC_COND"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.DOC_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Type</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DOC_TYPE"
+            data-abap="{, mid: 'BSA'}"
+            data-shlp="{type:'SH', id:'H_T161'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 1</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DSCNT1_TO"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 2</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DSCNT2_TO"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 3</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DSCNT3_TO"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Direct Quoted Exchange Rate</fd-form-label>
+        <fd-input v-model="PO_HEADERS.EXCH_RATE"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Indirect Quoted Exchange Rate</fd-form-label>
+        <fd-input v-model="PO_HEADERS.EXCH_RATE_CM"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Number of foreign trade data in MM and SD documents</fd-form-label>
+    <fd-select v-model="PO_HEADERS.EXPORT_NO"
+        options="{type:'CH', id:'EIKP'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item-checkbox label="Indicator: Fixing of Exchange Rate">
+    <fd-checkbox v-model="PO_HEADERS.EX_RATE_FX">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item-checkbox label="Indicator: Goods Receipt Message">
+    <fd-checkbox v-model="PO_HEADERS.GR_MESSAGE">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item-checkbox label="Purchase order not yet complete">
+    <fd-checkbox v-model="PO_HEADERS.HOLD">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Incoterms (Part 1)</fd-form-label>
+        <fd-input v-model="PO_HEADERS.INCOTERMS1"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_TINC'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Incoterms (Part 2)</fd-form-label>
+        <fd-input v-model="PO_HEADERS.INCOTERMS2"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item Number Interval</fd-form-label>
+        <fd-input v-model="PO_HEADERS.ITEM_INTVL"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Language Key</fd-form-label>
+        <fd-input v-model="PO_HEADERS.LANGUAGE"
+            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Last Item Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.LAST_ITEM"
+            data-abap="{}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Logical System</fd-form-label>
+    <fd-select v-model="PO_HEADERS.LOGSYSTEM"
+        options="{type:'CT', id:'TBDLS'}"
+        data-abap="{, alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item-checkbox label="Document with time-dependent conditions">
+    <fd-checkbox v-model="PO_HEADERS.MAST_COND">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Our Reference</fd-form-label>
+        <fd-input v-model="PO_HEADERS.OUR_REF"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Terms of Payment Key</fd-form-label>
+        <fd-input v-model="PO_HEADERS.PMNTTRMS"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.PO_NUMBER"
+            data-abap="{, mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Procedure (Pricing, Output Control, Acct. Det., Costing,...)</fd-form-label>
+    <fd-select v-model="PO_HEADERS.PROCEDURE"
+        options="{type:'CT', id:'T683'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing organization</fd-form-label>
+        <fd-input v-model="PO_HEADERS.PURCH_ORG"
+            data-abap="{, mid: 'EKO'}"
+            data-shlp="{type:'SH', id:'H_T024E'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Group</fd-form-label>
+        <fd-input v-model="PO_HEADERS.PUR_GROUP"
+            data-abap="{, mid: 'EKG'}"
+            data-shlp="{type:'SH', id:'H_T024'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Quotation Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.QUOTATION"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Quotation Submission Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.QUOT_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Deadline for Submission of Bid/Quotation</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.QUOT_DEAD"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Field not used</fd-form-label>
+        <fd-input v-model="PO_HEADERS.RCVG_VEND"
+            data-abap="{, mid: 'LIF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Your Reference</fd-form-label>
+        <fd-input v-model="PO_HEADERS.REF_1"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Reason for rejection of quotations and sales orders</fd-form-label>
+        <fd-input v-model="PO_HEADERS.REJ_REASON"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Release group</fd-form-label>
+    <fd-select v-model="PO_HEADERS.REL_GROUP"
+        options="{type:'CT', id:'T16FG'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Release Indicator: Purchasing Document</fd-form-label>
+    <fd-select v-model="PO_HEADERS.REL_IND"
+        options="{type:'CT', id:'T16FB'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Release State</fd-form-label>
+        <fd-input v-model="PO_HEADERS.REL_STATUS"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Release Strategy</fd-form-label>
+    <fd-select v-model="PO_HEADERS.REL_STRAT"
+        options="{type:'CT', id:'T16FS'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Responsible Salesperson at Vendor's Office</fd-form-label>
+        <fd-input v-model="PO_HEADERS.SALES_PERS"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Indicator for scheduling agreement release documentation">
+    <fd-checkbox v-model="PO_HEADERS.SCHED_IND">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Status of Purchasing Document</fd-form-label>
+    <fd-select v-model="PO_HEADERS.STATUS"
+        options="{type:'FV', id:'ESTAK'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Item Number Interval for Subitems</fd-form-label>
+        <fd-input v-model="PO_HEADERS.SUBITEMINT"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Release Not Yet Completely Effected">
+    <fd-checkbox v-model="PO_HEADERS.SUBJ_TO_R">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Supplying (issuing) plant in case of stock transport order</fd-form-label>
+        <fd-input v-model="PO_HEADERS.SUPPL_PLNT"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Supplying Vendor</fd-form-label>
+        <fd-input v-model="PO_HEADERS.SUPPL_VEND"
+            data-abap="{, mid: 'LLI', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cumulative Planned Value</fd-form-label>
+        <fd-input v-model="PO_HEADERS.TARGET_VAL"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Country for Tax Return</fd-form-label>
+        <fd-input v-model="PO_HEADERS.TAXR_CNTRY"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'T005'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Vendor's Telephone Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.TELEPHONE"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Update group for statistics update</fd-form-label>
+        <fd-input v-model="PO_HEADERS.UPDATE_GRP"
+            data-abap="{, mid: 'MCF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'H_TMCB'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Vendor's account number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.VENDOR"
+            data-abap="{, mid: 'LIF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name 1</fd-form-label>
+        <fd-input v-model="PO_HEADERS.VEND_NAME"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>End of Validity Period</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.VPER_END"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Start of Validity Period</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.VPER_START"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Warranty Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.WARRANTY"></fd-date-picker>
+</fd-form-item>
+
+
+<!-- PO_ITEMS BAPIEKPOC Purchase Order Items -->
+<ui-datagrid data.bind="BAPI_PO_GETITEMSREL PO_ITEMS" title="Purchase Order Items"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACCTASSCAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", mid:"KNT", shlp:{type:'SH', id:'H_T163K'}}'
+              label="Account assignment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ACKNOWL_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Order Acknowledgment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ACKN_REQD" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Order Acknowledgment Requirement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ADDRESS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'ADRC'}}' alpha-exit="ALPHA" 
+              label="Address" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AGMT_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AGREEMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KTR", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ALLOC_TBL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"ABE", shlp:{type:'CH', id:'AUKO'}}' alpha-exit="ALPHA" 
+              label="Allocation Table Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AT_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", shlp:{type:'CH', id:'AUPO'}}'
+              label="Item number of allocation table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AT_RELEV" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'AUREL'}}'
+              label="Relevant to Allocation Table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CONV_DEN1" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"5"}'
+              label="Denominator for Conv. of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="CONV_NUM1" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"5"}'
+              label="Numerator for Conversion of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Deletion indicator in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISP_QUAN" unit="UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="PO quantity: total of all sched. lines for display purposes" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISTRIB" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'VRTKZ'}}'
+              label="Distribution indicator for multiple account assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="INFO_REC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"INF", shlp:{type:'CH', id:'EINA'}}' alpha-exit="ALPHA" 
+              label="Number of purchasing info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'SH', id:'H_T163'}}'
+              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT_EXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="KANBAN_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'KBNKZ'}}'
+              label="Kanban Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MANUF_PROF" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", shlp:{type:'CT', id:'TMPPF'}}'
+              label="Mfr part profile" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MANU_MAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Manufacturer Part Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_EXTERNAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_GUID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+              label="External GUID for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Material Number (40 Characters, needed f. technical reasons)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAT_GRP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'H_T023'}}'
+              label="Material Group" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'LFA1'}}' alpha-exit="ALPHA" 
+              label="Manufacturer number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO_EXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="External manufacturer code name or number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NET_PRICE" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Net price in purchasing document (in document currency)" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_MORE_GR" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label=""Delivery Completed" Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_ROUNDING" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator: suppress rounding in purchase order item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ORDERPR_UN_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
+              label="ISO code for purchase order price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PART_INV" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'TWRKZ'}}'
+              label="Partial invoice indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CH', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"WRK", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLAN_DEL" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"3"}'
+              label="Planned Delivery Time in Days" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_PRICE" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator: adopt price - do not use info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_UNIT_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
+              label="Order unit in ISO code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_NAME" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+              label="Name of requisitioner/requester" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_UNIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"5"}'
+              label="Price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="PROMOTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"WAK", shlp:{type:'CT', id:'WAKH'}}' alpha-exit="ALPHA" 
+              label="Promotion" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PR_CLOSED" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Purchase requisition closed" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_GUID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+              label="External GUID for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Material Number (40 Characters, Technical Requirement)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUAL_INSP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'INSMK'}}'
+              label="Stock Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REQ_SEGMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"16", mid:"SGT_R", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
+              label="Requirement Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="RET_ITEM" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Returns Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHIPPING" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'CT', id:'T027A'}}'
+              label="Shipping Instructions" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Short Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STK_SEGMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"16", mid:"SGT_S", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
+              label="Stock Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STORE_LOC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"LAG", shlp:{type:'SH', id:'H_T001L'}}'
+              label="Storage location" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAX_CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'CT', id:'T007A'}}'
+              label="Tax on sales/purchases code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TRACKINGNO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Requirement Tracking Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VAL_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BWT", shlp:{type:'CT', id:'T149D'}}'
+              label="Valuation type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_MAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"22"}'
+              label="Material number used by vendor" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEMS BAPIEKPOC Purchase Order Items -->
+
+<fd-form-item>
+    <fd-form-label>Account assignment category</fd-form-label>
+        <fd-input v-model="PO_ITEMS.ACCTASSCAT"
+            data-abap="{, mid: 'KNT'}"
+            data-shlp="{type:'SH', id:'H_T163K'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Order Acknowledgment Number</fd-form-label>
+        <fd-input v-model="PO_ITEMS.ACKNOWL_NO"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Order Acknowledgment Requirement">
+    <fd-checkbox v-model="PO_ITEMS.ACKN_REQD">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Address</fd-form-label>
+        <fd-input v-model="PO_ITEMS.ADDRESS"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'ADRC'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item number of principal purchase agreement</fd-form-label>
+        <fd-input v-model="PO_ITEMS.AGMT_ITEM"
+            data-abap="{}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Number of principal purchase agreement</fd-form-label>
+        <fd-input v-model="PO_ITEMS.AGREEMENT"
+            data-abap="{, mid: 'KTR', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Allocation Table Number</fd-form-label>
+    <fd-select v-model="PO_ITEMS.ALLOC_TBL"
+        options="{type:'CH', id:'AUKO'}"
+        data-abap="{, mid: 'ABE', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Item number of allocation table</fd-form-label>
+    <fd-select v-model="PO_ITEMS.AT_ITEM"
+        options="{type:'CH', id:'AUPO'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Relevant to Allocation Table</fd-form-label>
+    <fd-select v-model="PO_ITEMS.AT_RELEV"
+        options="{type:'FV', id:'AUREL'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Denominator for Conv. of Order Price Unit into Order Unit</fd-form-label>
+        <fd-input v-model="PO_ITEMS.CONV_DEN1"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Numerator for Conversion of Order Price Unit into Order Unit</fd-form-label>
+        <fd-input v-model="PO_ITEMS.CONV_NUM1"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Deletion indicator in purchasing document</fd-form-label>
+        <fd-input v-model="PO_ITEMS.DELETE_IND"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>PO quantity: total of all sched. lines for display purposes</fd-form-label>
+        <fd-input v-model="PO_ITEMS.DISP_QUAN"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Distribution indicator for multiple account assignment</fd-form-label>
+    <fd-select v-model="PO_ITEMS.DISTRIB"
+        options="{type:'FV', id:'VRTKZ'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Number of purchasing info record</fd-form-label>
+    <fd-select v-model="PO_ITEMS.INFO_REC"
+        options="{type:'CH', id:'EINA'}"
+        data-abap="{, mid: 'INF', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Item category in purchasing document</fd-form-label>
+        <fd-input v-model="PO_ITEMS.ITEM_CAT"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T163'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item category in purchasing document</fd-form-label>
+        <fd-input v-model="PO_ITEMS.ITEM_CAT_EXT"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Kanban Indicator</fd-form-label>
+        <fd-input v-model="PO_ITEMS.KANBAN_IND"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'KBNKZ'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Mfr part profile</fd-form-label>
+    <fd-select v-model="PO_ITEMS.MANUF_PROF"
+        options="{type:'CT', id:'TMPPF'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Manufacturer Part Number</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MANU_MAT"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="PO_ITEMS.MATERIAL"
+        options="{type:'CT', id:'MARA'}"
+        data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MATERIAL_EXTERNAL"
+            data-abap="{, alpha: 'MATNL'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MATERIAL_GUID"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MATERIAL_LONG"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MATERIAL_VERSION"
+            data-abap="{, alpha: 'MATNW'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Group</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MAT_GRP"
+            data-abap="{, mid: 'MKL'}"
+            data-shlp="{type:'SH', id:'H_T023'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Manufacturer number</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MFR_NO"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'LFA1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>External manufacturer code name or number</fd-form-label>
+        <fd-input v-model="PO_ITEMS.MFR_NO_EXT"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Net price in purchasing document (in document currency)</fd-form-label>
+        <fd-input v-model="PO_ITEMS.NET_PRICE"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label=""Delivery Completed" Indicator">
+    <fd-checkbox v-model="PO_ITEMS.NO_MORE_GR">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item-checkbox label="Indicator: suppress rounding in purchase order item">
+    <fd-checkbox v-model="PO_ITEMS.NO_ROUNDING">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for purchase order price unit</fd-form-label>
+        <fd-input v-model="PO_ITEMS.ORDERPR_UN_ISO"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T006I'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Partial invoice indicator</fd-form-label>
+    <fd-select v-model="PO_ITEMS.PART_INV"
+        options="{type:'FV', id:'TWRKZ'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Package number</fd-form-label>
+    <fd-select v-model="PO_ITEMS.PCKG_NO"
+        options="{type:'CH', id:'ESLH'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Plant</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PLANT"
+            data-abap="{, mid: 'WRK'}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Planned Delivery Time in Days</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PLAN_DEL"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item Number of Purchasing Document</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PO_ITEM"
+            data-abap="{, mid: 'BSP'}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PO_NUMBER"
+            data-abap="{, mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Indicator: adopt price - do not use info record">
+    <fd-checkbox v-model="PO_ITEMS.PO_PRICE">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Order unit in ISO code</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PO_UNIT_ISO"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T006I'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name of requisitioner/requester</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PREQ_NAME"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Price unit</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PRICE_UNIT"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Promotion</fd-form-label>
+    <fd-select v-model="PO_ITEMS.PROMOTION"
+        options="{type:'CT', id:'WAKH'}"
+        data-abap="{, mid: 'WAK', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item-checkbox label="Purchase requisition closed">
+    <fd-checkbox v-model="PO_ITEMS.PR_CLOSED">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Material number</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PUR_MAT"
+            data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+            data-shlp="{type:'CT', id:'MARA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Long Material Number for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PUR_MAT_EXTERNAL"
+            data-abap="{, alpha: 'MATNL'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>External GUID for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PUR_MAT_GUID"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Material Number (40 Characters, Technical Requirement)</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PUR_MAT_LONG"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Version Number for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PUR_MAT_VERSION"
+            data-abap="{, alpha: 'MATNW'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Stock Type</fd-form-label>
+    <fd-select v-model="PO_ITEMS.QUAL_INSP"
+        options="{type:'FV', id:'INSMK'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Requirement Segment</fd-form-label>
+        <fd-input v-model="PO_ITEMS.REQ_SEGMENT"
+            data-abap="{, mid: 'SGT_R'}"
+            data-shlp="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Returns Item">
+    <fd-checkbox v-model="PO_ITEMS.RET_ITEM">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Shipping Instructions</fd-form-label>
+    <fd-select v-model="PO_ITEMS.SHIPPING"
+        options="{type:'CT', id:'T027A'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Short Text</fd-form-label>
+        <fd-input v-model="PO_ITEMS.SHORT_TEXT"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Stock Segment</fd-form-label>
+        <fd-input v-model="PO_ITEMS.STK_SEGMENT"
+            data-abap="{, mid: 'SGT_S'}"
+            data-shlp="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Storage location</fd-form-label>
+        <fd-input v-model="PO_ITEMS.STORE_LOC"
+            data-abap="{, mid: 'LAG'}"
+            data-shlp="{type:'SH', id:'H_T001L'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Tax on sales/purchases code</fd-form-label>
+    <fd-select v-model="PO_ITEMS.TAX_CODE"
+        options="{type:'CT', id:'T007A'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Requirement Tracking Number</fd-form-label>
+        <fd-input v-model="PO_ITEMS.TRACKINGNO"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Valuation type</fd-form-label>
+    <fd-select v-model="PO_ITEMS.VAL_TYPE"
+        options="{type:'CT', id:'T149D'}"
+        data-abap="{, mid: 'BWT'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Material number used by vendor</fd-form-label>
+        <fd-input v-model="PO_ITEMS.VEND_MAT"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<!-- RETURN BAPIRETURN Return Messages -->
+<ui-datagrid data.bind="BAPI_PO_GETITEMSREL RETURN" title="Return Messages"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+              label="Message code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"220"}'
+              label="Message Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RETURN BAPIRETURN Return Messages -->
+
+<fd-form-item>
+    <fd-form-label>Message code</fd-form-label>
+        <fd-input v-model="RETURN.CODE"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_MSG_NO"
+        options="{type:'CH', id:'BALM'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_NO"
+        options="{type:'CH', id:'BALHDR'}"
+        data-abap="{}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V1"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V2"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V3"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V4"
+            data-abap="{}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="RETURN.TYPE"
+            data-abap="{}"
+        />
+</fd-form-item>
+

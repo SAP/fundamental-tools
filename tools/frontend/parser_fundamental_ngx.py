@@ -4,18 +4,15 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-# -*- coding: utf-8 -*-
-
 import logging
 import re
 from collections import OrderedDict
-from .model_parser import ModelParser, ABAP_TYPE, FIELD_ATTRIBUTES, HTML_TAG
+from .frontend_parser import ModelParser, ABAP_TYPE, FIELD_ATTRIBUTES
 from .fundamental_ngx import fundamental_ngx
 
-class ParserFundamentalAngular(ModelParser):
-    def __init__(self, rfm_set, args):
-        super().__init__(rfm_set, args)
 
+class ParserFundamentalAngular(ModelParser):
+    def __init__(self, args):
         self.ELEMENT_PREFIX = "fd-"
         self.INPUT_TYPE_BINARY_TAG = "checkbox"
         self.INPUT_TYPE_LIST_TAG = "combobox"
@@ -23,14 +20,15 @@ class ParserFundamentalAngular(ModelParser):
         self.DATE_TAGNAME = "datepicker"
         self.TIME_TAGNAME = "timepicker"
         self.TEXT_TAGNAME = "textarea"
-        self.MODEL_PREFIX = "model/fundamental/angular"
+
+        super().__init__(args)
 
     def get_abap_field_attrs(self, markup):
         attrs = {}
         if self.args.no_ddic:
             del markup[ABAP_TYPE]
         if self.args.no_type:
-            del markup[JS_TYPE]
+            del markup["js-type"]
         # abap = " data-abap.bind='{"
         # lena = len(abap)
         for attr in FIELD_ATTRIBUTES:
@@ -47,10 +45,14 @@ class ParserFundamentalAngular(ModelParser):
                     # abap += '"%s":"%s"' % (attr.replace("abap-", ""), markup[attr])
                 del markup[attr]
         # abap += "}'"
-        tagname = markup[HTML_TAG].replace(self.ELEMENT_PREFIX, "")
+        tagname = markup["html-tag"].replace(self.ELEMENT_PREFIX, "")
 
         # no attributes required for ui-checkbox, date, time
-        if tagname in [self.INPUT_TYPE_BINARY_TAG, self.DATE_TAGNAME, self.TIME_TAGNAME]:
+        if tagname in [
+            self.INPUT_TYPE_BINARY_TAG,
+            self.DATE_TAGNAME,
+            self.TIME_TAGNAME,
+        ]:
             attrs = {}
 
         if "alpha-exit" in markup:
@@ -60,7 +62,7 @@ class ParserFundamentalAngular(ModelParser):
 
         attrs["label"] = markup["abap-text"]
         del markup["abap-text"]
-        if len(markup) > 1:  # only HTML_TAG left
+        if len(markup) > 1:  # only "html-tag" left
             # remove 'ui:tag:', '<tagname>'
             markup_text = str(markup)
             m = re.search("(.+?), 'ui-tag(.+?)}", markup_text)
@@ -95,7 +97,10 @@ class ParserFundamentalAngular(ModelParser):
         data_abap = "{"
         if "type" in abap_attrs:
             if "length" in abap_attrs:
-                data_abap += "type: '%s', length: '%s'" % (abap_attrs["type"], abap_attrs["length"])
+                data_abap += "type: '%s', length: '%s'" % (
+                    abap_attrs["type"],
+                    abap_attrs["length"],
+                )
             else:
                 data_abap += "type: '%s'" % (abap_attrs["type"])
         if "mid" in abap_attrs:
@@ -105,57 +110,57 @@ class ParserFundamentalAngular(ModelParser):
         data_abap += "}"
 
         element = False
-        if "combobox" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        if "combobox" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 abap_attrs["shlp"],
                 data_abap,
             )
-        elif "input" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        elif "input" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 data_abap,
                 abap_attrs["shlp"] if "shlp" in abap_attrs else "",
             )
-        elif "number" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        elif "number" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 data_abap,
                 abap_attrs["shlp"] if "shlp" in abap_attrs else "",
             )
-        elif "lang" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        elif "lang" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 data_abap,
                 abap_attrs["shlp"] if "shlp" in abap_attrs else "",
             )
-        elif "checkbox" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        elif "checkbox" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
             )
-        elif "datepicker" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        elif "datepicker" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
             )
-        elif "timepicker" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        elif "timepicker" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
             )
-        elif "textarea" in markup[HTML_TAG]:
-            element = fundamental_ngx[markup[HTML_TAG][3:]] % (
+        elif "textarea" in markup["html-tag"]:
+            element = fundamental_ngx[markup["html-tag"][3:]] % (
                 abap_attrs["label"],
                 bind_target,
                 data_abap,
             )
         else:
-            print(f"Tag not supported: {markup[HTML_TAG][3:]}")
+            print(f"Tag not supported: {markup['html-tag'][3:]}")
 
         # remove empty shlp elements
         if element:

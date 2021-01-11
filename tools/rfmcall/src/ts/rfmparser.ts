@@ -130,7 +130,7 @@ export class parseRFM {
         result.init = `{}`;
         break;
       case CN.PARAMTYPE_VAR:
-        if ("fieldKey" in param) {
+        if (field) {
           result.abaptype = field.format.DATATYPE;
           result.leng = field.format.LENG;
           if (field.input && "CONVEXIT" in field.input) {

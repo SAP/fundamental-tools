@@ -1,0 +1,89 @@
+<!-- BAPI_PROCOPERATION_GETCATALOGS 0.3 -->
+
+<!-- INPUT PARAMETERS -->
+<ui-input value.bind="MATERIAL_GROUP" shlp.bind='{type:'SH', id:'H_T023'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"9", mid:"MKL"}'
+          label="Material Group"></ui-input>
+
+<ui-input value.bind="PLANT" shlp.bind='{type:'SH', id:'H_T001W'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"WRK"}'
+          label="Plant"></ui-input>
+
+<ui-combo value.bind="WITHOUT_MATERIAL_GRP" shlp.bind='{type:'FV', id:'SELKZ'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="Selection flag"></ui-combo>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- RETURN BAPIRETURN Return Messages -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS RETURN" title="Return Messages"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}' label="Message code" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}' label="Application log: Internal message serial number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}' label="Application log: log number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"220"}' label="Message Text" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}' label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RETURN BAPIRETURN Return Messages -->
+<ui-input value.bind="RETURN.CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+          label="Message code"></ui-input>
+
+<ui-combo value.bind="RETURN.LOG_MSG_NO" shlp.bind='{type:'CH', id:'BALM'}' data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6"}'
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-combo value.bind="RETURN.LOG_NO" shlp.bind='{type:'CH', id:'BALHDR'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+          label="Application log: log number"></ui-combo>
+
+<ui-input value.bind="RETURN.MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"220"}'
+          label="Message Text"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}' label="Identifier for allowed catalogs" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}' label="Name of catalog" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}' label="Purchasing organization" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}' label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA"  label="Vendor's account number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+<ui-combo value.bind="VALID_CATALOGS.CATALOG" shlp.bind='{type:'CT', id:'TMW3T'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+          label="Identifier for allowed catalogs"></ui-combo>
+
+<ui-input value.bind="VALID_CATALOGS.CAT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Name of catalog"></ui-input>
+
+<ui-input value.bind="VALID_CATALOGS.PURCH_ORG" shlp.bind='{type:'SH', id:'H_T024E'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"EKO"}'
+          label="Purchasing organization"></ui-input>
+
+<ui-checkbox value.bind="VALID_CATALOGS.SD_CATALOG" label="Indicator: SAP product catalog: business-to-business"></ui-checkbox>
+
+<ui-input value.bind="VALID_CATALOGS.VENDOR" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LIF"}' alpha-exit="ALPHA" 
+          label="Vendor's account number"></ui-input>
+

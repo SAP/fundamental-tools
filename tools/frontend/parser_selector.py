@@ -8,6 +8,8 @@ from .parser_fundamental_react import ParserFundamentalReact
 from .parser_fundamental_vue import ParserFundamentalVue
 from .parser_ui5_react import ParserUi5React
 
+from backend.constants import DEFAULT_OUTPUT_FOLDER
+
 SUPPORTED_FRAMEWORKS = OrderedDict(
     {
         "aurelia": ParserAurelia,
@@ -20,18 +22,23 @@ SUPPORTED_FRAMEWORKS = OrderedDict(
 )
 
 
-def get_frontend_parser(rfm_set, args):
+def get_frontend_parser(args):
     try:
-        return SUPPORTED_FRAMEWORKS[args.ui](rfm_set, args)
+        return SUPPORTED_FRAMEWORKS[args.ui](args)
     except Exception as ex:
         raise ValueError(f"Frontend not supported: {args.ui}")
 
 
 def get_arg_parser():
-
-    arg_usage = """python frontend.py <ui> <rfm set> [<options>]
-       where <ui> can be:\n           """ + "\n           ".join(
-        SUPPORTED_FRAMEWORKS.keys()
+    arg_usage = (
+        """python frontend.py <ui framework> <rfm set name> [<option>]
+where <ui> can be:\n    """
+        + "\n    ".join(SUPPORTED_FRAMEWORKS.keys())
+        + """
+and <option> can be:
+    -o, --output folder Model output folder, default: "out"
+    --loglevel          Log level: "info" or "debug"
+"""
     )
 
     arg_parser = argparse.ArgumentParser(
@@ -45,23 +52,30 @@ def get_arg_parser():
         choices=SUPPORTED_FRAMEWORKS,
     )
     arg_parser.add_argument(
-        "rfmset",
+        "rfm_set",
         nargs="?",
         default=None,
         type=str,
         help="rfm set name",
     )
     arg_parser.add_argument(
-        "-d", "--ddic",
-        dest="no_ddic",
-        action="store_true",
-        help="no ddic annotations"
+        "-o",
+        "--output_folder",
+        dest="output_folder",
+        default=DEFAULT_OUTPUT_FOLDER,
+        help="Output folder",
     )
     arg_parser.add_argument(
-        "-t", "--type",
-        dest="no_type",
-        action="store_true",
-        help="no type annotations"
+        "-d", "--ddic", dest="no_ddic", action="store_true", help="no ddic annotations"
     )
-    arg_parser.add_argument("-l", "--loglevel", default=None, dest="log_level", help="log level", choices=['info', 'debug'])
+    arg_parser.add_argument(
+        "-t", "--type", dest="no_type", action="store_true", help="no type annotations"
+    )
+    arg_parser.add_argument(
+        "--loglevel",
+        default=None,
+        dest="log_level",
+        help="log level",
+        choices=["info", "debug"],
+    )
     return arg_parser

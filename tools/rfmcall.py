@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -20,8 +18,8 @@ as JSON dictionaries:
 import argparse
 from collections import OrderedDict
 from pyrfc import Connection
-from generator.systems import iso2_to_LANGU
-
+from backend.abap_lang import iso2_to_LANGU
+from backend.constants import DEFAULT_OUTPUT_FOLDER
 
 PARAMTYPE_VAR = "var"
 PARAMTYPE_STRUCT = "struct"
@@ -45,13 +43,19 @@ PARAM_XPROPS = [
 
 
 class ParseRFM:
-    def __init__(self, destination: str, rfm_name: str, rfm_lang: str = "en"):
-        self.RFM_NAME: str = rfm_name
-        self.clientParameters = {"dest": destination} if isinstance(destination, str) else destination
+    def __init__(self, args):
+        self.RFM_NAME = args.rfm_name
+        self.clientParameters = {"dest": args.destination_id}
+
         self.client = Connection(**self.clientParameters)
-        self.LANGU = iso2_to_LANGU[rfm_lang]
+        self.LANGU = iso2_to_LANGU[args.language]
         self.FUNCTIONNAMES = [{"FUNCTIONNAME": self.RFM_NAME}]
-        self.param_type_stat = {PARAMTYPE_VAR: 0, PARAMTYPE_STRUCT: 0, PARAMTYPE_TABLE: 0, PARAMTYPE_EXC: 0}
+        self.param_type_stat = {
+            PARAMTYPE_VAR: 0,
+            PARAMTYPE_STRUCT: 0,
+            PARAMTYPE_TABLE: 0,
+            PARAMTYPE_EXC: 0,
+        }
 
     def PKeyToJS(self, p):
         return f"{p['FUNCNAME']} {p['PARAMETER']}".strip()
@@ -203,7 +207,12 @@ class ParseRFM:
         return text
 
     def init(self):
-        self.param_type_stat = {PARAMTYPE_VAR: 0, PARAMTYPE_STRUCT: 0, PARAMTYPE_TABLE: 0, PARAMTYPE_EXC: 0}
+        self.param_type_stat = {
+            PARAMTYPE_VAR: 0,
+            PARAMTYPE_STRUCT: 0,
+            PARAMTYPE_TABLE: 0,
+            PARAMTYPE_EXC: 0,
+        }
         self.Fields = {}
         self.Params = {}
 
@@ -274,55 +283,66 @@ class ParseRFM:
 
 def get_arg_parser():
 
-    arg_usage = """rfmcall <abap system> <rfm name> [<option>]
-    where <option> can be:
-    -h    quick help on rfmcall
-    -s    save RFM call template to local .js file
-    -c    cache the metadata into params.json and fields.json
-    -q    quiet mode, no console echo
-    -t    echo the number of variables, structures and tables
+    arg_usage = """rfmcall <backend destination id> <rfm name> [<option>]
+where <option> can be:
+    -h                  Quick help on rfmcall
+    -l, --lang          ABAP text annotations language
+    -o, --output_folder Model output folder, default: "out"
+    --loglevel          Log level: "info" or "debug"
 """
     arg_parser = argparse.ArgumentParser(
         # prog = sys.argv[0],
         usage=arg_usage,
-        description="ABAP RFM call template"
+        description="ABAP RFM call template",
+    )
+    arg_parser.add_argument("destination_id", help="ABAP destination id")
+    arg_parser.add_argument("rfm_name", help="ABAP RFM name")
+    arg_parser.add_argument(
+        "-l",
+        "--lang",
+        dest="language",
+        default="en",
+        help="Texts' language",
     )
     arg_parser.add_argument(
-        'abap_system',
-        metavar='abap_system',
-        type=str,
-        help='ABAP system id')
+        "--loglevel",
+        dest="log_level",
+        default=None,
+        choices=["info", "debug"],
+        help="log level",
+    )
     arg_parser.add_argument(
-        'rfm_name',
-        metavar='rfm_name',
-        type=str,
-        help='ABAP RFM name')
-    arg_parser.add_argument(
-        '-s',
-        '--save',
-        action='store_true',
-        help='save RFM call template to local .js file')
-    arg_parser.add_argument(
-        '-c',
-        '--cache',
-        action='store_true',
-        help='cache the metadata into params.json and fields.json')
-    arg_parser.add_argument(
-        '-q',
-        '--quiet',
-        action='store_true',
-        help='no console echo')
+        "-o",
+        "--output_folder",
+        dest="output_folder",
+        default=DEFAULT_OUTPUT_FOLDER,
+        help="Output folder",
+    )
+    # arg_parser.add_argument(
+    #     "-s",
+    #     "--save",
+    #     action="store_true",
+    #     help="save RFM call template to local .js file",
+    # )
+    # arg_parser.add_argument(
+    #     "-c",
+    #     "--cache",
+    #     action="store_true",
+    #     help="cache the metadata into params.json and fields.json",
+    # )
+    # arg_parser.add_argument(
+    #     "-q", "--quiet", action="store_true", help="no console echo"
+    # )
     return arg_parser
+
 
 if __name__ == "__main__":
 
     args = get_arg_parser().parse_args()
 
-    # rfm_parser = ParseRFM("MME", "/COE/RBP_FE_DATATYPES")
-    # rfm_parser = ParseRFM("MME", "BAPI_BUPA_CENTRAL_GETDETAIL")
     rfm_parser = ParseRFM(args)
     rfm_parser.parse()
-    rfm_parser.write()
+    # rfm_parser.write()
 
     # abcd
     paramsSorted = sorted(rfm_parser.Params.keys())
@@ -378,4 +398,3 @@ if __name__ == "__main__":
 
     for k, v in paramsOrdered.items():
         print(k, v)
-    """

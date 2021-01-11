@@ -1,0 +1,538 @@
+<!-- BAPI_EQUI_GETDETAIL 0.3 -->
+
+<!-- INPUT PARAMETERS -->
+<ui-input value.bind="EQUIPMENT" shlp.bind='{type:'SH', id:'EQUI'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN"}' alpha-exit="ALPHA" 
+          label="Equipment Number"></ui-input>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- DATA_FLEET_EXP BAPI_FLEET Vehicle-Specific Data -->
+<ui-input value.bind="DATA_FLEET_EXP.CARD_NUM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Fuel card number"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.CHASSIS_NUM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Chassis number"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.CONSUMP_MOVE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="Indicator Consumption Recording: Material Movement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.CONSUMP_TOL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="Indicator Consumption Recording: Permitted Tolerances"></ui-input>
+
+<ui-combo value.bind="DATA_FLEET_EXP.DIM_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input value.bind="DATA_FLEET_EXP.ENGINE_CAP" unit.bind="DATA_FLEET_EXP.UNIT_CAP" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Engine capacity"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.ENGINE_CYL" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"2"}'
+          label="Number of cylinders"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.ENGINE_POWER" unit.bind="DATA_FLEET_EXP.UNIT_POWER" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Power at specific number of revolutions per minute"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.ENGINE_SNR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Engine serial number of manufacturer"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.ENGINE_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+          label="Engine type"></ui-input>
+
+<ui-date date.bind="DATA_FLEET_EXP.EXPIRY_DATE" label="Validity end date"></ui-date>
+
+<ui-input value.bind="DATA_FLEET_EXP.FLEET_HGT" unit.bind="DATA_FLEET_EXP.DIM_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Maximum fleet object height"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.FLEET_LEN" unit.bind="DATA_FLEET_EXP.DIM_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Maximum fleet object length"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.FLEET_NUM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Identification number for fleet object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.FLEET_USE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="Usage indicator"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.FLEET_VIN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Manufacturer Vehicle Identification Number for Fleet Object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.FLEET_WID" unit.bind="DATA_FLEET_EXP.DIM_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Width of fleet object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.FUEL_PRI" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+          label="Consumable Type of Primary Fuel"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.FUEL_SEC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+          label="Consumable type of secondary fuel"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.GROSS_WGT" unit.bind="DATA_FLEET_EXP.WGT_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Total Weight Allowed"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.KEY_NUM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+          label="Key number of vehicle"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.LICENSE_NUM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"15"}'
+          label="License plate number"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.LOAD_DIM_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.LOAD_HGT" unit.bind="DATA_FLEET_EXP.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Load height"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.LOAD_LEN" unit.bind="DATA_FLEET_EXP.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Load length"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.LOAD_VOL" unit.bind="DATA_FLEET_EXP.VOL_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Load volume"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.LOAD_WGT" unit.bind="DATA_FLEET_EXP.WGT_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Maximum load weight"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.LOAD_WID" unit.bind="DATA_FLEET_EXP.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Load width"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.MAX_OCCUPANTS" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"4"}'
+          label="Maximum number of occupants"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.NO_COMPART" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"2"}'
+          label="NUmber of compartments"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.NUM_AXLE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"2"}'
+          label="Number of Axles in Fleet Object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.OIL_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+          label="Consumable type of oil"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.PRI_CALC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="Indicator to determine the calculation method f. consumption"></ui-input>
+
+<ui-date date.bind="DATA_FLEET_EXP.REPLA_DATE" label="Date on which the object should be replaced"></ui-date>
+
+<ui-input value.bind="DATA_FLEET_EXP.REPLA_ODOM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"22"}'
+          label="Odometer reading at replacement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.REPLA_OPH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"22"}'
+          label="Hour meter reading at replacement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.REVOLUTIONS" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"7"}'
+          label="Revolutions per minute"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.SPEED_MAX" unit.bind="DATA_FLEET_EXP.SPEED_UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"6.3"}'
+          label="Maximum Fleet Object Speed"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.SPEED_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.UNIT_CAP_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.UNIT_POWER_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.VOL_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET_EXP.WGT_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+
+<!-- DATA_GENERAL_EXP BAPI_ITOB General Data for Technical Objects -->
+<ui-combo value.bind="DATA_GENERAL_EXP.ABCINDIC" shlp.bind='{type:'CT', id:'T370C'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="ABC indicator for technical object"></ui-combo>
+
+<ui-date date.bind="DATA_GENERAL_EXP.ACQDATE" label="Acquisition date"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.ACQUISVAL" unit.bind="DATA_GENERAL_EXP.CURRENCY" data-abap.bind='{ddic:"CURR", js-type:"number", js-format:"currency", length:"+12.2"}'
+          label="Acquisition Value"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.ASSET_NO" shlp.bind='{type:'CT', id:'ANLH'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", mid:"AN1"}' alpha-exit="ALPHA" 
+          label="Main Asset Number"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.AUTHGRP" shlp.bind='{type:'SH', id:'H_T370B'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+          label="Technical object authorization group"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.BUS_AREA" shlp.bind='{type:'SH', id:'H_TGSB'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"GSB"}'
+          label="Business Area"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.CATPROFILE" shlp.bind='{type:'CT', id:'T352B'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"9"}'
+          label="Catalog Profile"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.COMP_CODE" shlp.bind='{type:'SH', id:'C_T001'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"BUK"}'
+          label="Company Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTMONTH" shlp.bind='{type:'FV', id:'BAUMM'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+          label="Month of construction"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.CONSTTYPE" shlp.bind='{type:'CT', id:'MARA'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"MAT"}' alpha-exit="MATN1" 
+          label="Construction type material of the object"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_EXTERNAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_GUID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+          label="External GUID for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40", mid:"MAT"}'
+          label="Construction type material of the object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTTYPE_VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="MATNW" 
+          label="Version Number for CONSTTYPE Field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CONSTYEAR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}' alpha-exit="GJAHR" 
+          label="Year of construction"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.COSTCENTER" shlp.bind='{type:'CT', id:'CSKS'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KOS"}' alpha-exit="ALPHA" 
+          label="Cost Center"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.COUNTR_ISO" shlp.bind='{type:'SH', id:'F4_INTCA'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+          label="Country ISO code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.CURR_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO currency code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.DESCRIPT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+          label="Description of Technical Object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.DISTR_CHAN" shlp.bind='{type:'SH', id:'CSH_TVTW'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", mid:"VTW"}'
+          label="Distribution Channel"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.DIVISION" shlp.bind='{type:'SH', id:'CSH_TSPA'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", mid:"SPA"}'
+          label="Division"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.END_POINT" shlp.bind='{type:'SH', id:'EAML_SH_LINEAR_POINT'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="End Point"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.FIRST_OFFSET_TYPE_CODE" shlp.bind='{type:'CT', id:'EAML_D_OFFSET_TC'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+          label="Type of First Offset"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.FIRST_OFFSET_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="Unit of Measurement for Offset 1 in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.FIRST_OFFSET_VALUE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Value of Offset 1"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.INVENTORY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+          label="Inventory number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.LINEAR_LENGTH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Length"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.LINEAR_REFERENCE_PATTERN" shlp.bind='{type:'SH', id:'EAML_SHLP_LRPID'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LRP"}'
+          label="Linear Reference Pattern"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.LINEAR_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="Unit of Measurement for Linear Data in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MAINTLOC" shlp.bind='{type:'SH', id:'H_T499S'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+          label="Asset location"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MAINTPLANT" shlp.bind='{type:'SH', id:'H_T001W'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK"}'
+          label="Maintenance plant"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MAINTROOM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"8"}'
+          label="Room"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.MANCOUNTRY" shlp.bind='{type:'CT', id:'T005'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="Country of manufacture"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANFACTURE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Manufacturer of asset"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANMODEL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+          label="Manufacturer model number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANPARNO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Manufacturer part number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MANSERNO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Manufacturer serial number"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_DISTANCE_END_POINT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Length Spec for Distance between Marker and End Point"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_DISTANCE_START_POINT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Distance between Marker and Start Point"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_DISTANCE_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="Unit for the Distance from Marker in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_END_POINT" shlp.bind='{type:'SH', id:'EAML_SH_MARKER'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Marker for End Point"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.MARKER_START_POINT" shlp.bind='{type:'SH', id:'EAML_SH_MARKER'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Marker for Start Point"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.OBJECTTYPE" shlp.bind='{type:'CT', id:'T370K'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+          label="Type of Technical Object"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.OBJ_SIZE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Size/dimension"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.OBJ_WEIGHT" unit.bind="DATA_GENERAL_EXP.UNIT_OF_WT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+          label="Weight of object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PLANGROUP" shlp.bind='{type:'SH', id:'H_T024I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG"}'
+          label="Planner Group for Customer Service and Plant Maintenance"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PLANPLANT" shlp.bind='{type:'SH', id:'H_T399I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK"}'
+          label="Maintenance Planning Plant"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PLSECTN" shlp.bind='{type:'SH', id:'H_T357'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"BBE"}'
+          label="Plant section"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.PP_WKCTR" shlp.bind='{type:'CT', id:'CRID'}' data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"8"}'
+          label="Object ID of PP work center"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.READ_ADRNR" shlp.bind='{type:'CT', id:'ADRC'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"ADR"}' alpha-exit="ALPHA" 
+          label="Address number"></ui-combo>
+
+<ui-date date.bind="DATA_GENERAL_EXP.READ_CHDAT" label="Date of Last Change"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.READ_CHNAM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+          label="Name of person who changed object"></ui-input>
+
+<ui-date date.bind="DATA_GENERAL_EXP.READ_CRDAT" label="Date on Which Record Was Created"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.READ_CRNAM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+          label="Name of Person who Created the Object"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.READ_OBJNR" shlp.bind='{type:'CT', id:'ONR00'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"22", mid:"ONR"}'
+          label="Object number"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SALES_GRP" shlp.bind='{type:'SH', id:'H_TVKGR'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"VKG"}'
+          label="Sales group"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SALES_OFF" shlp.bind='{type:'SH', id:'H_TVBUR'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"VKB"}'
+          label="Sales office"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SALES_ORG" shlp.bind='{type:'SH', id:'H_TVKO'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"VKO"}'
+          label="Sales Organization"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SECOND_OFFSET_TYPE_CODE" shlp.bind='{type:'CT', id:'EAML_D_OFFSET_TC'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+          label="Type of Second Offset"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SECOND_OFFSET_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="Unit of Measurement for Offset 2 in ISO Code"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SECOND_OFFSET_VALUE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Value of Offset 2"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SETTLORDER" shlp.bind='{type:'SH', id:'ORDE'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+          label="Settlement order"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.SHIFT_NOTE_NOTIFICATION_TYPE" shlp.bind='{type:'CT', id:'TQ80'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+          label="Notification Type for Shift Note for Object"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SHIFT_REPORT_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+          label="Shift Report Type for Object"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.SORTFIELD" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Sort field"></ui-input>
+
+<ui-input value.bind="DATA_GENERAL_EXP.STANDORDER" shlp.bind='{type:'SH', id:'ORDP'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+          label="Standing order number"></ui-input>
+
+<ui-date date.bind="DATA_GENERAL_EXP.START_FROM" label="Start-up Date of the Technical Object"></ui-date>
+
+<ui-input value.bind="DATA_GENERAL_EXP.START_POINT" shlp.bind='{type:'SH', id:'EAML_SH_LINEAR_POINT'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+          label="Start Point"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.SUB_NUMBER" shlp.bind='{type:'CT', id:'ANLA'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"AN2"}' alpha-exit="ALPHA" 
+          label="Asset Subnumber"></ui-combo>
+
+<ui-input value.bind="DATA_GENERAL_EXP.UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.WBS_ELEM" shlp.bind='{type:'CT', id:'PRPS'}' data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"8"}' alpha-exit="ABPSP" 
+          label="Work Breakdown Structure Element (WBS Element)"></ui-combo>
+
+<ui-combo value.bind="DATA_GENERAL_EXP.WORK_CTR" shlp.bind='{type:'CT', id:'CRID'}' data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"8"}'
+          label="Object ID of the Work Center"></ui-combo>
+
+
+<!-- DATA_SPECIFIC_EXP BAPI_ITOB_EQ_ONLY Equipment-Specific data -->
+<ui-combo value.bind="DATA_SPECIFIC_EXP.BATCH" shlp.bind='{type:'CT', id:'MCH1'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"CHA"}'
+          label="Batch Number"></ui-combo>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT" shlp.bind='{type:'SH', id:'MAT1'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}' alpha-exit="MATN1" 
+          label="Configurable Material"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_EXTERNAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_GUID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+          label="External GUID for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+          label="Configurable Material"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIGMAT_VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="MATNW" 
+          label="Version Number for CONFIGMAT Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.CONFIG_CONTROL_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="General Indicator (Single Character)"></ui-input>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.DELIVDATE" label="First delivery date of the equipment"></ui-date>
+
+<ui-combo value.bind="DATA_SPECIFIC_EXP.EQUICATGRY" shlp.bind='{type:'CT', id:'T370T'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", mid:"EQT"}'
+          label="Equipment category"></ui-combo>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.FREE_DATE1" label="Date, intended for SAP internal use"></ui-date>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.FREE_DATE2" label="Date, intended for SAP internal use"></ui-date>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NOTE1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Technical information, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NOTE2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Technical information, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NUM1" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"9"}'
+          label="Numerical field, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FREE_NUM2" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"9"}'
+          label="Numerical field, intended for SAP internal use"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.FUNC_ID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+          label="Function Identifier"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.INST_POS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+          label="Equipment position at InstallLoc (Superior Equip./FunctLoc)"></ui-input>
+
+<ui-text value.bind="DATA_SPECIFIC_EXP.IPPE_GUID" data-abap.bind='{ddic:"RAW", js-type:"string", length:"16"}'
+         label="Internal Identification for PVS Objects"></ui-text>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.IUID_TYPE" shlp.bind='{type:'SH', id:'H_IUID_TYPE'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+          label="Structure Type of UII"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.LICENSE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+          label="Equipment license number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MANDRAWNO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Manufacturer drawing number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL" shlp.bind='{type:'SH', id:'S_MAT1'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"MAT"}' alpha-exit="MATN1" 
+          label="Material Number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_EXTERNAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}' alpha-exit="MATNL" 
+          label="Long Material Number for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_GUID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+          label="External GUID for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+          label="Material Number (40 Characters, needed f. technical reasons)"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.MATERIAL_VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="MATNW" 
+          label="Version Number for MATERIAL Field"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_CUOBJ" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"18", mid:"CUX"}'
+          label="Configuration (internal object number)"></ui-input>
+
+<ui-checkbox value.bind="DATA_SPECIFIC_EXP.READ_CUREF" label="Referenced Configuration"></ui-checkbox>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_FLOC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+          label="Functional Location Label"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_MAINTENANCE_PLAN" shlp.bind='{type:'SH', id:'MPLAL'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", mid:"MPL"}' alpha-exit="ALPHA" 
+          label="Maintenance Plan"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.READ_MEASURING_POINT" shlp.bind='{type:'SH', id:'IMPM'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", mid:"IPT"}' alpha-exit="ALPHA" 
+          label="Measuring Point"></ui-input>
+
+<ui-combo value.bind="DATA_SPECIFIC_EXP.READ_SUPEQ" shlp.bind='{type:'CT', id:'EQUI'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}' alpha-exit="ALPHA" 
+          label="Superordinate Equipment"></ui-combo>
+
+<ui-date date.bind="DATA_SPECIFIC_EXP.READ_VALID_FROM" label="Valid-From Date"></ui-date>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.SERIALNO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"SER"}' alpha-exit="GERNR" 
+          label="Serial Number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.TECHID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+          label="Technical identification number"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.TECHS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+          label="Parameter Variant/Standard Variant"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.UII" shlp.bind='{type:'SH', id:'H_UII'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"72", mid:"UII"}'
+          label="Unique Item Identifier"></ui-input>
+
+<ui-input value.bind="DATA_SPECIFIC_EXP.UII_PLANT" shlp.bind='{type:'SH', id:'H_T001W_C'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"WRK"}'
+          label="Plant Responsible for UII"></ui-input>
+
+
+<!-- RETURN BAPIRET2 Return Parameter -->
+<ui-combo value.bind="RETURN.FIELD" shlp.bind='{type:'CT', id:'DD03L'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Field in parameter"></ui-combo>
+
+<ui-combo value.bind="RETURN.ID" shlp.bind='{type:'CT', id:'T100A'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+          label="Message Class"></ui-combo>
+
+<ui-combo value.bind="RETURN.LOG_MSG_NO" shlp.bind='{type:'CH', id:'BALM'}' data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6"}'
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-combo value.bind="RETURN.LOG_NO" shlp.bind='{type:'CH', id:'BALHDR'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+          label="Application log: log number"></ui-combo>
+
+<ui-input value.bind="RETURN.MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"220"}'
+          label="Message Text"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.MESSAGE_V4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+          label="Message Variable"></ui-input>
+
+<ui-input value.bind="RETURN.NUMBER" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"3"}'
+          label="Message Number"></ui-input>
+
+<ui-input value.bind="RETURN.PARAMETER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+          label="Parameter Name"></ui-input>
+
+<ui-input value.bind="RETURN.ROW" data-abap.bind='{ddic:"INT4", js-type:"number", js-format:"integer", length:"+10"}'
+          label="Lines in parameter"></ui-input>
+
+<ui-combo value.bind="RETURN.SYSTEM" shlp.bind='{type:'CT', id:'TBDLS'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="ALPHA" 
+          label="Logical system from which message originates"></ui-combo>
+
+<ui-input value.bind="RETURN.TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_GETDETAIL EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-combo value.bind="EXTENSIONOUT.STRUCTURE" shlp.bind='{type:'CT', id:'DD02L'}' data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+          label="Structure name of  BAPI table extension"></ui-combo>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+

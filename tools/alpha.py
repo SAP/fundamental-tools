@@ -4,15 +4,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-# -*- coding: utf-8 -*-
-
-""" Parse 1 RFM metadata into UI7 elements
-
-    :param  rfm name, Params, Fields
-
-    :return: RFM Parameters/Field View and Parameters Model
-"""
-
 import os
 import json
 import codecs
@@ -21,8 +12,8 @@ import shutil
 import sys
 from collections import OrderedDict
 from datetime import datetime
-from generator import VERSION, catalog, rfm_sets
-from backend import INPUT_TYPE_KEY, INPUT_TYPE_BINARY, INPUT_TYPE_LIST
+from backend import VERSION, catalog, rfm_sets, output_root
+from backend.backend_parser import INPUT_TYPE_KEY, INPUT_TYPE_BINARY, INPUT_TYPE_LIST
 
 
 class AlphaParser:
@@ -30,10 +21,14 @@ class AlphaParser:
         self.rfmset = rfmset
 
         # read the backend model
-        with codecs.open("data/%s/Params.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Parameters = json.load(fin, encoding="utf-8")
-        with codecs.open("data/%s/Fields.json" % rfmset, encoding="utf-8", mode="r") as fin:
-            self.Fields = OrderedDict(json.load(fin, encoding="utf-8"))
+        with codecs.open(
+            f"{output_folder}/{self.rfmset}/Params.json", encoding="utf-8", mode="r"
+        ) as fin:
+            self.Parameters = json.load(fin)
+        with codecs.open(
+            f"{output_folder}/{self.rfmset}/Fields.json", encoding="utf-8", mode="r"
+        ) as fin:
+            self.Fields = OrderedDict(json.load(fin))
 
         self.alpha = {}
 
@@ -48,7 +43,7 @@ class AlphaParser:
             self.alpha[rfm_name] = []
         ce = {}
         ce["parameter"] = rfm_parameter_name
-        if rfm_field_name != False:
+        if rfm_field_name is not False:
             ce["field"] = rfm_field_name
         ce["convexit"] = convexit
         self.alpha[rfm_name].append(ce)
@@ -74,7 +69,9 @@ class AlphaParser:
                         self.add(rfm_name, rfm_parameter_name, rfm_field_name, ddic)
 
                 else:
-                    raise ValueError("Invalid parameter type [%s]" % rfm_parameter["PARAMTYPE"])
+                    raise ValueError(
+                        "Invalid parameter type [%s]" % rfm_parameter["PARAMTYPE"]
+                    )
 
 
 if __name__ == "__main__":
@@ -90,7 +87,9 @@ if __name__ == "__main__":
 
         alpha_parser.parse()
 
-        with codecs.open("data/%s/Alpha.json" % rfmset, encoding="utf-8", mode="wb") as fout:
+        with codecs.open(
+            "{output_folder}/%s/Alpha.json" % rfmset, encoding="utf-8", mode="wb"
+        ) as fout:
             json.dump(
                 alpha_parser.alpha,
                 fout,

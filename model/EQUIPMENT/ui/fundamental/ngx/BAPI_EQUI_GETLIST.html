@@ -1,0 +1,1134 @@
+<!-- BAPI_EQUI_GETLIST 0.3 -->
+
+<!-- INPUT PARAMETERS -->
+
+<div fd-form-item>
+    <label fd-form-label>Language Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="LANGUAGE"
+            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</div>
+
+
+
+<div fd-form-item>
+    <label fd-form-label>2-Character SAP Language Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="LANGUAGE_ISO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Partner Function</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PARTNERFUNCTION"
+            data-abap="{, mid: 'PAR', alpha: 'PARVW'}"
+            data-shlp="{type:'SH', id:'H_TPAR'}"
+        />
+</div>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameter -->
+
+<div fd-form-item>
+    <label fd-form-label>Field in parameter</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.FIELD"
+        [dropdownValues]="{type:'CT', id:'DD03L'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Class</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.ID"
+        [dropdownValues]="{type:'CT', id:'T100A'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: Internal message serial number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_MSG_NO"
+        [dropdownValues]="{type:'CH', id:'BALM'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: log number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_NO"
+        [dropdownValues]="{type:'CH', id:'BALHDR'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V4"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.NUMBER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Parameter Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.PARAMETER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Lines in parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.ROW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Logical system from which message originates</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.SYSTEM"
+        [dropdownValues]="{type:'CT', id:'TBDLS'}"
+        data-abap="{, alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.TYPE"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_CITY_RA" title="BAPI Communication Structure: Range for Address City"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
+
+<div fd-form-item>
+    <label fd-form-label>City name in Uppercase for Search Help</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_CITY_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City name in Uppercase for Search Help</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_CITY_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="ADDRESS_CITY_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_CITY_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- ADDRESS_NAME_RA BAPI_ITOB_SEL_ADDR_NAME BAPI Communication Structure: Range for Address Name -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_NAME_RA" title="BAPI Communication Structure: Range for Address Name"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_NAME_RA BAPI_ITOB_SEL_ADDR_NAME BAPI Communication Structure: Range for Address Name -->
+
+<div fd-form-item>
+    <label fd-form-label>Name (Field NAME1) in Uppercase for Search Help</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_NAME_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name (Field NAME1) in Uppercase for Search Help</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_NAME_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="ADDRESS_NAME_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_NAME_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- ADDRESS_POST_CODE_RA BAPI_ITOB_SEL_ADDR_POST_CODE BAPI Communication Structure: Range for Address Postal Code -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_POST_CODE_RA" title="BAPI Communication Structure: Range for Address Postal Code"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_POST_CODE_RA BAPI_ITOB_SEL_ADDR_POST_CODE BAPI Communication Structure: Range for Address Postal Code -->
+
+<div fd-form-item>
+    <label fd-form-label>City postal code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_POST_CODE_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City postal code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_POST_CODE_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="ADDRESS_POST_CODE_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_POST_CODE_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- ADDRESS_SEARCH_TERM_1_RA BAPI_ITOB_SEL_ADDR_SORT1 BAPI Communication Structure: Range for Address Search Term 1 -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_SEARCH_TERM_1_RA" title="BAPI Communication Structure: Range for Address Search Term 1"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_SEARCH_TERM_1_RA BAPI_ITOB_SEL_ADDR_SORT1 BAPI Communication Structure: Range for Address Search Term 1 -->
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_SEARCH_TERM_1_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_SEARCH_TERM_1_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="ADDRESS_SEARCH_TERM_1_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_SEARCH_TERM_1_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- ADDRESS_SEARCH_TERM_2_RA BAPI_ITOB_SEL_ADDR_SORT2 BAPI Communication Structure: Range for Address Search Term 2 -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_SEARCH_TERM_2_RA" title="BAPI Communication Structure: Range for Address Search Term 2"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_SEARCH_TERM_2_RA BAPI_ITOB_SEL_ADDR_SORT2 BAPI Communication Structure: Range for Address Search Term 2 -->
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_SEARCH_TERM_2_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_SEARCH_TERM_2_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="ADDRESS_SEARCH_TERM_2_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_SEARCH_TERM_2_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- ADDRESS_STREET_RA BAPI_ITOB_SEL_ADDR_STREET BAPI Communication Structure: Range for Address Street -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_STREET_RA" title="BAPI Communication Structure: Range for Address Street"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_STREET_RA BAPI_ITOB_SEL_ADDR_STREET BAPI Communication Structure: Range for Address Street -->
+
+<div fd-form-item>
+    <label fd-form-label>Street Name in Uppercase for Search Help</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_STREET_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street Name in Uppercase for Search Help</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_STREET_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="ADDRESS_STREET_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="ADDRESS_STREET_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- DESCRIPT_RA BAPI_ITOB_SEL_DESCRIPT BAPI Communication Structure: Description Range -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST DESCRIPT_RA" title="BAPI Communication Structure: Description Range"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- DESCRIPT_RA BAPI_ITOB_SEL_DESCRIPT BAPI Communication Structure: Description Range -->
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="DESCRIPT_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="DESCRIPT_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection operator OPTION for range tables</label>
+    <fd-combobox
+        [(ngModel)]="DESCRIPT_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inclusion/exclusion criterion SIGN for range tables</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="DESCRIPT_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'BAPISIGN'}"
+        />
+</div>
+
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_LIST" title="BAPI Communication Structure: Results List for GetList"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
+              label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.DESCRIPT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment category</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.EQUICATGRY"
+            data-abap="{, mid: 'EQT'}"
+            data-shlp="{type:'CT', id:'T370T'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.EQUIPMENT"
+            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.MAINTPLANT"
+            data-abap="{, mid: 'SWK'}"
+            data-shlp="{type:'CT', id:'T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
+    <fd-combobox
+        [(ngModel)]="EQUIPMENT_LIST.PLANGROUP"
+        [dropdownValues]="{type:'CT', id:'T024I'}"
+        data-abap="{, mid: 'IHG'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Planning Plant</label>
+    <fd-combobox
+        [(ngModel)]="EQUIPMENT_LIST.PLANPLANT"
+        [dropdownValues]="{type:'CT', id:'T001W'}"
+        data-abap="{, mid: 'IWK'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sort field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.SORTFIELD"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- EQUIPMENT_RA BAPI_ITOB_SEL_EQUIPMENT BAPI Communication Structure: Range for Functional Location -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_RA" title="BAPI Communication Structure: Range for Functional Location"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_RA BAPI_ITOB_SEL_EQUIPMENT BAPI Communication Structure: Range for Functional Location -->
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_RA.HIGH"
+            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_RA.LOW"
+            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection operator OPTION for range tables</label>
+    <fd-combobox
+        [(ngModel)]="EQUIPMENT_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inclusion/exclusion criterion SIGN for range tables</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'BAPISIGN'}"
+        />
+</div>
+
+
+<!-- MAINTPLANT_RA BAPI_ITOB_SEL_MAINTPLANT BApi Communication Structure: Range for Maintenance Plant -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST MAINTPLANT_RA" title="BApi Communication Structure: Range for Maintenance Plant"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- MAINTPLANT_RA BAPI_ITOB_SEL_MAINTPLANT BApi Communication Structure: Range for Maintenance Plant -->
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="MAINTPLANT_RA.HIGH"
+            data-abap="{, mid: 'SWK'}"
+            data-shlp="{type:'CT', id:'T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="MAINTPLANT_RA.LOW"
+            data-abap="{, mid: 'SWK'}"
+            data-shlp="{type:'CT', id:'T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection operator OPTION for range tables</label>
+    <fd-combobox
+        [(ngModel)]="MAINTPLANT_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inclusion/exclusion criterion SIGN for range tables</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="MAINTPLANT_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'BAPISIGN'}"
+        />
+</div>
+
+
+<!-- OBJECTTYPE_RA BAPI_ITOB_SEL_OBJECTTYPE BAPI Communication Structure: Range for Object Type -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST OBJECTTYPE_RA" title="BAPI Communication Structure: Range for Object Type"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+              label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+              label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- OBJECTTYPE_RA BAPI_ITOB_SEL_OBJECTTYPE BAPI Communication Structure: Range for Object Type -->
+
+<div fd-form-item>
+    <label fd-form-label>Type of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="OBJECTTYPE_RA.HIGH"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'T370K'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="OBJECTTYPE_RA.LOW"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'T370K'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="OBJECTTYPE_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="OBJECTTYPE_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- PARTNER_RA BAPI_ITOB_SEL_PARTNER BAPI Communication Structure: Range for Partner -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PARTNER_RA" title="BAPI Communication Structure: Range for Partner"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+              label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+              label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PARTNER_RA BAPI_ITOB_SEL_PARTNER BAPI Communication Structure: Range for Partner -->
+
+<div fd-form-item>
+    <label fd-form-label>Partner</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PARTNER_RA.HIGH"
+            data-abap="{, alpha: 'ALPHA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Partner</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PARTNER_RA.LOW"
+            data-abap="{, alpha: 'ALPHA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="PARTNER_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PARTNER_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- PLANGROUP_RA BAPI_ITOB_SEL_PLANGROUP BAPI Communication Structure: Range for Maintenance Planner Group -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PLANGROUP_RA" title="BAPI Communication Structure: Range for Maintenance Planner Group"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PLANGROUP_RA BAPI_ITOB_SEL_PLANGROUP BAPI Communication Structure: Range for Maintenance Planner Group -->
+
+<div fd-form-item>
+    <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PLANGROUP_RA.HIGH"
+            data-abap="{, mid: 'IHG'}"
+            data-shlp="{type:'CT', id:'T024I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PLANGROUP_RA.LOW"
+            data-abap="{, mid: 'IHG'}"
+            data-shlp="{type:'CT', id:'T024I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection operator OPTION for range tables</label>
+    <fd-combobox
+        [(ngModel)]="PLANGROUP_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inclusion/exclusion criterion SIGN for range tables</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PLANGROUP_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'BAPISIGN'}"
+        />
+</div>
+
+
+<!-- PLANPLANT_RA BAPI_ITOB_SEL_PLANPLANT BAPI Communication Structure: Range for Maintenance Planning -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PLANPLANT_RA" title="BAPI Communication Structure: Range for Maintenance Planning"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PLANPLANT_RA BAPI_ITOB_SEL_PLANPLANT BAPI Communication Structure: Range for Maintenance Planning -->
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Planning Plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PLANPLANT_RA.HIGH"
+            data-abap="{, mid: 'IWK'}"
+            data-shlp="{type:'CT', id:'T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Planning Plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PLANPLANT_RA.LOW"
+            data-abap="{, mid: 'IWK'}"
+            data-shlp="{type:'CT', id:'T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection operator OPTION for range tables</label>
+    <fd-combobox
+        [(ngModel)]="PLANPLANT_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inclusion/exclusion criterion SIGN for range tables</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PLANPLANT_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'BAPISIGN'}"
+        />
+</div>
+
+
+<!-- SORTFIELD_RA BAPI_ITOB_SEL_SORTFIELD BAPI Communication Structure: Range for Sort Field -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST SORTFIELD_RA" title="BAPI Communication Structure: Range for Sort Field"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- SORTFIELD_RA BAPI_ITOB_SEL_SORTFIELD BAPI Communication Structure: Range for Sort Field -->
+
+<div fd-form-item>
+    <label fd-form-label>Sort field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="SORTFIELD_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sort field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="SORTFIELD_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection operator OPTION for range tables</label>
+    <fd-combobox
+        [(ngModel)]="SORTFIELD_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'BAPIOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Inclusion/exclusion criterion SIGN for range tables</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="SORTFIELD_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'BAPISIGN'}"
+        />
+</div>
+
+
+<!-- STATUS_RA BAPI_ITOB_SEL_STATUS BAPI Communication Structure: Range for Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST STATUS_RA" title="BAPI Communication Structure: Range for Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+              label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+              label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- STATUS_RA BAPI_ITOB_SEL_STATUS BAPI Communication Structure: Range for Status -->
+
+<div fd-form-item>
+    <label fd-form-label>Individual status of an object (short form)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="STATUS_RA.HIGH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Individual status of an object (short form)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="STATUS_RA.LOW"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of OPTION component in row type of a Ranges type</label>
+    <fd-combobox
+        [(ngModel)]="STATUS_RA.OPTION"
+        [dropdownValues]="{type:'FV', id:'DDOPTION'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Type of SIGN component in row type of a Ranges type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="STATUS_RA.SIGN"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+

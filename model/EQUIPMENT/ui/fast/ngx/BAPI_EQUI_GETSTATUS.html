@@ -1,0 +1,191 @@
+<!-- BAPI_EQUI_GETSTATUS 0.3 -->
+
+<!-- INPUT PARAMETERS -->
+
+<fast-text-field [(label)]="Equipment Number"
+    [(value)]="EQUIPMENT"
+    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+/>
+
+
+<fast-text-field [(label)]="Language Key"
+    [(value)]="LANGUAGE"
+    [(abap)]="{, mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+/>
+
+
+<fast-text-field [(label)]="2-Character SAP Language Code"
+    [(value)]="LANGUAGE_ISO"
+    [(abap)]="{}"
+/>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameters -->
+
+<fast-select [(label)]="Field in parameter"
+    [(value)]="RETURN.FIELD" [(options)]="{type:'CT', id:'DD03L'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-select [(label)]="Message Class"
+    [(value)]="RETURN.ID" [(options)]="{type:'CT', id:'T100A'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: Internal message serial number"
+    [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: log number"
+    [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message Text"
+    [(value)]="RETURN.MESSAGE"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V1"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V2"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V3"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V4"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Number"
+    [(value)]="RETURN.NUMBER"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Parameter Name"
+    [(value)]="RETURN.PARAMETER"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Lines in parameter"
+    [(value)]="RETURN.ROW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Logical system from which message originates"
+    [(value)]="RETURN.SYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
+    [(abap)]="{, alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
+    [(value)]="RETURN.TYPE"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="System status line"
+    [(value)]="SYSTEMSTATUS"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="User Status"
+    [(value)]="USERSTATUS"
+    [(abap)]="{}"
+/>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS SYSTEM_STATUS" title="Equipment System Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+              label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+              label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- SYSTEM_STATUS BAPI_ITOB_STATUS Equipment System Status -->
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="SYSTEM_STATUS.DESCRIPTION"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="SYSTEM_STATUS.STATUS"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Individual status of an object (short form)"
+    [(value)]="SYSTEM_STATUS.TEXT"
+    [(abap)]="{}"
+/>
+
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETSTATUS USER_STATUS" title="Equipment User Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+              label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+              label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- USER_STATUS BAPI_ITOB_STATUS Equipment User Status -->
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="USER_STATUS.DESCRIPTION"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Object status"
+    [(value)]="USER_STATUS.STATUS"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Individual status of an object (short form)"
+    [(value)]="USER_STATUS.TEXT"
+    [(abap)]="{}"
+/>
+

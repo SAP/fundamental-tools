@@ -1,0 +1,4734 @@
+<!-- BAPI_PO_CREATE 0.3 -->
+
+<!-- INPUT PARAMETERS -->
+
+<div fd-form-item>
+    <label fd-form-label>Selection flag</label>
+    <fd-combobox
+        [(ngModel)]="HEADER_ADD_DATA_RELEVANT"
+        [dropdownValues]="{type:'FV', id:'SELKZ'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- HEADER_TECH_FIELDS BAPITECH Technical Header Fields -->
+
+<div fd-form-item>
+    <fd-checkbox label="Checkbox" [(ngModel)]="HEADER_TECH_FIELDS.NO_AUTHORITY"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Checkbox" [(ngModel)]="HEADER_TECH_FIELDS.NO_MESSAGE_REQ"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Checkbox" [(ngModel)]="HEADER_TECH_FIELDS.NO_MESSAGING"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Checkbox" [(ngModel)]="HEADER_TECH_FIELDS.NO_PRICE_FROM_PO"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection flag</label>
+    <fd-combobox
+        [(ngModel)]="ITEM_ADD_DATA_RELEVANT"
+        [dropdownValues]="{type:'FV', id:'SELKZ'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- PO_ADDRESS BAPIADDRESS Ordering Address for One-Time Vendor -->
+
+<div fd-form-item>
+    <label fd-form-label>(Not supported) Physical address ID</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.ADDRESS_ID"
+            data-abap="{, alpha: 'ALPHA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Handle for Creating Addresses/Persons (Bus. Addr. Services)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.ADDRHANDLE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Address number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.ADDRNUMBER"
+        [dropdownValues]="{type:'CT', id:'ADRC'}"
+        data-abap="{, mid: 'ADR', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>(Not Supported) Address Data Source (Key)</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.ADDRORIGIN"
+        [dropdownValues]="{type:'CT', id:'TSAD6'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>old: building (no. or abbreviation)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.BUILDING"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Building (Number or Code)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.BUILD_LONG"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City file test status</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.CHCKSTATUS"
+        [dropdownValues]="{type:'FV', id:'AD_CHECKST'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.CITY1"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CLCITYNAME'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>District</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.CITY2"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CITY_PART'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>District code for City and Street file</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.CITYP_CODE"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CPRTA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City code for city/street file</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.CITY_CODE"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CITYA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City PO box code (City file)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.CITY_CODE2"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CITYA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.COUNTRY"
+            data-abap="{, mid: 'LND'}"
+            data-shlp="{type:'CT', id:'T005'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date referred to</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_ADDRESS.DATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Valid-from date - in current Release only 00010101 possible</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_ADDRESS.DATE_FROM"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Valid-to date in current Release only 99991231 possible</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_ADDRESS.DATE_TO"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Communication Method (Key) (Business Address Services)</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.DEFLT_COMM"
+        [dropdownValues]="{type:'CT', id:'TSAC'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Extension (only for data conversion) (data line/telebox)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.EXTENSION1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Extension (only for data conversion) (data line/telebox)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.EXTENSION2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First fax no.: extension</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.FAX_EXTENS"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First fax no.: dialling code+number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.FAX_NUMBER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Floor in building</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.FLOOR"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>House Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.HOUSE_NUM1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>House number supplement</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.HOUSE_NUM2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>(Not supported) House Number Range</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.HOUSE_NUM3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Language Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.LANGU"
+            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</div>
+
+
+
+<div fd-form-item>
+    <label fd-form-label>Street 5</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.LOCATION"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.NAME1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.NAME2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 3</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.NAME3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 4</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.NAME4"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>c/o name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.NAME_CO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Converted name field (with form of address)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.NAME_TXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version ID for International Addresses</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.NATION"
+        [dropdownValues]="{type:'CT', id:'TSADV'}"
+        data-abap="{, mid: 'ADDRESS_NATION'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>(Not Supported) Post Delivery District</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.POSTALAREA"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City postal code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.POST_CODE1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO Box Postal Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.POST_CODE2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Company Postal Code (for Large Customers)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.POST_CODE3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO Box</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.PO_BOX"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO box country</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.PO_BOX_CTY"
+        [dropdownValues]="{type:'CT', id:'T005'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO Box city</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.PO_BOX_LOC"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CITY_NAME'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Flag: PO Box Without Number" [(ngModel)]="PO_ADDRESS.PO_BOX_NUM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Region for PO Box (Country, State, Province, ...)</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.PO_BOX_REG"
+        [dropdownValues]="{type:'CT', id:'T005S'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Region (State, Province, County)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.REGION"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'T005S'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Address notes</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.REMARK"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Room or Appartment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.ROOMNUMBER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.SORT1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.SORT2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>(Not Supported) Phonetic Search Sort Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.SORT_PHN"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.STREET"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CLSTRTNAME'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>(Not Supported) Abbreviation of Street Name</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.STREETABBR"
+        [dropdownValues]="{type:'CT', id:'ADRSTRTYPE'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street Number for City/Street File</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.STREETCODE"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'STRTA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.STR_SUPPL1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street 3</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.STR_SUPPL2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Tax Jurisdiction</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.TAXJURCODE"
+            data-abap="{, mid: 'TXJ'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First Telephone No.: Extension</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.TEL_EXTENS"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First telephone no.: dialling code+number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.TEL_NUMBER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Address time zone</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ADDRESS.TIME_ZONE"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'VTTZZ'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Form-of-Address Key</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.TITLE"
+        [dropdownValues]="{type:'CT', id:'TSAD3'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Transportation zone to or from which the goods are delivered</label>
+    <fd-combobox
+        [(ngModel)]="PO_ADDRESS.TRANSPZONE"
+        [dropdownValues]="{type:'CT', id:'TZONE'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- PO_HEADER BAPIEKKOC PO Header Data -->
+
+<div fd-form-item>
+    <label fd-form-label>Number of principal purchase agreement</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.AGREEMENT"
+            data-abap="{, mid: 'KTR', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Company Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.CO_CODE"
+            data-abap="{, mid: 'BUK'}"
+            data-shlp="{type:'SH', id:'C_T001'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of Person who Created the Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.CREATED_BY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Category</label>
+    <fd-combobox
+        [(ngModel)]="PO_HEADER.DOC_CAT"
+        [dropdownValues]="{type:'FV', id:'EBSTYP'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_HEADER.DOC_DATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.DOC_TYPE"
+            data-abap="{, mid: 'BSA'}"
+            data-shlp="{type:'SH', id:'H_T161'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Language Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.LANGU"
+            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</div>
+
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO code for language key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.LANGU_ISO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.PO_NUMBER"
+            data-abap="{, mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing organization</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.PURCH_ORG"
+            data-abap="{, mid: 'EKO'}"
+            data-shlp="{type:'SH', id:'H_T024E'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.PUR_GROUP"
+            data-abap="{, mid: 'EKG'}"
+            data-shlp="{type:'SH', id:'H_T024'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Supplying (issuing) plant in case of stock transport order</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.SUPPL_PLNT"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Vendor's account number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER.VENDOR"
+            data-abap="{, mid: 'LIF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</div>
+
+
+<!-- PO_HEADER_ADD_DATA BAPIEKKOA Additional Data: PO Header -->
+
+<div fd-form-item>
+    <label fd-form-label>Cash discount percentage 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.CASH_DISC1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cash Discount Percentage 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.CASH_DISC2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of Person who Created the Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.CREATED_BY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Customs Office: Office of Exit/Entry for Foreign Trade</label>
+    <fd-combobox
+        [(ngModel)]="PO_HEADER_ADD_DATA.CUSTOMS"
+        [dropdownValues]="{type:'CT', id:'T615'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cash discount days 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.DSCNT1_TO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cash discount days 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.DSCNT2_TO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cash discount days 3</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.DSCNT3_TO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Direct Quoted Exchange Rate</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.EXCH_RATE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Indirect Quoted Exchange Rate</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.EXCH_RATE_CM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Indicator: Fixing of Exchange Rate" [(ngModel)]="PO_HEADER_ADD_DATA.EX_RATE_FX"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Incoterms (Part 1)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.INCOTERMS1"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_TINC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Incoterms (Part 2)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.INCOTERMS2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Our Reference</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.OUR_REF"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Terms of Payment Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.PMNTTRMS"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Your Reference</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.REF_1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Responsible Salesperson at Vendor's Office</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.SALES_PERS"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Vendor's Telephone Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_HEADER_ADD_DATA.TELEPHONE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Mode of Transport for Foreign Trade</label>
+    <fd-combobox
+        [(ngModel)]="PO_HEADER_ADD_DATA.TRNSP_MODE"
+        [dropdownValues]="{type:'CT', id:'T618'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>End of Validity Period</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_HEADER_ADD_DATA.VPER_END"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Start of Validity Period</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_HEADER_ADD_DATA.VPER_START"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Selection flag</label>
+    <fd-combobox
+        [(ngModel)]="SKIP_ITEMS_WITH_ERROR"
+        [dropdownValues]="{type:'FV', id:'SELKZ'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Number</label>
+    <fd-combobox
+        [(ngModel)]="PURCHASEORDER"
+        [dropdownValues]="{type:'CH', id:'EKKO'}"
+        data-abap="{, mid: 'BES', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT -->
+<ui-datagrid data.bind="BAPI_PO_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
+              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT -->
+
+<div fd-form-item>
+    <label fd-form-label>Structure name of  BAPI table extension</label>
+    <fd-combobox
+        [(ngModel)]="EXTENSIONIN.STRUCTURE"
+        [dropdownValues]="{type:'CT', id:'DD02L'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Data part of BAPI extension parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EXTENSIONIN.VALUEPART1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Data part of BAPI extension parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EXTENSIONIN.VALUEPART2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Data part of BAPI extension parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EXTENSIONIN.VALUEPART3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Data part of BAPI extension parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EXTENSIONIN.VALUEPART4"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- POADDRDELIVERY BAPIMEPOADDRDELIVERY PO Item: Address Structure BAPIADDR1 for Inbound Delivery -->
+<ui-datagrid data.bind="BAPI_PO_CREATE POADDRDELIVERY" title="PO Item: Address Structure BAPIADDR1 for Inbound Delivery"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ADDR_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"ADR", shlp:{type:'CT', id:'ADRC'}}' alpha-exit="ALPHA" 
+              label="Address number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ADR_NOTES" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Address notes" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BUILDING" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="old: building (no. or abbreviation)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BUILD_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Building (Number or Code)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CHCKSTATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'AD_CHECKST'}}'
+              label="City file test status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CITY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40", shlp:{type:'SH', id:'CLCITYNAME'}}'
+              label="City" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CITY_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", shlp:{type:'SH', id:'CITYA'}}' alpha-exit="ALPHA" 
+              label="City code for city/street file" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COMM_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'CT', id:'TSAC'}}'
+              label="Communication Method (Key) (Business Address Services)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COUNTRY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"LND", shlp:{type:'CT', id:'T005'}}'
+              label="Country Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COUNTRYISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'SH', id:'F4_INTCA'}}'
+              label="Country ISO code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CUSTOMER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KUN", shlp:{type:'CT', id:'KNA1'}}' alpha-exit="ALPHA" 
+              label="Customer" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="C_O_NAME" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="c/o name" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELIV_DIS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"15"}'
+              label="(Not Supported) Post Delivery District" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISTRCT_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"8", shlp:{type:'SH', id:'CPRTA'}}' alpha-exit="ALPHA" 
+              label="District code for City and Street file" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISTRICT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40", shlp:{type:'SH', id:'CITY_PART'}}'
+              label="District" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="E_MAIL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"241"}' alpha-exit="SXIDN" 
+              label="E-Mail Address" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FAX_EXTENS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="First fax no.: extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FAX_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="First fax no.: dialling code+number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FLOOR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Floor in building" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FORMOFADDR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Form of address text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="HOUSE_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="House Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="HOUSE_NO2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="House number supplement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LANGU" data-abap.bind='{ddic:"LANG", js-type:"string", js-format:"lang", length:"1", mid:"SPR", shlp:{type:'SH', id:'H_T002'}}' alpha-exit="ISOLA" 
+              label="Language Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': '1-char lang'}"></fd-fd-column>
+    <fd-fd-column sortable field="LANGU_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+              label="2-Character SAP Language Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOCATION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Street 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME_2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Name 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME_3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Name 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME_4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Name 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PBOXCIT_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", shlp:{type:'SH', id:'CITYA'}}' alpha-exit="ALPHA" 
+              label="City PO box code (City file)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="POSTL_COD1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="POSTL_COD2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="PO Box Postal Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="POSTL_COD3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Company Postal Code (for Large Customers)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="PO Box" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX_CIT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40", shlp:{type:'SH', id:'CITY_NAME'}}'
+              label="PO Box city" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BSP", shlp:{type:'CT', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REGIOGROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"8", shlp:{type:'CT', id:'ADRREGGRP'}}'
+              label="Regional structure grouping" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REGION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
+              label="Region (State, Province, County)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ROOM_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Room or Appartment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SC_VENDOR" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Subcontracting vendor" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORT1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORT2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STREET" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"60", shlp:{type:'SH', id:'CLSTRTNAME'}}'
+              label="Street" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STREET_LNG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"60", shlp:{type:'SH', id:'CLSTRTNAME'}}'
+              label="Street" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STREET_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", shlp:{type:'SH', id:'STRTA'}}' alpha-exit="ALPHA" 
+              label="Street Number for City/Street File" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STR_ABBR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'CT', id:'ADRSTRTYPE'}}'
+              label="(Not Supported) Abbreviation of Street Name" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STR_SUPPL1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Street 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STR_SUPPL2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Street 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STR_SUPPL3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Street 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUPP_VENDOR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'LFA1'}}' alpha-exit="ALPHA" 
+              label="Vendor to be supplied/who is to receive delivery" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAXJURCODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"15", mid:"TXJ"}'
+              label="Tax Jurisdiction" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEL1_EXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="First Telephone No.: Extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEL1_NUMBR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="First telephone no.: dialling code+number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TIME_ZONE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"6", shlp:{type:'SH', id:'VTTZZ'}}'
+              label="Address time zone" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TITLE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Title text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TRANSPZONE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'TZONE'}}'
+              label="Transportation zone to or from which the goods are delivered" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- POADDRDELIVERY BAPIMEPOADDRDELIVERY PO Item: Address Structure BAPIADDR1 for Inbound Delivery -->
+
+<div fd-form-item>
+    <label fd-form-label>Address number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.ADDR_NO"
+            data-abap="{, mid: 'ADR', alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'ADRC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Address notes</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.ADR_NOTES"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>old: building (no. or abbreviation)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.BUILDING"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Building (Number or Code)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.BUILD_LONG"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City file test status</label>
+    <fd-combobox
+        [(ngModel)]="POADDRDELIVERY.CHCKSTATUS"
+        [dropdownValues]="{type:'FV', id:'AD_CHECKST'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.CITY"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CLCITYNAME'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City code for city/street file</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.CITY_NO"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CITYA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Communication Method (Key) (Business Address Services)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.COMM_TYPE"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'TSAC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.COUNTRY"
+            data-abap="{, mid: 'LND'}"
+            data-shlp="{type:'CT', id:'T005'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country ISO code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.COUNTRYISO"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'F4_INTCA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Customer</label>
+    <fd-combobox
+        [(ngModel)]="POADDRDELIVERY.CUSTOMER"
+        [dropdownValues]="{type:'CT', id:'KNA1'}"
+        data-abap="{, mid: 'KUN', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>c/o name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.C_O_NAME"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>(Not Supported) Post Delivery District</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.DELIV_DIS"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>District code for City and Street file</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.DISTRCT_NO"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CPRTA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>District</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.DISTRICT"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CITY_PART'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>E-Mail Address</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.E_MAIL"
+            data-abap="{, alpha: 'SXIDN'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First fax no.: extension</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.FAX_EXTENS"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First fax no.: dialling code+number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.FAX_NUMBER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Floor in building</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.FLOOR"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Form of address text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.FORMOFADDR"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>House Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.HOUSE_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>House number supplement</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.HOUSE_NO2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Language Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.LANGU"
+            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</div>
+
+
+
+<div fd-form-item>
+    <label fd-form-label>2-Character SAP Language Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.LANGU_ISO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street 5</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.LOCATION"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.NAME"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.NAME_2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 3</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.NAME_3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name 4</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.NAME_4"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City PO box code (City file)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.PBOXCIT_NO"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CITYA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>City postal code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.POSTL_COD1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO Box Postal Code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.POSTL_COD2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Company Postal Code (for Large Customers)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.POSTL_COD3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO Box</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.PO_BOX"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO Box city</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.PO_BOX_CIT"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CITY_NAME'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item Number of Purchasing Document</label>
+    <fd-combobox
+        [(ngModel)]="POADDRDELIVERY.PO_ITEM"
+        [dropdownValues]="{type:'CT', id:'EKPO'}"
+        data-abap="{, mid: 'BSP'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Regional structure grouping</label>
+    <fd-combobox
+        [(ngModel)]="POADDRDELIVERY.REGIOGROUP"
+        [dropdownValues]="{type:'CT', id:'ADRREGGRP'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Region (State, Province, County)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.REGION"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'T005S'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Room or Appartment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.ROOM_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Subcontracting vendor" [(ngModel)]="POADDRDELIVERY.SC_VENDOR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.SORT1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Search Term 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.SORT2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.STREET"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CLSTRTNAME'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.STREET_LNG"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'CLSTRTNAME'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street Number for City/Street File</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.STREET_NO"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'STRTA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>(Not Supported) Abbreviation of Street Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.STR_ABBR"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ADRSTRTYPE'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.STR_SUPPL1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street 3</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.STR_SUPPL2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Street 4</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.STR_SUPPL3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Vendor to be supplied/who is to receive delivery</label>
+    <fd-combobox
+        [(ngModel)]="POADDRDELIVERY.SUPP_VENDOR"
+        [dropdownValues]="{type:'CT', id:'LFA1'}"
+        data-abap="{, alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Tax Jurisdiction</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.TAXJURCODE"
+            data-abap="{, mid: 'TXJ'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First Telephone No.: Extension</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.TEL1_EXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>First telephone no.: dialling code+number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.TEL1_NUMBR"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Address time zone</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.TIME_ZONE"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'VTTZZ'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Title text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.TITLE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Transportation zone to or from which the goods are delivered</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="POADDRDELIVERY.TRANSPZONE"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'TZONE'}"
+        />
+</div>
+
+
+<!-- PO_BUSINESS_PARTNER BAPIEKKOP Partner Roles -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_BUSINESS_PARTNER" title="Partner Roles"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="BUSPARTNO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="ALPHA" 
+              label="Number of a Business Partner in Vendor Master Record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Deletion Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LANGU" data-abap.bind='{ddic:"LANG", js-type:"string", js-format:"lang", length:"1", mid:"SPR", shlp:{type:'SH', id:'H_T002'}}' alpha-exit="ISOLA" 
+              label="Language Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': '1-char lang'}"></fd-fd-column>
+    <fd-fd-column sortable field="PARTNERDESC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+              label="Language-specific description of partner function" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_BUSINESS_PARTNER BAPIEKKOP Partner Roles -->
+
+<div fd-form-item>
+    <label fd-form-label>Number of a Business Partner in Vendor Master Record</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_BUSINESS_PARTNER.BUSPARTNO"
+            data-abap="{, alpha: 'ALPHA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Deletion Indicator" [(ngModel)]="PO_BUSINESS_PARTNER.DELETE_IND"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Language Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_BUSINESS_PARTNER.LANGU"
+            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</div>
+
+
+
+<div fd-form-item>
+    <label fd-form-label>Language-specific description of partner function</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_BUSINESS_PARTNER.PARTNERDESC"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- PO_CONTRACT_LIMITS BAPIESUCC Limits with Contract Reference -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_CONTRACT_LIMITS" title="Limits with Contract Reference"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CON_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item number, contract" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CON_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Contract number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Deletion Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LIMIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Overall limit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="LINE_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Internal line number for limits" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_LIMIT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="No Limit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_CHG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Price Change in Entry Sheet" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Short Text 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_CONTRACT_LIMITS BAPIESUCC Limits with Contract Reference -->
+
+<div fd-form-item>
+    <label fd-form-label>Item number, contract</label>
+    <fd-combobox
+        [(ngModel)]="PO_CONTRACT_LIMITS.CON_ITEM"
+        [dropdownValues]="{type:'CH', id:'EKPO'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Contract number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_CONTRACT_LIMITS.CON_NUMBER"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Deletion Indicator</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_CONTRACT_LIMITS.DELETE_IND"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Overall limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_CONTRACT_LIMITS.LIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal line number for limits</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_CONTRACT_LIMITS.LINE_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>No Limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_CONTRACT_LIMITS.NO_LIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Package number</label>
+    <fd-combobox
+        [(ngModel)]="PO_CONTRACT_LIMITS.PCKG_NO"
+        [dropdownValues]="{type:'CT', id:'ESLH'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Price Change in Entry Sheet" [(ngModel)]="PO_CONTRACT_LIMITS.PRICE_CHG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Short Text 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_CONTRACT_LIMITS.SHORT_TEXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- PO_ITEMS BAPIEKPOC Table of PO Items -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEMS" title="Table of PO Items"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACCTASSCAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", mid:"KNT", shlp:{type:'SH', id:'H_T163K'}}'
+              label="Account assignment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ACKNOWL_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Order Acknowledgment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ACKN_REQD" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Order Acknowledgment Requirement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ADDRESS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'ADRC'}}' alpha-exit="ALPHA" 
+              label="Address" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AGMT_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AGREEMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KTR", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ALLOC_TBL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"ABE", shlp:{type:'CH', id:'AUKO'}}' alpha-exit="ALPHA" 
+              label="Allocation Table Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AT_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", shlp:{type:'CH', id:'AUPO'}}'
+              label="Item number of allocation table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AT_RELEV" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'AUREL'}}'
+              label="Relevant to Allocation Table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CONV_DEN1" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"5"}'
+              label="Denominator for Conv. of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="CONV_NUM1" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"5"}'
+              label="Numerator for Conversion of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Deletion indicator in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISP_QUAN" unit="UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="PO quantity: total of all sched. lines for display purposes" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISTRIB" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'VRTKZ'}}'
+              label="Distribution indicator for multiple account assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="INFO_REC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"INF", shlp:{type:'CH', id:'EINA'}}' alpha-exit="ALPHA" 
+              label="Number of purchasing info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'SH', id:'H_T163'}}'
+              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT_EXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="KANBAN_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'KBNKZ'}}'
+              label="Kanban Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MANUF_PROF" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", shlp:{type:'CT', id:'TMPPF'}}'
+              label="Mfr part profile" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MANU_MAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Manufacturer Part Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_EXTERNAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_GUID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+              label="External GUID for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Material Number (40 Characters, needed f. technical reasons)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAT_GRP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'H_T023'}}'
+              label="Material Group" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'LFA1'}}' alpha-exit="ALPHA" 
+              label="Manufacturer number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO_EXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="External manufacturer code name or number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NET_PRICE" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Net price in purchasing document (in document currency)" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_MORE_GR" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label=""Delivery Completed" Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_ROUNDING" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator: suppress rounding in purchase order item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ORDERPR_UN_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
+              label="ISO code for purchase order price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PART_INV" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'TWRKZ'}}'
+              label="Partial invoice indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CH', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"WRK", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLAN_DEL" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"3"}'
+              label="Planned Delivery Time in Days" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_PRICE" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator: adopt price - do not use info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_UNIT_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
+              label="Order unit in ISO code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_NAME" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+              label="Name of requisitioner/requester" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_UNIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"5"}'
+              label="Price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="PROMOTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"WAK", shlp:{type:'CT', id:'WAKH'}}' alpha-exit="ALPHA" 
+              label="Promotion" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PR_CLOSED" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Purchase requisition closed" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_GUID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"32"}'
+              label="External GUID for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Material Number (40 Characters, Technical Requirement)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUAL_INSP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'INSMK'}}'
+              label="Stock Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REQ_SEGMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"16", mid:"SGT_R", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
+              label="Requirement Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="RET_ITEM" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Returns Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHIPPING" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'CT', id:'T027A'}}'
+              label="Shipping Instructions" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Short Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STK_SEGMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"16", mid:"SGT_S", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
+              label="Stock Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STORE_LOC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"LAG", shlp:{type:'SH', id:'H_T001L'}}'
+              label="Storage location" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAX_CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'CT', id:'T007A'}}'
+              label="Tax on sales/purchases code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TRACKINGNO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="Requirement Tracking Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VAL_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BWT", shlp:{type:'CT', id:'T149D'}}'
+              label="Valuation type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_MAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"22"}'
+              label="Material number used by vendor" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEMS BAPIEKPOC Table of PO Items -->
+
+<div fd-form-item>
+    <label fd-form-label>Account assignment category</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.ACCTASSCAT"
+            data-abap="{, mid: 'KNT'}"
+            data-shlp="{type:'SH', id:'H_T163K'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Order Acknowledgment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.ACKNOWL_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Order Acknowledgment Requirement" [(ngModel)]="PO_ITEMS.ACKN_REQD"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Address</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.ADDRESS"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'ADRC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item number of principal purchase agreement</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.AGMT_ITEM"
+            data-abap="{}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of principal purchase agreement</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.AGREEMENT"
+            data-abap="{, mid: 'KTR', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Allocation Table Number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.ALLOC_TBL"
+        [dropdownValues]="{type:'CH', id:'AUKO'}"
+        data-abap="{, mid: 'ABE', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item number of allocation table</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.AT_ITEM"
+        [dropdownValues]="{type:'CH', id:'AUPO'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Relevant to Allocation Table</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.AT_RELEV"
+        [dropdownValues]="{type:'FV', id:'AUREL'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Denominator for Conv. of Order Price Unit into Order Unit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.CONV_DEN1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Numerator for Conversion of Order Price Unit into Order Unit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.CONV_NUM1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Deletion indicator in purchasing document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.DELETE_IND"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>PO quantity: total of all sched. lines for display purposes</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.DISP_QUAN"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Distribution indicator for multiple account assignment</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.DISTRIB"
+        [dropdownValues]="{type:'FV', id:'VRTKZ'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of purchasing info record</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.INFO_REC"
+        [dropdownValues]="{type:'CH', id:'EINA'}"
+        data-abap="{, mid: 'INF', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item category in purchasing document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.ITEM_CAT"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T163'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item category in purchasing document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.ITEM_CAT_EXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Kanban Indicator</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.KANBAN_IND"
+            data-abap="{}"
+            data-shlp="{type:'FV', id:'KBNKZ'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Mfr part profile</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.MANUF_PROF"
+        [dropdownValues]="{type:'CT', id:'TMPPF'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer Part Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MANU_MAT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.MATERIAL"
+        [dropdownValues]="{type:'CT', id:'MARA'}"
+        data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MATERIAL_EXTERNAL"
+            data-abap="{, alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MATERIAL_GUID"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Number (40 Characters, needed f. technical reasons)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MATERIAL_LONG"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for MATERIAL Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MATERIAL_VERSION"
+            data-abap="{, alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MAT_GRP"
+            data-abap="{, mid: 'MKL'}"
+            data-shlp="{type:'SH', id:'H_T023'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Manufacturer number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MFR_NO"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'LFA1'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External manufacturer code name or number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.MFR_NO_EXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Net price in purchasing document (in document currency)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.NET_PRICE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label=""Delivery Completed" Indicator" [(ngModel)]="PO_ITEMS.NO_MORE_GR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Indicator: suppress rounding in purchase order item" [(ngModel)]="PO_ITEMS.NO_ROUNDING"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO code for purchase order price unit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.ORDERPR_UN_ISO"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Partial invoice indicator</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.PART_INV"
+        [dropdownValues]="{type:'FV', id:'TWRKZ'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Package number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.PCKG_NO"
+        [dropdownValues]="{type:'CH', id:'ESLH'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PLANT"
+            data-abap="{, mid: 'WRK'}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Planned Delivery Time in Days</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PLAN_DEL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item Number of Purchasing Document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PO_ITEM"
+            data-abap="{, mid: 'BSP'}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PO_NUMBER"
+            data-abap="{, mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Indicator: adopt price - do not use info record" [(ngModel)]="PO_ITEMS.PO_PRICE"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Order unit in ISO code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PO_UNIT_ISO"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of requisitioner/requester</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PREQ_NAME"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Price unit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PRICE_UNIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Promotion</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.PROMOTION"
+        [dropdownValues]="{type:'CT', id:'WAKH'}"
+        data-abap="{, mid: 'WAK', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Purchase requisition closed" [(ngModel)]="PO_ITEMS.PR_CLOSED"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Material number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PUR_MAT"
+            data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+            data-shlp="{type:'CT', id:'MARA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Long Material Number for PUR_MAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PUR_MAT_EXTERNAL"
+            data-abap="{, alpha: 'MATNL'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External GUID for PUR_MAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PUR_MAT_GUID"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Number (40 Characters, Technical Requirement)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PUR_MAT_LONG"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Version Number for PUR_MAT Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.PUR_MAT_VERSION"
+            data-abap="{, alpha: 'MATNW'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Stock Type</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.QUAL_INSP"
+        [dropdownValues]="{type:'FV', id:'INSMK'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Requirement Segment</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.REQ_SEGMENT"
+            data-abap="{, mid: 'SGT_R'}"
+            data-shlp="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Returns Item" [(ngModel)]="PO_ITEMS.RET_ITEM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Shipping Instructions</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.SHIPPING"
+        [dropdownValues]="{type:'CT', id:'T027A'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Short Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.SHORT_TEXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Stock Segment</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.STK_SEGMENT"
+            data-abap="{, mid: 'SGT_S'}"
+            data-shlp="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Storage location</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.STORE_LOC"
+            data-abap="{, mid: 'LAG'}"
+            data-shlp="{type:'SH', id:'H_T001L'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Tax on sales/purchases code</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.TAX_CODE"
+        [dropdownValues]="{type:'CT', id:'T007A'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Requirement Tracking Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.TRACKINGNO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Valuation type</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEMS.VAL_TYPE"
+        [dropdownValues]="{type:'CT', id:'T149D'}"
+        data-abap="{, mid: 'BWT'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material number used by vendor</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEMS.VEND_MAT"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- PO_ITEM_ACCOUNT_ASSIGNMENT BAPIEKKN Table of Account Assignments -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEM_ACCOUNT_ASSIGNMENT" title="Table of Account Assignments"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACTIVITY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"VGN"}' alpha-exit="NUMCV" 
+              label="Activity Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ASSET_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", mid:"AN1", shlp:{type:'CH', id:'ANLH'}}' alpha-exit="ALPHA" 
+              label="Main Asset Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BUDGET_PERIOD" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BUDPER", shlp:{type:'CT', id:'FMFUNDBPD'}}'
+              label="FM: Budget Period" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BUS_AREA" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"GSB", shlp:{type:'SH', id:'H_TGSB'}}'
+              label="Business Area" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CMMT_ITEM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"14", mid:"FIP", shlp:{type:'CT', id:'FMFXPO'}}' alpha-exit="FMCIS" 
+              label="Commitment Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CMMT_ITEM_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"24", mid:"FPS", shlp:{type:'CT', id:'FMCI'}}' alpha-exit="FMCIL" 
+              label="Commitment item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COST_CTR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KOS", shlp:{type:'CT', id:'CSKS'}}' alpha-exit="ALPHA" 
+              label="Cost Center" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COST_OBJ" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", mid:"KTR", shlp:{type:'CH', id:'CKPH'}}'
+              label="Cost Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COUNTER" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"8"}'
+              label="Internal counter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CO_AREA" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"CAC", shlp:{type:'SH', id:'CSH_TKA01'}}'
+              label="Controlling Area" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISTR_PERC" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"2.1"}'
+              label="Distribution percentage in the case of multiple acct assgt" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="FUNC_AREA" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"FBE"}'
+              label="Functional Area" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FUNC_AREA_LONG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"16", mid:"FBE", shlp:{type:'CT', id:'TFKB'}}'
+              label="Functional Area" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FUND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"FIC", shlp:{type:'CT', id:'FMFINCODE'}}'
+              label="Fund" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FUNDS_CTR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"16", mid:"FIS", shlp:{type:'CT', id:'FMFCTR'}}'
+              label="Funds Center" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FUNDS_RES" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"KBL", shlp:{type:'CT', id:'KBLK'}}' alpha-exit="ALPHA" 
+              label="Document number for earmarked funds" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="GRANT_NBR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", mid:"GM_GRANT_NBR", shlp:{type:'SH', id:'GRANTS_GENERIC'}}' alpha-exit="ALPHA" 
+              label="Grant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="GR_RCPT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}'
+              label="Goods recipient" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="G_L_ACCT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"SAK", shlp:{type:'SH', id:'SAKO'}}' alpha-exit="ALPHA" 
+              label="G/L Account Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NETWORK" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", mid:"NET", shlp:{type:'CH', id:'AUFK'}}' alpha-exit="ALPHA" 
+              label="Network Number for Account Assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ORDER_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12", mid:"ANR", shlp:{type:'CH', id:'AUFK'}}' alpha-exit="ALPHA" 
+              label="Order Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PART_ACCT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'SH', id:'DEBI'}}' alpha-exit="ALPHA" 
+              label="Partner account number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PROFIT_CTR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"PRC", shlp:{type:'CT', id:'CEPC'}}' alpha-exit="ALPHA" 
+              label="Profit Center" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PROF_SEGM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Profitability Segment Number (CO-PA)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PROJ_EXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"24", mid:"PSP", shlp:{type:'SH', id:'PD_C'}}' alpha-exit="ABPSN" 
+              label="Project definition" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUANTITY" unit="UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="Quantity" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="REC_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'SH', id:'H_T8JJ'}}' alpha-exit="ALPHA" 
+              label="Recovery Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REF_DATE" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Reference date for settlement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="RES_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"3", mid:"KBP", shlp:{type:'CT', id:'KBLP'}}'
+              label="Earmarked Funds: Document Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="RL_EST_KEY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"8"}' alpha-exit="IMKEY" 
+              label="Internal Key for Real Estate Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ROUTING_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Routing number of operations in the order" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SCHED_LINE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"4", shlp:{type:'CH', id:'VBEP'}}'
+              label="Schedule line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SDOC_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6", mid:"APO", shlp:{type:'CH', id:'VBUP'}}'
+              label="Sales Document Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SD_DOC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"AUN", shlp:{type:'CH', id:'VBUK'}}' alpha-exit="ALPHA" 
+              label="Sales and Distribution Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"2"}'
+              label="Sequential Number of Account Assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUB_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"AN2", shlp:{type:'CH', id:'ANLA'}}' alpha-exit="ALPHA" 
+              label="Asset Subnumber" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TO_COSTCTR" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Posting to cost center?" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TO_ORDER" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Post To Order" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TO_PROJECT" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Post to project" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="UNLOAD_PT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Unloading Point" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="WBS_ELEM_E" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"24"}' alpha-exit="ABPSN" 
+              label="Work breakdown structure element (WBS element)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEM_ACCOUNT_ASSIGNMENT BAPIEKKN Table of Account Assignments -->
+
+<div fd-form-item>
+    <label fd-form-label>Activity Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.ACTIVITY"
+            data-abap="{, mid: 'VGN', alpha: 'NUMCV'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Main Asset Number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.ASSET_NO"
+        [dropdownValues]="{type:'CH', id:'ANLH'}"
+        data-abap="{, mid: 'AN1', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>FM: Budget Period</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.BUDGET_PERIOD"
+        [dropdownValues]="{type:'CT', id:'FMFUNDBPD'}"
+        data-abap="{, mid: 'BUDPER'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Business Area</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.BUS_AREA"
+            data-abap="{, mid: 'GSB'}"
+            data-shlp="{type:'SH', id:'H_TGSB'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Commitment Item</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.CMMT_ITEM"
+        [dropdownValues]="{type:'CT', id:'FMFXPO'}"
+        data-abap="{, mid: 'FIP', alpha: 'FMCIS'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Commitment item</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.CMMT_ITEM_LONG"
+        [dropdownValues]="{type:'CT', id:'FMCI'}"
+        data-abap="{, mid: 'FPS', alpha: 'FMCIL'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cost Center</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.COST_CTR"
+        [dropdownValues]="{type:'CT', id:'CSKS'}"
+        data-abap="{, mid: 'KOS', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Cost Object</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.COST_OBJ"
+        [dropdownValues]="{type:'CH', id:'CKPH'}"
+        data-abap="{, mid: 'KTR'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal counter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.COUNTER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Controlling Area</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.CO_AREA"
+            data-abap="{, mid: 'CAC'}"
+            data-shlp="{type:'SH', id:'CSH_TKA01'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Distribution percentage in the case of multiple acct assgt</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.DISTR_PERC"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Area</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.FUNC_AREA"
+            data-abap="{, mid: 'FBE'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Functional Area</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.FUNC_AREA_LONG"
+        [dropdownValues]="{type:'CT', id:'TFKB'}"
+        data-abap="{, mid: 'FBE'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Fund</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.FUND"
+        [dropdownValues]="{type:'CT', id:'FMFINCODE'}"
+        data-abap="{, mid: 'FIC'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Funds Center</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.FUNDS_CTR"
+        [dropdownValues]="{type:'CT', id:'FMFCTR'}"
+        data-abap="{, mid: 'FIS'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Document number for earmarked funds</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.FUNDS_RES"
+        [dropdownValues]="{type:'CT', id:'KBLK'}"
+        data-abap="{, mid: 'KBL', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Grant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.GRANT_NBR"
+            data-abap="{, mid: 'GM_GRANT_NBR', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'GRANTS_GENERIC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Goods recipient</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.GR_RCPT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>G/L Account Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.G_L_ACCT"
+            data-abap="{, mid: 'SAK', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'SAKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Network Number for Account Assignment</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.NETWORK"
+            data-abap="{, mid: 'NET', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'AUFK'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Order Number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.ORDER_NO"
+        [dropdownValues]="{type:'CH', id:'AUFK'}"
+        data-abap="{, mid: 'ANR', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Partner account number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.PART_ACCT"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'DEBI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item Number of Purchasing Document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.PO_ITEM"
+            data-abap="{, mid: 'BSP'}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Profit Center</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.PROFIT_CTR"
+        [dropdownValues]="{type:'CT', id:'CEPC'}"
+        data-abap="{, mid: 'PRC', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Profitability Segment Number (CO-PA)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.PROF_SEGM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Project definition</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.PROJ_EXT"
+            data-abap="{, mid: 'PSP', alpha: 'ABPSN'}"
+            data-shlp="{type:'SH', id:'PD_C'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Quantity</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.QUANTITY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Recovery Indicator</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.REC_IND"
+            data-abap="{, alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'H_T8JJ'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Reference date for settlement</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.REF_DATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Earmarked Funds: Document Item</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.RES_ITEM"
+        [dropdownValues]="{type:'CT', id:'KBLP'}"
+        data-abap="{, mid: 'KBP'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal Key for Real Estate Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.RL_EST_KEY"
+            data-abap="{, alpha: 'IMKEY'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Routing number of operations in the order</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.ROUTING_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Schedule line</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.SCHED_LINE"
+        [dropdownValues]="{type:'CH', id:'VBEP'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales Document Item</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.SDOC_ITEM"
+        [dropdownValues]="{type:'CH', id:'VBUP'}"
+        data-abap="{, mid: 'APO'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sales and Distribution Document Number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.SD_DOC"
+        [dropdownValues]="{type:'CH', id:'VBUK'}"
+        data-abap="{, mid: 'AUN', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sequential Number of Account Assignment</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.SERIAL_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Asset Subnumber</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.SUB_NUMBER"
+        [dropdownValues]="{type:'CH', id:'ANLA'}"
+        data-abap="{, mid: 'AN2', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Posting to cost center?" [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.TO_COSTCTR"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Post To Order" [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.TO_ORDER"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Post to project" [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.TO_PROJECT"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Unloading Point</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.UNLOAD_PT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Work breakdown structure element (WBS element)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ACCOUNT_ASSIGNMENT.WBS_ELEM_E"
+            data-abap="{, alpha: 'ABPSN'}"
+        />
+</div>
+
+
+<!-- PO_ITEM_ADD_DATA BAPIEKPOA Additional Data: PO Item -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEM_ADD_DATA" title="Additional Data: PO Item"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="BUS_TRANST" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", mid:"EXA", shlp:{type:'SH', id:'H_T605'}}'
+              label="Business Transaction Type for Foreign Trade" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COMM_CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"17", shlp:{type:'SH', id:'H_T604'}}'
+              label="Commodity Code/Import Code Number for Foreign Trade" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COUNT_ORIG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"LND", shlp:{type:'CT', id:'T005'}}'
+              label="Country of Origin of Material (Non-Preferential Origin)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DEL_COMPL" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label=""Delivery Completed" Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXPIMPPROC" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+              label="Export/Import procedure for foreign trade (5 digits)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FINAL_INV" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Final Invoice Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="GR_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Goods Receipt Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="GR_NON_VAL" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Goods Receipt, Non-Valuated" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="INFO_UPD" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'SPINF'}}'
+              label="Indicator: Update Info Record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="IR_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Invoice receipt indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OVERDELTOL" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"2.1"}'
+              label="Overdelivery Tolerance Limit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BSP", shlp:{type:'CT', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REG_ORIGIN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
+              label="Region of Origin of Material (Non-Preferential Origin)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REMINDER1" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"+3"}'
+              label="Number of Days for First Reminder/Expediter" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="REMINDER2" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"+3"}'
+              label="Number of Days for Second Reminder/Expediter" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="REMINDER3" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"+3"}'
+              label="Number of Days for Third Reminder/Expediter" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="UNDER_TOL" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"2.1"}'
+              label="Underdelivery Tolerance Limit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="UNLIMITED" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Indicator: Unlimited Overdelivery Allowed" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEM_ADD_DATA BAPIEKPOA Additional Data: PO Item -->
+
+<div fd-form-item>
+    <label fd-form-label>Business Transaction Type for Foreign Trade</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.BUS_TRANST"
+            data-abap="{, mid: 'EXA'}"
+            data-shlp="{type:'SH', id:'H_T605'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Commodity Code/Import Code Number for Foreign Trade</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.COMM_CODE"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T604'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Country of Origin of Material (Non-Preferential Origin)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.COUNT_ORIG"
+            data-abap="{, mid: 'LND'}"
+            data-shlp="{type:'CT', id:'T005'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label=""Delivery Completed" Indicator" [(ngModel)]="PO_ITEM_ADD_DATA.DEL_COMPL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Export/Import procedure for foreign trade (5 digits)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.EXPIMPPROC"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Final Invoice Indicator" [(ngModel)]="PO_ITEM_ADD_DATA.FINAL_INV"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Goods Receipt Indicator" [(ngModel)]="PO_ITEM_ADD_DATA.GR_IND"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <fd-checkbox label="Goods Receipt, Non-Valuated" [(ngModel)]="PO_ITEM_ADD_DATA.GR_NON_VAL"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Indicator: Update Info Record</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_ADD_DATA.INFO_UPD"
+        [dropdownValues]="{type:'FV', id:'SPINF'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Invoice receipt indicator" [(ngModel)]="PO_ITEM_ADD_DATA.IR_IND"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Overdelivery Tolerance Limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.OVERDELTOL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item Number of Purchasing Document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.PO_ITEM"
+            data-abap="{, mid: 'BSP'}"
+            data-shlp="{type:'CT', id:'EKPO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Region of Origin of Material (Non-Preferential Origin)</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.REG_ORIGIN"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'T005S'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of Days for First Reminder/Expediter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.REMINDER1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of Days for Second Reminder/Expediter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.REMINDER2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of Days for Third Reminder/Expediter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.REMINDER3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Underdelivery Tolerance Limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_ADD_DATA.UNDER_TOL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Indicator: Unlimited Overdelivery Allowed" [(ngModel)]="PO_ITEM_ADD_DATA.UNLIMITED"></fd-checkbox>
+</div> 
+
+
+<!-- PO_ITEM_SCHEDULES BAPIEKET Table of Schedule Lines -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEM_SCHEDULES" title="Table of Schedule Lines"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="BATCH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"CHA", shlp:{type:'CH', id:'MCH1'}}'
+              label="Batch Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BOMEXPL_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"8", shlp:{type:'SH', id:'H_SNUM'}}'
+              label="BOM explosion number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CREATE_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'ESTKZ'}}'
+              label="Creation indicator (purchase requisition/schedule lines)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELIV_DATE" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Item delivery date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELIV_TIME" data-abap.bind='{ddic:"TIMS", js-type:"string", js-format:"time"}'
+              label="Delivery Date Time-Spot" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'HHMMSS'}"></fd-fd-column>
+    <fd-fd-column sortable field="DEL_DATCAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'PRGRS'}}'
+              label="Date type (day, week, month, interval)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DEL_DATCAT_EXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'SH', id:'H_TPRG'}}'
+              label="Category of delivery date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BAP", shlp:{type:'CH', id:'EBAN'}}'
+              label="Item number of purchase requisition" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BAN", shlp:{type:'SH', id:'MBAN_C'}}' alpha-exit="ALPHA" 
+              label="Purchase requisition number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUANTITY" unit="UNIT" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="Scheduled Quantity" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUOTA_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"3"}'
+              label="Quota arrangement item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUOTA_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}' alpha-exit="ALPHA" 
+              label="Number of quota arrangement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="RESERV_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", mid:"RES", shlp:{type:'CH', id:'RESB'}}'
+              label="Number of reservation/dependent requirements" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"4", shlp:{type:'CH', id:'EKET'}}'
+              label="Delivery Schedule Line Counter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_BATCH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"15"}'
+              label="Vendor Batch Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VERSION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"VER", shlp:{type:'SH', id:'H_MKAL'}}'
+              label="Production Version" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEM_SCHEDULES BAPIEKET Table of Schedule Lines -->
+
+<div fd-form-item>
+    <label fd-form-label>Batch Number</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_SCHEDULES.BATCH"
+        [dropdownValues]="{type:'CH', id:'MCH1'}"
+        data-abap="{, mid: 'CHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>BOM explosion number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.BOMEXPL_NO"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_SNUM'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Creation indicator (purchase requisition/schedule lines)</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_SCHEDULES.CREATE_IND"
+        [dropdownValues]="{type:'FV', id:'ESTKZ'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item delivery date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_ITEM_SCHEDULES.DELIV_DATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Delivery Date Time-Spot</label>
+    <fd-time-picker [(ngModel)]="PO_ITEM_SCHEDULES.DELIV_TIME"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date type (day, week, month, interval)</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_SCHEDULES.DEL_DATCAT"
+        [dropdownValues]="{type:'FV', id:'PRGRS'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Category of delivery date</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.DEL_DATCAT_EXT"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_TPRG'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item Number of Purchasing Document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.PO_ITEM"
+            data-abap="{, mid: 'BSP'}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item number of purchase requisition</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_SCHEDULES.PREQ_ITEM"
+        [dropdownValues]="{type:'CH', id:'EBAN'}"
+        data-abap="{, mid: 'BAP'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchase requisition number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.PREQ_NO"
+            data-abap="{, mid: 'BAN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'MBAN_C'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Scheduled Quantity</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.QUANTITY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Quota arrangement item</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.QUOTA_ITEM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of quota arrangement</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.QUOTA_NO"
+            data-abap="{, alpha: 'ALPHA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of reservation/dependent requirements</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_SCHEDULES.RESERV_NO"
+        [dropdownValues]="{type:'CH', id:'RESB'}"
+        data-abap="{, mid: 'RES'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Delivery Schedule Line Counter</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_SCHEDULES.SERIAL_NO"
+        [dropdownValues]="{type:'CH', id:'EKET'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Vendor Batch Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.VEND_BATCH"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Production Version</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_SCHEDULES.VERSION"
+            data-abap="{, mid: 'VER'}"
+            data-shlp="{type:'SH', id:'H_MKAL'}"
+        />
+</div>
+
+
+<!-- PO_ITEM_TEXT BAPIEKPOTX Table of Item Texts -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEM_TEXT" title="Table of Item Texts"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT_FORM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+              label="Tag column" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT_ID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", shlp:{type:'CT', id:'TTXID'}}'
+              label="Text ID" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT_LINE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"132"}'
+              label="Text Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEM_TEXT BAPIEKPOTX Table of Item Texts -->
+
+<div fd-form-item>
+    <label fd-form-label>Item Number of Purchasing Document</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_TEXT.PO_ITEM"
+            data-abap="{, mid: 'BSP'}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_TEXT.PO_NUMBER"
+            data-abap="{, mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Tag column</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_TEXT.TEXT_FORM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Text ID</label>
+    <fd-combobox
+        [(ngModel)]="PO_ITEM_TEXT.TEXT_ID"
+        [dropdownValues]="{type:'CT', id:'TTXID'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Text Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_ITEM_TEXT.TEXT_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- PO_LIMITS BAPIESUHC Limits -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_LIMITS" title="Limits"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CONT_PERC" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"+2.1"}'
+              label="Percentage for price determination" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="CON_EXIST" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Limit on contract items exists" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EDITION" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"4", mid:"AGB", shlp:{type:'CH', id:'ESLA'}}'
+              label="Edition of Service Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXP_VALUE" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Expected value" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="FREE_LIMIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Free limit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="LIMIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Overall limit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_FRLIMIT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="No Limit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_LIMIT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="No Limit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_CHG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Price Change in Entry Sheet" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERV_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"LBR", shlp:{type:'CH', id:'ESLA'}}'
+              label="Short Description of Service Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SSC_EXIST" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Limits exist for service types" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SSC_LIMIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Value limits on service types" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="SSC_NOLIM" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="No limit on standard service type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SSC_PERC" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"+2.1"}'
+              label="Percentage for price determination" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="SSC_PRSCHG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Price Change in Entry Sheet" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_EXIST" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Limit on service packages exists" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_LIMIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Limits on model service specifications" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_NOLIM" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="No Limit on Model Specifications" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_NUMBER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"MSP", shlp:{type:'SH', id:'SPEC'}}' alpha-exit="ALPHA" 
+              label="Number of a Set of Model Service Specifications" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_PERC" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"+2.1"}'
+              label="Percentage for Price Determination" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_PRSCHG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Price Change in Entry Sheet" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_LIMITS BAPIESUHC Limits -->
+
+<div fd-form-item>
+    <label fd-form-label>Percentage for price determination</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.CONT_PERC"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Limit on contract items exists</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.CON_EXIST"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Edition of Service Type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.EDITION"
+            data-abap="{, mid: 'AGB'}"
+            data-shlp="{type:'CH', id:'ESLA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Expected value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.EXP_VALUE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Free limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.FREE_LIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Overall limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.LIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>No Limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.NO_FRLIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>No Limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.NO_LIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Package number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.PCKG_NO"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Price Change in Entry Sheet" [(ngModel)]="PO_LIMITS.PRICE_CHG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Short Description of Service Type</label>
+    <fd-combobox
+        [(ngModel)]="PO_LIMITS.SERV_TYPE"
+        [dropdownValues]="{type:'CH', id:'ESLA'}"
+        data-abap="{, mid: 'LBR'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Limits exist for service types</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.SSC_EXIST"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Value limits on service types</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.SSC_LIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="No limit on standard service type" [(ngModel)]="PO_LIMITS.SSC_NOLIM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Percentage for price determination</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.SSC_PERC"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Price Change in Entry Sheet" [(ngModel)]="PO_LIMITS.SSC_PRSCHG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Limit on service packages exists</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.TMP_EXIST"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Limits on model service specifications</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.TMP_LIMIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="No Limit on Model Specifications" [(ngModel)]="PO_LIMITS.TMP_NOLIM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Number of a Set of Model Service Specifications</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.TMP_NUMBER"
+            data-abap="{, mid: 'MSP', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'SPEC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Percentage for Price Determination</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_LIMITS.TMP_PERC"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Price Change in Entry Sheet" [(ngModel)]="PO_LIMITS.TMP_PRSCHG"></fd-checkbox>
+</div> 
+
+
+<!-- PO_SERVICES BAPIESLLC Services -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_SERVICES" title="Services"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ALTERNAT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Alternative Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BASIC_LINE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Basic Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BASLINE_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Alternatives: Reference to basic item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BEGINTIME" data-abap.bind='{ddic:"TIMS", js-type:"string", js-format:"time"}'
+              label="Start Time" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'HHMMSS'}"></fd-fd-column>
+    <fd-fd-column sortable field="BIDDER" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Bidder's Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BLANKET" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Blanket Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CON_LINE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Entry: Unplanned from contract" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CON_PCKG" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Entry: Unplanned from contract" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DATE" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Deletion Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISTRIB" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'VRTKZ'}}'
+              label="Distribution indicator for multiple account assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EDITION" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"4", mid:"AGB", shlp:{type:'CH', id:'ESLA'}}'
+              label="Edition of Service Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ENDTIME" data-abap.bind='{ddic:"TIMS", js-type:"string", js-format:"time"}'
+              label="End Time" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'HHMMSS'}"></fd-fd-column>
+    <fd-fd-column sortable field="EVENTUAL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Contingency Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXTERNAL_ITEM_ID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="SRM Reference Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXTPERS_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="External Personnel Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXTREFKEY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="External Reference Key for Service" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXT_LINE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Line Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXT_SERV" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+              label="Vendor's Service Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FORMULA" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T167F'}}'
+              label="Formula Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FORM_VAL1" unit="BASE_UOM" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="Formula Value" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="FORM_VAL2" unit="BASE_UOM" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="Formula value" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="FORM_VAL3" unit="BASE_UOM" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="Formula value" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="FORM_VAL4" unit="BASE_UOM" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="Formula value" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="FORM_VAL5" unit="BASE_UOM" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="Formula value" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="FROM_LINE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"6"}'
+              label="Lower Limit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="GR_PRICE" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Gross price" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="HI_LINE_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Hierarchically superior line number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="INFORM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Informatory Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LIMIT_LINE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Entry: Unplanned, limit line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LINE_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Internal line number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATL_GROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'H_T023'}}'
+              label="Material Group" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NET_VALUE" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Net value" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPEN_QTY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Line with Open Quantity" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OUTL_IND" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Indicator: Outline line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OUTL_LEVEL" data-abap.bind='{ddic:"INT1", js-type:"number", js-format:"integer", length:"3"}'
+              label="Hierarchy level of group" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': '1-byte integer'}"></fd-fd-column>
+    <fd-fd-column sortable field="OUTL_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"8"}'
+              label="Outline Level" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OVF_TOL" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"2.1"}'
+              label="Overfulfillment Tolerance" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="OVF_UNLIM" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Unlimited Overfulfillment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PERS_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"8", mid:"PER"}'
+              label="Personnel Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PER_EDATE" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Period of Performance End Date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="PER_SDATE" data-abap.bind='{ddic:"DATS", js-type:"string", js-format:"date"}'
+              label="Period of Performance Start Date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLN_LINE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Entry: Planned package line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLN_PCKG" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Source package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_CHG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Price Change in Entry Sheet" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_UNIT" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"5"}'
+              label="Price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUANTITY" unit="BASE_UOM" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"+10.3"}'
+              label="Quantity with Sign" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERVICE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"ASN", shlp:{type:'SH', id:'ASMD'}}' alpha-exit="ALPHA" 
+              label="Activity Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERVICE_ITEM_KEY" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Item Key for eSOA Messages" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERV_TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"LBR", shlp:{type:'CH', id:'ESLA'}}'
+              label="Short Description of Service Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Short Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SSC_ITEM" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18"}'
+              label="Standard Service Catalog Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SSC_LIM" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+              label="Service line refers to standard service catalog limits" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUBPCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Subpackage number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SUPP_LINE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Supplementary Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TARGET_VAL" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"22.4"}'
+              label="Target Value" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAXJURCODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"15", mid:"TXJ", shlp:{type:'SH', id:'H_TTXJ'}}'
+              label="Tax Jurisdiction" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAX_CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'SH', id:'SSH_T007A'}}'
+              label="Tax on sales/purchases code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_LINE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Entry: Unplanned service from model specifications" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TMP_PCKG" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Entry: Unplanned service from model specifications" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TO_LINE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"6"}'
+              label="Upper Limit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="UOM_ISO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
+              label="ISO code for unit of measurement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="USERF1_NUM" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="User-Defined Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="USERF1_TXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="User-Defined Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="USERF2_NUM" unit="BASE_UOM" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"10.3"}'
+              label="User-Defined Field" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="USERF2_TXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="User-Defined Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="WAGETYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", shlp:{type:'CT', id:'T512W'}}'
+              label="Wage Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_SERVICES BAPIESLLC Services -->
+
+<div fd-form-item>
+    <label fd-form-label>Alternative Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.ALTERNAT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Basic Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.BASIC_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Alternatives: Reference to basic item</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.BASLINE_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Start Time</label>
+    <fd-time-picker [(ngModel)]="PO_SERVICES.BEGINTIME"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Bidder's Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.BIDDER"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Blanket Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.BLANKET"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Entry: Unplanned from contract</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.CON_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Entry: Unplanned from contract</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.CON_PCKG"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_SERVICES.DATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Deletion Indicator</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.DELETE_IND"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Distribution indicator for multiple account assignment</label>
+    <fd-combobox
+        [(ngModel)]="PO_SERVICES.DISTRIB"
+        [dropdownValues]="{type:'FV', id:'VRTKZ'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Edition of Service Type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.EDITION"
+            data-abap="{, mid: 'AGB'}"
+            data-shlp="{type:'CH', id:'ESLA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>End Time</label>
+    <fd-time-picker [(ngModel)]="PO_SERVICES.ENDTIME"></fd-time-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Contingency Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.EVENTUAL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>SRM Reference Key</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.EXTERNAL_ITEM_ID"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External Personnel Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.EXTPERS_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>External Reference Key for Service</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.EXTREFKEY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Line Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.EXT_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Vendor's Service Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.EXT_SERV"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Formula Number</label>
+    <fd-combobox
+        [(ngModel)]="PO_SERVICES.FORMULA"
+        [dropdownValues]="{type:'CT', id:'T167F'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Formula Value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.FORM_VAL1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Formula value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.FORM_VAL2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Formula value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.FORM_VAL3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Formula value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.FORM_VAL4"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Formula value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.FORM_VAL5"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Lower Limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.FROM_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Gross price</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.GR_PRICE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Hierarchically superior line number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.HI_LINE_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Informatory Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.INFORM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Entry: Unplanned, limit line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.LIMIT_LINE"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal line number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.LINE_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Material Group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.MATL_GROUP"
+            data-abap="{, mid: 'MKL'}"
+            data-shlp="{type:'SH', id:'H_T023'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Net value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.NET_VALUE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Line with Open Quantity</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.OPEN_QTY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Indicator: Outline line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.OUTL_IND"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Hierarchy level of group</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.OUTL_LEVEL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Outline Level</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.OUTL_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Overfulfillment Tolerance</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.OVF_TOL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Unlimited Overfulfillment" [(ngModel)]="PO_SERVICES.OVF_UNLIM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Package number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.PCKG_NO"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Personnel Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.PERS_NO"
+            data-abap="{, mid: 'PER'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Period of Performance End Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_SERVICES.PER_EDATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Period of Performance Start Date</label>
+    <fd-date-picker [type]="single" [(ngModel)]="PO_SERVICES.PER_SDATE"></fd-date-picker>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Entry: Planned package line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.PLN_LINE"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Source package number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.PLN_PCKG"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Price Change in Entry Sheet" [(ngModel)]="PO_SERVICES.PRICE_CHG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Price unit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.PRICE_UNIT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Quantity with Sign</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.QUANTITY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Activity Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.SERVICE"
+            data-abap="{, mid: 'ASN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'ASMD'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Item Key for eSOA Messages</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.SERVICE_ITEM_KEY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Short Description of Service Type</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.SERV_TYPE"
+            data-abap="{, mid: 'LBR'}"
+            data-shlp="{type:'CH', id:'ESLA'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Short Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.SHORT_TEXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Standard Service Catalog Item</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.SSC_ITEM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Service line refers to standard service catalog limits" [(ngModel)]="PO_SERVICES.SSC_LIM"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Subpackage number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.SUBPCKG_NO"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Supplementary Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.SUPP_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Target Value</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.TARGET_VAL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Tax Jurisdiction</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.TAXJURCODE"
+            data-abap="{, mid: 'TXJ'}"
+            data-shlp="{type:'SH', id:'H_TTXJ'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Tax on sales/purchases code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.TAX_CODE"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'SSH_T007A'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Entry: Unplanned service from model specifications</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.TMP_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Entry: Unplanned service from model specifications</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.TMP_PCKG"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Upper Limit</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.TO_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>ISO code for unit of measurement</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.UOM_ISO"
+            data-abap="{}"
+            data-shlp="{type:'SH', id:'H_T006I'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>User-Defined Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.USERF1_NUM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>User-Defined Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.USERF1_TXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>User-Defined Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.USERF2_NUM"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>User-Defined Field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES.USERF2_TXT"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Wage Type</label>
+    <fd-combobox
+        [(ngModel)]="PO_SERVICES.WAGETYPE"
+        [dropdownValues]="{type:'CT', id:'T512W'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- PO_SERVICES_TEXT BAPIESLLTX Text for Service Line -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_SERVICES_TEXT" title="Text for Service Line"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="FORMAT_COL" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2"}'
+              label="Tag column" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LINE_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Internal line number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT_ID" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", shlp:{type:'CT', id:'TTXID'}}'
+              label="Text ID" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEXT_LINE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"132"}'
+              label="Text Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_SERVICES_TEXT BAPIESLLTX Text for Service Line -->
+
+<div fd-form-item>
+    <label fd-form-label>Tag column</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES_TEXT.FORMAT_COL"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Internal line number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES_TEXT.LINE_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Package number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES_TEXT.PCKG_NO"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Text ID</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES_TEXT.TEXT_ID"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'TTXID'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Text Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SERVICES_TEXT.TEXT_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- PO_SRV_ACCASS_VALUES BAPIESKLC Value/Link to Service Account Assignment -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_SRV_ACCASS_VALUES" title="Value/Link to Service Account Assignment"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="LINE_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10"}'
+              label="Line Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NET_VALUE" unit="WAERS" data-abap.bind='{ddic:"CURR", js-type:"number", js-format:"currency", length:"+10.2"}'
+              label="Net Value of Item" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Currency'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"10", shlp:{type:'CT', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PERCENTAGE" data-abap.bind='{ddic:"DEC", js-type:"number", js-format:"decimal", length:"3.1"}'
+              label="Percentage for Account Assignment Value Distribution" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUANTITY" unit="MEINS" data-abap.bind='{ddic:"QUAN", js-type:"number", js-format:"quantity", length:"+10.3"}'
+              label="Quantity with Sign" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"2"}'
+              label="Sequential Number of Account Assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERNO_LINE" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"2"}'
+              label="Seq. Number of Acc. Assignment Specification: Service Line" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_SRV_ACCASS_VALUES BAPIESKLC Value/Link to Service Account Assignment -->
+
+<div fd-form-item>
+    <label fd-form-label>Line Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SRV_ACCASS_VALUES.LINE_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Net Value of Item</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SRV_ACCASS_VALUES.NET_VALUE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Package number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SRV_ACCASS_VALUES.PCKG_NO"
+            data-abap="{}"
+            data-shlp="{type:'CT', id:'ESLH'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Percentage for Account Assignment Value Distribution</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SRV_ACCASS_VALUES.PERCENTAGE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Quantity with Sign</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SRV_ACCASS_VALUES.QUANTITY"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sequential Number of Account Assignment</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SRV_ACCASS_VALUES.SERIAL_NO"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Seq. Number of Acc. Assignment Specification: Service Line</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PO_SRV_ACCASS_VALUES.SERNO_LINE"
+            data-abap="{}"
+        />
+</div>
+
+
+<!-- RETURN BAPIRETURN Return Messages -->
+<ui-datagrid data.bind="BAPI_PO_CREATE RETURN" title="Return Messages"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+              label="Message code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"220"}'
+              label="Message Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RETURN BAPIRETURN Return Messages -->
+
+<div fd-form-item>
+    <label fd-form-label>Message code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.CODE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: Internal message serial number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_MSG_NO"
+        [dropdownValues]="{type:'CH', id:'BALM'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: log number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_NO"
+        [dropdownValues]="{type:'CH', id:'BALHDR'}"
+        data-abap="{}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V1"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V2"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V3"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V4"
+            data-abap="{}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.TYPE"
+            data-abap="{}"
+        />
+</div>
+

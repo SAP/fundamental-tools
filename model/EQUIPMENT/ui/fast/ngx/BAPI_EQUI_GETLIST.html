@@ -1,0 +1,807 @@
+<!-- BAPI_EQUI_GETLIST 0.3 -->
+
+<!-- INPUT PARAMETERS -->
+
+<fast-text-field [(label)]="Language Key"
+    [(value)]="LANGUAGE"
+    [(abap)]="{, mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+/>
+
+
+<fast-text-field [(label)]="2-Character SAP Language Code"
+    [(value)]="LANGUAGE_ISO"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Partner Function"
+    [(value)]="PARTNERFUNCTION"
+    [(abap)]="{, mid: 'PAR', alpha: 'PARVW'}" [(shlp)]="{type:'SH', id:'H_TPAR'}"
+/>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameter -->
+
+<fast-select [(label)]="Field in parameter"
+    [(value)]="RETURN.FIELD" [(options)]="{type:'CT', id:'DD03L'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-select [(label)]="Message Class"
+    [(value)]="RETURN.ID" [(options)]="{type:'CT', id:'T100A'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: Internal message serial number"
+    [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-select [(label)]="Application log: log number"
+    [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message Text"
+    [(value)]="RETURN.MESSAGE"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V1"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V2"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V3"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Variable"
+    [(value)]="RETURN.MESSAGE_V4"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Message Number"
+    [(value)]="RETURN.NUMBER"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Parameter Name"
+    [(value)]="RETURN.PARAMETER"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Lines in parameter"
+    [(value)]="RETURN.ROW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Logical system from which message originates"
+    [(value)]="RETURN.SYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
+    [(abap)]="{, alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
+    [(value)]="RETURN.TYPE"
+    [(abap)]="{}"
+/>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_CITY_RA" title="BAPI Communication Structure: Range for Address City"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
+
+<fast-text-field [(label)]="City name in Uppercase for Search Help"
+    [(value)]="ADDRESS_CITY_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="City name in Uppercase for Search Help"
+    [(value)]="ADDRESS_CITY_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="ADDRESS_CITY_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="ADDRESS_CITY_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- ADDRESS_NAME_RA BAPI_ITOB_SEL_ADDR_NAME BAPI Communication Structure: Range for Address Name -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_NAME_RA" title="BAPI Communication Structure: Range for Address Name"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_NAME_RA BAPI_ITOB_SEL_ADDR_NAME BAPI Communication Structure: Range for Address Name -->
+
+<fast-text-field [(label)]="Name (Field NAME1) in Uppercase for Search Help"
+    [(value)]="ADDRESS_NAME_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Name (Field NAME1) in Uppercase for Search Help"
+    [(value)]="ADDRESS_NAME_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="ADDRESS_NAME_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="ADDRESS_NAME_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- ADDRESS_POST_CODE_RA BAPI_ITOB_SEL_ADDR_POST_CODE BAPI Communication Structure: Range for Address Postal Code -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_POST_CODE_RA" title="BAPI Communication Structure: Range for Address Postal Code"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+              label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_POST_CODE_RA BAPI_ITOB_SEL_ADDR_POST_CODE BAPI Communication Structure: Range for Address Postal Code -->
+
+<fast-text-field [(label)]="City postal code"
+    [(value)]="ADDRESS_POST_CODE_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="City postal code"
+    [(value)]="ADDRESS_POST_CODE_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="ADDRESS_POST_CODE_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="ADDRESS_POST_CODE_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- ADDRESS_SEARCH_TERM_1_RA BAPI_ITOB_SEL_ADDR_SORT1 BAPI Communication Structure: Range for Address Search Term 1 -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_SEARCH_TERM_1_RA" title="BAPI Communication Structure: Range for Address Search Term 1"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_SEARCH_TERM_1_RA BAPI_ITOB_SEL_ADDR_SORT1 BAPI Communication Structure: Range for Address Search Term 1 -->
+
+<fast-text-field [(label)]="Search Term 1"
+    [(value)]="ADDRESS_SEARCH_TERM_1_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Search Term 1"
+    [(value)]="ADDRESS_SEARCH_TERM_1_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="ADDRESS_SEARCH_TERM_1_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="ADDRESS_SEARCH_TERM_1_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- ADDRESS_SEARCH_TERM_2_RA BAPI_ITOB_SEL_ADDR_SORT2 BAPI Communication Structure: Range for Address Search Term 2 -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_SEARCH_TERM_2_RA" title="BAPI Communication Structure: Range for Address Search Term 2"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+              label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_SEARCH_TERM_2_RA BAPI_ITOB_SEL_ADDR_SORT2 BAPI Communication Structure: Range for Address Search Term 2 -->
+
+<fast-text-field [(label)]="Search Term 2"
+    [(value)]="ADDRESS_SEARCH_TERM_2_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Search Term 2"
+    [(value)]="ADDRESS_SEARCH_TERM_2_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="ADDRESS_SEARCH_TERM_2_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="ADDRESS_SEARCH_TERM_2_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- ADDRESS_STREET_RA BAPI_ITOB_SEL_ADDR_STREET BAPI Communication Structure: Range for Address Street -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_STREET_RA" title="BAPI Communication Structure: Range for Address Street"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+              label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- ADDRESS_STREET_RA BAPI_ITOB_SEL_ADDR_STREET BAPI Communication Structure: Range for Address Street -->
+
+<fast-text-field [(label)]="Street Name in Uppercase for Search Help"
+    [(value)]="ADDRESS_STREET_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Street Name in Uppercase for Search Help"
+    [(value)]="ADDRESS_STREET_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="ADDRESS_STREET_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="ADDRESS_STREET_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- DESCRIPT_RA BAPI_ITOB_SEL_DESCRIPT BAPI Communication Structure: Description Range -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST DESCRIPT_RA" title="BAPI Communication Structure: Description Range"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- DESCRIPT_RA BAPI_ITOB_SEL_DESCRIPT BAPI Communication Structure: Description Range -->
+
+<fast-text-field [(label)]="Description of Technical Object"
+    [(value)]="DESCRIPT_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Description of Technical Object"
+    [(value)]="DESCRIPT_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Selection operator OPTION for range tables"
+    [(value)]="DESCRIPT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
+    [(value)]="DESCRIPT_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+/>
+
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_LIST" title="BAPI Communication Structure: Results List for GetList"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
+              label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+
+<fast-text-field [(label)]="Description of Technical Object"
+    [(value)]="EQUIPMENT_LIST.DESCRIPT"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Equipment category"
+    [(value)]="EQUIPMENT_LIST.EQUICATGRY"
+    [(abap)]="{, mid: 'EQT'}" [(shlp)]="{type:'CT', id:'T370T'}"
+/>
+
+
+<fast-text-field [(label)]="Equipment Number"
+    [(value)]="EQUIPMENT_LIST.EQUIPMENT"
+    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+/>
+
+
+<fast-text-field [(label)]="Maintenance plant"
+    [(value)]="EQUIPMENT_LIST.MAINTPLANT"
+    [(abap)]="{, mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+/>
+
+
+<fast-select [(label)]="Planner Group for Customer Service and Plant Maintenance"
+    [(value)]="EQUIPMENT_LIST.PLANGROUP" [(options)]="{type:'CT', id:'T024I'}"
+    [(abap)]="{, mid: 'IHG'}"
+></fast-select>
+
+
+<fast-select [(label)]="Maintenance Planning Plant"
+    [(value)]="EQUIPMENT_LIST.PLANPLANT" [(options)]="{type:'CT', id:'T001W'}"
+    [(abap)]="{, mid: 'IWK'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Sort field"
+    [(value)]="EQUIPMENT_LIST.SORTFIELD"
+    [(abap)]="{}"
+/>
+
+
+<!-- EQUIPMENT_RA BAPI_ITOB_SEL_EQUIPMENT BAPI Communication Structure: Range for Functional Location -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_RA" title="BAPI Communication Structure: Range for Functional Location"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_RA BAPI_ITOB_SEL_EQUIPMENT BAPI Communication Structure: Range for Functional Location -->
+
+<fast-text-field [(label)]="Equipment Number"
+    [(value)]="EQUIPMENT_RA.HIGH"
+    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+/>
+
+
+<fast-text-field [(label)]="Equipment Number"
+    [(value)]="EQUIPMENT_RA.LOW"
+    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+/>
+
+
+<fast-select [(label)]="Selection operator OPTION for range tables"
+    [(value)]="EQUIPMENT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
+    [(value)]="EQUIPMENT_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+/>
+
+
+<!-- MAINTPLANT_RA BAPI_ITOB_SEL_MAINTPLANT BApi Communication Structure: Range for Maintenance Plant -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST MAINTPLANT_RA" title="BApi Communication Structure: Range for Maintenance Plant"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- MAINTPLANT_RA BAPI_ITOB_SEL_MAINTPLANT BApi Communication Structure: Range for Maintenance Plant -->
+
+<fast-text-field [(label)]="Maintenance plant"
+    [(value)]="MAINTPLANT_RA.HIGH"
+    [(abap)]="{, mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+/>
+
+
+<fast-text-field [(label)]="Maintenance plant"
+    [(value)]="MAINTPLANT_RA.LOW"
+    [(abap)]="{, mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+/>
+
+
+<fast-select [(label)]="Selection operator OPTION for range tables"
+    [(value)]="MAINTPLANT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
+    [(value)]="MAINTPLANT_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+/>
+
+
+<!-- OBJECTTYPE_RA BAPI_ITOB_SEL_OBJECTTYPE BAPI Communication Structure: Range for Object Type -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST OBJECTTYPE_RA" title="BAPI Communication Structure: Range for Object Type"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+              label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+              label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- OBJECTTYPE_RA BAPI_ITOB_SEL_OBJECTTYPE BAPI Communication Structure: Range for Object Type -->
+
+<fast-text-field [(label)]="Type of Technical Object"
+    [(value)]="OBJECTTYPE_RA.HIGH"
+    [(abap)]="{}" [(shlp)]="{type:'CT', id:'T370K'}"
+/>
+
+
+<fast-text-field [(label)]="Type of Technical Object"
+    [(value)]="OBJECTTYPE_RA.LOW"
+    [(abap)]="{}" [(shlp)]="{type:'CT', id:'T370K'}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="OBJECTTYPE_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="OBJECTTYPE_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- PARTNER_RA BAPI_ITOB_SEL_PARTNER BAPI Communication Structure: Range for Partner -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PARTNER_RA" title="BAPI Communication Structure: Range for Partner"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+              label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+              label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PARTNER_RA BAPI_ITOB_SEL_PARTNER BAPI Communication Structure: Range for Partner -->
+
+<fast-text-field [(label)]="Partner"
+    [(value)]="PARTNER_RA.HIGH"
+    [(abap)]="{, alpha: 'ALPHA'}"
+/>
+
+
+<fast-text-field [(label)]="Partner"
+    [(value)]="PARTNER_RA.LOW"
+    [(abap)]="{, alpha: 'ALPHA'}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="PARTNER_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="PARTNER_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+
+
+<!-- PLANGROUP_RA BAPI_ITOB_SEL_PLANGROUP BAPI Communication Structure: Range for Maintenance Planner Group -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PLANGROUP_RA" title="BAPI Communication Structure: Range for Maintenance Planner Group"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PLANGROUP_RA BAPI_ITOB_SEL_PLANGROUP BAPI Communication Structure: Range for Maintenance Planner Group -->
+
+<fast-text-field [(label)]="Planner Group for Customer Service and Plant Maintenance"
+    [(value)]="PLANGROUP_RA.HIGH"
+    [(abap)]="{, mid: 'IHG'}" [(shlp)]="{type:'CT', id:'T024I'}"
+/>
+
+
+<fast-text-field [(label)]="Planner Group for Customer Service and Plant Maintenance"
+    [(value)]="PLANGROUP_RA.LOW"
+    [(abap)]="{, mid: 'IHG'}" [(shlp)]="{type:'CT', id:'T024I'}"
+/>
+
+
+<fast-select [(label)]="Selection operator OPTION for range tables"
+    [(value)]="PLANGROUP_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
+    [(value)]="PLANGROUP_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+/>
+
+
+<!-- PLANPLANT_RA BAPI_ITOB_SEL_PLANPLANT BAPI Communication Structure: Range for Maintenance Planning -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST PLANPLANT_RA" title="BAPI Communication Structure: Range for Maintenance Planning"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PLANPLANT_RA BAPI_ITOB_SEL_PLANPLANT BAPI Communication Structure: Range for Maintenance Planning -->
+
+<fast-text-field [(label)]="Maintenance Planning Plant"
+    [(value)]="PLANPLANT_RA.HIGH"
+    [(abap)]="{, mid: 'IWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+/>
+
+
+<fast-text-field [(label)]="Maintenance Planning Plant"
+    [(value)]="PLANPLANT_RA.LOW"
+    [(abap)]="{, mid: 'IWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+/>
+
+
+<fast-select [(label)]="Selection operator OPTION for range tables"
+    [(value)]="PLANPLANT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
+    [(value)]="PLANPLANT_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+/>
+
+
+<!-- SORTFIELD_RA BAPI_ITOB_SEL_SORTFIELD BAPI Communication Structure: Range for Sort Field -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST SORTFIELD_RA" title="BAPI Communication Structure: Range for Sort Field"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+              label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+              label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- SORTFIELD_RA BAPI_ITOB_SEL_SORTFIELD BAPI Communication Structure: Range for Sort Field -->
+
+<fast-text-field [(label)]="Sort field"
+    [(value)]="SORTFIELD_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Sort field"
+    [(value)]="SORTFIELD_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Selection operator OPTION for range tables"
+    [(value)]="SORTFIELD_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
+    [(value)]="SORTFIELD_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+/>
+
+
+<!-- STATUS_RA BAPI_ITOB_SEL_STATUS BAPI Communication Structure: Range for Status -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST STATUS_RA" title="BAPI Communication Structure: Range for Status"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+              label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+              label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+              label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+              label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- STATUS_RA BAPI_ITOB_SEL_STATUS BAPI Communication Structure: Range for Status -->
+
+<fast-text-field [(label)]="Individual status of an object (short form)"
+    [(value)]="STATUS_RA.HIGH"
+    [(abap)]="{}"
+/>
+
+
+<fast-text-field [(label)]="Individual status of an object (short form)"
+    [(value)]="STATUS_RA.LOW"
+    [(abap)]="{}"
+/>
+
+
+<fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
+    [(value)]="STATUS_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
+    [(abap)]="{}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
+    [(value)]="STATUS_RA.SIGN"
+    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+/>
+

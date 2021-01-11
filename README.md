@@ -60,8 +60,6 @@ To start using the toolset check [Prerequisites](#prerequisites) and clone the p
 
 ```shell
 $ git clone https://github.com/SAP/fundamental-tools
-$
-$ cd fundamental-tools
 ```
 
 ### Step 1: ABAP API
@@ -71,9 +69,9 @@ Maintain ABAP system connection parameters in [systems.py](tools/generator/syste
 Run `backend.py` script:
 
 ```shell
-$ cd tools
+$ cd fundamental-tools/tools
 $
-$ # cache ABAP API metadata to local files
+$ # Get ABAP backend API annotations
 $ python backend.py MME PURCHASE_ORDER
 ```
 
@@ -116,20 +114,19 @@ def equipment(path):
 Run the frontend script, to generate Fiori components:
 
 ```shell
-$ cd tools
-$
 $ python frontend.py fast-ngx PURCHASE_ORDER
 ```
 
 Currently supported ui-frameworks:
-- aurelia
+
 - fast-ngx
+- aurelia
 - fundamental-ngx
 - fundamental-react
 - fundamental-vue
 - ui5-react
 
-The output HTML and JavaScript flat files are written in a data model sub-directory, for example:
+The output HTML and JavaScript flat files are written in a data model sub-directory (default: `model`), for example:
 
 <img src="assets/toolset/output.png" alt="SAP Cloud Platform" width="350"/>
 
