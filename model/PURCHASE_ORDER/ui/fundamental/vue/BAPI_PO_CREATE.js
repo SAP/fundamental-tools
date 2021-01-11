@@ -6,34 +6,34 @@ BAPI_PO_CREATE = {
 
   // INPUT PARAMETERS
 
-  // HEADER_ADD_DATA_RELEVANT: "",            // CHAR(1)    BAPIMMPARA SELECTION           Indicator: Additional Data (Header) Relevant
-  HEADER_TECH_FIELDS: {},                  // BAPITECH : Technical Header Fields
-  // ITEM_ADD_DATA_RELEVANT: "",              // CHAR(1)    BAPIMMPARA SELECTION           Indicator: Additional Data (Item) Relevant
-  PO_ADDRESS: {},                          // BAPIADDRESS : Ordering Address for One-Time Vendor
-  PO_HEADER: {},                           // BAPIEKKOC : PO Header Data 
-  PO_HEADER_ADD_DATA: {},                  // BAPIEKKOA : Additional Data: PO Header
-  // SKIP_ITEMS_WITH_ERROR: "X",              // CHAR(1)    BAPIMMPARA SELECTION           Indicator: Skip Faulty Items
+  //HEADER_ADD_DATA_RELEVANT       :   "", // CHAR (1) Indicator: Additional Data (Header) Relevant
+  //HEADER_TECH_FIELDS             :   {}, // BAPITECH Technical Header Fields
+  //ITEM_ADD_DATA_RELEVANT         :   "", // CHAR (1) Indicator: Additional Data (Item) Relevant
+  //PO_ADDRESS                     :   {}, // BAPIADDRESS Ordering Address for One-Time Vendor
+  PO_HEADER                        :   {}, // BAPIEKKOC PO Header Data
+  //PO_HEADER_ADD_DATA             :   {}, // BAPIEKKOA Additional Data: PO Header
+  //SKIP_ITEMS_WITH_ERROR          :  "X", // CHAR (1) Indicator: Skip Faulty Items
 
   // OUTPUT PARAMETERS
 
-  PURCHASEORDER: "",                       // CHAR(10)   BAPIEKKOC PO_NUMBER            Purchase Order Number
+  PURCHASEORDER                    :   "", // CHAR (10) ALPHA=ALPHA Purchase Order Number
 
   // TABLE PARAMETERS
 
-  EXTENSIONIN: [],                         // BAPIPAREX : Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
-  POADDRDELIVERY: [],                      // BAPIMEPOADDRDELIVERY : PO Item: Address Structure BAPIADDR1 for Inbound Delivery
-  PO_BUSINESS_PARTNER: [],                 // BAPIEKKOP : Partner Roles  
-  PO_CONTRACT_LIMITS: [],                  // BAPIESUCC : Limits with Contract Reference
-  PO_ITEMS: [],                            // BAPIEKPOC : Table of PO Items
-  PO_ITEM_ACCOUNT_ASSIGNMENT: [],          // BAPIEKKN : Table of Account Assignments
-  PO_ITEM_ADD_DATA: [],                    // BAPIEKPOA : Additional Data: PO Item
-  PO_ITEM_SCHEDULES: [],                   // BAPIEKET : Table of Schedule Lines
-  PO_ITEM_TEXT: [],                        // BAPIEKPOTX : Table of Item Texts
-  PO_LIMITS: [],                           // BAPIESUHC : Limits         
-  PO_SERVICES: [],                         // BAPIESLLC : Services       
-  PO_SERVICES_TEXT: [],                    // BAPIESLLTX : Text for Service Line
-  PO_SRV_ACCASS_VALUES: [],                // BAPIESKLC : Value/Link to Service Account Assignment
-  RETURN: []                               // BAPIRETURN : Return Messages
+  //EXTENSIONIN                    :   [], // BAPIPAREX Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+  //POADDRDELIVERY                 :   [], // BAPIMEPOADDRDELIVERY PO Item: Address Structure BAPIADDR1 for Inbound Delivery
+  //PO_BUSINESS_PARTNER            :   [], // BAPIEKKOP Partner Roles
+  //PO_CONTRACT_LIMITS             :   [], // BAPIESUCC Limits with Contract Reference
+  PO_ITEMS                         :   [], // BAPIEKPOC Table of PO Items
+  //PO_ITEM_ACCOUNT_ASSIGNMENT     :   [], // BAPIEKKN Table of Account Assignments
+  //PO_ITEM_ADD_DATA               :   [], // BAPIEKPOA Additional Data: PO Item
+  PO_ITEM_SCHEDULES                :   [], // BAPIEKET Table of Schedule Lines
+  //PO_ITEM_TEXT                   :   [], // BAPIEKPOTX Table of Item Texts
+  //PO_LIMITS                      :   [], // BAPIESUHC Limits
+  //PO_SERVICES                    :   [], // BAPIESLLC Services
+  //PO_SERVICES_TEXT               :   [], // BAPIESLLTX Text for Service Line
+  //PO_SRV_ACCASS_VALUES           :   [], // BAPIESKLC Value/Link to Service Account Assignment
+  //RETURN                         :   [], // BAPIRETURN Return Messages
 };
 
 //

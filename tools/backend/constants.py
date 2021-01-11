@@ -123,194 +123,194 @@ def get_ddic_js(
     DDIC_JS = {
         # Posting period YYYYMM
         "ACCP": {
-            "js-type": "string",
-            "js-format": "accp",
+            "type": "string",
+            "format": "accp",
             "html-tag": "input",
             "initial": '""',
             "comment": "YYYYMM",
         },
         # Client 000-999
         "CLNT": {
-            "js-type": "string",
-            "js-format": "numeric",
+            "type": "string",
+            "format": "numeric",
             "html-tag": "input",
             "initial": '""',
             "comment": "000 to 999",
         },
         # Language 1 char key
         "LANG": {
-            "js-type": "string",
-            "js-format": "lang",
+            "type": "string",
+            "format": "lang",
             "html-tag": "lang",
             "initial": '""',
             "comment": "1-char lang",
         },
         # Character String
         "CHAR": {
-            "js-type": "string",
+            "type": "string",
             "html-tag": "input",
             "initial": '""',
             "comment": "string",
         },
         # Date field (YYYYMMDD) stored as char(8)
         "DATS": {
-            "js-type": "string",
-            "js-format": "date",
+            "type": "string",
+            "format": "date",
             "html-tag": DATE_TAGNAME,
             "initial": '""',
             "comment": "YYYYMMDD",
         },
         # Time field (hhmmss), stored as char(6)
         "TIMS": {
-            "js-type": "string",
-            "js-format": "time",
+            "type": "string",
+            "format": "time",
             "html-tag": TIME_TAGNAME,
             "initial": '""',
             "comment": "HHMMSS",
         },
         # Boolean 1 char
         "BOOLEAN": {
-            "js-type": "boolean",
+            "type": "boolean",
             "html-tag": INPUT_TYPE_BINARY_TAG,
             "initial": '""',
             "comment": "Boolean",
         },
         # Character string with only digits
         "NUMC": {
-            "js-type": "string",
-            "js-format": "numeric",
+            "type": "string",
+            "format": "numeric",
             "html-tag": "input",
             "initial": '""',
             "comment": "Numeric string",
         },
         # Floating point number, accurate to 8 bytes
         "FLTP": {
-            "js-type": "number",
-            "js-format": "float",
+            "type": "number",
+            "format": "float",
             "html-tag": "input",
             "initial": "0.0",
             "comment": "Float",
         },
         # 1-byte integer, integer number <= 255
         "INT1": {
-            "js-type": "number",
-            "js-format": "integer",
+            "type": "number",
+            "format": "integer",
             "html-tag": "input",
             "initial": "0",
             "comment": "1-byte integer",
         },
         # 2-byte integer, only for length field before LCHR or LRAW
         "INT2": {
-            "js-type": "number",
-            "js-format": "integer",
+            "type": "number",
+            "format": "integer",
             "html-tag": "input",
             "initial": "0",
             "comment": "2-byte integer",
         },
         # 4-byte integer, integer number with sign
         "INT4": {
-            "js-type": "number",
-            "js-format": "integer",
+            "type": "number",
+            "format": "integer",
             "html-tag": "input",
             "initial": "0",
             "comment": "4-byte integer",
         },
         # 8-byte integer, integer number with sign
         "INT8": {
-            "js-type": "number",
-            "js-format": "integer",
+            "type": "number",
+            "format": "integer",
             "html-tag": "input",
             "initial": "0",
             "comment": "8-byte integer",
         },
         # Counter or amount field with comma and sign
         "DEC": {
-            "js-type": "number",
-            "js-format": "decimal",
+            "type": "number",
+            "format": "decimal",
             "html-tag": "input",
             "initial": "0",
             "comment": "Decimal",
         },
         # Currency field, stored as DEC, points to currency field with format CUKY
         "CURR": {
-            "js-type": "number",
-            "js-format": "currency",
+            "type": "number",
+            "format": "currency",
             "html-tag": "input",
             "initial": "0.0",
             "comment": "Currency",
         },
         # Quantity field, points to a unit field with format UNIT
         "QUAN": {
-            "js-type": "number",
-            "js-format": "quantity",
+            "type": "number",
+            "format": "quantity",
             "html-tag": "input",
             "initial": "0.0",
             "comment": "Quantity",
         },
         # Currency key, referenced by CURR fields
         "CUKY": {
-            "js-type": "string",
+            "type": "string",
             "html-tag": "input",
             "initial": '""',
             "comment": "Currency key",
         },
         # Unit key for QUAN fields
         "UNIT": {
-            "js-type": "string",
+            "type": "string",
             "html-tag": "input",
             "initial": '""',
             "comment": "Quantity UoM",
         },
         # Precision of a QUAN field
-        "PREC": {"js-type": "number", "js-format": "integer", "html-tag": "number"},
+        "PREC": {"type": "number", "format": "integer", "html-tag": "number"},
         "D16R": {
-            "js-type": "number",
-            "js-format": "decimal",
+            "type": "number",
+            "format": "decimal",
             "html-tag": "input",
             "initial": "0.0",
             "comment": "Decimal float",
         },
         "D34R": {
-            "js-type": "number",
-            "js-format": "decimal",
+            "type": "number",
+            "format": "decimal",
             "html-tag": "input",
             "initial": "0.0",
             "comment": "Decimal float",
         },
         "DECFLOAT16": {
-            "js-type": "number",
-            "js-format": "decimal",
+            "type": "number",
+            "format": "decimal",
             "html-tag": "input",
             "initial": "0.0",
             "comment": "Decimal float",
         },
         "DECFLOAT34": {
-            "js-type": "number",
-            "js-format": "decimal",
+            "type": "number",
+            "format": "decimal",
             "html-tag": "input",
             "initial": "0.0",
             "comment": "Decimal float",
         },
         # Long character string, requires preceding INT2 field
-        "LCHR": {"js-type": "string", "html-tag": TEXT_TAGNAME},
+        "LCHR": {"type": "string", "html-tag": TEXT_TAGNAME},
         # Byte String of Variable Length
-        "RSTR": {"js-type": "string", "html-tag": TEXT_TAGNAME},
+        "RSTR": {"type": "string", "html-tag": TEXT_TAGNAME},
         # Short Character String of Variable Length
-        "SSTR": {"js-type": "string", "html-tag": TEXT_TAGNAME},
+        "SSTR": {"type": "string", "html-tag": TEXT_TAGNAME},
         # Character String of Variable Length
-        "STRG": {"js-type": "string", "html-tag": TEXT_TAGNAME},
+        "STRG": {"type": "string", "html-tag": TEXT_TAGNAME},
         # Uninterpreted sequence of bytes
         "RAW": {
-            "js-type": "string",
+            "type": "string",
             "html-tag": TEXT_TAGNAME,
             "initial": "bytes()",
             "comment": "Binary string",
         },
         # Long byte string, requires preceding INT2 field
-        "LRAW": {"js-type": "string", "html-tag": TEXT_TAGNAME},
+        "LRAW": {"type": "string", "html-tag": TEXT_TAGNAME},
         # native
         "STRING": {
-            "js-type": "string",
+            "type": "string",
             "html-tag": TEXT_TAGNAME,
             "initial": '""',
             "comment": "String",
@@ -329,3 +329,49 @@ LOGGING_LEVEL = {
     "ERROR": logging.ERROR,
     "CRITICAL": logging.CRITICAL,
 }
+
+
+# T002, T002C
+all_languages = {
+    # iso2
+    "ar": "AR - عربي",
+    "bg": "BG - Български",
+    "ca": "CA - Català",
+    "cs": "CS - Čeština",
+    "da": "DA - Dansk",
+    "de": "DE - Deutsch",
+    "el": "EL - Ελληνικά",
+    "en": "EN - English",
+    "es": "ES - Español",
+    "et": "ET - Eesti",
+    "fi": "FI - Suomi",
+    "fr": "FR - Français",
+    "he": "HE - עברית",
+    "hi": "HI - हिंदी",
+    "hr": "HR - Hrvatski",
+    "hu": "HU - Magyar",
+    "it": "IT - Italiano",
+    "ja": "JA - 日本語",
+    "kk": "KK - Қазақ",
+    "ko": "KO - 한국어",
+    "lt": "LT - Lietuvių",
+    "lv": "LV - Latviešu",
+    "nl": "NL - Nederlands",
+    "no": "NO - Norsk",
+    "pl": "PL - polski",
+    "pt": "PT - Português",
+    "ro": "RO - Română",
+    "ru": "RU - Русский",
+    "sh": "SH - Srpski (Lat.)",
+    "sk": "SK - Slovenčina",
+    "sl": "SL - Slovenščina",
+    "sv": "SV - Svenska",
+    "th": "TH - Thai",
+    "tr": "TR - Türkçe",
+    "uk": "UK - Українська",
+    "vi": "VI - Việt Nam",
+    "zf": "ZF - 繁體中文",
+    "zh": "ZH - 中文",
+}
+
+iso2_to_LANGU = {"en": "E", "de": "D", "nl": "N", "es": "S", "jp": "J"}

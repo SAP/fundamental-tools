@@ -6,25 +6,25 @@ BAPI_EQUI_CREATE = {
 
   // INPUT PARAMETERS
 
-  DATA_FLEET: {},                          // BAPI_FLEET : Vehicle-Specific Data
-  DATA_GENERAL: {},                        // BAPI_ITOB : General Data for Technical Objects
-  DATA_INSTALL: {},                        // BAPI_ITOB_EQ_INSTALL : Installation Date for Equipment
-  DATA_SPECIFIC: {},                       // BAPI_ITOB_EQ_ONLY : Equipment-Specific data
-  // EXTERNAL_NUMBER: "",                     // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment to be Created (Initial => Internal Assignment)
-  // VALID_DATE: SY-DATUM,                    // DATS(8)    BAPI_ITOB_PARMS INST_DATE      Valid-From Date for Equipment to be Created
+  //DATA_FLEET                     :   {}, // BAPI_FLEET Vehicle-Specific Data
+  DATA_GENERAL                     :   {}, // BAPI_ITOB General Data for Technical Objects
+  //DATA_INSTALL                   :   {}, // BAPI_ITOB_EQ_INSTALL Installation Date for Equipment
+  DATA_SPECIFIC                    :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  //EXTERNAL_NUMBER                :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment to be Created (Initial => Internal Assignment)
+  //VALID_DATE                     : SY-DATUM, // DATS (8) Valid-From Date for Equipment to be Created
 
   // OUTPUT PARAMETERS
 
-  DATA_FLEET_EXP: {},                      // BAPI_FLEET : Vehicle-Specific Data
-  DATA_GENERAL_EXP: {},                    // BAPI_ITOB : General Data for Technical Objects
-  DATA_SPECIFIC_EXP: {},                   // BAPI_ITOB_EQ_ONLY : Equipment-Specific data
-  EQUIPMENT: "",                           // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment Created
-  RETURN: {},                              // BAPIRET2 : Return Parameter
+  DATA_FLEET_EXP                   :   {}, // BAPI_FLEET Vehicle-Specific Data
+  DATA_GENERAL_EXP                 :   {}, // BAPI_ITOB General Data for Technical Objects
+  DATA_SPECIFIC_EXP                :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  EQUIPMENT                        :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment Created
+  RETURN                           :   {}, // BAPIRET2 Return Parameter
 
   // TABLE PARAMETERS
 
-  EXTENSIONIN: [],                         // BAPIPAREX : Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
-  EXTENSIONOUT: []                         // BAPIPAREX : Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+  //EXTENSIONIN                    :   [], // BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+  //EXTENSIONOUT                   :   [], // BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
 };
 
 //

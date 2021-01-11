@@ -6,18 +6,18 @@ BAPI_EQUI_GETDETAIL = {
 
   // INPUT PARAMETERS
 
-  EQUIPMENT: "",                           // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment to be Read
+  EQUIPMENT                        :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment to be Read
 
   // OUTPUT PARAMETERS
 
-  DATA_FLEET_EXP: {},                      // BAPI_FLEET : Vehicle-Specific Data
-  DATA_GENERAL_EXP: {},                    // BAPI_ITOB : General Data for Technical Objects
-  DATA_SPECIFIC_EXP: {},                   // BAPI_ITOB_EQ_ONLY : Equipment-Specific data
-  RETURN: {},                              // BAPIRET2 : Return Parameter
+  DATA_FLEET_EXP                   :   {}, // BAPI_FLEET Vehicle-Specific Data
+  DATA_GENERAL_EXP                 :   {}, // BAPI_ITOB General Data for Technical Objects
+  DATA_SPECIFIC_EXP                :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  RETURN                           :   {}, // BAPIRET2 Return Parameter
 
   // TABLE PARAMETERS
 
-  EXTENSIONOUT: []                         // BAPIPAREX : Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+  //EXTENSIONOUT                   :   [], // BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
 };
 
 //

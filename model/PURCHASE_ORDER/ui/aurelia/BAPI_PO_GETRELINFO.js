@@ -6,19 +6,19 @@ BAPI_PO_GETRELINFO = {
 
   // INPUT PARAMETERS
 
-  // PO_REL_CODE: "",                         // CHAR(2)    BAPIMMPARA PO_REL_COD          Release Code
-  PURCHASEORDER: "",                       // CHAR(10)   BAPIMMPARA PO_NUMBER           Purchase Order Number
+  //PO_REL_CODE                    :   "", // CHAR (2) Release Code
+  PURCHASEORDER                    :   "", // CHAR (10) ALPHA=ALPHA Purchase Order Number
 
   // OUTPUT PARAMETERS
 
-  GENERAL_RELEASE_INFO: {},                // BAPIRLGNPO : General Release Information
-  RELEASE_ALREADY_POSTED: {},              // BAPIRLCOPO : Releases to Date
-  RELEASE_PREREQUISITES: {},               // BAPIRLCOPO : Release Prerequisites
+  GENERAL_RELEASE_INFO             :   {}, // BAPIRLGNPO General Release Information
+  RELEASE_ALREADY_POSTED           :   {}, // BAPIRLCOPO Releases to Date
+  RELEASE_PREREQUISITES            :   {}, // BAPIRLCOPO Release Prerequisites
 
   // TABLE PARAMETERS
 
-  RELEASE_FINAL: [],                       // BAPIRLCOPO : Final Release 
-  RETURN: []                               // BAPIRETURN : Return Messages
+  //RELEASE_FINAL                  :   [], // BAPIRLCOPO Final Release
+  //RETURN                         :   [], // BAPIRETURN Return Messages
 };
 
 //

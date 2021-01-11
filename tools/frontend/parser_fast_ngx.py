@@ -28,7 +28,7 @@ class ParserFastAngular(ModelParser):
         if self.args.no_ddic:
             del markup[ABAP_TYPE]
         if self.args.no_type:
-            del markup["js-type"]
+            del markup["type"]
         for attr in FIELD_ATTRIBUTES:
             if attr == "bind":
                 continue

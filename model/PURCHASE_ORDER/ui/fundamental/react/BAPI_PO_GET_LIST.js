@@ -6,17 +6,17 @@ BAPI_PO_GET_LIST = {
 
   // INPUT PARAMETERS
 
-  // ITEMS_FOR_RELEASE: "X",                  // CHAR(1)    BAPIMMPARA SELECTION           Indicator: Display Purchase Orders Awaiting Release Only
-  // REL_CODE: "",                            // CHAR(2)    BAPIMMPARA REL_CODE            Release Code
-  // REL_GROUP: "",                           // CHAR(2)    BAPIMMPARA REL_GROUP           Release Group
+  //ITEMS_FOR_RELEASE              :  "X", // CHAR (1) Indicator: Display Purchase Orders Awaiting Release Only
+  //REL_CODE                       :   "", // CHAR (2) Release Code
+  //REL_GROUP                      :   "", // CHAR (2) Release Group
 
   // TABLE PARAMETERS
 
-  PO_ADDRESSES: [],                        // BAPIEKAN : Vendor Address for SAP Releases < 4.0A
-  PO_ADDRESSES_NEW: [],                    // BAPIADDRESS : Vendor Address for SAP Releases >= 4.0A
-  PO_HEADERS: [],                          // BAPIEKKO : PO Header Data  
-  PO_ITEMS: [],                            // BAPIEKPO : Purchase Order Items
-  RETURN: []                               // BAPIRETURN : Processing Errors That Occurred
+  //PO_ADDRESSES                   :   [], // BAPIEKAN Vendor Address for SAP Releases < 4.0A
+  //PO_ADDRESSES_NEW               :   [], // BAPIADDRESS Vendor Address for SAP Releases >= 4.0A
+  PO_HEADERS                       :   [], // BAPIEKKO PO Header Data
+  PO_ITEMS                         :   [], // BAPIEKPO Purchase Order Items
+  //RETURN                         :   [], // BAPIRETURN Processing Errors That Occurred
 };
 
 //

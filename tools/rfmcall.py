@@ -18,8 +18,7 @@ as JSON dictionaries:
 import argparse
 from collections import OrderedDict
 from pyrfc import Connection
-from backend.abap_lang import iso2_to_LANGU
-from backend.constants import DEFAULT_OUTPUT_FOLDER
+from backend.constants import DEFAULT_OUTPUT_FOLDER, iso2_to_LANGU
 
 PARAMTYPE_VAR = "var"
 PARAMTYPE_STRUCT = "struct"

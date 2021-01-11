@@ -330,6 +330,7 @@ export class parseRFM {
         this.Params.set(k, v);
       }
     });
+
     // optional IMPORT
     paramsSorted.forEach((v, k) => {
       if (["I"].includes(v["PARAMCLASS"]) && !v["required"]) {
@@ -412,7 +413,6 @@ export class parseRFM {
         let left = paramData["required"] ? paramName : `//${paramName}`;
         let right = this.get_param_initializer(paramData);
         let paramText = paramData["PARAMTEXT"];
-        if (right.optional) paramText = "[abap] " + paramText;
 
         if (right.alpha.length > 0) {
           writer.write(

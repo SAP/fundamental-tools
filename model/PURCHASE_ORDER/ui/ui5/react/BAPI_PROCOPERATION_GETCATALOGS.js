@@ -6,14 +6,14 @@ BAPI_PROCOPERATION_GETCATALOGS = {
 
   // INPUT PARAMETERS
 
-  MATERIAL_GROUP: "",                      // CHAR(9)    BAPIPOGN MAT_GRP               Material Group
-  // PLANT: "",                               // CHAR(4)    BAPIPOGN PLANT                 Plant
-  // WITHOUT_MATERIAL_GRP: "",                // CHAR(1)    BAPIMMPARA SELECTION           Search Independently of Material Group
+  MATERIAL_GROUP                   :   "", // CHAR (9) Material Group
+  //PLANT                          :   "", // CHAR (4) Plant
+  //WITHOUT_MATERIAL_GRP           :   "", // CHAR (1) Search Independently of Material Group
 
   // TABLE PARAMETERS
 
-  RETURN: [],                              // BAPIRETURN : Return Messages
-  VALID_CATALOGS: []                       // BAPICATALOG : List of Valid Catalogs
+  //RETURN                         :   [], // BAPIRETURN Return Messages
+  VALID_CATALOGS                   :   [], // BAPICATALOG List of Valid Catalogs
 };
 
 //

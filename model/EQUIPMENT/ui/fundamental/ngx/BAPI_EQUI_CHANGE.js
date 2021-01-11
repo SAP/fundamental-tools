@@ -6,27 +6,27 @@ BAPI_EQUI_CHANGE = {
 
   // INPUT PARAMETERS
 
-  DATA_FLEET: {},                          // BAPI_FLEET : Vehicle-Specific Data
-  DATA_FLEETX: {},                         // BAPI_FLEETX : Flag Structure Belonging to BAPI_FLEET (for Change BAPIs)
-  DATA_GENERAL: {},                        // BAPI_ITOB : General Data for Technical Objects
-  DATA_GENERALX: {},                       // BAPI_ITOBX : Flag Structure for BAPI_ITOB for Fields to be Copied
-  DATA_SPECIFIC: {},                       // BAPI_ITOB_EQ_ONLY : Equipment-Specific data
-  DATA_SPECIFICX: {},                      // BAPI_ITOB_EQ_ONLYX : Flag Structure for BAPI_ITOB_EQ_ONLY for Fields to be Copied
-  EQUIPMENT: "",                           // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment to be Changed
-  // VALID_DATE: SY-DATUM,                    // DATS(8)    BAPI_ITOB_PARMS INST_DATE      Date for Validity of an Equipment Usage Period Relevant Change
-  // VALID_TIME: SY-UZEIT,                    // TIMS(6)    BAPI_ITOB_PARMS INST_TIME      Time for Validity of a Equipment Usage Period Relevant Change
+  //DATA_FLEET                     :   {}, // BAPI_FLEET Vehicle-Specific Data
+  //DATA_FLEETX                    :   {}, // BAPI_FLEETX Flag Structure Belonging to BAPI_FLEET (for Change BAPIs)
+  DATA_GENERAL                     :   {}, // BAPI_ITOB General Data for Technical Objects
+  DATA_GENERALX                    :   {}, // BAPI_ITOBX Flag Structure for BAPI_ITOB for Fields to be Copied
+  DATA_SPECIFIC                    :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  DATA_SPECIFICX                   :   {}, // BAPI_ITOB_EQ_ONLYX Flag Structure for BAPI_ITOB_EQ_ONLY for Fields to be Copied
+  EQUIPMENT                        :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment to be Changed
+  //VALID_DATE                     : SY-DATUM, // DATS (8) Date for Validity of an Equipment Usage Period Relevant Change
+  //VALID_TIME                     : SY-UZEIT, // TIMS (6) Time for Validity of a Equipment Usage Period Relevant Change
 
   // OUTPUT PARAMETERS
 
-  DATA_FLEET_EXP: {},                      // BAPI_FLEET : Vehicle-Specific Data
-  DATA_GENERAL_EXP: {},                    // BAPI_ITOB : General Data for Technical Objects
-  DATA_SPECIFIC_EXP: {},                   // BAPI_ITOB_EQ_ONLY : Equipment-Specific data
-  RETURN: {},                              // BAPIRET2 : Return Parameter
+  DATA_FLEET_EXP                   :   {}, // BAPI_FLEET Vehicle-Specific Data
+  DATA_GENERAL_EXP                 :   {}, // BAPI_ITOB General Data for Technical Objects
+  DATA_SPECIFIC_EXP                :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  RETURN                           :   {}, // BAPIRET2 Return Parameter
 
   // TABLE PARAMETERS
 
-  EXTENSIONIN: [],                         // BAPIPAREX : Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
-  EXTENSIONOUT: []                         // BAPIPAREX : Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+  //EXTENSIONIN                    :   [], // BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+  //EXTENSIONOUT                   :   [], // BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
 };
 
 //

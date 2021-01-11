@@ -4,19 +4,19 @@
 
 <fast-text-field [(label)]="Material Group"
     [(value)]="MATERIAL_GROUP"
-    [(abap)]="{, mid: 'MKL'}" [(shlp)]="{type:'SH', id:'H_T023'}"
+    [(abap)]="{type: 'string', length: '9', mid: 'MKL'}" [(shlp)]="{type:'SH', id:'H_T023'}"
 />
 
 
 <fast-text-field [(label)]="Plant"
     [(value)]="PLANT"
-    [(abap)]="{, mid: 'WRK'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'WRK'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
 />
 
 
 <fast-select [(label)]="Selection flag"
     [(value)]="WITHOUT_MATERIAL_GRP" [(options)]="{type:'FV', id:'SELKZ'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '1'}"
 ></fast-select>
 
 
@@ -27,23 +27,23 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
               label="Message code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
               label="Application log: Internal message serial number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
               label="Application log: log number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"220"}'
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
               label="Message Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
               label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
               label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
               label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}'
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
               label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}'
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
               label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -52,55 +52,55 @@
 
 <fast-text-field [(label)]="Message code"
     [(value)]="RETURN.CODE"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '5'}"
 />
 
 
 <fast-select [(label)]="Application log: Internal message serial number"
     [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '6'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Application log: log number"
     [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Message Text"
     [(value)]="RETURN.MESSAGE"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '220'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V1"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V2"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V3"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V4"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
     [(value)]="RETURN.TYPE"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '1'}"
 />
 
 
@@ -109,15 +109,15 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
+    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
               label="Identifier for allowed catalogs" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Name of catalog" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
+    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
               label="Purchasing organization" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}'
+    <fd-fd-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
               label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
               label="Vendor's account number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -126,19 +126,19 @@
 
 <fast-select [(label)]="Identifier for allowed catalogs"
     [(value)]="VALID_CATALOGS.CATALOG" [(options)]="{type:'CT', id:'TMW3T'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Name of catalog"
     [(value)]="VALID_CATALOGS.CAT_TEXT"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 />
 
 
 <fast-text-field [(label)]="Purchasing organization"
     [(value)]="VALID_CATALOGS.PURCH_ORG"
-    [(abap)]="{, mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
 />
 
 
@@ -147,6 +147,6 @@
 
 <fast-text-field [(label)]="Vendor's account number"
     [(value)]="VALID_CATALOGS.VENDOR"
-    [(abap)]="{, mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
 />
 

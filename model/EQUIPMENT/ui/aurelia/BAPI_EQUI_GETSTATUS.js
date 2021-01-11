@@ -6,20 +6,20 @@ BAPI_EQUI_GETSTATUS = {
 
   // INPUT PARAMETERS
 
-  EQUIPMENT: "",                           // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Equipment Number
-  // LANGUAGE: SY-LANGU,                      // LANG(1)    BAPI_ITOB_PARMS LANGU          Language for reading status texts (both keys initial => no reading)
-  // LANGUAGE_ISO: "",                        // CHAR(2)    BAPI_ITOB_PARMS LANGU_ISO      ISO 639 Language Key
+  EQUIPMENT                        :   "", // CHAR (18) ALPHA=ALPHA Equipment Number
+  //LANGUAGE                       : SY-LANGU, // LANG (1) ALPHA=ISOLA Language for reading status texts (both keys initial => no reading)
+  //LANGUAGE_ISO                   :   "", // CHAR (2) ISO 639 Language Key
 
   // OUTPUT PARAMETERS
 
-  RETURN: {},                              // BAPIRET2 : Return Parameters
-  SYSTEMSTATUS: "",                        // CHAR(40)   J_STEXT                        System Status Line
-  USERSTATUS: "",                          // CHAR(40)   ASTTX                          User Status Line
+  RETURN                           :   {}, // BAPIRET2 Return Parameters
+  SYSTEMSTATUS                     :   "", // CHAR (40) System Status Line
+  USERSTATUS                       :   "", // CHAR (40) User Status Line
 
   // TABLE PARAMETERS
 
-  SYSTEM_STATUS: [],                       // BAPI_ITOB_STATUS : Equipment System Status
-  USER_STATUS: []                          // BAPI_ITOB_STATUS : Equipment User Status
+  SYSTEM_STATUS                    :   [], // BAPI_ITOB_STATUS Equipment System Status
+  USER_STATUS                      :   [], // BAPI_ITOB_STATUS Equipment User Status
 };
 
 //

@@ -6,40 +6,40 @@ BAPI_PO_GETDETAIL = {
 
   // INPUT PARAMETERS
 
-  // ACCOUNT_ASSIGNMENT: SPACE,               // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Account Assignment Data
-  // CONFIRMATIONS: SPACE,                    // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Confirmations
-  // EXTENSIONS: SPACE,                       // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Customer's Own Fields
-  // HEADER_TEXTS: SPACE,                     // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Header Texts
-  // HISTORY: SPACE,                          // CHAR(1)    BAPIMMPARA SELECTION           Also Provide PO History
-  // ITEMS: "X",                              // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Item Data
-  // ITEM_TEXTS: SPACE,                       // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Item Texts
-  PURCHASEORDER: "",                       // CHAR(10)   BAPIEKKO PO_NUMBER             Purchase Order Number
-  // SCHEDULES: SPACE,                        // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Schedule Lines
-  // SERVICES: SPACE,                         // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Services and Limits
-  // SERVICE_TEXTS: SPACE,                    // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Service Texts
+  //ACCOUNT_ASSIGNMENT             : SPACE, // CHAR (1) Also Provide Account Assignment Data
+  //CONFIRMATIONS                  : SPACE, // CHAR (1) Also Provide Confirmations
+  //EXTENSIONS                     : SPACE, // CHAR (1) Also Provide Customer's Own Fields
+  //HEADER_TEXTS                   : SPACE, // CHAR (1) Also Provide Header Texts
+  //HISTORY                        : SPACE, // CHAR (1) Also Provide PO History
+  //ITEMS                          :  "X", // CHAR (1) Also Provide Item Data
+  //ITEM_TEXTS                     : SPACE, // CHAR (1) Also Provide Item Texts
+  PURCHASEORDER                    :   "", // CHAR (10) ALPHA=ALPHA Purchase Order Number
+  //SCHEDULES                      : SPACE, // CHAR (1) Also Provide Schedule Lines
+  //SERVICES                       : SPACE, // CHAR (1) Also Provide Services and Limits
+  //SERVICE_TEXTS                  : SPACE, // CHAR (1) Also Provide Service Texts
 
   // OUTPUT PARAMETERS
 
-  PO_ADDRESS: {},                          // BAPIADDRESS : Ordering Address Data
-  PO_HEADER: {},                           // BAPIEKKOL : PO Header Data 
+  PO_ADDRESS                       :   {}, // BAPIADDRESS Ordering Address Data
+  PO_HEADER                        :   {}, // BAPIEKKOL PO Header Data
 
   // TABLE PARAMETERS
 
-  EXTENSIONOUT: [],                        // BAPIPAREX : Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
-  PO_HEADER_TEXTS: [],                     // BAPIEKKOTX : PO Header Texts
-  PO_ITEMS: [],                            // BAPIEKPO : Purchase Order Items
-  PO_ITEM_ACCOUNT_ASSIGNMENT: [],          // BAPIEKKN : Account Assignment Data for Item
-  PO_ITEM_CONFIRMATIONS: [],               // BAPIEKES : Confirmations for Item
-  PO_ITEM_CONTRACT_LIMITS: [],             // BAPIESUC : Limits with Contract Reference
-  PO_ITEM_HISTORY: [],                     // BAPIEKBE : PO History for Item
-  PO_ITEM_HISTORY_TOTALS: [],              // BAPIEKBES : PO History for Item: Totals
-  PO_ITEM_LIMITS: [],                      // BAPIESUH : Limits          
-  PO_ITEM_SCHEDULES: [],                   // BAPIEKET : Schedule Lines for Item
-  PO_ITEM_SERVICES: [],                    // BAPIESLL : Services        
-  PO_ITEM_SRV_ACCASS_VALUES: [],           // BAPIESKL : Value/Link to Service Account Assignment
-  PO_ITEM_TEXTS: [],                       // BAPIEKPOTX : Texts for Item
-  PO_SERVICES_TEXTS: [],                   // BAPIESLLTX : Long Texts for Service Line
-  RETURN: []                               // BAPIRETURN : Return Messages
+  //EXTENSIONOUT                   :   [], // BAPIPAREX Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+  //PO_HEADER_TEXTS                :   [], // BAPIEKKOTX PO Header Texts
+  //PO_ITEMS                       :   [], // BAPIEKPO Purchase Order Items
+  //PO_ITEM_ACCOUNT_ASSIGNMENT     :   [], // BAPIEKKN Account Assignment Data for Item
+  //PO_ITEM_CONFIRMATIONS          :   [], // BAPIEKES Confirmations for Item
+  //PO_ITEM_CONTRACT_LIMITS        :   [], // BAPIESUC Limits with Contract Reference
+  //PO_ITEM_HISTORY                :   [], // BAPIEKBE PO History for Item
+  //PO_ITEM_HISTORY_TOTALS         :   [], // BAPIEKBES PO History for Item: Totals
+  //PO_ITEM_LIMITS                 :   [], // BAPIESUH Limits
+  //PO_ITEM_SCHEDULES              :   [], // BAPIEKET Schedule Lines for Item
+  //PO_ITEM_SERVICES               :   [], // BAPIESLL Services
+  //PO_ITEM_SRV_ACCASS_VALUES      :   [], // BAPIESKL Value/Link to Service Account Assignment
+  //PO_ITEM_TEXTS                  :   [], // BAPIEKPOTX Texts for Item
+  //PO_SERVICES_TEXTS              :   [], // BAPIESLLTX Long Texts for Service Line
+  //RETURN                         :   [], // BAPIRETURN Return Messages
 };
 
 //

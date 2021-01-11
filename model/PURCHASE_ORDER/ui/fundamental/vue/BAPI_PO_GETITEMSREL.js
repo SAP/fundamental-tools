@@ -6,15 +6,15 @@ BAPI_PO_GETITEMSREL = {
 
   // INPUT PARAMETERS
 
-  // ITEMS_FOR_RELEASE: "X",                  // CHAR(1)    BAPIMMPARA SELECTION           Indicator: Display Purchase Orders Awaiting Release Only
-  // REL_CODE: "",                            // CHAR(2)    BAPIMMPARA REL_CODE            Release Code
-  // REL_GROUP: "",                           // CHAR(2)    BAPIMMPARA REL_GROUP           Release Group
+  //ITEMS_FOR_RELEASE              :  "X", // CHAR (1) Indicator: Display Purchase Orders Awaiting Release Only
+  //REL_CODE                       :   "", // CHAR (2) Release Code
+  //REL_GROUP                      :   "", // CHAR (2) Release Group
 
   // TABLE PARAMETERS
 
-  PO_HEADERS: [],                          // BAPIEKKOL : PO Header Data 
-  PO_ITEMS: [],                            // BAPIEKPOC : Purchase Order Items
-  RETURN: []                               // BAPIRETURN : Return Messages
+  PO_HEADERS                       :   [], // BAPIEKKOL PO Header Data
+  PO_ITEMS                         :   [], // BAPIEKPOC Purchase Order Items
+  //RETURN                         :   [], // BAPIRETURN Return Messages
 };
 
 //

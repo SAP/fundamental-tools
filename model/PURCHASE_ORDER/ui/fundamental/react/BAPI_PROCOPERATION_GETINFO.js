@@ -6,9 +6,9 @@ BAPI_PROCOPERATION_GETINFO = {
 
   // TABLE PARAMETERS
 
-  PROCUREMENT_ACCOUNT: [],                 // BAPIPOGNA : Account Assignment Data
-  PROCUREMENT_ITEM: [],                    // BAPIPOGN : Item Data       
-  RETURN: []                               // BAPIRETURN : Processing Errors
+  //PROCUREMENT_ACCOUNT            :   [], // BAPIPOGNA Account Assignment Data
+  PROCUREMENT_ITEM                 :   [], // BAPIPOGN Item Data
+  //RETURN                         :   [], // BAPIRETURN Processing Errors
 };
 
 //

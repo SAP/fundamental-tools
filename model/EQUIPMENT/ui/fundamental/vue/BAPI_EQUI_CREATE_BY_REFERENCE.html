@@ -55,7 +55,7 @@
 <fd-form-item>
     <fd-form-label>Equipment Number</fd-form-label>
         <fd-input v-model="EXTERNAL_NUMBER"
-            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'EQUI'}"
         />
 </fd-form-item>
@@ -64,7 +64,7 @@
 <fd-form-item>
     <fd-form-label>Equipment Number</fd-form-label>
         <fd-input v-model="REFERENCE_NUMBER"
-            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'EQUI'}"
         />
 </fd-form-item>
@@ -84,7 +84,7 @@
     <fd-form-label>ABC indicator for technical object</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.ABCINDIC"
         options="{type:'CT', id:'T370C'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
     >
     </fd-select>
 </fd-form-item>
@@ -100,7 +100,7 @@
 <fd-form-item>
     <fd-form-label>Acquisition Value</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.ACQUISVAL"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '+12.2'}"
         />
 </fd-form-item>
 
@@ -109,7 +109,7 @@
     <fd-form-label>Main Asset Number</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.ASSET_NO"
         options="{type:'CT', id:'ANLH'}"
-        data-abap="{, mid: 'AN1', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -119,7 +119,7 @@
 <fd-form-item>
     <fd-form-label>Technical object authorization group</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.AUTHGRP"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
             data-shlp="{type:'SH', id:'H_T370B'}"
         />
 </fd-form-item>
@@ -128,7 +128,7 @@
 <fd-form-item>
     <fd-form-label>Business Area</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.BUS_AREA"
-            data-abap="{, mid: 'GSB'}"
+            data-abap="{type: 'string', length: '4', mid: 'GSB'}"
             data-shlp="{type:'SH', id:'H_TGSB'}"
         />
 </fd-form-item>
@@ -138,7 +138,7 @@
     <fd-form-label>Catalog Profile</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.CATPROFILE"
         options="{type:'CT', id:'T352B'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '9'}"
     >
     </fd-select>
 </fd-form-item>
@@ -148,7 +148,7 @@
 <fd-form-item>
     <fd-form-label>Company Code</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.COMP_CODE"
-            data-abap="{, mid: 'BUK'}"
+            data-abap="{type: 'string', length: '4', mid: 'BUK'}"
             data-shlp="{type:'SH', id:'C_T001'}"
         />
 </fd-form-item>
@@ -157,7 +157,7 @@
 <fd-form-item>
     <fd-form-label>Month of construction</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.CONSTMONTH"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
             data-shlp="{type:'FV', id:'BAUMM'}"
         />
 </fd-form-item>
@@ -167,7 +167,7 @@
     <fd-form-label>Construction type material of the object</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.CONSTTYPE"
         options="{type:'CT', id:'MARA'}"
-        data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+        data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
     >
     </fd-select>
 </fd-form-item>
@@ -177,7 +177,7 @@
 <fd-form-item>
     <fd-form-label>Long Material Number for CONSTTYPE Field</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.CONSTTYPE_EXTERNAL"
-            data-abap="{, alpha: 'MATNL'}"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
         />
 </fd-form-item>
 
@@ -185,7 +185,7 @@
 <fd-form-item>
     <fd-form-label>External GUID for CONSTTYPE Field</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.CONSTTYPE_GUID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </fd-form-item>
 
@@ -193,7 +193,7 @@
 <fd-form-item>
     <fd-form-label>Construction type material of the object</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.CONSTTYPE_LONG"
-            data-abap="{, mid: 'MAT'}"
+            data-abap="{type: 'string', length: '40', mid: 'MAT'}"
         />
 </fd-form-item>
 
@@ -201,7 +201,7 @@
 <fd-form-item>
     <fd-form-label>Version Number for CONSTTYPE Field</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.CONSTTYPE_VERSION"
-            data-abap="{, alpha: 'MATNW'}"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
         />
 </fd-form-item>
 
@@ -209,7 +209,7 @@
 <fd-form-item>
     <fd-form-label>Year of construction</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.CONSTYEAR"
-            data-abap="{, alpha: 'GJAHR'}"
+            data-abap="{type: 'string', length: '4', alpha: 'GJAHR'}"
         />
 </fd-form-item>
 
@@ -218,7 +218,7 @@
     <fd-form-label>Cost Center</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.COSTCENTER"
         options="{type:'CT', id:'CSKS'}"
-        data-abap="{, mid: 'KOS', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -228,7 +228,7 @@
 <fd-form-item>
     <fd-form-label>Country ISO code</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.COUNTR_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
             data-shlp="{type:'SH', id:'F4_INTCA'}"
         />
 </fd-form-item>
@@ -237,7 +237,7 @@
 <fd-form-item>
     <fd-form-label>ISO currency code</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.CURR_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
         />
 </fd-form-item>
 
@@ -245,7 +245,7 @@
 <fd-form-item>
     <fd-form-label>Description of Technical Object</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.DESCRIPT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </fd-form-item>
 
@@ -253,7 +253,7 @@
 <fd-form-item>
     <fd-form-label>Distribution Channel</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.DISTR_CHAN"
-            data-abap="{, mid: 'VTW'}"
+            data-abap="{type: 'string', length: '2', mid: 'VTW'}"
             data-shlp="{type:'SH', id:'CSH_TVTW'}"
         />
 </fd-form-item>
@@ -262,7 +262,7 @@
 <fd-form-item>
     <fd-form-label>Division</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.DIVISION"
-            data-abap="{, mid: 'SPA'}"
+            data-abap="{type: 'string', length: '2', mid: 'SPA'}"
             data-shlp="{type:'SH', id:'CSH_TSPA'}"
         />
 </fd-form-item>
@@ -271,7 +271,7 @@
 <fd-form-item>
     <fd-form-label>End Point</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.END_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
         />
 </fd-form-item>
@@ -281,7 +281,7 @@
     <fd-form-label>Type of First Offset</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.FIRST_OFFSET_TYPE_CODE"
         options="{type:'CT', id:'EAML_D_OFFSET_TC'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '2'}"
     >
     </fd-select>
 </fd-form-item>
@@ -291,7 +291,7 @@
 <fd-form-item>
     <fd-form-label>Unit of Measurement for Offset 1 in ISO Code</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.FIRST_OFFSET_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </fd-form-item>
@@ -300,7 +300,7 @@
 <fd-form-item>
     <fd-form-label>Value of Offset 1</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.FIRST_OFFSET_VALUE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </fd-form-item>
 
@@ -308,7 +308,7 @@
 <fd-form-item>
     <fd-form-label>Inventory number</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.INVENTORY"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '25'}"
         />
 </fd-form-item>
 
@@ -316,7 +316,7 @@
 <fd-form-item>
     <fd-form-label>Length</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.LINEAR_LENGTH"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </fd-form-item>
 
@@ -324,7 +324,7 @@
 <fd-form-item>
     <fd-form-label>Linear Reference Pattern</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.LINEAR_REFERENCE_PATTERN"
-            data-abap="{, mid: 'LRP'}"
+            data-abap="{type: 'string', length: '10', mid: 'LRP'}"
             data-shlp="{type:'SH', id:'EAML_SHLP_LRPID'}"
         />
 </fd-form-item>
@@ -333,7 +333,7 @@
 <fd-form-item>
     <fd-form-label>Unit of Measurement for Linear Data in ISO Code</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.LINEAR_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </fd-form-item>
@@ -342,7 +342,7 @@
 <fd-form-item>
     <fd-form-label>Asset location</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MAINTLOC"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '10'}"
             data-shlp="{type:'SH', id:'H_T499S'}"
         />
 </fd-form-item>
@@ -351,7 +351,7 @@
 <fd-form-item>
     <fd-form-label>Maintenance plant</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MAINTPLANT"
-            data-abap="{, mid: 'SWK'}"
+            data-abap="{type: 'string', length: '4', mid: 'SWK'}"
             data-shlp="{type:'SH', id:'H_T001W'}"
         />
 </fd-form-item>
@@ -360,7 +360,7 @@
 <fd-form-item>
     <fd-form-label>Room</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MAINTROOM"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '8'}"
         />
 </fd-form-item>
 
@@ -369,7 +369,7 @@
     <fd-form-label>Country of manufacture</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.MANCOUNTRY"
         options="{type:'CT', id:'T005'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '3'}"
     >
     </fd-select>
 </fd-form-item>
@@ -379,7 +379,7 @@
 <fd-form-item>
     <fd-form-label>Manufacturer of asset</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MANFACTURE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -387,7 +387,7 @@
 <fd-form-item>
     <fd-form-label>Manufacturer model number</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MANMODEL"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '20'}"
         />
 </fd-form-item>
 
@@ -395,7 +395,7 @@
 <fd-form-item>
     <fd-form-label>Manufacturer part number</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MANPARNO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -403,7 +403,7 @@
 <fd-form-item>
     <fd-form-label>Manufacturer serial number</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MANSERNO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -411,7 +411,7 @@
 <fd-form-item>
     <fd-form-label>Length Spec for Distance between Marker and End Point</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MARKER_DISTANCE_END_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </fd-form-item>
 
@@ -419,7 +419,7 @@
 <fd-form-item>
     <fd-form-label>Distance between Marker and Start Point</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MARKER_DISTANCE_START_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </fd-form-item>
 
@@ -427,7 +427,7 @@
 <fd-form-item>
     <fd-form-label>Unit for the Distance from Marker in ISO Code</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MARKER_DISTANCE_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </fd-form-item>
@@ -436,7 +436,7 @@
 <fd-form-item>
     <fd-form-label>Marker for End Point</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MARKER_END_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
         />
 </fd-form-item>
@@ -445,7 +445,7 @@
 <fd-form-item>
     <fd-form-label>Marker for Start Point</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.MARKER_START_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
         />
 </fd-form-item>
@@ -455,7 +455,7 @@
     <fd-form-label>Type of Technical Object</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.OBJECTTYPE"
         options="{type:'CT', id:'T370K'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '10'}"
     >
     </fd-select>
 </fd-form-item>
@@ -465,7 +465,7 @@
 <fd-form-item>
     <fd-form-label>Size/dimension</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.OBJ_SIZE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </fd-form-item>
 
@@ -473,7 +473,7 @@
 <fd-form-item>
     <fd-form-label>Weight of object</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.OBJ_WEIGHT"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '10.3'}"
         />
 </fd-form-item>
 
@@ -481,7 +481,7 @@
 <fd-form-item>
     <fd-form-label>Planner Group for Customer Service and Plant Maintenance</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.PLANGROUP"
-            data-abap="{, mid: 'IHG'}"
+            data-abap="{type: 'string', length: '3', mid: 'IHG'}"
             data-shlp="{type:'SH', id:'H_T024I'}"
         />
 </fd-form-item>
@@ -490,7 +490,7 @@
 <fd-form-item>
     <fd-form-label>Maintenance Planning Plant</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.PLANPLANT"
-            data-abap="{, mid: 'IWK'}"
+            data-abap="{type: 'string', length: '4', mid: 'IWK'}"
             data-shlp="{type:'SH', id:'H_T399I'}"
         />
 </fd-form-item>
@@ -499,7 +499,7 @@
 <fd-form-item>
     <fd-form-label>Plant section</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.PLSECTN"
-            data-abap="{, mid: 'BBE'}"
+            data-abap="{type: 'string', length: '3', mid: 'BBE'}"
             data-shlp="{type:'SH', id:'H_T357'}"
         />
 </fd-form-item>
@@ -508,7 +508,7 @@
 <fd-form-item>
     <fd-form-label>Object ID of PP work center</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.PP_WKCTR"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '8'}"
             data-shlp="{type:'CT', id:'CRID'}"
         />
 </fd-form-item>
@@ -518,7 +518,7 @@
     <fd-form-label>Address number</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.READ_ADRNR"
         options="{type:'CT', id:'ADRC'}"
-        data-abap="{, mid: 'ADR', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -534,7 +534,7 @@
 <fd-form-item>
     <fd-form-label>Name of person who changed object</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.READ_CHNAM"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '12'}"
         />
 </fd-form-item>
 
@@ -548,7 +548,7 @@
 <fd-form-item>
     <fd-form-label>Name of Person who Created the Object</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.READ_CRNAM"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '12'}"
         />
 </fd-form-item>
 
@@ -557,7 +557,7 @@
     <fd-form-label>Object number</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.READ_OBJNR"
         options="{type:'CT', id:'ONR00'}"
-        data-abap="{, mid: 'ONR'}"
+        data-abap="{type: 'string', length: '22', mid: 'ONR'}"
     >
     </fd-select>
 </fd-form-item>
@@ -567,7 +567,7 @@
 <fd-form-item>
     <fd-form-label>Sales group</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SALES_GRP"
-            data-abap="{, mid: 'VKG'}"
+            data-abap="{type: 'string', length: '3', mid: 'VKG'}"
             data-shlp="{type:'SH', id:'H_TVKGR'}"
         />
 </fd-form-item>
@@ -576,7 +576,7 @@
 <fd-form-item>
     <fd-form-label>Sales office</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SALES_OFF"
-            data-abap="{, mid: 'VKB'}"
+            data-abap="{type: 'string', length: '4', mid: 'VKB'}"
             data-shlp="{type:'SH', id:'H_TVBUR'}"
         />
 </fd-form-item>
@@ -585,7 +585,7 @@
 <fd-form-item>
     <fd-form-label>Sales Organization</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SALES_ORG"
-            data-abap="{, mid: 'VKO'}"
+            data-abap="{type: 'string', length: '4', mid: 'VKO'}"
             data-shlp="{type:'SH', id:'H_TVKO'}"
         />
 </fd-form-item>
@@ -594,7 +594,7 @@
 <fd-form-item>
     <fd-form-label>Type of Second Offset</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SECOND_OFFSET_TYPE_CODE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
             data-shlp="{type:'CT', id:'EAML_D_OFFSET_TC'}"
         />
 </fd-form-item>
@@ -603,7 +603,7 @@
 <fd-form-item>
     <fd-form-label>Unit of Measurement for Offset 2 in ISO Code</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SECOND_OFFSET_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </fd-form-item>
@@ -612,7 +612,7 @@
 <fd-form-item>
     <fd-form-label>Value of Offset 2</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SECOND_OFFSET_VALUE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </fd-form-item>
 
@@ -620,7 +620,7 @@
 <fd-form-item>
     <fd-form-label>Settlement order</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SETTLORDER"
-            data-abap="{, alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'ORDE'}"
         />
 </fd-form-item>
@@ -630,7 +630,7 @@
     <fd-form-label>Notification Type for Shift Note for Object</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.SHIFT_NOTE_NOTIFICATION_TYPE"
         options="{type:'CT', id:'TQ80'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '2'}"
     >
     </fd-select>
 </fd-form-item>
@@ -640,7 +640,7 @@
 <fd-form-item>
     <fd-form-label>Shift Report Type for Object</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SHIFT_REPORT_TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '10'}"
         />
 </fd-form-item>
 
@@ -648,7 +648,7 @@
 <fd-form-item>
     <fd-form-label>Sort field</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.SORTFIELD"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -656,7 +656,7 @@
 <fd-form-item>
     <fd-form-label>Standing order number</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.STANDORDER"
-            data-abap="{, alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'ORDP'}"
         />
 </fd-form-item>
@@ -671,7 +671,7 @@
 <fd-form-item>
     <fd-form-label>Start Point</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.START_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
         />
 </fd-form-item>
@@ -681,7 +681,7 @@
     <fd-form-label>Asset Subnumber</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.SUB_NUMBER"
         options="{type:'CT', id:'ANLA'}"
-        data-abap="{, mid: 'AN2', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -691,7 +691,7 @@
 <fd-form-item>
     <fd-form-label>ISO code for unit of measurement</fd-form-label>
         <fd-input v-model="DATA_GENERAL_EXP.UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </fd-form-item>
@@ -701,7 +701,7 @@
     <fd-form-label>Work Breakdown Structure Element (WBS Element)</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.WBS_ELEM"
         options="{type:'CT', id:'PRPS'}"
-        data-abap="{, alpha: 'ABPSP'}"
+        data-abap="{type: 'string', length: '8', alpha: 'ABPSP'}"
     >
     </fd-select>
 </fd-form-item>
@@ -712,7 +712,7 @@
     <fd-form-label>Object ID of the Work Center</fd-form-label>
     <fd-select v-model="DATA_GENERAL_EXP.WORK_CTR"
         options="{type:'CT', id:'CRID'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '8'}"
     >
     </fd-select>
 </fd-form-item>
@@ -725,7 +725,7 @@
     <fd-form-label>Batch Number</fd-form-label>
     <fd-select v-model="DATA_SPECIFIC_EXP.BATCH"
         options="{type:'CT', id:'MCH1'}"
-        data-abap="{, mid: 'CHA'}"
+        data-abap="{type: 'string', length: '10', mid: 'CHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -735,7 +735,7 @@
 <fd-form-item>
     <fd-form-label>Configurable Material</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.CONFIGMAT"
-            data-abap="{, alpha: 'MATN1'}"
+            data-abap="{type: 'string', length: '18', alpha: 'MATN1'}"
             data-shlp="{type:'SH', id:'MAT1'}"
         />
 </fd-form-item>
@@ -744,7 +744,7 @@
 <fd-form-item>
     <fd-form-label>Long Material Number for CONFIGMAT Field</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.CONFIGMAT_EXTERNAL"
-            data-abap="{, alpha: 'MATNL'}"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
         />
 </fd-form-item>
 
@@ -752,7 +752,7 @@
 <fd-form-item>
     <fd-form-label>External GUID for CONFIGMAT Field</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.CONFIGMAT_GUID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </fd-form-item>
 
@@ -760,7 +760,7 @@
 <fd-form-item>
     <fd-form-label>Configurable Material</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.CONFIGMAT_LONG"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </fd-form-item>
 
@@ -768,7 +768,7 @@
 <fd-form-item>
     <fd-form-label>Version Number for CONFIGMAT Field</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.CONFIGMAT_VERSION"
-            data-abap="{, alpha: 'MATNW'}"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
         />
 </fd-form-item>
 
@@ -776,7 +776,7 @@
 <fd-form-item>
     <fd-form-label>General Indicator (Single Character)</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.CONFIG_CONTROL_IND"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '1'}"
         />
 </fd-form-item>
 
@@ -791,7 +791,7 @@
     <fd-form-label>Equipment category</fd-form-label>
     <fd-select v-model="DATA_SPECIFIC_EXP.EQUICATGRY"
         options="{type:'CT', id:'T370T'}"
-        data-abap="{, mid: 'EQT'}"
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}"
     >
     </fd-select>
 </fd-form-item>
@@ -813,7 +813,7 @@
 <fd-form-item>
     <fd-form-label>Technical information, intended for SAP internal use</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.FREE_NOTE1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -821,7 +821,7 @@
 <fd-form-item>
     <fd-form-label>Technical information, intended for SAP internal use</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.FREE_NOTE2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -829,7 +829,7 @@
 <fd-form-item>
     <fd-form-label>Numerical field, intended for SAP internal use</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.FREE_NUM1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '9'}"
         />
 </fd-form-item>
 
@@ -837,7 +837,7 @@
 <fd-form-item>
     <fd-form-label>Numerical field, intended for SAP internal use</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.FREE_NUM2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '9'}"
         />
 </fd-form-item>
 
@@ -845,7 +845,7 @@
 <fd-form-item>
     <fd-form-label>Function Identifier</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.FUNC_ID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </fd-form-item>
 
@@ -853,7 +853,7 @@
 <fd-form-item>
     <fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.INST_POS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
         />
 </fd-form-item>
 
@@ -861,7 +861,7 @@
 <fd-form-item>
     <fd-form-label>Internal Identification for PVS Objects</label>
     <fd-textarea v-model="DATA_SPECIFIC_EXP.IPPE_GUID"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '16'}"
         aria-required="true"
     ></fd-textarea>
 </fd-form-item>
@@ -870,7 +870,7 @@
 <fd-form-item>
     <fd-form-label>Structure Type of UII</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.IUID_TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '10'}"
             data-shlp="{type:'SH', id:'H_IUID_TYPE'}"
         />
 </fd-form-item>
@@ -879,7 +879,7 @@
 <fd-form-item>
     <fd-form-label>Equipment license number</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.LICENSE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '20'}"
         />
 </fd-form-item>
 
@@ -887,7 +887,7 @@
 <fd-form-item>
     <fd-form-label>Manufacturer drawing number</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.MANDRAWNO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -895,7 +895,7 @@
 <fd-form-item>
     <fd-form-label>Material Number</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.MATERIAL"
-            data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+            data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
             data-shlp="{type:'SH', id:'S_MAT1'}"
         />
 </fd-form-item>
@@ -904,7 +904,7 @@
 <fd-form-item>
     <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.MATERIAL_EXTERNAL"
-            data-abap="{, alpha: 'MATNL'}"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
         />
 </fd-form-item>
 
@@ -912,7 +912,7 @@
 <fd-form-item>
     <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.MATERIAL_GUID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </fd-form-item>
 
@@ -920,7 +920,7 @@
 <fd-form-item>
     <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.MATERIAL_LONG"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </fd-form-item>
 
@@ -928,7 +928,7 @@
 <fd-form-item>
     <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.MATERIAL_VERSION"
-            data-abap="{, alpha: 'MATNW'}"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
         />
 </fd-form-item>
 
@@ -936,7 +936,7 @@
 <fd-form-item>
     <fd-form-label>Configuration (internal object number)</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.READ_CUOBJ"
-            data-abap="{, mid: 'CUX'}"
+            data-abap="{type: 'string', length: '18', mid: 'CUX'}"
         />
 </fd-form-item>
 
@@ -950,7 +950,7 @@
 <fd-form-item>
     <fd-form-label>Functional Location Label</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.READ_FLOC"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </fd-form-item>
 
@@ -958,7 +958,7 @@
 <fd-form-item>
     <fd-form-label>Maintenance Plan</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.READ_MAINTENANCE_PLAN"
-            data-abap="{, mid: 'MPL', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', mid: 'MPL', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'MPLAL'}"
         />
 </fd-form-item>
@@ -967,7 +967,7 @@
 <fd-form-item>
     <fd-form-label>Measuring Point</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.READ_MEASURING_POINT"
-            data-abap="{, mid: 'IPT', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', mid: 'IPT', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'IMPM'}"
         />
 </fd-form-item>
@@ -977,7 +977,7 @@
     <fd-form-label>Superordinate Equipment</fd-form-label>
     <fd-select v-model="DATA_SPECIFIC_EXP.READ_SUPEQ"
         options="{type:'CT', id:'EQUI'}"
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -993,7 +993,7 @@
 <fd-form-item>
     <fd-form-label>Serial Number</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.SERIALNO"
-            data-abap="{, mid: 'SER', alpha: 'GERNR'}"
+            data-abap="{type: 'string', length: '18', mid: 'SER', alpha: 'GERNR'}"
         />
 </fd-form-item>
 
@@ -1001,7 +1001,7 @@
 <fd-form-item>
     <fd-form-label>Technical identification number</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.TECHID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '25'}"
         />
 </fd-form-item>
 
@@ -1009,7 +1009,7 @@
 <fd-form-item>
     <fd-form-label>Parameter Variant/Standard Variant</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.TECHS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '12'}"
         />
 </fd-form-item>
 
@@ -1017,7 +1017,7 @@
 <fd-form-item>
     <fd-form-label>Unique Item Identifier</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.UII"
-            data-abap="{, mid: 'UII'}"
+            data-abap="{type: 'string', length: '72', mid: 'UII'}"
             data-shlp="{type:'SH', id:'H_UII'}"
         />
 </fd-form-item>
@@ -1026,7 +1026,7 @@
 <fd-form-item>
     <fd-form-label>Plant Responsible for UII</fd-form-label>
         <fd-input v-model="DATA_SPECIFIC_EXP.UII_PLANT"
-            data-abap="{, mid: 'WRK'}"
+            data-abap="{type: 'string', length: '4', mid: 'WRK'}"
             data-shlp="{type:'SH', id:'H_T001W_C'}"
         />
 </fd-form-item>
@@ -1035,7 +1035,7 @@
 <fd-form-item>
     <fd-form-label>Equipment Number</fd-form-label>
         <fd-input v-model="EQUIPMENT"
-            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'EQUI'}"
         />
 </fd-form-item>
@@ -1047,7 +1047,7 @@
     <fd-form-label>Field in parameter</fd-form-label>
     <fd-select v-model="RETURN.FIELD"
         options="{type:'CT', id:'DD03L'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     >
     </fd-select>
 </fd-form-item>
@@ -1058,7 +1058,7 @@
     <fd-form-label>Message Class</fd-form-label>
     <fd-select v-model="RETURN.ID"
         options="{type:'CT', id:'T100A'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-select>
 </fd-form-item>
@@ -1069,7 +1069,7 @@
     <fd-form-label>Application log: Internal message serial number</fd-form-label>
     <fd-select v-model="RETURN.LOG_MSG_NO"
         options="{type:'CH', id:'BALM'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '6'}"
     >
     </fd-select>
 </fd-form-item>
@@ -1080,7 +1080,7 @@
     <fd-form-label>Application log: log number</fd-form-label>
     <fd-select v-model="RETURN.LOG_NO"
         options="{type:'CH', id:'BALHDR'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-select>
 </fd-form-item>
@@ -1090,7 +1090,7 @@
 <fd-form-item>
     <fd-form-label>Message Text</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '220'}"
         />
 </fd-form-item>
 
@@ -1098,7 +1098,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -1106,7 +1106,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -1114,7 +1114,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V3"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -1122,7 +1122,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V4"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -1130,7 +1130,7 @@
 <fd-form-item>
     <fd-form-label>Message Number</fd-form-label>
         <fd-input v-model="RETURN.NUMBER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
         />
 </fd-form-item>
 
@@ -1138,7 +1138,7 @@
 <fd-form-item>
     <fd-form-label>Parameter Name</fd-form-label>
         <fd-input v-model="RETURN.PARAMETER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </fd-form-item>
 
@@ -1146,7 +1146,7 @@
 <fd-form-item>
     <fd-form-label>Lines in parameter</fd-form-label>
         <fd-input v-model="RETURN.ROW"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '+10'}"
         />
 </fd-form-item>
 
@@ -1155,7 +1155,7 @@
     <fd-form-label>Logical system from which message originates</fd-form-label>
     <fd-select v-model="RETURN.SYSTEM"
         options="{type:'CT', id:'TBDLS'}"
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -1165,7 +1165,7 @@
 <fd-form-item>
     <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
         <fd-input v-model="RETURN.TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '1'}"
         />
 </fd-form-item>
 
@@ -1177,15 +1177,15 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
+    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
               label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
               label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
               label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
               label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"240"}'
+    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
               label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -1196,7 +1196,7 @@
     <fd-form-label>Structure name of  BAPI table extension</fd-form-label>
     <fd-select v-model="EXTENSIONOUT.STRUCTURE"
         options="{type:'CT', id:'DD02L'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     >
     </fd-select>
 </fd-form-item>
@@ -1206,7 +1206,7 @@
 <fd-form-item>
     <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
         <fd-input v-model="EXTENSIONOUT.VALUEPART1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '240'}"
         />
 </fd-form-item>
 
@@ -1214,7 +1214,7 @@
 <fd-form-item>
     <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
         <fd-input v-model="EXTENSIONOUT.VALUEPART2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '240'}"
         />
 </fd-form-item>
 
@@ -1222,7 +1222,7 @@
 <fd-form-item>
     <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
         <fd-input v-model="EXTENSIONOUT.VALUEPART3"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '240'}"
         />
 </fd-form-item>
 
@@ -1230,7 +1230,7 @@
 <fd-form-item>
     <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
         <fd-input v-model="EXTENSIONOUT.VALUEPART4"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '240'}"
         />
 </fd-form-item>
 

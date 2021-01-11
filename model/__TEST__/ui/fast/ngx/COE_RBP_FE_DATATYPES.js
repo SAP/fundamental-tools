@@ -6,36 +6,36 @@ _COE_RBP_FE_DATATYPES = {
 
   // INPUT PARAMETERS
 
-  IS_INPUT: {},                            // /COE/RBP_S_FE_RFM_STRUCTURE : todo: param text
-  // IV_COUNT: 100,                           // INT4(10)   INT4                           todo: param text
-  // IV_DECF16: "",                           // INT4(10)   DECFLOAT16                     todo: param text
-  // IV_GENERATE: "X",                        // CHAR(1)    CHAR1                          todo: param text
-  // IV_LANGU: "E",                           // LANG(1)    DFIES LANGU                    todo: param text
-  // IV_LANGU_D: "E",                         // LANG(1)    DDLANGUAGE                     todo: param text
-  // IV_STRING: "0123456789",                 // LANG(1)    STRING                         todo: param text
-  // IV_STRING_SIZE: 1,                       // LANG(1)    INT8                           todo: param text
-  // IV_UNAME: "",                            // CHAR(12)   SYST_UNAME                     todo: param text
-  // IV_UNAME_DOM: "",                        // CHAR(12)   SYCHAR12                       todo: param text
-  // IV_XSTRING: "",                          // CHAR(12)   XSTRING                        todo: param text
-  // IV_XSTRING_SIZE: 1,                      // CHAR(12)   INT8                           todo: param text
+  IS_INPUT                         :   {}, // /COE/RBP_S_FE_RFM_STRUCTURE todo: param text
+  //IV_COUNT                       :  100, // INT4 (10) todo: param text
+  //IV_DECF16                      :   "", // DECFLOAT16 todo: param text
+  //IV_GENERATE                    :  "X", // CHAR (1) todo: param text
+  //IV_LANGU                       :  "E", // LANG (1) ALPHA=ISOLA todo: param text
+  //IV_LANGU_D                     :  "E", // LANG (1) ALPHA=ISOLA todo: param text
+  //IV_STRING                      : "0123456789", // STRING todo: param text
+  //IV_STRING_SIZE                 :    1, // INT8 todo: param text
+  //IV_UNAME                       :   "", // CHAR (12) todo: param text
+  //IV_UNAME_DOM                   :   "", // CHAR (12) todo: param text
+  //IV_XSTRING                     :   "", // XSTRING todo: param text
+  //IV_XSTRING_SIZE                :    1, // INT8 todo: param text
 
   // OUTPUT PARAMETERS
 
-  ES_OUTPUT: {},                           // /COE/RBP_S_FE_RFM_STRUCTURE : todo: param text
-  EV_STRING: "",                           // CHAR(12)   STRING                         todo: param text
-  EV_XSTRING: native ABAP type: XSTRING,   // CHAR(12)   XSTRING                        todo: param text
+  ES_OUTPUT                        :   {}, // /COE/RBP_S_FE_RFM_STRUCTURE todo: param text
+  EV_STRING                        :   "", // STRING todo: param text
+  EV_XSTRING                       : native ABAP type: XSTRING, // XSTRING todo: param text
 
   // CHANGING PARAMETERS
 
-  CS_STRUCT: {},                           // /COE/RBP_S_FE_RFM_STRUCTURE : todo: param text
-  CT_TABLE: [],                            // /COE/RBP_T_FE_RFM_TABLE_TYPE : todo: param text
-  // CV_CKEY: "",                             // CUKY(5)    WAERS                          todo: param text
-  // CV_INT: "",                              // INT4(10)   INT4                           todo: param text
+  //CS_STRUCT                      :   {}, // /COE/RBP_S_FE_RFM_STRUCTURE todo: param text
+  //CT_TABLE                       :   [], // /COE/RBP_T_FE_RFM_TABLE_TYPE todo: param text
+  //CV_CKEY                        :   "", // CUKY (5) todo: param text
+  //CV_INT                         :   "", // INT4 (10) todo: param text
 
   // TABLE PARAMETERS
 
-  ET_OUTPUT: [],                           // /COE/RBP_T_FE_RFM_TABLE_TYPE : todo: param text
-  ET_RAW: []                               // SDOKCNTBINS : todo: param text
+  ET_OUTPUT                        :   [], // /COE/RBP_T_FE_RFM_TABLE_TYPE todo: param text
+  ET_RAW                           :   [], // SDOKCNTBINS todo: param text
 };
 
 //

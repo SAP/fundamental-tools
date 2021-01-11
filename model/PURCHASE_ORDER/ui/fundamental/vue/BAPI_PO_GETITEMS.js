@@ -6,36 +6,36 @@ BAPI_PO_GETITEMS = {
 
   // INPUT PARAMETERS
 
-  // ACCTASSCAT: "",                          // CHAR(1)    BAPIEKPO ACCTASSCAT            Account Assignment Category
-  // CREATED_BY: "",                          // CHAR(12)   BAPIEKKOC CREATED_BY           Creator
-  // DELETED_ITEMS: SPACE,                    // CHAR(1)    BAPIMMPARA SELECTION           Including Deleted Items
-  // DOC_DATE: "",                            // DATS(8)    BAPIEKKO DOC_DATE              As of PO Date
-  // DOC_TYPE: "",                            // CHAR(4)    BAPIEKKO DOC_TYPE              Order Type
-  // ITEMS_OPEN_FOR_RECEIPT: SPACE,           // CHAR(1)    BAPIMMPARA SELECTION           Items with Still-Open Goods Receipt Only
-  // ITEM_CAT: "",                            // CHAR(1)    BAPIEKPO ITEM_CAT              Item Category
-  // MATERIAL: "",                            // CHAR(18)   BAPIEKPO MATERIAL              Material
-  MATERIAL_EVG: {},                        // BAPIMGVMATNR : Long Material Number
-  // MATERIAL_LONG: "",                       // CHAR(40)   BAPIEKPO MATERIAL_LONG         Material Number (40 Characters, Necessary for Technical Reasons)
-  // MAT_GRP: "",                             // CHAR(9)    BAPIEKPO MAT_GRP               Material Group
-  // PLANT: "",                               // CHAR(4)    BAPIEKPO PLANT                 Plant
-  // PREQ_NAME: SPACE,                        // CHAR(12)   BAPIEKPOC PREQ_NAME            todo: param text
-  // PURCHASEORDER: "",                       // CHAR(10)   BAPIEKKO PO_NUMBER             Purchase Order Number
-  // PURCH_ORG: "",                           // CHAR(4)    BAPIEKKO PURCH_ORG             Purchasing Organization
-  // PUR_GROUP: "",                           // CHAR(3)    BAPIEKKO PUR_GROUP             Purchasing Group
-  // PUR_MAT: SPACE,                          // CHAR(18)   BAPIEKPO PUR_MAT               Material Number
-  PUR_MAT_EVG: {},                         // BAPIMGVMATNR : Long Material Number
-  // PUR_MAT_LONG: SPACE,                     // CHAR(40)   BAPIEKPO PUR_MAT_LONG          Material Number (40 Characters, Technical Requirement)
-  // SHORT_TEXT: "",                          // CHAR(40)   BAPIEKPO SHORT_TEXT            Short Text
-  // SUPPL_PLANT: "",                         // CHAR(4)    BAPIEKKO SUPPL_PLNT            Supplying Plant
-  // TRACKINGNO: "",                          // CHAR(10)   BAPIEKPO TRACKINGNO            Requirement Tracking Number
-  // VENDOR: "",                              // CHAR(10)   BAPIEKKO VENDOR                Vendor
-  // WITH_PO_HEADERS: SPACE,                  // CHAR(1)    BAPIMMPARA SELECTION           Also Provide Header Data
+  //ACCTASSCAT                     :   "", // CHAR (1) Account Assignment Category
+  //CREATED_BY                     :   "", // CHAR (12) Creator
+  //DELETED_ITEMS                  : SPACE, // CHAR (1) Including Deleted Items
+  //DOC_DATE                       :   "", // DATS (8) As of PO Date
+  //DOC_TYPE                       :   "", // CHAR (4) Order Type
+  //ITEMS_OPEN_FOR_RECEIPT         : SPACE, // CHAR (1) Items with Still-Open Goods Receipt Only
+  //ITEM_CAT                       :   "", // CHAR (1) Item Category
+  //MATERIAL                       :   "", // CHAR (18) ALPHA=MATN1 Material
+  //MATERIAL_EVG                   :   {}, // BAPIMGVMATNR Long Material Number
+  //MATERIAL_LONG                  :   "", // CHAR (40) Material Number (40 Characters, Necessary for Technical Reasons)
+  //MAT_GRP                        :   "", // CHAR (9) Material Group
+  //PLANT                          :   "", // CHAR (4) Plant
+  //PREQ_NAME                      : SPACE, // CHAR (12) todo: param text
+  //PURCHASEORDER                  :   "", // CHAR (10) ALPHA=ALPHA Purchase Order Number
+  //PURCH_ORG                      :   "", // CHAR (4) Purchasing Organization
+  //PUR_GROUP                      :   "", // CHAR (3) Purchasing Group
+  //PUR_MAT                        : SPACE, // CHAR (18) ALPHA=MATN1 Material Number
+  //PUR_MAT_EVG                    :   {}, // BAPIMGVMATNR Long Material Number
+  //PUR_MAT_LONG                   : SPACE, // CHAR (40) Material Number (40 Characters, Technical Requirement)
+  //SHORT_TEXT                     :   "", // CHAR (40) Short Text
+  //SUPPL_PLANT                    :   "", // CHAR (4) Supplying Plant
+  //TRACKINGNO                     :   "", // CHAR (10) Requirement Tracking Number
+  //VENDOR                         :   "", // CHAR (10) ALPHA=ALPHA Vendor
+  //WITH_PO_HEADERS                : SPACE, // CHAR (1) Also Provide Header Data
 
   // TABLE PARAMETERS
 
-  PO_HEADERS: [],                          // BAPIEKKOL : Table of PO Header Data
-  PO_ITEMS: [],                            // BAPIEKPOC : Table of Items 
-  RETURN: []                               // BAPIRETURN : Return Messages
+  //PO_HEADERS                     :   [], // BAPIEKKOL Table of PO Header Data
+  PO_ITEMS                         :   [], // BAPIEKPOC Table of Items
+  //RETURN                         :   [], // BAPIRETURN Return Messages
 };
 
 //

@@ -8,7 +8,7 @@
     <label fd-form-label>Functional Location Label</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_INSTALL.FUNCLOC"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -23,7 +23,7 @@
     <label fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_INSTALL.INST_POS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
         />
 </div>
 
@@ -38,7 +38,7 @@
     <label fd-form-label>Superordinate Equipment</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_INSTALL.SUPEQUI"
-            data-abap="{, alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
             data-shlp="{type:'CT', id:'EQUI'}"
         />
 </div>
@@ -48,7 +48,7 @@
     <label fd-form-label>Equipment Number</label>
         <input fd-input fd-form-control
             [(ngModel)]="EQUIPMENT"
-            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'EQUI'}"
         />
 </div>
@@ -63,7 +63,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.ABCINDIC"
         [dropdownValues]="{type:'CT', id:'T370C'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
     >
     </fd-combobox>
 </div>
@@ -79,7 +79,7 @@
     <label fd-form-label>Acquisition Value</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.ACQUISVAL"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '+12.2'}"
         />
 </div>
 
@@ -89,7 +89,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.ASSET_NO"
         [dropdownValues]="{type:'CT', id:'ANLH'}"
-        data-abap="{, mid: 'AN1', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '12', mid: 'AN1', alpha: 'ALPHA'}"
     >
     </fd-combobox>
 </div>
@@ -99,7 +99,7 @@
     <label fd-form-label>Technical object authorization group</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.AUTHGRP"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
             data-shlp="{type:'SH', id:'H_T370B'}"
         />
 </div>
@@ -109,7 +109,7 @@
     <label fd-form-label>Business Area</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.BUS_AREA"
-            data-abap="{, mid: 'GSB'}"
+            data-abap="{type: 'string', length: '4', mid: 'GSB'}"
             data-shlp="{type:'SH', id:'H_TGSB'}"
         />
 </div>
@@ -120,7 +120,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.CATPROFILE"
         [dropdownValues]="{type:'CT', id:'T352B'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '9'}"
     >
     </fd-combobox>
 </div>
@@ -130,7 +130,7 @@
     <label fd-form-label>Company Code</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.COMP_CODE"
-            data-abap="{, mid: 'BUK'}"
+            data-abap="{type: 'string', length: '4', mid: 'BUK'}"
             data-shlp="{type:'SH', id:'C_T001'}"
         />
 </div>
@@ -140,7 +140,7 @@
     <label fd-form-label>Month of construction</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.CONSTMONTH"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
             data-shlp="{type:'FV', id:'BAUMM'}"
         />
 </div>
@@ -151,7 +151,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.CONSTTYPE"
         [dropdownValues]="{type:'CT', id:'MARA'}"
-        data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+        data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
     >
     </fd-combobox>
 </div>
@@ -161,7 +161,7 @@
     <label fd-form-label>Long Material Number for CONSTTYPE Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.CONSTTYPE_EXTERNAL"
-            data-abap="{, alpha: 'MATNL'}"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
         />
 </div>
 
@@ -170,7 +170,7 @@
     <label fd-form-label>External GUID for CONSTTYPE Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.CONSTTYPE_GUID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </div>
 
@@ -179,7 +179,7 @@
     <label fd-form-label>Construction type material of the object</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.CONSTTYPE_LONG"
-            data-abap="{, mid: 'MAT'}"
+            data-abap="{type: 'string', length: '40', mid: 'MAT'}"
         />
 </div>
 
@@ -188,7 +188,7 @@
     <label fd-form-label>Version Number for CONSTTYPE Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.CONSTTYPE_VERSION"
-            data-abap="{, alpha: 'MATNW'}"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
         />
 </div>
 
@@ -197,7 +197,7 @@
     <label fd-form-label>Year of construction</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.CONSTYEAR"
-            data-abap="{, alpha: 'GJAHR'}"
+            data-abap="{type: 'string', length: '4', alpha: 'GJAHR'}"
         />
 </div>
 
@@ -207,7 +207,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.COSTCENTER"
         [dropdownValues]="{type:'CT', id:'CSKS'}"
-        data-abap="{, mid: 'KOS', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', mid: 'KOS', alpha: 'ALPHA'}"
     >
     </fd-combobox>
 </div>
@@ -217,7 +217,7 @@
     <label fd-form-label>Country ISO code</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.COUNTR_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
             data-shlp="{type:'SH', id:'F4_INTCA'}"
         />
 </div>
@@ -227,7 +227,7 @@
     <label fd-form-label>ISO currency code</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.CURR_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
         />
 </div>
 
@@ -236,7 +236,7 @@
     <label fd-form-label>Description of Technical Object</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.DESCRIPT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -245,7 +245,7 @@
     <label fd-form-label>Distribution Channel</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.DISTR_CHAN"
-            data-abap="{, mid: 'VTW'}"
+            data-abap="{type: 'string', length: '2', mid: 'VTW'}"
             data-shlp="{type:'SH', id:'CSH_TVTW'}"
         />
 </div>
@@ -255,7 +255,7 @@
     <label fd-form-label>Division</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.DIVISION"
-            data-abap="{, mid: 'SPA'}"
+            data-abap="{type: 'string', length: '2', mid: 'SPA'}"
             data-shlp="{type:'SH', id:'CSH_TSPA'}"
         />
 </div>
@@ -265,7 +265,7 @@
     <label fd-form-label>End Point</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.END_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
         />
 </div>
@@ -276,7 +276,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.FIRST_OFFSET_TYPE_CODE"
         [dropdownValues]="{type:'CT', id:'EAML_D_OFFSET_TC'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '2'}"
     >
     </fd-combobox>
 </div>
@@ -286,7 +286,7 @@
     <label fd-form-label>Unit of Measurement for Offset 1 in ISO Code</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.FIRST_OFFSET_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </div>
@@ -296,7 +296,7 @@
     <label fd-form-label>Value of Offset 1</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.FIRST_OFFSET_VALUE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </div>
 
@@ -305,7 +305,7 @@
     <label fd-form-label>Inventory number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.INVENTORY"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '25'}"
         />
 </div>
 
@@ -314,7 +314,7 @@
     <label fd-form-label>Length</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.LINEAR_LENGTH"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </div>
 
@@ -323,7 +323,7 @@
     <label fd-form-label>Linear Reference Pattern</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.LINEAR_REFERENCE_PATTERN"
-            data-abap="{, mid: 'LRP'}"
+            data-abap="{type: 'string', length: '10', mid: 'LRP'}"
             data-shlp="{type:'SH', id:'EAML_SHLP_LRPID'}"
         />
 </div>
@@ -333,7 +333,7 @@
     <label fd-form-label>Unit of Measurement for Linear Data in ISO Code</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.LINEAR_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </div>
@@ -343,7 +343,7 @@
     <label fd-form-label>Asset location</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MAINTLOC"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '10'}"
             data-shlp="{type:'SH', id:'H_T499S'}"
         />
 </div>
@@ -353,7 +353,7 @@
     <label fd-form-label>Maintenance plant</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MAINTPLANT"
-            data-abap="{, mid: 'SWK'}"
+            data-abap="{type: 'string', length: '4', mid: 'SWK'}"
             data-shlp="{type:'SH', id:'H_T001W'}"
         />
 </div>
@@ -363,7 +363,7 @@
     <label fd-form-label>Room</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MAINTROOM"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '8'}"
         />
 </div>
 
@@ -373,7 +373,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.MANCOUNTRY"
         [dropdownValues]="{type:'CT', id:'T005'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '3'}"
     >
     </fd-combobox>
 </div>
@@ -383,7 +383,7 @@
     <label fd-form-label>Manufacturer of asset</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MANFACTURE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -392,7 +392,7 @@
     <label fd-form-label>Manufacturer model number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MANMODEL"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '20'}"
         />
 </div>
 
@@ -401,7 +401,7 @@
     <label fd-form-label>Manufacturer part number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MANPARNO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -410,7 +410,7 @@
     <label fd-form-label>Manufacturer serial number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MANSERNO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -419,7 +419,7 @@
     <label fd-form-label>Length Spec for Distance between Marker and End Point</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MARKER_DISTANCE_END_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </div>
 
@@ -428,7 +428,7 @@
     <label fd-form-label>Distance between Marker and Start Point</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MARKER_DISTANCE_START_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </div>
 
@@ -437,7 +437,7 @@
     <label fd-form-label>Unit for the Distance from Marker in ISO Code</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MARKER_DISTANCE_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </div>
@@ -447,7 +447,7 @@
     <label fd-form-label>Marker for End Point</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MARKER_END_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
         />
 </div>
@@ -457,7 +457,7 @@
     <label fd-form-label>Marker for Start Point</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.MARKER_START_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_MARKER'}"
         />
 </div>
@@ -468,7 +468,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.OBJECTTYPE"
         [dropdownValues]="{type:'CT', id:'T370K'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '10'}"
     >
     </fd-combobox>
 </div>
@@ -478,7 +478,7 @@
     <label fd-form-label>Size/dimension</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.OBJ_SIZE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </div>
 
@@ -487,7 +487,7 @@
     <label fd-form-label>Weight of object</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.OBJ_WEIGHT"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '10.3'}"
         />
 </div>
 
@@ -496,7 +496,7 @@
     <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.PLANGROUP"
-            data-abap="{, mid: 'IHG'}"
+            data-abap="{type: 'string', length: '3', mid: 'IHG'}"
             data-shlp="{type:'SH', id:'H_T024I'}"
         />
 </div>
@@ -506,7 +506,7 @@
     <label fd-form-label>Maintenance Planning Plant</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.PLANPLANT"
-            data-abap="{, mid: 'IWK'}"
+            data-abap="{type: 'string', length: '4', mid: 'IWK'}"
             data-shlp="{type:'SH', id:'H_T399I'}"
         />
 </div>
@@ -516,7 +516,7 @@
     <label fd-form-label>Plant section</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.PLSECTN"
-            data-abap="{, mid: 'BBE'}"
+            data-abap="{type: 'string', length: '3', mid: 'BBE'}"
             data-shlp="{type:'SH', id:'H_T357'}"
         />
 </div>
@@ -526,7 +526,7 @@
     <label fd-form-label>Object ID of PP work center</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.PP_WKCTR"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '8'}"
             data-shlp="{type:'CT', id:'CRID'}"
         />
 </div>
@@ -537,7 +537,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.READ_ADRNR"
         [dropdownValues]="{type:'CT', id:'ADRC'}"
-        data-abap="{, mid: 'ADR', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
     >
     </fd-combobox>
 </div>
@@ -553,7 +553,7 @@
     <label fd-form-label>Name of person who changed object</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.READ_CHNAM"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '12'}"
         />
 </div>
 
@@ -568,7 +568,7 @@
     <label fd-form-label>Name of Person who Created the Object</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.READ_CRNAM"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '12'}"
         />
 </div>
 
@@ -578,7 +578,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.READ_OBJNR"
         [dropdownValues]="{type:'CT', id:'ONR00'}"
-        data-abap="{, mid: 'ONR'}"
+        data-abap="{type: 'string', length: '22', mid: 'ONR'}"
     >
     </fd-combobox>
 </div>
@@ -588,7 +588,7 @@
     <label fd-form-label>Sales group</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SALES_GRP"
-            data-abap="{, mid: 'VKG'}"
+            data-abap="{type: 'string', length: '3', mid: 'VKG'}"
             data-shlp="{type:'SH', id:'H_TVKGR'}"
         />
 </div>
@@ -598,7 +598,7 @@
     <label fd-form-label>Sales office</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SALES_OFF"
-            data-abap="{, mid: 'VKB'}"
+            data-abap="{type: 'string', length: '4', mid: 'VKB'}"
             data-shlp="{type:'SH', id:'H_TVBUR'}"
         />
 </div>
@@ -608,7 +608,7 @@
     <label fd-form-label>Sales Organization</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SALES_ORG"
-            data-abap="{, mid: 'VKO'}"
+            data-abap="{type: 'string', length: '4', mid: 'VKO'}"
             data-shlp="{type:'SH', id:'H_TVKO'}"
         />
 </div>
@@ -618,7 +618,7 @@
     <label fd-form-label>Type of Second Offset</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SECOND_OFFSET_TYPE_CODE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
             data-shlp="{type:'CT', id:'EAML_D_OFFSET_TC'}"
         />
 </div>
@@ -628,7 +628,7 @@
     <label fd-form-label>Unit of Measurement for Offset 2 in ISO Code</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SECOND_OFFSET_UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </div>
@@ -638,7 +638,7 @@
     <label fd-form-label>Value of Offset 2</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SECOND_OFFSET_VALUE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
         />
 </div>
 
@@ -647,7 +647,7 @@
     <label fd-form-label>Settlement order</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SETTLORDER"
-            data-abap="{, alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'ORDE'}"
         />
 </div>
@@ -658,7 +658,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.SHIFT_NOTE_NOTIFICATION_TYPE"
         [dropdownValues]="{type:'CT', id:'TQ80'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '2'}"
     >
     </fd-combobox>
 </div>
@@ -668,7 +668,7 @@
     <label fd-form-label>Shift Report Type for Object</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SHIFT_REPORT_TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '10'}"
         />
 </div>
 
@@ -677,7 +677,7 @@
     <label fd-form-label>Sort field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.SORTFIELD"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -686,7 +686,7 @@
     <label fd-form-label>Standing order number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.STANDORDER"
-            data-abap="{, alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'ORDP'}"
         />
 </div>
@@ -702,7 +702,7 @@
     <label fd-form-label>Start Point</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.START_POINT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '18'}"
             data-shlp="{type:'SH', id:'EAML_SH_LINEAR_POINT'}"
         />
 </div>
@@ -713,7 +713,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.SUB_NUMBER"
         [dropdownValues]="{type:'CT', id:'ANLA'}"
-        data-abap="{, mid: 'AN2', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '4', mid: 'AN2', alpha: 'ALPHA'}"
     >
     </fd-combobox>
 </div>
@@ -723,7 +723,7 @@
     <label fd-form-label>ISO code for unit of measurement</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_GENERAL_EXP.UNIT_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
             data-shlp="{type:'CT', id:'T006I'}"
         />
 </div>
@@ -734,7 +734,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.WBS_ELEM"
         [dropdownValues]="{type:'CT', id:'PRPS'}"
-        data-abap="{, alpha: 'ABPSP'}"
+        data-abap="{type: 'string', length: '8', alpha: 'ABPSP'}"
     >
     </fd-combobox>
 </div>
@@ -745,7 +745,7 @@
     <fd-combobox
         [(ngModel)]="DATA_GENERAL_EXP.WORK_CTR"
         [dropdownValues]="{type:'CT', id:'CRID'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '8'}"
     >
     </fd-combobox>
 </div>
@@ -758,7 +758,7 @@
     <fd-combobox
         [(ngModel)]="DATA_SPECIFIC_EXP.BATCH"
         [dropdownValues]="{type:'CT', id:'MCH1'}"
-        data-abap="{, mid: 'CHA'}"
+        data-abap="{type: 'string', length: '10', mid: 'CHA'}"
     >
     </fd-combobox>
 </div>
@@ -768,7 +768,7 @@
     <label fd-form-label>Configurable Material</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.CONFIGMAT"
-            data-abap="{, alpha: 'MATN1'}"
+            data-abap="{type: 'string', length: '18', alpha: 'MATN1'}"
             data-shlp="{type:'SH', id:'MAT1'}"
         />
 </div>
@@ -778,7 +778,7 @@
     <label fd-form-label>Long Material Number for CONFIGMAT Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.CONFIGMAT_EXTERNAL"
-            data-abap="{, alpha: 'MATNL'}"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
         />
 </div>
 
@@ -787,7 +787,7 @@
     <label fd-form-label>External GUID for CONFIGMAT Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.CONFIGMAT_GUID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </div>
 
@@ -796,7 +796,7 @@
     <label fd-form-label>Configurable Material</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.CONFIGMAT_LONG"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -805,7 +805,7 @@
     <label fd-form-label>Version Number for CONFIGMAT Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.CONFIGMAT_VERSION"
-            data-abap="{, alpha: 'MATNW'}"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
         />
 </div>
 
@@ -814,7 +814,7 @@
     <label fd-form-label>General Indicator (Single Character)</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.CONFIG_CONTROL_IND"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '1'}"
         />
 </div>
 
@@ -830,7 +830,7 @@
     <fd-combobox
         [(ngModel)]="DATA_SPECIFIC_EXP.EQUICATGRY"
         [dropdownValues]="{type:'CT', id:'T370T'}"
-        data-abap="{, mid: 'EQT'}"
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}"
     >
     </fd-combobox>
 </div>
@@ -852,7 +852,7 @@
     <label fd-form-label>Technical information, intended for SAP internal use</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.FREE_NOTE1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -861,7 +861,7 @@
     <label fd-form-label>Technical information, intended for SAP internal use</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.FREE_NOTE2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -870,7 +870,7 @@
     <label fd-form-label>Numerical field, intended for SAP internal use</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.FREE_NUM1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '9'}"
         />
 </div>
 
@@ -879,7 +879,7 @@
     <label fd-form-label>Numerical field, intended for SAP internal use</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.FREE_NUM2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '9'}"
         />
 </div>
 
@@ -888,7 +888,7 @@
     <label fd-form-label>Function Identifier</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.FUNC_ID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -897,7 +897,7 @@
     <label fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.INST_POS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
         />
 </div>
 
@@ -906,7 +906,7 @@
     <label fd-form-label>Internal Identification for PVS Objects</label>
     <textarea fd-form-control
         [(ngModel)]="DATA_SPECIFIC_EXP.IPPE_GUID"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '16'}"
         aria-required="true"
     ></textarea>
 </div>
@@ -916,7 +916,7 @@
     <label fd-form-label>Structure Type of UII</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.IUID_TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '10'}"
             data-shlp="{type:'SH', id:'H_IUID_TYPE'}"
         />
 </div>
@@ -926,7 +926,7 @@
     <label fd-form-label>Equipment license number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.LICENSE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '20'}"
         />
 </div>
 
@@ -935,7 +935,7 @@
     <label fd-form-label>Manufacturer drawing number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.MANDRAWNO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -944,7 +944,7 @@
     <label fd-form-label>Material Number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.MATERIAL"
-            data-abap="{, mid: 'MAT', alpha: 'MATN1'}"
+            data-abap="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
             data-shlp="{type:'SH', id:'S_MAT1'}"
         />
 </div>
@@ -954,7 +954,7 @@
     <label fd-form-label>Long Material Number for MATERIAL Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.MATERIAL_EXTERNAL"
-            data-abap="{, alpha: 'MATNL'}"
+            data-abap="{type: 'string', length: '40', alpha: 'MATNL'}"
         />
 </div>
 
@@ -963,7 +963,7 @@
     <label fd-form-label>External GUID for MATERIAL Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.MATERIAL_GUID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </div>
 
@@ -972,7 +972,7 @@
     <label fd-form-label>Material Number (40 Characters, needed f. technical reasons)</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.MATERIAL_LONG"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -981,7 +981,7 @@
     <label fd-form-label>Version Number for MATERIAL Field</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.MATERIAL_VERSION"
-            data-abap="{, alpha: 'MATNW'}"
+            data-abap="{type: 'string', length: '10', alpha: 'MATNW'}"
         />
 </div>
 
@@ -990,7 +990,7 @@
     <label fd-form-label>Configuration (internal object number)</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.READ_CUOBJ"
-            data-abap="{, mid: 'CUX'}"
+            data-abap="{type: 'string', length: '18', mid: 'CUX'}"
         />
 </div>
 
@@ -1004,7 +1004,7 @@
     <label fd-form-label>Functional Location Label</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.READ_FLOC"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -1013,7 +1013,7 @@
     <label fd-form-label>Maintenance Plan</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.READ_MAINTENANCE_PLAN"
-            data-abap="{, mid: 'MPL', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', mid: 'MPL', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'MPLAL'}"
         />
 </div>
@@ -1023,7 +1023,7 @@
     <label fd-form-label>Measuring Point</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.READ_MEASURING_POINT"
-            data-abap="{, mid: 'IPT', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '12', mid: 'IPT', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'IMPM'}"
         />
 </div>
@@ -1034,7 +1034,7 @@
     <fd-combobox
         [(ngModel)]="DATA_SPECIFIC_EXP.READ_SUPEQ"
         [dropdownValues]="{type:'CT', id:'EQUI'}"
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
     >
     </fd-combobox>
 </div>
@@ -1050,7 +1050,7 @@
     <label fd-form-label>Serial Number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.SERIALNO"
-            data-abap="{, mid: 'SER', alpha: 'GERNR'}"
+            data-abap="{type: 'string', length: '18', mid: 'SER', alpha: 'GERNR'}"
         />
 </div>
 
@@ -1059,7 +1059,7 @@
     <label fd-form-label>Technical identification number</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.TECHID"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '25'}"
         />
 </div>
 
@@ -1068,7 +1068,7 @@
     <label fd-form-label>Parameter Variant/Standard Variant</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.TECHS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '12'}"
         />
 </div>
 
@@ -1077,7 +1077,7 @@
     <label fd-form-label>Unique Item Identifier</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.UII"
-            data-abap="{, mid: 'UII'}"
+            data-abap="{type: 'string', length: '72', mid: 'UII'}"
             data-shlp="{type:'SH', id:'H_UII'}"
         />
 </div>
@@ -1087,7 +1087,7 @@
     <label fd-form-label>Plant Responsible for UII</label>
         <input fd-input fd-form-control
             [(ngModel)]="DATA_SPECIFIC_EXP.UII_PLANT"
-            data-abap="{, mid: 'WRK'}"
+            data-abap="{type: 'string', length: '4', mid: 'WRK'}"
             data-shlp="{type:'SH', id:'H_T001W_C'}"
         />
 </div>
@@ -1100,7 +1100,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.FIELD"
         [dropdownValues]="{type:'CT', id:'DD03L'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     >
     </fd-combobox>
 </div>
@@ -1111,7 +1111,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.ID"
         [dropdownValues]="{type:'CT', id:'T100A'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-combobox>
 </div>
@@ -1122,7 +1122,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.LOG_MSG_NO"
         [dropdownValues]="{type:'CH', id:'BALM'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '6'}"
     >
     </fd-combobox>
 </div>
@@ -1133,7 +1133,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.LOG_NO"
         [dropdownValues]="{type:'CH', id:'BALHDR'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-combobox>
 </div>
@@ -1143,7 +1143,7 @@
     <label fd-form-label>Message Text</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '220'}"
         />
 </div>
 
@@ -1152,7 +1152,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -1161,7 +1161,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -1170,7 +1170,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V3"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -1179,7 +1179,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V4"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -1188,7 +1188,7 @@
     <label fd-form-label>Message Number</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.NUMBER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
         />
 </div>
 
@@ -1197,7 +1197,7 @@
     <label fd-form-label>Parameter Name</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.PARAMETER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </div>
 
@@ -1206,7 +1206,7 @@
     <label fd-form-label>Lines in parameter</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.ROW"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '+10'}"
         />
 </div>
 
@@ -1216,7 +1216,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.SYSTEM"
         [dropdownValues]="{type:'CT', id:'TBDLS'}"
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
     >
     </fd-combobox>
 </div>
@@ -1226,7 +1226,7 @@
     <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '1'}"
         />
 </div>
 

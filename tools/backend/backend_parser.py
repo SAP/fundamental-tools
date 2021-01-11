@@ -8,9 +8,8 @@ import json
 import logging
 import os
 import sys
-from backend.constants import get_ddic_js
+from backend.constants import get_ddic_js, iso2_to_LANGU
 from .utils import get_log_level
-from .abap_lang import iso2_to_LANGU
 from .systems import (
     BACKEND_API,
     get_connection,

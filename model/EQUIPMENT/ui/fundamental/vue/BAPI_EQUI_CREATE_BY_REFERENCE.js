@@ -6,21 +6,21 @@ BAPI_EQUI_CREATE_BY_REFERENCE = {
 
   // INPUT PARAMETERS
 
-  COPY_FLAGS: {},                          // BAPI_ITOB_EQ_COPY_FLAGS : Indicators for Sub-Objects to be Copied from Reference
-  // EXTERNAL_NUMBER: "",                     // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment to be Created (Initial => Internal Assignment)
-  REFERENCE_NUMBER: "",                    // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment Reference
-  // VALID_DATE: "",                          // DATS(8)    BAPI_ITOB_PARMS INST_DATE      Valid-From Date for Equipment to be Created
+  //COPY_FLAGS                     :   {}, // BAPI_ITOB_EQ_COPY_FLAGS Indicators for Sub-Objects to be Copied from Reference
+  //EXTERNAL_NUMBER                :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment to be Created (Initial => Internal Assignment)
+  REFERENCE_NUMBER                 :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment Reference
+  //VALID_DATE                     :   "", // DATS (8) Valid-From Date for Equipment to be Created
 
   // OUTPUT PARAMETERS
 
-  DATA_GENERAL_EXP: {},                    // BAPI_ITOB : General Data for Technical Objects
-  DATA_SPECIFIC_EXP: {},                   // BAPI_ITOB_EQ_ONLY : Equipment-Specific data
-  EQUIPMENT: "",                           // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment Created
-  RETURN: {},                              // BAPIRET2 : Return Parameter
+  DATA_GENERAL_EXP                 :   {}, // BAPI_ITOB General Data for Technical Objects
+  DATA_SPECIFIC_EXP                :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  EQUIPMENT                        :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment Created
+  RETURN                           :   {}, // BAPIRET2 Return Parameter
 
   // TABLE PARAMETERS
 
-  EXTENSIONOUT: []                         // BAPIPAREX : todo: param text
+  //EXTENSIONOUT                   :   [], // BAPIPAREX todo: param text
 };
 
 //

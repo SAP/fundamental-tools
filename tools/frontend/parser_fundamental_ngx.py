@@ -28,7 +28,7 @@ class ParserFundamentalAngular(ModelParser):
         if self.args.no_ddic:
             del markup[ABAP_TYPE]
         if self.args.no_type:
-            del markup["js-type"]
+            del markup["type"]
         # abap = " data-abap.bind='{"
         # lena = len(abap)
         for attr in FIELD_ATTRIBUTES:

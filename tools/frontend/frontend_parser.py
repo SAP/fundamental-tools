@@ -45,8 +45,8 @@ HEADER_JS_PARAMCLASS = """// %s PARAMETERS"""
 
 FIELD_ATTRIBUTES = [
     ABAP_TYPE,
-    "js-type",
-    "js-format",
+    "type",
+    "format",
     "abap-length",
     "abap-mid",
     "abap-shlp",
@@ -104,7 +104,7 @@ class ModelParser:
     def get_field_inital(self, rfm_field):
         init = {"number": "0", "string": "''"}
         try:
-            initial = init[self.DDIC_JS[rfm_field["format"]["DATATYPE"]]["js-type"]]
+            initial = init[self.DDIC_JS[rfm_field["format"]["DATATYPE"]]["type"]]
         except Exception as ex:
             print(
                 f"Datatype [%s] not supported: {rfm_field['format']['DATATYPE']}",
@@ -193,10 +193,6 @@ class ModelParser:
 
             rfm_params = self.Parameters[rfm_name]
 
-            comma = ","
-            index_last = len(rfm_params) - 1
-            index = 0
-
             model_js = Writer(
                 rfm_name=rfm_name,
                 rfm_set=self.rfm_set,
@@ -227,12 +223,13 @@ class ModelParser:
                         model_js.write(HEADER_JS_PARAMCLASS % PARAMCLASS[param_class])
                         model_js.newline()
 
-                    if index == index_last:
-                        comma = ""
-                    index += 1
-
+                    left = (
+                        parameter_name
+                        if rfm_parameter["required"]
+                        else f"//{parameter_name}"
+                    )
                     right = self.get_param_initializer(rfm_parameter)
-                    optional = "// " if right["optional"] else ""
+                    param_text = rfm_parameter["PARAMTEXT"]
 
                     if rfm_parameter["PARAMTYPE"] == "VARIABLE":
                         if "nativeKey" not in rfm_parameter:
@@ -249,48 +246,45 @@ class ModelParser:
                                 + "(%u)" % field_ddic["format"]["LENG"]
                             )
 
-                        model_js.write(
-                            optional + "{0: <40} {1: <30}".format(
-                                "%s: %s%s"
-                                % (
-                                    parameter_name,
+                        if len(right["alpha"].strip()) > 0:
+                            model_js.write(
+                                "{:<33}: {:>4}, // {} ALPHA={} {}".format(
+                                    left,
                                     right["init"],
-                                    # self.get_field_inital(field_ddic),
-                                    comma,
-                                ),
-                                "// %-10s %-30s %s"
-                                % (
-                                    ttype,
-                                    rfm_parameter["FIELDKEY"],
-                                    rfm_parameter["PARAMTEXT"],
-                                ),
+                                    right["abaptype"],
+                                    right["alpha"],
+                                    param_text
+                                )
                             )
-                        )
+                        else:
+                            model_js.write(
+                                "{:<33}: {:>4}, // {} {}".format(
+                                    left,
+                                    right["init"],
+                                    right["abaptype"],
+                                    param_text
+                                )
+                            )
 
                     elif rfm_parameter["PARAMTYPE"] == "STRUCTURE":
                         model_js.write(
-                            optional + "{0: <40} {1: <30}".format(
-                                "%s: {}%s" % (parameter_name, comma),
-                                "// %s : %s"
-                                % (
-                                    rfm_parameter["FIELDKEY"],
-                                    rfm_parameter["PARAMTEXT"],
-                                ),
+                            "{:<33}: {:>4}, // {} {}".format(
+                                left,
+                                right["init"],
+                                right["abaptype"],
+                                param_text
                             )
                         )
 
                     elif rfm_parameter["PARAMTYPE"] == "TABLE":
                         model_js.write(
-                            optional + "{0: <40} {1: <30}".format(
-                                "%s: []%s" % (parameter_name, comma),
-                                "// %s : %s"
-                                % (
-                                    rfm_parameter["FIELDKEY"],
-                                    rfm_parameter["PARAMTEXT"],
-                                ),
+                            "{:<33}: {:>4}, // {} {}".format(
+                                left,
+                                right["init"],
+                                right["abaptype"],
+                                param_text
                             )
                         )
-
                     else:
                         raise ValueError(
                             "Invalid parameter type [%s]" % rfm_parameter["PARAMTYPE"]
@@ -324,7 +318,7 @@ class ModelParser:
             if field:
                 result["abaptype"] = field["format"]["DATATYPE"]
                 result["leng"] = field["format"]["LENG"]
-                if "input" in "FIELD":
+                if "input" in field:
                     if "CONVEXIT" in field["input"]:
                         result["alpha"] = field["input"]["CONVEXIT"]
 
@@ -345,7 +339,7 @@ class ModelParser:
             if type(result["init"]) == str:
                 if len(result["init"].strip()) == 0:
                     result["init"] = "''"
-                result["init"] = result["init"].replace("'", "\"")
+                result["init"] = result["init"].replace("'", '"')
 
         else:
             raise ValueError(f"Unknown parameter type {param['paramType']}")
@@ -357,7 +351,7 @@ class ModelParser:
         if self.args.no_ddic:
             del markup[ABAP_TYPE]
         if self.args.no_type:
-            del markup["js-type"]
+            del markup["type"]
         abap = " data-abap.bind='{"
         lena = len(abap)
         for attr in FIELD_ATTRIBUTES:
@@ -397,7 +391,8 @@ class ModelParser:
         element += ' label="%s"' % markup["abap-text"]
         del markup["abap-text"]
 
-        # if len(markup) > 1:  # only self.HTML_TAGleft
+        # todo: not needed
+        # if len(markup) > 1:  # only self.HTML_TAG left
         #     # remove 'ui:tag:', '<tagname>'
         #     markup_text = str(markup)
         #     m = re.search("(.+?), 'ui-tag(.+?)}", markup_text)
@@ -412,7 +407,7 @@ class ModelParser:
         if self.args.no_ddic:
             del markup[ABAP_TYPE]
         if self.args.no_type:
-            del markup["js-type"]
+            del markup["type"]
         abap = " data-abap.bind='{"
         lena = len(abap)
         for attr in FIELD_ATTRIBUTES:
@@ -496,17 +491,17 @@ class ModelParser:
         markup = {ABAP_TYPE: ddic["format"]["DATATYPE"], "bind": bind}
 
         # remove frontend markup
-        for m in ['html-tag', 'initial', 'comment']:
+        for m in ["html-tag", "initial", "comment"]:
             if m in markup[ABAP_TYPE]:
                 del markup[ABAP_TYPE][m]
 
-        # "js-type", "html-tag", "js-format" -> markup
+        # "type", "html-tag", "format" -> markup
         markup.update(self.DDIC_JS[ddic["format"]["DATATYPE"]])
 
         # use checkbox and combo tags for binary and list inputs
         if INPUT_TYPE_KEY in ddic["format"]:
             if ddic["format"][INPUT_TYPE_KEY] == INPUT_TYPE_BINARY:
-                markup["js-format"] = "boolean"
+                markup["format"] = "boolean"
                 markup["html-tag"] = self.INPUT_TYPE_BINARY_TAG
             elif ddic["format"][INPUT_TYPE_KEY] == INPUT_TYPE_LIST:
                 markup["html-tag"] = self.INPUT_TYPE_LIST_TAG
@@ -558,8 +553,8 @@ class ModelParser:
 
         if "abap-shlp" in markup:
             # shlp not needed for boolean, date, time
-            if "js-format" in markup:
-                if markup["js-format"] == "boolean":
+            if "format" in markup:
+                if markup["format"] == "boolean":
                     del markup["abap-shlp"]
 
             if markup[ABAP_TYPE] in ["DATS", "TIMS"]:
@@ -677,8 +672,8 @@ class ModelParser:
                 if markup[ABAP_TYPE] in ["CUKY", "UNIT"]:
                     continue
                 element = '<%s sortable field="%s"' % (markup["html-tag"], rfm_field)
-                if "js-format" in markup:
-                    if markup["js-format"] == "boolean":
+                if "format" in markup:
+                    if markup["format"] == "boolean":
                         # markup['type'] = 'boolean'
                         # del markup['format']
                         if "shlp" in markup:

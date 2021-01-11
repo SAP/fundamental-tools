@@ -64,7 +64,10 @@ $ git clone https://github.com/SAP/fundamental-tools
 
 ### Step 1: ABAP API
 
-Maintain ABAP system connection parameters in [systems.py](tools/generator/systems.py) and ABAP API RFM names in [business_objects.py](tools/generator/business_objects.py), following given examples.
+Preparation:
+
+- Maintain ABAP system RFC destination in `sapnwrfc.ini`
+- Maintain RFM names in [business_objects.py](tools/generator/business_objects.py), following given examples
 
 Run `backend.py` script:
 

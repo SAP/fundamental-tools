@@ -4,19 +4,19 @@
 
 <fast-text-field [(label)]="Language Key"
     [(value)]="LANGUAGE"
-    [(abap)]="{, mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
 />
 
 
 <fast-text-field [(label)]="2-Character SAP Language Code"
     [(value)]="LANGUAGE_ISO"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 />
 
 
 <fast-text-field [(label)]="Partner Function"
     [(value)]="PARTNERFUNCTION"
-    [(abap)]="{, mid: 'PAR', alpha: 'PARVW'}" [(shlp)]="{type:'SH', id:'H_TPAR'}"
+    [(abap)]="{type: 'string', length: '2', mid: 'PAR', alpha: 'PARVW'}" [(shlp)]="{type:'SH', id:'H_TPAR'}"
 />
 
 
@@ -26,85 +26,85 @@
 
 <fast-select [(label)]="Field in parameter"
     [(value)]="RETURN.FIELD" [(options)]="{type:'CT', id:'DD03L'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Message Class"
     [(value)]="RETURN.ID" [(options)]="{type:'CT', id:'T100A'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Application log: Internal message serial number"
     [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '6'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Application log: log number"
     [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Message Text"
     [(value)]="RETURN.MESSAGE"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '220'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V1"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V2"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V3"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V4"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Number"
     [(value)]="RETURN.NUMBER"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '3'}"
 />
 
 
 <fast-text-field [(label)]="Parameter Name"
     [(value)]="RETURN.PARAMETER"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '32'}"
 />
 
 
 <fast-text-field [(label)]="Lines in parameter"
     [(value)]="RETURN.ROW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'number', length: '+10'}"
 />
 
 
 <fast-select [(label)]="Logical system from which message originates"
     [(value)]="RETURN.SYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
-    [(abap)]="{, alpha: 'ALPHA'}"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
     [(value)]="RETURN.TYPE"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '1'}"
 />
 
 
@@ -115,13 +115,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -130,25 +130,25 @@
 
 <fast-text-field [(label)]="City name in Uppercase for Search Help"
     [(value)]="ADDRESS_CITY_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '25'}"
 />
 
 
 <fast-text-field [(label)]="City name in Uppercase for Search Help"
     [(value)]="ADDRESS_CITY_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '25'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="ADDRESS_CITY_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="ADDRESS_CITY_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -157,13 +157,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -172,25 +172,25 @@
 
 <fast-text-field [(label)]="Name (Field NAME1) in Uppercase for Search Help"
     [(value)]="ADDRESS_NAME_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '25'}"
 />
 
 
 <fast-text-field [(label)]="Name (Field NAME1) in Uppercase for Search Help"
     [(value)]="ADDRESS_NAME_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '25'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="ADDRESS_NAME_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="ADDRESS_NAME_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -199,13 +199,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
               label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
               label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -214,25 +214,25 @@
 
 <fast-text-field [(label)]="City postal code"
     [(value)]="ADDRESS_POST_CODE_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '10'}"
 />
 
 
 <fast-text-field [(label)]="City postal code"
     [(value)]="ADDRESS_POST_CODE_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '10'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="ADDRESS_POST_CODE_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="ADDRESS_POST_CODE_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -241,13 +241,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -256,25 +256,25 @@
 
 <fast-text-field [(label)]="Search Term 1"
     [(value)]="ADDRESS_SEARCH_TERM_1_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 />
 
 
 <fast-text-field [(label)]="Search Term 1"
     [(value)]="ADDRESS_SEARCH_TERM_1_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="ADDRESS_SEARCH_TERM_1_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="ADDRESS_SEARCH_TERM_1_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -283,13 +283,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -298,25 +298,25 @@
 
 <fast-text-field [(label)]="Search Term 2"
     [(value)]="ADDRESS_SEARCH_TERM_2_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 />
 
 
 <fast-text-field [(label)]="Search Term 2"
     [(value)]="ADDRESS_SEARCH_TERM_2_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="ADDRESS_SEARCH_TERM_2_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="ADDRESS_SEARCH_TERM_2_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -325,13 +325,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -340,25 +340,25 @@
 
 <fast-text-field [(label)]="Street Name in Uppercase for Search Help"
     [(value)]="ADDRESS_STREET_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '25'}"
 />
 
 
 <fast-text-field [(label)]="Street Name in Uppercase for Search Help"
     [(value)]="ADDRESS_STREET_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '25'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="ADDRESS_STREET_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="ADDRESS_STREET_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -367,13 +367,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
               label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
               label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -382,25 +382,25 @@
 
 <fast-text-field [(label)]="Description of Technical Object"
     [(value)]="DESCRIPT_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '40'}"
 />
 
 
 <fast-text-field [(label)]="Description of Technical Object"
     [(value)]="DESCRIPT_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '40'}"
 />
 
 
 <fast-select [(label)]="Selection operator OPTION for range tables"
     [(value)]="DESCRIPT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
     [(value)]="DESCRIPT_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
 />
 
 
@@ -409,19 +409,19 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
               label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
+    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
               label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
               label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
               label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -430,43 +430,43 @@
 
 <fast-text-field [(label)]="Description of Technical Object"
     [(value)]="EQUIPMENT_LIST.DESCRIPT"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '40'}"
 />
 
 
 <fast-text-field [(label)]="Equipment category"
     [(value)]="EQUIPMENT_LIST.EQUICATGRY"
-    [(abap)]="{, mid: 'EQT'}" [(shlp)]="{type:'CT', id:'T370T'}"
+    [(abap)]="{type: 'string', length: '1', mid: 'EQT'}" [(shlp)]="{type:'CT', id:'T370T'}"
 />
 
 
 <fast-text-field [(label)]="Equipment Number"
     [(value)]="EQUIPMENT_LIST.EQUIPMENT"
-    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+    [(abap)]="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
 />
 
 
 <fast-text-field [(label)]="Maintenance plant"
     [(value)]="EQUIPMENT_LIST.MAINTPLANT"
-    [(abap)]="{, mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
 />
 
 
 <fast-select [(label)]="Planner Group for Customer Service and Plant Maintenance"
     [(value)]="EQUIPMENT_LIST.PLANGROUP" [(options)]="{type:'CT', id:'T024I'}"
-    [(abap)]="{, mid: 'IHG'}"
+    [(abap)]="{type: 'string', length: '3', mid: 'IHG'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Maintenance Planning Plant"
     [(value)]="EQUIPMENT_LIST.PLANPLANT" [(options)]="{type:'CT', id:'T001W'}"
-    [(abap)]="{, mid: 'IWK'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'IWK'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Sort field"
     [(value)]="EQUIPMENT_LIST.SORTFIELD"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 />
 
 
@@ -475,13 +475,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
               label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
               label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -490,25 +490,25 @@
 
 <fast-text-field [(label)]="Equipment Number"
     [(value)]="EQUIPMENT_RA.HIGH"
-    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+    [(abap)]="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
 />
 
 
 <fast-text-field [(label)]="Equipment Number"
     [(value)]="EQUIPMENT_RA.LOW"
-    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+    [(abap)]="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
 />
 
 
 <fast-select [(label)]="Selection operator OPTION for range tables"
     [(value)]="EQUIPMENT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
     [(value)]="EQUIPMENT_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
 />
 
 
@@ -517,13 +517,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -532,25 +532,25 @@
 
 <fast-text-field [(label)]="Maintenance plant"
     [(value)]="MAINTPLANT_RA.HIGH"
-    [(abap)]="{, mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
 />
 
 
 <fast-text-field [(label)]="Maintenance plant"
     [(value)]="MAINTPLANT_RA.LOW"
-    [(abap)]="{, mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'SWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
 />
 
 
 <fast-select [(label)]="Selection operator OPTION for range tables"
     [(value)]="MAINTPLANT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
     [(value)]="MAINTPLANT_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
 />
 
 
@@ -559,13 +559,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
               label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
               label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -574,25 +574,25 @@
 
 <fast-text-field [(label)]="Type of Technical Object"
     [(value)]="OBJECTTYPE_RA.HIGH"
-    [(abap)]="{}" [(shlp)]="{type:'CT', id:'T370K'}"
+    [(abap)]="{type: 'string', length: '10'}" [(shlp)]="{type:'CT', id:'T370K'}"
 />
 
 
 <fast-text-field [(label)]="Type of Technical Object"
     [(value)]="OBJECTTYPE_RA.LOW"
-    [(abap)]="{}" [(shlp)]="{type:'CT', id:'T370K'}"
+    [(abap)]="{type: 'string', length: '10'}" [(shlp)]="{type:'CT', id:'T370K'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="OBJECTTYPE_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="OBJECTTYPE_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -601,13 +601,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
               label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
               label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -616,25 +616,25 @@
 
 <fast-text-field [(label)]="Partner"
     [(value)]="PARTNER_RA.HIGH"
-    [(abap)]="{, alpha: 'ALPHA'}"
+    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}"
 />
 
 
 <fast-text-field [(label)]="Partner"
     [(value)]="PARTNER_RA.LOW"
-    [(abap)]="{, alpha: 'ALPHA'}"
+    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="PARTNER_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="PARTNER_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 
 
@@ -643,13 +643,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
               label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
               label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -658,25 +658,25 @@
 
 <fast-text-field [(label)]="Planner Group for Customer Service and Plant Maintenance"
     [(value)]="PLANGROUP_RA.HIGH"
-    [(abap)]="{, mid: 'IHG'}" [(shlp)]="{type:'CT', id:'T024I'}"
+    [(abap)]="{type: 'string', length: '3', mid: 'IHG'}" [(shlp)]="{type:'CT', id:'T024I'}"
 />
 
 
 <fast-text-field [(label)]="Planner Group for Customer Service and Plant Maintenance"
     [(value)]="PLANGROUP_RA.LOW"
-    [(abap)]="{, mid: 'IHG'}" [(shlp)]="{type:'CT', id:'T024I'}"
+    [(abap)]="{type: 'string', length: '3', mid: 'IHG'}" [(shlp)]="{type:'CT', id:'T024I'}"
 />
 
 
 <fast-select [(label)]="Selection operator OPTION for range tables"
     [(value)]="PLANGROUP_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
     [(value)]="PLANGROUP_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
 />
 
 
@@ -685,13 +685,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -700,25 +700,25 @@
 
 <fast-text-field [(label)]="Maintenance Planning Plant"
     [(value)]="PLANPLANT_RA.HIGH"
-    [(abap)]="{, mid: 'IWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'IWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
 />
 
 
 <fast-text-field [(label)]="Maintenance Planning Plant"
     [(value)]="PLANPLANT_RA.LOW"
-    [(abap)]="{, mid: 'IWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
+    [(abap)]="{type: 'string', length: '4', mid: 'IWK'}" [(shlp)]="{type:'CT', id:'T001W'}"
 />
 
 
 <fast-select [(label)]="Selection operator OPTION for range tables"
     [(value)]="PLANPLANT_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
     [(value)]="PLANPLANT_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
 />
 
 
@@ -727,13 +727,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -742,25 +742,25 @@
 
 <fast-text-field [(label)]="Sort field"
     [(value)]="SORTFIELD_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 />
 
 
 <fast-text-field [(label)]="Sort field"
     [(value)]="SORTFIELD_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 />
 
 
 <fast-select [(label)]="Selection operator OPTION for range tables"
     [(value)]="SORTFIELD_RA.OPTION" [(options)]="{type:'FV', id:'BAPIOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Inclusion/exclusion criterion SIGN for range tables"
     [(value)]="SORTFIELD_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BAPISIGN'}"
 />
 
 
@@ -769,13 +769,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -784,24 +784,24 @@
 
 <fast-text-field [(label)]="Individual status of an object (short form)"
     [(value)]="STATUS_RA.HIGH"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '4'}"
 />
 
 
 <fast-text-field [(label)]="Individual status of an object (short form)"
     [(value)]="STATUS_RA.LOW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '4'}"
 />
 
 
 <fast-select [(label)]="Type of OPTION component in row type of a Ranges type"
     [(value)]="STATUS_RA.OPTION" [(options)]="{type:'FV', id:'DDOPTION'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Type of SIGN component in row type of a Ranges type"
     [(value)]="STATUS_RA.SIGN"
-    [(abap)]="{}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'DDSIGN'}"
 />
 

@@ -5,7 +5,7 @@
 <fd-form-item>
     <fd-form-label>Equipment Number</fd-form-label>
         <fd-input v-model="EQUIPMENT"
-            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'EQUI'}"
         />
 </fd-form-item>
@@ -14,7 +14,7 @@
 <fd-form-item>
     <fd-form-label>Language Key</fd-form-label>
         <fd-input v-model="LANGUAGE"
-            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
             data-shlp="{type:'SH', id:'H_T002'}"
         />
 </fd-form-item>
@@ -23,7 +23,7 @@
 <fd-form-item>
     <fd-form-label>2-Character SAP Language Code</fd-form-label>
         <fd-input v-model="LANGUAGE_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
         />
 </fd-form-item>
 
@@ -36,7 +36,7 @@
     <fd-form-label>Field in parameter</fd-form-label>
     <fd-select v-model="RETURN.FIELD"
         options="{type:'CT', id:'DD03L'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     >
     </fd-select>
 </fd-form-item>
@@ -47,7 +47,7 @@
     <fd-form-label>Message Class</fd-form-label>
     <fd-select v-model="RETURN.ID"
         options="{type:'CT', id:'T100A'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-select>
 </fd-form-item>
@@ -58,7 +58,7 @@
     <fd-form-label>Application log: Internal message serial number</fd-form-label>
     <fd-select v-model="RETURN.LOG_MSG_NO"
         options="{type:'CH', id:'BALM'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '6'}"
     >
     </fd-select>
 </fd-form-item>
@@ -69,7 +69,7 @@
     <fd-form-label>Application log: log number</fd-form-label>
     <fd-select v-model="RETURN.LOG_NO"
         options="{type:'CH', id:'BALHDR'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-select>
 </fd-form-item>
@@ -79,7 +79,7 @@
 <fd-form-item>
     <fd-form-label>Message Text</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '220'}"
         />
 </fd-form-item>
 
@@ -87,7 +87,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -95,7 +95,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -103,7 +103,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V3"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -111,7 +111,7 @@
 <fd-form-item>
     <fd-form-label>Message Variable</fd-form-label>
         <fd-input v-model="RETURN.MESSAGE_V4"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </fd-form-item>
 
@@ -119,7 +119,7 @@
 <fd-form-item>
     <fd-form-label>Message Number</fd-form-label>
         <fd-input v-model="RETURN.NUMBER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
         />
 </fd-form-item>
 
@@ -127,7 +127,7 @@
 <fd-form-item>
     <fd-form-label>Parameter Name</fd-form-label>
         <fd-input v-model="RETURN.PARAMETER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </fd-form-item>
 
@@ -135,7 +135,7 @@
 <fd-form-item>
     <fd-form-label>Lines in parameter</fd-form-label>
         <fd-input v-model="RETURN.ROW"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '+10'}"
         />
 </fd-form-item>
 
@@ -144,7 +144,7 @@
     <fd-form-label>Logical system from which message originates</fd-form-label>
     <fd-select v-model="RETURN.SYSTEM"
         options="{type:'CT', id:'TBDLS'}"
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
     >
     </fd-select>
 </fd-form-item>
@@ -154,7 +154,7 @@
 <fd-form-item>
     <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
         <fd-input v-model="RETURN.TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '1'}"
         />
 </fd-form-item>
 
@@ -162,7 +162,7 @@
 <fd-form-item>
     <fd-form-label>System status line</fd-form-label>
         <fd-input v-model="SYSTEMSTATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </fd-form-item>
 
@@ -170,7 +170,7 @@
 <fd-form-item>
     <fd-form-label>User Status</fd-form-label>
         <fd-input v-model="USERSTATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </fd-form-item>
 
@@ -182,11 +182,11 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -196,7 +196,7 @@
 <fd-form-item>
     <fd-form-label>Object status</fd-form-label>
         <fd-input v-model="SYSTEM_STATUS.DESCRIPTION"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -204,7 +204,7 @@
 <fd-form-item>
     <fd-form-label>Object status</fd-form-label>
         <fd-input v-model="SYSTEM_STATUS.STATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '5'}"
         />
 </fd-form-item>
 
@@ -212,7 +212,7 @@
 <fd-form-item>
     <fd-form-label>Individual status of an object (short form)</fd-form-label>
         <fd-input v-model="SYSTEM_STATUS.TEXT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
         />
 </fd-form-item>
 
@@ -222,11 +222,11 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -236,7 +236,7 @@
 <fd-form-item>
     <fd-form-label>Object status</fd-form-label>
         <fd-input v-model="USER_STATUS.DESCRIPTION"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </fd-form-item>
 
@@ -244,7 +244,7 @@
 <fd-form-item>
     <fd-form-label>Object status</fd-form-label>
         <fd-input v-model="USER_STATUS.STATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '5'}"
         />
 </fd-form-item>
 
@@ -252,7 +252,7 @@
 <fd-form-item>
     <fd-form-label>Individual status of an object (short form)</fd-form-label>
         <fd-input v-model="USER_STATUS.TEXT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
         />
 </fd-form-item>
 

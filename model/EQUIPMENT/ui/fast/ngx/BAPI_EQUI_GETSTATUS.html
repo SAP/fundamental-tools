@@ -4,19 +4,19 @@
 
 <fast-text-field [(label)]="Equipment Number"
     [(value)]="EQUIPMENT"
-    [(abap)]="{, mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+    [(abap)]="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
 />
 
 
 <fast-text-field [(label)]="Language Key"
     [(value)]="LANGUAGE"
-    [(abap)]="{, mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
 />
 
 
 <fast-text-field [(label)]="2-Character SAP Language Code"
     [(value)]="LANGUAGE_ISO"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '2'}"
 />
 
 
@@ -26,97 +26,97 @@
 
 <fast-select [(label)]="Field in parameter"
     [(value)]="RETURN.FIELD" [(options)]="{type:'CT', id:'DD03L'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Message Class"
     [(value)]="RETURN.ID" [(options)]="{type:'CT', id:'T100A'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Application log: Internal message serial number"
     [(value)]="RETURN.LOG_MSG_NO" [(options)]="{type:'CH', id:'BALM'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '6'}"
 ></fast-select>
 
 
 <fast-select [(label)]="Application log: log number"
     [(value)]="RETURN.LOG_NO" [(options)]="{type:'CH', id:'BALHDR'}"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '20'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Message Text"
     [(value)]="RETURN.MESSAGE"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '220'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V1"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V2"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V3"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Variable"
     [(value)]="RETURN.MESSAGE_V4"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '50'}"
 />
 
 
 <fast-text-field [(label)]="Message Number"
     [(value)]="RETURN.NUMBER"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '3'}"
 />
 
 
 <fast-text-field [(label)]="Parameter Name"
     [(value)]="RETURN.PARAMETER"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '32'}"
 />
 
 
 <fast-text-field [(label)]="Lines in parameter"
     [(value)]="RETURN.ROW"
-    [(abap)]="{}"
+    [(abap)]="{type: 'number', length: '+10'}"
 />
 
 
 <fast-select [(label)]="Logical system from which message originates"
     [(value)]="RETURN.SYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
-    [(abap)]="{, alpha: 'ALPHA'}"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
 ></fast-select>
 
 
 <fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
     [(value)]="RETURN.TYPE"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '1'}"
 />
 
 
 <fast-text-field [(label)]="System status line"
     [(value)]="SYSTEMSTATUS"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '40'}"
 />
 
 
 <fast-text-field [(label)]="User Status"
     [(value)]="USERSTATUS"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '40'}"
 />
 
 
@@ -127,11 +127,11 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -140,19 +140,19 @@
 
 <fast-text-field [(label)]="Object status"
     [(value)]="SYSTEM_STATUS.DESCRIPTION"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 />
 
 
 <fast-text-field [(label)]="Object status"
     [(value)]="SYSTEM_STATUS.STATUS"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '5'}"
 />
 
 
 <fast-text-field [(label)]="Individual status of an object (short form)"
     [(value)]="SYSTEM_STATUS.TEXT"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '4'}"
 />
 
 
@@ -161,11 +161,11 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -174,18 +174,18 @@
 
 <fast-text-field [(label)]="Object status"
     [(value)]="USER_STATUS.DESCRIPTION"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '30'}"
 />
 
 
 <fast-text-field [(label)]="Object status"
     [(value)]="USER_STATUS.STATUS"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '5'}"
 />
 
 
 <fast-text-field [(label)]="Individual status of an object (short form)"
     [(value)]="USER_STATUS.TEXT"
-    [(abap)]="{}"
+    [(abap)]="{type: 'string', length: '4'}"
 />
 

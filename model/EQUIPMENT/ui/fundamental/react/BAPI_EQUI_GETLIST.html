@@ -4,7 +4,7 @@
 
 <FormItem label="Language Key">
     <Input value={this.LANGUAGE}
-           data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
            data-shlp="{type:'SH', id:'H_T002'}"
     />
 </FormItem>
@@ -13,7 +13,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">2-Character SAP Language Code</FormLabel>
     <FormInput id="4711" value={this.LANGUAGE_ISO}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '2'}"
     />
 </FormItem>
 
@@ -21,7 +21,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Partner Function</FormLabel>
     <FormInput id="4711" value={this.PARTNERFUNCTION}
-        data-abap="{, mid: 'PAR', alpha: 'PARVW'}"
+        data-abap="{type: 'string', length: '2', mid: 'PAR', alpha: 'PARVW'}"
         data-shlp="{type:'SH', id:'H_TPAR'}"
     />
 </FormItem>
@@ -34,31 +34,31 @@
 <ComboboxInput id="4711" label="Field in parameter"
     value={this.RETURN.FIELD}
     options="{type:'CT', id:'DD03L'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '30'}}"/>
 
 
 <ComboboxInput id="4711" label="Message Class"
     value={this.RETURN.ID}
     options="{type:'CT', id:'T100A'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '20'}}"/>
 
 
 <ComboboxInput id="4711" label="Application log: Internal message serial number"
     value={this.RETURN.LOG_MSG_NO}
     options="{type:'CH', id:'BALM'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '6'}}"/>
 
 
 <ComboboxInput id="4711" label="Application log: log number"
     value={this.RETURN.LOG_NO}
     options="{type:'CH', id:'BALHDR'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '20'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Message Text</FormLabel>
     <FormInput id="4711" value={this.RETURN.MESSAGE}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '220'}"
     />
 </FormItem>
 
@@ -66,7 +66,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Message Variable</FormLabel>
     <FormInput id="4711" value={this.RETURN.MESSAGE_V1}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
@@ -74,7 +74,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Message Variable</FormLabel>
     <FormInput id="4711" value={this.RETURN.MESSAGE_V2}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
@@ -82,7 +82,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Message Variable</FormLabel>
     <FormInput id="4711" value={this.RETURN.MESSAGE_V3}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
@@ -90,7 +90,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Message Variable</FormLabel>
     <FormInput id="4711" value={this.RETURN.MESSAGE_V4}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
@@ -98,7 +98,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Message Number</FormLabel>
     <FormInput id="4711" value={this.RETURN.NUMBER}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '3'}"
     />
 </FormItem>
 
@@ -106,7 +106,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Parameter Name</FormLabel>
     <FormInput id="4711" value={this.RETURN.PARAMETER}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '32'}"
     />
 </FormItem>
 
@@ -114,7 +114,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Lines in parameter</FormLabel>
     <FormInput id="4711" value={this.RETURN.ROW}
-        data-abap="{}"
+        data-abap="{type: 'number', length: '+10'}"
     />
 </FormItem>
 
@@ -122,13 +122,13 @@
 <ComboboxInput id="4711" label="Logical system from which message originates"
     value={this.RETURN.SYSTEM}
     options="{type:'CT', id:'TBDLS'}"
-    data-abap="{{, alpha: 'ALPHA'}}"/>
+    data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Message type: S Success, E Error, W Warning, I Info, A Abort</FormLabel>
     <FormInput id="4711" value={this.RETURN.TYPE}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
     />
 </FormItem>
 
@@ -140,13 +140,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="City name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -156,7 +156,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">City name in Uppercase for Search Help</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_CITY_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '25'}"
     />
 </FormItem>
 
@@ -164,7 +164,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">City name in Uppercase for Search Help</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_CITY_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '25'}"
     />
 </FormItem>
 
@@ -172,13 +172,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.ADDRESS_CITY_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_CITY_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -189,13 +189,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Name (Field NAME1) in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -205,7 +205,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Name (Field NAME1) in Uppercase for Search Help</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_NAME_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '25'}"
     />
 </FormItem>
 
@@ -213,7 +213,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Name (Field NAME1) in Uppercase for Search Help</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_NAME_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '25'}"
     />
 </FormItem>
 
@@ -221,13 +221,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.ADDRESS_NAME_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_NAME_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -238,13 +238,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
               label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
               label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -254,7 +254,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">City postal code</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_POST_CODE_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '10'}"
     />
 </FormItem>
 
@@ -262,7 +262,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">City postal code</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_POST_CODE_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '10'}"
     />
 </FormItem>
 
@@ -270,13 +270,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.ADDRESS_POST_CODE_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_POST_CODE_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -287,13 +287,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -303,7 +303,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Search Term 1</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_SEARCH_TERM_1_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     />
 </FormItem>
 
@@ -311,7 +311,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Search Term 1</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_SEARCH_TERM_1_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     />
 </FormItem>
 
@@ -319,13 +319,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.ADDRESS_SEARCH_TERM_1_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_SEARCH_TERM_1_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -336,13 +336,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
               label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -352,7 +352,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Search Term 2</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_SEARCH_TERM_2_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     />
 </FormItem>
 
@@ -360,7 +360,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Search Term 2</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_SEARCH_TERM_2_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     />
 </FormItem>
 
@@ -368,13 +368,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.ADDRESS_SEARCH_TERM_2_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_SEARCH_TERM_2_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -385,13 +385,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"25"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
               label="Street Name in Uppercase for Search Help" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -401,7 +401,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Street Name in Uppercase for Search Help</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_STREET_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '25'}"
     />
 </FormItem>
 
@@ -409,7 +409,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Street Name in Uppercase for Search Help</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_STREET_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '25'}"
     />
 </FormItem>
 
@@ -417,13 +417,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.ADDRESS_STREET_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.ADDRESS_STREET_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -434,13 +434,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
               label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
               label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -450,7 +450,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Description of Technical Object</FormLabel>
     <FormInput id="4711" value={this.DESCRIPT_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '40'}"
     />
 </FormItem>
 
@@ -458,7 +458,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Description of Technical Object</FormLabel>
     <FormInput id="4711" value={this.DESCRIPT_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '40'}"
     />
 </FormItem>
 
@@ -466,13 +466,13 @@
 <ComboboxInput id="4711" label="Selection operator OPTION for range tables"
     value={this.DESCRIPT_RA.OPTION}
     options="{type:'FV', id:'BAPIOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Inclusion/exclusion criterion SIGN for range tables</FormLabel>
     <FormInput id="4711" value={this.DESCRIPT_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'BAPISIGN'}"
     />
 </FormItem>
@@ -483,19 +483,19 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"40"}'
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
               label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
+    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
               label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
               label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
               label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -505,7 +505,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Description of Technical Object</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_LIST.DESCRIPT}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '40'}"
     />
 </FormItem>
 
@@ -513,7 +513,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Equipment category</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_LIST.EQUICATGRY}
-        data-abap="{, mid: 'EQT'}"
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}"
         data-shlp="{type:'CT', id:'T370T'}"
     />
 </FormItem>
@@ -522,7 +522,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Equipment Number</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_LIST.EQUIPMENT}
-        data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
         data-shlp="{type:'SH', id:'EQUI'}"
     />
 </FormItem>
@@ -531,7 +531,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Maintenance plant</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_LIST.MAINTPLANT}
-        data-abap="{, mid: 'SWK'}"
+        data-abap="{type: 'string', length: '4', mid: 'SWK'}"
         data-shlp="{type:'CT', id:'T001W'}"
     />
 </FormItem>
@@ -540,19 +540,19 @@
 <ComboboxInput id="4711" label="Planner Group for Customer Service and Plant Maintenance"
     value={this.EQUIPMENT_LIST.PLANGROUP}
     options="{type:'CT', id:'T024I'}"
-    data-abap="{{, mid: 'IHG'}}"/>
+    data-abap="{{type: 'string', length: '3', mid: 'IHG'}}"/>
 
 
 <ComboboxInput id="4711" label="Maintenance Planning Plant"
     value={this.EQUIPMENT_LIST.PLANPLANT}
     options="{type:'CT', id:'T001W'}"
-    data-abap="{{, mid: 'IWK'}}"/>
+    data-abap="{{type: 'string', length: '4', mid: 'IWK'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Sort field</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_LIST.SORTFIELD}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     />
 </FormItem>
 
@@ -562,13 +562,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
               label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
               label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -578,7 +578,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Equipment Number</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_RA.HIGH}
-        data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
         data-shlp="{type:'SH', id:'EQUI'}"
     />
 </FormItem>
@@ -587,7 +587,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Equipment Number</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_RA.LOW}
-        data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
         data-shlp="{type:'SH', id:'EQUI'}"
     />
 </FormItem>
@@ -596,13 +596,13 @@
 <ComboboxInput id="4711" label="Selection operator OPTION for range tables"
     value={this.EQUIPMENT_RA.OPTION}
     options="{type:'FV', id:'BAPIOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Inclusion/exclusion criterion SIGN for range tables</FormLabel>
     <FormInput id="4711" value={this.EQUIPMENT_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'BAPISIGN'}"
     />
 </FormItem>
@@ -613,13 +613,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -629,7 +629,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Maintenance plant</FormLabel>
     <FormInput id="4711" value={this.MAINTPLANT_RA.HIGH}
-        data-abap="{, mid: 'SWK'}"
+        data-abap="{type: 'string', length: '4', mid: 'SWK'}"
         data-shlp="{type:'CT', id:'T001W'}"
     />
 </FormItem>
@@ -638,7 +638,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Maintenance plant</FormLabel>
     <FormInput id="4711" value={this.MAINTPLANT_RA.LOW}
-        data-abap="{, mid: 'SWK'}"
+        data-abap="{type: 'string', length: '4', mid: 'SWK'}"
         data-shlp="{type:'CT', id:'T001W'}"
     />
 </FormItem>
@@ -647,13 +647,13 @@
 <ComboboxInput id="4711" label="Selection operator OPTION for range tables"
     value={this.MAINTPLANT_RA.OPTION}
     options="{type:'FV', id:'BAPIOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Inclusion/exclusion criterion SIGN for range tables</FormLabel>
     <FormInput id="4711" value={this.MAINTPLANT_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'BAPISIGN'}"
     />
 </FormItem>
@@ -664,13 +664,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
               label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'T370K'}}'
               label="Type of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -680,7 +680,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Type of Technical Object</FormLabel>
     <FormInput id="4711" value={this.OBJECTTYPE_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '10'}"
         data-shlp="{type:'CT', id:'T370K'}"
     />
 </FormItem>
@@ -689,7 +689,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Type of Technical Object</FormLabel>
     <FormInput id="4711" value={this.OBJECTTYPE_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '10'}"
         data-shlp="{type:'CT', id:'T370K'}"
     />
 </FormItem>
@@ -698,13 +698,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.OBJECTTYPE_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.OBJECTTYPE_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -715,13 +715,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
               label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"12"}' alpha-exit="ALPHA" 
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
               label="Partner" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -731,7 +731,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Partner</FormLabel>
     <FormInput id="4711" value={this.PARTNER_RA.HIGH}
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
     />
 </FormItem>
 
@@ -739,7 +739,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Partner</FormLabel>
     <FormInput id="4711" value={this.PARTNER_RA.LOW}
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
     />
 </FormItem>
 
@@ -747,13 +747,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.PARTNER_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.PARTNER_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>
@@ -764,13 +764,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
               label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
               label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -780,7 +780,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Planner Group for Customer Service and Plant Maintenance</FormLabel>
     <FormInput id="4711" value={this.PLANGROUP_RA.HIGH}
-        data-abap="{, mid: 'IHG'}"
+        data-abap="{type: 'string', length: '3', mid: 'IHG'}"
         data-shlp="{type:'CT', id:'T024I'}"
     />
 </FormItem>
@@ -789,7 +789,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Planner Group for Customer Service and Plant Maintenance</FormLabel>
     <FormInput id="4711" value={this.PLANGROUP_RA.LOW}
-        data-abap="{, mid: 'IHG'}"
+        data-abap="{type: 'string', length: '3', mid: 'IHG'}"
         data-shlp="{type:'CT', id:'T024I'}"
     />
 </FormItem>
@@ -798,13 +798,13 @@
 <ComboboxInput id="4711" label="Selection operator OPTION for range tables"
     value={this.PLANGROUP_RA.OPTION}
     options="{type:'FV', id:'BAPIOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Inclusion/exclusion criterion SIGN for range tables</FormLabel>
     <FormInput id="4711" value={this.PLANGROUP_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'BAPISIGN'}"
     />
 </FormItem>
@@ -815,13 +815,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
               label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -831,7 +831,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Maintenance Planning Plant</FormLabel>
     <FormInput id="4711" value={this.PLANPLANT_RA.HIGH}
-        data-abap="{, mid: 'IWK'}"
+        data-abap="{type: 'string', length: '4', mid: 'IWK'}"
         data-shlp="{type:'CT', id:'T001W'}"
     />
 </FormItem>
@@ -840,7 +840,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Maintenance Planning Plant</FormLabel>
     <FormInput id="4711" value={this.PLANPLANT_RA.LOW}
-        data-abap="{, mid: 'IWK'}"
+        data-abap="{type: 'string', length: '4', mid: 'IWK'}"
         data-shlp="{type:'CT', id:'T001W'}"
     />
 </FormItem>
@@ -849,13 +849,13 @@
 <ComboboxInput id="4711" label="Selection operator OPTION for range tables"
     value={this.PLANPLANT_RA.OPTION}
     options="{type:'FV', id:'BAPIOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Inclusion/exclusion criterion SIGN for range tables</FormLabel>
     <FormInput id="4711" value={this.PLANPLANT_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'BAPISIGN'}"
     />
 </FormItem>
@@ -866,13 +866,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'BAPIOPTION'}}'
               label="Selection operator OPTION for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'BAPISIGN'}}'
               label="Inclusion/exclusion criterion SIGN for range tables" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -882,7 +882,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Sort field</FormLabel>
     <FormInput id="4711" value={this.SORTFIELD_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     />
 </FormItem>
 
@@ -890,7 +890,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Sort field</FormLabel>
     <FormInput id="4711" value={this.SORTFIELD_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     />
 </FormItem>
 
@@ -898,13 +898,13 @@
 <ComboboxInput id="4711" label="Selection operator OPTION for range tables"
     value={this.SORTFIELD_RA.OPTION}
     options="{type:'FV', id:'BAPIOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Inclusion/exclusion criterion SIGN for range tables</FormLabel>
     <FormInput id="4711" value={this.SORTFIELD_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'BAPISIGN'}"
     />
 </FormItem>
@@ -915,13 +915,13 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="HIGH" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="LOW" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
+    <fd-fd-column sortable field="OPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'FV', id:'DDOPTION'}}'
               label="Type of OPTION component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
+    <fd-fd-column sortable field="SIGN" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'DDSIGN'}}'
               label="Type of SIGN component in row type of a Ranges type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -931,7 +931,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Individual status of an object (short form)</FormLabel>
     <FormInput id="4711" value={this.STATUS_RA.HIGH}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '4'}"
     />
 </FormItem>
 
@@ -939,7 +939,7 @@
 <FormItem>
     <FormLabel htmlFor="4711">Individual status of an object (short form)</FormLabel>
     <FormInput id="4711" value={this.STATUS_RA.LOW}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '4'}"
     />
 </FormItem>
 
@@ -947,13 +947,13 @@
 <ComboboxInput id="4711" label="Type of OPTION component in row type of a Ranges type"
     value={this.STATUS_RA.OPTION}
     options="{type:'FV', id:'DDOPTION'}"
-    data-abap="{{}}"/>
+    data-abap="{{type: 'string', length: '2'}}"/>
 
 
 <FormItem>
     <FormLabel htmlFor="4711">Type of SIGN component in row type of a Ranges type</FormLabel>
     <FormInput id="4711" value={this.STATUS_RA.SIGN}
-        data-abap="{}"
+        data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
     />
 </FormItem>

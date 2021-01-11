@@ -6,17 +6,17 @@ BAPI_EQUI_DISMANTLE = {
 
   // INPUT PARAMETERS
 
-  // DISM_DATE: SY-DATUM,                     // DATS(8)    BAPI_ITOB_PARMS INST_DATE      Date of Dismantling
-  // DISM_TIME: SY-UZEIT,                     // TIMS(6)    BAPI_ITOB_PARMS INST_TIME      Time of Dismantling
-  EQUIPMENT: "",                           // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment to be Installed
-  // FUNCLOC: "",                             // CHAR(40)   BAPI_ITOB_PARMS FUNCLOC        Number of Previous Installation Location (Functional Location)
-  // SUPEQUI: "",                             // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Previous Installation Location (Superior Equipment)
+  //DISM_DATE                      : SY-DATUM, // DATS (8) Date of Dismantling
+  //DISM_TIME                      : SY-UZEIT, // TIMS (6) Time of Dismantling
+  EQUIPMENT                        :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment to be Installed
+  //FUNCLOC                        :   "", // CHAR (40) Number of Previous Installation Location (Functional Location)
+  //SUPEQUI                        :   "", // CHAR (18) ALPHA=ALPHA Number of Previous Installation Location (Superior Equipment)
 
   // OUTPUT PARAMETERS
 
-  DATA_GENERAL_EXP: {},                    // BAPI_ITOB : General Data for Technical Objects
-  DATA_SPECIFIC_EXP: {},                   // BAPI_ITOB_EQ_ONLY : Equipment-Specific data
-  RETURN: {}                               // BAPIRET2 : Return Parameter
+  DATA_GENERAL_EXP                 :   {}, // BAPI_ITOB General Data for Technical Objects
+  DATA_SPECIFIC_EXP                :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  RETURN                           :   {}, // BAPIRET2 Return Parameter
 };
 
 //

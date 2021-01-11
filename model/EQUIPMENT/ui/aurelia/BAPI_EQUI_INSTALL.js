@@ -6,14 +6,14 @@ BAPI_EQUI_INSTALL = {
 
   // INPUT PARAMETERS
 
-  DATA_INSTALL: {},                        // BAPI_ITOB_EQ_INSTALL_EXT : Installation Date for Equipment
-  EQUIPMENT: "",                           // CHAR(18)   BAPI_ITOB_PARMS EQUIPMENT      Number of Equipment to be Installed
+  DATA_INSTALL                     :   {}, // BAPI_ITOB_EQ_INSTALL_EXT Installation Date for Equipment
+  EQUIPMENT                        :   "", // CHAR (18) ALPHA=ALPHA Number of Equipment to be Installed
 
   // OUTPUT PARAMETERS
 
-  DATA_GENERAL_EXP: {},                    // BAPI_ITOB : General Data for Technical Objects
-  DATA_SPECIFIC_EXP: {},                   // BAPI_ITOB_EQ_ONLY : Equipment-Specific Data
-  RETURN: {}                               // BAPIRET2 : Return Parameter
+  DATA_GENERAL_EXP                 :   {}, // BAPI_ITOB General Data for Technical Objects
+  DATA_SPECIFIC_EXP                :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific Data
+  RETURN                           :   {}, // BAPIRET2 Return Parameter
 };
 
 //

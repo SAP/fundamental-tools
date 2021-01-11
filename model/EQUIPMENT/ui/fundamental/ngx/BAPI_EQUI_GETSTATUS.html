@@ -6,7 +6,7 @@
     <label fd-form-label>Equipment Number</label>
         <input fd-input fd-form-control
             [(ngModel)]="EQUIPMENT"
-            data-abap="{, mid: 'EQN', alpha: 'ALPHA'}"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
             data-shlp="{type:'SH', id:'EQUI'}"
         />
 </div>
@@ -16,7 +16,7 @@
     <label fd-form-label>Language Key</label>
         <input fd-input fd-form-control
             [(ngModel)]="LANGUAGE"
-            data-abap="{, mid: 'SPR', alpha: 'ISOLA'}"
+            data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
             data-shlp="{type:'SH', id:'H_T002'}"
         />
 </div>
@@ -27,7 +27,7 @@
     <label fd-form-label>2-Character SAP Language Code</label>
         <input fd-input fd-form-control
             [(ngModel)]="LANGUAGE_ISO"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '2'}"
         />
 </div>
 
@@ -41,7 +41,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.FIELD"
         [dropdownValues]="{type:'CT', id:'DD03L'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '30'}"
     >
     </fd-combobox>
 </div>
@@ -52,7 +52,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.ID"
         [dropdownValues]="{type:'CT', id:'T100A'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-combobox>
 </div>
@@ -63,7 +63,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.LOG_MSG_NO"
         [dropdownValues]="{type:'CH', id:'BALM'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '6'}"
     >
     </fd-combobox>
 </div>
@@ -74,7 +74,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.LOG_NO"
         [dropdownValues]="{type:'CH', id:'BALHDR'}"
-        data-abap="{}"
+        data-abap="{type: 'string', length: '20'}"
     >
     </fd-combobox>
 </div>
@@ -84,7 +84,7 @@
     <label fd-form-label>Message Text</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '220'}"
         />
 </div>
 
@@ -93,7 +93,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V1"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -102,7 +102,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V2"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -111,7 +111,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V3"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -120,7 +120,7 @@
     <label fd-form-label>Message Variable</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.MESSAGE_V4"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '50'}"
         />
 </div>
 
@@ -129,7 +129,7 @@
     <label fd-form-label>Message Number</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.NUMBER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '3'}"
         />
 </div>
 
@@ -138,7 +138,7 @@
     <label fd-form-label>Parameter Name</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.PARAMETER"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '32'}"
         />
 </div>
 
@@ -147,7 +147,7 @@
     <label fd-form-label>Lines in parameter</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.ROW"
-            data-abap="{}"
+            data-abap="{type: 'number', length: '+10'}"
         />
 </div>
 
@@ -157,7 +157,7 @@
     <fd-combobox
         [(ngModel)]="RETURN.SYSTEM"
         [dropdownValues]="{type:'CT', id:'TBDLS'}"
-        data-abap="{, alpha: 'ALPHA'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
     >
     </fd-combobox>
 </div>
@@ -167,7 +167,7 @@
     <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.TYPE"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '1'}"
         />
 </div>
 
@@ -176,7 +176,7 @@
     <label fd-form-label>System status line</label>
         <input fd-input fd-form-control
             [(ngModel)]="SYSTEMSTATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -185,7 +185,7 @@
     <label fd-form-label>User Status</label>
         <input fd-input fd-form-control
             [(ngModel)]="USERSTATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '40'}"
         />
 </div>
 
@@ -197,11 +197,11 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -212,7 +212,7 @@
     <label fd-form-label>Object status</label>
         <input fd-input fd-form-control
             [(ngModel)]="SYSTEM_STATUS.DESCRIPTION"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -221,7 +221,7 @@
     <label fd-form-label>Object status</label>
         <input fd-input fd-form-control
             [(ngModel)]="SYSTEM_STATUS.STATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '5'}"
         />
 </div>
 
@@ -230,7 +230,7 @@
     <label fd-form-label>Individual status of an object (short form)</label>
         <input fd-input fd-form-control
             [(ngModel)]="SYSTEM_STATUS.TEXT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
         />
 </div>
 
@@ -240,11 +240,11 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}'
+    <fd-fd-column sortable field="DESCRIPTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}'
+    <fd-fd-column sortable field="STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
               label="Object status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4"}'
+    <fd-fd-column sortable field="TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
               label="Individual status of an object (short form)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
     <!-- @formatter:on -->
 </ui-datagrid>
@@ -255,7 +255,7 @@
     <label fd-form-label>Object status</label>
         <input fd-input fd-form-control
             [(ngModel)]="USER_STATUS.DESCRIPTION"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -264,7 +264,7 @@
     <label fd-form-label>Object status</label>
         <input fd-input fd-form-control
             [(ngModel)]="USER_STATUS.STATUS"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '5'}"
         />
 </div>
 
@@ -273,7 +273,7 @@
     <label fd-form-label>Individual status of an object (short form)</label>
         <input fd-input fd-form-control
             [(ngModel)]="USER_STATUS.TEXT"
-            data-abap="{}"
+            data-abap="{type: 'string', length: '4'}"
         />
 </div>
 

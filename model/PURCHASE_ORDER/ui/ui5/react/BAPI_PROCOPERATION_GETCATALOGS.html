@@ -4,7 +4,7 @@
 
 <FormItem label="Material Group">
     <Input value={this.MATERIAL_GROUP}
-           data-abap="{, mid: 'MKL'}"
+           data-abap="{type: 'string', length: '9', mid: 'MKL'}"
            data-shlp="{type:'SH', id:'H_T023'}"
     />
 </FormItem>
@@ -12,7 +12,7 @@
 
 <FormItem label="Plant">
     <Input value={this.PLANT}
-           data-abap="{, mid: 'WRK'}"
+           data-abap="{type: 'string', length: '4', mid: 'WRK'}"
            data-shlp="{type:'SH', id:'H_T001W'}"
     />
 </FormItem>
@@ -21,7 +21,7 @@
 <FormItem label="Selection flag">
     <ComboBox value={this.WITHOUT_MATERIAL_GRP}
         items="{type:'FV', id:'SELKZ'}"
-        data-abap="{}">
+        data-abap="{type: 'string', length: '1'}">
     </ComboBox>
 </FormItem>
 
@@ -33,15 +33,15 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-dg-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"5"}' label="Message code" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", js-type:"string", js-format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}' label="Application log: Internal message serial number" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-dg-column>
-    <fd-dg-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}' label="Application log: log number" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"220"}' label="Message Text" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"1"}' label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}' label="Message code" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}' label="Application log: Internal message serial number" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-dg-column>
+    <fd-dg-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}' label="Application log: log number" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}' label="Message Text" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}' label="Message Variable" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}' label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
     <!-- @formatter:on -->
 </ui-datagrid>
 
@@ -49,7 +49,7 @@
 
 <FormItem label="Message code">
     <Input value={this.RETURN.CODE}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '5'}"
     />
 </FormItem>
 
@@ -57,7 +57,7 @@
 <FormItem label="Application log: Internal message serial number">
     <ComboBox value={this.RETURN.LOG_MSG_NO}
         items="{type:'CH', id:'BALM'}"
-        data-abap="{}">
+        data-abap="{type: 'string', length: '6'}">
     </ComboBox>
 </FormItem>
 
@@ -65,49 +65,49 @@
 <FormItem label="Application log: log number">
     <ComboBox value={this.RETURN.LOG_NO}
         items="{type:'CH', id:'BALHDR'}"
-        data-abap="{}">
+        data-abap="{type: 'string', length: '20'}">
     </ComboBox>
 </FormItem>
 
 
 <FormItem label="Message Text">
     <Input value={this.RETURN.MESSAGE}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '220'}"
     />
 </FormItem>
 
 
 <FormItem label="Message Variable">
     <Input value={this.RETURN.MESSAGE_V1}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
 
 <FormItem label="Message Variable">
     <Input value={this.RETURN.MESSAGE_V2}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
 
 <FormItem label="Message Variable">
     <Input value={this.RETURN.MESSAGE_V3}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
 
 <FormItem label="Message Variable">
     <Input value={this.RETURN.MESSAGE_V4}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '50'}"
     />
 </FormItem>
 
 
 <FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
     <Input value={this.RETURN.TYPE}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '1'}"
     />
 </FormItem>
 
@@ -117,11 +117,11 @@
             data-summary="false" default-sort=""
             selectable rowselect.trigger="object.selectObject($event.detail)">
     <!-- @formatter:off -->
-    <fd-dg-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}' label="Identifier for allowed catalogs" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"30"}' label="Name of catalog" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}' label="Purchasing organization" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", js-type:"string", js-format:"boolean", length:"1"}' label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", js-type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA"  label="Vendor's account number" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}' label="Identifier for allowed catalogs" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Name of catalog" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}' label="Purchasing organization" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA"  label="Vendor's account number" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
     <!-- @formatter:on -->
 </ui-datagrid>
 
@@ -130,21 +130,21 @@
 <FormItem label="Identifier for allowed catalogs">
     <ComboBox value={this.VALID_CATALOGS.CATALOG}
         items="{type:'CT', id:'TMW3T'}"
-        data-abap="{}">
+        data-abap="{type: 'string', length: '20'}">
     </ComboBox>
 </FormItem>
 
 
 <FormItem label="Name of catalog">
     <Input value={this.VALID_CATALOGS.CAT_TEXT}
-           data-abap="{}"
+           data-abap="{type: 'string', length: '30'}"
     />
 </FormItem>
 
 
 <FormItem label="Purchasing organization">
     <Input value={this.VALID_CATALOGS.PURCH_ORG}
-           data-abap="{, mid: 'EKO'}"
+           data-abap="{type: 'string', length: '4', mid: 'EKO'}"
            data-shlp="{type:'SH', id:'H_T024E'}"
     />
 </FormItem>
@@ -157,7 +157,7 @@
 
 <FormItem label="Vendor's account number">
     <Input value={this.VALID_CATALOGS.VENDOR}
-           data-abap="{, mid: 'LIF', alpha: 'ALPHA'}"
+           data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
            data-shlp="{type:'SH', id:'KRED'}"
     />
 </FormItem>
