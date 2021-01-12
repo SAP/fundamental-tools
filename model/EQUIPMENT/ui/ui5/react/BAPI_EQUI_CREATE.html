@@ -1,312 +1,8 @@
-<!-- BAPI_EQUI_CREATE 0.3 -->
+<!-- BAPI_EQUI_CREATE 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
-
-<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
-
-<FormItem label="Fuel card number">
-    <Input value={this.DATA_FLEET.CARD_NUM}
-           data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem label="Chassis number">
-    <Input value={this.DATA_FLEET.CHASSIS_NUM}
-           data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem label="Indicator Consumption Recording: Material Movement">
-    <Input value={this.DATA_FLEET.CONSUMP_MOVE}
-           data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
-<FormItem label="Indicator Consumption Recording: Permitted Tolerances">
-    <Input value={this.DATA_FLEET.CONSUMP_TOL}
-           data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
-<FormItem label="ISO code for unit of measurement">
-    <ComboBox value={this.DATA_FLEET.DIM_UNIT_ISO}
-        items="{type:'CT', id:'T006I'}"
-        data-abap="{type: 'string', length: '3'}">
-    </ComboBox>
-</FormItem>
-
-
-<FormItem label="Engine capacity">
-    <Input value={this.DATA_FLEET.ENGINE_CAP}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Number of cylinders">
-    <Input value={this.DATA_FLEET.ENGINE_CYL}
-           data-abap="{type: 'string', length: '2'}"
-    />
-</FormItem>
-
-
-<FormItem label="Power at specific number of revolutions per minute">
-    <Input value={this.DATA_FLEET.ENGINE_POWER}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Engine serial number of manufacturer">
-    <Input value={this.DATA_FLEET.ENGINE_SNR}
-           data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem label="Engine type">
-    <Input value={this.DATA_FLEET.ENGINE_TYPE}
-           data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem label="Validity end date">
-    <DatePicker value={this.DATA_FLEET.EXPIRY_DATE}/>
-</FormItem>
-
-
-<FormItem label="Maximum fleet object height">
-    <Input value={this.DATA_FLEET.FLEET_HGT}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Maximum fleet object length">
-    <Input value={this.DATA_FLEET.FLEET_LEN}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Identification number for fleet object">
-    <Input value={this.DATA_FLEET.FLEET_NUM}
-           data-abap="{type: 'string', length: '18'}"
-    />
-</FormItem>
-
-
-<FormItem label="Usage indicator">
-    <Input value={this.DATA_FLEET.FLEET_USE}
-           data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
-<FormItem label="Manufacturer Vehicle Identification Number for Fleet Object">
-    <Input value={this.DATA_FLEET.FLEET_VIN}
-           data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem label="Width of fleet object">
-    <Input value={this.DATA_FLEET.FLEET_WID}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Consumable Type of Primary Fuel">
-    <Input value={this.DATA_FLEET.FUEL_PRI}
-           data-abap="{type: 'string', length: '12'}"
-    />
-</FormItem>
-
-
-<FormItem label="Consumable type of secondary fuel">
-    <Input value={this.DATA_FLEET.FUEL_SEC}
-           data-abap="{type: 'string', length: '12'}"
-    />
-</FormItem>
-
-
-<FormItem label="Total Weight Allowed">
-    <Input value={this.DATA_FLEET.GROSS_WGT}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Key number of vehicle">
-    <Input value={this.DATA_FLEET.KEY_NUM}
-           data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<FormItem label="License plate number">
-    <Input value={this.DATA_FLEET.LICENSE_NUM}
-           data-abap="{type: 'string', length: '15'}"
-    />
-</FormItem>
-
-
-<FormItem label="ISO code for unit of measurement">
-    <Input value={this.DATA_FLEET.LOAD_DIM_UNIT_ISO}
-           data-abap="{type: 'string', length: '3'}"
-           data-shlp="{type:'CT', id:'T006I'}"
-    />
-</FormItem>
-
-
-<FormItem label="Load height">
-    <Input value={this.DATA_FLEET.LOAD_HGT}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Load length">
-    <Input value={this.DATA_FLEET.LOAD_LEN}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Load volume">
-    <Input value={this.DATA_FLEET.LOAD_VOL}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Maximum load weight">
-    <Input value={this.DATA_FLEET.LOAD_WGT}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Load width">
-    <Input value={this.DATA_FLEET.LOAD_WID}
-           data-abap="{type: 'number', length: '10.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="Maximum number of occupants">
-    <Input value={this.DATA_FLEET.MAX_OCCUPANTS}
-           data-abap="{type: 'string', length: '4'}"
-    />
-</FormItem>
-
-
-<FormItem label="NUmber of compartments">
-    <Input value={this.DATA_FLEET.NO_COMPART}
-           data-abap="{type: 'string', length: '2'}"
-    />
-</FormItem>
-
-
-<FormItem label="Number of Axles in Fleet Object">
-    <Input value={this.DATA_FLEET.NUM_AXLE}
-           data-abap="{type: 'string', length: '2'}"
-    />
-</FormItem>
-
-
-<FormItem label="Consumable type of oil">
-    <Input value={this.DATA_FLEET.OIL_TYPE}
-           data-abap="{type: 'string', length: '12'}"
-    />
-</FormItem>
-
-
-<FormItem label="Indicator to determine the calculation method f. consumption">
-    <Input value={this.DATA_FLEET.PRI_CALC}
-           data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
-<FormItem label="Date on which the object should be replaced">
-    <DatePicker value={this.DATA_FLEET.REPLA_DATE}/>
-</FormItem>
-
-
-<FormItem label="Odometer reading at replacement">
-    <Input value={this.DATA_FLEET.REPLA_ODOM}
-           data-abap="{type: 'string', length: '22'}"
-    />
-</FormItem>
-
-
-<FormItem label="Hour meter reading at replacement">
-    <Input value={this.DATA_FLEET.REPLA_OPH}
-           data-abap="{type: 'string', length: '22'}"
-    />
-</FormItem>
-
-
-<FormItem label="Revolutions per minute">
-    <Input value={this.DATA_FLEET.REVOLUTIONS}
-           data-abap="{type: 'string', length: '7'}"
-    />
-</FormItem>
-
-
-<FormItem label="Maximum Fleet Object Speed">
-    <Input value={this.DATA_FLEET.SPEED_MAX}
-           data-abap="{type: 'number', length: '6.3'}"
-    />
-</FormItem>
-
-
-<FormItem label="ISO code for unit of measurement">
-    <Input value={this.DATA_FLEET.SPEED_UNIT_ISO}
-           data-abap="{type: 'string', length: '3'}"
-           data-shlp="{type:'CT', id:'T006I'}"
-    />
-</FormItem>
-
-
-<FormItem label="ISO code for unit of measurement">
-    <Input value={this.DATA_FLEET.UNIT_CAP_ISO}
-           data-abap="{type: 'string', length: '3'}"
-           data-shlp="{type:'CT', id:'T006I'}"
-    />
-</FormItem>
-
-
-<FormItem label="ISO code for unit of measurement">
-    <Input value={this.DATA_FLEET.UNIT_POWER_ISO}
-           data-abap="{type: 'string', length: '3'}"
-           data-shlp="{type:'CT', id:'T006I'}"
-    />
-</FormItem>
-
-
-<FormItem label="ISO code for unit of measurement">
-    <Input value={this.DATA_FLEET.VOL_UNIT_ISO}
-           data-abap="{type: 'string', length: '3'}"
-           data-shlp="{type:'CT', id:'T006I'}"
-    />
-</FormItem>
-
-
-<FormItem label="ISO code for unit of measurement">
-    <Input value={this.DATA_FLEET.WGT_UNIT_ISO}
-           data-abap="{type: 'string', length: '3'}"
-           data-shlp="{type:'CT', id:'T006I'}"
-    />
-</FormItem>
-
 
 <!-- DATA_GENERAL BAPI_ITOB General Data for Technical Objects -->
 
@@ -849,30 +545,6 @@
 </FormItem>
 
 
-<!-- DATA_INSTALL BAPI_ITOB_EQ_INSTALL Installation Date for Equipment -->
-
-<FormItem label="Functional Location Label">
-    <Input value={this.DATA_INSTALL.FUNCLOC}
-           data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem label="Equipment position at InstallLoc (Superior Equip./FunctLoc)">
-    <Input value={this.DATA_INSTALL.INST_POS}
-           data-abap="{type: 'string', length: '4'}"
-    />
-</FormItem>
-
-
-<FormItem label="Superordinate Equipment">
-    <Input value={this.DATA_INSTALL.SUPEQUI}
-           data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
-           data-shlp="{type:'CT', id:'EQUI'}"
-    />
-</FormItem>
-
-
 <!-- DATA_SPECIFIC BAPI_ITOB_EQ_ONLY Equipment-Specific data -->
 
 <FormItem label="Batch Number">
@@ -1141,6 +813,336 @@
 </FormItem>
 
 
+<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
+
+<FormItem label="Fuel card number">
+    <Input value={this.DATA_FLEET.CARD_NUM}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Chassis number">
+    <Input value={this.DATA_FLEET.CHASSIS_NUM}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Indicator Consumption Recording: Material Movement">
+    <Input value={this.DATA_FLEET.CONSUMP_MOVE}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Indicator Consumption Recording: Permitted Tolerances">
+    <Input value={this.DATA_FLEET.CONSUMP_TOL}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.DATA_FLEET.DIM_UNIT_ISO}
+        items="{type:'CT', id:'T006I'}"
+        data-abap="{type: 'string', length: '3'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Engine capacity">
+    <Input value={this.DATA_FLEET.ENGINE_CAP}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Number of cylinders">
+    <Input value={this.DATA_FLEET.ENGINE_CYL}
+           data-abap="{type: 'string', length: '2'}"
+    />
+</FormItem>
+
+
+<FormItem label="Power at specific number of revolutions per minute">
+    <Input value={this.DATA_FLEET.ENGINE_POWER}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Engine serial number of manufacturer">
+    <Input value={this.DATA_FLEET.ENGINE_SNR}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Engine type">
+    <Input value={this.DATA_FLEET.ENGINE_TYPE}
+           data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Validity end date">
+    <DatePicker value={this.DATA_FLEET.EXPIRY_DATE}/>
+</FormItem>
+
+
+<FormItem label="Maximum fleet object height">
+    <Input value={this.DATA_FLEET.FLEET_HGT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maximum fleet object length">
+    <Input value={this.DATA_FLEET.FLEET_LEN}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Identification number for fleet object">
+    <Input value={this.DATA_FLEET.FLEET_NUM}
+           data-abap="{type: 'string', length: '18'}"
+    />
+</FormItem>
+
+
+<FormItem label="Usage indicator">
+    <Input value={this.DATA_FLEET.FLEET_USE}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Manufacturer Vehicle Identification Number for Fleet Object">
+    <Input value={this.DATA_FLEET.FLEET_VIN}
+           data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem label="Width of fleet object">
+    <Input value={this.DATA_FLEET.FLEET_WID}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Consumable Type of Primary Fuel">
+    <Input value={this.DATA_FLEET.FUEL_PRI}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Consumable type of secondary fuel">
+    <Input value={this.DATA_FLEET.FUEL_SEC}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Total Weight Allowed">
+    <Input value={this.DATA_FLEET.GROSS_WGT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Key number of vehicle">
+    <Input value={this.DATA_FLEET.KEY_NUM}
+           data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem label="License plate number">
+    <Input value={this.DATA_FLEET.LICENSE_NUM}
+           data-abap="{type: 'string', length: '15'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <Input value={this.DATA_FLEET.LOAD_DIM_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="Load height">
+    <Input value={this.DATA_FLEET.LOAD_HGT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Load length">
+    <Input value={this.DATA_FLEET.LOAD_LEN}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Load volume">
+    <Input value={this.DATA_FLEET.LOAD_VOL}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maximum load weight">
+    <Input value={this.DATA_FLEET.LOAD_WGT}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Load width">
+    <Input value={this.DATA_FLEET.LOAD_WID}
+           data-abap="{type: 'number', length: '10.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maximum number of occupants">
+    <Input value={this.DATA_FLEET.MAX_OCCUPANTS}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem label="NUmber of compartments">
+    <Input value={this.DATA_FLEET.NO_COMPART}
+           data-abap="{type: 'string', length: '2'}"
+    />
+</FormItem>
+
+
+<FormItem label="Number of Axles in Fleet Object">
+    <Input value={this.DATA_FLEET.NUM_AXLE}
+           data-abap="{type: 'string', length: '2'}"
+    />
+</FormItem>
+
+
+<FormItem label="Consumable type of oil">
+    <Input value={this.DATA_FLEET.OIL_TYPE}
+           data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem label="Indicator to determine the calculation method f. consumption">
+    <Input value={this.DATA_FLEET.PRI_CALC}
+           data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem label="Date on which the object should be replaced">
+    <DatePicker value={this.DATA_FLEET.REPLA_DATE}/>
+</FormItem>
+
+
+<FormItem label="Odometer reading at replacement">
+    <Input value={this.DATA_FLEET.REPLA_ODOM}
+           data-abap="{type: 'string', length: '22'}"
+    />
+</FormItem>
+
+
+<FormItem label="Hour meter reading at replacement">
+    <Input value={this.DATA_FLEET.REPLA_OPH}
+           data-abap="{type: 'string', length: '22'}"
+    />
+</FormItem>
+
+
+<FormItem label="Revolutions per minute">
+    <Input value={this.DATA_FLEET.REVOLUTIONS}
+           data-abap="{type: 'string', length: '7'}"
+    />
+</FormItem>
+
+
+<FormItem label="Maximum Fleet Object Speed">
+    <Input value={this.DATA_FLEET.SPEED_MAX}
+           data-abap="{type: 'number', length: '6.3'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <Input value={this.DATA_FLEET.SPEED_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <Input value={this.DATA_FLEET.UNIT_CAP_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <Input value={this.DATA_FLEET.UNIT_POWER_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <Input value={this.DATA_FLEET.VOL_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<FormItem label="ISO code for unit of measurement">
+    <Input value={this.DATA_FLEET.WGT_UNIT_ISO}
+           data-abap="{type: 'string', length: '3'}"
+           data-shlp="{type:'CT', id:'T006I'}"
+    />
+</FormItem>
+
+
+<!-- DATA_INSTALL BAPI_ITOB_EQ_INSTALL Installation Date for Equipment -->
+
+<FormItem label="Functional Location Label">
+    <Input value={this.DATA_INSTALL.FUNCLOC}
+           data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem label="Equipment position at InstallLoc (Superior Equip./FunctLoc)">
+    <Input value={this.DATA_INSTALL.INST_POS}
+           data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem label="Superordinate Equipment">
+    <Input value={this.DATA_INSTALL.SUPEQUI}
+           data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
+           data-shlp="{type:'CT', id:'EQUI'}"
+    />
+</FormItem>
+
+
 <FormItem label="Equipment Number">
     <Input value={this.EXTERNAL_NUMBER}
            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
@@ -1151,6 +1153,110 @@
 
 <FormItem label="Date on which installation location of equipment was changed">
     <DatePicker value={this.VALID_DATE}/>
+</FormItem>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+
+<FormItem label="Structure name of  BAPI table extension">
+    <ComboBox value={this.EXTENSIONIN.STRUCTURE}
+        items="{type:'CT', id:'DD02L'}"
+        data-abap="{type: 'string', length: '30'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONIN.VALUEPART1}
+           data-abap="{type: 'string', length: '240'}"
+    />
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONIN.VALUEPART2}
+           data-abap="{type: 'string', length: '240'}"
+    />
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONIN.VALUEPART3}
+           data-abap="{type: 'string', length: '240'}"
+    />
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONIN.VALUEPART4}
+           data-abap="{type: 'string', length: '240'}"
+    />
+</FormItem>
+
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <fd-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+
+<FormItem label="Structure name of  BAPI table extension">
+    <ComboBox value={this.EXTENSIONOUT.STRUCTURE}
+        items="{type:'CT', id:'DD02L'}"
+        data-abap="{type: 'string', length: '30'}">
+    </ComboBox>
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONOUT.VALUEPART1}
+           data-abap="{type: 'string', length: '240'}"
+    />
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONOUT.VALUEPART2}
+           data-abap="{type: 'string', length: '240'}"
+    />
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONOUT.VALUEPART3}
+           data-abap="{type: 'string', length: '240'}"
+    />
+</FormItem>
+
+
+<FormItem label="Data part of BAPI extension parameter">
+    <Input value={this.EXTENSIONOUT.VALUEPART4}
+           data-abap="{type: 'string', length: '240'}"
+    />
 </FormItem>
 
 
@@ -2380,110 +2486,6 @@
 <FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
     <Input value={this.RETURN.TYPE}
            data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
-<!-- TABLE PARAMETERS -->
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-
-<FormItem label="Structure name of  BAPI table extension">
-    <ComboBox value={this.EXTENSIONIN.STRUCTURE}
-        items="{type:'CT', id:'DD02L'}"
-        data-abap="{type: 'string', length: '30'}">
-    </ComboBox>
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONIN.VALUEPART1}
-           data-abap="{type: 'string', length: '240'}"
-    />
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONIN.VALUEPART2}
-           data-abap="{type: 'string', length: '240'}"
-    />
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONIN.VALUEPART3}
-           data-abap="{type: 'string', length: '240'}"
-    />
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONIN.VALUEPART4}
-           data-abap="{type: 'string', length: '240'}"
-    />
-</FormItem>
-
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <fd-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-dg-column', 'initial': '""', 'comment': 'string'}"></fd-dg-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-
-<FormItem label="Structure name of  BAPI table extension">
-    <ComboBox value={this.EXTENSIONOUT.STRUCTURE}
-        items="{type:'CT', id:'DD02L'}"
-        data-abap="{type: 'string', length: '30'}">
-    </ComboBox>
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONOUT.VALUEPART1}
-           data-abap="{type: 'string', length: '240'}"
-    />
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONOUT.VALUEPART2}
-           data-abap="{type: 'string', length: '240'}"
-    />
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONOUT.VALUEPART3}
-           data-abap="{type: 'string', length: '240'}"
-    />
-</FormItem>
-
-
-<FormItem label="Data part of BAPI extension parameter">
-    <Input value={this.EXTENSIONOUT.VALUEPART4}
-           data-abap="{type: 'string', length: '240'}"
     />
 </FormItem>
 

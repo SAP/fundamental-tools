@@ -1,6 +1,17 @@
-<!-- BAPI_PO_GETDETAIL 0.3 -->
+<!-- BAPI_PO_GETDETAIL 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing Document Number</FormLabel>
+    <FormInput id="4711" value={this.PURCHASEORDER}
+        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+        data-shlp="{type:'CH', id:'EKKO'}"
+    />
+</FormItem>
+
 
 <ComboboxInput id="4711" label="Selection flag"
     value={this.ACCOUNT_ASSIGNMENT}
@@ -44,15 +55,6 @@
     data-abap="{{type: 'string', length: '1'}}"/>
 
 
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing Document Number</FormLabel>
-    <FormInput id="4711" value={this.PURCHASEORDER}
-        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-        data-shlp="{type:'CH', id:'EKKO'}"
-    />
-</FormItem>
-
-
 <ComboboxInput id="4711" label="Selection flag"
     value={this.SCHEDULES}
     options="{type:'FV', id:'SELKZ'}"
@@ -69,965 +71,6 @@
     value={this.SERVICE_TEXTS}
     options="{type:'FV', id:'SELKZ'}"
     data-abap="{{type: 'string', length: '1'}}"/>
-
-
-<!-- OUTPUT PARAMETERS -->
-
-<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not supported) Physical address ID</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.ADDRESS_ID}
-        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Handle for Creating Addresses/Persons (Bus. Addr. Services)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.ADDRHANDLE}
-        data-abap="{type: 'string', length: '140'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Address number"
-    value={this.PO_ADDRESS.ADDRNUMBER}
-    options="{type:'CT', id:'ADRC'}"
-    data-abap="{{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}}"/>
-
-
-<ComboboxInput id="4711" label="(Not Supported) Address Data Source (Key)"
-    value={this.PO_ADDRESS.ADDRORIGIN}
-    options="{type:'CT', id:'TSAD6'}"
-    data-abap="{{type: 'string', length: '4'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">old: building (no. or abbreviation)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.BUILDING}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Building (Number or Code)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.BUILD_LONG}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="City file test status"
-    value={this.PO_ADDRESS.CHCKSTATUS}
-    options="{type:'FV', id:'AD_CHECKST'}"
-    data-abap="{{type: 'string', length: '1'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.CITY1}
-        data-abap="{type: 'string', length: '40'}"
-        data-shlp="{type:'SH', id:'CLCITYNAME'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">District</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.CITY2}
-        data-abap="{type: 'string', length: '40'}"
-        data-shlp="{type:'SH', id:'CITY_PART'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">District code for City and Street file</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.CITYP_CODE}
-        data-abap="{type: 'string', length: '8', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'CPRTA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City code for city/street file</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.CITY_CODE}
-        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'CITYA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City PO box code (City file)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.CITY_CODE2}
-        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'CITYA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Country Key</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.COUNTRY}
-        data-abap="{type: 'string', length: '3', mid: 'LND'}"
-        data-shlp="{type:'CT', id:'T005'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Date referred to</FormLabel>
-    <DatePicker id="4711" value={this.PO_ADDRESS.DATE}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Valid-from date - in current Release only 00010101 possible</FormLabel>
-    <DatePicker id="4711" value={this.PO_ADDRESS.DATE_FROM}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Valid-to date in current Release only 99991231 possible</FormLabel>
-    <DatePicker id="4711" value={this.PO_ADDRESS.DATE_TO}/>
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Communication Method (Key) (Business Address Services)"
-    value={this.PO_ADDRESS.DEFLT_COMM}
-    options="{type:'CT', id:'TSAC'}"
-    data-abap="{{type: 'string', length: '3'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.EXTENSION1}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.EXTENSION2}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First fax no.: extension</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.FAX_EXTENS}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First fax no.: dialling code+number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.FAX_NUMBER}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Floor in building</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.FLOOR}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">House Number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.HOUSE_NUM1}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">House number supplement</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.HOUSE_NUM2}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not supported) House Number Range</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.HOUSE_NUM3}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem label="Language Key">
-    <Input value={this.PO_ADDRESS.LANGU}
-           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
-           data-shlp="{type:'SH', id:'H_T002'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street 5</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.LOCATION}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.NAME1}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 2</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.NAME2}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 3</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.NAME3}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 4</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.NAME4}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">c/o name</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.NAME_CO}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Converted name field (with form of address)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.NAME_TXT}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Version ID for International Addresses"
-    value={this.PO_ADDRESS.NATION}
-    options="{type:'CT', id:'TSADV'}"
-    data-abap="{{type: 'string', length: '1', mid: 'ADDRESS_NATION'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not Supported) Post Delivery District</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.POSTALAREA}
-        data-abap="{type: 'string', length: '15'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City postal code</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.POST_CODE1}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">PO Box Postal Code</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.POST_CODE2}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Company Postal Code (for Large Customers)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.POST_CODE3}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">PO Box</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.PO_BOX}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="PO box country"
-    value={this.PO_ADDRESS.PO_BOX_CTY}
-    options="{type:'CT', id:'T005'}"
-    data-abap="{{type: 'string', length: '3'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">PO Box city</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.PO_BOX_LOC}
-        data-abap="{type: 'string', length: '40'}"
-        data-shlp="{type:'SH', id:'CITY_NAME'}"
-    />
-</FormItem>
-
-
-<Checkbox value={this.PO_ADDRESS.PO_BOX_NUM}/>Flag: PO Box Without Number</Checkbox>
-
-
-<ComboboxInput id="4711" label="Region for PO Box (Country, State, Province, ...)"
-    value={this.PO_ADDRESS.PO_BOX_REG}
-    options="{type:'CT', id:'T005S'}"
-    data-abap="{{type: 'string', length: '3'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Region (State, Province, County)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.REGION}
-        data-abap="{type: 'string', length: '3'}"
-        data-shlp="{type:'CT', id:'T005S'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Address notes</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.REMARK}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Room or Appartment Number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.ROOMNUMBER}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Search Term 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.SORT1}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Search Term 2</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.SORT2}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not Supported) Phonetic Search Sort Field</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.SORT_PHN}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.STREET}
-        data-abap="{type: 'string', length: '60'}"
-        data-shlp="{type:'SH', id:'CLSTRTNAME'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="(Not Supported) Abbreviation of Street Name"
-    value={this.PO_ADDRESS.STREETABBR}
-    options="{type:'CT', id:'ADRSTRTYPE'}"
-    data-abap="{{type: 'string', length: '2'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street Number for City/Street File</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.STREETCODE}
-        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'STRTA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street 2</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.STR_SUPPL1}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street 3</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.STR_SUPPL2}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Tax Jurisdiction</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.TAXJURCODE}
-        data-abap="{type: 'string', length: '15', mid: 'TXJ'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First Telephone No.: Extension</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.TEL_EXTENS}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First telephone no.: dialling code+number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.TEL_NUMBER}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Address time zone</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESS.TIME_ZONE}
-        data-abap="{type: 'string', length: '6'}"
-        data-shlp="{type:'SH', id:'VTTZZ'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Form-of-Address Key"
-    value={this.PO_ADDRESS.TITLE}
-    options="{type:'CT', id:'TSAD3'}"
-    data-abap="{{type: 'string', length: '4'}}"/>
-
-
-<ComboboxInput id="4711" label="Transportation zone to or from which the goods are delivered"
-    value={this.PO_ADDRESS.TRANSPZONE}
-    options="{type:'CT', id:'TZONE'}"
-    data-abap="{{type: 'string', length: '10'}}"/>
-
-
-<!-- PO_HEADER BAPIEKKOL PO Header Data -->
-
-<FormItem>
-    <FormLabel htmlFor="4711">Number of principal purchase agreement</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.AGREEMENT}
-        data-abap="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}"
-        data-shlp="{type:'CH', id:'EKKO'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Closing Date for Applications</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.APPLIC_BY}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Bid invitation number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.BIDINV_NO}
-        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-        data-shlp="{type:'CH', id:'EKKO'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Binding Period for Quotation</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.BINDG_PER}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Cash discount percentage 1</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.CASH_DISC1}
-        data-abap="{type: 'number', length: '4.3'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Cash Discount Percentage 2</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.CASH_DISC2}
-        data-abap="{type: 'number', length: '4.3'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Control indicator for purchasing document type</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.CNTRL_IND}
-        data-abap="{type: 'string', length: '1'}"
-        data-shlp="{type:'FV', id:'BSAKZ'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Collective Number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.COLL_NO}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<Checkbox value={this.PO_HEADER.COMPL_DLV}/>Complete Delivery Stipulated for Each Purchase Order</Checkbox>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Company Code</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.CO_CODE}
-        data-abap="{type: 'string', length: '4', mid: 'BUK'}"
-        data-shlp="{type:'SH', id:'C_T001'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name of Person who Created the Object</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.CREATED_BY}
-        data-abap="{type: 'string', length: '12'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Date on Which Record Was Created</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.CREATED_ON}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">ISO Currency Code</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.CURRENCY_ISO}
-        data-abap="{type: 'string', length: '3'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Customer Number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.CUSTOMER}
-        data-abap="{type: 'string', length: '10', mid: 'KUN', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'DEBI'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Deletion indicator in purchasing document</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.DELETE_IND}
-        data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Different Invoicing Party</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.DIFF_INV}
-        data-abap="{type: 'string', length: '10', mid: 'LRE', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'KRED'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Purchasing Document Category"
-    value={this.PO_HEADER.DOC_CAT}
-    options="{type:'FV', id:'EBSTYP'}"
-    data-abap="{{type: 'string', length: '1'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Number of the document condition</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.DOC_COND}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing Document Date</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.DOC_DATE}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing Document Type</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.DOC_TYPE}
-        data-abap="{type: 'string', length: '4', mid: 'BSA'}"
-        data-shlp="{type:'SH', id:'H_T161'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Cash discount days 1</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.DSCNT1_TO}
-        data-abap="{type: 'number', length: '3'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Cash discount days 2</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.DSCNT2_TO}
-        data-abap="{type: 'number', length: '3'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Cash discount days 3</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.DSCNT3_TO}
-        data-abap="{type: 'number', length: '3'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Direct Quoted Exchange Rate</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.EXCH_RATE}
-        data-abap="{type: 'number', length: '8.5'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Indirect Quoted Exchange Rate</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.EXCH_RATE_CM}
-        data-abap="{type: 'number', length: '8.5'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Number of foreign trade data in MM and SD documents"
-    value={this.PO_HEADER.EXPORT_NO}
-    options="{type:'CH', id:'EIKP'}"
-    data-abap="{{type: 'string', length: '10'}}"/>
-
-
-<Checkbox value={this.PO_HEADER.EX_RATE_FX}/>Indicator: Fixing of Exchange Rate</Checkbox>
-
-
-<Checkbox value={this.PO_HEADER.GR_MESSAGE}/>Indicator: Goods Receipt Message</Checkbox>
-
-
-<Checkbox value={this.PO_HEADER.HOLD}/>Purchase order not yet complete</Checkbox>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Incoterms (Part 1)</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.INCOTERMS1}
-        data-abap="{type: 'string', length: '3'}"
-        data-shlp="{type:'SH', id:'H_TINC'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Incoterms (Part 2)</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.INCOTERMS2}
-        data-abap="{type: 'string', length: '28'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Item Number Interval</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.ITEM_INTVL}
-        data-abap="{type: 'string', length: '5'}"
-    />
-</FormItem>
-
-
-<FormItem label="Language Key">
-    <Input value={this.PO_HEADER.LANGUAGE}
-           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
-           data-shlp="{type:'SH', id:'H_T002'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Last Item Number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.LAST_ITEM}
-        data-abap="{type: 'string', length: '5'}"
-        data-shlp="{type:'CH', id:'EKPO'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Logical System"
-    value={this.PO_HEADER.LOGSYSTEM}
-    options="{type:'CT', id:'TBDLS'}"
-    data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}"/>
-
-
-<Checkbox value={this.PO_HEADER.MAST_COND}/>Document with time-dependent conditions</Checkbox>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Our Reference</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.OUR_REF}
-        data-abap="{type: 'string', length: '12'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Terms of Payment Key</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.PMNTTRMS}
-        data-abap="{type: 'string', length: '4'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing Document Number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.PO_NUMBER}
-        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-        data-shlp="{type:'CH', id:'EKKO'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
-    value={this.PO_HEADER.PROCEDURE}
-    options="{type:'CT', id:'T683'}"
-    data-abap="{{type: 'string', length: '6'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing organization</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.PURCH_ORG}
-        data-abap="{type: 'string', length: '4', mid: 'EKO'}"
-        data-shlp="{type:'SH', id:'H_T024E'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing Group</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.PUR_GROUP}
-        data-abap="{type: 'string', length: '3', mid: 'EKG'}"
-        data-shlp="{type:'SH', id:'H_T024'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Quotation Number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.QUOTATION}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Quotation Submission Date</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.QUOT_DATE}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Deadline for Submission of Bid/Quotation</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.QUOT_DEAD}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Field not used</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.RCVG_VEND}
-        data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'KRED'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Your Reference</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.REF_1}
-        data-abap="{type: 'string', length: '12'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Reason for rejection of quotations and sales orders</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.REJ_REASON}
-        data-abap="{type: 'string', length: '2'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Release group"
-    value={this.PO_HEADER.REL_GROUP}
-    options="{type:'CT', id:'T16FG'}"
-    data-abap="{{type: 'string', length: '2'}}"/>
-
-
-<ComboboxInput id="4711" label="Release Indicator: Purchasing Document"
-    value={this.PO_HEADER.REL_IND}
-    options="{type:'CT', id:'T16FB'}"
-    data-abap="{{type: 'string', length: '1'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Release State</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.REL_STATUS}
-        data-abap="{type: 'string', length: '8'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Release Strategy"
-    value={this.PO_HEADER.REL_STRAT}
-    options="{type:'CT', id:'T16FS'}"
-    data-abap="{{type: 'string', length: '2'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Responsible Salesperson at Vendor's Office</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.SALES_PERS}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<Checkbox value={this.PO_HEADER.SCHED_IND}/>Indicator for scheduling agreement release documentation</Checkbox>
-
-
-<ComboboxInput id="4711" label="Status of Purchasing Document"
-    value={this.PO_HEADER.STATUS}
-    options="{type:'FV', id:'ESTAK'}"
-    data-abap="{{type: 'string', length: '1'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Item Number Interval for Subitems</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.SUBITEMINT}
-        data-abap="{type: 'string', length: '5'}"
-    />
-</FormItem>
-
-
-<Checkbox value={this.PO_HEADER.SUBJ_TO_R}/>Release Not Yet Completely Effected</Checkbox>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Supplying (issuing) plant in case of stock transport order</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.SUPPL_PLNT}
-        data-abap="{type: 'string', length: '4'}"
-        data-shlp="{type:'SH', id:'H_T001W'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Supplying Vendor</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.SUPPL_VEND}
-        data-abap="{type: 'string', length: '10', mid: 'LLI', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'KRED'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Cumulative Planned Value</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.TARGET_VAL}
-        data-abap="{type: 'number', length: '22.4'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Country for Tax Return</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.TAXR_CNTRY}
-        data-abap="{type: 'string', length: '3'}"
-        data-shlp="{type:'CT', id:'T005'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Vendor's Telephone Number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.TELEPHONE}
-        data-abap="{type: 'string', length: '16'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Update group for statistics update</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.UPDATE_GRP}
-        data-abap="{type: 'string', length: '6', mid: 'MCF', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'H_TMCB'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Vendor's account number</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.VENDOR}
-        data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'KRED'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 1</FormLabel>
-    <FormInput id="4711" value={this.PO_HEADER.VEND_NAME}
-        data-abap="{type: 'string', length: '35'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">End of Validity Period</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.VPER_END}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Start of Validity Period</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.VPER_START}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Warranty Date</FormLabel>
-    <DatePicker id="4711" value={this.PO_HEADER.WARRANTY}/>
-</FormItem>
 
 
 <!-- TABLE PARAMETERS -->
@@ -5823,5 +4866,964 @@
     <FormInput id="4711" value={this.RETURN.TYPE}
         data-abap="{type: 'string', length: '1'}"
     />
+</FormItem>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not supported) Physical address ID</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.ADDRESS_ID}
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Handle for Creating Addresses/Persons (Bus. Addr. Services)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.ADDRHANDLE}
+        data-abap="{type: 'string', length: '140'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Address number"
+    value={this.PO_ADDRESS.ADDRNUMBER}
+    options="{type:'CT', id:'ADRC'}"
+    data-abap="{{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}}"/>
+
+
+<ComboboxInput id="4711" label="(Not Supported) Address Data Source (Key)"
+    value={this.PO_ADDRESS.ADDRORIGIN}
+    options="{type:'CT', id:'TSAD6'}"
+    data-abap="{{type: 'string', length: '4'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">old: building (no. or abbreviation)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.BUILDING}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Building (Number or Code)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.BUILD_LONG}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="City file test status"
+    value={this.PO_ADDRESS.CHCKSTATUS}
+    options="{type:'FV', id:'AD_CHECKST'}"
+    data-abap="{{type: 'string', length: '1'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.CITY1}
+        data-abap="{type: 'string', length: '40'}"
+        data-shlp="{type:'SH', id:'CLCITYNAME'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">District</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.CITY2}
+        data-abap="{type: 'string', length: '40'}"
+        data-shlp="{type:'SH', id:'CITY_PART'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">District code for City and Street file</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.CITYP_CODE}
+        data-abap="{type: 'string', length: '8', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'CPRTA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City code for city/street file</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.CITY_CODE}
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'CITYA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City PO box code (City file)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.CITY_CODE2}
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'CITYA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Country Key</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.COUNTRY}
+        data-abap="{type: 'string', length: '3', mid: 'LND'}"
+        data-shlp="{type:'CT', id:'T005'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Date referred to</FormLabel>
+    <DatePicker id="4711" value={this.PO_ADDRESS.DATE}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Valid-from date - in current Release only 00010101 possible</FormLabel>
+    <DatePicker id="4711" value={this.PO_ADDRESS.DATE_FROM}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Valid-to date in current Release only 99991231 possible</FormLabel>
+    <DatePicker id="4711" value={this.PO_ADDRESS.DATE_TO}/>
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Communication Method (Key) (Business Address Services)"
+    value={this.PO_ADDRESS.DEFLT_COMM}
+    options="{type:'CT', id:'TSAC'}"
+    data-abap="{{type: 'string', length: '3'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.EXTENSION1}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.EXTENSION2}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First fax no.: extension</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.FAX_EXTENS}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First fax no.: dialling code+number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.FAX_NUMBER}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Floor in building</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.FLOOR}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">House Number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.HOUSE_NUM1}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">House number supplement</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.HOUSE_NUM2}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not supported) House Number Range</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.HOUSE_NUM3}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Language Key">
+    <Input value={this.PO_ADDRESS.LANGU}
+           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
+           data-shlp="{type:'SH', id:'H_T002'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street 5</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.LOCATION}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.NAME1}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 2</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.NAME2}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 3</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.NAME3}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 4</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.NAME4}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">c/o name</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.NAME_CO}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Converted name field (with form of address)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.NAME_TXT}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Version ID for International Addresses"
+    value={this.PO_ADDRESS.NATION}
+    options="{type:'CT', id:'TSADV'}"
+    data-abap="{{type: 'string', length: '1', mid: 'ADDRESS_NATION'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not Supported) Post Delivery District</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.POSTALAREA}
+        data-abap="{type: 'string', length: '15'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City postal code</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.POST_CODE1}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">PO Box Postal Code</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.POST_CODE2}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Company Postal Code (for Large Customers)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.POST_CODE3}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">PO Box</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.PO_BOX}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="PO box country"
+    value={this.PO_ADDRESS.PO_BOX_CTY}
+    options="{type:'CT', id:'T005'}"
+    data-abap="{{type: 'string', length: '3'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">PO Box city</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.PO_BOX_LOC}
+        data-abap="{type: 'string', length: '40'}"
+        data-shlp="{type:'SH', id:'CITY_NAME'}"
+    />
+</FormItem>
+
+
+<Checkbox value={this.PO_ADDRESS.PO_BOX_NUM}/>Flag: PO Box Without Number</Checkbox>
+
+
+<ComboboxInput id="4711" label="Region for PO Box (Country, State, Province, ...)"
+    value={this.PO_ADDRESS.PO_BOX_REG}
+    options="{type:'CT', id:'T005S'}"
+    data-abap="{{type: 'string', length: '3'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Region (State, Province, County)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.REGION}
+        data-abap="{type: 'string', length: '3'}"
+        data-shlp="{type:'CT', id:'T005S'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Address notes</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.REMARK}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Room or Appartment Number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.ROOMNUMBER}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Search Term 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.SORT1}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Search Term 2</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.SORT2}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not Supported) Phonetic Search Sort Field</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.SORT_PHN}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.STREET}
+        data-abap="{type: 'string', length: '60'}"
+        data-shlp="{type:'SH', id:'CLSTRTNAME'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="(Not Supported) Abbreviation of Street Name"
+    value={this.PO_ADDRESS.STREETABBR}
+    options="{type:'CT', id:'ADRSTRTYPE'}"
+    data-abap="{{type: 'string', length: '2'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street Number for City/Street File</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.STREETCODE}
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'STRTA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street 2</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.STR_SUPPL1}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street 3</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.STR_SUPPL2}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Tax Jurisdiction</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.TAXJURCODE}
+        data-abap="{type: 'string', length: '15', mid: 'TXJ'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First Telephone No.: Extension</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.TEL_EXTENS}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First telephone no.: dialling code+number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.TEL_NUMBER}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Address time zone</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESS.TIME_ZONE}
+        data-abap="{type: 'string', length: '6'}"
+        data-shlp="{type:'SH', id:'VTTZZ'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Form-of-Address Key"
+    value={this.PO_ADDRESS.TITLE}
+    options="{type:'CT', id:'TSAD3'}"
+    data-abap="{{type: 'string', length: '4'}}"/>
+
+
+<ComboboxInput id="4711" label="Transportation zone to or from which the goods are delivered"
+    value={this.PO_ADDRESS.TRANSPZONE}
+    options="{type:'CT', id:'TZONE'}"
+    data-abap="{{type: 'string', length: '10'}}"/>
+
+
+<!-- PO_HEADER BAPIEKKOL PO Header Data -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">Number of principal purchase agreement</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.AGREEMENT}
+        data-abap="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}"
+        data-shlp="{type:'CH', id:'EKKO'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Closing Date for Applications</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.APPLIC_BY}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Bid invitation number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.BIDINV_NO}
+        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+        data-shlp="{type:'CH', id:'EKKO'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Binding Period for Quotation</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.BINDG_PER}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Cash discount percentage 1</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.CASH_DISC1}
+        data-abap="{type: 'number', length: '4.3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Cash Discount Percentage 2</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.CASH_DISC2}
+        data-abap="{type: 'number', length: '4.3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Control indicator for purchasing document type</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.CNTRL_IND}
+        data-abap="{type: 'string', length: '1'}"
+        data-shlp="{type:'FV', id:'BSAKZ'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Collective Number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.COLL_NO}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<Checkbox value={this.PO_HEADER.COMPL_DLV}/>Complete Delivery Stipulated for Each Purchase Order</Checkbox>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Company Code</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.CO_CODE}
+        data-abap="{type: 'string', length: '4', mid: 'BUK'}"
+        data-shlp="{type:'SH', id:'C_T001'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name of Person who Created the Object</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.CREATED_BY}
+        data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Date on Which Record Was Created</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.CREATED_ON}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">ISO Currency Code</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.CURRENCY_ISO}
+        data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Customer Number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.CUSTOMER}
+        data-abap="{type: 'string', length: '10', mid: 'KUN', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'DEBI'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Deletion indicator in purchasing document</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.DELETE_IND}
+        data-abap="{type: 'string', length: '1'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Different Invoicing Party</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.DIFF_INV}
+        data-abap="{type: 'string', length: '10', mid: 'LRE', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'KRED'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Purchasing Document Category"
+    value={this.PO_HEADER.DOC_CAT}
+    options="{type:'FV', id:'EBSTYP'}"
+    data-abap="{{type: 'string', length: '1'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Number of the document condition</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.DOC_COND}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing Document Date</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.DOC_DATE}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing Document Type</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.DOC_TYPE}
+        data-abap="{type: 'string', length: '4', mid: 'BSA'}"
+        data-shlp="{type:'SH', id:'H_T161'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Cash discount days 1</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.DSCNT1_TO}
+        data-abap="{type: 'number', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Cash discount days 2</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.DSCNT2_TO}
+        data-abap="{type: 'number', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Cash discount days 3</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.DSCNT3_TO}
+        data-abap="{type: 'number', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Direct Quoted Exchange Rate</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.EXCH_RATE}
+        data-abap="{type: 'number', length: '8.5'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Indirect Quoted Exchange Rate</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.EXCH_RATE_CM}
+        data-abap="{type: 'number', length: '8.5'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Number of foreign trade data in MM and SD documents"
+    value={this.PO_HEADER.EXPORT_NO}
+    options="{type:'CH', id:'EIKP'}"
+    data-abap="{{type: 'string', length: '10'}}"/>
+
+
+<Checkbox value={this.PO_HEADER.EX_RATE_FX}/>Indicator: Fixing of Exchange Rate</Checkbox>
+
+
+<Checkbox value={this.PO_HEADER.GR_MESSAGE}/>Indicator: Goods Receipt Message</Checkbox>
+
+
+<Checkbox value={this.PO_HEADER.HOLD}/>Purchase order not yet complete</Checkbox>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Incoterms (Part 1)</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.INCOTERMS1}
+        data-abap="{type: 'string', length: '3'}"
+        data-shlp="{type:'SH', id:'H_TINC'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Incoterms (Part 2)</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.INCOTERMS2}
+        data-abap="{type: 'string', length: '28'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Item Number Interval</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.ITEM_INTVL}
+        data-abap="{type: 'string', length: '5'}"
+    />
+</FormItem>
+
+
+<FormItem label="Language Key">
+    <Input value={this.PO_HEADER.LANGUAGE}
+           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
+           data-shlp="{type:'SH', id:'H_T002'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Last Item Number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.LAST_ITEM}
+        data-abap="{type: 'string', length: '5'}"
+        data-shlp="{type:'CH', id:'EKPO'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Logical System"
+    value={this.PO_HEADER.LOGSYSTEM}
+    options="{type:'CT', id:'TBDLS'}"
+    data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}"/>
+
+
+<Checkbox value={this.PO_HEADER.MAST_COND}/>Document with time-dependent conditions</Checkbox>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Our Reference</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.OUR_REF}
+        data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Terms of Payment Key</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.PMNTTRMS}
+        data-abap="{type: 'string', length: '4'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing Document Number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.PO_NUMBER}
+        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+        data-shlp="{type:'CH', id:'EKKO'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
+    value={this.PO_HEADER.PROCEDURE}
+    options="{type:'CT', id:'T683'}"
+    data-abap="{{type: 'string', length: '6'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing organization</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.PURCH_ORG}
+        data-abap="{type: 'string', length: '4', mid: 'EKO'}"
+        data-shlp="{type:'SH', id:'H_T024E'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing Group</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.PUR_GROUP}
+        data-abap="{type: 'string', length: '3', mid: 'EKG'}"
+        data-shlp="{type:'SH', id:'H_T024'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Quotation Number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.QUOTATION}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Quotation Submission Date</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.QUOT_DATE}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Deadline for Submission of Bid/Quotation</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.QUOT_DEAD}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Field not used</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.RCVG_VEND}
+        data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'KRED'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Your Reference</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.REF_1}
+        data-abap="{type: 'string', length: '12'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Reason for rejection of quotations and sales orders</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.REJ_REASON}
+        data-abap="{type: 'string', length: '2'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Release group"
+    value={this.PO_HEADER.REL_GROUP}
+    options="{type:'CT', id:'T16FG'}"
+    data-abap="{{type: 'string', length: '2'}}"/>
+
+
+<ComboboxInput id="4711" label="Release Indicator: Purchasing Document"
+    value={this.PO_HEADER.REL_IND}
+    options="{type:'CT', id:'T16FB'}"
+    data-abap="{{type: 'string', length: '1'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Release State</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.REL_STATUS}
+        data-abap="{type: 'string', length: '8'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Release Strategy"
+    value={this.PO_HEADER.REL_STRAT}
+    options="{type:'CT', id:'T16FS'}"
+    data-abap="{{type: 'string', length: '2'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Responsible Salesperson at Vendor's Office</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.SALES_PERS}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<Checkbox value={this.PO_HEADER.SCHED_IND}/>Indicator for scheduling agreement release documentation</Checkbox>
+
+
+<ComboboxInput id="4711" label="Status of Purchasing Document"
+    value={this.PO_HEADER.STATUS}
+    options="{type:'FV', id:'ESTAK'}"
+    data-abap="{{type: 'string', length: '1'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Item Number Interval for Subitems</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.SUBITEMINT}
+        data-abap="{type: 'string', length: '5'}"
+    />
+</FormItem>
+
+
+<Checkbox value={this.PO_HEADER.SUBJ_TO_R}/>Release Not Yet Completely Effected</Checkbox>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Supplying (issuing) plant in case of stock transport order</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.SUPPL_PLNT}
+        data-abap="{type: 'string', length: '4'}"
+        data-shlp="{type:'SH', id:'H_T001W'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Supplying Vendor</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.SUPPL_VEND}
+        data-abap="{type: 'string', length: '10', mid: 'LLI', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'KRED'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Cumulative Planned Value</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.TARGET_VAL}
+        data-abap="{type: 'number', length: '22.4'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Country for Tax Return</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.TAXR_CNTRY}
+        data-abap="{type: 'string', length: '3'}"
+        data-shlp="{type:'CT', id:'T005'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Vendor's Telephone Number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.TELEPHONE}
+        data-abap="{type: 'string', length: '16'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Update group for statistics update</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.UPDATE_GRP}
+        data-abap="{type: 'string', length: '6', mid: 'MCF', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'H_TMCB'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Vendor's account number</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.VENDOR}
+        data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'KRED'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 1</FormLabel>
+    <FormInput id="4711" value={this.PO_HEADER.VEND_NAME}
+        data-abap="{type: 'string', length: '35'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">End of Validity Period</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.VPER_END}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Start of Validity Period</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.VPER_START}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Warranty Date</FormLabel>
+    <DatePicker id="4711" value={this.PO_HEADER.WARRANTY}/>
 </FormItem>
 

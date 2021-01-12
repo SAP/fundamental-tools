@@ -1,172 +1,8 @@
-<!-- BAPI_PROCOPERATION_GETINFO 0.3 -->
+<!-- BAPI_PROCOPERATION_GETINFO 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- TABLE PARAMETERS -->
-
-<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
-<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO PROCUREMENT_ACCOUNT" title="Account Assignment Data"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <ui-dg-column sortable field="ACTIVITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VGN"}' alpha-exit="NUMCV"  label="Activity Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="ASSET_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"AN1", shlp:{type:'CT', id:'ANLH'}}' alpha-exit="ALPHA"  label="Main Asset Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="BUDGET_PERIOD" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BUDPER", shlp:{type:'CT', id:'FMFUNDBPD'}}' label="FM: Budget Period" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="BUS_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"GSB", shlp:{type:'CT', id:'TGSB'}}' label="Business Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="CMMT_ITEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"14", mid:"FIP", shlp:{type:'CT', id:'FMFXPO'}}' alpha-exit="FMCIS"  label="Commitment Item" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="CMMT_ITEM_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"FPS", shlp:{type:'CT', id:'FMCI'}}' alpha-exit="FMCIL"  label="Commitment item" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="COST_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KOS", shlp:{type:'CT', id:'CSKS'}}' alpha-exit="ALPHA"  label="Cost Center" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="COST_OBJ" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"KTR", shlp:{type:'CT', id:'CKPH'}}' label="Cost Object" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="COUNTER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"8"}' label="Internal counter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
-    <ui-dg-column sortable field="CO_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"CAC", shlp:{type:'CT', id:'TKA01'}}' label="Controlling Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="DISTR_PERC" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"2.1"}' label="Distribution percentage in the case of multiple acct assgt" markup="{'html-tag': 'ui-dg-column', 'initial': '0', 'comment': 'Decimal'}"></ui-dg-column>
-    <ui-dg-column sortable field="FUNC_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"FBE"}' label="Functional Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="FUNC_AREA_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FBE", shlp:{type:'CT', id:'TFKB'}}' label="Functional Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="FUND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"FIC", shlp:{type:'CT', id:'FMFINCODE'}}' label="Fund" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="FUNDS_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FIS", shlp:{type:'CT', id:'FMFCTR'}}' label="Funds Center" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="GRANT_NBR" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", mid:"GM_GRANT_NBR", shlp:{type:'SH', id:'GRANTS_GENERIC'}}' alpha-exit="ALPHA"  label="Grant" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="GR_RCPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' label="Goods recipient" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="G_L_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"SAK", shlp:{type:'SH', id:'C_SAKNR'}}' alpha-exit="ALPHA"  label="G/L Account Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="NETWORK" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"NET", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA"  label="Network Number for Account Assignment" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="ORDER_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"ANR", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA"  label="Order Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="PART_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'KNA1'}}' alpha-exit="ALPHA"  label="Partner account number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CT', id:'EBAN'}}' label="Item number of purchase requisition" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
-    <ui-dg-column sortable field="PREQ_QTY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}' label="Purchase requisition quantity" markup="{'html-tag': 'ui-dg-column', 'initial': '0.0', 'comment': 'Quantity'}"></ui-dg-column>
-    <ui-dg-column sortable field="PROFIT_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"PRC", shlp:{type:'SH', id:'PRCTR_EMPTY'}}' alpha-exit="ALPHA"  label="Profit Center" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="PROF_SEGM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}' label="Profitability Segment Number (CO-PA)" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
-    <ui-dg-column sortable field="PROJ_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"PSP", shlp:{type:'SH', id:'PD_C'}}' alpha-exit="ABPSN"  label="Project definition" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="REC_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T8JJ'}}' alpha-exit="ALPHA"  label="Recovery Indicator" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="REF_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="Reference date for settlement" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></ui-dg-column>
-    <ui-dg-column sortable field="RL_EST_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="IMKEY"  label="Internal Key for Real Estate Object" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="ROUTING_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}' label="Routing number of operations in the order" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
-    <ui-dg-column sortable field="SCHED_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4", shlp:{type:'CT', id:'VBEP'}}' label="Schedule line" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
-    <ui-dg-column sortable field="SDOC_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", mid:"APO", shlp:{type:'CT', id:'VBUP'}}' label="Sales Document Item" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
-    <ui-dg-column sortable field="SD_DOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"AUN", shlp:{type:'CT', id:'VBUK'}}' alpha-exit="ALPHA"  label="Sales and Distribution Document Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}' label="Serial number for PReq account assignment segment" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
-    <ui-dg-column sortable field="SUB_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"AN2", shlp:{type:'CT', id:'ANLA'}}' alpha-exit="ALPHA"  label="Asset Subnumber" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="TO_COSTCTR" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Posting to cost center?" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="TO_ORDER" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Post To Order" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="TO_PROJECT" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Post to project" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="UNLOAD_PT" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="Unloading Point" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="WBS_ELEM_E" data-abap.bind='{ddic:"CHAR", type:"string", length:"24"}' alpha-exit="ABPSN"  label="Work breakdown structure element (WBS element)" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
-<ui-input value.bind="PROCUREMENT_ACCOUNT.ACTIVITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VGN"}' alpha-exit="NUMCV" 
-          label="Activity Number"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.ASSET_NO" shlp.bind='{type:'CT', id:'ANLH'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"AN1"}' alpha-exit="ALPHA" 
-          label="Main Asset Number"></ui-combo>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.BUDGET_PERIOD" shlp.bind='{type:'CT', id:'FMFUNDBPD'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BUDPER"}'
-          label="FM: Budget Period"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.BUS_AREA" shlp.bind='{type:'CT', id:'TGSB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"GSB"}'
-          label="Business Area"></ui-combo>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.CMMT_ITEM" shlp.bind='{type:'CT', id:'FMFXPO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"14", mid:"FIP"}' alpha-exit="FMCIS" 
-          label="Commitment Item"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.CMMT_ITEM_LONG" shlp.bind='{type:'CT', id:'FMCI'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"FPS"}' alpha-exit="FMCIL" 
-          label="Commitment item"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.COST_CTR" shlp.bind='{type:'CT', id:'CSKS'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KOS"}' alpha-exit="ALPHA" 
-          label="Cost Center"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.COST_OBJ" shlp.bind='{type:'CT', id:'CKPH'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"KTR"}'
-          label="Cost Object"></ui-combo>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.COUNTER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"8"}'
-          label="Internal counter"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.CO_AREA" shlp.bind='{type:'CT', id:'TKA01'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"CAC"}'
-          label="Controlling Area"></ui-combo>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.DISTR_PERC" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"2.1"}'
-          label="Distribution percentage in the case of multiple acct assgt"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.FUNC_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"FBE"}'
-          label="Functional Area"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.FUNC_AREA_LONG" shlp.bind='{type:'CT', id:'TFKB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FBE"}'
-          label="Functional Area"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.FUND" shlp.bind='{type:'CT', id:'FMFINCODE'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"FIC"}'
-          label="Fund"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.FUNDS_CTR" shlp.bind='{type:'CT', id:'FMFCTR'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FIS"}'
-          label="Funds Center"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.GRANT_NBR" shlp.bind='{type:'SH', id:'GRANTS_GENERIC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"20", mid:"GM_GRANT_NBR"}' alpha-exit="ALPHA" 
-          label="Grant"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.GR_RCPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-          label="Goods recipient"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.G_L_ACCT" shlp.bind='{type:'SH', id:'C_SAKNR'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"SAK"}' alpha-exit="ALPHA" 
-          label="G/L Account Number"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.NETWORK" shlp.bind='{type:'CT', id:'AUFK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"NET"}' alpha-exit="ALPHA" 
-          label="Network Number for Account Assignment"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.ORDER_NO" shlp.bind='{type:'CT', id:'AUFK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"ANR"}' alpha-exit="ALPHA" 
-          label="Order Number"></ui-combo>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.PART_ACCT" shlp.bind='{type:'CT', id:'KNA1'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
-          label="Partner account number"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.PREQ_ITEM" shlp.bind='{type:'CT', id:'EBAN'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP"}'
-          label="Item number of purchase requisition"></ui-combo>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.PREQ_QTY" unit.bind="PROCUREMENT_ACCOUNT.UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Purchase requisition quantity"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.PROFIT_CTR" shlp.bind='{type:'SH', id:'PRCTR_EMPTY'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"PRC"}' alpha-exit="ALPHA" 
-          label="Profit Center"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.PROF_SEGM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
-          label="Profitability Segment Number (CO-PA)"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.PROJ_EXT" shlp.bind='{type:'SH', id:'PD_C'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"PSP"}' alpha-exit="ABPSN" 
-          label="Project definition"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.REC_IND" shlp.bind='{type:'CT', id:'T8JJ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}' alpha-exit="ALPHA" 
-          label="Recovery Indicator"></ui-combo>
-
-<ui-date date.bind="PROCUREMENT_ACCOUNT.REF_DATE" label="Reference date for settlement"></ui-date>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.RL_EST_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="IMKEY" 
-          label="Internal Key for Real Estate Object"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.ROUTING_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
-          label="Routing number of operations in the order"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.SCHED_LINE" shlp.bind='{type:'CT', id:'VBEP'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4"}'
-          label="Schedule line"></ui-combo>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.SDOC_ITEM" shlp.bind='{type:'CT', id:'VBUP'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", mid:"APO"}'
-          label="Sales Document Item"></ui-combo>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.SD_DOC" shlp.bind='{type:'CT', id:'VBUK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"AUN"}' alpha-exit="ALPHA" 
-          label="Sales and Distribution Document Number"></ui-combo>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
-          label="Serial number for PReq account assignment segment"></ui-input>
-
-<ui-combo value.bind="PROCUREMENT_ACCOUNT.SUB_NUMBER" shlp.bind='{type:'CT', id:'ANLA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"AN2"}' alpha-exit="ALPHA" 
-          label="Asset Subnumber"></ui-combo>
-
-<ui-checkbox value.bind="PROCUREMENT_ACCOUNT.TO_COSTCTR" label="Posting to cost center?"></ui-checkbox>
-
-<ui-checkbox value.bind="PROCUREMENT_ACCOUNT.TO_ORDER" label="Post To Order"></ui-checkbox>
-
-<ui-checkbox value.bind="PROCUREMENT_ACCOUNT.TO_PROJECT" label="Post to project"></ui-checkbox>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.UNLOAD_PT" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
-          label="Unloading Point"></ui-input>
-
-<ui-input value.bind="PROCUREMENT_ACCOUNT.WBS_ELEM_E" data-abap.bind='{ddic:"CHAR", type:"string", length:"24"}' alpha-exit="ABPSN" 
-          label="Work breakdown structure element (WBS element)"></ui-input>
-
 
 <!-- PROCUREMENT_ITEM BAPIPOGN Item Data -->
 <ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO PROCUREMENT_ITEM" title="Item Data"
@@ -345,6 +181,172 @@
 
 <ui-input value.bind="PROCUREMENT_ITEM.VEND_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
           label="Material number used by vendor"></ui-input>
+
+
+<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETINFO PROCUREMENT_ACCOUNT" title="Account Assignment Data"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="ACTIVITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VGN"}' alpha-exit="NUMCV"  label="Activity Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="ASSET_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"AN1", shlp:{type:'CT', id:'ANLH'}}' alpha-exit="ALPHA"  label="Main Asset Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="BUDGET_PERIOD" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BUDPER", shlp:{type:'CT', id:'FMFUNDBPD'}}' label="FM: Budget Period" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="BUS_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"GSB", shlp:{type:'CT', id:'TGSB'}}' label="Business Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="CMMT_ITEM" data-abap.bind='{ddic:"CHAR", type:"string", length:"14", mid:"FIP", shlp:{type:'CT', id:'FMFXPO'}}' alpha-exit="FMCIS"  label="Commitment Item" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="CMMT_ITEM_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"FPS", shlp:{type:'CT', id:'FMCI'}}' alpha-exit="FMCIL"  label="Commitment item" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="COST_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KOS", shlp:{type:'CT', id:'CSKS'}}' alpha-exit="ALPHA"  label="Cost Center" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="COST_OBJ" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"KTR", shlp:{type:'CT', id:'CKPH'}}' label="Cost Object" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="COUNTER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"8"}' label="Internal counter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="CO_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"CAC", shlp:{type:'CT', id:'TKA01'}}' label="Controlling Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="DISTR_PERC" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"2.1"}' label="Distribution percentage in the case of multiple acct assgt" markup="{'html-tag': 'ui-dg-column', 'initial': '0', 'comment': 'Decimal'}"></ui-dg-column>
+    <ui-dg-column sortable field="FUNC_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"FBE"}' label="Functional Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="FUNC_AREA_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FBE", shlp:{type:'CT', id:'TFKB'}}' label="Functional Area" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="FUND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"FIC", shlp:{type:'CT', id:'FMFINCODE'}}' label="Fund" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="FUNDS_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FIS", shlp:{type:'CT', id:'FMFCTR'}}' label="Funds Center" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="GRANT_NBR" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", mid:"GM_GRANT_NBR", shlp:{type:'SH', id:'GRANTS_GENERIC'}}' alpha-exit="ALPHA"  label="Grant" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="GR_RCPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' label="Goods recipient" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="G_L_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"SAK", shlp:{type:'SH', id:'C_SAKNR'}}' alpha-exit="ALPHA"  label="G/L Account Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="NETWORK" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"NET", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA"  label="Network Number for Account Assignment" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="ORDER_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"ANR", shlp:{type:'CT', id:'AUFK'}}' alpha-exit="ALPHA"  label="Order Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="PART_ACCT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'KNA1'}}' alpha-exit="ALPHA"  label="Partner account number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CT', id:'EBAN'}}' label="Item number of purchase requisition" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="PREQ_QTY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}' label="Purchase requisition quantity" markup="{'html-tag': 'ui-dg-column', 'initial': '0.0', 'comment': 'Quantity'}"></ui-dg-column>
+    <ui-dg-column sortable field="PROFIT_CTR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"PRC", shlp:{type:'SH', id:'PRCTR_EMPTY'}}' alpha-exit="ALPHA"  label="Profit Center" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="PROF_SEGM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}' label="Profitability Segment Number (CO-PA)" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="PROJ_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"PSP", shlp:{type:'SH', id:'PD_C'}}' alpha-exit="ABPSN"  label="Project definition" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="REC_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T8JJ'}}' alpha-exit="ALPHA"  label="Recovery Indicator" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="REF_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}' label="Reference date for settlement" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></ui-dg-column>
+    <ui-dg-column sortable field="RL_EST_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="IMKEY"  label="Internal Key for Real Estate Object" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="ROUTING_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}' label="Routing number of operations in the order" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="SCHED_LINE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4", shlp:{type:'CT', id:'VBEP'}}' label="Schedule line" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="SDOC_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", mid:"APO", shlp:{type:'CT', id:'VBUP'}}' label="Sales Document Item" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="SD_DOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"AUN", shlp:{type:'CT', id:'VBUK'}}' alpha-exit="ALPHA"  label="Sales and Distribution Document Number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}' label="Serial number for PReq account assignment segment" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'Numeric string'}"></ui-dg-column>
+    <ui-dg-column sortable field="SUB_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"AN2", shlp:{type:'CT', id:'ANLA'}}' alpha-exit="ALPHA"  label="Asset Subnumber" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="TO_COSTCTR" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Posting to cost center?" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="TO_ORDER" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Post To Order" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="TO_PROJECT" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Post to project" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="UNLOAD_PT" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}' label="Unloading Point" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="WBS_ELEM_E" data-abap.bind='{ddic:"CHAR", type:"string", length:"24"}' alpha-exit="ABPSN"  label="Work breakdown structure element (WBS element)" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PROCUREMENT_ACCOUNT BAPIPOGNA Account Assignment Data -->
+<ui-input value.bind="PROCUREMENT_ACCOUNT.ACTIVITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VGN"}' alpha-exit="NUMCV" 
+          label="Activity Number"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.ASSET_NO" shlp.bind='{type:'CT', id:'ANLH'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"AN1"}' alpha-exit="ALPHA" 
+          label="Main Asset Number"></ui-combo>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.BUDGET_PERIOD" shlp.bind='{type:'CT', id:'FMFUNDBPD'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BUDPER"}'
+          label="FM: Budget Period"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.BUS_AREA" shlp.bind='{type:'CT', id:'TGSB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"GSB"}'
+          label="Business Area"></ui-combo>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.CMMT_ITEM" shlp.bind='{type:'CT', id:'FMFXPO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"14", mid:"FIP"}' alpha-exit="FMCIS" 
+          label="Commitment Item"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.CMMT_ITEM_LONG" shlp.bind='{type:'CT', id:'FMCI'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"FPS"}' alpha-exit="FMCIL" 
+          label="Commitment item"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.COST_CTR" shlp.bind='{type:'CT', id:'CSKS'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KOS"}' alpha-exit="ALPHA" 
+          label="Cost Center"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.COST_OBJ" shlp.bind='{type:'CT', id:'CKPH'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"KTR"}'
+          label="Cost Object"></ui-combo>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.COUNTER" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"8"}'
+          label="Internal counter"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.CO_AREA" shlp.bind='{type:'CT', id:'TKA01'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"CAC"}'
+          label="Controlling Area"></ui-combo>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.DISTR_PERC" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"2.1"}'
+          label="Distribution percentage in the case of multiple acct assgt"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.FUNC_AREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"FBE"}'
+          label="Functional Area"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.FUNC_AREA_LONG" shlp.bind='{type:'CT', id:'TFKB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FBE"}'
+          label="Functional Area"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.FUND" shlp.bind='{type:'CT', id:'FMFINCODE'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"FIC"}'
+          label="Fund"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.FUNDS_CTR" shlp.bind='{type:'CT', id:'FMFCTR'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"FIS"}'
+          label="Funds Center"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.GRANT_NBR" shlp.bind='{type:'SH', id:'GRANTS_GENERIC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"20", mid:"GM_GRANT_NBR"}' alpha-exit="ALPHA" 
+          label="Grant"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.GR_RCPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+          label="Goods recipient"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.G_L_ACCT" shlp.bind='{type:'SH', id:'C_SAKNR'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"SAK"}' alpha-exit="ALPHA" 
+          label="G/L Account Number"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.NETWORK" shlp.bind='{type:'CT', id:'AUFK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"NET"}' alpha-exit="ALPHA" 
+          label="Network Number for Account Assignment"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.ORDER_NO" shlp.bind='{type:'CT', id:'AUFK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12", mid:"ANR"}' alpha-exit="ALPHA" 
+          label="Order Number"></ui-combo>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.PART_ACCT" shlp.bind='{type:'CT', id:'KNA1'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
+          label="Partner account number"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.PREQ_ITEM" shlp.bind='{type:'CT', id:'EBAN'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP"}'
+          label="Item number of purchase requisition"></ui-combo>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.PREQ_QTY" unit.bind="PROCUREMENT_ACCOUNT.UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Purchase requisition quantity"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.PROFIT_CTR" shlp.bind='{type:'SH', id:'PRCTR_EMPTY'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"PRC"}' alpha-exit="ALPHA" 
+          label="Profit Center"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.PROF_SEGM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
+          label="Profitability Segment Number (CO-PA)"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.PROJ_EXT" shlp.bind='{type:'SH', id:'PD_C'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"24", mid:"PSP"}' alpha-exit="ABPSN" 
+          label="Project definition"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.REC_IND" shlp.bind='{type:'CT', id:'T8JJ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}' alpha-exit="ALPHA" 
+          label="Recovery Indicator"></ui-combo>
+
+<ui-date date.bind="PROCUREMENT_ACCOUNT.REF_DATE" label="Reference date for settlement"></ui-date>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.RL_EST_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="IMKEY" 
+          label="Internal Key for Real Estate Object"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.ROUTING_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10"}'
+          label="Routing number of operations in the order"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.SCHED_LINE" shlp.bind='{type:'CT', id:'VBEP'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4"}'
+          label="Schedule line"></ui-combo>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.SDOC_ITEM" shlp.bind='{type:'CT', id:'VBUP'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", mid:"APO"}'
+          label="Sales Document Item"></ui-combo>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.SD_DOC" shlp.bind='{type:'CT', id:'VBUK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"AUN"}' alpha-exit="ALPHA" 
+          label="Sales and Distribution Document Number"></ui-combo>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
+          label="Serial number for PReq account assignment segment"></ui-input>
+
+<ui-combo value.bind="PROCUREMENT_ACCOUNT.SUB_NUMBER" shlp.bind='{type:'CT', id:'ANLA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"AN2"}' alpha-exit="ALPHA" 
+          label="Asset Subnumber"></ui-combo>
+
+<ui-checkbox value.bind="PROCUREMENT_ACCOUNT.TO_COSTCTR" label="Posting to cost center?"></ui-checkbox>
+
+<ui-checkbox value.bind="PROCUREMENT_ACCOUNT.TO_ORDER" label="Post To Order"></ui-checkbox>
+
+<ui-checkbox value.bind="PROCUREMENT_ACCOUNT.TO_PROJECT" label="Post to project"></ui-checkbox>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.UNLOAD_PT" data-abap.bind='{ddic:"CHAR", type:"string", length:"25"}'
+          label="Unloading Point"></ui-input>
+
+<ui-input value.bind="PROCUREMENT_ACCOUNT.WBS_ELEM_E" data-abap.bind='{ddic:"CHAR", type:"string", length:"24"}' alpha-exit="ABPSN" 
+          label="Work breakdown structure element (WBS element)"></ui-input>
 
 
 <!-- RETURN BAPIRETURN Processing Errors -->

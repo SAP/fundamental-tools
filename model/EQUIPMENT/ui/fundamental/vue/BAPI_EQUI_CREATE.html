@@ -1,357 +1,8 @@
-<!-- BAPI_EQUI_CREATE 0.3 -->
+<!-- BAPI_EQUI_CREATE 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
-
-<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
-
-<fd-form-item>
-    <fd-form-label>Fuel card number</fd-form-label>
-        <fd-input v-model="DATA_FLEET.CARD_NUM"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Chassis number</fd-form-label>
-        <fd-input v-model="DATA_FLEET.CHASSIS_NUM"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Indicator Consumption Recording: Material Movement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.CONSUMP_MOVE"
-            data-abap="{type: 'string', length: '1'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Indicator Consumption Recording: Permitted Tolerances</fd-form-label>
-        <fd-input v-model="DATA_FLEET.CONSUMP_TOL"
-            data-abap="{type: 'string', length: '1'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="DATA_FLEET.DIM_UNIT_ISO"
-        options="{type:'CT', id:'T006I'}"
-        data-abap="{type: 'string', length: '3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Engine capacity</fd-form-label>
-        <fd-input v-model="DATA_FLEET.ENGINE_CAP"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Number of cylinders</fd-form-label>
-        <fd-input v-model="DATA_FLEET.ENGINE_CYL"
-            data-abap="{type: 'string', length: '2'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Power at specific number of revolutions per minute</fd-form-label>
-        <fd-input v-model="DATA_FLEET.ENGINE_POWER"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Engine serial number of manufacturer</fd-form-label>
-        <fd-input v-model="DATA_FLEET.ENGINE_SNR"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Engine type</fd-form-label>
-        <fd-input v-model="DATA_FLEET.ENGINE_TYPE"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Validity end date</fd-form-label>
-    <fd-date-picker v-model="DATA_FLEET.EXPIRY_DATE"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Maximum fleet object height</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FLEET_HGT"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Maximum fleet object length</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FLEET_LEN"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Identification number for fleet object</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FLEET_NUM"
-            data-abap="{type: 'string', length: '18'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Usage indicator</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FLEET_USE"
-            data-abap="{type: 'string', length: '1'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Manufacturer Vehicle Identification Number for Fleet Object</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FLEET_VIN"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Width of fleet object</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FLEET_WID"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Consumable Type of Primary Fuel</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FUEL_PRI"
-            data-abap="{type: 'string', length: '12'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Consumable type of secondary fuel</fd-form-label>
-        <fd-input v-model="DATA_FLEET.FUEL_SEC"
-            data-abap="{type: 'string', length: '12'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Total Weight Allowed</fd-form-label>
-        <fd-input v-model="DATA_FLEET.GROSS_WGT"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Key number of vehicle</fd-form-label>
-        <fd-input v-model="DATA_FLEET.KEY_NUM"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>License plate number</fd-form-label>
-        <fd-input v-model="DATA_FLEET.LICENSE_NUM"
-            data-abap="{type: 'string', length: '15'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.LOAD_DIM_UNIT_ISO"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T006I'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Load height</fd-form-label>
-        <fd-input v-model="DATA_FLEET.LOAD_HGT"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Load length</fd-form-label>
-        <fd-input v-model="DATA_FLEET.LOAD_LEN"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Load volume</fd-form-label>
-        <fd-input v-model="DATA_FLEET.LOAD_VOL"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Maximum load weight</fd-form-label>
-        <fd-input v-model="DATA_FLEET.LOAD_WGT"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Load width</fd-form-label>
-        <fd-input v-model="DATA_FLEET.LOAD_WID"
-            data-abap="{type: 'number', length: '10.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Maximum number of occupants</fd-form-label>
-        <fd-input v-model="DATA_FLEET.MAX_OCCUPANTS"
-            data-abap="{type: 'string', length: '4'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>NUmber of compartments</fd-form-label>
-        <fd-input v-model="DATA_FLEET.NO_COMPART"
-            data-abap="{type: 'string', length: '2'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Number of Axles in Fleet Object</fd-form-label>
-        <fd-input v-model="DATA_FLEET.NUM_AXLE"
-            data-abap="{type: 'string', length: '2'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Consumable type of oil</fd-form-label>
-        <fd-input v-model="DATA_FLEET.OIL_TYPE"
-            data-abap="{type: 'string', length: '12'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Indicator to determine the calculation method f. consumption</fd-form-label>
-        <fd-input v-model="DATA_FLEET.PRI_CALC"
-            data-abap="{type: 'string', length: '1'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Date on which the object should be replaced</fd-form-label>
-    <fd-date-picker v-model="DATA_FLEET.REPLA_DATE"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Odometer reading at replacement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.REPLA_ODOM"
-            data-abap="{type: 'string', length: '22'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Hour meter reading at replacement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.REPLA_OPH"
-            data-abap="{type: 'string', length: '22'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Revolutions per minute</fd-form-label>
-        <fd-input v-model="DATA_FLEET.REVOLUTIONS"
-            data-abap="{type: 'string', length: '7'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Maximum Fleet Object Speed</fd-form-label>
-        <fd-input v-model="DATA_FLEET.SPEED_MAX"
-            data-abap="{type: 'number', length: '6.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.SPEED_UNIT_ISO"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T006I'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.UNIT_CAP_ISO"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T006I'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.UNIT_POWER_ISO"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T006I'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.VOL_UNIT_ISO"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T006I'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-        <fd-input v-model="DATA_FLEET.WGT_UNIT_ISO"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T006I'}"
-        />
-</fd-form-item>
-
 
 <!-- DATA_GENERAL BAPI_ITOB General Data for Technical Objects -->
 
@@ -994,33 +645,6 @@
 
 
 
-<!-- DATA_INSTALL BAPI_ITOB_EQ_INSTALL Installation Date for Equipment -->
-
-<fd-form-item>
-    <fd-form-label>Functional Location Label</fd-form-label>
-        <fd-input v-model="DATA_INSTALL.FUNCLOC"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</fd-form-label>
-        <fd-input v-model="DATA_INSTALL.INST_POS"
-            data-abap="{type: 'string', length: '4'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Superordinate Equipment</fd-form-label>
-        <fd-input v-model="DATA_INSTALL.SUPEQUI"
-            data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
-            data-shlp="{type:'CT', id:'EQUI'}"
-        />
-</fd-form-item>
-
-
 <!-- DATA_SPECIFIC BAPI_ITOB_EQ_ONLY Equipment-Specific data -->
 
 <fd-form-item>
@@ -1334,6 +958,384 @@
 </fd-form-item>
 
 
+<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
+
+<fd-form-item>
+    <fd-form-label>Fuel card number</fd-form-label>
+        <fd-input v-model="DATA_FLEET.CARD_NUM"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Chassis number</fd-form-label>
+        <fd-input v-model="DATA_FLEET.CHASSIS_NUM"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Indicator Consumption Recording: Material Movement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.CONSUMP_MOVE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Indicator Consumption Recording: Permitted Tolerances</fd-form-label>
+        <fd-input v-model="DATA_FLEET.CONSUMP_TOL"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+    <fd-select v-model="DATA_FLEET.DIM_UNIT_ISO"
+        options="{type:'CT', id:'T006I'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Engine capacity</fd-form-label>
+        <fd-input v-model="DATA_FLEET.ENGINE_CAP"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Number of cylinders</fd-form-label>
+        <fd-input v-model="DATA_FLEET.ENGINE_CYL"
+            data-abap="{type: 'string', length: '2'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Power at specific number of revolutions per minute</fd-form-label>
+        <fd-input v-model="DATA_FLEET.ENGINE_POWER"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Engine serial number of manufacturer</fd-form-label>
+        <fd-input v-model="DATA_FLEET.ENGINE_SNR"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Engine type</fd-form-label>
+        <fd-input v-model="DATA_FLEET.ENGINE_TYPE"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Validity end date</fd-form-label>
+    <fd-date-picker v-model="DATA_FLEET.EXPIRY_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Maximum fleet object height</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FLEET_HGT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Maximum fleet object length</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FLEET_LEN"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Identification number for fleet object</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FLEET_NUM"
+            data-abap="{type: 'string', length: '18'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Usage indicator</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FLEET_USE"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Manufacturer Vehicle Identification Number for Fleet Object</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FLEET_VIN"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Width of fleet object</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FLEET_WID"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Consumable Type of Primary Fuel</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FUEL_PRI"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Consumable type of secondary fuel</fd-form-label>
+        <fd-input v-model="DATA_FLEET.FUEL_SEC"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Total Weight Allowed</fd-form-label>
+        <fd-input v-model="DATA_FLEET.GROSS_WGT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Key number of vehicle</fd-form-label>
+        <fd-input v-model="DATA_FLEET.KEY_NUM"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>License plate number</fd-form-label>
+        <fd-input v-model="DATA_FLEET.LICENSE_NUM"
+            data-abap="{type: 'string', length: '15'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.LOAD_DIM_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Load height</fd-form-label>
+        <fd-input v-model="DATA_FLEET.LOAD_HGT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Load length</fd-form-label>
+        <fd-input v-model="DATA_FLEET.LOAD_LEN"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Load volume</fd-form-label>
+        <fd-input v-model="DATA_FLEET.LOAD_VOL"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Maximum load weight</fd-form-label>
+        <fd-input v-model="DATA_FLEET.LOAD_WGT"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Load width</fd-form-label>
+        <fd-input v-model="DATA_FLEET.LOAD_WID"
+            data-abap="{type: 'number', length: '10.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Maximum number of occupants</fd-form-label>
+        <fd-input v-model="DATA_FLEET.MAX_OCCUPANTS"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>NUmber of compartments</fd-form-label>
+        <fd-input v-model="DATA_FLEET.NO_COMPART"
+            data-abap="{type: 'string', length: '2'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Number of Axles in Fleet Object</fd-form-label>
+        <fd-input v-model="DATA_FLEET.NUM_AXLE"
+            data-abap="{type: 'string', length: '2'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Consumable type of oil</fd-form-label>
+        <fd-input v-model="DATA_FLEET.OIL_TYPE"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Indicator to determine the calculation method f. consumption</fd-form-label>
+        <fd-input v-model="DATA_FLEET.PRI_CALC"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Date on which the object should be replaced</fd-form-label>
+    <fd-date-picker v-model="DATA_FLEET.REPLA_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Odometer reading at replacement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.REPLA_ODOM"
+            data-abap="{type: 'string', length: '22'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Hour meter reading at replacement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.REPLA_OPH"
+            data-abap="{type: 'string', length: '22'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Revolutions per minute</fd-form-label>
+        <fd-input v-model="DATA_FLEET.REVOLUTIONS"
+            data-abap="{type: 'string', length: '7'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Maximum Fleet Object Speed</fd-form-label>
+        <fd-input v-model="DATA_FLEET.SPEED_MAX"
+            data-abap="{type: 'number', length: '6.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.SPEED_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.UNIT_CAP_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.UNIT_POWER_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.VOL_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+        <fd-input v-model="DATA_FLEET.WGT_UNIT_ISO"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T006I'}"
+        />
+</fd-form-item>
+
+
+<!-- DATA_INSTALL BAPI_ITOB_EQ_INSTALL Installation Date for Equipment -->
+
+<fd-form-item>
+    <fd-form-label>Functional Location Label</fd-form-label>
+        <fd-input v-model="DATA_INSTALL.FUNCLOC"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</fd-form-label>
+        <fd-input v-model="DATA_INSTALL.INST_POS"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Superordinate Equipment</fd-form-label>
+        <fd-input v-model="DATA_INSTALL.SUPEQUI"
+            data-abap="{type: 'string', length: '18', alpha: 'ALPHA'}"
+            data-shlp="{type:'CT', id:'EQUI'}"
+        />
+</fd-form-item>
+
+
 <fd-form-item>
     <fd-form-label>Equipment Number</fd-form-label>
         <fd-input v-model="EXTERNAL_NUMBER"
@@ -1346,6 +1348,134 @@
 <fd-form-item>
     <fd-form-label>Date on which installation location of equipment was changed</fd-form-label>
     <fd-date-picker v-model="VALID_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
+              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+
+<fd-form-item>
+    <fd-form-label>Structure name of  BAPI table extension</fd-form-label>
+    <fd-select v-model="EXTENSIONIN.STRUCTURE"
+        options="{type:'CT', id:'DD02L'}"
+        data-abap="{type: 'string', length: '30'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONIN.VALUEPART1"
+            data-abap="{type: 'string', length: '240'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONIN.VALUEPART2"
+            data-abap="{type: 'string', length: '240'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONIN.VALUEPART3"
+            data-abap="{type: 'string', length: '240'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONIN.VALUEPART4"
+            data-abap="{type: 'string', length: '240'}"
+        />
+</fd-form-item>
+
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
+              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+
+<fd-form-item>
+    <fd-form-label>Structure name of  BAPI table extension</fd-form-label>
+    <fd-select v-model="EXTENSIONOUT.STRUCTURE"
+        options="{type:'CT', id:'DD02L'}"
+        data-abap="{type: 'string', length: '30'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONOUT.VALUEPART1"
+            data-abap="{type: 'string', length: '240'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONOUT.VALUEPART2"
+            data-abap="{type: 'string', length: '240'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONOUT.VALUEPART3"
+            data-abap="{type: 'string', length: '240'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="EXTENSIONOUT.VALUEPART4"
+            data-abap="{type: 'string', length: '240'}"
+        />
 </fd-form-item>
 
 
@@ -2790,134 +2920,6 @@
     <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
         <fd-input v-model="RETURN.TYPE"
             data-abap="{type: 'string', length: '1'}"
-        />
-</fd-form-item>
-
-
-<!-- TABLE PARAMETERS -->
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
-              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-
-<fd-form-item>
-    <fd-form-label>Structure name of  BAPI table extension</fd-form-label>
-    <fd-select v-model="EXTENSIONIN.STRUCTURE"
-        options="{type:'CT', id:'DD02L'}"
-        data-abap="{type: 'string', length: '30'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONIN.VALUEPART1"
-            data-abap="{type: 'string', length: '240'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONIN.VALUEPART2"
-            data-abap="{type: 'string', length: '240'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONIN.VALUEPART3"
-            data-abap="{type: 'string', length: '240'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONIN.VALUEPART4"
-            data-abap="{type: 'string', length: '240'}"
-        />
-</fd-form-item>
-
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
-              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-
-<fd-form-item>
-    <fd-form-label>Structure name of  BAPI table extension</fd-form-label>
-    <fd-select v-model="EXTENSIONOUT.STRUCTURE"
-        options="{type:'CT', id:'DD02L'}"
-        data-abap="{type: 'string', length: '30'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONOUT.VALUEPART1"
-            data-abap="{type: 'string', length: '240'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONOUT.VALUEPART2"
-            data-abap="{type: 'string', length: '240'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONOUT.VALUEPART3"
-            data-abap="{type: 'string', length: '240'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
-        <fd-input v-model="EXTENSIONOUT.VALUEPART4"
-            data-abap="{type: 'string', length: '240'}"
         />
 </fd-form-item>
 

@@ -1,6 +1,18 @@
-<!-- BAPI_PO_GETRELINFO 0.3 -->
+<!-- BAPI_PO_GETRELINFO 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing Document Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="PURCHASEORDER"
+            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'MEKK_C'}"
+        />
+</div>
+
 
 <div fd-form-item>
     <label fd-form-label>Release code</label>
@@ -12,12 +24,427 @@
 </div>
 
 
+<!-- TABLE PARAMETERS -->
+
+<!-- RELEASE_FINAL BAPIRLCOPO Final Release -->
+<ui-datagrid data.bind="BAPI_PO_GETRELINFO RELEASE_FINAL" title="Final Release"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX1" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX2" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX3" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX4" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX5" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX6" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code 6" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX7" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code 7" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CD_TX8" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Description of release code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE1" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE3" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE4" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE5" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE6" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 6" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE7" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 7" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_CODE8" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
+              label="Release code 8" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF1" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF2" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF3" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF4" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF5" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF6" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 6" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF7" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 7" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REL_WF8" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
+              label="Role resolution for workflow for release code 8" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RELEASE_FINAL BAPIRLCOPO Final Release -->
+
 <div fd-form-item>
     <label fd-form-label>Purchasing Document Number</label>
         <input fd-input fd-form-control
-            [(ngModel)]="PURCHASEORDER"
+            [(ngModel)]="RELEASE_FINAL.PO_NUMBER"
             data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'MEKK_C'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX1"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX2"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code 3</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX3"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code 4</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX4"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code 5</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX5"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code 6</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX6"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code 7</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX7"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Description of release code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CD_TX8"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 1</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE1"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 2</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE2"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 3</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE3"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 4</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE4"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 5</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE5"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 6</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE6"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 7</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE7"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Release code 8</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RELEASE_FINAL.REL_CODE8"
+            data-abap="{type: 'string', length: '2'}"
+            data-shlp="{type:'CT', id:'T16FC'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 1</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF1"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 2</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF2"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 3</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF3"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 4</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF4"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 5</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF5"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 6</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF6"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 7</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF7"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Role resolution for workflow for release code 8</label>
+    <fd-combobox
+        [(ngModel)]="RELEASE_FINAL.REL_WF8"
+        [dropdownValues]="{type:'FV', id:'FRGWF'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<!-- RETURN BAPIRETURN Return Messages -->
+<ui-datagrid data.bind="BAPI_PO_GETRELINFO RETURN" title="Return Messages"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
+              label="Message code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
+              label="Application log: Internal message serial number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
+              label="Application log: log number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
+              label="Message Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- RETURN BAPIRETURN Return Messages -->
+
+<div fd-form-item>
+    <label fd-form-label>Message code</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.CODE"
+            data-abap="{type: 'string', length: '5'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: Internal message serial number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_MSG_NO"
+        [dropdownValues]="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: log number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_NO"
+        [dropdownValues]="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE"
+            data-abap="{type: 'string', length: '220'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V1"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V2"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V3"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V4"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.TYPE"
+            data-abap="{type: 'string', length: '1'}"
         />
 </div>
 
@@ -613,430 +1040,5 @@
         data-abap="{type: 'string', length: '1'}"
     >
     </fd-combobox>
-</div>
-
-
-<!-- TABLE PARAMETERS -->
-
-<!-- RELEASE_FINAL BAPIRLCOPO Final Release -->
-<ui-datagrid data.bind="BAPI_PO_GETRELINFO RELEASE_FINAL" title="Final Release"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
-              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX1" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX2" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX3" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX4" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX5" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX6" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code 6" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX7" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code 7" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CD_TX8" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Description of release code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE1" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE3" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE4" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE5" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE6" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 6" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE7" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 7" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_CODE8" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T16FC'}}'
-              label="Release code 8" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF1" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF2" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF3" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF4" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF5" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF6" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 6" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF7" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 7" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REL_WF8" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'FRGWF'}}'
-              label="Role resolution for workflow for release code 8" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- RELEASE_FINAL BAPIRLCOPO Final Release -->
-
-<div fd-form-item>
-    <label fd-form-label>Purchasing Document Number</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.PO_NUMBER"
-            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-            data-shlp="{type:'CH', id:'EKKO'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code 1</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX1"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code 2</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX2"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code 3</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX3"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code 4</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX4"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code 5</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX5"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code 6</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX6"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code 7</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX7"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Description of release code</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CD_TX8"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 1</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE1"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 2</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE2"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 3</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE3"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 4</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE4"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 5</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE5"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 6</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE6"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 7</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE7"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Release code 8</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RELEASE_FINAL.REL_CODE8"
-            data-abap="{type: 'string', length: '2'}"
-            data-shlp="{type:'CT', id:'T16FC'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 1</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF1"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 2</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF2"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 3</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF3"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 4</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF4"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 5</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF5"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 6</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF6"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 7</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF7"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Role resolution for workflow for release code 8</label>
-    <fd-combobox
-        [(ngModel)]="RELEASE_FINAL.REL_WF8"
-        [dropdownValues]="{type:'FV', id:'FRGWF'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<!-- RETURN BAPIRETURN Return Messages -->
-<ui-datagrid data.bind="BAPI_PO_GETRELINFO RETURN" title="Return Messages"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"5"}'
-              label="Message code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOG_MSG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"6", shlp:{type:'CH', id:'BALM'}}'
-              label="Application log: Internal message serial number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOG_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CH', id:'BALHDR'}}'
-              label="Application log: log number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE" data-abap.bind='{ddic:"CHAR", type:"string", length:"220"}'
-              label="Message Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V1" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V2" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V3" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MESSAGE_V4" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-              label="Message Variable" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-              label="Message type: S Success, E Error, W Warning, I Info, A Abort" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- RETURN BAPIRETURN Return Messages -->
-
-<div fd-form-item>
-    <label fd-form-label>Message code</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.CODE"
-            data-abap="{type: 'string', length: '5'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Application log: Internal message serial number</label>
-    <fd-combobox
-        [(ngModel)]="RETURN.LOG_MSG_NO"
-        [dropdownValues]="{type:'CH', id:'BALM'}"
-        data-abap="{type: 'string', length: '6'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Application log: log number</label>
-    <fd-combobox
-        [(ngModel)]="RETURN.LOG_NO"
-        [dropdownValues]="{type:'CH', id:'BALHDR'}"
-        data-abap="{type: 'string', length: '20'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Text</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE"
-            data-abap="{type: 'string', length: '220'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V1"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V2"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V3"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V4"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.TYPE"
-            data-abap="{type: 'string', length: '1'}"
-        />
 </div>
 

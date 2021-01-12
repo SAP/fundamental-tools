@@ -1,4 +1,6 @@
-<!-- BAPI_EQUI_GETLIST 0.3 -->
+<!-- BAPI_EQUI_GETLIST 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
 
@@ -27,113 +29,86 @@
 </FormItem>
 
 
-<!-- OUTPUT PARAMETERS -->
-
-<!-- RETURN BAPIRET2 Return Parameter -->
-
-<ComboboxInput id="4711" label="Field in parameter"
-    value={this.RETURN.FIELD}
-    options="{type:'CT', id:'DD03L'}"
-    data-abap="{{type: 'string', length: '30'}}"/>
-
-
-<ComboboxInput id="4711" label="Message Class"
-    value={this.RETURN.ID}
-    options="{type:'CT', id:'T100A'}"
-    data-abap="{{type: 'string', length: '20'}}"/>
-
-
-<ComboboxInput id="4711" label="Application log: Internal message serial number"
-    value={this.RETURN.LOG_MSG_NO}
-    options="{type:'CH', id:'BALM'}"
-    data-abap="{{type: 'string', length: '6'}}"/>
-
-
-<ComboboxInput id="4711" label="Application log: log number"
-    value={this.RETURN.LOG_NO}
-    options="{type:'CH', id:'BALHDR'}"
-    data-abap="{{type: 'string', length: '20'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Message Text</FormLabel>
-    <FormInput id="4711" value={this.RETURN.MESSAGE}
-        data-abap="{type: 'string', length: '220'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Message Variable</FormLabel>
-    <FormInput id="4711" value={this.RETURN.MESSAGE_V1}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Message Variable</FormLabel>
-    <FormInput id="4711" value={this.RETURN.MESSAGE_V2}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Message Variable</FormLabel>
-    <FormInput id="4711" value={this.RETURN.MESSAGE_V3}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Message Variable</FormLabel>
-    <FormInput id="4711" value={this.RETURN.MESSAGE_V4}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Message Number</FormLabel>
-    <FormInput id="4711" value={this.RETURN.NUMBER}
-        data-abap="{type: 'string', length: '3'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Parameter Name</FormLabel>
-    <FormInput id="4711" value={this.RETURN.PARAMETER}
-        data-abap="{type: 'string', length: '32'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Lines in parameter</FormLabel>
-    <FormInput id="4711" value={this.RETURN.ROW}
-        data-abap="{type: 'number', length: '+10'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Logical system from which message originates"
-    value={this.RETURN.SYSTEM}
-    options="{type:'CT', id:'TBDLS'}"
-    data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Message type: S Success, E Error, W Warning, I Info, A Abort</FormLabel>
-    <FormInput id="4711" value={this.RETURN.TYPE}
-        data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
 <!-- TABLE PARAMETERS -->
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_LIST" title="BAPI Communication Structure: Results List for GetList"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
+              label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">Description of Technical Object</FormLabel>
+    <FormInput id="4711" value={this.EQUIPMENT_LIST.DESCRIPT}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Equipment category</FormLabel>
+    <FormInput id="4711" value={this.EQUIPMENT_LIST.EQUICATGRY}
+        data-abap="{type: 'string', length: '1', mid: 'EQT'}"
+        data-shlp="{type:'CT', id:'T370T'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Equipment Number</FormLabel>
+    <FormInput id="4711" value={this.EQUIPMENT_LIST.EQUIPMENT}
+        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'EQUI'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Maintenance plant</FormLabel>
+    <FormInput id="4711" value={this.EQUIPMENT_LIST.MAINTPLANT}
+        data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+        data-shlp="{type:'CT', id:'T001W'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Planner Group for Customer Service and Plant Maintenance"
+    value={this.EQUIPMENT_LIST.PLANGROUP}
+    options="{type:'CT', id:'T024I'}"
+    data-abap="{{type: 'string', length: '3', mid: 'IHG'}}"/>
+
+
+<ComboboxInput id="4711" label="Maintenance Planning Plant"
+    value={this.EQUIPMENT_LIST.PLANPLANT}
+    options="{type:'CT', id:'T001W'}"
+    data-abap="{{type: 'string', length: '4', mid: 'IWK'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Sort field</FormLabel>
+    <FormInput id="4711" value={this.EQUIPMENT_LIST.SORTFIELD}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
 
 <!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
 <ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_CITY_RA" title="BAPI Communication Structure: Range for Address City"
@@ -474,85 +449,6 @@
     <FormInput id="4711" value={this.DESCRIPT_RA.SIGN}
         data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'BAPISIGN'}"
-    />
-</FormItem>
-
-
-<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
-<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_LIST" title="BAPI Communication Structure: Results List for GetList"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
-              label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
-              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
-              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
-              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
-              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
-
-<FormItem>
-    <FormLabel htmlFor="4711">Description of Technical Object</FormLabel>
-    <FormInput id="4711" value={this.EQUIPMENT_LIST.DESCRIPT}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Equipment category</FormLabel>
-    <FormInput id="4711" value={this.EQUIPMENT_LIST.EQUICATGRY}
-        data-abap="{type: 'string', length: '1', mid: 'EQT'}"
-        data-shlp="{type:'CT', id:'T370T'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Equipment Number</FormLabel>
-    <FormInput id="4711" value={this.EQUIPMENT_LIST.EQUIPMENT}
-        data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'EQUI'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Maintenance plant</FormLabel>
-    <FormInput id="4711" value={this.EQUIPMENT_LIST.MAINTPLANT}
-        data-abap="{type: 'string', length: '4', mid: 'SWK'}"
-        data-shlp="{type:'CT', id:'T001W'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Planner Group for Customer Service and Plant Maintenance"
-    value={this.EQUIPMENT_LIST.PLANGROUP}
-    options="{type:'CT', id:'T024I'}"
-    data-abap="{{type: 'string', length: '3', mid: 'IHG'}}"/>
-
-
-<ComboboxInput id="4711" label="Maintenance Planning Plant"
-    value={this.EQUIPMENT_LIST.PLANPLANT}
-    options="{type:'CT', id:'T001W'}"
-    data-abap="{{type: 'string', length: '4', mid: 'IWK'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Sort field</FormLabel>
-    <FormInput id="4711" value={this.EQUIPMENT_LIST.SORTFIELD}
-        data-abap="{type: 'string', length: '30'}"
     />
 </FormItem>
 
@@ -955,6 +851,112 @@
     <FormInput id="4711" value={this.STATUS_RA.SIGN}
         data-abap="{type: 'string', length: '1'}"
         data-shlp="{type:'FV', id:'DDSIGN'}"
+    />
+</FormItem>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameter -->
+
+<ComboboxInput id="4711" label="Field in parameter"
+    value={this.RETURN.FIELD}
+    options="{type:'CT', id:'DD03L'}"
+    data-abap="{{type: 'string', length: '30'}}"/>
+
+
+<ComboboxInput id="4711" label="Message Class"
+    value={this.RETURN.ID}
+    options="{type:'CT', id:'T100A'}"
+    data-abap="{{type: 'string', length: '20'}}"/>
+
+
+<ComboboxInput id="4711" label="Application log: Internal message serial number"
+    value={this.RETURN.LOG_MSG_NO}
+    options="{type:'CH', id:'BALM'}"
+    data-abap="{{type: 'string', length: '6'}}"/>
+
+
+<ComboboxInput id="4711" label="Application log: log number"
+    value={this.RETURN.LOG_NO}
+    options="{type:'CH', id:'BALHDR'}"
+    data-abap="{{type: 'string', length: '20'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Text</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE}
+        data-abap="{type: 'string', length: '220'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V1}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V2}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V3}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Variable</FormLabel>
+    <FormInput id="4711" value={this.RETURN.MESSAGE_V4}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message Number</FormLabel>
+    <FormInput id="4711" value={this.RETURN.NUMBER}
+        data-abap="{type: 'string', length: '3'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Parameter Name</FormLabel>
+    <FormInput id="4711" value={this.RETURN.PARAMETER}
+        data-abap="{type: 'string', length: '32'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Lines in parameter</FormLabel>
+    <FormInput id="4711" value={this.RETURN.ROW}
+        data-abap="{type: 'number', length: '+10'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Logical system from which message originates"
+    value={this.RETURN.SYSTEM}
+    options="{type:'CT', id:'TBDLS'}"
+    data-abap="{{type: 'string', length: '10', alpha: 'ALPHA'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Message type: S Success, E Error, W Warning, I Info, A Abort</FormLabel>
+    <FormInput id="4711" value={this.RETURN.TYPE}
+        data-abap="{type: 'string', length: '1'}"
     />
 </FormItem>
 

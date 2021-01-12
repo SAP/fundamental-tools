@@ -1,135 +1,8 @@
-<!-- BAPI_EQUI_CREATE 0.3 -->
+<!-- BAPI_EQUI_CREATE 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
-
-<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
-<ui-input value.bind="DATA_FLEET.CARD_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Fuel card number"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.CHASSIS_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Chassis number"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.CONSUMP_MOVE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Indicator Consumption Recording: Material Movement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.CONSUMP_TOL" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Indicator Consumption Recording: Permitted Tolerances"></ui-input>
-
-<ui-combo value.bind="DATA_FLEET.DIM_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO code for unit of measurement"></ui-combo>
-
-<ui-input value.bind="DATA_FLEET.ENGINE_CAP" unit.bind="DATA_FLEET.UNIT_CAP" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Engine capacity"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.ENGINE_CYL" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
-          label="Number of cylinders"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.ENGINE_POWER" unit.bind="DATA_FLEET.UNIT_POWER" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Power at specific number of revolutions per minute"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.ENGINE_SNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Engine serial number of manufacturer"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.ENGINE_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Engine type"></ui-input>
-
-<ui-date date.bind="DATA_FLEET.EXPIRY_DATE" label="Validity end date"></ui-date>
-
-<ui-input value.bind="DATA_FLEET.FLEET_HGT" unit.bind="DATA_FLEET.DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Maximum fleet object height"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.FLEET_LEN" unit.bind="DATA_FLEET.DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Maximum fleet object length"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.FLEET_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"18"}'
-          label="Identification number for fleet object"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.FLEET_USE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Usage indicator"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.FLEET_VIN" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Manufacturer Vehicle Identification Number for Fleet Object"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.FLEET_WID" unit.bind="DATA_FLEET.DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Width of fleet object"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.FUEL_PRI" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-          label="Consumable Type of Primary Fuel"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.FUEL_SEC" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-          label="Consumable type of secondary fuel"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.GROSS_WGT" unit.bind="DATA_FLEET.WGT_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Total Weight Allowed"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.KEY_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-          label="Key number of vehicle"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.LICENSE_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
-          label="License plate number"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.LOAD_DIM_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO code for unit of measurement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.LOAD_HGT" unit.bind="DATA_FLEET.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Load height"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.LOAD_LEN" unit.bind="DATA_FLEET.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Load length"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.LOAD_VOL" unit.bind="DATA_FLEET.VOL_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Load volume"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.LOAD_WGT" unit.bind="DATA_FLEET.WGT_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Maximum load weight"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.LOAD_WID" unit.bind="DATA_FLEET.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-          label="Load width"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.MAX_OCCUPANTS" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4"}'
-          label="Maximum number of occupants"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.NO_COMPART" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
-          label="NUmber of compartments"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.NUM_AXLE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
-          label="Number of Axles in Fleet Object"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.OIL_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-          label="Consumable type of oil"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.PRI_CALC" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Indicator to determine the calculation method f. consumption"></ui-input>
-
-<ui-date date.bind="DATA_FLEET.REPLA_DATE" label="Date on which the object should be replaced"></ui-date>
-
-<ui-input value.bind="DATA_FLEET.REPLA_ODOM" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
-          label="Odometer reading at replacement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.REPLA_OPH" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
-          label="Hour meter reading at replacement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.REVOLUTIONS" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"7"}'
-          label="Revolutions per minute"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.SPEED_MAX" unit.bind="DATA_FLEET.SPEED_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"6.3"}'
-          label="Maximum Fleet Object Speed"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.SPEED_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO code for unit of measurement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.UNIT_CAP_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO code for unit of measurement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.UNIT_POWER_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO code for unit of measurement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.VOL_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO code for unit of measurement"></ui-input>
-
-<ui-input value.bind="DATA_FLEET.WGT_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO code for unit of measurement"></ui-input>
-
 
 <!-- DATA_GENERAL BAPI_ITOB General Data for Technical Objects -->
 <ui-combo value.bind="DATA_GENERAL.ABCINDIC" shlp.bind='{type:'CT', id:'T370C'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
@@ -345,17 +218,6 @@
           label="Object ID of the Work Center"></ui-combo>
 
 
-<!-- DATA_INSTALL BAPI_ITOB_EQ_INSTALL Installation Date for Equipment -->
-<ui-input value.bind="DATA_INSTALL.FUNCLOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Functional Location Label"></ui-input>
-
-<ui-input value.bind="DATA_INSTALL.INST_POS" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
-          label="Equipment position at InstallLoc (Superior Equip./FunctLoc)"></ui-input>
-
-<ui-input value.bind="DATA_INSTALL.SUPEQUI" shlp.bind='{type:'CT', id:'EQUI'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"18"}' alpha-exit="ALPHA" 
-          label="Superordinate Equipment"></ui-input>
-
-
 <!-- DATA_SPECIFIC BAPI_ITOB_EQ_ONLY Equipment-Specific data -->
 <ui-combo value.bind="DATA_SPECIFIC.BATCH" shlp.bind='{type:'CT', id:'MCH1'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"CHA"}'
           label="Batch Number"></ui-combo>
@@ -466,10 +328,212 @@
 <ui-input value.bind="DATA_SPECIFIC.UII_PLANT" shlp.bind='{type:'SH', id:'H_T001W_C'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"WRK"}'
           label="Plant Responsible for UII"></ui-input>
 
+
+<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
+<ui-input value.bind="DATA_FLEET.CARD_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Fuel card number"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.CHASSIS_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Chassis number"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.CONSUMP_MOVE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Indicator Consumption Recording: Material Movement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.CONSUMP_TOL" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Indicator Consumption Recording: Permitted Tolerances"></ui-input>
+
+<ui-combo value.bind="DATA_FLEET.DIM_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input value.bind="DATA_FLEET.ENGINE_CAP" unit.bind="DATA_FLEET.UNIT_CAP" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Engine capacity"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.ENGINE_CYL" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
+          label="Number of cylinders"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.ENGINE_POWER" unit.bind="DATA_FLEET.UNIT_POWER" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Power at specific number of revolutions per minute"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.ENGINE_SNR" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Engine serial number of manufacturer"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.ENGINE_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Engine type"></ui-input>
+
+<ui-date date.bind="DATA_FLEET.EXPIRY_DATE" label="Validity end date"></ui-date>
+
+<ui-input value.bind="DATA_FLEET.FLEET_HGT" unit.bind="DATA_FLEET.DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Maximum fleet object height"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.FLEET_LEN" unit.bind="DATA_FLEET.DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Maximum fleet object length"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.FLEET_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"18"}'
+          label="Identification number for fleet object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.FLEET_USE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Usage indicator"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.FLEET_VIN" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Manufacturer Vehicle Identification Number for Fleet Object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.FLEET_WID" unit.bind="DATA_FLEET.DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Width of fleet object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.FUEL_PRI" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+          label="Consumable Type of Primary Fuel"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.FUEL_SEC" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+          label="Consumable type of secondary fuel"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.GROSS_WGT" unit.bind="DATA_FLEET.WGT_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Total Weight Allowed"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.KEY_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+          label="Key number of vehicle"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.LICENSE_NUM" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
+          label="License plate number"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.LOAD_DIM_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.LOAD_HGT" unit.bind="DATA_FLEET.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Load height"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.LOAD_LEN" unit.bind="DATA_FLEET.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Load length"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.LOAD_VOL" unit.bind="DATA_FLEET.VOL_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Load volume"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.LOAD_WGT" unit.bind="DATA_FLEET.WGT_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Maximum load weight"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.LOAD_WID" unit.bind="DATA_FLEET.LOAD_DIM_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+          label="Load width"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.MAX_OCCUPANTS" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4"}'
+          label="Maximum number of occupants"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.NO_COMPART" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
+          label="NUmber of compartments"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.NUM_AXLE" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"2"}'
+          label="Number of Axles in Fleet Object"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.OIL_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+          label="Consumable type of oil"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.PRI_CALC" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Indicator to determine the calculation method f. consumption"></ui-input>
+
+<ui-date date.bind="DATA_FLEET.REPLA_DATE" label="Date on which the object should be replaced"></ui-date>
+
+<ui-input value.bind="DATA_FLEET.REPLA_ODOM" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
+          label="Odometer reading at replacement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.REPLA_OPH" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
+          label="Hour meter reading at replacement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.REVOLUTIONS" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"7"}'
+          label="Revolutions per minute"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.SPEED_MAX" unit.bind="DATA_FLEET.SPEED_UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"6.3"}'
+          label="Maximum Fleet Object Speed"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.SPEED_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.UNIT_CAP_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.UNIT_POWER_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.VOL_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+<ui-input value.bind="DATA_FLEET.WGT_UNIT_ISO" shlp.bind='{type:'CT', id:'T006I'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO code for unit of measurement"></ui-input>
+
+
+<!-- DATA_INSTALL BAPI_ITOB_EQ_INSTALL Installation Date for Equipment -->
+<ui-input value.bind="DATA_INSTALL.FUNCLOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Functional Location Label"></ui-input>
+
+<ui-input value.bind="DATA_INSTALL.INST_POS" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+          label="Equipment position at InstallLoc (Superior Equip./FunctLoc)"></ui-input>
+
+<ui-input value.bind="DATA_INSTALL.SUPEQUI" shlp.bind='{type:'CT', id:'EQUI'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"18"}' alpha-exit="ALPHA" 
+          label="Superordinate Equipment"></ui-input>
+
 <ui-input value.bind="EXTERNAL_NUMBER" shlp.bind='{type:'SH', id:'EQUI'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN"}' alpha-exit="ALPHA" 
           label="Equipment Number"></ui-input>
 
 <ui-date date.bind="VALID_DATE" label="Date on which installation location of equipment was changed"></ui-date>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-combo value.bind="EXTENSIONIN.STRUCTURE" shlp.bind='{type:'CT', id:'DD02L'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Structure name of  BAPI table extension"></ui-combo>
+
+<ui-input value.bind="EXTENSIONIN.VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONIN.VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONIN.VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONIN.VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-combo value.bind="EXTENSIONOUT.STRUCTURE" shlp.bind='{type:'CT', id:'DD02L'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Structure name of  BAPI table extension"></ui-combo>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input value.bind="EXTENSIONOUT.VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+          label="Data part of BAPI extension parameter"></ui-input>
 
 
 <!-- OUTPUT PARAMETERS -->
@@ -973,66 +1037,4 @@
 
 <ui-input value.bind="RETURN.TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
-
-
-<!-- TABLE PARAMETERS -->
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <ui-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-combo value.bind="EXTENSIONIN.STRUCTURE" shlp.bind='{type:'CT', id:'DD02L'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Structure name of  BAPI table extension"></ui-combo>
-
-<ui-input value.bind="EXTENSIONIN.VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
-
-<ui-input value.bind="EXTENSIONIN.VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
-
-<ui-input value.bind="EXTENSIONIN.VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
-
-<ui-input value.bind="EXTENSIONIN.VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
-
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CREATE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <ui-dg-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}' label="Structure name of  BAPI table extension" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}' label="Data part of BAPI extension parameter" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-combo value.bind="EXTENSIONOUT.STRUCTURE" shlp.bind='{type:'CT', id:'DD02L'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Structure name of  BAPI table extension"></ui-combo>
-
-<ui-input value.bind="EXTENSIONOUT.VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
-
-<ui-input value.bind="EXTENSIONOUT.VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
-
-<ui-input value.bind="EXTENSIONOUT.VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
-
-<ui-input value.bind="EXTENSIONOUT.VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-          label="Data part of BAPI extension parameter"></ui-input>
 

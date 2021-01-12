@@ -1,6 +1,14 @@
-<!-- BAPI_PO_GETDETAIL 0.3 -->
+<!-- BAPI_PO_GETDETAIL 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+
+<fast-text-field [(label)]="Purchasing Document Number"
+    [(value)]="PURCHASEORDER"
+    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
 
 <fast-select [(label)]="Selection flag"
     [(value)]="ACCOUNT_ASSIGNMENT" [(options)]="{type:'FV', id:'SELKZ'}"
@@ -44,12 +52,6 @@
 ></fast-select>
 
 
-<fast-text-field [(label)]="Purchasing Document Number"
-    [(value)]="PURCHASEORDER"
-    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
 <fast-select [(label)]="Selection flag"
     [(value)]="SCHEDULES" [(options)]="{type:'FV', id:'SELKZ'}"
     [(abap)]="{type: 'string', length: '1'}"
@@ -66,720 +68,6 @@
     [(value)]="SERVICE_TEXTS" [(options)]="{type:'FV', id:'SELKZ'}"
     [(abap)]="{type: 'string', length: '1'}"
 ></fast-select>
-
-
-<!-- OUTPUT PARAMETERS -->
-
-<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
-
-<fast-text-field [(label)]="(Not supported) Physical address ID"
-    [(value)]="PO_ADDRESS.ADDRESS_ID"
-    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
-/>
-
-
-<fast-text-field [(label)]="Handle for Creating Addresses/Persons (Bus. Addr. Services)"
-    [(value)]="PO_ADDRESS.ADDRHANDLE"
-    [(abap)]="{type: 'string', length: '140'}"
-/>
-
-
-<fast-select [(label)]="Address number"
-    [(value)]="PO_ADDRESS.ADDRNUMBER" [(options)]="{type:'CT', id:'ADRC'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
-></fast-select>
-
-
-<fast-select [(label)]="(Not Supported) Address Data Source (Key)"
-    [(value)]="PO_ADDRESS.ADDRORIGIN" [(options)]="{type:'CT', id:'TSAD6'}"
-    [(abap)]="{type: 'string', length: '4'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="old: building (no. or abbreviation)"
-    [(value)]="PO_ADDRESS.BUILDING"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="Building (Number or Code)"
-    [(value)]="PO_ADDRESS.BUILD_LONG"
-    [(abap)]="{type: 'string', length: '20'}"
-/>
-
-
-<fast-select [(label)]="City file test status"
-    [(value)]="PO_ADDRESS.CHCKSTATUS" [(options)]="{type:'FV', id:'AD_CHECKST'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="City"
-    [(value)]="PO_ADDRESS.CITY1"
-    [(abap)]="{type: 'string', length: '40'}" [(shlp)]="{type:'SH', id:'CLCITYNAME'}"
-/>
-
-
-<fast-text-field [(label)]="District"
-    [(value)]="PO_ADDRESS.CITY2"
-    [(abap)]="{type: 'string', length: '40'}" [(shlp)]="{type:'SH', id:'CITY_PART'}"
-/>
-
-
-<fast-text-field [(label)]="District code for City and Street file"
-    [(value)]="PO_ADDRESS.CITYP_CODE"
-    [(abap)]="{type: 'string', length: '8', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'CPRTA'}"
-/>
-
-
-<fast-text-field [(label)]="City code for city/street file"
-    [(value)]="PO_ADDRESS.CITY_CODE"
-    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'CITYA'}"
-/>
-
-
-<fast-text-field [(label)]="City PO box code (City file)"
-    [(value)]="PO_ADDRESS.CITY_CODE2"
-    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'CITYA'}"
-/>
-
-
-<fast-text-field [(label)]="Country Key"
-    [(value)]="PO_ADDRESS.COUNTRY"
-    [(abap)]="{type: 'string', length: '3', mid: 'LND'}" [(shlp)]="{type:'CT', id:'T005'}"
-/>
-
-
-<fast-datepicker label="Date referred to" [(value)]="PO_ADDRESS.DATE"/>
-
-
-<fast-datepicker label="Valid-from date - in current Release only 00010101 possible" [(value)]="PO_ADDRESS.DATE_FROM"/>
-
-
-<fast-datepicker label="Valid-to date in current Release only 99991231 possible" [(value)]="PO_ADDRESS.DATE_TO"/>
-
-
-<fast-select [(label)]="Communication Method (Key) (Business Address Services)"
-    [(value)]="PO_ADDRESS.DEFLT_COMM" [(options)]="{type:'CT', id:'TSAC'}"
-    [(abap)]="{type: 'string', length: '3'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Extension (only for data conversion) (data line/telebox)"
-    [(value)]="PO_ADDRESS.EXTENSION1"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Extension (only for data conversion) (data line/telebox)"
-    [(value)]="PO_ADDRESS.EXTENSION2"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="First fax no.: extension"
-    [(value)]="PO_ADDRESS.FAX_EXTENS"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="First fax no.: dialling code+number"
-    [(value)]="PO_ADDRESS.FAX_NUMBER"
-    [(abap)]="{type: 'string', length: '30'}"
-/>
-
-
-<fast-text-field [(label)]="Floor in building"
-    [(value)]="PO_ADDRESS.FLOOR"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="House Number"
-    [(value)]="PO_ADDRESS.HOUSE_NUM1"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="House number supplement"
-    [(value)]="PO_ADDRESS.HOUSE_NUM2"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="(Not supported) House Number Range"
-    [(value)]="PO_ADDRESS.HOUSE_NUM3"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="Language Key"
-    [(value)]="PO_ADDRESS.LANGU"
-    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
-/>
-
-
-<fast-text-field [(label)]="Street 5"
-    [(value)]="PO_ADDRESS.LOCATION"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Name 1"
-    [(value)]="PO_ADDRESS.NAME1"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Name 2"
-    [(value)]="PO_ADDRESS.NAME2"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Name 3"
-    [(value)]="PO_ADDRESS.NAME3"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Name 4"
-    [(value)]="PO_ADDRESS.NAME4"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="c/o name"
-    [(value)]="PO_ADDRESS.NAME_CO"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Converted name field (with form of address)"
-    [(value)]="PO_ADDRESS.NAME_TXT"
-    [(abap)]="{type: 'string', length: '50'}"
-/>
-
-
-<fast-select [(label)]="Version ID for International Addresses"
-    [(value)]="PO_ADDRESS.NATION" [(options)]="{type:'CT', id:'TSADV'}"
-    [(abap)]="{type: 'string', length: '1', mid: 'ADDRESS_NATION'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="(Not Supported) Post Delivery District"
-    [(value)]="PO_ADDRESS.POSTALAREA"
-    [(abap)]="{type: 'string', length: '15'}"
-/>
-
-
-<fast-text-field [(label)]="City postal code"
-    [(value)]="PO_ADDRESS.POST_CODE1"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="PO Box Postal Code"
-    [(value)]="PO_ADDRESS.POST_CODE2"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="Company Postal Code (for Large Customers)"
-    [(value)]="PO_ADDRESS.POST_CODE3"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="PO Box"
-    [(value)]="PO_ADDRESS.PO_BOX"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-select [(label)]="PO box country"
-    [(value)]="PO_ADDRESS.PO_BOX_CTY" [(options)]="{type:'CT', id:'T005'}"
-    [(abap)]="{type: 'string', length: '3'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="PO Box city"
-    [(value)]="PO_ADDRESS.PO_BOX_LOC"
-    [(abap)]="{type: 'string', length: '40'}" [(shlp)]="{type:'SH', id:'CITY_NAME'}"
-/>
-
-
-<fast-checkbox [(label)]="Flag: PO Box Without Number" [(checked)]="PO_ADDRESS.PO_BOX_NUM"/>
-
-
-<fast-select [(label)]="Region for PO Box (Country, State, Province, ...)"
-    [(value)]="PO_ADDRESS.PO_BOX_REG" [(options)]="{type:'CT', id:'T005S'}"
-    [(abap)]="{type: 'string', length: '3'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Region (State, Province, County)"
-    [(value)]="PO_ADDRESS.REGION"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T005S'}"
-/>
-
-
-<fast-text-field [(label)]="Address notes"
-    [(value)]="PO_ADDRESS.REMARK"
-    [(abap)]="{type: 'string', length: '50'}"
-/>
-
-
-<fast-text-field [(label)]="Room or Appartment Number"
-    [(value)]="PO_ADDRESS.ROOMNUMBER"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="Search Term 1"
-    [(value)]="PO_ADDRESS.SORT1"
-    [(abap)]="{type: 'string', length: '20'}"
-/>
-
-
-<fast-text-field [(label)]="Search Term 2"
-    [(value)]="PO_ADDRESS.SORT2"
-    [(abap)]="{type: 'string', length: '20'}"
-/>
-
-
-<fast-text-field [(label)]="(Not Supported) Phonetic Search Sort Field"
-    [(value)]="PO_ADDRESS.SORT_PHN"
-    [(abap)]="{type: 'string', length: '20'}"
-/>
-
-
-<fast-text-field [(label)]="Street"
-    [(value)]="PO_ADDRESS.STREET"
-    [(abap)]="{type: 'string', length: '60'}" [(shlp)]="{type:'SH', id:'CLSTRTNAME'}"
-/>
-
-
-<fast-select [(label)]="(Not Supported) Abbreviation of Street Name"
-    [(value)]="PO_ADDRESS.STREETABBR" [(options)]="{type:'CT', id:'ADRSTRTYPE'}"
-    [(abap)]="{type: 'string', length: '2'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Street Number for City/Street File"
-    [(value)]="PO_ADDRESS.STREETCODE"
-    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'STRTA'}"
-/>
-
-
-<fast-text-field [(label)]="Street 2"
-    [(value)]="PO_ADDRESS.STR_SUPPL1"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Street 3"
-    [(value)]="PO_ADDRESS.STR_SUPPL2"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Tax Jurisdiction"
-    [(value)]="PO_ADDRESS.TAXJURCODE"
-    [(abap)]="{type: 'string', length: '15', mid: 'TXJ'}"
-/>
-
-
-<fast-text-field [(label)]="First Telephone No.: Extension"
-    [(value)]="PO_ADDRESS.TEL_EXTENS"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="First telephone no.: dialling code+number"
-    [(value)]="PO_ADDRESS.TEL_NUMBER"
-    [(abap)]="{type: 'string', length: '30'}"
-/>
-
-
-<fast-text-field [(label)]="Address time zone"
-    [(value)]="PO_ADDRESS.TIME_ZONE"
-    [(abap)]="{type: 'string', length: '6'}" [(shlp)]="{type:'SH', id:'VTTZZ'}"
-/>
-
-
-<fast-select [(label)]="Form-of-Address Key"
-    [(value)]="PO_ADDRESS.TITLE" [(options)]="{type:'CT', id:'TSAD3'}"
-    [(abap)]="{type: 'string', length: '4'}"
-></fast-select>
-
-
-<fast-select [(label)]="Transportation zone to or from which the goods are delivered"
-    [(value)]="PO_ADDRESS.TRANSPZONE" [(options)]="{type:'CT', id:'TZONE'}"
-    [(abap)]="{type: 'string', length: '10'}"
-></fast-select>
-
-
-<!-- PO_HEADER BAPIEKKOL PO Header Data -->
-
-<fast-text-field [(label)]="Number of principal purchase agreement"
-    [(value)]="PO_HEADER.AGREEMENT"
-    [(abap)]="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
-<fast-datepicker label="Closing Date for Applications" [(value)]="PO_HEADER.APPLIC_BY"/>
-
-
-<fast-text-field [(label)]="Bid invitation number"
-    [(value)]="PO_HEADER.BIDINV_NO"
-    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
-<fast-datepicker label="Binding Period for Quotation" [(value)]="PO_HEADER.BINDG_PER"/>
-
-
-<fast-text-field [(label)]="Cash discount percentage 1"
-    [(value)]="PO_HEADER.CASH_DISC1"
-    [(abap)]="{type: 'number', length: '4.3'}"
-/>
-
-
-<fast-text-field [(label)]="Cash Discount Percentage 2"
-    [(value)]="PO_HEADER.CASH_DISC2"
-    [(abap)]="{type: 'number', length: '4.3'}"
-/>
-
-
-<fast-text-field [(label)]="Control indicator for purchasing document type"
-    [(value)]="PO_HEADER.CNTRL_IND"
-    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BSAKZ'}"
-/>
-
-
-<fast-text-field [(label)]="Collective Number"
-    [(value)]="PO_HEADER.COLL_NO"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-checkbox [(label)]="Complete Delivery Stipulated for Each Purchase Order" [(checked)]="PO_HEADER.COMPL_DLV"/>
-
-
-<fast-text-field [(label)]="Company Code"
-    [(value)]="PO_HEADER.CO_CODE"
-    [(abap)]="{type: 'string', length: '4', mid: 'BUK'}" [(shlp)]="{type:'SH', id:'C_T001'}"
-/>
-
-
-<fast-text-field [(label)]="Name of Person who Created the Object"
-    [(value)]="PO_HEADER.CREATED_BY"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-datepicker label="Date on Which Record Was Created" [(value)]="PO_HEADER.CREATED_ON"/>
-
-
-<fast-text-field [(label)]="ISO Currency Code"
-    [(value)]="PO_HEADER.CURRENCY_ISO"
-    [(abap)]="{type: 'string', length: '3'}"
-/>
-
-
-<fast-text-field [(label)]="Customer Number"
-    [(value)]="PO_HEADER.CUSTOMER"
-    [(abap)]="{type: 'string', length: '10', mid: 'KUN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'DEBI'}"
-/>
-
-
-<fast-text-field [(label)]="Deletion indicator in purchasing document"
-    [(value)]="PO_HEADER.DELETE_IND"
-    [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<fast-text-field [(label)]="Different Invoicing Party"
-    [(value)]="PO_HEADER.DIFF_INV"
-    [(abap)]="{type: 'string', length: '10', mid: 'LRE', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
-/>
-
-
-<fast-select [(label)]="Purchasing Document Category"
-    [(value)]="PO_HEADER.DOC_CAT" [(options)]="{type:'FV', id:'EBSTYP'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Number of the document condition"
-    [(value)]="PO_HEADER.DOC_COND"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-datepicker label="Purchasing Document Date" [(value)]="PO_HEADER.DOC_DATE"/>
-
-
-<fast-text-field [(label)]="Purchasing Document Type"
-    [(value)]="PO_HEADER.DOC_TYPE"
-    [(abap)]="{type: 'string', length: '4', mid: 'BSA'}" [(shlp)]="{type:'SH', id:'H_T161'}"
-/>
-
-
-<fast-text-field [(label)]="Cash discount days 1"
-    [(value)]="PO_HEADER.DSCNT1_TO"
-    [(abap)]="{type: 'number', length: '3'}"
-/>
-
-
-<fast-text-field [(label)]="Cash discount days 2"
-    [(value)]="PO_HEADER.DSCNT2_TO"
-    [(abap)]="{type: 'number', length: '3'}"
-/>
-
-
-<fast-text-field [(label)]="Cash discount days 3"
-    [(value)]="PO_HEADER.DSCNT3_TO"
-    [(abap)]="{type: 'number', length: '3'}"
-/>
-
-
-<fast-text-field [(label)]="Direct Quoted Exchange Rate"
-    [(value)]="PO_HEADER.EXCH_RATE"
-    [(abap)]="{type: 'number', length: '8.5'}"
-/>
-
-
-<fast-text-field [(label)]="Indirect Quoted Exchange Rate"
-    [(value)]="PO_HEADER.EXCH_RATE_CM"
-    [(abap)]="{type: 'number', length: '8.5'}"
-/>
-
-
-<fast-select [(label)]="Number of foreign trade data in MM and SD documents"
-    [(value)]="PO_HEADER.EXPORT_NO" [(options)]="{type:'CH', id:'EIKP'}"
-    [(abap)]="{type: 'string', length: '10'}"
-></fast-select>
-
-
-<fast-checkbox [(label)]="Indicator: Fixing of Exchange Rate" [(checked)]="PO_HEADER.EX_RATE_FX"/>
-
-
-<fast-checkbox [(label)]="Indicator: Goods Receipt Message" [(checked)]="PO_HEADER.GR_MESSAGE"/>
-
-
-<fast-checkbox [(label)]="Purchase order not yet complete" [(checked)]="PO_HEADER.HOLD"/>
-
-
-<fast-text-field [(label)]="Incoterms (Part 1)"
-    [(value)]="PO_HEADER.INCOTERMS1"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'SH', id:'H_TINC'}"
-/>
-
-
-<fast-text-field [(label)]="Incoterms (Part 2)"
-    [(value)]="PO_HEADER.INCOTERMS2"
-    [(abap)]="{type: 'string', length: '28'}"
-/>
-
-
-<fast-text-field [(label)]="Item Number Interval"
-    [(value)]="PO_HEADER.ITEM_INTVL"
-    [(abap)]="{type: 'string', length: '5'}"
-/>
-
-
-<fast-text-field [(label)]="Language Key"
-    [(value)]="PO_HEADER.LANGUAGE"
-    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
-/>
-
-
-<fast-text-field [(label)]="Last Item Number"
-    [(value)]="PO_HEADER.LAST_ITEM"
-    [(abap)]="{type: 'string', length: '5'}" [(shlp)]="{type:'CH', id:'EKPO'}"
-/>
-
-
-<fast-select [(label)]="Logical System"
-    [(value)]="PO_HEADER.LOGSYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
-    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
-></fast-select>
-
-
-<fast-checkbox [(label)]="Document with time-dependent conditions" [(checked)]="PO_HEADER.MAST_COND"/>
-
-
-<fast-text-field [(label)]="Our Reference"
-    [(value)]="PO_HEADER.OUR_REF"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-text-field [(label)]="Terms of Payment Key"
-    [(value)]="PO_HEADER.PMNTTRMS"
-    [(abap)]="{type: 'string', length: '4'}"
-/>
-
-
-<fast-text-field [(label)]="Purchasing Document Number"
-    [(value)]="PO_HEADER.PO_NUMBER"
-    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
-<fast-select [(label)]="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
-    [(value)]="PO_HEADER.PROCEDURE" [(options)]="{type:'CT', id:'T683'}"
-    [(abap)]="{type: 'string', length: '6'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Purchasing organization"
-    [(value)]="PO_HEADER.PURCH_ORG"
-    [(abap)]="{type: 'string', length: '4', mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
-/>
-
-
-<fast-text-field [(label)]="Purchasing Group"
-    [(value)]="PO_HEADER.PUR_GROUP"
-    [(abap)]="{type: 'string', length: '3', mid: 'EKG'}" [(shlp)]="{type:'SH', id:'H_T024'}"
-/>
-
-
-<fast-text-field [(label)]="Quotation Number"
-    [(value)]="PO_HEADER.QUOTATION"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-datepicker label="Quotation Submission Date" [(value)]="PO_HEADER.QUOT_DATE"/>
-
-
-<fast-datepicker label="Deadline for Submission of Bid/Quotation" [(value)]="PO_HEADER.QUOT_DEAD"/>
-
-
-<fast-text-field [(label)]="Field not used"
-    [(value)]="PO_HEADER.RCVG_VEND"
-    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
-/>
-
-
-<fast-text-field [(label)]="Your Reference"
-    [(value)]="PO_HEADER.REF_1"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-text-field [(label)]="Reason for rejection of quotations and sales orders"
-    [(value)]="PO_HEADER.REJ_REASON"
-    [(abap)]="{type: 'string', length: '2'}"
-/>
-
-
-<fast-select [(label)]="Release group"
-    [(value)]="PO_HEADER.REL_GROUP" [(options)]="{type:'CT', id:'T16FG'}"
-    [(abap)]="{type: 'string', length: '2'}"
-></fast-select>
-
-
-<fast-select [(label)]="Release Indicator: Purchasing Document"
-    [(value)]="PO_HEADER.REL_IND" [(options)]="{type:'CT', id:'T16FB'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Release State"
-    [(value)]="PO_HEADER.REL_STATUS"
-    [(abap)]="{type: 'string', length: '8'}"
-/>
-
-
-<fast-select [(label)]="Release Strategy"
-    [(value)]="PO_HEADER.REL_STRAT" [(options)]="{type:'CT', id:'T16FS'}"
-    [(abap)]="{type: 'string', length: '2'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Responsible Salesperson at Vendor's Office"
-    [(value)]="PO_HEADER.SALES_PERS"
-    [(abap)]="{type: 'string', length: '30'}"
-/>
-
-
-<fast-checkbox [(label)]="Indicator for scheduling agreement release documentation" [(checked)]="PO_HEADER.SCHED_IND"/>
-
-
-<fast-select [(label)]="Status of Purchasing Document"
-    [(value)]="PO_HEADER.STATUS" [(options)]="{type:'FV', id:'ESTAK'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Item Number Interval for Subitems"
-    [(value)]="PO_HEADER.SUBITEMINT"
-    [(abap)]="{type: 'string', length: '5'}"
-/>
-
-
-<fast-checkbox [(label)]="Release Not Yet Completely Effected" [(checked)]="PO_HEADER.SUBJ_TO_R"/>
-
-
-<fast-text-field [(label)]="Supplying (issuing) plant in case of stock transport order"
-    [(value)]="PO_HEADER.SUPPL_PLNT"
-    [(abap)]="{type: 'string', length: '4'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
-/>
-
-
-<fast-text-field [(label)]="Supplying Vendor"
-    [(value)]="PO_HEADER.SUPPL_VEND"
-    [(abap)]="{type: 'string', length: '10', mid: 'LLI', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
-/>
-
-
-<fast-text-field [(label)]="Cumulative Planned Value"
-    [(value)]="PO_HEADER.TARGET_VAL"
-    [(abap)]="{type: 'number', length: '22.4'}"
-/>
-
-
-<fast-text-field [(label)]="Country for Tax Return"
-    [(value)]="PO_HEADER.TAXR_CNTRY"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T005'}"
-/>
-
-
-<fast-text-field [(label)]="Vendor's Telephone Number"
-    [(value)]="PO_HEADER.TELEPHONE"
-    [(abap)]="{type: 'string', length: '16'}"
-/>
-
-
-<fast-text-field [(label)]="Update group for statistics update"
-    [(value)]="PO_HEADER.UPDATE_GRP"
-    [(abap)]="{type: 'string', length: '6', mid: 'MCF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'H_TMCB'}"
-/>
-
-
-<fast-text-field [(label)]="Vendor's account number"
-    [(value)]="PO_HEADER.VENDOR"
-    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
-/>
-
-
-<fast-text-field [(label)]="Name 1"
-    [(value)]="PO_HEADER.VEND_NAME"
-    [(abap)]="{type: 'string', length: '35'}"
-/>
-
-
-<fast-datepicker label="End of Validity Period" [(value)]="PO_HEADER.VPER_END"/>
-
-
-<fast-datepicker label="Start of Validity Period" [(value)]="PO_HEADER.VPER_START"/>
-
-
-<fast-datepicker label="Warranty Date" [(value)]="PO_HEADER.WARRANTY"/>
 
 
 <!-- TABLE PARAMETERS -->
@@ -4634,4 +3922,718 @@
     [(value)]="RETURN.TYPE"
     [(abap)]="{type: 'string', length: '1'}"
 />
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
+
+<fast-text-field [(label)]="(Not supported) Physical address ID"
+    [(value)]="PO_ADDRESS.ADDRESS_ID"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
+/>
+
+
+<fast-text-field [(label)]="Handle for Creating Addresses/Persons (Bus. Addr. Services)"
+    [(value)]="PO_ADDRESS.ADDRHANDLE"
+    [(abap)]="{type: 'string', length: '140'}"
+/>
+
+
+<fast-select [(label)]="Address number"
+    [(value)]="PO_ADDRESS.ADDRNUMBER" [(options)]="{type:'CT', id:'ADRC'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-select [(label)]="(Not Supported) Address Data Source (Key)"
+    [(value)]="PO_ADDRESS.ADDRORIGIN" [(options)]="{type:'CT', id:'TSAD6'}"
+    [(abap)]="{type: 'string', length: '4'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="old: building (no. or abbreviation)"
+    [(value)]="PO_ADDRESS.BUILDING"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="Building (Number or Code)"
+    [(value)]="PO_ADDRESS.BUILD_LONG"
+    [(abap)]="{type: 'string', length: '20'}"
+/>
+
+
+<fast-select [(label)]="City file test status"
+    [(value)]="PO_ADDRESS.CHCKSTATUS" [(options)]="{type:'FV', id:'AD_CHECKST'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="City"
+    [(value)]="PO_ADDRESS.CITY1"
+    [(abap)]="{type: 'string', length: '40'}" [(shlp)]="{type:'SH', id:'CLCITYNAME'}"
+/>
+
+
+<fast-text-field [(label)]="District"
+    [(value)]="PO_ADDRESS.CITY2"
+    [(abap)]="{type: 'string', length: '40'}" [(shlp)]="{type:'SH', id:'CITY_PART'}"
+/>
+
+
+<fast-text-field [(label)]="District code for City and Street file"
+    [(value)]="PO_ADDRESS.CITYP_CODE"
+    [(abap)]="{type: 'string', length: '8', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'CPRTA'}"
+/>
+
+
+<fast-text-field [(label)]="City code for city/street file"
+    [(value)]="PO_ADDRESS.CITY_CODE"
+    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'CITYA'}"
+/>
+
+
+<fast-text-field [(label)]="City PO box code (City file)"
+    [(value)]="PO_ADDRESS.CITY_CODE2"
+    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'CITYA'}"
+/>
+
+
+<fast-text-field [(label)]="Country Key"
+    [(value)]="PO_ADDRESS.COUNTRY"
+    [(abap)]="{type: 'string', length: '3', mid: 'LND'}" [(shlp)]="{type:'CT', id:'T005'}"
+/>
+
+
+<fast-datepicker label="Date referred to" [(value)]="PO_ADDRESS.DATE"/>
+
+
+<fast-datepicker label="Valid-from date - in current Release only 00010101 possible" [(value)]="PO_ADDRESS.DATE_FROM"/>
+
+
+<fast-datepicker label="Valid-to date in current Release only 99991231 possible" [(value)]="PO_ADDRESS.DATE_TO"/>
+
+
+<fast-select [(label)]="Communication Method (Key) (Business Address Services)"
+    [(value)]="PO_ADDRESS.DEFLT_COMM" [(options)]="{type:'CT', id:'TSAC'}"
+    [(abap)]="{type: 'string', length: '3'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Extension (only for data conversion) (data line/telebox)"
+    [(value)]="PO_ADDRESS.EXTENSION1"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Extension (only for data conversion) (data line/telebox)"
+    [(value)]="PO_ADDRESS.EXTENSION2"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="First fax no.: extension"
+    [(value)]="PO_ADDRESS.FAX_EXTENS"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="First fax no.: dialling code+number"
+    [(value)]="PO_ADDRESS.FAX_NUMBER"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Floor in building"
+    [(value)]="PO_ADDRESS.FLOOR"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="House Number"
+    [(value)]="PO_ADDRESS.HOUSE_NUM1"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="House number supplement"
+    [(value)]="PO_ADDRESS.HOUSE_NUM2"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="(Not supported) House Number Range"
+    [(value)]="PO_ADDRESS.HOUSE_NUM3"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="Language Key"
+    [(value)]="PO_ADDRESS.LANGU"
+    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+/>
+
+
+<fast-text-field [(label)]="Street 5"
+    [(value)]="PO_ADDRESS.LOCATION"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Name 1"
+    [(value)]="PO_ADDRESS.NAME1"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Name 2"
+    [(value)]="PO_ADDRESS.NAME2"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Name 3"
+    [(value)]="PO_ADDRESS.NAME3"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Name 4"
+    [(value)]="PO_ADDRESS.NAME4"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="c/o name"
+    [(value)]="PO_ADDRESS.NAME_CO"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Converted name field (with form of address)"
+    [(value)]="PO_ADDRESS.NAME_TXT"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-select [(label)]="Version ID for International Addresses"
+    [(value)]="PO_ADDRESS.NATION" [(options)]="{type:'CT', id:'TSADV'}"
+    [(abap)]="{type: 'string', length: '1', mid: 'ADDRESS_NATION'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="(Not Supported) Post Delivery District"
+    [(value)]="PO_ADDRESS.POSTALAREA"
+    [(abap)]="{type: 'string', length: '15'}"
+/>
+
+
+<fast-text-field [(label)]="City postal code"
+    [(value)]="PO_ADDRESS.POST_CODE1"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="PO Box Postal Code"
+    [(value)]="PO_ADDRESS.POST_CODE2"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="Company Postal Code (for Large Customers)"
+    [(value)]="PO_ADDRESS.POST_CODE3"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="PO Box"
+    [(value)]="PO_ADDRESS.PO_BOX"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-select [(label)]="PO box country"
+    [(value)]="PO_ADDRESS.PO_BOX_CTY" [(options)]="{type:'CT', id:'T005'}"
+    [(abap)]="{type: 'string', length: '3'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="PO Box city"
+    [(value)]="PO_ADDRESS.PO_BOX_LOC"
+    [(abap)]="{type: 'string', length: '40'}" [(shlp)]="{type:'SH', id:'CITY_NAME'}"
+/>
+
+
+<fast-checkbox [(label)]="Flag: PO Box Without Number" [(checked)]="PO_ADDRESS.PO_BOX_NUM"/>
+
+
+<fast-select [(label)]="Region for PO Box (Country, State, Province, ...)"
+    [(value)]="PO_ADDRESS.PO_BOX_REG" [(options)]="{type:'CT', id:'T005S'}"
+    [(abap)]="{type: 'string', length: '3'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Region (State, Province, County)"
+    [(value)]="PO_ADDRESS.REGION"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T005S'}"
+/>
+
+
+<fast-text-field [(label)]="Address notes"
+    [(value)]="PO_ADDRESS.REMARK"
+    [(abap)]="{type: 'string', length: '50'}"
+/>
+
+
+<fast-text-field [(label)]="Room or Appartment Number"
+    [(value)]="PO_ADDRESS.ROOMNUMBER"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="Search Term 1"
+    [(value)]="PO_ADDRESS.SORT1"
+    [(abap)]="{type: 'string', length: '20'}"
+/>
+
+
+<fast-text-field [(label)]="Search Term 2"
+    [(value)]="PO_ADDRESS.SORT2"
+    [(abap)]="{type: 'string', length: '20'}"
+/>
+
+
+<fast-text-field [(label)]="(Not Supported) Phonetic Search Sort Field"
+    [(value)]="PO_ADDRESS.SORT_PHN"
+    [(abap)]="{type: 'string', length: '20'}"
+/>
+
+
+<fast-text-field [(label)]="Street"
+    [(value)]="PO_ADDRESS.STREET"
+    [(abap)]="{type: 'string', length: '60'}" [(shlp)]="{type:'SH', id:'CLSTRTNAME'}"
+/>
+
+
+<fast-select [(label)]="(Not Supported) Abbreviation of Street Name"
+    [(value)]="PO_ADDRESS.STREETABBR" [(options)]="{type:'CT', id:'ADRSTRTYPE'}"
+    [(abap)]="{type: 'string', length: '2'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Street Number for City/Street File"
+    [(value)]="PO_ADDRESS.STREETCODE"
+    [(abap)]="{type: 'string', length: '12', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'STRTA'}"
+/>
+
+
+<fast-text-field [(label)]="Street 2"
+    [(value)]="PO_ADDRESS.STR_SUPPL1"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Street 3"
+    [(value)]="PO_ADDRESS.STR_SUPPL2"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Tax Jurisdiction"
+    [(value)]="PO_ADDRESS.TAXJURCODE"
+    [(abap)]="{type: 'string', length: '15', mid: 'TXJ'}"
+/>
+
+
+<fast-text-field [(label)]="First Telephone No.: Extension"
+    [(value)]="PO_ADDRESS.TEL_EXTENS"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="First telephone no.: dialling code+number"
+    [(value)]="PO_ADDRESS.TEL_NUMBER"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Address time zone"
+    [(value)]="PO_ADDRESS.TIME_ZONE"
+    [(abap)]="{type: 'string', length: '6'}" [(shlp)]="{type:'SH', id:'VTTZZ'}"
+/>
+
+
+<fast-select [(label)]="Form-of-Address Key"
+    [(value)]="PO_ADDRESS.TITLE" [(options)]="{type:'CT', id:'TSAD3'}"
+    [(abap)]="{type: 'string', length: '4'}"
+></fast-select>
+
+
+<fast-select [(label)]="Transportation zone to or from which the goods are delivered"
+    [(value)]="PO_ADDRESS.TRANSPZONE" [(options)]="{type:'CT', id:'TZONE'}"
+    [(abap)]="{type: 'string', length: '10'}"
+></fast-select>
+
+
+<!-- PO_HEADER BAPIEKKOL PO Header Data -->
+
+<fast-text-field [(label)]="Number of principal purchase agreement"
+    [(value)]="PO_HEADER.AGREEMENT"
+    [(abap)]="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-datepicker label="Closing Date for Applications" [(value)]="PO_HEADER.APPLIC_BY"/>
+
+
+<fast-text-field [(label)]="Bid invitation number"
+    [(value)]="PO_HEADER.BIDINV_NO"
+    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-datepicker label="Binding Period for Quotation" [(value)]="PO_HEADER.BINDG_PER"/>
+
+
+<fast-text-field [(label)]="Cash discount percentage 1"
+    [(value)]="PO_HEADER.CASH_DISC1"
+    [(abap)]="{type: 'number', length: '4.3'}"
+/>
+
+
+<fast-text-field [(label)]="Cash Discount Percentage 2"
+    [(value)]="PO_HEADER.CASH_DISC2"
+    [(abap)]="{type: 'number', length: '4.3'}"
+/>
+
+
+<fast-text-field [(label)]="Control indicator for purchasing document type"
+    [(value)]="PO_HEADER.CNTRL_IND"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'BSAKZ'}"
+/>
+
+
+<fast-text-field [(label)]="Collective Number"
+    [(value)]="PO_HEADER.COLL_NO"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-checkbox [(label)]="Complete Delivery Stipulated for Each Purchase Order" [(checked)]="PO_HEADER.COMPL_DLV"/>
+
+
+<fast-text-field [(label)]="Company Code"
+    [(value)]="PO_HEADER.CO_CODE"
+    [(abap)]="{type: 'string', length: '4', mid: 'BUK'}" [(shlp)]="{type:'SH', id:'C_T001'}"
+/>
+
+
+<fast-text-field [(label)]="Name of Person who Created the Object"
+    [(value)]="PO_HEADER.CREATED_BY"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-datepicker label="Date on Which Record Was Created" [(value)]="PO_HEADER.CREATED_ON"/>
+
+
+<fast-text-field [(label)]="ISO Currency Code"
+    [(value)]="PO_HEADER.CURRENCY_ISO"
+    [(abap)]="{type: 'string', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Customer Number"
+    [(value)]="PO_HEADER.CUSTOMER"
+    [(abap)]="{type: 'string', length: '10', mid: 'KUN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'DEBI'}"
+/>
+
+
+<fast-text-field [(label)]="Deletion indicator in purchasing document"
+    [(value)]="PO_HEADER.DELETE_IND"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-text-field [(label)]="Different Invoicing Party"
+    [(value)]="PO_HEADER.DIFF_INV"
+    [(abap)]="{type: 'string', length: '10', mid: 'LRE', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+/>
+
+
+<fast-select [(label)]="Purchasing Document Category"
+    [(value)]="PO_HEADER.DOC_CAT" [(options)]="{type:'FV', id:'EBSTYP'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Number of the document condition"
+    [(value)]="PO_HEADER.DOC_COND"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-datepicker label="Purchasing Document Date" [(value)]="PO_HEADER.DOC_DATE"/>
+
+
+<fast-text-field [(label)]="Purchasing Document Type"
+    [(value)]="PO_HEADER.DOC_TYPE"
+    [(abap)]="{type: 'string', length: '4', mid: 'BSA'}" [(shlp)]="{type:'SH', id:'H_T161'}"
+/>
+
+
+<fast-text-field [(label)]="Cash discount days 1"
+    [(value)]="PO_HEADER.DSCNT1_TO"
+    [(abap)]="{type: 'number', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Cash discount days 2"
+    [(value)]="PO_HEADER.DSCNT2_TO"
+    [(abap)]="{type: 'number', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Cash discount days 3"
+    [(value)]="PO_HEADER.DSCNT3_TO"
+    [(abap)]="{type: 'number', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Direct Quoted Exchange Rate"
+    [(value)]="PO_HEADER.EXCH_RATE"
+    [(abap)]="{type: 'number', length: '8.5'}"
+/>
+
+
+<fast-text-field [(label)]="Indirect Quoted Exchange Rate"
+    [(value)]="PO_HEADER.EXCH_RATE_CM"
+    [(abap)]="{type: 'number', length: '8.5'}"
+/>
+
+
+<fast-select [(label)]="Number of foreign trade data in MM and SD documents"
+    [(value)]="PO_HEADER.EXPORT_NO" [(options)]="{type:'CH', id:'EIKP'}"
+    [(abap)]="{type: 'string', length: '10'}"
+></fast-select>
+
+
+<fast-checkbox [(label)]="Indicator: Fixing of Exchange Rate" [(checked)]="PO_HEADER.EX_RATE_FX"/>
+
+
+<fast-checkbox [(label)]="Indicator: Goods Receipt Message" [(checked)]="PO_HEADER.GR_MESSAGE"/>
+
+
+<fast-checkbox [(label)]="Purchase order not yet complete" [(checked)]="PO_HEADER.HOLD"/>
+
+
+<fast-text-field [(label)]="Incoterms (Part 1)"
+    [(value)]="PO_HEADER.INCOTERMS1"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'SH', id:'H_TINC'}"
+/>
+
+
+<fast-text-field [(label)]="Incoterms (Part 2)"
+    [(value)]="PO_HEADER.INCOTERMS2"
+    [(abap)]="{type: 'string', length: '28'}"
+/>
+
+
+<fast-text-field [(label)]="Item Number Interval"
+    [(value)]="PO_HEADER.ITEM_INTVL"
+    [(abap)]="{type: 'string', length: '5'}"
+/>
+
+
+<fast-text-field [(label)]="Language Key"
+    [(value)]="PO_HEADER.LANGUAGE"
+    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+/>
+
+
+<fast-text-field [(label)]="Last Item Number"
+    [(value)]="PO_HEADER.LAST_ITEM"
+    [(abap)]="{type: 'string', length: '5'}" [(shlp)]="{type:'CH', id:'EKPO'}"
+/>
+
+
+<fast-select [(label)]="Logical System"
+    [(value)]="PO_HEADER.LOGSYSTEM" [(options)]="{type:'CT', id:'TBDLS'}"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-checkbox [(label)]="Document with time-dependent conditions" [(checked)]="PO_HEADER.MAST_COND"/>
+
+
+<fast-text-field [(label)]="Our Reference"
+    [(value)]="PO_HEADER.OUR_REF"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="Terms of Payment Key"
+    [(value)]="PO_HEADER.PMNTTRMS"
+    [(abap)]="{type: 'string', length: '4'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing Document Number"
+    [(value)]="PO_HEADER.PO_NUMBER"
+    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-select [(label)]="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"
+    [(value)]="PO_HEADER.PROCEDURE" [(options)]="{type:'CT', id:'T683'}"
+    [(abap)]="{type: 'string', length: '6'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Purchasing organization"
+    [(value)]="PO_HEADER.PURCH_ORG"
+    [(abap)]="{type: 'string', length: '4', mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing Group"
+    [(value)]="PO_HEADER.PUR_GROUP"
+    [(abap)]="{type: 'string', length: '3', mid: 'EKG'}" [(shlp)]="{type:'SH', id:'H_T024'}"
+/>
+
+
+<fast-text-field [(label)]="Quotation Number"
+    [(value)]="PO_HEADER.QUOTATION"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-datepicker label="Quotation Submission Date" [(value)]="PO_HEADER.QUOT_DATE"/>
+
+
+<fast-datepicker label="Deadline for Submission of Bid/Quotation" [(value)]="PO_HEADER.QUOT_DEAD"/>
+
+
+<fast-text-field [(label)]="Field not used"
+    [(value)]="PO_HEADER.RCVG_VEND"
+    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+/>
+
+
+<fast-text-field [(label)]="Your Reference"
+    [(value)]="PO_HEADER.REF_1"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="Reason for rejection of quotations and sales orders"
+    [(value)]="PO_HEADER.REJ_REASON"
+    [(abap)]="{type: 'string', length: '2'}"
+/>
+
+
+<fast-select [(label)]="Release group"
+    [(value)]="PO_HEADER.REL_GROUP" [(options)]="{type:'CT', id:'T16FG'}"
+    [(abap)]="{type: 'string', length: '2'}"
+></fast-select>
+
+
+<fast-select [(label)]="Release Indicator: Purchasing Document"
+    [(value)]="PO_HEADER.REL_IND" [(options)]="{type:'CT', id:'T16FB'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Release State"
+    [(value)]="PO_HEADER.REL_STATUS"
+    [(abap)]="{type: 'string', length: '8'}"
+/>
+
+
+<fast-select [(label)]="Release Strategy"
+    [(value)]="PO_HEADER.REL_STRAT" [(options)]="{type:'CT', id:'T16FS'}"
+    [(abap)]="{type: 'string', length: '2'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Responsible Salesperson at Vendor's Office"
+    [(value)]="PO_HEADER.SALES_PERS"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-checkbox [(label)]="Indicator for scheduling agreement release documentation" [(checked)]="PO_HEADER.SCHED_IND"/>
+
+
+<fast-select [(label)]="Status of Purchasing Document"
+    [(value)]="PO_HEADER.STATUS" [(options)]="{type:'FV', id:'ESTAK'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Item Number Interval for Subitems"
+    [(value)]="PO_HEADER.SUBITEMINT"
+    [(abap)]="{type: 'string', length: '5'}"
+/>
+
+
+<fast-checkbox [(label)]="Release Not Yet Completely Effected" [(checked)]="PO_HEADER.SUBJ_TO_R"/>
+
+
+<fast-text-field [(label)]="Supplying (issuing) plant in case of stock transport order"
+    [(value)]="PO_HEADER.SUPPL_PLNT"
+    [(abap)]="{type: 'string', length: '4'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
+/>
+
+
+<fast-text-field [(label)]="Supplying Vendor"
+    [(value)]="PO_HEADER.SUPPL_VEND"
+    [(abap)]="{type: 'string', length: '10', mid: 'LLI', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+/>
+
+
+<fast-text-field [(label)]="Cumulative Planned Value"
+    [(value)]="PO_HEADER.TARGET_VAL"
+    [(abap)]="{type: 'number', length: '22.4'}"
+/>
+
+
+<fast-text-field [(label)]="Country for Tax Return"
+    [(value)]="PO_HEADER.TAXR_CNTRY"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T005'}"
+/>
+
+
+<fast-text-field [(label)]="Vendor's Telephone Number"
+    [(value)]="PO_HEADER.TELEPHONE"
+    [(abap)]="{type: 'string', length: '16'}"
+/>
+
+
+<fast-text-field [(label)]="Update group for statistics update"
+    [(value)]="PO_HEADER.UPDATE_GRP"
+    [(abap)]="{type: 'string', length: '6', mid: 'MCF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'H_TMCB'}"
+/>
+
+
+<fast-text-field [(label)]="Vendor's account number"
+    [(value)]="PO_HEADER.VENDOR"
+    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+/>
+
+
+<fast-text-field [(label)]="Name 1"
+    [(value)]="PO_HEADER.VEND_NAME"
+    [(abap)]="{type: 'string', length: '35'}"
+/>
+
+
+<fast-datepicker label="End of Validity Period" [(value)]="PO_HEADER.VPER_END"/>
+
+
+<fast-datepicker label="Start of Validity Period" [(value)]="PO_HEADER.VPER_START"/>
+
+
+<fast-datepicker label="Warranty Date" [(value)]="PO_HEADER.WARRANTY"/>
 

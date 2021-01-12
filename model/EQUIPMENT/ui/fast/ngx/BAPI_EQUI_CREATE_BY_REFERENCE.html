@@ -1,6 +1,14 @@
-<!-- BAPI_EQUI_CREATE_BY_REFERENCE 0.3 -->
+<!-- BAPI_EQUI_CREATE_BY_REFERENCE 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+
+<fast-text-field [(label)]="Equipment Number"
+    [(value)]="REFERENCE_NUMBER"
+    [(abap)]="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+/>
+
 
 <!-- COPY_FLAGS BAPI_ITOB_EQ_COPY_FLAGS Indicators for Sub-Objects to be Copied from Reference -->
 
@@ -34,13 +42,59 @@
 />
 
 
-<fast-text-field [(label)]="Equipment Number"
-    [(value)]="REFERENCE_NUMBER"
-    [(abap)]="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'EQUI'}"
+<fast-datepicker label="Date on which installation location of equipment was changed" [(value)]="VALID_DATE"/>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONOUT BAPIPAREX todo: param text -->
+<ui-datagrid data.bind="BAPI_EQUI_CREATE_BY_REFERENCE EXTENSIONOUT" title="todo: param text"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
+              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONOUT BAPIPAREX todo: param text -->
+
+<fast-select [(label)]="Structure name of  BAPI table extension"
+    [(value)]="EXTENSIONOUT.STRUCTURE" [(options)]="{type:'CT', id:'DD02L'}"
+    [(abap)]="{type: 'string', length: '30'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART1"
+    [(abap)]="{type: 'string', length: '240'}"
 />
 
 
-<fast-datepicker label="Date on which installation location of equipment was changed" [(value)]="VALID_DATE"/>
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART2"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART3"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART4"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
 
 
 <!-- OUTPUT PARAMETERS -->
@@ -771,57 +825,5 @@
 <fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
     [(value)]="RETURN.TYPE"
     [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<!-- TABLE PARAMETERS -->
-
-<!-- EXTENSIONOUT BAPIPAREX todo: param text -->
-<ui-datagrid data.bind="BAPI_EQUI_CREATE_BY_REFERENCE EXTENSIONOUT" title="todo: param text"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
-              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONOUT BAPIPAREX todo: param text -->
-
-<fast-select [(label)]="Structure name of  BAPI table extension"
-    [(value)]="EXTENSIONOUT.STRUCTURE" [(options)]="{type:'CT', id:'DD02L'}"
-    [(abap)]="{type: 'string', length: '30'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART1"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART2"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART3"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART4"
-    [(abap)]="{type: 'string', length: '240'}"
 />
 

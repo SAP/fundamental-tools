@@ -1,6 +1,8 @@
 //
 // BAPI_EQUI_CHANGE
 //
+// rfmcall.js 1.3.0 at: 2021-01-12 13:51:26
+//
 
 // Variables : 3
 // Structures: 10
@@ -25,6 +27,13 @@ let params = {
 
   //EXTENSIONIN                    :   [], // BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
   //EXTENSIONOUT                   :   [], // BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+
+  // EXPORT PARAMETERS
+
+  // DATA_FLEET_EXP                :   {}, // BAPI_FLEET Vehicle-Specific Data
+  // DATA_GENERAL_EXP              :   {}, // BAPI_ITOB General Data for Technical Objects
+  // DATA_SPECIFIC_EXP             :   {}, // BAPI_ITOB_EQ_ONLY Equipment-Specific data
+  // RETURN                        :   {}, // BAPIRET2 Return Parameter
 };
 
 result = await client.call("BAPI_EQUI_CHANGE", params);

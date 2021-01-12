@@ -1,6 +1,8 @@
 //
 // /COE/RBP_FE_DATATYPES
 //
+// rfmcall.js 1.3.0 at: 2021-01-12 13:50:26
+//
 
 // Variables : 15
 // Structures: 3
@@ -35,6 +37,12 @@ let params = {
 
   ET_OUTPUT                        :   [], // /COE/RBP_T_FE_RFM_TABLE_TYPE 
   ET_RAW                           :   [], // SDOKCNTBINS 
+
+  // EXPORT PARAMETERS
+
+  // ES_OUTPUT                     :   {}, // /COE/RBP_S_FE_RFM_STRUCTURE 
+  // EV_STRING                     :   "", // STRING 
+  // EV_XSTRING                    : "native ABAP type", // XSTRING 
 };
 
 result = await client.call("/COE/RBP_FE_DATATYPES", params);
@@ -57,10 +65,10 @@ let _COE_RBP_S_FE_RFM_STRUCTURE = {
   ZDATS                            :   "", // DATS (8) no text
   ZDEC                             :  0.0, // DEC (8.2) no text
   ZDEC217                          :  0.0, // DEC (21.7) no text
-  ZDECF16_MAX                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF16_MIN                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF34_MAX                      : "native ABAP type: D34R", // D34R (16) no text
-  ZDECF34_MIN                      : "native ABAP type: D34R", // D34R (16) no text
+  ZDECF16_MAX                      : "native ABAP type", // D16R (8) no text
+  ZDECF16_MIN                      : "native ABAP type", // D16R (8) no text
+  ZDECF34_MAX                      : "native ABAP type", // D34R (16) no text
+  ZDECF34_MIN                      : "native ABAP type", // D34R (16) no text
   ZFLTP                            :  0.0, // FLTP (16.16) no text
   ZFLTP_MAX                        :  0.0, // FLTP (16.16) no text
   ZFLTP_MIN                        :  0.0, // FLTP (16.16) no text
@@ -69,19 +77,19 @@ let _COE_RBP_S_FE_RFM_STRUCTURE = {
   ZINT2                            :    0, // INT2 (5) no text
   ZINT4                            :    0, // INT4 (10) no text
   ZLANG                            :   "", // LANG (1) ALPHA=ISOLA Language Key
-  ZLCHR                            : undefined, // LCHR (257) no text
-  ZLRAW                            : undefined, // LRAW (257) no text
+  ZLCHR                            :   "", // LCHR (257) no text
+  ZLRAW                            : Buffer.from(""), // LRAW (257) no text
   ZNUMC                            :   "", // NUMC (6) no text
-  ZPREC                            : undefined, // PREC (2) no text
+  ZPREC                            :    0, // PREC (2) no text
   ZQUAN                            :  0.0, // QUAN (8.4) no text
   ZQUAN_SIGN                       :  0.0, // QUAN (13.3) Difference quantity in alternate unit of measure
   ZRAW                             : Buffer.from(""), // RAW (17) no text
-  ZRAWSTRING                       : undefined, // RSTR (undefined) no text
+  ZRAWSTRING                       : Buffer.from(""), // RSTR (undefined) no text
   ZSHLP_DEBI                       :   "", // CHAR (10) ALPHA=ALPHA Customer Number
   ZSHLP_MAT1                       :   "", // CHAR (18) ALPHA=MATN1 Material Number
   ZSHLP_PRODH                      :   "", // CHAR (18) Product hierarchy
-  ZSSTRING                         : undefined, // SSTR (15) no text
-  ZSTRING                          : undefined, // STRG (undefined) no text
+  ZSSTRING                         :   "", // SSTR (15) no text
+  ZSTRING                          :   "", // STRG (undefined) no text
   ZTIMS                            :   "", // TIMS (6) no text
   ZUNIT_DTEL                       :   "", // UNIT (3) ALPHA=CUNIT Condition unit
 };
@@ -105,10 +113,10 @@ let _COE_RBP_S_FE_RFM_STRUCTURE = {
   ZDATS                            :   "", // DATS (8) no text
   ZDEC                             :  0.0, // DEC (8.2) no text
   ZDEC217                          :  0.0, // DEC (21.7) no text
-  ZDECF16_MAX                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF16_MIN                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF34_MAX                      : "native ABAP type: D34R", // D34R (16) no text
-  ZDECF34_MIN                      : "native ABAP type: D34R", // D34R (16) no text
+  ZDECF16_MAX                      : "native ABAP type", // D16R (8) no text
+  ZDECF16_MIN                      : "native ABAP type", // D16R (8) no text
+  ZDECF34_MAX                      : "native ABAP type", // D34R (16) no text
+  ZDECF34_MIN                      : "native ABAP type", // D34R (16) no text
   ZFLTP                            :  0.0, // FLTP (16.16) no text
   ZFLTP_MAX                        :  0.0, // FLTP (16.16) no text
   ZFLTP_MIN                        :  0.0, // FLTP (16.16) no text
@@ -117,19 +125,19 @@ let _COE_RBP_S_FE_RFM_STRUCTURE = {
   ZINT2                            :    0, // INT2 (5) no text
   ZINT4                            :    0, // INT4 (10) no text
   ZLANG                            :   "", // LANG (1) ALPHA=ISOLA Language Key
-  ZLCHR                            : undefined, // LCHR (257) no text
-  ZLRAW                            : undefined, // LRAW (257) no text
+  ZLCHR                            :   "", // LCHR (257) no text
+  ZLRAW                            : Buffer.from(""), // LRAW (257) no text
   ZNUMC                            :   "", // NUMC (6) no text
-  ZPREC                            : undefined, // PREC (2) no text
+  ZPREC                            :    0, // PREC (2) no text
   ZQUAN                            :  0.0, // QUAN (8.4) no text
   ZQUAN_SIGN                       :  0.0, // QUAN (13.3) Difference quantity in alternate unit of measure
   ZRAW                             : Buffer.from(""), // RAW (17) no text
-  ZRAWSTRING                       : undefined, // RSTR (undefined) no text
+  ZRAWSTRING                       : Buffer.from(""), // RSTR (undefined) no text
   ZSHLP_DEBI                       :   "", // CHAR (10) ALPHA=ALPHA Customer Number
   ZSHLP_MAT1                       :   "", // CHAR (18) ALPHA=MATN1 Material Number
   ZSHLP_PRODH                      :   "", // CHAR (18) Product hierarchy
-  ZSSTRING                         : undefined, // SSTR (15) no text
-  ZSTRING                          : undefined, // STRG (undefined) no text
+  ZSSTRING                         :   "", // SSTR (15) no text
+  ZSTRING                          :   "", // STRG (undefined) no text
   ZTIMS                            :   "", // TIMS (6) no text
   ZUNIT_DTEL                       :   "", // UNIT (3) ALPHA=CUNIT Condition unit
 };
@@ -149,10 +157,10 @@ let _COE_RBP_T_FE_RFM_TABLE_TYPE = {
   ZCURR                            :  0.0, // CURR (8.2) no text
   ZDATS                            :   "", // DATS (8) no text
   ZDEC                             :  0.0, // DEC (8.2) no text
-  ZDECF16_MAX                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF16_MIN                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF34_MAX                      : "native ABAP type: D34R", // D34R (16) no text
-  ZDECF34_MIN                      : "native ABAP type: D34R", // D34R (16) no text
+  ZDECF16_MAX                      : "native ABAP type", // D16R (8) no text
+  ZDECF16_MIN                      : "native ABAP type", // D16R (8) no text
+  ZDECF34_MAX                      : "native ABAP type", // D34R (16) no text
+  ZDECF34_MIN                      : "native ABAP type", // D34R (16) no text
   ZFLTP                            :  0.0, // FLTP (16.16) no text
   ZFLTP_MAX                        :  0.0, // FLTP (16.16) no text
   ZFLTP_MIN                        :  0.0, // FLTP (16.16) no text
@@ -162,7 +170,7 @@ let _COE_RBP_T_FE_RFM_TABLE_TYPE = {
   ZINT4                            :    0, // INT4 (10) no text
   ZLANG                            :   "", // LANG (1) ALPHA=ISOLA no text
   ZNUMC                            :   "", // NUMC (6) no text
-  ZPREC                            : undefined, // PREC (2) no text
+  ZPREC                            :    0, // PREC (2) no text
   ZQUAN                            :  0.0, // QUAN (8.4) no text
   ZQUAN_SIGN                       :  0.0, // QUAN (13.3) Difference quantity in alternate unit of measure
   ZRAW                             : Buffer.from(""), // RAW (17) no text
@@ -192,10 +200,10 @@ let _COE_RBP_T_FE_RFM_TABLE_TYPE = {
   ZCURR                            :  0.0, // CURR (8.2) no text
   ZDATS                            :   "", // DATS (8) no text
   ZDEC                             :  0.0, // DEC (8.2) no text
-  ZDECF16_MAX                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF16_MIN                      : "native ABAP type: D16R", // D16R (8) no text
-  ZDECF34_MAX                      : "native ABAP type: D34R", // D34R (16) no text
-  ZDECF34_MIN                      : "native ABAP type: D34R", // D34R (16) no text
+  ZDECF16_MAX                      : "native ABAP type", // D16R (8) no text
+  ZDECF16_MIN                      : "native ABAP type", // D16R (8) no text
+  ZDECF34_MAX                      : "native ABAP type", // D34R (16) no text
+  ZDECF34_MIN                      : "native ABAP type", // D34R (16) no text
   ZFLTP                            :  0.0, // FLTP (16.16) no text
   ZFLTP_MAX                        :  0.0, // FLTP (16.16) no text
   ZFLTP_MIN                        :  0.0, // FLTP (16.16) no text
@@ -205,7 +213,7 @@ let _COE_RBP_T_FE_RFM_TABLE_TYPE = {
   ZINT4                            :    0, // INT4 (10) no text
   ZLANG                            :   "", // LANG (1) ALPHA=ISOLA no text
   ZNUMC                            :   "", // NUMC (6) no text
-  ZPREC                            : undefined, // PREC (2) no text
+  ZPREC                            :    0, // PREC (2) no text
   ZQUAN                            :  0.0, // QUAN (8.4) no text
   ZQUAN_SIGN                       :  0.0, // QUAN (13.3) Difference quantity in alternate unit of measure
   ZRAW                             : Buffer.from(""), // RAW (17) no text

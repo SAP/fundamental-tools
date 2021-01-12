@@ -1,6 +1,17 @@
-<!-- BAPI_PO_GETDETAIL 0.3 -->
+<!-- BAPI_PO_GETDETAIL 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+        <fd-input v-model="PURCHASEORDER"
+            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
 
 <fd-form-item>
     <fd-form-label>Selection flag</fd-form-label>
@@ -80,15 +91,6 @@
 
 
 <fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-        <fd-input v-model="PURCHASEORDER"
-            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-            data-shlp="{type:'CH', id:'EKKO'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
     <fd-form-label>Selection flag</fd-form-label>
     <fd-select v-model="SCHEDULES"
         options="{type:'FV', id:'SELKZ'}"
@@ -119,1081 +121,6 @@
     </fd-select>
 </fd-form-item>
 
-
-
-<!-- OUTPUT PARAMETERS -->
-
-<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
-
-<fd-form-item>
-    <fd-form-label>(Not supported) Physical address ID</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.ADDRESS_ID"
-            data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Handle for Creating Addresses/Persons (Bus. Addr. Services)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.ADDRHANDLE"
-            data-abap="{type: 'string', length: '140'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Address number</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.ADDRNUMBER"
-        options="{type:'CT', id:'ADRC'}"
-        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>(Not Supported) Address Data Source (Key)</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.ADDRORIGIN"
-        options="{type:'CT', id:'TSAD6'}"
-        data-abap="{type: 'string', length: '4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>old: building (no. or abbreviation)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.BUILDING"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Building (Number or Code)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.BUILD_LONG"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>City file test status</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.CHCKSTATUS"
-        options="{type:'FV', id:'AD_CHECKST'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>City</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.CITY1"
-            data-abap="{type: 'string', length: '40'}"
-            data-shlp="{type:'SH', id:'CLCITYNAME'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>District</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.CITY2"
-            data-abap="{type: 'string', length: '40'}"
-            data-shlp="{type:'SH', id:'CITY_PART'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>District code for City and Street file</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.CITYP_CODE"
-            data-abap="{type: 'string', length: '8', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'CPRTA'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>City code for city/street file</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.CITY_CODE"
-            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'CITYA'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>City PO box code (City file)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.CITY_CODE2"
-            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'CITYA'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Country Key</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.COUNTRY"
-            data-abap="{type: 'string', length: '3', mid: 'LND'}"
-            data-shlp="{type:'CT', id:'T005'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Date referred to</fd-form-label>
-    <fd-date-picker v-model="PO_ADDRESS.DATE"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Valid-from date - in current Release only 00010101 possible</fd-form-label>
-    <fd-date-picker v-model="PO_ADDRESS.DATE_FROM"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Valid-to date in current Release only 99991231 possible</fd-form-label>
-    <fd-date-picker v-model="PO_ADDRESS.DATE_TO"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Communication Method (Key) (Business Address Services)</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.DEFLT_COMM"
-        options="{type:'CT', id:'TSAC'}"
-        data-abap="{type: 'string', length: '3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Extension (only for data conversion) (data line/telebox)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.EXTENSION1"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Extension (only for data conversion) (data line/telebox)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.EXTENSION2"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>First fax no.: extension</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.FAX_EXTENS"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>First fax no.: dialling code+number</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.FAX_NUMBER"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Floor in building</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.FLOOR"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>House Number</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.HOUSE_NUM1"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>House number supplement</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.HOUSE_NUM2"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>(Not supported) House Number Range</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.HOUSE_NUM3"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Language Key</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.LANGU"
-            data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
-            data-shlp="{type:'SH', id:'H_T002'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Street 5</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.LOCATION"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Name 1</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.NAME1"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Name 2</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.NAME2"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Name 3</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.NAME3"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Name 4</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.NAME4"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>c/o name</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.NAME_CO"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Converted name field (with form of address)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.NAME_TXT"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Version ID for International Addresses</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.NATION"
-        options="{type:'CT', id:'TSADV'}"
-        data-abap="{type: 'string', length: '1', mid: 'ADDRESS_NATION'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>(Not Supported) Post Delivery District</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.POSTALAREA"
-            data-abap="{type: 'string', length: '15'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>City postal code</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.POST_CODE1"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>PO Box Postal Code</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.POST_CODE2"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Company Postal Code (for Large Customers)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.POST_CODE3"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>PO Box</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.PO_BOX"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>PO box country</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.PO_BOX_CTY"
-        options="{type:'CT', id:'T005'}"
-        data-abap="{type: 'string', length: '3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>PO Box city</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.PO_BOX_LOC"
-            data-abap="{type: 'string', length: '40'}"
-            data-shlp="{type:'SH', id:'CITY_NAME'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item-checkbox label="Flag: PO Box Without Number">
-    <fd-checkbox v-model="PO_ADDRESS.PO_BOX_NUM">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item>
-    <fd-form-label>Region for PO Box (Country, State, Province, ...)</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.PO_BOX_REG"
-        options="{type:'CT', id:'T005S'}"
-        data-abap="{type: 'string', length: '3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Region (State, Province, County)</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.REGION"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T005S'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Address notes</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.REMARK"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Room or Appartment Number</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.ROOMNUMBER"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Search Term 1</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.SORT1"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Search Term 2</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.SORT2"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>(Not Supported) Phonetic Search Sort Field</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.SORT_PHN"
-            data-abap="{type: 'string', length: '20'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Street</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.STREET"
-            data-abap="{type: 'string', length: '60'}"
-            data-shlp="{type:'SH', id:'CLSTRTNAME'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>(Not Supported) Abbreviation of Street Name</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.STREETABBR"
-        options="{type:'CT', id:'ADRSTRTYPE'}"
-        data-abap="{type: 'string', length: '2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Street Number for City/Street File</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.STREETCODE"
-            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'STRTA'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Street 2</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.STR_SUPPL1"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Street 3</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.STR_SUPPL2"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Tax Jurisdiction</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.TAXJURCODE"
-            data-abap="{type: 'string', length: '15', mid: 'TXJ'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>First Telephone No.: Extension</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.TEL_EXTENS"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>First telephone no.: dialling code+number</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.TEL_NUMBER"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Address time zone</fd-form-label>
-        <fd-input v-model="PO_ADDRESS.TIME_ZONE"
-            data-abap="{type: 'string', length: '6'}"
-            data-shlp="{type:'SH', id:'VTTZZ'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Form-of-Address Key</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.TITLE"
-        options="{type:'CT', id:'TSAD3'}"
-        data-abap="{type: 'string', length: '4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Transportation zone to or from which the goods are delivered</fd-form-label>
-    <fd-select v-model="PO_ADDRESS.TRANSPZONE"
-        options="{type:'CT', id:'TZONE'}"
-        data-abap="{type: 'string', length: '10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<!-- PO_HEADER BAPIEKKOL PO Header Data -->
-
-<fd-form-item>
-    <fd-form-label>Number of principal purchase agreement</fd-form-label>
-        <fd-input v-model="PO_HEADER.AGREEMENT"
-            data-abap="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}"
-            data-shlp="{type:'CH', id:'EKKO'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Closing Date for Applications</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.APPLIC_BY"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Bid invitation number</fd-form-label>
-        <fd-input v-model="PO_HEADER.BIDINV_NO"
-            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-            data-shlp="{type:'CH', id:'EKKO'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Binding Period for Quotation</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.BINDG_PER"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Cash discount percentage 1</fd-form-label>
-        <fd-input v-model="PO_HEADER.CASH_DISC1"
-            data-abap="{type: 'number', length: '4.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Cash Discount Percentage 2</fd-form-label>
-        <fd-input v-model="PO_HEADER.CASH_DISC2"
-            data-abap="{type: 'number', length: '4.3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Control indicator for purchasing document type</fd-form-label>
-        <fd-input v-model="PO_HEADER.CNTRL_IND"
-            data-abap="{type: 'string', length: '1'}"
-            data-shlp="{type:'FV', id:'BSAKZ'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Collective Number</fd-form-label>
-        <fd-input v-model="PO_HEADER.COLL_NO"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item-checkbox label="Complete Delivery Stipulated for Each Purchase Order">
-    <fd-checkbox v-model="PO_HEADER.COMPL_DLV">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item>
-    <fd-form-label>Company Code</fd-form-label>
-        <fd-input v-model="PO_HEADER.CO_CODE"
-            data-abap="{type: 'string', length: '4', mid: 'BUK'}"
-            data-shlp="{type:'SH', id:'C_T001'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Name of Person who Created the Object</fd-form-label>
-        <fd-input v-model="PO_HEADER.CREATED_BY"
-            data-abap="{type: 'string', length: '12'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Date on Which Record Was Created</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.CREATED_ON"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>ISO Currency Code</fd-form-label>
-        <fd-input v-model="PO_HEADER.CURRENCY_ISO"
-            data-abap="{type: 'string', length: '3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Customer Number</fd-form-label>
-        <fd-input v-model="PO_HEADER.CUSTOMER"
-            data-abap="{type: 'string', length: '10', mid: 'KUN', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'DEBI'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Deletion indicator in purchasing document</fd-form-label>
-        <fd-input v-model="PO_HEADER.DELETE_IND"
-            data-abap="{type: 'string', length: '1'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Different Invoicing Party</fd-form-label>
-        <fd-input v-model="PO_HEADER.DIFF_INV"
-            data-abap="{type: 'string', length: '10', mid: 'LRE', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'KRED'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Purchasing Document Category</fd-form-label>
-    <fd-select v-model="PO_HEADER.DOC_CAT"
-        options="{type:'FV', id:'EBSTYP'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Number of the document condition</fd-form-label>
-        <fd-input v-model="PO_HEADER.DOC_COND"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Purchasing Document Date</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.DOC_DATE"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Purchasing Document Type</fd-form-label>
-        <fd-input v-model="PO_HEADER.DOC_TYPE"
-            data-abap="{type: 'string', length: '4', mid: 'BSA'}"
-            data-shlp="{type:'SH', id:'H_T161'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Cash discount days 1</fd-form-label>
-        <fd-input v-model="PO_HEADER.DSCNT1_TO"
-            data-abap="{type: 'number', length: '3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Cash discount days 2</fd-form-label>
-        <fd-input v-model="PO_HEADER.DSCNT2_TO"
-            data-abap="{type: 'number', length: '3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Cash discount days 3</fd-form-label>
-        <fd-input v-model="PO_HEADER.DSCNT3_TO"
-            data-abap="{type: 'number', length: '3'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Direct Quoted Exchange Rate</fd-form-label>
-        <fd-input v-model="PO_HEADER.EXCH_RATE"
-            data-abap="{type: 'number', length: '8.5'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Indirect Quoted Exchange Rate</fd-form-label>
-        <fd-input v-model="PO_HEADER.EXCH_RATE_CM"
-            data-abap="{type: 'number', length: '8.5'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Number of foreign trade data in MM and SD documents</fd-form-label>
-    <fd-select v-model="PO_HEADER.EXPORT_NO"
-        options="{type:'CH', id:'EIKP'}"
-        data-abap="{type: 'string', length: '10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item-checkbox label="Indicator: Fixing of Exchange Rate">
-    <fd-checkbox v-model="PO_HEADER.EX_RATE_FX">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item-checkbox label="Indicator: Goods Receipt Message">
-    <fd-checkbox v-model="PO_HEADER.GR_MESSAGE">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item-checkbox label="Purchase order not yet complete">
-    <fd-checkbox v-model="PO_HEADER.HOLD">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item>
-    <fd-form-label>Incoterms (Part 1)</fd-form-label>
-        <fd-input v-model="PO_HEADER.INCOTERMS1"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'SH', id:'H_TINC'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Incoterms (Part 2)</fd-form-label>
-        <fd-input v-model="PO_HEADER.INCOTERMS2"
-            data-abap="{type: 'string', length: '28'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Item Number Interval</fd-form-label>
-        <fd-input v-model="PO_HEADER.ITEM_INTVL"
-            data-abap="{type: 'string', length: '5'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Language Key</fd-form-label>
-        <fd-input v-model="PO_HEADER.LANGUAGE"
-            data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
-            data-shlp="{type:'SH', id:'H_T002'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Last Item Number</fd-form-label>
-        <fd-input v-model="PO_HEADER.LAST_ITEM"
-            data-abap="{type: 'string', length: '5'}"
-            data-shlp="{type:'CH', id:'EKPO'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Logical System</fd-form-label>
-    <fd-select v-model="PO_HEADER.LOGSYSTEM"
-        options="{type:'CT', id:'TBDLS'}"
-        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item-checkbox label="Document with time-dependent conditions">
-    <fd-checkbox v-model="PO_HEADER.MAST_COND">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item>
-    <fd-form-label>Our Reference</fd-form-label>
-        <fd-input v-model="PO_HEADER.OUR_REF"
-            data-abap="{type: 'string', length: '12'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Terms of Payment Key</fd-form-label>
-        <fd-input v-model="PO_HEADER.PMNTTRMS"
-            data-abap="{type: 'string', length: '4'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-        <fd-input v-model="PO_HEADER.PO_NUMBER"
-            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-            data-shlp="{type:'CH', id:'EKKO'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Procedure (Pricing, Output Control, Acct. Det., Costing,...)</fd-form-label>
-    <fd-select v-model="PO_HEADER.PROCEDURE"
-        options="{type:'CT', id:'T683'}"
-        data-abap="{type: 'string', length: '6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Purchasing organization</fd-form-label>
-        <fd-input v-model="PO_HEADER.PURCH_ORG"
-            data-abap="{type: 'string', length: '4', mid: 'EKO'}"
-            data-shlp="{type:'SH', id:'H_T024E'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Purchasing Group</fd-form-label>
-        <fd-input v-model="PO_HEADER.PUR_GROUP"
-            data-abap="{type: 'string', length: '3', mid: 'EKG'}"
-            data-shlp="{type:'SH', id:'H_T024'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Quotation Number</fd-form-label>
-        <fd-input v-model="PO_HEADER.QUOTATION"
-            data-abap="{type: 'string', length: '10'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Quotation Submission Date</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.QUOT_DATE"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Deadline for Submission of Bid/Quotation</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.QUOT_DEAD"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Field not used</fd-form-label>
-        <fd-input v-model="PO_HEADER.RCVG_VEND"
-            data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'KRED'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Your Reference</fd-form-label>
-        <fd-input v-model="PO_HEADER.REF_1"
-            data-abap="{type: 'string', length: '12'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Reason for rejection of quotations and sales orders</fd-form-label>
-        <fd-input v-model="PO_HEADER.REJ_REASON"
-            data-abap="{type: 'string', length: '2'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Release group</fd-form-label>
-    <fd-select v-model="PO_HEADER.REL_GROUP"
-        options="{type:'CT', id:'T16FG'}"
-        data-abap="{type: 'string', length: '2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Release Indicator: Purchasing Document</fd-form-label>
-    <fd-select v-model="PO_HEADER.REL_IND"
-        options="{type:'CT', id:'T16FB'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Release State</fd-form-label>
-        <fd-input v-model="PO_HEADER.REL_STATUS"
-            data-abap="{type: 'string', length: '8'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Release Strategy</fd-form-label>
-    <fd-select v-model="PO_HEADER.REL_STRAT"
-        options="{type:'CT', id:'T16FS'}"
-        data-abap="{type: 'string', length: '2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Responsible Salesperson at Vendor's Office</fd-form-label>
-        <fd-input v-model="PO_HEADER.SALES_PERS"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item-checkbox label="Indicator for scheduling agreement release documentation">
-    <fd-checkbox v-model="PO_HEADER.SCHED_IND">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item>
-    <fd-form-label>Status of Purchasing Document</fd-form-label>
-    <fd-select v-model="PO_HEADER.STATUS"
-        options="{type:'FV', id:'ESTAK'}"
-        data-abap="{type: 'string', length: '1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-
-
-<fd-form-item>
-    <fd-form-label>Item Number Interval for Subitems</fd-form-label>
-        <fd-input v-model="PO_HEADER.SUBITEMINT"
-            data-abap="{type: 'string', length: '5'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item-checkbox label="Release Not Yet Completely Effected">
-    <fd-checkbox v-model="PO_HEADER.SUBJ_TO_R">
-</fd-form-item-checkbox>
-
-
-
-<fd-form-item>
-    <fd-form-label>Supplying (issuing) plant in case of stock transport order</fd-form-label>
-        <fd-input v-model="PO_HEADER.SUPPL_PLNT"
-            data-abap="{type: 'string', length: '4'}"
-            data-shlp="{type:'SH', id:'H_T001W'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Supplying Vendor</fd-form-label>
-        <fd-input v-model="PO_HEADER.SUPPL_VEND"
-            data-abap="{type: 'string', length: '10', mid: 'LLI', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'KRED'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Cumulative Planned Value</fd-form-label>
-        <fd-input v-model="PO_HEADER.TARGET_VAL"
-            data-abap="{type: 'number', length: '22.4'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Country for Tax Return</fd-form-label>
-        <fd-input v-model="PO_HEADER.TAXR_CNTRY"
-            data-abap="{type: 'string', length: '3'}"
-            data-shlp="{type:'CT', id:'T005'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Vendor's Telephone Number</fd-form-label>
-        <fd-input v-model="PO_HEADER.TELEPHONE"
-            data-abap="{type: 'string', length: '16'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Update group for statistics update</fd-form-label>
-        <fd-input v-model="PO_HEADER.UPDATE_GRP"
-            data-abap="{type: 'string', length: '6', mid: 'MCF', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'H_TMCB'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Vendor's account number</fd-form-label>
-        <fd-input v-model="PO_HEADER.VENDOR"
-            data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'KRED'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Name 1</fd-form-label>
-        <fd-input v-model="PO_HEADER.VEND_NAME"
-            data-abap="{type: 'string', length: '35'}"
-        />
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>End of Validity Period</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.VPER_END"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Start of Validity Period</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.VPER_START"></fd-date-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Warranty Date</fd-form-label>
-    <fd-date-picker v-model="PO_HEADER.WARRANTY"></fd-date-picker>
-</fd-form-item>
 
 
 <!-- TABLE PARAMETERS -->
@@ -6358,5 +5285,1080 @@
         <fd-input v-model="RETURN.TYPE"
             data-abap="{type: 'string', length: '1'}"
         />
+</fd-form-item>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
+
+<fd-form-item>
+    <fd-form-label>(Not supported) Physical address ID</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.ADDRESS_ID"
+            data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Handle for Creating Addresses/Persons (Bus. Addr. Services)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.ADDRHANDLE"
+            data-abap="{type: 'string', length: '140'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Address number</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.ADDRNUMBER"
+        options="{type:'CT', id:'ADRC'}"
+        data-abap="{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>(Not Supported) Address Data Source (Key)</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.ADDRORIGIN"
+        options="{type:'CT', id:'TSAD6'}"
+        data-abap="{type: 'string', length: '4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>old: building (no. or abbreviation)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.BUILDING"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Building (Number or Code)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.BUILD_LONG"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>City file test status</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.CHCKSTATUS"
+        options="{type:'FV', id:'AD_CHECKST'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>City</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.CITY1"
+            data-abap="{type: 'string', length: '40'}"
+            data-shlp="{type:'SH', id:'CLCITYNAME'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>District</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.CITY2"
+            data-abap="{type: 'string', length: '40'}"
+            data-shlp="{type:'SH', id:'CITY_PART'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>District code for City and Street file</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.CITYP_CODE"
+            data-abap="{type: 'string', length: '8', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CPRTA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>City code for city/street file</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.CITY_CODE"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CITYA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>City PO box code (City file)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.CITY_CODE2"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'CITYA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Country Key</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.COUNTRY"
+            data-abap="{type: 'string', length: '3', mid: 'LND'}"
+            data-shlp="{type:'CT', id:'T005'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Date referred to</fd-form-label>
+    <fd-date-picker v-model="PO_ADDRESS.DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Valid-from date - in current Release only 00010101 possible</fd-form-label>
+    <fd-date-picker v-model="PO_ADDRESS.DATE_FROM"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Valid-to date in current Release only 99991231 possible</fd-form-label>
+    <fd-date-picker v-model="PO_ADDRESS.DATE_TO"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Communication Method (Key) (Business Address Services)</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.DEFLT_COMM"
+        options="{type:'CT', id:'TSAC'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Extension (only for data conversion) (data line/telebox)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.EXTENSION1"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Extension (only for data conversion) (data line/telebox)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.EXTENSION2"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>First fax no.: extension</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.FAX_EXTENS"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>First fax no.: dialling code+number</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.FAX_NUMBER"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Floor in building</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.FLOOR"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>House Number</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.HOUSE_NUM1"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>House number supplement</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.HOUSE_NUM2"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>(Not supported) House Number Range</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.HOUSE_NUM3"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Language Key</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.LANGU"
+            data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Street 5</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.LOCATION"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name 1</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.NAME1"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name 2</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.NAME2"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name 3</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.NAME3"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name 4</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.NAME4"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>c/o name</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.NAME_CO"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Converted name field (with form of address)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.NAME_TXT"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Version ID for International Addresses</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.NATION"
+        options="{type:'CT', id:'TSADV'}"
+        data-abap="{type: 'string', length: '1', mid: 'ADDRESS_NATION'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>(Not Supported) Post Delivery District</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.POSTALAREA"
+            data-abap="{type: 'string', length: '15'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>City postal code</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.POST_CODE1"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>PO Box Postal Code</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.POST_CODE2"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Company Postal Code (for Large Customers)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.POST_CODE3"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>PO Box</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.PO_BOX"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>PO box country</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.PO_BOX_CTY"
+        options="{type:'CT', id:'T005'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>PO Box city</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.PO_BOX_LOC"
+            data-abap="{type: 'string', length: '40'}"
+            data-shlp="{type:'SH', id:'CITY_NAME'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Flag: PO Box Without Number">
+    <fd-checkbox v-model="PO_ADDRESS.PO_BOX_NUM">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Region for PO Box (Country, State, Province, ...)</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.PO_BOX_REG"
+        options="{type:'CT', id:'T005S'}"
+        data-abap="{type: 'string', length: '3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Region (State, Province, County)</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.REGION"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T005S'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Address notes</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.REMARK"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Room or Appartment Number</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.ROOMNUMBER"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Search Term 1</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.SORT1"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Search Term 2</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.SORT2"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>(Not Supported) Phonetic Search Sort Field</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.SORT_PHN"
+            data-abap="{type: 'string', length: '20'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Street</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.STREET"
+            data-abap="{type: 'string', length: '60'}"
+            data-shlp="{type:'SH', id:'CLSTRTNAME'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>(Not Supported) Abbreviation of Street Name</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.STREETABBR"
+        options="{type:'CT', id:'ADRSTRTYPE'}"
+        data-abap="{type: 'string', length: '2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Street Number for City/Street File</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.STREETCODE"
+            data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'STRTA'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Street 2</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.STR_SUPPL1"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Street 3</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.STR_SUPPL2"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Tax Jurisdiction</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.TAXJURCODE"
+            data-abap="{type: 'string', length: '15', mid: 'TXJ'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>First Telephone No.: Extension</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.TEL_EXTENS"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>First telephone no.: dialling code+number</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.TEL_NUMBER"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Address time zone</fd-form-label>
+        <fd-input v-model="PO_ADDRESS.TIME_ZONE"
+            data-abap="{type: 'string', length: '6'}"
+            data-shlp="{type:'SH', id:'VTTZZ'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Form-of-Address Key</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.TITLE"
+        options="{type:'CT', id:'TSAD3'}"
+        data-abap="{type: 'string', length: '4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Transportation zone to or from which the goods are delivered</fd-form-label>
+    <fd-select v-model="PO_ADDRESS.TRANSPZONE"
+        options="{type:'CT', id:'TZONE'}"
+        data-abap="{type: 'string', length: '10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<!-- PO_HEADER BAPIEKKOL PO Header Data -->
+
+<fd-form-item>
+    <fd-form-label>Number of principal purchase agreement</fd-form-label>
+        <fd-input v-model="PO_HEADER.AGREEMENT"
+            data-abap="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Closing Date for Applications</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.APPLIC_BY"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Bid invitation number</fd-form-label>
+        <fd-input v-model="PO_HEADER.BIDINV_NO"
+            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Binding Period for Quotation</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.BINDG_PER"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount percentage 1</fd-form-label>
+        <fd-input v-model="PO_HEADER.CASH_DISC1"
+            data-abap="{type: 'number', length: '4.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash Discount Percentage 2</fd-form-label>
+        <fd-input v-model="PO_HEADER.CASH_DISC2"
+            data-abap="{type: 'number', length: '4.3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Control indicator for purchasing document type</fd-form-label>
+        <fd-input v-model="PO_HEADER.CNTRL_IND"
+            data-abap="{type: 'string', length: '1'}"
+            data-shlp="{type:'FV', id:'BSAKZ'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Collective Number</fd-form-label>
+        <fd-input v-model="PO_HEADER.COLL_NO"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Complete Delivery Stipulated for Each Purchase Order">
+    <fd-checkbox v-model="PO_HEADER.COMPL_DLV">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Company Code</fd-form-label>
+        <fd-input v-model="PO_HEADER.CO_CODE"
+            data-abap="{type: 'string', length: '4', mid: 'BUK'}"
+            data-shlp="{type:'SH', id:'C_T001'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="PO_HEADER.CREATED_BY"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.CREATED_ON"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>ISO Currency Code</fd-form-label>
+        <fd-input v-model="PO_HEADER.CURRENCY_ISO"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+        <fd-input v-model="PO_HEADER.CUSTOMER"
+            data-abap="{type: 'string', length: '10', mid: 'KUN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'DEBI'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Deletion indicator in purchasing document</fd-form-label>
+        <fd-input v-model="PO_HEADER.DELETE_IND"
+            data-abap="{type: 'string', length: '1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Different Invoicing Party</fd-form-label>
+        <fd-input v-model="PO_HEADER.DIFF_INV"
+            data-abap="{type: 'string', length: '10', mid: 'LRE', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Category</fd-form-label>
+    <fd-select v-model="PO_HEADER.DOC_CAT"
+        options="{type:'FV', id:'EBSTYP'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Number of the document condition</fd-form-label>
+        <fd-input v-model="PO_HEADER.DOC_COND"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.DOC_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Type</fd-form-label>
+        <fd-input v-model="PO_HEADER.DOC_TYPE"
+            data-abap="{type: 'string', length: '4', mid: 'BSA'}"
+            data-shlp="{type:'SH', id:'H_T161'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 1</fd-form-label>
+        <fd-input v-model="PO_HEADER.DSCNT1_TO"
+            data-abap="{type: 'number', length: '3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 2</fd-form-label>
+        <fd-input v-model="PO_HEADER.DSCNT2_TO"
+            data-abap="{type: 'number', length: '3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 3</fd-form-label>
+        <fd-input v-model="PO_HEADER.DSCNT3_TO"
+            data-abap="{type: 'number', length: '3'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Direct Quoted Exchange Rate</fd-form-label>
+        <fd-input v-model="PO_HEADER.EXCH_RATE"
+            data-abap="{type: 'number', length: '8.5'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Indirect Quoted Exchange Rate</fd-form-label>
+        <fd-input v-model="PO_HEADER.EXCH_RATE_CM"
+            data-abap="{type: 'number', length: '8.5'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Number of foreign trade data in MM and SD documents</fd-form-label>
+    <fd-select v-model="PO_HEADER.EXPORT_NO"
+        options="{type:'CH', id:'EIKP'}"
+        data-abap="{type: 'string', length: '10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item-checkbox label="Indicator: Fixing of Exchange Rate">
+    <fd-checkbox v-model="PO_HEADER.EX_RATE_FX">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item-checkbox label="Indicator: Goods Receipt Message">
+    <fd-checkbox v-model="PO_HEADER.GR_MESSAGE">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item-checkbox label="Purchase order not yet complete">
+    <fd-checkbox v-model="PO_HEADER.HOLD">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Incoterms (Part 1)</fd-form-label>
+        <fd-input v-model="PO_HEADER.INCOTERMS1"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'SH', id:'H_TINC'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Incoterms (Part 2)</fd-form-label>
+        <fd-input v-model="PO_HEADER.INCOTERMS2"
+            data-abap="{type: 'string', length: '28'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Item Number Interval</fd-form-label>
+        <fd-input v-model="PO_HEADER.ITEM_INTVL"
+            data-abap="{type: 'string', length: '5'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Language Key</fd-form-label>
+        <fd-input v-model="PO_HEADER.LANGUAGE"
+            data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
+            data-shlp="{type:'SH', id:'H_T002'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Last Item Number</fd-form-label>
+        <fd-input v-model="PO_HEADER.LAST_ITEM"
+            data-abap="{type: 'string', length: '5'}"
+            data-shlp="{type:'CH', id:'EKPO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Logical System</fd-form-label>
+    <fd-select v-model="PO_HEADER.LOGSYSTEM"
+        options="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item-checkbox label="Document with time-dependent conditions">
+    <fd-checkbox v-model="PO_HEADER.MAST_COND">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Our Reference</fd-form-label>
+        <fd-input v-model="PO_HEADER.OUR_REF"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Terms of Payment Key</fd-form-label>
+        <fd-input v-model="PO_HEADER.PMNTTRMS"
+            data-abap="{type: 'string', length: '4'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+        <fd-input v-model="PO_HEADER.PO_NUMBER"
+            data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+            data-shlp="{type:'CH', id:'EKKO'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Procedure (Pricing, Output Control, Acct. Det., Costing,...)</fd-form-label>
+    <fd-select v-model="PO_HEADER.PROCEDURE"
+        options="{type:'CT', id:'T683'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing organization</fd-form-label>
+        <fd-input v-model="PO_HEADER.PURCH_ORG"
+            data-abap="{type: 'string', length: '4', mid: 'EKO'}"
+            data-shlp="{type:'SH', id:'H_T024E'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Purchasing Group</fd-form-label>
+        <fd-input v-model="PO_HEADER.PUR_GROUP"
+            data-abap="{type: 'string', length: '3', mid: 'EKG'}"
+            data-shlp="{type:'SH', id:'H_T024'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Quotation Number</fd-form-label>
+        <fd-input v-model="PO_HEADER.QUOTATION"
+            data-abap="{type: 'string', length: '10'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Quotation Submission Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.QUOT_DATE"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Deadline for Submission of Bid/Quotation</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.QUOT_DEAD"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Field not used</fd-form-label>
+        <fd-input v-model="PO_HEADER.RCVG_VEND"
+            data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Your Reference</fd-form-label>
+        <fd-input v-model="PO_HEADER.REF_1"
+            data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Reason for rejection of quotations and sales orders</fd-form-label>
+        <fd-input v-model="PO_HEADER.REJ_REASON"
+            data-abap="{type: 'string', length: '2'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Release group</fd-form-label>
+    <fd-select v-model="PO_HEADER.REL_GROUP"
+        options="{type:'CT', id:'T16FG'}"
+        data-abap="{type: 'string', length: '2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Release Indicator: Purchasing Document</fd-form-label>
+    <fd-select v-model="PO_HEADER.REL_IND"
+        options="{type:'CT', id:'T16FB'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Release State</fd-form-label>
+        <fd-input v-model="PO_HEADER.REL_STATUS"
+            data-abap="{type: 'string', length: '8'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Release Strategy</fd-form-label>
+    <fd-select v-model="PO_HEADER.REL_STRAT"
+        options="{type:'CT', id:'T16FS'}"
+        data-abap="{type: 'string', length: '2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Responsible Salesperson at Vendor's Office</fd-form-label>
+        <fd-input v-model="PO_HEADER.SALES_PERS"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Indicator for scheduling agreement release documentation">
+    <fd-checkbox v-model="PO_HEADER.SCHED_IND">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Status of Purchasing Document</fd-form-label>
+    <fd-select v-model="PO_HEADER.STATUS"
+        options="{type:'FV', id:'ESTAK'}"
+        data-abap="{type: 'string', length: '1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+
+
+<fd-form-item>
+    <fd-form-label>Item Number Interval for Subitems</fd-form-label>
+        <fd-input v-model="PO_HEADER.SUBITEMINT"
+            data-abap="{type: 'string', length: '5'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item-checkbox label="Release Not Yet Completely Effected">
+    <fd-checkbox v-model="PO_HEADER.SUBJ_TO_R">
+</fd-form-item-checkbox>
+
+
+
+<fd-form-item>
+    <fd-form-label>Supplying (issuing) plant in case of stock transport order</fd-form-label>
+        <fd-input v-model="PO_HEADER.SUPPL_PLNT"
+            data-abap="{type: 'string', length: '4'}"
+            data-shlp="{type:'SH', id:'H_T001W'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Supplying Vendor</fd-form-label>
+        <fd-input v-model="PO_HEADER.SUPPL_VEND"
+            data-abap="{type: 'string', length: '10', mid: 'LLI', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Cumulative Planned Value</fd-form-label>
+        <fd-input v-model="PO_HEADER.TARGET_VAL"
+            data-abap="{type: 'number', length: '22.4'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Country for Tax Return</fd-form-label>
+        <fd-input v-model="PO_HEADER.TAXR_CNTRY"
+            data-abap="{type: 'string', length: '3'}"
+            data-shlp="{type:'CT', id:'T005'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Vendor's Telephone Number</fd-form-label>
+        <fd-input v-model="PO_HEADER.TELEPHONE"
+            data-abap="{type: 'string', length: '16'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Update group for statistics update</fd-form-label>
+        <fd-input v-model="PO_HEADER.UPDATE_GRP"
+            data-abap="{type: 'string', length: '6', mid: 'MCF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'H_TMCB'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Vendor's account number</fd-form-label>
+        <fd-input v-model="PO_HEADER.VENDOR"
+            data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Name 1</fd-form-label>
+        <fd-input v-model="PO_HEADER.VEND_NAME"
+            data-abap="{type: 'string', length: '35'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>End of Validity Period</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.VPER_END"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Start of Validity Period</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.VPER_START"></fd-date-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Warranty Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADER.WARRANTY"></fd-date-picker>
 </fd-form-item>
 

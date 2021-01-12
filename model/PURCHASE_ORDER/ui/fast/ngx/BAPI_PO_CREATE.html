@@ -1,6 +1,85 @@
-<!-- BAPI_PO_CREATE 0.3 -->
+<!-- BAPI_PO_CREATE 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+
+<!-- PO_HEADER BAPIEKKOC PO Header Data -->
+
+<fast-text-field [(label)]="Number of principal purchase agreement"
+    [(value)]="PO_HEADER.AGREEMENT"
+    [(abap)]="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-text-field [(label)]="Company Code"
+    [(value)]="PO_HEADER.CO_CODE"
+    [(abap)]="{type: 'string', length: '4', mid: 'BUK'}" [(shlp)]="{type:'SH', id:'C_T001'}"
+/>
+
+
+<fast-text-field [(label)]="Name of Person who Created the Object"
+    [(value)]="PO_HEADER.CREATED_BY"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-select [(label)]="Purchasing Document Category"
+    [(value)]="PO_HEADER.DOC_CAT" [(options)]="{type:'FV', id:'EBSTYP'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-datepicker label="Purchasing Document Date" [(value)]="PO_HEADER.DOC_DATE"/>
+
+
+<fast-text-field [(label)]="Purchasing Document Type"
+    [(value)]="PO_HEADER.DOC_TYPE"
+    [(abap)]="{type: 'string', length: '4', mid: 'BSA'}" [(shlp)]="{type:'SH', id:'H_T161'}"
+/>
+
+
+<fast-text-field [(label)]="Language Key"
+    [(value)]="PO_HEADER.LANGU"
+    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
+/>
+
+
+<fast-text-field [(label)]="ISO code for language key"
+    [(value)]="PO_HEADER.LANGU_ISO"
+    [(abap)]="{type: 'string', length: '2'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing Document Number"
+    [(value)]="PO_HEADER.PO_NUMBER"
+    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing organization"
+    [(value)]="PO_HEADER.PURCH_ORG"
+    [(abap)]="{type: 'string', length: '4', mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing Group"
+    [(value)]="PO_HEADER.PUR_GROUP"
+    [(abap)]="{type: 'string', length: '3', mid: 'EKG'}" [(shlp)]="{type:'SH', id:'H_T024'}"
+/>
+
+
+<fast-text-field [(label)]="Supplying (issuing) plant in case of stock transport order"
+    [(value)]="PO_HEADER.SUPPL_PLNT"
+    [(abap)]="{type: 'string', length: '4'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
+/>
+
+
+<fast-text-field [(label)]="Vendor's account number"
+    [(value)]="PO_HEADER.VENDOR"
+    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
+/>
+
 
 <fast-select [(label)]="Selection flag"
     [(value)]="HEADER_ADD_DATA_RELEVANT" [(options)]="{type:'FV', id:'SELKZ'}"
@@ -378,83 +457,6 @@
 ></fast-select>
 
 
-<!-- PO_HEADER BAPIEKKOC PO Header Data -->
-
-<fast-text-field [(label)]="Number of principal purchase agreement"
-    [(value)]="PO_HEADER.AGREEMENT"
-    [(abap)]="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
-<fast-text-field [(label)]="Company Code"
-    [(value)]="PO_HEADER.CO_CODE"
-    [(abap)]="{type: 'string', length: '4', mid: 'BUK'}" [(shlp)]="{type:'SH', id:'C_T001'}"
-/>
-
-
-<fast-text-field [(label)]="Name of Person who Created the Object"
-    [(value)]="PO_HEADER.CREATED_BY"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-select [(label)]="Purchasing Document Category"
-    [(value)]="PO_HEADER.DOC_CAT" [(options)]="{type:'FV', id:'EBSTYP'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-datepicker label="Purchasing Document Date" [(value)]="PO_HEADER.DOC_DATE"/>
-
-
-<fast-text-field [(label)]="Purchasing Document Type"
-    [(value)]="PO_HEADER.DOC_TYPE"
-    [(abap)]="{type: 'string', length: '4', mid: 'BSA'}" [(shlp)]="{type:'SH', id:'H_T161'}"
-/>
-
-
-<fast-text-field [(label)]="Language Key"
-    [(value)]="PO_HEADER.LANGU"
-    [(abap)]="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}" [(shlp)]="{type:'SH', id:'H_T002'}"
-/>
-
-
-<fast-text-field [(label)]="ISO code for language key"
-    [(value)]="PO_HEADER.LANGU_ISO"
-    [(abap)]="{type: 'string', length: '2'}"
-/>
-
-
-<fast-text-field [(label)]="Purchasing Document Number"
-    [(value)]="PO_HEADER.PO_NUMBER"
-    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
-<fast-text-field [(label)]="Purchasing organization"
-    [(value)]="PO_HEADER.PURCH_ORG"
-    [(abap)]="{type: 'string', length: '4', mid: 'EKO'}" [(shlp)]="{type:'SH', id:'H_T024E'}"
-/>
-
-
-<fast-text-field [(label)]="Purchasing Group"
-    [(value)]="PO_HEADER.PUR_GROUP"
-    [(abap)]="{type: 'string', length: '3', mid: 'EKG'}" [(shlp)]="{type:'SH', id:'H_T024'}"
-/>
-
-
-<fast-text-field [(label)]="Supplying (issuing) plant in case of stock transport order"
-    [(value)]="PO_HEADER.SUPPL_PLNT"
-    [(abap)]="{type: 'string', length: '4'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
-/>
-
-
-<fast-text-field [(label)]="Vendor's account number"
-    [(value)]="PO_HEADER.VENDOR"
-    [(abap)]="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'KRED'}"
-/>
-
-
 <!-- PO_HEADER_ADD_DATA BAPIEKKOA Additional Data: PO Header -->
 
 <fast-text-field [(label)]="Cash discount percentage 1"
@@ -574,15 +576,619 @@
 ></fast-select>
 
 
-<!-- OUTPUT PARAMETERS -->
+<!-- TABLE PARAMETERS -->
 
-<fast-select [(label)]="Purchasing Document Number"
-    [(value)]="PURCHASEORDER" [(options)]="{type:'CH', id:'EKKO'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+<!-- PO_ITEMS BAPIEKPOC Table of PO Items -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEMS" title="Table of PO Items"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ACCTASSCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"KNT", shlp:{type:'SH', id:'H_T163K'}}'
+              label="Account assignment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ACKNOWL_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Order Acknowledgment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ACKN_REQD" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Order Acknowledgment Requirement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ADDRESS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'ADRC'}}' alpha-exit="ALPHA" 
+              label="Address" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AGMT_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AGREEMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KTR", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ALLOC_TBL" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"ABE", shlp:{type:'CH', id:'AUKO'}}' alpha-exit="ALPHA" 
+              label="Allocation Table Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AT_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", shlp:{type:'CH', id:'AUPO'}}'
+              label="Item number of allocation table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="AT_RELEV" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'AUREL'}}'
+              label="Relevant to Allocation Table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CONV_DEN1" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
+              label="Denominator for Conv. of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="CONV_NUM1" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
+              label="Numerator for Conversion of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Deletion indicator in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISP_QUAN" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="PO quantity: total of all sched. lines for display purposes" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="DISTRIB" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'VRTKZ'}}'
+              label="Distribution indicator for multiple account assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="INFO_REC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"INF", shlp:{type:'CH', id:'EINA'}}' alpha-exit="ALPHA" 
+              label="Number of purchasing info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'SH', id:'H_T163'}}'
+              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ITEM_CAT_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="KANBAN_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'KBNKZ'}}'
+              label="Kanban Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MANUF_PROF" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TMPPF'}}'
+              label="Mfr part profile" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MANU_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Manufacturer Part Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="External GUID for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Material Number (40 Characters, needed f. technical reasons)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MATERIAL_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAT_GRP" data-abap.bind='{ddic:"CHAR", type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'H_T023'}}'
+              label="Material Group" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'LFA1'}}' alpha-exit="ALPHA" 
+              label="Manufacturer number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MFR_NO_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="External manufacturer code name or number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NET_PRICE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"22.4"}'
+              label="Net price in purchasing document (in document currency)" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_MORE_GR" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label=""Delivery Completed" Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NO_ROUNDING" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Indicator: suppress rounding in purchase order item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ORDERPR_UN_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
+              label="ISO code for purchase order price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PART_INV" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'TWRKZ'}}'
+              label="Partial invoice indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10", shlp:{type:'CH', id:'ESLH'}}'
+              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"WRK", shlp:{type:'SH', id:'H_T001W'}}'
+              label="Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLAN_DEL" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
+              label="Planned Delivery Time in Days" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_PRICE" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Indicator: adopt price - do not use info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_UNIT_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
+              label="Order unit in ISO code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+              label="Name of requisitioner/requester" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PRICE_UNIT" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
+              label="Price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
+    <fd-fd-column sortable field="PROMOTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"WAK", shlp:{type:'CT', id:'WAKH'}}' alpha-exit="ALPHA" 
+              label="Promotion" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PR_CLOSED" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Purchase requisition closed" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
+              label="Material number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
+              label="Long Material Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
+              label="External GUID for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Material Number (40 Characters, Technical Requirement)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PUR_MAT_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
+              label="Version Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUAL_INSP" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'INSMK'}}'
+              label="Stock Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REQ_SEGMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"SGT_R", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
+              label="Requirement Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="RET_ITEM" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Returns Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHIPPING" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T027A'}}'
+              label="Shipping Instructions" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Short Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STK_SEGMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"SGT_S", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
+              label="Stock Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STORE_LOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"LAG", shlp:{type:'SH', id:'H_T001L'}}'
+              label="Storage location" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAX_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T007A'}}'
+              label="Tax on sales/purchases code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TRACKINGNO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="Requirement Tracking Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VAL_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BWT", shlp:{type:'CT', id:'T149D'}}'
+              label="Valuation type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
+              label="Material number used by vendor" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEMS BAPIEKPOC Table of PO Items -->
+
+<fast-text-field [(label)]="Account assignment category"
+    [(value)]="PO_ITEMS.ACCTASSCAT"
+    [(abap)]="{type: 'string', length: '1', mid: 'KNT'}" [(shlp)]="{type:'SH', id:'H_T163K'}"
+/>
+
+
+<fast-text-field [(label)]="Order Acknowledgment Number"
+    [(value)]="PO_ITEMS.ACKNOWL_NO"
+    [(abap)]="{type: 'string', length: '20'}"
+/>
+
+
+<fast-checkbox [(label)]="Order Acknowledgment Requirement" [(checked)]="PO_ITEMS.ACKN_REQD"/>
+
+
+<fast-text-field [(label)]="Address"
+    [(value)]="PO_ITEMS.ADDRESS"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'ADRC'}"
+/>
+
+
+<fast-text-field [(label)]="Item number of principal purchase agreement"
+    [(value)]="PO_ITEMS.AGMT_ITEM"
+    [(abap)]="{type: 'string', length: '5'}" [(shlp)]="{type:'CH', id:'EKPO'}"
+/>
+
+
+<fast-text-field [(label)]="Number of principal purchase agreement"
+    [(value)]="PO_ITEMS.AGREEMENT"
+    [(abap)]="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-select [(label)]="Allocation Table Number"
+    [(value)]="PO_ITEMS.ALLOC_TBL" [(options)]="{type:'CH', id:'AUKO'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'ABE', alpha: 'ALPHA'}"
 ></fast-select>
 
 
-<!-- TABLE PARAMETERS -->
+<fast-select [(label)]="Item number of allocation table"
+    [(value)]="PO_ITEMS.AT_ITEM" [(options)]="{type:'CH', id:'AUPO'}"
+    [(abap)]="{type: 'string', length: '5'}"
+></fast-select>
+
+
+<fast-select [(label)]="Relevant to Allocation Table"
+    [(value)]="PO_ITEMS.AT_RELEV" [(options)]="{type:'FV', id:'AUREL'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Denominator for Conv. of Order Price Unit into Order Unit"
+    [(value)]="PO_ITEMS.CONV_DEN1"
+    [(abap)]="{type: 'number', length: '5'}"
+/>
+
+
+<fast-text-field [(label)]="Numerator for Conversion of Order Price Unit into Order Unit"
+    [(value)]="PO_ITEMS.CONV_NUM1"
+    [(abap)]="{type: 'number', length: '5'}"
+/>
+
+
+<fast-text-field [(label)]="Deletion indicator in purchasing document"
+    [(value)]="PO_ITEMS.DELETE_IND"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-text-field [(label)]="PO quantity: total of all sched. lines for display purposes"
+    [(value)]="PO_ITEMS.DISP_QUAN"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-select [(label)]="Distribution indicator for multiple account assignment"
+    [(value)]="PO_ITEMS.DISTRIB" [(options)]="{type:'FV', id:'VRTKZ'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-select [(label)]="Number of purchasing info record"
+    [(value)]="PO_ITEMS.INFO_REC" [(options)]="{type:'CH', id:'EINA'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'INF', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Item category in purchasing document"
+    [(value)]="PO_ITEMS.ITEM_CAT"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'SH', id:'H_T163'}"
+/>
+
+
+<fast-text-field [(label)]="Item category in purchasing document"
+    [(value)]="PO_ITEMS.ITEM_CAT_EXT"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-text-field [(label)]="Kanban Indicator"
+    [(value)]="PO_ITEMS.KANBAN_IND"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'KBNKZ'}"
+/>
+
+
+<fast-select [(label)]="Mfr part profile"
+    [(value)]="PO_ITEMS.MANUF_PROF" [(options)]="{type:'CT', id:'TMPPF'}"
+    [(abap)]="{type: 'string', length: '4'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Manufacturer Part Number"
+    [(value)]="PO_ITEMS.MANU_MAT"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-select [(label)]="Material Number"
+    [(value)]="PO_ITEMS.MATERIAL" [(options)]="{type:'CT', id:'MARA'}"
+    [(abap)]="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Long Material Number for MATERIAL Field"
+    [(value)]="PO_ITEMS.MATERIAL_EXTERNAL"
+    [(abap)]="{type: 'string', length: '40', alpha: 'MATNL'}"
+/>
+
+
+<fast-text-field [(label)]="External GUID for MATERIAL Field"
+    [(value)]="PO_ITEMS.MATERIAL_GUID"
+    [(abap)]="{type: 'string', length: '32'}"
+/>
+
+
+<fast-text-field [(label)]="Material Number (40 Characters, needed f. technical reasons)"
+    [(value)]="PO_ITEMS.MATERIAL_LONG"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Version Number for MATERIAL Field"
+    [(value)]="PO_ITEMS.MATERIAL_VERSION"
+    [(abap)]="{type: 'string', length: '10', alpha: 'MATNW'}"
+/>
+
+
+<fast-text-field [(label)]="Material Group"
+    [(value)]="PO_ITEMS.MAT_GRP"
+    [(abap)]="{type: 'string', length: '9', mid: 'MKL'}" [(shlp)]="{type:'SH', id:'H_T023'}"
+/>
+
+
+<fast-text-field [(label)]="Manufacturer number"
+    [(value)]="PO_ITEMS.MFR_NO"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'LFA1'}"
+/>
+
+
+<fast-text-field [(label)]="External manufacturer code name or number"
+    [(value)]="PO_ITEMS.MFR_NO_EXT"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-text-field [(label)]="Net price in purchasing document (in document currency)"
+    [(value)]="PO_ITEMS.NET_PRICE"
+    [(abap)]="{type: 'number', length: '22.4'}"
+/>
+
+
+<fast-checkbox [(label)]=""Delivery Completed" Indicator" [(checked)]="PO_ITEMS.NO_MORE_GR"/>
+
+
+<fast-checkbox [(label)]="Indicator: suppress rounding in purchase order item" [(checked)]="PO_ITEMS.NO_ROUNDING"/>
+
+
+<fast-text-field [(label)]="ISO code for purchase order price unit"
+    [(value)]="PO_ITEMS.ORDERPR_UN_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'SH', id:'H_T006I'}"
+/>
+
+
+<fast-select [(label)]="Partial invoice indicator"
+    [(value)]="PO_ITEMS.PART_INV" [(options)]="{type:'FV', id:'TWRKZ'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-select [(label)]="Package number"
+    [(value)]="PO_ITEMS.PCKG_NO" [(options)]="{type:'CH', id:'ESLH'}"
+    [(abap)]="{type: 'string', length: '10'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Plant"
+    [(value)]="PO_ITEMS.PLANT"
+    [(abap)]="{type: 'string', length: '4', mid: 'WRK'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
+/>
+
+
+<fast-text-field [(label)]="Planned Delivery Time in Days"
+    [(value)]="PO_ITEMS.PLAN_DEL"
+    [(abap)]="{type: 'number', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Item Number of Purchasing Document"
+    [(value)]="PO_ITEMS.PO_ITEM"
+    [(abap)]="{type: 'string', length: '5', mid: 'BSP'}" [(shlp)]="{type:'CH', id:'EKPO'}"
+/>
+
+
+<fast-text-field [(label)]="Purchasing Document Number"
+    [(value)]="PO_ITEMS.PO_NUMBER"
+    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
+/>
+
+
+<fast-checkbox [(label)]="Indicator: adopt price - do not use info record" [(checked)]="PO_ITEMS.PO_PRICE"/>
+
+
+<fast-text-field [(label)]="Order unit in ISO code"
+    [(value)]="PO_ITEMS.PO_UNIT_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'SH', id:'H_T006I'}"
+/>
+
+
+<fast-text-field [(label)]="Name of requisitioner/requester"
+    [(value)]="PO_ITEMS.PREQ_NAME"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="Price unit"
+    [(value)]="PO_ITEMS.PRICE_UNIT"
+    [(abap)]="{type: 'number', length: '5'}"
+/>
+
+
+<fast-select [(label)]="Promotion"
+    [(value)]="PO_ITEMS.PROMOTION" [(options)]="{type:'CT', id:'WAKH'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'WAK', alpha: 'ALPHA'}"
+></fast-select>
+
+
+<fast-checkbox [(label)]="Purchase requisition closed" [(checked)]="PO_ITEMS.PR_CLOSED"/>
+
+
+<fast-text-field [(label)]="Material number"
+    [(value)]="PO_ITEMS.PUR_MAT"
+    [(abap)]="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}" [(shlp)]="{type:'CT', id:'MARA'}"
+/>
+
+
+<fast-text-field [(label)]="Long Material Number for PUR_MAT Field"
+    [(value)]="PO_ITEMS.PUR_MAT_EXTERNAL"
+    [(abap)]="{type: 'string', length: '40', alpha: 'MATNL'}"
+/>
+
+
+<fast-text-field [(label)]="External GUID for PUR_MAT Field"
+    [(value)]="PO_ITEMS.PUR_MAT_GUID"
+    [(abap)]="{type: 'string', length: '32'}"
+/>
+
+
+<fast-text-field [(label)]="Material Number (40 Characters, Technical Requirement)"
+    [(value)]="PO_ITEMS.PUR_MAT_LONG"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Version Number for PUR_MAT Field"
+    [(value)]="PO_ITEMS.PUR_MAT_VERSION"
+    [(abap)]="{type: 'string', length: '10', alpha: 'MATNW'}"
+/>
+
+
+<fast-select [(label)]="Stock Type"
+    [(value)]="PO_ITEMS.QUAL_INSP" [(options)]="{type:'FV', id:'INSMK'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Requirement Segment"
+    [(value)]="PO_ITEMS.REQ_SEGMENT"
+    [(abap)]="{type: 'string', length: '16', mid: 'SGT_R'}" [(shlp)]="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
+/>
+
+
+<fast-checkbox [(label)]="Returns Item" [(checked)]="PO_ITEMS.RET_ITEM"/>
+
+
+<fast-select [(label)]="Shipping Instructions"
+    [(value)]="PO_ITEMS.SHIPPING" [(options)]="{type:'CT', id:'T027A'}"
+    [(abap)]="{type: 'string', length: '2'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Short Text"
+    [(value)]="PO_ITEMS.SHORT_TEXT"
+    [(abap)]="{type: 'string', length: '40'}"
+/>
+
+
+<fast-text-field [(label)]="Stock Segment"
+    [(value)]="PO_ITEMS.STK_SEGMENT"
+    [(abap)]="{type: 'string', length: '16', mid: 'SGT_S'}" [(shlp)]="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
+/>
+
+
+<fast-text-field [(label)]="Storage location"
+    [(value)]="PO_ITEMS.STORE_LOC"
+    [(abap)]="{type: 'string', length: '4', mid: 'LAG'}" [(shlp)]="{type:'SH', id:'H_T001L'}"
+/>
+
+
+<fast-select [(label)]="Tax on sales/purchases code"
+    [(value)]="PO_ITEMS.TAX_CODE" [(options)]="{type:'CT', id:'T007A'}"
+    [(abap)]="{type: 'string', length: '2'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Requirement Tracking Number"
+    [(value)]="PO_ITEMS.TRACKINGNO"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-select [(label)]="Valuation type"
+    [(value)]="PO_ITEMS.VAL_TYPE" [(options)]="{type:'CT', id:'T149D'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'BWT'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Material number used by vendor"
+    [(value)]="PO_ITEMS.VEND_MAT"
+    [(abap)]="{type: 'string', length: '22'}"
+/>
+
+
+<!-- PO_ITEM_SCHEDULES BAPIEKET Table of Schedule Lines -->
+<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEM_SCHEDULES" title="Table of Schedule Lines"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="BATCH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"CHA", shlp:{type:'CH', id:'MCH1'}}'
+              label="Batch Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BOMEXPL_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"8", shlp:{type:'SH', id:'H_SNUM'}}'
+              label="BOM explosion number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CREATE_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ESTKZ'}}'
+              label="Creation indicator (purchase requisition/schedule lines)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELIV_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Item delivery date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="DELIV_TIME" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}'
+              label="Delivery Date Time-Spot" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'HHMMSS'}"></fd-fd-column>
+    <fd-fd-column sortable field="DEL_DATCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'PRGRS'}}'
+              label="Date type (day, week, month, interval)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DEL_DATCAT_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'SH', id:'H_TPRG'}}'
+              label="Category of delivery date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
+              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CH', id:'EBAN'}}'
+              label="Item number of purchase requisition" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PREQ_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BAN", shlp:{type:'SH', id:'MBAN_C'}}' alpha-exit="ALPHA" 
+              label="Purchase requisition number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUANTITY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
+              label="Scheduled Quantity" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUOTA_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}'
+              label="Quota arrangement item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="QUOTA_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
+              label="Number of quota arrangement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="RESERV_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10", mid:"RES", shlp:{type:'CH', id:'RESB'}}'
+              label="Number of reservation/dependent requirements" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4", shlp:{type:'CH', id:'EKET'}}'
+              label="Delivery Schedule Line Counter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VEND_BATCH" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
+              label="Vendor Batch Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VER", shlp:{type:'SH', id:'H_MKAL'}}'
+              label="Production Version" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ITEM_SCHEDULES BAPIEKET Table of Schedule Lines -->
+
+<fast-select [(label)]="Batch Number"
+    [(value)]="PO_ITEM_SCHEDULES.BATCH" [(options)]="{type:'CH', id:'MCH1'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'CHA'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="BOM explosion number"
+    [(value)]="PO_ITEM_SCHEDULES.BOMEXPL_NO"
+    [(abap)]="{type: 'string', length: '8'}" [(shlp)]="{type:'SH', id:'H_SNUM'}"
+/>
+
+
+<fast-select [(label)]="Creation indicator (purchase requisition/schedule lines)"
+    [(value)]="PO_ITEM_SCHEDULES.CREATE_IND" [(options)]="{type:'FV', id:'ESTKZ'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-datepicker label="Item delivery date" [(value)]="PO_ITEM_SCHEDULES.DELIV_DATE"/>
+
+
+<fast-timepicker label="Delivery Date Time-Spot" [(value)]="PO_ITEM_SCHEDULES.DELIV_TIME"/>
+
+
+<fast-select [(label)]="Date type (day, week, month, interval)"
+    [(value)]="PO_ITEM_SCHEDULES.DEL_DATCAT" [(options)]="{type:'FV', id:'PRGRS'}"
+    [(abap)]="{type: 'string', length: '1'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Category of delivery date"
+    [(value)]="PO_ITEM_SCHEDULES.DEL_DATCAT_EXT"
+    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'SH', id:'H_TPRG'}"
+/>
+
+
+<fast-text-field [(label)]="Item Number of Purchasing Document"
+    [(value)]="PO_ITEM_SCHEDULES.PO_ITEM"
+    [(abap)]="{type: 'string', length: '5', mid: 'BSP'}" [(shlp)]="{type:'CH', id:'EKPO'}"
+/>
+
+
+<fast-select [(label)]="Item number of purchase requisition"
+    [(value)]="PO_ITEM_SCHEDULES.PREQ_ITEM" [(options)]="{type:'CH', id:'EBAN'}"
+    [(abap)]="{type: 'string', length: '5', mid: 'BAP'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Purchase requisition number"
+    [(value)]="PO_ITEM_SCHEDULES.PREQ_NO"
+    [(abap)]="{type: 'string', length: '10', mid: 'BAN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'MBAN_C'}"
+/>
+
+
+<fast-text-field [(label)]="Scheduled Quantity"
+    [(value)]="PO_ITEM_SCHEDULES.QUANTITY"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Quota arrangement item"
+    [(value)]="PO_ITEM_SCHEDULES.QUOTA_ITEM"
+    [(abap)]="{type: 'string', length: '3'}"
+/>
+
+
+<fast-text-field [(label)]="Number of quota arrangement"
+    [(value)]="PO_ITEM_SCHEDULES.QUOTA_NO"
+    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
+/>
+
+
+<fast-select [(label)]="Number of reservation/dependent requirements"
+    [(value)]="PO_ITEM_SCHEDULES.RESERV_NO" [(options)]="{type:'CH', id:'RESB'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'RES'}"
+></fast-select>
+
+
+<fast-select [(label)]="Delivery Schedule Line Counter"
+    [(value)]="PO_ITEM_SCHEDULES.SERIAL_NO" [(options)]="{type:'CH', id:'EKET'}"
+    [(abap)]="{type: 'string', length: '4'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Vendor Batch Number"
+    [(value)]="PO_ITEM_SCHEDULES.VEND_BATCH"
+    [(abap)]="{type: 'string', length: '15'}"
+/>
+
+
+<fast-text-field [(label)]="Production Version"
+    [(value)]="PO_ITEM_SCHEDULES.VERSION"
+    [(abap)]="{type: 'string', length: '4', mid: 'VER'}" [(shlp)]="{type:'SH', id:'H_MKAL'}"
+/>
+
 
 <!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT -->
 <ui-datagrid data.bind="BAPI_PO_CREATE EXTENSIONIN" title="Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT"
@@ -1207,478 +1813,6 @@
 />
 
 
-<!-- PO_ITEMS BAPIEKPOC Table of PO Items -->
-<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEMS" title="Table of PO Items"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="ACCTASSCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"KNT", shlp:{type:'SH', id:'H_T163K'}}'
-              label="Account assignment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ACKNOWL_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Order Acknowledgment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ACKN_REQD" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Order Acknowledgment Requirement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ADDRESS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'ADRC'}}' alpha-exit="ALPHA" 
-              label="Address" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="AGMT_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", shlp:{type:'CH', id:'EKPO'}}'
-              label="Item number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="AGREEMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KTR", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
-              label="Number of principal purchase agreement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ALLOC_TBL" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"ABE", shlp:{type:'CH', id:'AUKO'}}' alpha-exit="ALPHA" 
-              label="Allocation Table Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="AT_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", shlp:{type:'CH', id:'AUPO'}}'
-              label="Item number of allocation table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="AT_RELEV" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'AUREL'}}'
-              label="Relevant to Allocation Table" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CONV_DEN1" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
-              label="Denominator for Conv. of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
-    <fd-fd-column sortable field="CONV_NUM1" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
-              label="Numerator for Conversion of Order Price Unit into Order Unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
-    <fd-fd-column sortable field="DELETE_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-              label="Deletion indicator in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="DISP_QUAN" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-              label="PO quantity: total of all sched. lines for display purposes" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
-    <fd-fd-column sortable field="DISTRIB" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'VRTKZ'}}'
-              label="Distribution indicator for multiple account assignment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="INFO_REC" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"INF", shlp:{type:'CH', id:'EINA'}}' alpha-exit="ALPHA" 
-              label="Number of purchasing info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ITEM_CAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'SH', id:'H_T163'}}'
-              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ITEM_CAT_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-              label="Item category in purchasing document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="KANBAN_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'KBNKZ'}}'
-              label="Kanban Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MANUF_PROF" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TMPPF'}}'
-              label="Mfr part profile" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MANU_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Manufacturer Part Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MATERIAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
-              label="Material Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MATERIAL_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
-              label="Long Material Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MATERIAL_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
-              label="External GUID for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MATERIAL_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Material Number (40 Characters, needed f. technical reasons)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MATERIAL_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
-              label="Version Number for MATERIAL Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MAT_GRP" data-abap.bind='{ddic:"CHAR", type:"string", length:"9", mid:"MKL", shlp:{type:'SH', id:'H_T023'}}'
-              label="Material Group" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MFR_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'LFA1'}}' alpha-exit="ALPHA" 
-              label="Manufacturer number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MFR_NO_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="External manufacturer code name or number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NET_PRICE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"22.4"}'
-              label="Net price in purchasing document (in document currency)" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
-    <fd-fd-column sortable field="NO_MORE_GR" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label=""Delivery Completed" Indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NO_ROUNDING" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Indicator: suppress rounding in purchase order item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ORDERPR_UN_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
-              label="ISO code for purchase order price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PART_INV" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'TWRKZ'}}'
-              label="Partial invoice indicator" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PCKG_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10", shlp:{type:'CH', id:'ESLH'}}'
-              label="Package number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"WRK", shlp:{type:'SH', id:'H_T001W'}}'
-              label="Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLAN_DEL" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
-              label="Planned Delivery Time in Days" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
-              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
-              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_PRICE" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Indicator: adopt price - do not use info record" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_UNIT_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'SH', id:'H_T006I'}}'
-              label="Order unit in ISO code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PREQ_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-              label="Name of requisitioner/requester" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PRICE_UNIT" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"5"}'
-              label="Price unit" markup="{'html-tag': 'fd-fd-column', 'initial': '0', 'comment': 'Decimal'}"></fd-fd-column>
-    <fd-fd-column sortable field="PROMOTION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"WAK", shlp:{type:'CT', id:'WAKH'}}' alpha-exit="ALPHA" 
-              label="Promotion" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PR_CLOSED" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Purchase requisition closed" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PUR_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"MAT", shlp:{type:'CT', id:'MARA'}}' alpha-exit="MATN1" 
-              label="Material number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}' alpha-exit="MATNL" 
-              label="Long Material Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PUR_MAT_GUID" data-abap.bind='{ddic:"CHAR", type:"string", length:"32"}'
-              label="External GUID for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PUR_MAT_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Material Number (40 Characters, Technical Requirement)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PUR_MAT_VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="MATNW" 
-              label="Version Number for PUR_MAT Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="QUAL_INSP" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'INSMK'}}'
-              label="Stock Type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REQ_SEGMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"SGT_R", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
-              label="Requirement Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="RET_ITEM" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Returns Item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SHIPPING" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T027A'}}'
-              label="Shipping Instructions" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SHORT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Short Text" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STK_SEGMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"16", mid:"SGT_S", shlp:{type:'SH', id:'SGT_CAT_FIELD_POPUP'}}'
-              label="Stock Segment" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STORE_LOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"LAG", shlp:{type:'SH', id:'H_T001L'}}'
-              label="Storage location" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TAX_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'T007A'}}'
-              label="Tax on sales/purchases code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TRACKINGNO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="Requirement Tracking Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VAL_TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BWT", shlp:{type:'CT', id:'T149D'}}'
-              label="Valuation type" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VEND_MAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"22"}'
-              label="Material number used by vendor" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- PO_ITEMS BAPIEKPOC Table of PO Items -->
-
-<fast-text-field [(label)]="Account assignment category"
-    [(value)]="PO_ITEMS.ACCTASSCAT"
-    [(abap)]="{type: 'string', length: '1', mid: 'KNT'}" [(shlp)]="{type:'SH', id:'H_T163K'}"
-/>
-
-
-<fast-text-field [(label)]="Order Acknowledgment Number"
-    [(value)]="PO_ITEMS.ACKNOWL_NO"
-    [(abap)]="{type: 'string', length: '20'}"
-/>
-
-
-<fast-checkbox [(label)]="Order Acknowledgment Requirement" [(checked)]="PO_ITEMS.ACKN_REQD"/>
-
-
-<fast-text-field [(label)]="Address"
-    [(value)]="PO_ITEMS.ADDRESS"
-    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'ADRC'}"
-/>
-
-
-<fast-text-field [(label)]="Item number of principal purchase agreement"
-    [(value)]="PO_ITEMS.AGMT_ITEM"
-    [(abap)]="{type: 'string', length: '5'}" [(shlp)]="{type:'CH', id:'EKPO'}"
-/>
-
-
-<fast-text-field [(label)]="Number of principal purchase agreement"
-    [(value)]="PO_ITEMS.AGREEMENT"
-    [(abap)]="{type: 'string', length: '10', mid: 'KTR', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
-<fast-select [(label)]="Allocation Table Number"
-    [(value)]="PO_ITEMS.ALLOC_TBL" [(options)]="{type:'CH', id:'AUKO'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'ABE', alpha: 'ALPHA'}"
-></fast-select>
-
-
-<fast-select [(label)]="Item number of allocation table"
-    [(value)]="PO_ITEMS.AT_ITEM" [(options)]="{type:'CH', id:'AUPO'}"
-    [(abap)]="{type: 'string', length: '5'}"
-></fast-select>
-
-
-<fast-select [(label)]="Relevant to Allocation Table"
-    [(value)]="PO_ITEMS.AT_RELEV" [(options)]="{type:'FV', id:'AUREL'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Denominator for Conv. of Order Price Unit into Order Unit"
-    [(value)]="PO_ITEMS.CONV_DEN1"
-    [(abap)]="{type: 'number', length: '5'}"
-/>
-
-
-<fast-text-field [(label)]="Numerator for Conversion of Order Price Unit into Order Unit"
-    [(value)]="PO_ITEMS.CONV_NUM1"
-    [(abap)]="{type: 'number', length: '5'}"
-/>
-
-
-<fast-text-field [(label)]="Deletion indicator in purchasing document"
-    [(value)]="PO_ITEMS.DELETE_IND"
-    [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<fast-text-field [(label)]="PO quantity: total of all sched. lines for display purposes"
-    [(value)]="PO_ITEMS.DISP_QUAN"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-select [(label)]="Distribution indicator for multiple account assignment"
-    [(value)]="PO_ITEMS.DISTRIB" [(options)]="{type:'FV', id:'VRTKZ'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-select [(label)]="Number of purchasing info record"
-    [(value)]="PO_ITEMS.INFO_REC" [(options)]="{type:'CH', id:'EINA'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'INF', alpha: 'ALPHA'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Item category in purchasing document"
-    [(value)]="PO_ITEMS.ITEM_CAT"
-    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'SH', id:'H_T163'}"
-/>
-
-
-<fast-text-field [(label)]="Item category in purchasing document"
-    [(value)]="PO_ITEMS.ITEM_CAT_EXT"
-    [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<fast-text-field [(label)]="Kanban Indicator"
-    [(value)]="PO_ITEMS.KANBAN_IND"
-    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'FV', id:'KBNKZ'}"
-/>
-
-
-<fast-select [(label)]="Mfr part profile"
-    [(value)]="PO_ITEMS.MANUF_PROF" [(options)]="{type:'CT', id:'TMPPF'}"
-    [(abap)]="{type: 'string', length: '4'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Manufacturer Part Number"
-    [(value)]="PO_ITEMS.MANU_MAT"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-select [(label)]="Material Number"
-    [(value)]="PO_ITEMS.MATERIAL" [(options)]="{type:'CT', id:'MARA'}"
-    [(abap)]="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Long Material Number for MATERIAL Field"
-    [(value)]="PO_ITEMS.MATERIAL_EXTERNAL"
-    [(abap)]="{type: 'string', length: '40', alpha: 'MATNL'}"
-/>
-
-
-<fast-text-field [(label)]="External GUID for MATERIAL Field"
-    [(value)]="PO_ITEMS.MATERIAL_GUID"
-    [(abap)]="{type: 'string', length: '32'}"
-/>
-
-
-<fast-text-field [(label)]="Material Number (40 Characters, needed f. technical reasons)"
-    [(value)]="PO_ITEMS.MATERIAL_LONG"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Version Number for MATERIAL Field"
-    [(value)]="PO_ITEMS.MATERIAL_VERSION"
-    [(abap)]="{type: 'string', length: '10', alpha: 'MATNW'}"
-/>
-
-
-<fast-text-field [(label)]="Material Group"
-    [(value)]="PO_ITEMS.MAT_GRP"
-    [(abap)]="{type: 'string', length: '9', mid: 'MKL'}" [(shlp)]="{type:'SH', id:'H_T023'}"
-/>
-
-
-<fast-text-field [(label)]="Manufacturer number"
-    [(value)]="PO_ITEMS.MFR_NO"
-    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}" [(shlp)]="{type:'CT', id:'LFA1'}"
-/>
-
-
-<fast-text-field [(label)]="External manufacturer code name or number"
-    [(value)]="PO_ITEMS.MFR_NO_EXT"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-text-field [(label)]="Net price in purchasing document (in document currency)"
-    [(value)]="PO_ITEMS.NET_PRICE"
-    [(abap)]="{type: 'number', length: '22.4'}"
-/>
-
-
-<fast-checkbox [(label)]=""Delivery Completed" Indicator" [(checked)]="PO_ITEMS.NO_MORE_GR"/>
-
-
-<fast-checkbox [(label)]="Indicator: suppress rounding in purchase order item" [(checked)]="PO_ITEMS.NO_ROUNDING"/>
-
-
-<fast-text-field [(label)]="ISO code for purchase order price unit"
-    [(value)]="PO_ITEMS.ORDERPR_UN_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'SH', id:'H_T006I'}"
-/>
-
-
-<fast-select [(label)]="Partial invoice indicator"
-    [(value)]="PO_ITEMS.PART_INV" [(options)]="{type:'FV', id:'TWRKZ'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-select [(label)]="Package number"
-    [(value)]="PO_ITEMS.PCKG_NO" [(options)]="{type:'CH', id:'ESLH'}"
-    [(abap)]="{type: 'string', length: '10'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Plant"
-    [(value)]="PO_ITEMS.PLANT"
-    [(abap)]="{type: 'string', length: '4', mid: 'WRK'}" [(shlp)]="{type:'SH', id:'H_T001W'}"
-/>
-
-
-<fast-text-field [(label)]="Planned Delivery Time in Days"
-    [(value)]="PO_ITEMS.PLAN_DEL"
-    [(abap)]="{type: 'number', length: '3'}"
-/>
-
-
-<fast-text-field [(label)]="Item Number of Purchasing Document"
-    [(value)]="PO_ITEMS.PO_ITEM"
-    [(abap)]="{type: 'string', length: '5', mid: 'BSP'}" [(shlp)]="{type:'CH', id:'EKPO'}"
-/>
-
-
-<fast-text-field [(label)]="Purchasing Document Number"
-    [(value)]="PO_ITEMS.PO_NUMBER"
-    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}" [(shlp)]="{type:'CH', id:'EKKO'}"
-/>
-
-
-<fast-checkbox [(label)]="Indicator: adopt price - do not use info record" [(checked)]="PO_ITEMS.PO_PRICE"/>
-
-
-<fast-text-field [(label)]="Order unit in ISO code"
-    [(value)]="PO_ITEMS.PO_UNIT_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'SH', id:'H_T006I'}"
-/>
-
-
-<fast-text-field [(label)]="Name of requisitioner/requester"
-    [(value)]="PO_ITEMS.PREQ_NAME"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-text-field [(label)]="Price unit"
-    [(value)]="PO_ITEMS.PRICE_UNIT"
-    [(abap)]="{type: 'number', length: '5'}"
-/>
-
-
-<fast-select [(label)]="Promotion"
-    [(value)]="PO_ITEMS.PROMOTION" [(options)]="{type:'CT', id:'WAKH'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'WAK', alpha: 'ALPHA'}"
-></fast-select>
-
-
-<fast-checkbox [(label)]="Purchase requisition closed" [(checked)]="PO_ITEMS.PR_CLOSED"/>
-
-
-<fast-text-field [(label)]="Material number"
-    [(value)]="PO_ITEMS.PUR_MAT"
-    [(abap)]="{type: 'string', length: '18', mid: 'MAT', alpha: 'MATN1'}" [(shlp)]="{type:'CT', id:'MARA'}"
-/>
-
-
-<fast-text-field [(label)]="Long Material Number for PUR_MAT Field"
-    [(value)]="PO_ITEMS.PUR_MAT_EXTERNAL"
-    [(abap)]="{type: 'string', length: '40', alpha: 'MATNL'}"
-/>
-
-
-<fast-text-field [(label)]="External GUID for PUR_MAT Field"
-    [(value)]="PO_ITEMS.PUR_MAT_GUID"
-    [(abap)]="{type: 'string', length: '32'}"
-/>
-
-
-<fast-text-field [(label)]="Material Number (40 Characters, Technical Requirement)"
-    [(value)]="PO_ITEMS.PUR_MAT_LONG"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Version Number for PUR_MAT Field"
-    [(value)]="PO_ITEMS.PUR_MAT_VERSION"
-    [(abap)]="{type: 'string', length: '10', alpha: 'MATNW'}"
-/>
-
-
-<fast-select [(label)]="Stock Type"
-    [(value)]="PO_ITEMS.QUAL_INSP" [(options)]="{type:'FV', id:'INSMK'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Requirement Segment"
-    [(value)]="PO_ITEMS.REQ_SEGMENT"
-    [(abap)]="{type: 'string', length: '16', mid: 'SGT_R'}" [(shlp)]="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
-/>
-
-
-<fast-checkbox [(label)]="Returns Item" [(checked)]="PO_ITEMS.RET_ITEM"/>
-
-
-<fast-select [(label)]="Shipping Instructions"
-    [(value)]="PO_ITEMS.SHIPPING" [(options)]="{type:'CT', id:'T027A'}"
-    [(abap)]="{type: 'string', length: '2'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Short Text"
-    [(value)]="PO_ITEMS.SHORT_TEXT"
-    [(abap)]="{type: 'string', length: '40'}"
-/>
-
-
-<fast-text-field [(label)]="Stock Segment"
-    [(value)]="PO_ITEMS.STK_SEGMENT"
-    [(abap)]="{type: 'string', length: '16', mid: 'SGT_S'}" [(shlp)]="{type:'SH', id:'SGT_CAT_FIELD_POPUP'}"
-/>
-
-
-<fast-text-field [(label)]="Storage location"
-    [(value)]="PO_ITEMS.STORE_LOC"
-    [(abap)]="{type: 'string', length: '4', mid: 'LAG'}" [(shlp)]="{type:'SH', id:'H_T001L'}"
-/>
-
-
-<fast-select [(label)]="Tax on sales/purchases code"
-    [(value)]="PO_ITEMS.TAX_CODE" [(options)]="{type:'CT', id:'T007A'}"
-    [(abap)]="{type: 'string', length: '2'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Requirement Tracking Number"
-    [(value)]="PO_ITEMS.TRACKINGNO"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-select [(label)]="Valuation type"
-    [(value)]="PO_ITEMS.VAL_TYPE" [(options)]="{type:'CT', id:'T149D'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'BWT'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Material number used by vendor"
-    [(value)]="PO_ITEMS.VEND_MAT"
-    [(abap)]="{type: 'string', length: '22'}"
-/>
-
-
 <!-- PO_ITEM_ACCOUNT_ASSIGNMENT BAPIEKKN Table of Account Assignments -->
 <ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEM_ACCOUNT_ASSIGNMENT" title="Table of Account Assignments"
             data-summary="false" default-sort=""
@@ -2147,146 +2281,6 @@
 
 
 <fast-checkbox [(label)]="Indicator: Unlimited Overdelivery Allowed" [(checked)]="PO_ITEM_ADD_DATA.UNLIMITED"/>
-
-
-<!-- PO_ITEM_SCHEDULES BAPIEKET Table of Schedule Lines -->
-<ui-datagrid data.bind="BAPI_PO_CREATE PO_ITEM_SCHEDULES" title="Table of Schedule Lines"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="BATCH" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"CHA", shlp:{type:'CH', id:'MCH1'}}'
-              label="Batch Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="BOMEXPL_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"8", shlp:{type:'SH', id:'H_SNUM'}}'
-              label="BOM explosion number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CREATE_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'ESTKZ'}}'
-              label="Creation indicator (purchase requisition/schedule lines)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="DELIV_DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
-              label="Item delivery date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
-    <fd-fd-column sortable field="DELIV_TIME" data-abap.bind='{ddic:"TIMS", type:"string", format:"time"}'
-              label="Delivery Date Time-Spot" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'HHMMSS'}"></fd-fd-column>
-    <fd-fd-column sortable field="DEL_DATCAT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'PRGRS'}}'
-              label="Date type (day, week, month, interval)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="DEL_DATCAT_EXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'SH', id:'H_TPRG'}}'
-              label="Category of delivery date" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BSP", shlp:{type:'CH', id:'EKPO'}}'
-              label="Item Number of Purchasing Document" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PREQ_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5", mid:"BAP", shlp:{type:'CH', id:'EBAN'}}'
-              label="Item number of purchase requisition" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PREQ_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BAN", shlp:{type:'SH', id:'MBAN_C'}}' alpha-exit="ALPHA" 
-              label="Purchase requisition number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="QUANTITY" unit="UNIT" data-abap.bind='{ddic:"QUAN", type:"number", format:"quantity", length:"10.3"}'
-              label="Scheduled Quantity" markup="{'html-tag': 'fd-fd-column', 'initial': '0.0', 'comment': 'Quantity'}"></fd-fd-column>
-    <fd-fd-column sortable field="QUOTA_ITEM" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"3"}'
-              label="Quota arrangement item" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="QUOTA_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
-              label="Number of quota arrangement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="RESERV_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"10", mid:"RES", shlp:{type:'CH', id:'RESB'}}'
-              label="Number of reservation/dependent requirements" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SERIAL_NO" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"4", shlp:{type:'CH', id:'EKET'}}'
-              label="Delivery Schedule Line Counter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'Numeric string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VEND_BATCH" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
-              label="Vendor Batch Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VERSION" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"VER", shlp:{type:'SH', id:'H_MKAL'}}'
-              label="Production Version" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- PO_ITEM_SCHEDULES BAPIEKET Table of Schedule Lines -->
-
-<fast-select [(label)]="Batch Number"
-    [(value)]="PO_ITEM_SCHEDULES.BATCH" [(options)]="{type:'CH', id:'MCH1'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'CHA'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="BOM explosion number"
-    [(value)]="PO_ITEM_SCHEDULES.BOMEXPL_NO"
-    [(abap)]="{type: 'string', length: '8'}" [(shlp)]="{type:'SH', id:'H_SNUM'}"
-/>
-
-
-<fast-select [(label)]="Creation indicator (purchase requisition/schedule lines)"
-    [(value)]="PO_ITEM_SCHEDULES.CREATE_IND" [(options)]="{type:'FV', id:'ESTKZ'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-datepicker label="Item delivery date" [(value)]="PO_ITEM_SCHEDULES.DELIV_DATE"/>
-
-
-<fast-timepicker label="Delivery Date Time-Spot" [(value)]="PO_ITEM_SCHEDULES.DELIV_TIME"/>
-
-
-<fast-select [(label)]="Date type (day, week, month, interval)"
-    [(value)]="PO_ITEM_SCHEDULES.DEL_DATCAT" [(options)]="{type:'FV', id:'PRGRS'}"
-    [(abap)]="{type: 'string', length: '1'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Category of delivery date"
-    [(value)]="PO_ITEM_SCHEDULES.DEL_DATCAT_EXT"
-    [(abap)]="{type: 'string', length: '1'}" [(shlp)]="{type:'SH', id:'H_TPRG'}"
-/>
-
-
-<fast-text-field [(label)]="Item Number of Purchasing Document"
-    [(value)]="PO_ITEM_SCHEDULES.PO_ITEM"
-    [(abap)]="{type: 'string', length: '5', mid: 'BSP'}" [(shlp)]="{type:'CH', id:'EKPO'}"
-/>
-
-
-<fast-select [(label)]="Item number of purchase requisition"
-    [(value)]="PO_ITEM_SCHEDULES.PREQ_ITEM" [(options)]="{type:'CH', id:'EBAN'}"
-    [(abap)]="{type: 'string', length: '5', mid: 'BAP'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Purchase requisition number"
-    [(value)]="PO_ITEM_SCHEDULES.PREQ_NO"
-    [(abap)]="{type: 'string', length: '10', mid: 'BAN', alpha: 'ALPHA'}" [(shlp)]="{type:'SH', id:'MBAN_C'}"
-/>
-
-
-<fast-text-field [(label)]="Scheduled Quantity"
-    [(value)]="PO_ITEM_SCHEDULES.QUANTITY"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Quota arrangement item"
-    [(value)]="PO_ITEM_SCHEDULES.QUOTA_ITEM"
-    [(abap)]="{type: 'string', length: '3'}"
-/>
-
-
-<fast-text-field [(label)]="Number of quota arrangement"
-    [(value)]="PO_ITEM_SCHEDULES.QUOTA_NO"
-    [(abap)]="{type: 'string', length: '10', alpha: 'ALPHA'}"
-/>
-
-
-<fast-select [(label)]="Number of reservation/dependent requirements"
-    [(value)]="PO_ITEM_SCHEDULES.RESERV_NO" [(options)]="{type:'CH', id:'RESB'}"
-    [(abap)]="{type: 'string', length: '10', mid: 'RES'}"
-></fast-select>
-
-
-<fast-select [(label)]="Delivery Schedule Line Counter"
-    [(value)]="PO_ITEM_SCHEDULES.SERIAL_NO" [(options)]="{type:'CH', id:'EKET'}"
-    [(abap)]="{type: 'string', length: '4'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Vendor Batch Number"
-    [(value)]="PO_ITEM_SCHEDULES.VEND_BATCH"
-    [(abap)]="{type: 'string', length: '15'}"
-/>
-
-
-<fast-text-field [(label)]="Production Version"
-    [(value)]="PO_ITEM_SCHEDULES.VERSION"
-    [(abap)]="{type: 'string', length: '4', mid: 'VER'}" [(shlp)]="{type:'SH', id:'H_MKAL'}"
-/>
 
 
 <!-- PO_ITEM_TEXT BAPIEKPOTX Table of Item Texts -->
@@ -3236,4 +3230,12 @@
     [(value)]="RETURN.TYPE"
     [(abap)]="{type: 'string', length: '1'}"
 />
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<fast-select [(label)]="Purchasing Document Number"
+    [(value)]="PURCHASEORDER" [(options)]="{type:'CH', id:'EKKO'}"
+    [(abap)]="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+></fast-select>
 

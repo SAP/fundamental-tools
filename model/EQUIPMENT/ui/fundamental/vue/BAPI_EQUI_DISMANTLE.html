@@ -1,6 +1,17 @@
-<!-- BAPI_EQUI_DISMANTLE 0.3 -->
+<!-- BAPI_EQUI_DISMANTLE 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+
+<fd-form-item>
+    <fd-form-label>Equipment Number</fd-form-label>
+        <fd-input v-model="EQUIPMENT"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</fd-form-item>
+
 
 <fd-form-item>
     <fd-form-label>Date on which installation location of equipment was changed</fd-form-label>
@@ -11,15 +22,6 @@
 <fd-form-item>
     <fd-form-label>Time at which the InstallLoc of the equipment was changed</fd-form-label>
     <fd-time-picker v-model="DISM_TIME"></fd-time-picker>
-</fd-form-item>
-
-
-<fd-form-item>
-    <fd-form-label>Equipment Number</fd-form-label>
-        <fd-input v-model="EQUIPMENT"
-            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'EQUI'}"
-        />
 </fd-form-item>
 
 

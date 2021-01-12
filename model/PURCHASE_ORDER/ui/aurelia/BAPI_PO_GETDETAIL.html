@@ -1,6 +1,11 @@
-<!-- BAPI_PO_GETDETAIL 0.3 -->
+<!-- BAPI_PO_GETDETAIL 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
+<ui-input value.bind="PURCHASEORDER" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES"}' alpha-exit="ALPHA" 
+          label="Purchasing Document Number"></ui-input>
+
 <ui-combo value.bind="ACCOUNT_ASSIGNMENT" shlp.bind='{type:'FV', id:'SELKZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Selection flag"></ui-combo>
 
@@ -22,9 +27,6 @@
 <ui-combo value.bind="ITEM_TEXTS" shlp.bind='{type:'FV', id:'SELKZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Selection flag"></ui-combo>
 
-<ui-input value.bind="PURCHASEORDER" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES"}' alpha-exit="ALPHA" 
-          label="Purchasing Document Number"></ui-input>
-
 <ui-combo value.bind="SCHEDULES" shlp.bind='{type:'FV', id:'SELKZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Selection flag"></ui-combo>
 
@@ -33,376 +35,6 @@
 
 <ui-combo value.bind="SERVICE_TEXTS" shlp.bind='{type:'FV', id:'SELKZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Selection flag"></ui-combo>
-
-
-<!-- OUTPUT PARAMETERS -->
-
-<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
-<ui-input value.bind="PO_ADDRESS.ADDRESS_ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
-          label="(Not supported) Physical address ID"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.ADDRHANDLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"140"}'
-          label="Handle for Creating Addresses/Persons (Bus. Addr. Services)"></ui-input>
-
-<ui-combo value.bind="PO_ADDRESS.ADDRNUMBER" shlp.bind='{type:'CT', id:'ADRC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"ADR"}' alpha-exit="ALPHA" 
-          label="Address number"></ui-combo>
-
-<ui-combo value.bind="PO_ADDRESS.ADDRORIGIN" shlp.bind='{type:'CT', id:'TSAD6'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
-          label="(Not Supported) Address Data Source (Key)"></ui-combo>
-
-<ui-input value.bind="PO_ADDRESS.BUILDING" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="old: building (no. or abbreviation)"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.BUILD_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-          label="Building (Number or Code)"></ui-input>
-
-<ui-combo value.bind="PO_ADDRESS.CHCKSTATUS" shlp.bind='{type:'FV', id:'AD_CHECKST'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="City file test status"></ui-combo>
-
-<ui-input value.bind="PO_ADDRESS.CITY1" shlp.bind='{type:'SH', id:'CLCITYNAME'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="City"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.CITY2" shlp.bind='{type:'SH', id:'CITY_PART'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="District"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.CITYP_CODE" shlp.bind='{type:'SH', id:'CPRTA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="ALPHA" 
-          label="District code for City and Street file"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.CITY_CODE" shlp.bind='{type:'SH', id:'CITYA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
-          label="City code for city/street file"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.CITY_CODE2" shlp.bind='{type:'SH', id:'CITYA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
-          label="City PO box code (City file)"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.COUNTRY" shlp.bind='{type:'CT', id:'T005'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"LND"}'
-          label="Country Key"></ui-input>
-
-<ui-date date.bind="PO_ADDRESS.DATE" label="Date referred to"></ui-date>
-
-<ui-date date.bind="PO_ADDRESS.DATE_FROM" label="Valid-from date - in current Release only 00010101 possible"></ui-date>
-
-<ui-date date.bind="PO_ADDRESS.DATE_TO" label="Valid-to date in current Release only 99991231 possible"></ui-date>
-
-<ui-combo value.bind="PO_ADDRESS.DEFLT_COMM" shlp.bind='{type:'CT', id:'TSAC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="Communication Method (Key) (Business Address Services)"></ui-combo>
-
-<ui-input value.bind="PO_ADDRESS.EXTENSION1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Extension (only for data conversion) (data line/telebox)"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.EXTENSION2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Extension (only for data conversion) (data line/telebox)"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.FAX_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="First fax no.: extension"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.FAX_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="First fax no.: dialling code+number"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.FLOOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Floor in building"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.HOUSE_NUM1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="House Number"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.HOUSE_NUM2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="House number supplement"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.HOUSE_NUM3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="(Not supported) House Number Range"></ui-input>
-
-<ui-lang value.bind="PO_ADDRESS.LANGU" shlp.bind='{type:'SH', id:'H_T002'}' data-abap.bind='{ddic:"LANG", type:"string", format:"lang", length:"1", mid:"SPR"}' alpha-exit="ISOLA" 
-         label="Language Key"></ui-lang>
-
-<ui-input value.bind="PO_ADDRESS.LOCATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Street 5"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.NAME1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Name 1"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.NAME2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Name 2"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.NAME3" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Name 3"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.NAME4" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Name 4"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.NAME_CO" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="c/o name"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.NAME_TXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-          label="Converted name field (with form of address)"></ui-input>
-
-<ui-combo value.bind="PO_ADDRESS.NATION" shlp.bind='{type:'CT', id:'TSADV'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"ADDRESS_NATION"}'
-          label="Version ID for International Addresses"></ui-combo>
-
-<ui-input value.bind="PO_ADDRESS.POSTALAREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
-          label="(Not Supported) Post Delivery District"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.POST_CODE1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="City postal code"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.POST_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="PO Box Postal Code"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.POST_CODE3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Company Postal Code (for Large Customers)"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.PO_BOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="PO Box"></ui-input>
-
-<ui-combo value.bind="PO_ADDRESS.PO_BOX_CTY" shlp.bind='{type:'CT', id:'T005'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="PO box country"></ui-combo>
-
-<ui-input value.bind="PO_ADDRESS.PO_BOX_LOC" shlp.bind='{type:'SH', id:'CITY_NAME'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="PO Box city"></ui-input>
-
-<ui-checkbox value.bind="PO_ADDRESS.PO_BOX_NUM" label="Flag: PO Box Without Number"></ui-checkbox>
-
-<ui-combo value.bind="PO_ADDRESS.PO_BOX_REG" shlp.bind='{type:'CT', id:'T005S'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="Region for PO Box (Country, State, Province, ...)"></ui-combo>
-
-<ui-input value.bind="PO_ADDRESS.REGION" shlp.bind='{type:'CT', id:'T005S'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="Region (State, Province, County)"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.REMARK" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-          label="Address notes"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.ROOMNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Room or Appartment Number"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.SORT1" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-          label="Search Term 1"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.SORT2" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-          label="Search Term 2"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.SORT_PHN" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-          label="(Not Supported) Phonetic Search Sort Field"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.STREET" shlp.bind='{type:'SH', id:'CLSTRTNAME'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"60"}'
-          label="Street"></ui-input>
-
-<ui-combo value.bind="PO_ADDRESS.STREETABBR" shlp.bind='{type:'CT', id:'ADRSTRTYPE'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
-          label="(Not Supported) Abbreviation of Street Name"></ui-combo>
-
-<ui-input value.bind="PO_ADDRESS.STREETCODE" shlp.bind='{type:'SH', id:'STRTA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
-          label="Street Number for City/Street File"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.STR_SUPPL1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Street 2"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.STR_SUPPL2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-          label="Street 3"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.TAXJURCODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"15", mid:"TXJ"}'
-          label="Tax Jurisdiction"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.TEL_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="First Telephone No.: Extension"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.TEL_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="First telephone no.: dialling code+number"></ui-input>
-
-<ui-input value.bind="PO_ADDRESS.TIME_ZONE" shlp.bind='{type:'SH', id:'VTTZZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"6"}'
-          label="Address time zone"></ui-input>
-
-<ui-combo value.bind="PO_ADDRESS.TITLE" shlp.bind='{type:'CT', id:'TSAD3'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
-          label="Form-of-Address Key"></ui-combo>
-
-<ui-combo value.bind="PO_ADDRESS.TRANSPZONE" shlp.bind='{type:'CT', id:'TZONE'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Transportation zone to or from which the goods are delivered"></ui-combo>
-
-
-<!-- PO_HEADER BAPIEKKOL PO Header Data -->
-<ui-input value.bind="PO_HEADER.AGREEMENT" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KTR"}' alpha-exit="ALPHA" 
-          label="Number of principal purchase agreement"></ui-input>
-
-<ui-date date.bind="PO_HEADER.APPLIC_BY" label="Closing Date for Applications"></ui-date>
-
-<ui-input value.bind="PO_HEADER.BIDINV_NO" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES"}' alpha-exit="ALPHA" 
-          label="Bid invitation number"></ui-input>
-
-<ui-date date.bind="PO_HEADER.BINDG_PER" label="Binding Period for Quotation"></ui-date>
-
-<ui-input value.bind="PO_HEADER.CASH_DISC1" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"4.3"}'
-          label="Cash discount percentage 1"></ui-input>
-
-<ui-input value.bind="PO_HEADER.CASH_DISC2" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"4.3"}'
-          label="Cash Discount Percentage 2"></ui-input>
-
-<ui-input value.bind="PO_HEADER.CNTRL_IND" shlp.bind='{type:'FV', id:'BSAKZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Control indicator for purchasing document type"></ui-input>
-
-<ui-input value.bind="PO_HEADER.COLL_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Collective Number"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADER.COMPL_DLV" label="Complete Delivery Stipulated for Each Purchase Order"></ui-checkbox>
-
-<ui-input value.bind="PO_HEADER.CO_CODE" shlp.bind='{type:'SH', id:'C_T001'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"BUK"}'
-          label="Company Code"></ui-input>
-
-<ui-input value.bind="PO_HEADER.CREATED_BY" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-          label="Name of Person who Created the Object"></ui-input>
-
-<ui-date date.bind="PO_HEADER.CREATED_ON" label="Date on Which Record Was Created"></ui-date>
-
-<ui-input value.bind="PO_HEADER.CURRENCY_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="ISO Currency Code"></ui-input>
-
-<ui-input value.bind="PO_HEADER.CUSTOMER" shlp.bind='{type:'SH', id:'DEBI'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KUN"}' alpha-exit="ALPHA" 
-          label="Customer Number"></ui-input>
-
-<ui-input value.bind="PO_HEADER.DELETE_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Deletion indicator in purchasing document"></ui-input>
-
-<ui-input value.bind="PO_HEADER.DIFF_INV" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LRE"}' alpha-exit="ALPHA" 
-          label="Different Invoicing Party"></ui-input>
-
-<ui-combo value.bind="PO_HEADER.DOC_CAT" shlp.bind='{type:'FV', id:'EBSTYP'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Purchasing Document Category"></ui-combo>
-
-<ui-input value.bind="PO_HEADER.DOC_COND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Number of the document condition"></ui-input>
-
-<ui-date date.bind="PO_HEADER.DOC_DATE" label="Purchasing Document Date"></ui-date>
-
-<ui-input value.bind="PO_HEADER.DOC_TYPE" shlp.bind='{type:'SH', id:'H_T161'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"BSA"}'
-          label="Purchasing Document Type"></ui-input>
-
-<ui-input value.bind="PO_HEADER.DSCNT1_TO" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
-          label="Cash discount days 1"></ui-input>
-
-<ui-input value.bind="PO_HEADER.DSCNT2_TO" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
-          label="Cash discount days 2"></ui-input>
-
-<ui-input value.bind="PO_HEADER.DSCNT3_TO" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
-          label="Cash discount days 3"></ui-input>
-
-<ui-input value.bind="PO_HEADER.EXCH_RATE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8.5"}'
-          label="Direct Quoted Exchange Rate"></ui-input>
-
-<ui-input value.bind="PO_HEADER.EXCH_RATE_CM" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8.5"}'
-          label="Indirect Quoted Exchange Rate"></ui-input>
-
-<ui-combo value.bind="PO_HEADER.EXPORT_NO" shlp.bind='{type:'CH', id:'EIKP'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Number of foreign trade data in MM and SD documents"></ui-combo>
-
-<ui-checkbox value.bind="PO_HEADER.EX_RATE_FX" label="Indicator: Fixing of Exchange Rate"></ui-checkbox>
-
-<ui-checkbox value.bind="PO_HEADER.GR_MESSAGE" label="Indicator: Goods Receipt Message"></ui-checkbox>
-
-<ui-checkbox value.bind="PO_HEADER.HOLD" label="Purchase order not yet complete"></ui-checkbox>
-
-<ui-input value.bind="PO_HEADER.INCOTERMS1" shlp.bind='{type:'SH', id:'H_TINC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="Incoterms (Part 1)"></ui-input>
-
-<ui-input value.bind="PO_HEADER.INCOTERMS2" data-abap.bind='{ddic:"CHAR", type:"string", length:"28"}'
-          label="Incoterms (Part 2)"></ui-input>
-
-<ui-input value.bind="PO_HEADER.ITEM_INTVL" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5"}'
-          label="Item Number Interval"></ui-input>
-
-<ui-lang value.bind="PO_HEADER.LANGUAGE" shlp.bind='{type:'SH', id:'H_T002'}' data-abap.bind='{ddic:"LANG", type:"string", format:"lang", length:"1", mid:"SPR"}' alpha-exit="ISOLA" 
-         label="Language Key"></ui-lang>
-
-<ui-input value.bind="PO_HEADER.LAST_ITEM" shlp.bind='{type:'CH', id:'EKPO'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5"}'
-          label="Last Item Number"></ui-input>
-
-<ui-combo value.bind="PO_HEADER.LOGSYSTEM" shlp.bind='{type:'CT', id:'TBDLS'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
-          label="Logical System"></ui-combo>
-
-<ui-checkbox value.bind="PO_HEADER.MAST_COND" label="Document with time-dependent conditions"></ui-checkbox>
-
-<ui-input value.bind="PO_HEADER.OUR_REF" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-          label="Our Reference"></ui-input>
-
-<ui-input value.bind="PO_HEADER.PMNTTRMS" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
-          label="Terms of Payment Key"></ui-input>
-
-<ui-input value.bind="PO_HEADER.PO_NUMBER" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES"}' alpha-exit="ALPHA" 
-          label="Purchasing Document Number"></ui-input>
-
-<ui-combo value.bind="PO_HEADER.PROCEDURE" shlp.bind='{type:'CT', id:'T683'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"6"}'
-          label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"></ui-combo>
-
-<ui-input value.bind="PO_HEADER.PURCH_ORG" shlp.bind='{type:'SH', id:'H_T024E'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO"}'
-          label="Purchasing organization"></ui-input>
-
-<ui-input value.bind="PO_HEADER.PUR_GROUP" shlp.bind='{type:'SH', id:'H_T024'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"EKG"}'
-          label="Purchasing Group"></ui-input>
-
-<ui-input value.bind="PO_HEADER.QUOTATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-          label="Quotation Number"></ui-input>
-
-<ui-date date.bind="PO_HEADER.QUOT_DATE" label="Quotation Submission Date"></ui-date>
-
-<ui-date date.bind="PO_HEADER.QUOT_DEAD" label="Deadline for Submission of Bid/Quotation"></ui-date>
-
-<ui-input value.bind="PO_HEADER.RCVG_VEND" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF"}' alpha-exit="ALPHA" 
-          label="Field not used"></ui-input>
-
-<ui-input value.bind="PO_HEADER.REF_1" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
-          label="Your Reference"></ui-input>
-
-<ui-input value.bind="PO_HEADER.REJ_REASON" data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
-          label="Reason for rejection of quotations and sales orders"></ui-input>
-
-<ui-combo value.bind="PO_HEADER.REL_GROUP" shlp.bind='{type:'CT', id:'T16FG'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
-          label="Release group"></ui-combo>
-
-<ui-combo value.bind="PO_HEADER.REL_IND" shlp.bind='{type:'CT', id:'T16FB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Release Indicator: Purchasing Document"></ui-combo>
-
-<ui-input value.bind="PO_HEADER.REL_STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}'
-          label="Release State"></ui-input>
-
-<ui-combo value.bind="PO_HEADER.REL_STRAT" shlp.bind='{type:'CT', id:'T16FS'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
-          label="Release Strategy"></ui-combo>
-
-<ui-input value.bind="PO_HEADER.SALES_PERS" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Responsible Salesperson at Vendor's Office"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADER.SCHED_IND" label="Indicator for scheduling agreement release documentation"></ui-checkbox>
-
-<ui-combo value.bind="PO_HEADER.STATUS" shlp.bind='{type:'FV', id:'ESTAK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
-          label="Status of Purchasing Document"></ui-combo>
-
-<ui-input value.bind="PO_HEADER.SUBITEMINT" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5"}'
-          label="Item Number Interval for Subitems"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADER.SUBJ_TO_R" label="Release Not Yet Completely Effected"></ui-checkbox>
-
-<ui-input value.bind="PO_HEADER.SUPPL_PLNT" shlp.bind='{type:'SH', id:'H_T001W'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
-          label="Supplying (issuing) plant in case of stock transport order"></ui-input>
-
-<ui-input value.bind="PO_HEADER.SUPPL_VEND" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LLI"}' alpha-exit="ALPHA" 
-          label="Supplying Vendor"></ui-input>
-
-<ui-input value.bind="PO_HEADER.TARGET_VAL" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"22.4"}'
-          label="Cumulative Planned Value"></ui-input>
-
-<ui-input value.bind="PO_HEADER.TAXR_CNTRY" shlp.bind='{type:'CT', id:'T005'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
-          label="Country for Tax Return"></ui-input>
-
-<ui-input value.bind="PO_HEADER.TELEPHONE" data-abap.bind='{ddic:"CHAR", type:"string", length:"16"}'
-          label="Vendor's Telephone Number"></ui-input>
-
-<ui-input value.bind="PO_HEADER.UPDATE_GRP" shlp.bind='{type:'SH', id:'H_TMCB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"6", mid:"MCF"}' alpha-exit="ALPHA" 
-          label="Update group for statistics update"></ui-input>
-
-<ui-input value.bind="PO_HEADER.VENDOR" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF"}' alpha-exit="ALPHA" 
-          label="Vendor's account number"></ui-input>
-
-<ui-input value.bind="PO_HEADER.VEND_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
-          label="Name 1"></ui-input>
-
-<ui-date date.bind="PO_HEADER.VPER_END" label="End of Validity Period"></ui-date>
-
-<ui-date date.bind="PO_HEADER.VPER_START" label="Start of Validity Period"></ui-date>
-
-<ui-date date.bind="PO_HEADER.WARRANTY" label="Warranty Date"></ui-date>
 
 
 <!-- TABLE PARAMETERS -->
@@ -2437,4 +2069,374 @@
 
 <ui-input value.bind="RETURN.TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- PO_ADDRESS BAPIADDRESS Ordering Address Data -->
+<ui-input value.bind="PO_ADDRESS.ADDRESS_ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
+          label="(Not supported) Physical address ID"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.ADDRHANDLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"140"}'
+          label="Handle for Creating Addresses/Persons (Bus. Addr. Services)"></ui-input>
+
+<ui-combo value.bind="PO_ADDRESS.ADDRNUMBER" shlp.bind='{type:'CT', id:'ADRC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"ADR"}' alpha-exit="ALPHA" 
+          label="Address number"></ui-combo>
+
+<ui-combo value.bind="PO_ADDRESS.ADDRORIGIN" shlp.bind='{type:'CT', id:'TSAD6'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+          label="(Not Supported) Address Data Source (Key)"></ui-combo>
+
+<ui-input value.bind="PO_ADDRESS.BUILDING" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="old: building (no. or abbreviation)"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.BUILD_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+          label="Building (Number or Code)"></ui-input>
+
+<ui-combo value.bind="PO_ADDRESS.CHCKSTATUS" shlp.bind='{type:'FV', id:'AD_CHECKST'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="City file test status"></ui-combo>
+
+<ui-input value.bind="PO_ADDRESS.CITY1" shlp.bind='{type:'SH', id:'CLCITYNAME'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="City"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.CITY2" shlp.bind='{type:'SH', id:'CITY_PART'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="District"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.CITYP_CODE" shlp.bind='{type:'SH', id:'CPRTA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}' alpha-exit="ALPHA" 
+          label="District code for City and Street file"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.CITY_CODE" shlp.bind='{type:'SH', id:'CITYA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
+          label="City code for city/street file"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.CITY_CODE2" shlp.bind='{type:'SH', id:'CITYA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
+          label="City PO box code (City file)"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.COUNTRY" shlp.bind='{type:'CT', id:'T005'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"LND"}'
+          label="Country Key"></ui-input>
+
+<ui-date date.bind="PO_ADDRESS.DATE" label="Date referred to"></ui-date>
+
+<ui-date date.bind="PO_ADDRESS.DATE_FROM" label="Valid-from date - in current Release only 00010101 possible"></ui-date>
+
+<ui-date date.bind="PO_ADDRESS.DATE_TO" label="Valid-to date in current Release only 99991231 possible"></ui-date>
+
+<ui-combo value.bind="PO_ADDRESS.DEFLT_COMM" shlp.bind='{type:'CT', id:'TSAC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="Communication Method (Key) (Business Address Services)"></ui-combo>
+
+<ui-input value.bind="PO_ADDRESS.EXTENSION1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Extension (only for data conversion) (data line/telebox)"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.EXTENSION2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Extension (only for data conversion) (data line/telebox)"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.FAX_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="First fax no.: extension"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.FAX_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="First fax no.: dialling code+number"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.FLOOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Floor in building"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.HOUSE_NUM1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="House Number"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.HOUSE_NUM2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="House number supplement"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.HOUSE_NUM3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="(Not supported) House Number Range"></ui-input>
+
+<ui-lang value.bind="PO_ADDRESS.LANGU" shlp.bind='{type:'SH', id:'H_T002'}' data-abap.bind='{ddic:"LANG", type:"string", format:"lang", length:"1", mid:"SPR"}' alpha-exit="ISOLA" 
+         label="Language Key"></ui-lang>
+
+<ui-input value.bind="PO_ADDRESS.LOCATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Street 5"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.NAME1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Name 1"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.NAME2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Name 2"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.NAME3" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Name 3"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.NAME4" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Name 4"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.NAME_CO" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="c/o name"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.NAME_TXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+          label="Converted name field (with form of address)"></ui-input>
+
+<ui-combo value.bind="PO_ADDRESS.NATION" shlp.bind='{type:'CT', id:'TSADV'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"ADDRESS_NATION"}'
+          label="Version ID for International Addresses"></ui-combo>
+
+<ui-input value.bind="PO_ADDRESS.POSTALAREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
+          label="(Not Supported) Post Delivery District"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.POST_CODE1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="City postal code"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.POST_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="PO Box Postal Code"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.POST_CODE3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Company Postal Code (for Large Customers)"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.PO_BOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="PO Box"></ui-input>
+
+<ui-combo value.bind="PO_ADDRESS.PO_BOX_CTY" shlp.bind='{type:'CT', id:'T005'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="PO box country"></ui-combo>
+
+<ui-input value.bind="PO_ADDRESS.PO_BOX_LOC" shlp.bind='{type:'SH', id:'CITY_NAME'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="PO Box city"></ui-input>
+
+<ui-checkbox value.bind="PO_ADDRESS.PO_BOX_NUM" label="Flag: PO Box Without Number"></ui-checkbox>
+
+<ui-combo value.bind="PO_ADDRESS.PO_BOX_REG" shlp.bind='{type:'CT', id:'T005S'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="Region for PO Box (Country, State, Province, ...)"></ui-combo>
+
+<ui-input value.bind="PO_ADDRESS.REGION" shlp.bind='{type:'CT', id:'T005S'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="Region (State, Province, County)"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.REMARK" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+          label="Address notes"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.ROOMNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Room or Appartment Number"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.SORT1" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+          label="Search Term 1"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.SORT2" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+          label="Search Term 2"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.SORT_PHN" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+          label="(Not Supported) Phonetic Search Sort Field"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.STREET" shlp.bind='{type:'SH', id:'CLSTRTNAME'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"60"}'
+          label="Street"></ui-input>
+
+<ui-combo value.bind="PO_ADDRESS.STREETABBR" shlp.bind='{type:'CT', id:'ADRSTRTYPE'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
+          label="(Not Supported) Abbreviation of Street Name"></ui-combo>
+
+<ui-input value.bind="PO_ADDRESS.STREETCODE" shlp.bind='{type:'SH', id:'STRTA'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}' alpha-exit="ALPHA" 
+          label="Street Number for City/Street File"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.STR_SUPPL1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Street 2"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.STR_SUPPL2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+          label="Street 3"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.TAXJURCODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"15", mid:"TXJ"}'
+          label="Tax Jurisdiction"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.TEL_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="First Telephone No.: Extension"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.TEL_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="First telephone no.: dialling code+number"></ui-input>
+
+<ui-input value.bind="PO_ADDRESS.TIME_ZONE" shlp.bind='{type:'SH', id:'VTTZZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"6"}'
+          label="Address time zone"></ui-input>
+
+<ui-combo value.bind="PO_ADDRESS.TITLE" shlp.bind='{type:'CT', id:'TSAD3'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+          label="Form-of-Address Key"></ui-combo>
+
+<ui-combo value.bind="PO_ADDRESS.TRANSPZONE" shlp.bind='{type:'CT', id:'TZONE'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Transportation zone to or from which the goods are delivered"></ui-combo>
+
+
+<!-- PO_HEADER BAPIEKKOL PO Header Data -->
+<ui-input value.bind="PO_HEADER.AGREEMENT" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KTR"}' alpha-exit="ALPHA" 
+          label="Number of principal purchase agreement"></ui-input>
+
+<ui-date date.bind="PO_HEADER.APPLIC_BY" label="Closing Date for Applications"></ui-date>
+
+<ui-input value.bind="PO_HEADER.BIDINV_NO" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES"}' alpha-exit="ALPHA" 
+          label="Bid invitation number"></ui-input>
+
+<ui-date date.bind="PO_HEADER.BINDG_PER" label="Binding Period for Quotation"></ui-date>
+
+<ui-input value.bind="PO_HEADER.CASH_DISC1" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"4.3"}'
+          label="Cash discount percentage 1"></ui-input>
+
+<ui-input value.bind="PO_HEADER.CASH_DISC2" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"4.3"}'
+          label="Cash Discount Percentage 2"></ui-input>
+
+<ui-input value.bind="PO_HEADER.CNTRL_IND" shlp.bind='{type:'FV', id:'BSAKZ'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Control indicator for purchasing document type"></ui-input>
+
+<ui-input value.bind="PO_HEADER.COLL_NO" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Collective Number"></ui-input>
+
+<ui-checkbox value.bind="PO_HEADER.COMPL_DLV" label="Complete Delivery Stipulated for Each Purchase Order"></ui-checkbox>
+
+<ui-input value.bind="PO_HEADER.CO_CODE" shlp.bind='{type:'SH', id:'C_T001'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"BUK"}'
+          label="Company Code"></ui-input>
+
+<ui-input value.bind="PO_HEADER.CREATED_BY" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+          label="Name of Person who Created the Object"></ui-input>
+
+<ui-date date.bind="PO_HEADER.CREATED_ON" label="Date on Which Record Was Created"></ui-date>
+
+<ui-input value.bind="PO_HEADER.CURRENCY_ISO" data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="ISO Currency Code"></ui-input>
+
+<ui-input value.bind="PO_HEADER.CUSTOMER" shlp.bind='{type:'SH', id:'DEBI'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"KUN"}' alpha-exit="ALPHA" 
+          label="Customer Number"></ui-input>
+
+<ui-input value.bind="PO_HEADER.DELETE_IND" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Deletion indicator in purchasing document"></ui-input>
+
+<ui-input value.bind="PO_HEADER.DIFF_INV" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LRE"}' alpha-exit="ALPHA" 
+          label="Different Invoicing Party"></ui-input>
+
+<ui-combo value.bind="PO_HEADER.DOC_CAT" shlp.bind='{type:'FV', id:'EBSTYP'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Purchasing Document Category"></ui-combo>
+
+<ui-input value.bind="PO_HEADER.DOC_COND" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Number of the document condition"></ui-input>
+
+<ui-date date.bind="PO_HEADER.DOC_DATE" label="Purchasing Document Date"></ui-date>
+
+<ui-input value.bind="PO_HEADER.DOC_TYPE" shlp.bind='{type:'SH', id:'H_T161'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"BSA"}'
+          label="Purchasing Document Type"></ui-input>
+
+<ui-input value.bind="PO_HEADER.DSCNT1_TO" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
+          label="Cash discount days 1"></ui-input>
+
+<ui-input value.bind="PO_HEADER.DSCNT2_TO" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
+          label="Cash discount days 2"></ui-input>
+
+<ui-input value.bind="PO_HEADER.DSCNT3_TO" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"3"}'
+          label="Cash discount days 3"></ui-input>
+
+<ui-input value.bind="PO_HEADER.EXCH_RATE" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8.5"}'
+          label="Direct Quoted Exchange Rate"></ui-input>
+
+<ui-input value.bind="PO_HEADER.EXCH_RATE_CM" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"8.5"}'
+          label="Indirect Quoted Exchange Rate"></ui-input>
+
+<ui-combo value.bind="PO_HEADER.EXPORT_NO" shlp.bind='{type:'CH', id:'EIKP'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Number of foreign trade data in MM and SD documents"></ui-combo>
+
+<ui-checkbox value.bind="PO_HEADER.EX_RATE_FX" label="Indicator: Fixing of Exchange Rate"></ui-checkbox>
+
+<ui-checkbox value.bind="PO_HEADER.GR_MESSAGE" label="Indicator: Goods Receipt Message"></ui-checkbox>
+
+<ui-checkbox value.bind="PO_HEADER.HOLD" label="Purchase order not yet complete"></ui-checkbox>
+
+<ui-input value.bind="PO_HEADER.INCOTERMS1" shlp.bind='{type:'SH', id:'H_TINC'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="Incoterms (Part 1)"></ui-input>
+
+<ui-input value.bind="PO_HEADER.INCOTERMS2" data-abap.bind='{ddic:"CHAR", type:"string", length:"28"}'
+          label="Incoterms (Part 2)"></ui-input>
+
+<ui-input value.bind="PO_HEADER.ITEM_INTVL" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5"}'
+          label="Item Number Interval"></ui-input>
+
+<ui-lang value.bind="PO_HEADER.LANGUAGE" shlp.bind='{type:'SH', id:'H_T002'}' data-abap.bind='{ddic:"LANG", type:"string", format:"lang", length:"1", mid:"SPR"}' alpha-exit="ISOLA" 
+         label="Language Key"></ui-lang>
+
+<ui-input value.bind="PO_HEADER.LAST_ITEM" shlp.bind='{type:'CH', id:'EKPO'}' data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5"}'
+          label="Last Item Number"></ui-input>
+
+<ui-combo value.bind="PO_HEADER.LOGSYSTEM" shlp.bind='{type:'CT', id:'TBDLS'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
+          label="Logical System"></ui-combo>
+
+<ui-checkbox value.bind="PO_HEADER.MAST_COND" label="Document with time-dependent conditions"></ui-checkbox>
+
+<ui-input value.bind="PO_HEADER.OUR_REF" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+          label="Our Reference"></ui-input>
+
+<ui-input value.bind="PO_HEADER.PMNTTRMS" data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+          label="Terms of Payment Key"></ui-input>
+
+<ui-input value.bind="PO_HEADER.PO_NUMBER" shlp.bind='{type:'CH', id:'EKKO'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES"}' alpha-exit="ALPHA" 
+          label="Purchasing Document Number"></ui-input>
+
+<ui-combo value.bind="PO_HEADER.PROCEDURE" shlp.bind='{type:'CT', id:'T683'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"6"}'
+          label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"></ui-combo>
+
+<ui-input value.bind="PO_HEADER.PURCH_ORG" shlp.bind='{type:'SH', id:'H_T024E'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO"}'
+          label="Purchasing organization"></ui-input>
+
+<ui-input value.bind="PO_HEADER.PUR_GROUP" shlp.bind='{type:'SH', id:'H_T024'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"EKG"}'
+          label="Purchasing Group"></ui-input>
+
+<ui-input value.bind="PO_HEADER.QUOTATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+          label="Quotation Number"></ui-input>
+
+<ui-date date.bind="PO_HEADER.QUOT_DATE" label="Quotation Submission Date"></ui-date>
+
+<ui-date date.bind="PO_HEADER.QUOT_DEAD" label="Deadline for Submission of Bid/Quotation"></ui-date>
+
+<ui-input value.bind="PO_HEADER.RCVG_VEND" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF"}' alpha-exit="ALPHA" 
+          label="Field not used"></ui-input>
+
+<ui-input value.bind="PO_HEADER.REF_1" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
+          label="Your Reference"></ui-input>
+
+<ui-input value.bind="PO_HEADER.REJ_REASON" data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
+          label="Reason for rejection of quotations and sales orders"></ui-input>
+
+<ui-combo value.bind="PO_HEADER.REL_GROUP" shlp.bind='{type:'CT', id:'T16FG'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
+          label="Release group"></ui-combo>
+
+<ui-combo value.bind="PO_HEADER.REL_IND" shlp.bind='{type:'CT', id:'T16FB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Release Indicator: Purchasing Document"></ui-combo>
+
+<ui-input value.bind="PO_HEADER.REL_STATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"8"}'
+          label="Release State"></ui-input>
+
+<ui-combo value.bind="PO_HEADER.REL_STRAT" shlp.bind='{type:'CT', id:'T16FS'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"2"}'
+          label="Release Strategy"></ui-combo>
+
+<ui-input value.bind="PO_HEADER.SALES_PERS" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Responsible Salesperson at Vendor's Office"></ui-input>
+
+<ui-checkbox value.bind="PO_HEADER.SCHED_IND" label="Indicator for scheduling agreement release documentation"></ui-checkbox>
+
+<ui-combo value.bind="PO_HEADER.STATUS" shlp.bind='{type:'FV', id:'ESTAK'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
+          label="Status of Purchasing Document"></ui-combo>
+
+<ui-input value.bind="PO_HEADER.SUBITEMINT" data-abap.bind='{ddic:"NUMC", type:"string", format:"numeric", length:"5"}'
+          label="Item Number Interval for Subitems"></ui-input>
+
+<ui-checkbox value.bind="PO_HEADER.SUBJ_TO_R" label="Release Not Yet Completely Effected"></ui-checkbox>
+
+<ui-input value.bind="PO_HEADER.SUPPL_PLNT" shlp.bind='{type:'SH', id:'H_T001W'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4"}'
+          label="Supplying (issuing) plant in case of stock transport order"></ui-input>
+
+<ui-input value.bind="PO_HEADER.SUPPL_VEND" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LLI"}' alpha-exit="ALPHA" 
+          label="Supplying Vendor"></ui-input>
+
+<ui-input value.bind="PO_HEADER.TARGET_VAL" data-abap.bind='{ddic:"DEC", type:"number", format:"decimal", length:"22.4"}'
+          label="Cumulative Planned Value"></ui-input>
+
+<ui-input value.bind="PO_HEADER.TAXR_CNTRY" shlp.bind='{type:'CT', id:'T005'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"3"}'
+          label="Country for Tax Return"></ui-input>
+
+<ui-input value.bind="PO_HEADER.TELEPHONE" data-abap.bind='{ddic:"CHAR", type:"string", length:"16"}'
+          label="Vendor's Telephone Number"></ui-input>
+
+<ui-input value.bind="PO_HEADER.UPDATE_GRP" shlp.bind='{type:'SH', id:'H_TMCB'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"6", mid:"MCF"}' alpha-exit="ALPHA" 
+          label="Update group for statistics update"></ui-input>
+
+<ui-input value.bind="PO_HEADER.VENDOR" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF"}' alpha-exit="ALPHA" 
+          label="Vendor's account number"></ui-input>
+
+<ui-input value.bind="PO_HEADER.VEND_NAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
+          label="Name 1"></ui-input>
+
+<ui-date date.bind="PO_HEADER.VPER_END" label="End of Validity Period"></ui-date>
+
+<ui-date date.bind="PO_HEADER.VPER_START" label="Start of Validity Period"></ui-date>
+
+<ui-date date.bind="PO_HEADER.WARRANTY" label="Warranty Date"></ui-date>
 

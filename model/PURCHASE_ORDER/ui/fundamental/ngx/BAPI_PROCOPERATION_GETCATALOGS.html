@@ -1,4 +1,6 @@
-<!-- BAPI_PROCOPERATION_GETCATALOGS 0.3 -->
+<!-- BAPI_PROCOPERATION_GETCATALOGS 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
 
@@ -34,6 +36,71 @@
 
 
 <!-- TABLE PARAMETERS -->
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
+              label="Identifier for allowed catalogs" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Name of catalog" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
+              label="Purchasing organization" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Vendor's account number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+
+<div fd-form-item>
+    <label fd-form-label>Identifier for allowed catalogs</label>
+    <fd-combobox
+        [(ngModel)]="VALID_CATALOGS.CATALOG"
+        [dropdownValues]="{type:'CT', id:'TMW3T'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Name of catalog</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="VALID_CATALOGS.CAT_TEXT"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Purchasing organization</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="VALID_CATALOGS.PURCH_ORG"
+            data-abap="{type: 'string', length: '4', mid: 'EKO'}"
+            data-shlp="{type:'SH', id:'H_T024E'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <fd-checkbox label="Indicator: SAP product catalog: business-to-business" [(ngModel)]="VALID_CATALOGS.SD_CATALOG"></fd-checkbox>
+</div> 
+
+
+<div fd-form-item>
+    <label fd-form-label>Vendor's account number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="VALID_CATALOGS.VENDOR"
+            data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'KRED'}"
+        />
+</div>
+
 
 <!-- RETURN BAPIRETURN Return Messages -->
 <ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS RETURN" title="Return Messages"
@@ -144,71 +211,6 @@
         <input fd-input fd-form-control
             [(ngModel)]="RETURN.TYPE"
             data-abap="{type: 'string', length: '1'}"
-        />
-</div>
-
-
-<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
-<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
-              label="Identifier for allowed catalogs" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="Name of catalog" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
-              label="Purchasing organization" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
-              label="Vendor's account number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
-
-<div fd-form-item>
-    <label fd-form-label>Identifier for allowed catalogs</label>
-    <fd-combobox
-        [(ngModel)]="VALID_CATALOGS.CATALOG"
-        [dropdownValues]="{type:'CT', id:'TMW3T'}"
-        data-abap="{type: 'string', length: '20'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Name of catalog</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="VALID_CATALOGS.CAT_TEXT"
-            data-abap="{type: 'string', length: '30'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Purchasing organization</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="VALID_CATALOGS.PURCH_ORG"
-            data-abap="{type: 'string', length: '4', mid: 'EKO'}"
-            data-shlp="{type:'SH', id:'H_T024E'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <fd-checkbox label="Indicator: SAP product catalog: business-to-business" [(ngModel)]="VALID_CATALOGS.SD_CATALOG"></fd-checkbox>
-</div> 
-
-
-<div fd-form-item>
-    <label fd-form-label>Vendor's account number</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="VALID_CATALOGS.VENDOR"
-            data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'KRED'}"
         />
 </div>
 

@@ -1,412 +1,8 @@
-<!-- BAPI_EQUI_CHANGE 0.3 -->
+<!-- BAPI_EQUI_CHANGE 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
-
-<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
-
-<fast-text-field [(label)]="Fuel card number"
-    [(value)]="DATA_FLEET.CARD_NUM"
-    [(abap)]="{type: 'string', length: '30'}"
-/>
-
-
-<fast-text-field [(label)]="Chassis number"
-    [(value)]="DATA_FLEET.CHASSIS_NUM"
-    [(abap)]="{type: 'string', length: '30'}"
-/>
-
-
-<fast-text-field [(label)]="Indicator Consumption Recording: Material Movement"
-    [(value)]="DATA_FLEET.CONSUMP_MOVE"
-    [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<fast-text-field [(label)]="Indicator Consumption Recording: Permitted Tolerances"
-    [(value)]="DATA_FLEET.CONSUMP_TOL"
-    [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<fast-select [(label)]="ISO code for unit of measurement"
-    [(value)]="DATA_FLEET.DIM_UNIT_ISO" [(options)]="{type:'CT', id:'T006I'}"
-    [(abap)]="{type: 'string', length: '3'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Engine capacity"
-    [(value)]="DATA_FLEET.ENGINE_CAP"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Number of cylinders"
-    [(value)]="DATA_FLEET.ENGINE_CYL"
-    [(abap)]="{type: 'string', length: '2'}"
-/>
-
-
-<fast-text-field [(label)]="Power at specific number of revolutions per minute"
-    [(value)]="DATA_FLEET.ENGINE_POWER"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Engine serial number of manufacturer"
-    [(value)]="DATA_FLEET.ENGINE_SNR"
-    [(abap)]="{type: 'string', length: '30'}"
-/>
-
-
-<fast-text-field [(label)]="Engine type"
-    [(value)]="DATA_FLEET.ENGINE_TYPE"
-    [(abap)]="{type: 'string', length: '10'}"
-/>
-
-
-<fast-datepicker label="Validity end date" [(value)]="DATA_FLEET.EXPIRY_DATE"/>
-
-
-<fast-text-field [(label)]="Maximum fleet object height"
-    [(value)]="DATA_FLEET.FLEET_HGT"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Maximum fleet object length"
-    [(value)]="DATA_FLEET.FLEET_LEN"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Identification number for fleet object"
-    [(value)]="DATA_FLEET.FLEET_NUM"
-    [(abap)]="{type: 'string', length: '18'}"
-/>
-
-
-<fast-text-field [(label)]="Usage indicator"
-    [(value)]="DATA_FLEET.FLEET_USE"
-    [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<fast-text-field [(label)]="Manufacturer Vehicle Identification Number for Fleet Object"
-    [(value)]="DATA_FLEET.FLEET_VIN"
-    [(abap)]="{type: 'string', length: '30'}"
-/>
-
-
-<fast-text-field [(label)]="Width of fleet object"
-    [(value)]="DATA_FLEET.FLEET_WID"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Consumable Type of Primary Fuel"
-    [(value)]="DATA_FLEET.FUEL_PRI"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-text-field [(label)]="Consumable type of secondary fuel"
-    [(value)]="DATA_FLEET.FUEL_SEC"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-text-field [(label)]="Total Weight Allowed"
-    [(value)]="DATA_FLEET.GROSS_WGT"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Key number of vehicle"
-    [(value)]="DATA_FLEET.KEY_NUM"
-    [(abap)]="{type: 'string', length: '20'}"
-/>
-
-
-<fast-text-field [(label)]="License plate number"
-    [(value)]="DATA_FLEET.LICENSE_NUM"
-    [(abap)]="{type: 'string', length: '15'}"
-/>
-
-
-<fast-text-field [(label)]="ISO code for unit of measurement"
-    [(value)]="DATA_FLEET.LOAD_DIM_UNIT_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
-/>
-
-
-<fast-text-field [(label)]="Load height"
-    [(value)]="DATA_FLEET.LOAD_HGT"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Load length"
-    [(value)]="DATA_FLEET.LOAD_LEN"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Load volume"
-    [(value)]="DATA_FLEET.LOAD_VOL"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Maximum load weight"
-    [(value)]="DATA_FLEET.LOAD_WGT"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Load width"
-    [(value)]="DATA_FLEET.LOAD_WID"
-    [(abap)]="{type: 'number', length: '10.3'}"
-/>
-
-
-<fast-text-field [(label)]="Maximum number of occupants"
-    [(value)]="DATA_FLEET.MAX_OCCUPANTS"
-    [(abap)]="{type: 'string', length: '4'}"
-/>
-
-
-<fast-text-field [(label)]="NUmber of compartments"
-    [(value)]="DATA_FLEET.NO_COMPART"
-    [(abap)]="{type: 'string', length: '2'}"
-/>
-
-
-<fast-text-field [(label)]="Number of Axles in Fleet Object"
-    [(value)]="DATA_FLEET.NUM_AXLE"
-    [(abap)]="{type: 'string', length: '2'}"
-/>
-
-
-<fast-text-field [(label)]="Consumable type of oil"
-    [(value)]="DATA_FLEET.OIL_TYPE"
-    [(abap)]="{type: 'string', length: '12'}"
-/>
-
-
-<fast-text-field [(label)]="Indicator to determine the calculation method f. consumption"
-    [(value)]="DATA_FLEET.PRI_CALC"
-    [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<fast-datepicker label="Date on which the object should be replaced" [(value)]="DATA_FLEET.REPLA_DATE"/>
-
-
-<fast-text-field [(label)]="Odometer reading at replacement"
-    [(value)]="DATA_FLEET.REPLA_ODOM"
-    [(abap)]="{type: 'string', length: '22'}"
-/>
-
-
-<fast-text-field [(label)]="Hour meter reading at replacement"
-    [(value)]="DATA_FLEET.REPLA_OPH"
-    [(abap)]="{type: 'string', length: '22'}"
-/>
-
-
-<fast-text-field [(label)]="Revolutions per minute"
-    [(value)]="DATA_FLEET.REVOLUTIONS"
-    [(abap)]="{type: 'string', length: '7'}"
-/>
-
-
-<fast-text-field [(label)]="Maximum Fleet Object Speed"
-    [(value)]="DATA_FLEET.SPEED_MAX"
-    [(abap)]="{type: 'number', length: '6.3'}"
-/>
-
-
-<fast-text-field [(label)]="ISO code for unit of measurement"
-    [(value)]="DATA_FLEET.SPEED_UNIT_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
-/>
-
-
-<fast-text-field [(label)]="ISO code for unit of measurement"
-    [(value)]="DATA_FLEET.UNIT_CAP_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
-/>
-
-
-<fast-text-field [(label)]="ISO code for unit of measurement"
-    [(value)]="DATA_FLEET.UNIT_POWER_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
-/>
-
-
-<fast-text-field [(label)]="ISO code for unit of measurement"
-    [(value)]="DATA_FLEET.VOL_UNIT_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
-/>
-
-
-<fast-text-field [(label)]="ISO code for unit of measurement"
-    [(value)]="DATA_FLEET.WGT_UNIT_ISO"
-    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
-/>
-
-
-<!-- DATA_FLEETX BAPI_FLEETX Flag Structure Belonging to BAPI_FLEET (for Change BAPIs) -->
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CARD_NUM"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CHASSIS_NUM"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CONSUMP_MOVE"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CONSUMP_TOL"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.DIM_UNIT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.DIM_UNIT_ISO"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_CAP"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_CYL"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_POWER"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_SNR"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_TYPE"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.EXPIRY_DATE"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_HGT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_LEN"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_NUM"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_USE"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_VIN"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_WID"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FUEL_PRI"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FUEL_SEC"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.GROSS_WGT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.KEY_NUM"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LICENSE_NUM"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_DIM_UNIT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_DIM_UNIT_ISO"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_HGT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_LEN"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_VOL"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_WGT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_WID"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.MAX_OCCUPANTS"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.NO_COMPART"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.NUM_AXLE"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.OIL_TYPE"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.PRI_CALC"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REPLA_DATE"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REPLA_ODOM"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REPLA_OPH"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REVOLUTIONS"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.SPEED_MAX"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.SPEED_UNIT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.SPEED_UNIT_ISO"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_CAP"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_CAP_ISO"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_POWER"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_POWER_ISO"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.VOL_UNIT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.VOL_UNIT_ISO"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.WGT_UNIT"/>
-
-
-<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.WGT_UNIT_ISO"/>
-
 
 <!-- DATA_GENERAL BAPI_ITOB General Data for Technical Objects -->
 
@@ -1403,10 +999,518 @@
 />
 
 
+<!-- DATA_FLEET BAPI_FLEET Vehicle-Specific Data -->
+
+<fast-text-field [(label)]="Fuel card number"
+    [(value)]="DATA_FLEET.CARD_NUM"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Chassis number"
+    [(value)]="DATA_FLEET.CHASSIS_NUM"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Indicator Consumption Recording: Material Movement"
+    [(value)]="DATA_FLEET.CONSUMP_MOVE"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-text-field [(label)]="Indicator Consumption Recording: Permitted Tolerances"
+    [(value)]="DATA_FLEET.CONSUMP_TOL"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-select [(label)]="ISO code for unit of measurement"
+    [(value)]="DATA_FLEET.DIM_UNIT_ISO" [(options)]="{type:'CT', id:'T006I'}"
+    [(abap)]="{type: 'string', length: '3'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Engine capacity"
+    [(value)]="DATA_FLEET.ENGINE_CAP"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Number of cylinders"
+    [(value)]="DATA_FLEET.ENGINE_CYL"
+    [(abap)]="{type: 'string', length: '2'}"
+/>
+
+
+<fast-text-field [(label)]="Power at specific number of revolutions per minute"
+    [(value)]="DATA_FLEET.ENGINE_POWER"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Engine serial number of manufacturer"
+    [(value)]="DATA_FLEET.ENGINE_SNR"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Engine type"
+    [(value)]="DATA_FLEET.ENGINE_TYPE"
+    [(abap)]="{type: 'string', length: '10'}"
+/>
+
+
+<fast-datepicker label="Validity end date" [(value)]="DATA_FLEET.EXPIRY_DATE"/>
+
+
+<fast-text-field [(label)]="Maximum fleet object height"
+    [(value)]="DATA_FLEET.FLEET_HGT"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Maximum fleet object length"
+    [(value)]="DATA_FLEET.FLEET_LEN"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Identification number for fleet object"
+    [(value)]="DATA_FLEET.FLEET_NUM"
+    [(abap)]="{type: 'string', length: '18'}"
+/>
+
+
+<fast-text-field [(label)]="Usage indicator"
+    [(value)]="DATA_FLEET.FLEET_USE"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-text-field [(label)]="Manufacturer Vehicle Identification Number for Fleet Object"
+    [(value)]="DATA_FLEET.FLEET_VIN"
+    [(abap)]="{type: 'string', length: '30'}"
+/>
+
+
+<fast-text-field [(label)]="Width of fleet object"
+    [(value)]="DATA_FLEET.FLEET_WID"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Consumable Type of Primary Fuel"
+    [(value)]="DATA_FLEET.FUEL_PRI"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="Consumable type of secondary fuel"
+    [(value)]="DATA_FLEET.FUEL_SEC"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="Total Weight Allowed"
+    [(value)]="DATA_FLEET.GROSS_WGT"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Key number of vehicle"
+    [(value)]="DATA_FLEET.KEY_NUM"
+    [(abap)]="{type: 'string', length: '20'}"
+/>
+
+
+<fast-text-field [(label)]="License plate number"
+    [(value)]="DATA_FLEET.LICENSE_NUM"
+    [(abap)]="{type: 'string', length: '15'}"
+/>
+
+
+<fast-text-field [(label)]="ISO code for unit of measurement"
+    [(value)]="DATA_FLEET.LOAD_DIM_UNIT_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
+/>
+
+
+<fast-text-field [(label)]="Load height"
+    [(value)]="DATA_FLEET.LOAD_HGT"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Load length"
+    [(value)]="DATA_FLEET.LOAD_LEN"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Load volume"
+    [(value)]="DATA_FLEET.LOAD_VOL"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Maximum load weight"
+    [(value)]="DATA_FLEET.LOAD_WGT"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Load width"
+    [(value)]="DATA_FLEET.LOAD_WID"
+    [(abap)]="{type: 'number', length: '10.3'}"
+/>
+
+
+<fast-text-field [(label)]="Maximum number of occupants"
+    [(value)]="DATA_FLEET.MAX_OCCUPANTS"
+    [(abap)]="{type: 'string', length: '4'}"
+/>
+
+
+<fast-text-field [(label)]="NUmber of compartments"
+    [(value)]="DATA_FLEET.NO_COMPART"
+    [(abap)]="{type: 'string', length: '2'}"
+/>
+
+
+<fast-text-field [(label)]="Number of Axles in Fleet Object"
+    [(value)]="DATA_FLEET.NUM_AXLE"
+    [(abap)]="{type: 'string', length: '2'}"
+/>
+
+
+<fast-text-field [(label)]="Consumable type of oil"
+    [(value)]="DATA_FLEET.OIL_TYPE"
+    [(abap)]="{type: 'string', length: '12'}"
+/>
+
+
+<fast-text-field [(label)]="Indicator to determine the calculation method f. consumption"
+    [(value)]="DATA_FLEET.PRI_CALC"
+    [(abap)]="{type: 'string', length: '1'}"
+/>
+
+
+<fast-datepicker label="Date on which the object should be replaced" [(value)]="DATA_FLEET.REPLA_DATE"/>
+
+
+<fast-text-field [(label)]="Odometer reading at replacement"
+    [(value)]="DATA_FLEET.REPLA_ODOM"
+    [(abap)]="{type: 'string', length: '22'}"
+/>
+
+
+<fast-text-field [(label)]="Hour meter reading at replacement"
+    [(value)]="DATA_FLEET.REPLA_OPH"
+    [(abap)]="{type: 'string', length: '22'}"
+/>
+
+
+<fast-text-field [(label)]="Revolutions per minute"
+    [(value)]="DATA_FLEET.REVOLUTIONS"
+    [(abap)]="{type: 'string', length: '7'}"
+/>
+
+
+<fast-text-field [(label)]="Maximum Fleet Object Speed"
+    [(value)]="DATA_FLEET.SPEED_MAX"
+    [(abap)]="{type: 'number', length: '6.3'}"
+/>
+
+
+<fast-text-field [(label)]="ISO code for unit of measurement"
+    [(value)]="DATA_FLEET.SPEED_UNIT_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
+/>
+
+
+<fast-text-field [(label)]="ISO code for unit of measurement"
+    [(value)]="DATA_FLEET.UNIT_CAP_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
+/>
+
+
+<fast-text-field [(label)]="ISO code for unit of measurement"
+    [(value)]="DATA_FLEET.UNIT_POWER_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
+/>
+
+
+<fast-text-field [(label)]="ISO code for unit of measurement"
+    [(value)]="DATA_FLEET.VOL_UNIT_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
+/>
+
+
+<fast-text-field [(label)]="ISO code for unit of measurement"
+    [(value)]="DATA_FLEET.WGT_UNIT_ISO"
+    [(abap)]="{type: 'string', length: '3'}" [(shlp)]="{type:'CT', id:'T006I'}"
+/>
+
+
+<!-- DATA_FLEETX BAPI_FLEETX Flag Structure Belonging to BAPI_FLEET (for Change BAPIs) -->
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CARD_NUM"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CHASSIS_NUM"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CONSUMP_MOVE"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.CONSUMP_TOL"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.DIM_UNIT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.DIM_UNIT_ISO"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_CAP"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_CYL"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_POWER"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_SNR"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.ENGINE_TYPE"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.EXPIRY_DATE"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_HGT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_LEN"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_NUM"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_USE"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_VIN"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FLEET_WID"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FUEL_PRI"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.FUEL_SEC"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.GROSS_WGT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.KEY_NUM"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LICENSE_NUM"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_DIM_UNIT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_DIM_UNIT_ISO"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_HGT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_LEN"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_VOL"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_WGT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.LOAD_WID"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.MAX_OCCUPANTS"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.NO_COMPART"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.NUM_AXLE"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.OIL_TYPE"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.PRI_CALC"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REPLA_DATE"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REPLA_ODOM"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REPLA_OPH"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.REVOLUTIONS"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.SPEED_MAX"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.SPEED_UNIT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.SPEED_UNIT_ISO"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_CAP"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_CAP_ISO"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_POWER"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.UNIT_POWER_ISO"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.VOL_UNIT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.VOL_UNIT_ISO"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.WGT_UNIT"/>
+
+
+<fast-checkbox [(label)]="Updated information in related user data field" [(checked)]="DATA_FLEETX.WGT_UNIT_ISO"/>
+
+
 <fast-datepicker label="Date on which installation location of equipment was changed" [(value)]="VALID_DATE"/>
 
 
 <fast-timepicker label="Time at which the InstallLoc of the equipment was changed" [(value)]="VALID_TIME"/>
+
+
+<!-- TABLE PARAMETERS -->
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CHANGE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
+              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+
+<fast-select [(label)]="Structure name of  BAPI table extension"
+    [(value)]="EXTENSIONIN.STRUCTURE" [(options)]="{type:'CT', id:'DD02L'}"
+    [(abap)]="{type: 'string', length: '30'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONIN.VALUEPART1"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONIN.VALUEPART2"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONIN.VALUEPART3"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONIN.VALUEPART4"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+<ui-datagrid data.bind="BAPI_EQUI_CHANGE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
+              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
+              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
+
+<fast-select [(label)]="Structure name of  BAPI table extension"
+    [(value)]="EXTENSIONOUT.STRUCTURE" [(options)]="{type:'CT', id:'DD02L'}"
+    [(abap)]="{type: 'string', length: '30'}"
+></fast-select>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART1"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART2"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART3"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
+
+
+<fast-text-field [(label)]="Data part of BAPI extension parameter"
+    [(value)]="EXTENSIONOUT.VALUEPART4"
+    [(abap)]="{type: 'string', length: '240'}"
+/>
 
 
 <!-- OUTPUT PARAMETERS -->
@@ -2385,107 +2489,5 @@
 <fast-text-field [(label)]="Message type: S Success, E Error, W Warning, I Info, A Abort"
     [(value)]="RETURN.TYPE"
     [(abap)]="{type: 'string', length: '1'}"
-/>
-
-
-<!-- TABLE PARAMETERS -->
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CHANGE EXTENSIONIN" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
-              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-
-<fast-select [(label)]="Structure name of  BAPI table extension"
-    [(value)]="EXTENSIONIN.STRUCTURE" [(options)]="{type:'CT', id:'DD02L'}"
-    [(abap)]="{type: 'string', length: '30'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONIN.VALUEPART1"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONIN.VALUEPART2"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONIN.VALUEPART3"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONIN.VALUEPART4"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-<ui-datagrid data.bind="BAPI_EQUI_CHANGE EXTENSIONOUT" title="Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="STRUCTURE" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", shlp:{type:'CT', id:'DD02L'}}'
-              label="Structure name of  BAPI table extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART1" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART2" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART3" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VALUEPART4" data-abap.bind='{ddic:"CHAR", type:"string", length:"240"}'
-              label="Data part of BAPI extension parameter" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EXTENSIONOUT BAPIPAREX Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut -->
-
-<fast-select [(label)]="Structure name of  BAPI table extension"
-    [(value)]="EXTENSIONOUT.STRUCTURE" [(options)]="{type:'CT', id:'DD02L'}"
-    [(abap)]="{type: 'string', length: '30'}"
-></fast-select>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART1"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART2"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART3"
-    [(abap)]="{type: 'string', length: '240'}"
-/>
-
-
-<fast-text-field [(label)]="Data part of BAPI extension parameter"
-    [(value)]="EXTENSIONOUT.VALUEPART4"
-    [(abap)]="{type: 'string', length: '240'}"
 />
 

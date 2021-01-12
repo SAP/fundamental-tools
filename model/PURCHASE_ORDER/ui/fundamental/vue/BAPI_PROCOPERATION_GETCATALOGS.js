@@ -1,6 +1,13 @@
 //
-// BAPI_PROCOPERATION_GETCATALOGS 0.3
+// BAPI_PROCOPERATION_GETCATALOGS 
 //
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21
+//
+
+// Variables : 3
+// Structures: 0
+// Tables    : 2
+// Exceptions: 0
 
 BAPI_PROCOPERATION_GETCATALOGS = {
 
@@ -12,8 +19,8 @@ BAPI_PROCOPERATION_GETCATALOGS = {
 
   // TABLE PARAMETERS
 
-  //RETURN                         :   [], // BAPIRETURN Return Messages
   VALID_CATALOGS                   :   [], // BAPICATALOG List of Valid Catalogs
+  //RETURN                         :   [], // BAPIRETURN Return Messages
 };
 
 //
@@ -24,32 +31,32 @@ BAPI_PROCOPERATION_GETCATALOGS = {
 // TABLE PARAMETERS
 //
 
-// RETURN BAPIRETURN Return Messages
-
-/* eslint-disable key-spacing */
-// prettier-ignore
-RETURN = {
-  CODE                          : '',  // Message code
-  LOG_MSG_NO                    : '',  // Application log: Internal message serial number
-  LOG_NO                        : '',  // Application log: log number
-  MESSAGE                       : '',  // Message Text
-  MESSAGE_V1                    : '',  // Message Variable
-  MESSAGE_V2                    : '',  // Message Variable
-  MESSAGE_V3                    : '',  // Message Variable
-  MESSAGE_V4                    : '',  // Message Variable
-  TYPE                          : ''   // Message type: S Success, E Error, W Warning, I Info, A Abort
-};
-/* eslint-enable key-spacing */
-
 // VALID_CATALOGS BAPICATALOG List of Valid Catalogs
 
 /* eslint-disable key-spacing */
 // prettier-ignore
 VALID_CATALOGS = {
-  CATALOG                       : '',  // Identifier for allowed catalogs
-  CAT_TEXT                      : '',  // Name of catalog
-  PURCH_ORG                     : '',  // Purchasing organization
-  SD_CATALOG                    : '',  // Indicator: SAP product catalog: business-to-business
-  VENDOR                        : ''   // Vendor's account number
+  CATALOG                          :   "", // CHAR (20) Identifier for allowed catalogs
+  CAT_TEXT                         :   "", // CHAR (30) Name of catalog
+  PURCH_ORG                        :   "", // CHAR (4) Purchasing organization
+  SD_CATALOG                       :   "", // CHAR (1) Indicator: SAP product catalog: business-to-business
+  VENDOR                           :   "", // CHAR (10) ALPHA=ALPHA Vendor's account number
+};
+/* eslint-enable key-spacing */
+
+// RETURN BAPIRETURN Return Messages
+
+/* eslint-disable key-spacing */
+// prettier-ignore
+RETURN = {
+  CODE                             :   "", // CHAR (5) Message code
+  LOG_MSG_NO                       :   "", // NUMC (6) Application log: Internal message serial number
+  LOG_NO                           :   "", // CHAR (20) Application log: log number
+  MESSAGE                          :   "", // CHAR (220) Message Text
+  MESSAGE_V1                       :   "", // CHAR (50) Message Variable
+  MESSAGE_V2                       :   "", // CHAR (50) Message Variable
+  MESSAGE_V3                       :   "", // CHAR (50) Message Variable
+  MESSAGE_V4                       :   "", // CHAR (50) Message Variable
+  TYPE                             :   "", // CHAR (1) Message type: S Success, E Error, W Warning, I Info, A Abort
 };
 /* eslint-enable key-spacing */

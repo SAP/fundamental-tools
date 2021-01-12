@@ -1,4 +1,6 @@
-<!-- BAPI_EQUI_GETLIST 0.3 -->
+<!-- BAPI_EQUI_GETLIST 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
 
@@ -32,147 +34,101 @@
 </div>
 
 
-<!-- OUTPUT PARAMETERS -->
-
-<!-- RETURN BAPIRET2 Return Parameter -->
-
-<div fd-form-item>
-    <label fd-form-label>Field in parameter</label>
-    <fd-combobox
-        [(ngModel)]="RETURN.FIELD"
-        [dropdownValues]="{type:'CT', id:'DD03L'}"
-        data-abap="{type: 'string', length: '30'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Class</label>
-    <fd-combobox
-        [(ngModel)]="RETURN.ID"
-        [dropdownValues]="{type:'CT', id:'T100A'}"
-        data-abap="{type: 'string', length: '20'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Application log: Internal message serial number</label>
-    <fd-combobox
-        [(ngModel)]="RETURN.LOG_MSG_NO"
-        [dropdownValues]="{type:'CH', id:'BALM'}"
-        data-abap="{type: 'string', length: '6'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Application log: log number</label>
-    <fd-combobox
-        [(ngModel)]="RETURN.LOG_NO"
-        [dropdownValues]="{type:'CH', id:'BALHDR'}"
-        data-abap="{type: 'string', length: '20'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Text</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE"
-            data-abap="{type: 'string', length: '220'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V1"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V2"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V3"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Variable</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.MESSAGE_V4"
-            data-abap="{type: 'string', length: '50'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message Number</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.NUMBER"
-            data-abap="{type: 'string', length: '3'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Parameter Name</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.PARAMETER"
-            data-abap="{type: 'string', length: '32'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Lines in parameter</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.ROW"
-            data-abap="{type: 'number', length: '+10'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Logical system from which message originates</label>
-    <fd-combobox
-        [(ngModel)]="RETURN.SYSTEM"
-        [dropdownValues]="{type:'CT', id:'TBDLS'}"
-        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="RETURN.TYPE"
-            data-abap="{type: 'string', length: '1'}"
-        />
-</div>
-
-
 <!-- TABLE PARAMETERS -->
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_LIST" title="BAPI Communication Structure: Results List for GetList"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
+              label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
+              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
+              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
+              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
+
+<div fd-form-item>
+    <label fd-form-label>Description of Technical Object</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.DESCRIPT"
+            data-abap="{type: 'string', length: '40'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment category</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.EQUICATGRY"
+            data-abap="{type: 'string', length: '1', mid: 'EQT'}"
+            data-shlp="{type:'CT', id:'T370T'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Equipment Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.EQUIPMENT"
+            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
+            data-shlp="{type:'SH', id:'EQUI'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance plant</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.MAINTPLANT"
+            data-abap="{type: 'string', length: '4', mid: 'SWK'}"
+            data-shlp="{type:'CT', id:'T001W'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
+    <fd-combobox
+        [(ngModel)]="EQUIPMENT_LIST.PLANGROUP"
+        [dropdownValues]="{type:'CT', id:'T024I'}"
+        data-abap="{type: 'string', length: '3', mid: 'IHG'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Maintenance Planning Plant</label>
+    <fd-combobox
+        [(ngModel)]="EQUIPMENT_LIST.PLANPLANT"
+        [dropdownValues]="{type:'CT', id:'T001W'}"
+        data-abap="{type: 'string', length: '4', mid: 'IWK'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Sort field</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="EQUIPMENT_LIST.SORTFIELD"
+            data-abap="{type: 'string', length: '30'}"
+        />
+</div>
+
 
 <!-- ADDRESS_CITY_RA BAPI_ITOB_SEL_ADDR_CITY BAPI Communication Structure: Range for Address City -->
 <ui-datagrid data.bind="BAPI_EQUI_GETLIST ADDRESS_CITY_RA" title="BAPI Communication Structure: Range for Address City"
@@ -569,100 +525,6 @@
             [(ngModel)]="DESCRIPT_RA.SIGN"
             data-abap="{type: 'string', length: '1'}"
             data-shlp="{type:'FV', id:'BAPISIGN'}"
-        />
-</div>
-
-
-<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
-<ui-datagrid data.bind="BAPI_EQUI_GETLIST EQUIPMENT_LIST" title="BAPI Communication Structure: Results List for GetList"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="DESCRIPT" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Description of Technical Object" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUICATGRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"EQT", shlp:{type:'CT', id:'T370T'}}'
-              label="Equipment category" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EQUIPMENT" data-abap.bind='{ddic:"CHAR", type:"string", length:"18", mid:"EQN", shlp:{type:'SH', id:'EQUI'}}' alpha-exit="ALPHA" 
-              label="Equipment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="MAINTPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"SWK", shlp:{type:'CT', id:'T001W'}}'
-              label="Maintenance plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANGROUP" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"IHG", shlp:{type:'CT', id:'T024I'}}'
-              label="Planner Group for Customer Service and Plant Maintenance" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PLANPLANT" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"IWK", shlp:{type:'CT', id:'T001W'}}'
-              label="Maintenance Planning Plant" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SORTFIELD" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="Sort field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- EQUIPMENT_LIST BAPI_ITOB_EQ_SEL_RESULT BAPI Communication Structure: Results List for GetList -->
-
-<div fd-form-item>
-    <label fd-form-label>Description of Technical Object</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="EQUIPMENT_LIST.DESCRIPT"
-            data-abap="{type: 'string', length: '40'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Equipment category</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="EQUIPMENT_LIST.EQUICATGRY"
-            data-abap="{type: 'string', length: '1', mid: 'EQT'}"
-            data-shlp="{type:'CT', id:'T370T'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Equipment Number</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="EQUIPMENT_LIST.EQUIPMENT"
-            data-abap="{type: 'string', length: '18', mid: 'EQN', alpha: 'ALPHA'}"
-            data-shlp="{type:'SH', id:'EQUI'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Maintenance plant</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="EQUIPMENT_LIST.MAINTPLANT"
-            data-abap="{type: 'string', length: '4', mid: 'SWK'}"
-            data-shlp="{type:'CT', id:'T001W'}"
-        />
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Planner Group for Customer Service and Plant Maintenance</label>
-    <fd-combobox
-        [(ngModel)]="EQUIPMENT_LIST.PLANGROUP"
-        [dropdownValues]="{type:'CT', id:'T024I'}"
-        data-abap="{type: 'string', length: '3', mid: 'IHG'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Maintenance Planning Plant</label>
-    <fd-combobox
-        [(ngModel)]="EQUIPMENT_LIST.PLANPLANT"
-        [dropdownValues]="{type:'CT', id:'T001W'}"
-        data-abap="{type: 'string', length: '4', mid: 'IWK'}"
-    >
-    </fd-combobox>
-</div>
-
-
-<div fd-form-item>
-    <label fd-form-label>Sort field</label>
-        <input fd-input fd-form-control
-            [(ngModel)]="EQUIPMENT_LIST.SORTFIELD"
-            data-abap="{type: 'string', length: '30'}"
         />
 </div>
 
@@ -1129,6 +991,146 @@
             [(ngModel)]="STATUS_RA.SIGN"
             data-abap="{type: 'string', length: '1'}"
             data-shlp="{type:'FV', id:'DDSIGN'}"
+        />
+</div>
+
+
+<!-- OUTPUT PARAMETERS -->
+
+<!-- RETURN BAPIRET2 Return Parameter -->
+
+<div fd-form-item>
+    <label fd-form-label>Field in parameter</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.FIELD"
+        [dropdownValues]="{type:'CT', id:'DD03L'}"
+        data-abap="{type: 'string', length: '30'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Class</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.ID"
+        [dropdownValues]="{type:'CT', id:'T100A'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: Internal message serial number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_MSG_NO"
+        [dropdownValues]="{type:'CH', id:'BALM'}"
+        data-abap="{type: 'string', length: '6'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Application log: log number</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.LOG_NO"
+        [dropdownValues]="{type:'CH', id:'BALHDR'}"
+        data-abap="{type: 'string', length: '20'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Text</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE"
+            data-abap="{type: 'string', length: '220'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V1"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V2"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V3"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Variable</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.MESSAGE_V4"
+            data-abap="{type: 'string', length: '50'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message Number</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.NUMBER"
+            data-abap="{type: 'string', length: '3'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Parameter Name</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.PARAMETER"
+            data-abap="{type: 'string', length: '32'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Lines in parameter</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.ROW"
+            data-abap="{type: 'number', length: '+10'}"
+        />
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Logical system from which message originates</label>
+    <fd-combobox
+        [(ngModel)]="RETURN.SYSTEM"
+        [dropdownValues]="{type:'CT', id:'TBDLS'}"
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    >
+    </fd-combobox>
+</div>
+
+
+<div fd-form-item>
+    <label fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</label>
+        <input fd-input fd-form-control
+            [(ngModel)]="RETURN.TYPE"
+            data-abap="{type: 'string', length: '1'}"
         />
 </div>
 

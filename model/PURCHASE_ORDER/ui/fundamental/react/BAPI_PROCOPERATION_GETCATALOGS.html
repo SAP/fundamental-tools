@@ -1,4 +1,6 @@
-<!-- BAPI_PROCOPERATION_GETCATALOGS 0.3 -->
+<!-- BAPI_PROCOPERATION_GETCATALOGS 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
 
@@ -27,6 +29,61 @@
 
 
 <!-- TABLE PARAMETERS -->
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
+              label="Identifier for allowed catalogs" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Name of catalog" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
+              label="Purchasing organization" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
+              label="Vendor's account number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+
+<ComboboxInput id="4711" label="Identifier for allowed catalogs"
+    value={this.VALID_CATALOGS.CATALOG}
+    options="{type:'CT', id:'TMW3T'}"
+    data-abap="{{type: 'string', length: '20'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name of catalog</FormLabel>
+    <FormInput id="4711" value={this.VALID_CATALOGS.CAT_TEXT}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing organization</FormLabel>
+    <FormInput id="4711" value={this.VALID_CATALOGS.PURCH_ORG}
+        data-abap="{type: 'string', length: '4', mid: 'EKO'}"
+        data-shlp="{type:'SH', id:'H_T024E'}"
+    />
+</FormItem>
+
+
+<Checkbox value={this.VALID_CATALOGS.SD_CATALOG}/>Indicator: SAP product catalog: business-to-business</Checkbox>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Vendor's account number</FormLabel>
+    <FormInput id="4711" value={this.VALID_CATALOGS.VENDOR}
+        data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'KRED'}"
+    />
+</FormItem>
+
 
 <!-- RETURN BAPIRETURN Return Messages -->
 <ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS RETURN" title="Return Messages"
@@ -120,61 +177,6 @@
     <FormLabel htmlFor="4711">Message type: S Success, E Error, W Warning, I Info, A Abort</FormLabel>
     <FormInput id="4711" value={this.RETURN.TYPE}
         data-abap="{type: 'string', length: '1'}"
-    />
-</FormItem>
-
-
-<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
-<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}'
-              label="Identifier for allowed catalogs" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="Name of catalog" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}'
-              label="Purchasing organization" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA" 
-              label="Vendor's account number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
-
-<ComboboxInput id="4711" label="Identifier for allowed catalogs"
-    value={this.VALID_CATALOGS.CATALOG}
-    options="{type:'CT', id:'TMW3T'}"
-    data-abap="{{type: 'string', length: '20'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name of catalog</FormLabel>
-    <FormInput id="4711" value={this.VALID_CATALOGS.CAT_TEXT}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing organization</FormLabel>
-    <FormInput id="4711" value={this.VALID_CATALOGS.PURCH_ORG}
-        data-abap="{type: 'string', length: '4', mid: 'EKO'}"
-        data-shlp="{type:'SH', id:'H_T024E'}"
-    />
-</FormItem>
-
-
-<Checkbox value={this.VALID_CATALOGS.SD_CATALOG}/>Indicator: SAP product catalog: business-to-business</Checkbox>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Vendor's account number</FormLabel>
-    <FormInput id="4711" value={this.VALID_CATALOGS.VENDOR}
-        data-abap="{type: 'string', length: '10', mid: 'LIF', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'KRED'}"
     />
 </FormItem>
 

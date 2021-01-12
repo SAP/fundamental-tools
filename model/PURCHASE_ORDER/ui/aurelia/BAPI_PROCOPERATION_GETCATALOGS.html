@@ -1,4 +1,6 @@
-<!-- BAPI_PROCOPERATION_GETCATALOGS 0.3 -->
+<!-- BAPI_PROCOPERATION_GETCATALOGS 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
 <ui-input value.bind="MATERIAL_GROUP" shlp.bind='{type:'SH', id:'H_T023'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"9", mid:"MKL"}'
@@ -12,6 +14,35 @@
 
 
 <!-- TABLE PARAMETERS -->
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}' label="Identifier for allowed catalogs" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Name of catalog" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}' label="Purchasing organization" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <ui-dg-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA"  label="Vendor's account number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
+<ui-combo value.bind="VALID_CATALOGS.CATALOG" shlp.bind='{type:'CT', id:'TMW3T'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+          label="Identifier for allowed catalogs"></ui-combo>
+
+<ui-input value.bind="VALID_CATALOGS.CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+          label="Name of catalog"></ui-input>
+
+<ui-input value.bind="VALID_CATALOGS.PURCH_ORG" shlp.bind='{type:'SH', id:'H_T024E'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO"}'
+          label="Purchasing organization"></ui-input>
+
+<ui-checkbox value.bind="VALID_CATALOGS.SD_CATALOG" label="Indicator: SAP product catalog: business-to-business"></ui-checkbox>
+
+<ui-input value.bind="VALID_CATALOGS.VENDOR" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF"}' alpha-exit="ALPHA" 
+          label="Vendor's account number"></ui-input>
+
 
 <!-- RETURN BAPIRETURN Return Messages -->
 <ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS RETURN" title="Return Messages"
@@ -57,33 +88,4 @@
 
 <ui-input value.bind="RETURN.TYPE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
-
-
-<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
-<ui-datagrid data.bind="BAPI_PROCOPERATION_GETCATALOGS VALID_CATALOGS" title="List of Valid Catalogs"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <ui-dg-column sortable field="CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20", shlp:{type:'CT', id:'TMW3T'}}' label="Identifier for allowed catalogs" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}' label="Name of catalog" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="PURCH_ORG" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO", shlp:{type:'SH', id:'H_T024E'}}' label="Purchasing organization" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="SD_CATALOG" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}' label="Indicator: SAP product catalog: business-to-business" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <ui-dg-column sortable field="VENDOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF", shlp:{type:'SH', id:'KRED'}}' alpha-exit="ALPHA"  label="Vendor's account number" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- VALID_CATALOGS BAPICATALOG List of Valid Catalogs -->
-<ui-combo value.bind="VALID_CATALOGS.CATALOG" shlp.bind='{type:'CT', id:'TMW3T'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-          label="Identifier for allowed catalogs"></ui-combo>
-
-<ui-input value.bind="VALID_CATALOGS.CAT_TEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-          label="Name of catalog"></ui-input>
-
-<ui-input value.bind="VALID_CATALOGS.PURCH_ORG" shlp.bind='{type:'SH', id:'H_T024E'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"4", mid:"EKO"}'
-          label="Purchasing organization"></ui-input>
-
-<ui-checkbox value.bind="VALID_CATALOGS.SD_CATALOG" label="Indicator: SAP product catalog: business-to-business"></ui-checkbox>
-
-<ui-input value.bind="VALID_CATALOGS.VENDOR" shlp.bind='{type:'SH', id:'KRED'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"LIF"}' alpha-exit="ALPHA" 
-          label="Vendor's account number"></ui-input>
 

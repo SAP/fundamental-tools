@@ -1,4 +1,6 @@
-<!-- BAPI_PO_GET_LIST 0.3 -->
+<!-- BAPI_PO_GET_LIST 
+//
+// rfmcall.py 1.0 at: 2021-01-12 13:35:21 -->
 
 <!-- INPUT PARAMETERS -->
 
@@ -24,789 +26,6 @@
 
 
 <!-- TABLE PARAMETERS -->
-
-<!-- PO_ADDRESSES BAPIEKAN Vendor Address for SAP Releases < 4.0A -->
-<ui-datagrid data.bind="BAPI_PO_GET_LIST PO_ADDRESSES" title="Vendor Address for SAP Releases < 4.0A"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="CITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
-              label="City" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CNTRY_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"LND", shlp:{type:'CT', id:'T005'}}'
-              label="Country Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="DATA_LINE" data-abap.bind='{ddic:"CHAR", type:"string", length:"14"}'
-              label="Data communication line no." markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="FAX_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"31"}'
-              label="Fax Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME1" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
-              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME2" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
-              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME3" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
-              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME4" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
-              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_BOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="PO Box" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
-              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REGION" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
-              label="Region (State, Province, County)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STREET" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
-              label="Street and House Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TELEBOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
-              label="Telebox number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TELETEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="Teletex number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TELEX" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="Telex number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TITLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
-              label="Title" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ZIP_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="Postal Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ZIP_POBOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="P.O. Box Postal Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- PO_ADDRESSES BAPIEKAN Vendor Address for SAP Releases < 4.0A -->
-
-<FormItem>
-    <FormLabel htmlFor="4711">City</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.CITY}
-        data-abap="{type: 'string', length: '35'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Country Key</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.CNTRY_KEY}
-        data-abap="{type: 'string', length: '3', mid: 'LND'}"
-        data-shlp="{type:'CT', id:'T005'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Data communication line no.</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.DATA_LINE}
-        data-abap="{type: 'string', length: '14'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Fax Number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.FAX_NUMBER}
-        data-abap="{type: 'string', length: '31'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.NAME1}
-        data-abap="{type: 'string', length: '35'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.NAME2}
-        data-abap="{type: 'string', length: '35'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.NAME3}
-        data-abap="{type: 'string', length: '35'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.NAME4}
-        data-abap="{type: 'string', length: '35'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">PO Box</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.PO_BOX}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Purchasing Document Number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.PO_NUMBER}
-        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
-        data-shlp="{type:'CH', id:'EKKO'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Region (State, Province, County)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.REGION}
-        data-abap="{type: 'string', length: '3'}"
-        data-shlp="{type:'CT', id:'T005S'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street and House Number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.STREET}
-        data-abap="{type: 'string', length: '35'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Telebox number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.TELEBOX}
-        data-abap="{type: 'string', length: '15'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Teletex number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.TELETEXT}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Telex number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.TELEX}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Title</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.TITLE}
-        data-abap="{type: 'string', length: '15'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Postal Code</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.ZIP_CODE}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">P.O. Box Postal Code</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES.ZIP_POBOX}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<!-- PO_ADDRESSES_NEW BAPIADDRESS Vendor Address for SAP Releases >= 4.0A -->
-<ui-datagrid data.bind="BAPI_PO_GET_LIST PO_ADDRESSES_NEW" title="Vendor Address for SAP Releases >= 4.0A"
-            data-summary="false" default-sort=""
-            selectable rowselect.trigger="object.selectObject($event.detail)">
-    <!-- @formatter:off -->
-    <fd-fd-column sortable field="ADDRESS_ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
-              label="(Not supported) Physical address ID" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ADDRHANDLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"140"}'
-              label="Handle for Creating Addresses/Persons (Bus. Addr. Services)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ADDRNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"ADR", shlp:{type:'CT', id:'ADRC'}}' alpha-exit="ALPHA" 
-              label="Address number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ADDRORIGIN" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TSAD6'}}'
-              label="(Not Supported) Address Data Source (Key)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="BUILDING" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="old: building (no. or abbreviation)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="BUILD_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Building (Number or Code)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CHCKSTATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'AD_CHECKST'}}'
-              label="City file test status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CITY1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40", shlp:{type:'SH', id:'CLCITYNAME'}}'
-              label="City" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CITY2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40", shlp:{type:'SH', id:'CITY_PART'}}'
-              label="District" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CITYP_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"8", shlp:{type:'SH', id:'CPRTA'}}' alpha-exit="ALPHA" 
-              label="District code for City and Street file" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CITY_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", shlp:{type:'SH', id:'CITYA'}}' alpha-exit="ALPHA" 
-              label="City code for city/street file" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="CITY_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", shlp:{type:'SH', id:'CITYA'}}' alpha-exit="ALPHA" 
-              label="City PO box code (City file)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="COUNTRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"LND", shlp:{type:'CT', id:'T005'}}'
-              label="Country Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
-              label="Date referred to" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
-    <fd-fd-column sortable field="DATE_FROM" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
-              label="Valid-from date - in current Release only 00010101 possible" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
-    <fd-fd-column sortable field="DATE_TO" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
-              label="Valid-to date in current Release only 99991231 possible" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
-    <fd-fd-column sortable field="DEFLT_COMM" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'TSAC'}}'
-              label="Communication Method (Key) (Business Address Services)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EXTENSION1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Extension (only for data conversion) (data line/telebox)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="EXTENSION2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Extension (only for data conversion) (data line/telebox)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="FAX_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="First fax no.: extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="FAX_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="First fax no.: dialling code+number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="FLOOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="Floor in building" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="HOUSE_NUM1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="House Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="HOUSE_NUM2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="House number supplement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="HOUSE_NUM3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="(Not supported) House Number Range" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="LANGU" data-abap.bind='{ddic:"LANG", type:"string", format:"lang", length:"1", mid:"SPR", shlp:{type:'SH', id:'H_T002'}}' alpha-exit="ISOLA" 
-              label="Language Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': '1-char lang'}"></fd-fd-column>
-    <fd-fd-column sortable field="LOCATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Street 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Name 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME3" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Name 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME4" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Name 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME_CO" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="c/o name" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NAME_TXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-              label="Converted name field (with form of address)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="NATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"ADDRESS_NATION", shlp:{type:'CT', id:'TSADV'}}'
-              label="Version ID for International Addresses" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="POSTALAREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
-              label="(Not Supported) Post Delivery District" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="POST_CODE1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="POST_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="PO Box Postal Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="POST_CODE3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="Company Postal Code (for Large Customers)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_BOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="PO Box" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_BOX_CTY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005'}}'
-              label="PO box country" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_BOX_LOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"40", shlp:{type:'SH', id:'CITY_NAME'}}'
-              label="PO Box city" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_BOX_NUM" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
-              label="Flag: PO Box Without Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="PO_BOX_REG" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
-              label="Region for PO Box (Country, State, Province, ...)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REGION" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
-              label="Region (State, Province, County)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="REMARK" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
-              label="Address notes" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="ROOMNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="Room or Appartment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SORT1" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SORT2" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="SORT_PHN" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
-              label="(Not Supported) Phonetic Search Sort Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STREET" data-abap.bind='{ddic:"CHAR", type:"string", length:"60", shlp:{type:'SH', id:'CLSTRTNAME'}}'
-              label="Street" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STREETABBR" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'ADRSTRTYPE'}}'
-              label="(Not Supported) Abbreviation of Street Name" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STREETCODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", shlp:{type:'SH', id:'STRTA'}}' alpha-exit="ALPHA" 
-              label="Street Number for City/Street File" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STR_SUPPL1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Street 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="STR_SUPPL2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
-              label="Street 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TAXJURCODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"15", mid:"TXJ"}'
-              label="Tax Jurisdiction" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEL_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
-              label="First Telephone No.: Extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TEL_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
-              label="First telephone no.: dialling code+number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TIME_ZONE" data-abap.bind='{ddic:"CHAR", type:"string", length:"6", shlp:{type:'SH', id:'VTTZZ'}}'
-              label="Address time zone" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TITLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TSAD3'}}'
-              label="Form-of-Address Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <fd-fd-column sortable field="TRANSPZONE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TZONE'}}'
-              label="Transportation zone to or from which the goods are delivered" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
-    <!-- @formatter:on -->
-</ui-datagrid>
-
-<!-- PO_ADDRESSES_NEW BAPIADDRESS Vendor Address for SAP Releases >= 4.0A -->
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not supported) Physical address ID</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.ADDRESS_ID}
-        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Handle for Creating Addresses/Persons (Bus. Addr. Services)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.ADDRHANDLE}
-        data-abap="{type: 'string', length: '140'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Address number"
-    value={this.PO_ADDRESSES_NEW.ADDRNUMBER}
-    options="{type:'CT', id:'ADRC'}"
-    data-abap="{{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}}"/>
-
-
-<ComboboxInput id="4711" label="(Not Supported) Address Data Source (Key)"
-    value={this.PO_ADDRESSES_NEW.ADDRORIGIN}
-    options="{type:'CT', id:'TSAD6'}"
-    data-abap="{{type: 'string', length: '4'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">old: building (no. or abbreviation)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.BUILDING}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Building (Number or Code)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.BUILD_LONG}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="City file test status"
-    value={this.PO_ADDRESSES_NEW.CHCKSTATUS}
-    options="{type:'FV', id:'AD_CHECKST'}"
-    data-abap="{{type: 'string', length: '1'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY1}
-        data-abap="{type: 'string', length: '40'}"
-        data-shlp="{type:'SH', id:'CLCITYNAME'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">District</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY2}
-        data-abap="{type: 'string', length: '40'}"
-        data-shlp="{type:'SH', id:'CITY_PART'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">District code for City and Street file</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITYP_CODE}
-        data-abap="{type: 'string', length: '8', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'CPRTA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City code for city/street file</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY_CODE}
-        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'CITYA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City PO box code (City file)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY_CODE2}
-        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'CITYA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Country Key</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.COUNTRY}
-        data-abap="{type: 'string', length: '3', mid: 'LND'}"
-        data-shlp="{type:'CT', id:'T005'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Date referred to</FormLabel>
-    <DatePicker id="4711" value={this.PO_ADDRESSES_NEW.DATE}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Valid-from date - in current Release only 00010101 possible</FormLabel>
-    <DatePicker id="4711" value={this.PO_ADDRESSES_NEW.DATE_FROM}/>
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Valid-to date in current Release only 99991231 possible</FormLabel>
-    <DatePicker id="4711" value={this.PO_ADDRESSES_NEW.DATE_TO}/>
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Communication Method (Key) (Business Address Services)"
-    value={this.PO_ADDRESSES_NEW.DEFLT_COMM}
-    options="{type:'CT', id:'TSAC'}"
-    data-abap="{{type: 'string', length: '3'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.EXTENSION1}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.EXTENSION2}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First fax no.: extension</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.FAX_EXTENS}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First fax no.: dialling code+number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.FAX_NUMBER}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Floor in building</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.FLOOR}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">House Number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.HOUSE_NUM1}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">House number supplement</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.HOUSE_NUM2}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not supported) House Number Range</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.HOUSE_NUM3}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem label="Language Key">
-    <Input value={this.PO_ADDRESSES_NEW.LANGU}
-           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
-           data-shlp="{type:'SH', id:'H_T002'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street 5</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.LOCATION}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME1}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 2</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME2}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 3</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME3}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Name 4</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME4}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">c/o name</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME_CO}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Converted name field (with form of address)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME_TXT}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Version ID for International Addresses"
-    value={this.PO_ADDRESSES_NEW.NATION}
-    options="{type:'CT', id:'TSADV'}"
-    data-abap="{{type: 'string', length: '1', mid: 'ADDRESS_NATION'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not Supported) Post Delivery District</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POSTALAREA}
-        data-abap="{type: 'string', length: '15'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">City postal code</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POST_CODE1}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">PO Box Postal Code</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POST_CODE2}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Company Postal Code (for Large Customers)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POST_CODE3}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">PO Box</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.PO_BOX}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="PO box country"
-    value={this.PO_ADDRESSES_NEW.PO_BOX_CTY}
-    options="{type:'CT', id:'T005'}"
-    data-abap="{{type: 'string', length: '3'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">PO Box city</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.PO_BOX_LOC}
-        data-abap="{type: 'string', length: '40'}"
-        data-shlp="{type:'SH', id:'CITY_NAME'}"
-    />
-</FormItem>
-
-
-<Checkbox value={this.PO_ADDRESSES_NEW.PO_BOX_NUM}/>Flag: PO Box Without Number</Checkbox>
-
-
-<ComboboxInput id="4711" label="Region for PO Box (Country, State, Province, ...)"
-    value={this.PO_ADDRESSES_NEW.PO_BOX_REG}
-    options="{type:'CT', id:'T005S'}"
-    data-abap="{{type: 'string', length: '3'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Region (State, Province, County)</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.REGION}
-        data-abap="{type: 'string', length: '3'}"
-        data-shlp="{type:'CT', id:'T005S'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Address notes</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.REMARK}
-        data-abap="{type: 'string', length: '50'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Room or Appartment Number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.ROOMNUMBER}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Search Term 1</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.SORT1}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Search Term 2</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.SORT2}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">(Not Supported) Phonetic Search Sort Field</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.SORT_PHN}
-        data-abap="{type: 'string', length: '20'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STREET}
-        data-abap="{type: 'string', length: '60'}"
-        data-shlp="{type:'SH', id:'CLSTRTNAME'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="(Not Supported) Abbreviation of Street Name"
-    value={this.PO_ADDRESSES_NEW.STREETABBR}
-    options="{type:'CT', id:'ADRSTRTYPE'}"
-    data-abap="{{type: 'string', length: '2'}}"/>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street Number for City/Street File</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STREETCODE}
-        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
-        data-shlp="{type:'SH', id:'STRTA'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street 2</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STR_SUPPL1}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Street 3</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STR_SUPPL2}
-        data-abap="{type: 'string', length: '40'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Tax Jurisdiction</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TAXJURCODE}
-        data-abap="{type: 'string', length: '15', mid: 'TXJ'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First Telephone No.: Extension</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TEL_EXTENS}
-        data-abap="{type: 'string', length: '10'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">First telephone no.: dialling code+number</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TEL_NUMBER}
-        data-abap="{type: 'string', length: '30'}"
-    />
-</FormItem>
-
-
-<FormItem>
-    <FormLabel htmlFor="4711">Address time zone</FormLabel>
-    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TIME_ZONE}
-        data-abap="{type: 'string', length: '6'}"
-        data-shlp="{type:'SH', id:'VTTZZ'}"
-    />
-</FormItem>
-
-
-<ComboboxInput id="4711" label="Form-of-Address Key"
-    value={this.PO_ADDRESSES_NEW.TITLE}
-    options="{type:'CT', id:'TSAD3'}"
-    data-abap="{{type: 'string', length: '4'}}"/>
-
-
-<ComboboxInput id="4711" label="Transportation zone to or from which the goods are delivered"
-    value={this.PO_ADDRESSES_NEW.TRANSPZONE}
-    options="{type:'CT', id:'TZONE'}"
-    data-abap="{{type: 'string', length: '10'}}"/>
-
 
 <!-- PO_HEADERS BAPIEKKO PO Header Data -->
 <ui-datagrid data.bind="BAPI_PO_GET_LIST PO_HEADERS" title="PO Header Data"
@@ -3188,6 +2407,789 @@
         data-shlp="{type:'SH', id:'H_T006I'}"
     />
 </FormItem>
+
+
+<!-- PO_ADDRESSES BAPIEKAN Vendor Address for SAP Releases < 4.0A -->
+<ui-datagrid data.bind="BAPI_PO_GET_LIST PO_ADDRESSES" title="Vendor Address for SAP Releases < 4.0A"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="CITY" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
+              label="City" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CNTRY_KEY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"LND", shlp:{type:'CT', id:'T005'}}'
+              label="Country Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DATA_LINE" data-abap.bind='{ddic:"CHAR", type:"string", length:"14"}'
+              label="Data communication line no." markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FAX_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"31"}'
+              label="Fax Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME1" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
+              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME2" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
+              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME3" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
+              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME4" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
+              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="PO Box" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"BES", shlp:{type:'CH', id:'EKKO'}}' alpha-exit="ALPHA" 
+              label="Purchasing Document Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REGION" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
+              label="Region (State, Province, County)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STREET" data-abap.bind='{ddic:"CHAR", type:"string", length:"35"}'
+              label="Street and House Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TELEBOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
+              label="Telebox number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TELETEXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Teletex number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TELEX" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="Telex number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TITLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
+              label="Title" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ZIP_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="Postal Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ZIP_POBOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="P.O. Box Postal Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ADDRESSES BAPIEKAN Vendor Address for SAP Releases < 4.0A -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">City</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.CITY}
+        data-abap="{type: 'string', length: '35'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Country Key</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.CNTRY_KEY}
+        data-abap="{type: 'string', length: '3', mid: 'LND'}"
+        data-shlp="{type:'CT', id:'T005'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Data communication line no.</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.DATA_LINE}
+        data-abap="{type: 'string', length: '14'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Fax Number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.FAX_NUMBER}
+        data-abap="{type: 'string', length: '31'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.NAME1}
+        data-abap="{type: 'string', length: '35'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.NAME2}
+        data-abap="{type: 'string', length: '35'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.NAME3}
+        data-abap="{type: 'string', length: '35'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.NAME4}
+        data-abap="{type: 'string', length: '35'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">PO Box</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.PO_BOX}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Purchasing Document Number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.PO_NUMBER}
+        data-abap="{type: 'string', length: '10', mid: 'BES', alpha: 'ALPHA'}"
+        data-shlp="{type:'CH', id:'EKKO'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Region (State, Province, County)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.REGION}
+        data-abap="{type: 'string', length: '3'}"
+        data-shlp="{type:'CT', id:'T005S'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street and House Number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.STREET}
+        data-abap="{type: 'string', length: '35'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Telebox number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.TELEBOX}
+        data-abap="{type: 'string', length: '15'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Teletex number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.TELETEXT}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Telex number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.TELEX}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Title</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.TITLE}
+        data-abap="{type: 'string', length: '15'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Postal Code</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.ZIP_CODE}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">P.O. Box Postal Code</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES.ZIP_POBOX}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<!-- PO_ADDRESSES_NEW BAPIADDRESS Vendor Address for SAP Releases >= 4.0A -->
+<ui-datagrid data.bind="BAPI_PO_GET_LIST PO_ADDRESSES_NEW" title="Vendor Address for SAP Releases >= 4.0A"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <fd-fd-column sortable field="ADDRESS_ID" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}' alpha-exit="ALPHA" 
+              label="(Not supported) Physical address ID" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ADDRHANDLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"140"}'
+              label="Handle for Creating Addresses/Persons (Bus. Addr. Services)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ADDRNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", mid:"ADR", shlp:{type:'CT', id:'ADRC'}}' alpha-exit="ALPHA" 
+              label="Address number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ADDRORIGIN" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TSAD6'}}'
+              label="(Not Supported) Address Data Source (Key)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BUILDING" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="old: building (no. or abbreviation)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="BUILD_LONG" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Building (Number or Code)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CHCKSTATUS" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", shlp:{type:'FV', id:'AD_CHECKST'}}'
+              label="City file test status" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CITY1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40", shlp:{type:'SH', id:'CLCITYNAME'}}'
+              label="City" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CITY2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40", shlp:{type:'SH', id:'CITY_PART'}}'
+              label="District" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CITYP_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"8", shlp:{type:'SH', id:'CPRTA'}}' alpha-exit="ALPHA" 
+              label="District code for City and Street file" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CITY_CODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", shlp:{type:'SH', id:'CITYA'}}' alpha-exit="ALPHA" 
+              label="City code for city/street file" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="CITY_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", shlp:{type:'SH', id:'CITYA'}}' alpha-exit="ALPHA" 
+              label="City PO box code (City file)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="COUNTRY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", mid:"LND", shlp:{type:'CT', id:'T005'}}'
+              label="Country Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="DATE" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Date referred to" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="DATE_FROM" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Valid-from date - in current Release only 00010101 possible" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="DATE_TO" data-abap.bind='{ddic:"DATS", type:"string", format:"date"}'
+              label="Valid-to date in current Release only 99991231 possible" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'YYYYMMDD'}"></fd-fd-column>
+    <fd-fd-column sortable field="DEFLT_COMM" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'TSAC'}}'
+              label="Communication Method (Key) (Business Address Services)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXTENSION1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Extension (only for data conversion) (data line/telebox)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="EXTENSION2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Extension (only for data conversion) (data line/telebox)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FAX_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="First fax no.: extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FAX_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="First fax no.: dialling code+number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="FLOOR" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="Floor in building" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="HOUSE_NUM1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="House Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="HOUSE_NUM2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="House number supplement" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="HOUSE_NUM3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="(Not supported) House Number Range" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="LANGU" data-abap.bind='{ddic:"LANG", type:"string", format:"lang", length:"1", mid:"SPR", shlp:{type:'SH', id:'H_T002'}}' alpha-exit="ISOLA" 
+              label="Language Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': '1-char lang'}"></fd-fd-column>
+    <fd-fd-column sortable field="LOCATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Street 5" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Name 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Name 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME3" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Name 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME4" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Name 4" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME_CO" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="c/o name" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NAME_TXT" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Converted name field (with form of address)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="NATION" data-abap.bind='{ddic:"CHAR", type:"string", length:"1", mid:"ADDRESS_NATION", shlp:{type:'CT', id:'TSADV'}}'
+              label="Version ID for International Addresses" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="POSTALAREA" data-abap.bind='{ddic:"CHAR", type:"string", length:"15"}'
+              label="(Not Supported) Post Delivery District" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="POST_CODE1" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="City postal code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="POST_CODE2" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="PO Box Postal Code" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="POST_CODE3" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="Company Postal Code (for Large Customers)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="PO Box" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX_CTY" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005'}}'
+              label="PO box country" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX_LOC" data-abap.bind='{ddic:"CHAR", type:"string", length:"40", shlp:{type:'SH', id:'CITY_NAME'}}'
+              label="PO Box city" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX_NUM" data-abap.bind='{ddic:"CHAR", type:"string", format:"boolean", length:"1"}'
+              label="Flag: PO Box Without Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="PO_BOX_REG" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
+              label="Region for PO Box (Country, State, Province, ...)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REGION" data-abap.bind='{ddic:"CHAR", type:"string", length:"3", shlp:{type:'CT', id:'T005S'}}'
+              label="Region (State, Province, County)" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="REMARK" data-abap.bind='{ddic:"CHAR", type:"string", length:"50"}'
+              label="Address notes" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="ROOMNUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="Room or Appartment Number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORT1" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Search Term 1" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORT2" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="Search Term 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="SORT_PHN" data-abap.bind='{ddic:"CHAR", type:"string", length:"20"}'
+              label="(Not Supported) Phonetic Search Sort Field" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STREET" data-abap.bind='{ddic:"CHAR", type:"string", length:"60", shlp:{type:'SH', id:'CLSTRTNAME'}}'
+              label="Street" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STREETABBR" data-abap.bind='{ddic:"CHAR", type:"string", length:"2", shlp:{type:'CT', id:'ADRSTRTYPE'}}'
+              label="(Not Supported) Abbreviation of Street Name" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STREETCODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"12", shlp:{type:'SH', id:'STRTA'}}' alpha-exit="ALPHA" 
+              label="Street Number for City/Street File" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STR_SUPPL1" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Street 2" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="STR_SUPPL2" data-abap.bind='{ddic:"CHAR", type:"string", length:"40"}'
+              label="Street 3" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TAXJURCODE" data-abap.bind='{ddic:"CHAR", type:"string", length:"15", mid:"TXJ"}'
+              label="Tax Jurisdiction" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEL_EXTENS" data-abap.bind='{ddic:"CHAR", type:"string", length:"10"}'
+              label="First Telephone No.: Extension" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TEL_NUMBER" data-abap.bind='{ddic:"CHAR", type:"string", length:"30"}'
+              label="First telephone no.: dialling code+number" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TIME_ZONE" data-abap.bind='{ddic:"CHAR", type:"string", length:"6", shlp:{type:'SH', id:'VTTZZ'}}'
+              label="Address time zone" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TITLE" data-abap.bind='{ddic:"CHAR", type:"string", length:"4", shlp:{type:'CT', id:'TSAD3'}}'
+              label="Form-of-Address Key" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <fd-fd-column sortable field="TRANSPZONE" data-abap.bind='{ddic:"CHAR", type:"string", length:"10", shlp:{type:'CT', id:'TZONE'}}'
+              label="Transportation zone to or from which the goods are delivered" markup="{'html-tag': 'fd-fd-column', 'initial': '""', 'comment': 'string'}"></fd-fd-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- PO_ADDRESSES_NEW BAPIADDRESS Vendor Address for SAP Releases >= 4.0A -->
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not supported) Physical address ID</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.ADDRESS_ID}
+        data-abap="{type: 'string', length: '10', alpha: 'ALPHA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Handle for Creating Addresses/Persons (Bus. Addr. Services)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.ADDRHANDLE}
+        data-abap="{type: 'string', length: '140'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Address number"
+    value={this.PO_ADDRESSES_NEW.ADDRNUMBER}
+    options="{type:'CT', id:'ADRC'}"
+    data-abap="{{type: 'string', length: '10', mid: 'ADR', alpha: 'ALPHA'}}"/>
+
+
+<ComboboxInput id="4711" label="(Not Supported) Address Data Source (Key)"
+    value={this.PO_ADDRESSES_NEW.ADDRORIGIN}
+    options="{type:'CT', id:'TSAD6'}"
+    data-abap="{{type: 'string', length: '4'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">old: building (no. or abbreviation)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.BUILDING}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Building (Number or Code)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.BUILD_LONG}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="City file test status"
+    value={this.PO_ADDRESSES_NEW.CHCKSTATUS}
+    options="{type:'FV', id:'AD_CHECKST'}"
+    data-abap="{{type: 'string', length: '1'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY1}
+        data-abap="{type: 'string', length: '40'}"
+        data-shlp="{type:'SH', id:'CLCITYNAME'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">District</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY2}
+        data-abap="{type: 'string', length: '40'}"
+        data-shlp="{type:'SH', id:'CITY_PART'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">District code for City and Street file</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITYP_CODE}
+        data-abap="{type: 'string', length: '8', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'CPRTA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City code for city/street file</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY_CODE}
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'CITYA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City PO box code (City file)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.CITY_CODE2}
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'CITYA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Country Key</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.COUNTRY}
+        data-abap="{type: 'string', length: '3', mid: 'LND'}"
+        data-shlp="{type:'CT', id:'T005'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Date referred to</FormLabel>
+    <DatePicker id="4711" value={this.PO_ADDRESSES_NEW.DATE}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Valid-from date - in current Release only 00010101 possible</FormLabel>
+    <DatePicker id="4711" value={this.PO_ADDRESSES_NEW.DATE_FROM}/>
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Valid-to date in current Release only 99991231 possible</FormLabel>
+    <DatePicker id="4711" value={this.PO_ADDRESSES_NEW.DATE_TO}/>
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Communication Method (Key) (Business Address Services)"
+    value={this.PO_ADDRESSES_NEW.DEFLT_COMM}
+    options="{type:'CT', id:'TSAC'}"
+    data-abap="{{type: 'string', length: '3'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.EXTENSION1}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Extension (only for data conversion) (data line/telebox)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.EXTENSION2}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First fax no.: extension</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.FAX_EXTENS}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First fax no.: dialling code+number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.FAX_NUMBER}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Floor in building</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.FLOOR}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">House Number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.HOUSE_NUM1}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">House number supplement</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.HOUSE_NUM2}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not supported) House Number Range</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.HOUSE_NUM3}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem label="Language Key">
+    <Input value={this.PO_ADDRESSES_NEW.LANGU}
+           data-abap="{type: 'string', length: '1', mid: 'SPR', alpha: 'ISOLA'}"
+           data-shlp="{type:'SH', id:'H_T002'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street 5</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.LOCATION}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME1}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 2</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME2}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 3</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME3}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Name 4</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME4}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">c/o name</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME_CO}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Converted name field (with form of address)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.NAME_TXT}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Version ID for International Addresses"
+    value={this.PO_ADDRESSES_NEW.NATION}
+    options="{type:'CT', id:'TSADV'}"
+    data-abap="{{type: 'string', length: '1', mid: 'ADDRESS_NATION'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not Supported) Post Delivery District</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POSTALAREA}
+        data-abap="{type: 'string', length: '15'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">City postal code</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POST_CODE1}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">PO Box Postal Code</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POST_CODE2}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Company Postal Code (for Large Customers)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.POST_CODE3}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">PO Box</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.PO_BOX}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="PO box country"
+    value={this.PO_ADDRESSES_NEW.PO_BOX_CTY}
+    options="{type:'CT', id:'T005'}"
+    data-abap="{{type: 'string', length: '3'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">PO Box city</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.PO_BOX_LOC}
+        data-abap="{type: 'string', length: '40'}"
+        data-shlp="{type:'SH', id:'CITY_NAME'}"
+    />
+</FormItem>
+
+
+<Checkbox value={this.PO_ADDRESSES_NEW.PO_BOX_NUM}/>Flag: PO Box Without Number</Checkbox>
+
+
+<ComboboxInput id="4711" label="Region for PO Box (Country, State, Province, ...)"
+    value={this.PO_ADDRESSES_NEW.PO_BOX_REG}
+    options="{type:'CT', id:'T005S'}"
+    data-abap="{{type: 'string', length: '3'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Region (State, Province, County)</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.REGION}
+        data-abap="{type: 'string', length: '3'}"
+        data-shlp="{type:'CT', id:'T005S'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Address notes</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.REMARK}
+        data-abap="{type: 'string', length: '50'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Room or Appartment Number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.ROOMNUMBER}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Search Term 1</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.SORT1}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Search Term 2</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.SORT2}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">(Not Supported) Phonetic Search Sort Field</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.SORT_PHN}
+        data-abap="{type: 'string', length: '20'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STREET}
+        data-abap="{type: 'string', length: '60'}"
+        data-shlp="{type:'SH', id:'CLSTRTNAME'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="(Not Supported) Abbreviation of Street Name"
+    value={this.PO_ADDRESSES_NEW.STREETABBR}
+    options="{type:'CT', id:'ADRSTRTYPE'}"
+    data-abap="{{type: 'string', length: '2'}}"/>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street Number for City/Street File</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STREETCODE}
+        data-abap="{type: 'string', length: '12', alpha: 'ALPHA'}"
+        data-shlp="{type:'SH', id:'STRTA'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street 2</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STR_SUPPL1}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Street 3</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.STR_SUPPL2}
+        data-abap="{type: 'string', length: '40'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Tax Jurisdiction</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TAXJURCODE}
+        data-abap="{type: 'string', length: '15', mid: 'TXJ'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First Telephone No.: Extension</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TEL_EXTENS}
+        data-abap="{type: 'string', length: '10'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">First telephone no.: dialling code+number</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TEL_NUMBER}
+        data-abap="{type: 'string', length: '30'}"
+    />
+</FormItem>
+
+
+<FormItem>
+    <FormLabel htmlFor="4711">Address time zone</FormLabel>
+    <FormInput id="4711" value={this.PO_ADDRESSES_NEW.TIME_ZONE}
+        data-abap="{type: 'string', length: '6'}"
+        data-shlp="{type:'SH', id:'VTTZZ'}"
+    />
+</FormItem>
+
+
+<ComboboxInput id="4711" label="Form-of-Address Key"
+    value={this.PO_ADDRESSES_NEW.TITLE}
+    options="{type:'CT', id:'TSAD3'}"
+    data-abap="{{type: 'string', length: '4'}}"/>
+
+
+<ComboboxInput id="4711" label="Transportation zone to or from which the goods are delivered"
+    value={this.PO_ADDRESSES_NEW.TRANSPZONE}
+    options="{type:'CT', id:'TZONE'}"
+    data-abap="{{type: 'string', length: '10'}}"/>
 
 
 <!-- RETURN BAPIRETURN Processing Errors That Occurred -->

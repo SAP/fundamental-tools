@@ -1,7 +1,7 @@
 //
-// BAPI_PO_CREATE 
+// BAPI_PO_CREATE
 //
-// rfmcall.py 1.0 at: 2021-01-12 13:35:21
+// rfmcall.js 1.3.0 at: 2021-01-12 13:51:12
 //
 
 // Variables : 4
@@ -9,9 +9,9 @@
 // Tables    : 14
 // Exceptions: 0
 
-BAPI_PO_CREATE = {
+let params = {
 
-  // INPUT PARAMETERS
+  // IMPORT PARAMETERS
 
   PO_HEADER                        :   {}, // BAPIEKKOC PO Header Data
   //HEADER_ADD_DATA_RELEVANT       :   "", // CHAR (1) Indicator: Additional Data (Header) Relevant
@@ -38,20 +38,22 @@ BAPI_PO_CREATE = {
   //PO_SRV_ACCASS_VALUES           :   [], // BAPIESKLC Value/Link to Service Account Assignment
   //RETURN                         :   [], // BAPIRETURN Return Messages
 
-  // OUTPUT PARAMETERS
+  // EXPORT PARAMETERS
 
-  PURCHASEORDER                    :   "", // CHAR (10) ALPHA=ALPHA Purchase Order Number
+  // PURCHASEORDER                 :   "", // CHAR (10) ALPHA=ALPHA Purchase Order Number
 };
 
+result = await client.call("BAPI_PO_CREATE", params);
+
 //
-// INPUT PARAMETERS
+// IMPORT PARAMETERS
 //
 
 // PO_HEADER BAPIEKKOC PO Header Data
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_HEADER = {
+let PO_HEADER                         =   {}; // BAPIEKKOC PO Header Data
+
+let BAPIEKKOC = {
   AGREEMENT                        :   "", // CHAR (10) ALPHA=ALPHA Number of principal purchase agreement
   CO_CODE                          :   "", // CHAR (4) Company Code
   CREATED_BY                       :   "", // CHAR (12) Name of Person who Created the Object
@@ -66,25 +68,25 @@ PO_HEADER = {
   SUPPL_PLNT                       :   "", // CHAR (4) Supplying (issuing) plant in case of stock transport order
   VENDOR                           :   "", // CHAR (10) ALPHA=ALPHA Vendor's account number
 };
-/* eslint-enable key-spacing */
+
 
 // HEADER_TECH_FIELDS BAPITECH Technical Header Fields
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-HEADER_TECH_FIELDS = {
+let HEADER_TECH_FIELDS                =   {}; // BAPITECH Technical Header Fields
+
+let BAPITECH = {
   NO_AUTHORITY                     :   "", // CHAR (1) Checkbox
   NO_MESSAGE_REQ                   :   "", // CHAR (1) Checkbox
   NO_MESSAGING                     :   "", // CHAR (1) Checkbox
   NO_PRICE_FROM_PO                 :   "", // CHAR (1) Checkbox
 };
-/* eslint-enable key-spacing */
+
 
 // PO_ADDRESS BAPIADDRESS Ordering Address for One-Time Vendor
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_ADDRESS = {
+let PO_ADDRESS                        =   {}; // BAPIADDRESS Ordering Address for One-Time Vendor
+
+let BAPIADDRESS = {
   ADDRESS_ID                       :   "", // CHAR (10) ALPHA=ALPHA (Not supported) Physical address ID
   ADDRHANDLE                       :   "", // CHAR (140) Handle for Creating Addresses/Persons (Bus. Addr. Services)
   ADDRNUMBER                       :   "", // CHAR (10) ALPHA=ALPHA Address number
@@ -146,23 +148,23 @@ PO_ADDRESS = {
   TITLE                            :   "", // CHAR (4) Form-of-Address Key
   TRANSPZONE                       :   "", // CHAR (10) Transportation zone to or from which the goods are delivered
 };
-/* eslint-enable key-spacing */
+
 
 // PO_HEADER_ADD_DATA BAPIEKKOA Additional Data: PO Header
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_HEADER_ADD_DATA = {
-  CASH_DISC1                       :    0, // DEC (5.3) Cash discount percentage 1
-  CASH_DISC2                       :    0, // DEC (5.3) Cash Discount Percentage 2
+let PO_HEADER_ADD_DATA                =   {}; // BAPIEKKOA Additional Data: PO Header
+
+let BAPIEKKOA = {
+  CASH_DISC1                       :  0.0, // DEC (5.3) Cash discount percentage 1
+  CASH_DISC2                       :  0.0, // DEC (5.3) Cash Discount Percentage 2
   CREATED_BY                       :   "", // CHAR (12) Name of Person who Created the Object
   CURRENCY                         :   "", // CUKY (5) Currency Key
   CUSTOMS                          :   "", // CHAR (6) Customs Office: Office of Exit/Entry for Foreign Trade
-  DSCNT1_TO                        :    0, // DEC (3) Cash discount days 1
-  DSCNT2_TO                        :    0, // DEC (3) Cash discount days 2
-  DSCNT3_TO                        :    0, // DEC (3) Cash discount days 3
-  EXCH_RATE                        :    0, // DEC (9.5) Direct Quoted Exchange Rate
-  EXCH_RATE_CM                     :    0, // DEC (9.5) Indirect Quoted Exchange Rate
+  DSCNT1_TO                        :  0.0, // DEC (3) Cash discount days 1
+  DSCNT2_TO                        :  0.0, // DEC (3) Cash discount days 2
+  DSCNT3_TO                        :  0.0, // DEC (3) Cash discount days 3
+  EXCH_RATE                        :  0.0, // DEC (9.5) Direct Quoted Exchange Rate
+  EXCH_RATE_CM                     :  0.0, // DEC (9.5) Indirect Quoted Exchange Rate
   EX_RATE_FX                       :   "", // CHAR (1) Indicator: Fixing of Exchange Rate
   INCOTERMS1                       :   "", // CHAR (3) Incoterms (Part 1)
   INCOTERMS2                       :   "", // CHAR (28) Incoterms (Part 2)
@@ -175,7 +177,7 @@ PO_HEADER_ADD_DATA = {
   VPER_END                         :   "", // DATS (8) End of Validity Period
   VPER_START                       :   "", // DATS (8) Start of Validity Period
 };
-/* eslint-enable key-spacing */
+
 
 //
 // TABLE PARAMETERS
@@ -183,9 +185,9 @@ PO_HEADER_ADD_DATA = {
 
 // PO_ITEMS BAPIEKPOC Table of PO Items
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_ITEMS = {
+let PO_ITEMS                          =   []; // BAPIEKPOC Table of PO Items
+
+let BAPIEKPOC = {
   ACCTASSCAT                       :   "", // CHAR (1) Account assignment category
   ACKNOWL_NO                       :   "", // CHAR (20) Order Acknowledgment Number
   ACKN_REQD                        :   "", // CHAR (1) Order Acknowledgment Requirement
@@ -195,8 +197,8 @@ PO_ITEMS = {
   ALLOC_TBL                        :   "", // CHAR (10) ALPHA=ALPHA Allocation Table Number
   AT_ITEM                          :   "", // NUMC (5) Item number of allocation table
   AT_RELEV                         :   "", // CHAR (1) Relevant to Allocation Table
-  CONV_DEN1                        :    0, // DEC (5) Denominator for Conv. of Order Price Unit into Order Unit
-  CONV_NUM1                        :    0, // DEC (5) Numerator for Conversion of Order Price Unit into Order Unit
+  CONV_DEN1                        :  0.0, // DEC (5) Denominator for Conv. of Order Price Unit into Order Unit
+  CONV_NUM1                        :  0.0, // DEC (5) Numerator for Conversion of Order Price Unit into Order Unit
   DELETE_IND                       :   "", // CHAR (1) Deletion indicator in purchasing document
   DISP_QUAN                        :  0.0, // QUAN (13.3) PO quantity: total of all sched. lines for display purposes
   DISTRIB                          :   "", // CHAR (1) Distribution indicator for multiple account assignment
@@ -214,7 +216,7 @@ PO_ITEMS = {
   MAT_GRP                          :   "", // CHAR (9) Material Group
   MFR_NO                           :   "", // CHAR (10) ALPHA=ALPHA Manufacturer number
   MFR_NO_EXT                       :   "", // CHAR (10) External manufacturer code name or number
-  NET_PRICE                        :    0, // DEC (23.4) Net price in purchasing document (in document currency)
+  NET_PRICE                        :  0.0, // DEC (23.4) Net price in purchasing document (in document currency)
   NO_MORE_GR                       :   "", // CHAR (1) "Delivery Completed" Indicator
   NO_ROUNDING                      :   "", // CHAR (1) Indicator: suppress rounding in purchase order item
   ORDERPR_UN                       :   "", // UNIT (3) ALPHA=CUNIT Order Price Unit (Purchasing)
@@ -222,13 +224,13 @@ PO_ITEMS = {
   PART_INV                         :   "", // CHAR (1) Partial invoice indicator
   PCKG_NO                          :   "", // NUMC (10) Package number
   PLANT                            :   "", // CHAR (4) Plant
-  PLAN_DEL                         :    0, // DEC (3) Planned Delivery Time in Days
+  PLAN_DEL                         :  0.0, // DEC (3) Planned Delivery Time in Days
   PO_ITEM                          :   "", // NUMC (5) Item Number of Purchasing Document
   PO_NUMBER                        :   "", // CHAR (10) ALPHA=ALPHA Purchasing Document Number
   PO_PRICE                         :   "", // CHAR (1) Indicator: adopt price - do not use info record
   PO_UNIT_ISO                      :   "", // CHAR (3) Order unit in ISO code
   PREQ_NAME                        :   "", // CHAR (12) Name of requisitioner/requester
-  PRICE_UNIT                       :    0, // DEC (5) Price unit
+  PRICE_UNIT                       :  0.0, // DEC (5) Price unit
   PROMOTION                        :   "", // CHAR (10) ALPHA=ALPHA Promotion
   PR_CLOSED                        :   "", // CHAR (1) Purchase requisition closed
   PUR_MAT                          :   "", // CHAR (18) ALPHA=MATN1 Material number
@@ -249,13 +251,13 @@ PO_ITEMS = {
   VAL_TYPE                         :   "", // CHAR (10) Valuation type
   VEND_MAT                         :   "", // CHAR (22) Material number used by vendor
 };
-/* eslint-enable key-spacing */
+
 
 // PO_ITEM_SCHEDULES BAPIEKET Table of Schedule Lines
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_ITEM_SCHEDULES = {
+let PO_ITEM_SCHEDULES                 =   []; // BAPIEKET Table of Schedule Lines
+
+let BAPIEKET = {
   BATCH                            :   "", // CHAR (10) Batch Number
   BOMEXPL_NO                       :   "", // CHAR (8) BOM explosion number
   CREATE_IND                       :   "", // CHAR (1) Creation indicator (purchase requisition/schedule lines)
@@ -274,26 +276,26 @@ PO_ITEM_SCHEDULES = {
   VEND_BATCH                       :   "", // CHAR (15) Vendor Batch Number
   VERSION                          :   "", // CHAR (4) Production Version
 };
-/* eslint-enable key-spacing */
+
 
 // EXTENSIONIN BAPIPAREX Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-EXTENSIONIN = {
+let EXTENSIONIN                       =   []; // BAPIPAREX Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+
+let BAPIPAREX = {
   STRUCTURE                        :   "", // CHAR (30) Structure name of  BAPI table extension
   VALUEPART1                       :   "", // CHAR (240) Data part of BAPI extension parameter
   VALUEPART2                       :   "", // CHAR (240) Data part of BAPI extension parameter
   VALUEPART3                       :   "", // CHAR (240) Data part of BAPI extension parameter
   VALUEPART4                       :   "", // CHAR (240) Data part of BAPI extension parameter
 };
-/* eslint-enable key-spacing */
+
 
 // POADDRDELIVERY BAPIMEPOADDRDELIVERY PO Item: Address Structure BAPIADDR1 for Inbound Delivery
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-POADDRDELIVERY = {
+let POADDRDELIVERY                    =   []; // BAPIMEPOADDRDELIVERY PO Item: Address Structure BAPIADDR1 for Inbound Delivery
+
+let BAPIMEPOADDRDELIVERY = {
   ADDR_NO                          :   "", // CHAR (10) ALPHA=ALPHA Address number
   ADR_NOTES                        :   "", // CHAR (50) Address notes
   BUILDING                         :   "", // CHAR (10) old: building (no. or abbreviation)
@@ -351,42 +353,42 @@ POADDRDELIVERY = {
   TITLE                            :   "", // CHAR (30) Title text
   TRANSPZONE                       :   "", // CHAR (10) Transportation zone to or from which the goods are delivered
 };
-/* eslint-enable key-spacing */
+
 
 // PO_BUSINESS_PARTNER BAPIEKKOP Partner Roles
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_BUSINESS_PARTNER = {
+let PO_BUSINESS_PARTNER               =   []; // BAPIEKKOP Partner Roles
+
+let BAPIEKKOP = {
   BUSPARTNO                        :   "", // CHAR (10) ALPHA=ALPHA Number of a Business Partner in Vendor Master Record
   DELETE_IND                       :   "", // CHAR (1) Deletion Indicator
   LANGU                            :   "", // LANG (1) ALPHA=ISOLA Language Key
   PARTNERDESC                      :   "", // CHAR (2) Language-specific description of partner function
 };
-/* eslint-enable key-spacing */
+
 
 // PO_CONTRACT_LIMITS BAPIESUCC Limits with Contract Reference
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_CONTRACT_LIMITS = {
+let PO_CONTRACT_LIMITS                =   []; // BAPIESUCC Limits with Contract Reference
+
+let BAPIESUCC = {
   CON_ITEM                         :   "", // NUMC (5) Item number, contract
   CON_NUMBER                       :   "", // CHAR (10) ALPHA=ALPHA Contract number
   DELETE_IND                       :   "", // CHAR (1) Deletion Indicator
-  LIMIT                            :    0, // DEC (23.4) Overall limit
+  LIMIT                            :  0.0, // DEC (23.4) Overall limit
   LINE_NO                          :   "", // NUMC (10) Internal line number for limits
   NO_LIMIT                         :   "", // CHAR (1) No Limit
   PCKG_NO                          :   "", // NUMC (10) Package number
   PRICE_CHG                        :   "", // CHAR (1) Price Change in Entry Sheet
   SHORT_TEXT                       :   "", // CHAR (40) Short Text 1
 };
-/* eslint-enable key-spacing */
+
 
 // PO_ITEM_ACCOUNT_ASSIGNMENT BAPIEKKN Table of Account Assignments
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_ITEM_ACCOUNT_ASSIGNMENT = {
+let PO_ITEM_ACCOUNT_ASSIGNMENT        =   []; // BAPIEKKN Table of Account Assignments
+
+let BAPIEKKN = {
   ACTIVITY                         :   "", // CHAR (4) ALPHA=NUMCV Activity Number
   ASSET_NO                         :   "", // CHAR (12) ALPHA=ALPHA Main Asset Number
   BUDGET_PERIOD                    :   "", // CHAR (10) FM: Budget Period
@@ -397,7 +399,7 @@ PO_ITEM_ACCOUNT_ASSIGNMENT = {
   COST_OBJ                         :   "", // CHAR (12) Cost Object
   COUNTER                          :   "", // NUMC (8) Internal counter
   CO_AREA                          :   "", // CHAR (4) Controlling Area
-  DISTR_PERC                       :    0, // DEC (3.1) Distribution percentage in the case of multiple acct assgt
+  DISTR_PERC                       :  0.0, // DEC (3.1) Distribution percentage in the case of multiple acct assgt
   FUNC_AREA                        :   "", // CHAR (4) Functional Area
   FUNC_AREA_LONG                   :   "", // CHAR (16) Functional Area
   FUND                             :   "", // CHAR (10) Fund
@@ -430,13 +432,13 @@ PO_ITEM_ACCOUNT_ASSIGNMENT = {
   UNLOAD_PT                        :   "", // CHAR (25) Unloading Point
   WBS_ELEM_E                       :   "", // CHAR (24) ALPHA=ABPSN Work breakdown structure element (WBS element)
 };
-/* eslint-enable key-spacing */
+
 
 // PO_ITEM_ADD_DATA BAPIEKPOA Additional Data: PO Item
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_ITEM_ADD_DATA = {
+let PO_ITEM_ADD_DATA                  =   []; // BAPIEKPOA Additional Data: PO Item
+
+let BAPIEKPOA = {
   BUS_TRANST                       :   "", // CHAR (2) Business Transaction Type for Foreign Trade
   COMM_CODE                        :   "", // CHAR (17) Commodity Code/Import Code Number for Foreign Trade
   COUNT_ORIG                       :   "", // CHAR (3) Country of Origin of Material (Non-Preferential Origin)
@@ -447,65 +449,65 @@ PO_ITEM_ADD_DATA = {
   GR_NON_VAL                       :   "", // CHAR (1) Goods Receipt, Non-Valuated
   INFO_UPD                         :   "", // CHAR (1) Indicator: Update Info Record
   IR_IND                           :   "", // CHAR (1) Invoice receipt indicator
-  OVERDELTOL                       :    0, // DEC (3.1) Overdelivery Tolerance Limit
+  OVERDELTOL                       :  0.0, // DEC (3.1) Overdelivery Tolerance Limit
   PO_ITEM                          :   "", // NUMC (5) Item Number of Purchasing Document
   REG_ORIGIN                       :   "", // CHAR (3) Region of Origin of Material (Non-Preferential Origin)
-  REMINDER1                        :    0, // DEC (3) Number of Days for First Reminder/Expediter
-  REMINDER2                        :    0, // DEC (3) Number of Days for Second Reminder/Expediter
-  REMINDER3                        :    0, // DEC (3) Number of Days for Third Reminder/Expediter
-  UNDER_TOL                        :    0, // DEC (3.1) Underdelivery Tolerance Limit
+  REMINDER1                        :  0.0, // DEC (3) Number of Days for First Reminder/Expediter
+  REMINDER2                        :  0.0, // DEC (3) Number of Days for Second Reminder/Expediter
+  REMINDER3                        :  0.0, // DEC (3) Number of Days for Third Reminder/Expediter
+  UNDER_TOL                        :  0.0, // DEC (3.1) Underdelivery Tolerance Limit
   UNLIMITED                        :   "", // CHAR (1) Indicator: Unlimited Overdelivery Allowed
 };
-/* eslint-enable key-spacing */
+
 
 // PO_ITEM_TEXT BAPIEKPOTX Table of Item Texts
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_ITEM_TEXT = {
+let PO_ITEM_TEXT                      =   []; // BAPIEKPOTX Table of Item Texts
+
+let BAPIEKPOTX = {
   PO_ITEM                          :   "", // NUMC (5) Item Number of Purchasing Document
   PO_NUMBER                        :   "", // CHAR (10) ALPHA=ALPHA Purchasing Document Number
   TEXT_FORM                        :   "", // CHAR (2) Tag column
   TEXT_ID                          :   "", // CHAR (4) Text ID
   TEXT_LINE                        :   "", // CHAR (132) Text Line
 };
-/* eslint-enable key-spacing */
+
 
 // PO_LIMITS BAPIESUHC Limits
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_LIMITS = {
-  CONT_PERC                        :    0, // DEC (3.1) Percentage for price determination
+let PO_LIMITS                         =   []; // BAPIESUHC Limits
+
+let BAPIESUHC = {
+  CONT_PERC                        :  0.0, // DEC (3.1) Percentage for price determination
   CON_EXIST                        :   "", // CHAR (1) Limit on contract items exists
   EDITION                          :   "", // NUMC (4) Edition of Service Type
-  EXP_VALUE                        :    0, // DEC (23.4) Expected value
-  FREE_LIMIT                       :    0, // DEC (23.4) Free limit
-  LIMIT                            :    0, // DEC (23.4) Overall limit
+  EXP_VALUE                        :  0.0, // DEC (23.4) Expected value
+  FREE_LIMIT                       :  0.0, // DEC (23.4) Free limit
+  LIMIT                            :  0.0, // DEC (23.4) Overall limit
   NO_FRLIMIT                       :   "", // CHAR (1) No Limit
   NO_LIMIT                         :   "", // CHAR (1) No Limit
   PCKG_NO                          :   "", // NUMC (10) Package number
   PRICE_CHG                        :   "", // CHAR (1) Price Change in Entry Sheet
   SERV_TYPE                        :   "", // CHAR (3) Short Description of Service Type
   SSC_EXIST                        :   "", // CHAR (1) Limits exist for service types
-  SSC_LIMIT                        :    0, // DEC (23.4) Value limits on service types
+  SSC_LIMIT                        :  0.0, // DEC (23.4) Value limits on service types
   SSC_NOLIM                        :   "", // CHAR (1) No limit on standard service type
-  SSC_PERC                         :    0, // DEC (3.1) Percentage for price determination
+  SSC_PERC                         :  0.0, // DEC (3.1) Percentage for price determination
   SSC_PRSCHG                       :   "", // CHAR (1) Price Change in Entry Sheet
   TMP_EXIST                        :   "", // CHAR (1) Limit on service packages exists
-  TMP_LIMIT                        :    0, // DEC (23.4) Limits on model service specifications
+  TMP_LIMIT                        :  0.0, // DEC (23.4) Limits on model service specifications
   TMP_NOLIM                        :   "", // CHAR (1) No Limit on Model Specifications
   TMP_NUMBER                       :   "", // CHAR (10) ALPHA=ALPHA Number of a Set of Model Service Specifications
-  TMP_PERC                         :    0, // DEC (3.1) Percentage for Price Determination
+  TMP_PERC                         :  0.0, // DEC (3.1) Percentage for Price Determination
   TMP_PRSCHG                       :   "", // CHAR (1) Price Change in Entry Sheet
 };
-/* eslint-enable key-spacing */
+
 
 // PO_SERVICES BAPIESLLC Services
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_SERVICES = {
+let PO_SERVICES                       =   []; // BAPIESLLC Services
+
+let BAPIESLLC = {
   ALTERNAT                         :   "", // CHAR (1) Alternative Line
   BASE_UOM                         :   "", // UNIT (3) ALPHA=CUNIT Base Unit of Measure
   BASIC_LINE                       :   "", // CHAR (1) Basic Line
@@ -533,18 +535,18 @@ PO_SERVICES = {
   FORM_VAL4                        :  0.0, // QUAN (13.3) Formula value
   FORM_VAL5                        :  0.0, // QUAN (13.3) Formula value
   FROM_LINE                        :   "", // CHAR (6) Lower Limit
-  GR_PRICE                         :    0, // DEC (23.4) Gross price
+  GR_PRICE                         :  0.0, // DEC (23.4) Gross price
   HI_LINE_NO                       :   "", // NUMC (10) Hierarchically superior line number
   INFORM                           :   "", // CHAR (1) Informatory Line
   LIMIT_LINE                       :   "", // NUMC (10) Entry: Unplanned, limit line
   LINE_NO                          :   "", // NUMC (10) Internal line number
   MATL_GROUP                       :   "", // CHAR (9) Material Group
-  NET_VALUE                        :    0, // DEC (23.4) Net value
+  NET_VALUE                        :  0.0, // DEC (23.4) Net value
   OPEN_QTY                         :   "", // CHAR (1) Line with Open Quantity
   OUTL_IND                         :   "", // CHAR (1) Indicator: Outline line
   OUTL_LEVEL                       :    0, // INT1 (3) Hierarchy level of group
   OUTL_NO                          :   "", // CHAR (8) Outline Level
-  OVF_TOL                          :    0, // DEC (3.1) Overfulfillment Tolerance
+  OVF_TOL                          :  0.0, // DEC (3.1) Overfulfillment Tolerance
   OVF_UNLIM                        :   "", // CHAR (1) Unlimited Overfulfillment
   PCKG_NO                          :   "", // NUMC (10) Package number
   PERS_NO                          :   "", // NUMC (8) Personnel Number
@@ -553,7 +555,7 @@ PO_SERVICES = {
   PLN_LINE                         :   "", // NUMC (10) Entry: Planned package line
   PLN_PCKG                         :   "", // NUMC (10) Source package number
   PRICE_CHG                        :   "", // CHAR (1) Price Change in Entry Sheet
-  PRICE_UNIT                       :    0, // DEC (5) Price unit
+  PRICE_UNIT                       :  0.0, // DEC (5) Price unit
   QUANTITY                         :  0.0, // QUAN (13.3) Quantity with Sign
   SERVICE                          :   "", // CHAR (18) ALPHA=ALPHA Activity Number
   SERVICE_ITEM_KEY                 :   "", // NUMC (10) Item Key for eSOA Messages
@@ -563,7 +565,7 @@ PO_SERVICES = {
   SSC_LIM                          :   "", // CHAR (1) Service line refers to standard service catalog limits
   SUBPCKG_NO                       :   "", // NUMC (10) Subpackage number
   SUPP_LINE                        :   "", // CHAR (1) Supplementary Line
-  TARGET_VAL                       :    0, // DEC (23.4) Target Value
+  TARGET_VAL                       :  0.0, // DEC (23.4) Target Value
   TAXJURCODE                       :   "", // CHAR (15) Tax Jurisdiction
   TAX_CODE                         :   "", // CHAR (2) Tax on sales/purchases code
   TMP_LINE                         :   "", // NUMC (10) Entry: Unplanned service from model specifications
@@ -576,41 +578,41 @@ PO_SERVICES = {
   USERF2_TXT                       :   "", // CHAR (10) User-Defined Field
   WAGETYPE                         :   "", // CHAR (4) Wage Type
 };
-/* eslint-enable key-spacing */
+
 
 // PO_SERVICES_TEXT BAPIESLLTX Text for Service Line
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_SERVICES_TEXT = {
+let PO_SERVICES_TEXT                  =   []; // BAPIESLLTX Text for Service Line
+
+let BAPIESLLTX = {
   FORMAT_COL                       :   "", // CHAR (2) Tag column
   LINE_NO                          :   "", // NUMC (10) Internal line number
   PCKG_NO                          :   "", // NUMC (10) Package number
   TEXT_ID                          :   "", // CHAR (4) Text ID
   TEXT_LINE                        :   "", // CHAR (132) Text Line
 };
-/* eslint-enable key-spacing */
+
 
 // PO_SRV_ACCASS_VALUES BAPIESKLC Value/Link to Service Account Assignment
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-PO_SRV_ACCASS_VALUES = {
+let PO_SRV_ACCASS_VALUES              =   []; // BAPIESKLC Value/Link to Service Account Assignment
+
+let BAPIESKLC = {
   LINE_NO                          :   "", // NUMC (10) Line Number
   NET_VALUE                        :  0.0, // CURR (11.2) Net Value of Item
   PCKG_NO                          :   "", // NUMC (10) Package number
-  PERCENTAGE                       :    0, // DEC (4.1) Percentage for Account Assignment Value Distribution
+  PERCENTAGE                       :  0.0, // DEC (4.1) Percentage for Account Assignment Value Distribution
   QUANTITY                         :  0.0, // QUAN (13.3) Quantity with Sign
   SERIAL_NO                        :   "", // NUMC (2) Sequential Number of Account Assignment
   SERNO_LINE                       :   "", // NUMC (2) Seq. Number of Acc. Assignment Specification: Service Line
 };
-/* eslint-enable key-spacing */
+
 
 // RETURN BAPIRETURN Return Messages
 
-/* eslint-disable key-spacing */
-// prettier-ignore
-RETURN = {
+let RETURN                            =   []; // BAPIRETURN Return Messages
+
+let BAPIRETURN = {
   CODE                             :   "", // CHAR (5) Message code
   LOG_MSG_NO                       :   "", // NUMC (6) Application log: Internal message serial number
   LOG_NO                           :   "", // CHAR (20) Application log: log number
@@ -621,8 +623,3 @@ RETURN = {
   MESSAGE_V4                       :   "", // CHAR (50) Message Variable
   TYPE                             :   "", // CHAR (1) Message type: S Success, E Error, W Warning, I Info, A Abort
 };
-/* eslint-enable key-spacing */
-
-//
-// OUTPUT PARAMETERS
-//
