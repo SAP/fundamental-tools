@@ -2,6 +2,16 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+import logging
+from datetime import datetime
+from time import time
+
+VERSION = "1.0"
+
+SIGNATURE = f"""
+//
+// rfmcall.py {VERSION} at: {datetime.fromtimestamp(time()).strftime('%Y-%m-%d %H:%M:%S')}"""
+
 """
     There are ca. 30 predefined ABAP Dictionary Data Types, maintained as domain values of DATATYPE_D data-element:
         https://help.sap.com/viewer/ec1c9c8191b74de98feb94001a95dd76/7.4.16/en-US/cf21f2e5446011d189700000e8322d00.html
@@ -109,8 +119,6 @@
     These characters occupy four bytes and hence are handled as two characters by ABAP. This can produce unexpected
     results when cutting character strings or comparing individual characters in character sets.
 """
-
-import logging
 
 
 def get_ddic_js(
@@ -262,7 +270,12 @@ def get_ddic_js(
             "comment": "Quantity UoM",
         },
         # Precision of a QUAN field
-        "PREC": {"type": "number", "format": "integer", "html-tag": "number"},
+        "PREC": {
+            "type": "number",
+            "format": "integer",
+            "html-tag": "number",
+            "initial": "0",
+        },
         "D16R": {
             "type": "number",
             "format": "decimal",
@@ -292,13 +305,13 @@ def get_ddic_js(
             "comment": "Decimal float",
         },
         # Long character string, requires preceding INT2 field
-        "LCHR": {"type": "string", "html-tag": TEXT_TAGNAME},
+        "LCHR": {"type": "string", "html-tag": TEXT_TAGNAME, "initial": '""'},
         # Byte String of Variable Length
-        "RSTR": {"type": "string", "html-tag": TEXT_TAGNAME},
+        "RSTR": {"type": "string", "html-tag": TEXT_TAGNAME, "initial": "bytes()"},
         # Short Character String of Variable Length
-        "SSTR": {"type": "string", "html-tag": TEXT_TAGNAME},
+        "SSTR": {"type": "string", "html-tag": TEXT_TAGNAME, "initial": '""'},
         # Character String of Variable Length
-        "STRG": {"type": "string", "html-tag": TEXT_TAGNAME},
+        "STRG": {"type": "string", "html-tag": TEXT_TAGNAME, "initial": '""'},
         # Uninterpreted sequence of bytes
         "RAW": {
             "type": "string",
@@ -307,7 +320,7 @@ def get_ddic_js(
             "comment": "Binary string",
         },
         # Long byte string, requires preceding INT2 field
-        "LRAW": {"type": "string", "html-tag": TEXT_TAGNAME},
+        "LRAW": {"type": "string", "html-tag": TEXT_TAGNAME, "initial": "bytes()"},
         # native
         "STRING": {
             "type": "string",

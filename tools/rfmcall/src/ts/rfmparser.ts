@@ -34,6 +34,8 @@ class Writer {
     this.write("//");
     this.write(`// ${fileName}`);
     this.write("//");
+    this.write(`// ${CN.SIGNATURE}`);
+    this.write("//");
     this.write();
   }
 
@@ -142,7 +144,7 @@ export class parseRFM {
         if (result.abaptype in CN.DDIC_JS) {
           result.init = CN.DDIC_JS[result.abaptype].INITIAL;
         } else {
-          result.init = `"native ABAP type: ${result.abaptype}"`;
+          result.init = `"native ABAP type"`;
         }
         if (result.leng) {
           result.abaptype += ` (${result.leng})`;
@@ -177,7 +179,7 @@ export class parseRFM {
         result.alpha = fieldData["input"]["CONVEXIT"];
       }
     } else {
-      result.init = `"native ABAP type: ${result.abaptype}"`;
+      result.init = `"native ABAP type"`;
     }
 
     return result;
@@ -402,7 +404,7 @@ export class parseRFM {
     // Parameters
     let paramClass: string = "";
     this.Params.forEach((paramData, paramKey) => {
-      if (["I", "C", "T"].includes(paramData["PARAMCLASS"])) {
+      if (["I", "C", "T", "E"].includes(paramData["PARAMCLASS"])) {
         if (paramClass !== paramData["PARAMCLASS"]) {
           paramClass = paramData["PARAMCLASS"];
           writer.write();
@@ -411,6 +413,7 @@ export class parseRFM {
         }
         let paramName = this.JSToPKey(paramKey)[1];
         let left = paramData["required"] ? paramName : `//${paramName}`;
+        if (paramClass === "E") left = `// ${left}`;
         let right = this.get_param_initializer(paramData);
         let paramText = paramData["PARAMTEXT"];
 
@@ -658,6 +661,7 @@ export class parseRFM {
     if (!markup.format["ROLLNAME"]) delete markup.format["ROLLNAME"];
 
     if (Object.keys(markup.input).length === 0) {
+      // @ts-ignore: ts(2790)
       delete markup.input;
     }
 

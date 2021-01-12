@@ -8,14 +8,13 @@ import json
 import logging
 import os
 import sys
-from backend.constants import get_ddic_js, iso2_to_LANGU
+from .constants import get_ddic_js, iso2_to_LANGU, DEFAULT_OUTPUT_FOLDER
 from .utils import get_log_level
 from .systems import (
     BACKEND_API,
     get_connection,
 )
 from .business_objects import catalog, rfm_sets
-from .constants import DEFAULT_OUTPUT_FOLDER
 
 # value input type determines the input element -> see model.py
 INPUT_TYPE_BINARY = "binary"  # -> checkbox
@@ -227,13 +226,13 @@ class BackendParser:
                 GROUP_NAMES="X",
             )
         except Exception as e:
-            if p["PARAMTYPE"] == "VARIABLE" and e.key == "NOT_FOUND":
+            if p["paramType"] == "var" and e.key == "NOT_FOUND":
                 print(
                     "!1 %1s %-30s %-10s        %-30s %-30s %s"
                     % (
                         p["PARAMCLASS"],
                         p["PARAMETER"],
-                        p["PARAMTYPE"],
+                        p["paramType"],
                         p["TABNAME"],
                         p["FIELDNAME"],
                         p["PARAMTEXT"],
@@ -243,7 +242,7 @@ class BackendParser:
             else:
                 raise e  # unexpected error
 
-        if p["PARAMTYPE"] == "VARIABLE":
+        if p["paramType"] == "var":
             if ddif["DDOBJTYPE"] == "INTTAB" or ddif["DDOBJTYPE"] == "TRANSP":
                 dfies = ddif["DFIES_TAB"][0]
             else:
@@ -460,9 +459,11 @@ class BackendParser:
                     continue
 
                 # set optional/required
-                p["required"] = len(p["OPTIONAL"].strip()) == 0
+                p["required"] = not p["OPTIONAL"]
+                del p["OPTIONAL"]
                 if not p["required"]:
                     p["default"] = p["DEFAULT"]
+                del p["DEFAULT"]
 
                 # 'I' parameter type is INT4 internally
                 if p["TABNAME"] == "I":
@@ -511,9 +512,8 @@ class BackendParser:
                     dfies = False
 
                 # Tables
-                if p["EXID"] in "h" or p["PARAMCLASS"] == "T":
+                if p["paramType"] == "table":
                     t += 1
-                    p["PARAMTYPE"] = "TABLE"
 
                     if not dfies:
                         dfies = self.get_dfies(p)
@@ -521,14 +521,14 @@ class BackendParser:
                             continue
                         self.Fields[p["FIELDKEY"]] = self.annotation(dfies)
 
-                    del p["INTLENGTH"], p["DECIMALS"], p["DEFAULT"]
+                    del p["INTLENGTH"], p["DECIMALS"]
 
                     print(
                         "%1s %-30s %-10s (%4u) %-30s %-30s %s"
                         % (
                             p["PARAMCLASS"],
                             p["PARAMETER"],
-                            p["PARAMTYPE"],
+                            p["paramType"],
                             len(dfies),
                             p["TABNAME"],
                             p["FIELDNAME"],
@@ -537,9 +537,8 @@ class BackendParser:
                     )
 
                 # Structures
-                elif p["EXID"] in "uv":
+                elif p["paramType"] == "struct":
                     s += 1
-                    p["PARAMTYPE"] = "STRUCTURE"
 
                     if not dfies:
                         dfies = self.get_dfies(p)
@@ -547,14 +546,14 @@ class BackendParser:
                             continue
                         self.Fields[p["FIELDKEY"]] = self.annotation(dfies)
 
-                    del p["INTLENGTH"], p["DECIMALS"], p["DEFAULT"]
+                    del p["INTLENGTH"], p["DECIMALS"]
 
                     print(
                         "%1s %-30s %-10s (%4u) %-30s %-30s %s"
                         % (
                             p["PARAMCLASS"],
                             p["PARAMETER"],
-                            p["PARAMTYPE"],
+                            p["paramType"],
                             len(dfies),
                             p["TABNAME"],
                             p["FIELDNAME"],
@@ -563,9 +562,8 @@ class BackendParser:
                     )
 
                 # Variables
-                else:  # p['EXID'] not in 'uvh':
+                else:
                     v += 1
-                    p["PARAMTYPE"] = "VARIABLE"
 
                     if not dfies:
                         dfies = self.get_dfies(p)
@@ -577,7 +575,7 @@ class BackendParser:
                         % (
                             p["PARAMCLASS"],
                             p["PARAMETER"],
-                            p["PARAMTYPE"],
+                            p["paramType"],
                             p["TABNAME"],
                             p["FIELDNAME"],
                             p["PARAMTEXT"],
@@ -597,11 +595,6 @@ class BackendParser:
                 if not dfies:
                     p["nativeKey"] = p["TABNAME"]
 
-                if not p["OPTIONAL"]:
-                    p["REQUIRED"] = True
-                    del p["OPTIONAL"]
-                    if "DEFAULT" in p:
-                        del p["DEFAULT"]
                 if "DECIMALS" in p:
                     del p["DECIMALS"]
 
@@ -653,11 +646,16 @@ class BackendParser:
 
             self.Fields = sorted(self.Fields.items())  # dict -> sortedlist
 
+            self.Stat = {}
             for rfm_name in self.Params:
-                for rfm_param in self.Params[rfm_name]:
-                    self.Params[rfm_name][rfm_param]["RFM"] = sorted(
-                        self.Params[rfm_name][rfm_param]["RFM"]
+                stat = {"var": 0, "struct": 0, "table": 0, "exception": 0}
+                params = self.Params[rfm_name]
+                for parameter_name in params:
+                    stat[params[parameter_name]["paramType"]] += 1
+                    self.Params[rfm_name][parameter_name]["RFM"] = sorted(
+                        params[parameter_name]["RFM"]
                     )
+                self.Stat[rfm_name] = stat
 
             with codecs.open(
                 f"{self.output_folder}/{rfmset}/Params.json", encoding="utf-8", mode="w"
@@ -686,6 +684,17 @@ class BackendParser:
             ) as fout:
                 json.dump(
                     self.Helps,
+                    fout,
+                    indent=4,
+                    ensure_ascii=False,
+                    sort_keys=True,
+                )
+
+            with codecs.open(
+                f"{self.output_folder}/{rfmset}/Stat.json", encoding="utf-8", mode="w"
+            ) as fout:
+                json.dump(
+                    self.Stat,
                     fout,
                     indent=4,
                     ensure_ascii=False,

@@ -13,9 +13,10 @@ import shutil
 import os
 import sys
 from collections import OrderedDict
-from backend.constants import get_ddic_js
 from datetime import datetime
-from backend import VERSION, catalog
+
+from backend.constants import get_ddic_js, SIGNATURE
+from backend.business_objects import catalog
 from backend.utils import Writer, get_log_level
 from backend.backend_parser import INPUT_TYPE_KEY, INPUT_TYPE_BINARY, INPUT_TYPE_LIST
 
@@ -26,7 +27,7 @@ FORMATTER_OFF = "<!-- @formatter:off -->"
 ABAP_TYPE = "abap-ddic"
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 PARAMCLASS = OrderedDict(
-    [("I", "INPUT"), ("E", "OUTPUT"), ("C", "CHANGING"), ("T", "TABLE")]
+    [("I", "INPUT"), ("C", "CHANGING"), ("T", "TABLE"), ("E", "OUTPUT")]
 )
 HEADER = """<!-- %s %s -->"""
 
@@ -96,22 +97,92 @@ class ModelParser:
                 mode="r",
             ) as fin:
                 self.Helps = OrderedDict(json.load(fin))
+            with codecs.open(
+                f"{self.output_folder}/{self.rfm_set}/Stat.json",
+                encoding="utf-8",
+                mode="r",
+            ) as fin:
+                self.Stat = json.load(fin)
         except Exception as ex:
             raise Exception(
                 f"Local metadata not found for: {self.rfm_set}; Run: python backend.py <abap system> {self.rfm_set}"
             ) from None
 
-    def get_field_inital(self, rfm_field):
-        init = {"number": "0", "string": "''"}
-        try:
-            initial = init[self.DDIC_JS[rfm_field["format"]["DATATYPE"]]["type"]]
-        except Exception as ex:
-            print(
-                f"Datatype [%s] not supported: {rfm_field['format']['DATATYPE']}",
-                rfm_field,
-            )
-            return "?"
-        return initial
+    def get_param_initializer(self, param):
+        result = {
+            "text": param["PARAMTEXT"],
+            "leng": "",
+            "abaptype": "",
+            "init": "",
+            "optional": False,
+            "alpha": "",
+        }
+        field = False
+        if "nativeKey" not in param:
+            field = self.Fields[param["FIELDKEY"]]
+            result["abaptype"] = param["FIELDKEY"]
+
+        if param["paramType"] == "table":
+            result["init"] = "[]"
+
+        elif param["paramType"] == "struct":
+            result["init"] = "{}"
+
+        elif param["paramType"] == "var":
+            if field:
+                result["abaptype"] = field["format"]["DATATYPE"]
+                result["leng"] = field["format"]["LENG"]
+                if "input" in field:
+                    if "CONVEXIT" in field["input"]:
+                        result["alpha"] = field["input"]["CONVEXIT"]
+
+            else:
+                result["abaptype"] = param["nativeKey"]
+
+            if result["abaptype"] in self.DDIC_JS:
+                result["init"] = self.DDIC_JS[result["abaptype"]]["initial"]
+            else:
+                result["init"] = '"native ABAP type"'
+
+            if result["leng"]:
+                result["abaptype"] += f" ({result['leng']})"
+
+            result["optional"] = "default" in param
+            if result["optional"]:
+                result["init"] = param["default"]
+            if type(result["init"]) == str:
+                if len(result["init"].strip()) == 0:
+                    result["init"] = "''"
+                result["init"] = result["init"].replace("'", '"')
+
+        else:
+            raise ValueError(f"Unknown parameter type {param['paramType']}")
+
+        return result
+
+    def get_field_initializer(self, field_data):
+        result = {
+            "abaptype": field_data["format"]["DATATYPE"],
+            "init": "",
+            "alpha": "",
+        }
+        leng = ""
+        if "LENG" in field_data["format"]:
+            leng = str(field_data["format"]["LENG"])
+        if "DECIMALS" in field_data["format"]:
+            leng += f".{field_data['format']['DECIMALS']}"
+
+        if result["abaptype"] in self.DDIC_JS:
+            result["init"] = self.DDIC_JS[result["abaptype"]]["initial"]
+            if "input" in field_data:
+                if "CONVEXIT" in field_data["input"]:
+                    result["alpha"] = field_data["input"]["CONVEXIT"]
+        else:
+            result["init"] = '"native ABAP type"'
+
+        if leng:
+            result["abaptype"] += f" ({leng})"
+        return result
 
     def escape_quotes(self, ucstr):
         return ucstr.replace('"', "&quot")
@@ -182,8 +253,16 @@ class ModelParser:
                 write_to="js",
             )
 
-            model.write(HEADER % (rfm_name, VERSION))  # , TIMESTAMP
-            model_js.write(HEADER_JS % (rfm_name, VERSION))  # , TIMESTAMP
+            model.write(HEADER % (rfm_name, SIGNATURE))
+            model_js.write(HEADER_JS % (rfm_name, SIGNATURE))
+            stat = self.Stat[rfm_name]
+            model_js.write(
+                f"""// Variables : {stat["var"]}
+// Structures: {stat["struct"]}
+// Tables    : {stat["table"]}
+// Exceptions: {stat["exception"]}
+"""
+            )
 
             model.save()
             model_js.save()
@@ -203,17 +282,22 @@ class ModelParser:
             model_js.write("%s = {" % rfm_name.replace("/", "_"))
             model_js.addindent()
 
+            rfm_params = self.sort_params_for_output(rfm_name)
+
             # RFM parameters init
             for param_class in PARAMCLASS:
 
                 paramclass_header = False
 
-                for parameter_name in sorted(rfm_params):
+                for parameter_name in rfm_params:
 
                     rfm_parameter = rfm_params[parameter_name]
 
                     if rfm_parameter["PARAMCLASS"] != param_class:
                         continue
+
+                    if param_class == "E":
+                        print(parameter_name)
 
                     logging.info(f"rfm init rfm: {rfm_name} : {parameter_name}")
 
@@ -231,7 +315,7 @@ class ModelParser:
                     right = self.get_param_initializer(rfm_parameter)
                     param_text = rfm_parameter["PARAMTEXT"]
 
-                    if rfm_parameter["PARAMTYPE"] == "VARIABLE":
+                    if rfm_parameter["paramType"] == "var":
                         if "nativeKey" not in rfm_parameter:
                             field_ddic = self.Fields[rfm_parameter["FIELDKEY"]]
 
@@ -263,14 +347,14 @@ class ModelParser:
                                 )
                             )
 
-                    elif rfm_parameter["PARAMTYPE"] == "STRUCTURE":
+                    elif rfm_parameter["paramType"] == "struct":
                         model_js.write(
                             "{:<33}: {:>4}, // {} {}".format(
                                 left, right["init"], right["abaptype"], param_text
                             )
                         )
 
-                    elif rfm_parameter["PARAMTYPE"] == "TABLE":
+                    elif rfm_parameter["paramType"] == "table":
                         model_js.write(
                             "{:<33}: {:>4}, // {} {}".format(
                                 left, right["init"], right["abaptype"], param_text
@@ -278,64 +362,12 @@ class ModelParser:
                         )
                     else:
                         raise ValueError(
-                            "Invalid parameter type [%s]" % rfm_parameter["PARAMTYPE"]
+                            "Invalid parameter type [%s]" % rfm_parameter["paramType"]
                         )
 
             model_js.deindent()
             model_js.write("};")
             model_js.save()
-
-    def get_param_initializer(self, param):
-        result = {
-            "text": param["PARAMTEXT"],
-            "leng": "",
-            "abaptype": "",
-            "init": "",
-            "optional": False,
-            "alpha": "",
-        }
-        field = False
-        if "nativeKey" not in param:
-            field = self.Fields[param["FIELDKEY"]]
-            result["abaptype"] = param["FIELDKEY"]
-
-        if param["paramType"] == "table":
-            result["init"] = "[]"
-
-        elif param["paramType"] == "struct":
-            result["init"] = "{}"
-
-        elif param["paramType"] == "var":
-            if field:
-                result["abaptype"] = field["format"]["DATATYPE"]
-                result["leng"] = field["format"]["LENG"]
-                if "input" in field:
-                    if "CONVEXIT" in field["input"]:
-                        result["alpha"] = field["input"]["CONVEXIT"]
-
-            else:
-                result["abaptype"] = param["nativeKey"]
-
-            if result["abaptype"] in self.DDIC_JS:
-                result["init"] = self.DDIC_JS[result["abaptype"]]["initial"]
-            else:
-                result["init"] = f"native ABAP type: {result['abaptype']}"
-
-            if result["leng"]:
-                result["abaptype"] += f" ({result['leng']})"
-
-            result["optional"] = "default" in param
-            if result["optional"]:
-                result["init"] = param["default"]
-            if type(result["init"]) == str:
-                if len(result["init"].strip()) == 0:
-                    result["init"] = "''"
-                result["init"] = result["init"].replace("'", '"')
-
-        else:
-            raise ValueError(f"Unknown parameter type {param['paramType']}")
-
-        return result
 
     def get_abap_field_attrs(self, markup):
         element = ""
@@ -566,6 +598,28 @@ class ModelParser:
 
         return markup
 
+    def sort_params_for_output(self, rfm_name):
+        rfm_param_names = sorted(self.Parameters[rfm_name].keys())
+        rfm_params_sorted = OrderedDict()
+        for param_class in PARAMCLASS:
+            for parameter_name in rfm_param_names:
+                rfm_parameter = self.Parameters[rfm_name][parameter_name]
+                if (
+                    rfm_parameter["PARAMCLASS"] == param_class
+                    and rfm_parameter["required"]
+                ):
+                    rfm_params_sorted[parameter_name] = rfm_parameter
+
+            for parameter_name in rfm_param_names:
+                rfm_parameter = self.Parameters[rfm_name][parameter_name]
+                if (
+                    rfm_parameter["PARAMCLASS"] == param_class
+                    and not rfm_parameter["required"]
+                ):
+                    rfm_params_sorted[parameter_name] = rfm_parameter
+
+        return rfm_params_sorted
+
     def html_field(self, model, rfm_parameter, rfm_field):
         logging.info(f"  html field {rfm_parameter['PARAMETER']}-{rfm_field}")
 
@@ -622,15 +676,29 @@ class ModelParser:
             for index, field_name in enumerate(sorted(param_ddic)):
                 field_ddic = param_ddic[field_name]
 
-                line = "%-30s: %s" % (field_name, self.get_field_inital(field_ddic))
-                line += "," if index < index_last else " "
+                left = field_name.replace("/", "_")
+                right = self.get_field_initializer(field_ddic)
                 if "FIELDTEXT" in field_ddic["text"]:
-                    line += "  // %s" % field_ddic["text"]["FIELDTEXT"]
+                    field_text = field_ddic["text"]["FIELDTEXT"]
                 else:
                     raise ValueError(
-                        "%s: %s" % (rfm_parameter["PARAMETER"], field_name)
+                        f"Text not found for rfm parameter: {rfm_parameter['PARAMETER']} field: {field_name}"
+                    )
+
+                if right["alpha"]:
+                    line = "{:<33}: {:>4}, // {} ALPHA={} {}".format(
+                        left,
+                        right["init"],
+                        right["abaptype"],
+                        right["alpha"],
+                        field_text,
+                    )
+                else:
+                    line = "{:<33}: {:>4}, // {} {}".format(
+                        left, right["init"], right["abaptype"], field_text
                     )
                 model_js.write(line)
+
             model_js.deindent()
             model_js.write("};")
             model_js.write("/* eslint-enable key-spacing */")
@@ -686,8 +754,8 @@ class ModelParser:
         def html_structure(model, rfm_parameter):
             logging.info(f"  html structure {rfm_parameter['PARAMETER']}")
             param_ddic = self.Fields[rfm_parameter["FIELDKEY"]]
-            if rfm_parameter["PARAMTYPE"] not in ["TABLE", "STRUCTURE"]:
-                raise ValueError(rfm_parameter["PARAMTYPE"])
+            if rfm_parameter["paramType"] not in ["table", "struct"]:
+                raise ValueError(rfm_parameter["paramType"])
             model.newline()
             model.write(
                 "<!-- %s %s %s -->"
@@ -713,16 +781,15 @@ class ModelParser:
                 output_folder=self.output_folder,
             )
 
-            rfm_params = self.Parameters[rfm_name]
+            rfm_params = self.sort_params_for_output(rfm_name)
 
             for param_class in PARAMCLASS:
 
                 paramclass_header = False
-                # paramclass_header_js = False
 
-                for parameter_name in sorted(rfm_params):
+                for parameter_name in rfm_params:
 
-                    rfm_parameter = self.Parameters[rfm_name][parameter_name]
+                    rfm_parameter = rfm_params[parameter_name]
 
                     if rfm_parameter["PARAMCLASS"] != param_class:
                         continue
@@ -737,15 +804,15 @@ class ModelParser:
                         model_js.write(HEADER_JS_PARAMCLASS % PARAMCLASS[param_class])
                         model_js.write("//")
 
-                    if rfm_parameter["PARAMTYPE"] == "TABLE":
+                    if rfm_parameter["paramType"] == "table":
                         structure_init(model_js, rfm_parameter)
                         html_table(model, rfm_parameter)
 
-                    elif rfm_parameter["PARAMTYPE"] == "STRUCTURE":
+                    elif rfm_parameter["paramType"] == "struct":
                         structure_init(model_js, rfm_parameter)
                         html_structure(model, rfm_parameter)
 
-                    elif rfm_parameter["PARAMTYPE"] == "VARIABLE":
+                    elif rfm_parameter["paramType"] == "var":
                         if "nativeKey" in rfm_parameter:
                             pass
                             # self.html_field(
@@ -760,7 +827,7 @@ class ModelParser:
 
                     else:
                         raise ValueError(
-                            "Invalid parameter type [%s]" % rfm_parameter["PARAMTYPE"]
+                            "Invalid parameter type [%s]" % rfm_parameter["paramType"]
                         )
 
                 model.save()

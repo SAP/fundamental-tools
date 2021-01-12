@@ -4,5 +4,3 @@
 
 from .business_objects import catalog, rfm_sets
 from .backend_parser import get_arg_parser, BackendParser
-
-VERSION = "0.3"

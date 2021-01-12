@@ -2,6 +2,18 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
+const version = require("../package.json").version;
+
+const dt = new Date();
+const mm =
+  1 + dt.getMonth() < 10 ? "0" + (1 + dt.getMonth()) : "" + (1 + dt.getMonth());
+const dd = dt.getDate() < 10 ? "0" + dt.getDate() : "" + dt.getDate();
+const ts = `${dt.getFullYear()}-${mm}-${dd} ${dt
+  .toTimeString()
+  .substring(0, 8)}`;
+
+export const SIGNATURE = `rfmcall.js ${version} at: ${ts}`;
+
 // Languages
 export const iso2langu = new Map();
 iso2langu.set("en", "E");
@@ -43,7 +55,7 @@ export const PARAM_XPROPS = [
   "DEFAULT",
 ];
 
-// ABAP parameter type to JS model initial value mapping
+// ABAP parameter type to JS model INITIAL value mapping
 export const DATE_TAGNAME = "date";
 export const TIME_TAGNAME = "time";
 export const INPUT_TYPE_BINARY_TAG = "checkbox";
@@ -194,7 +206,12 @@ export const DDIC_JS = {
     COMMENT: "Quantity key",
   },
   // Precision of a QUAN field
-  PREC: { JS_TYPE: "number", JS_FORMAT: "integer", HTML_TAG: "number" },
+  PREC: {
+    JS_TYPE: "number",
+    JS_FORMAT: "integer",
+    HTML_TAG: "number",
+    INITIAL: "0",
+  },
   // Decimal floats
   DECFLOAT16: {
     JS_TYPE: "number",
@@ -211,17 +228,17 @@ export const DDIC_JS = {
     COMMENT: "Decimal float",
   },
   // Long character string, requires preceding INT2 field
-  LCHR: { JS_TYPE: "string", HTML_TAG: "text" },
+  LCHR: { JS_TYPE: "string", HTML_TAG: "text", INITIAL: '""' },
   // Byte String of Variable Length
-  RSTR: { JS_TYPE: "string", HTML_TAG: "text" },
+  RSTR: { JS_TYPE: "string", HTML_TAG: "text", INITIAL: `Buffer.from("")` },
   // Short Character String of Variable Length
-  SSTR: { JS_TYPE: "string", HTML_TAG: "text" },
+  SSTR: { JS_TYPE: "string", HTML_TAG: "text", INITIAL: '""' },
   // Character String of Variable Length
-  STRG: { JS_TYPE: "string", HTML_TAG: "text" },
+  STRG: { JS_TYPE: "string", HTML_TAG: "text", INITIAL: '""' },
   // Uninterpreted sequence of bytes
   RAW: { JS_TYPE: "string", HTML_TAG: "text", INITIAL: `Buffer.from("")` },
   // Long byte string, requires preceding INT2 field
-  LRAW: { JS_TYPE: "string", HTML_TAG: "text" },
+  LRAW: { JS_TYPE: "string", HTML_TAG: "text", INITIAL: `Buffer.from("")` },
 
   // native
   STRING: {
