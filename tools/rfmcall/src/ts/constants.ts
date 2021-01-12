@@ -23,22 +23,28 @@ iso2langu.set("es", "S");
 iso2langu.set("jp", "J");
 
 // Parameter types
-export const PARAMTYPE_VAR = "var",
-  PARAMTYPE_STRUCT = "struct",
-  PARAMTYPE_TABLE = "table",
-  PARAMTYPE_EXC = "exception";
+export enum paramType {
+  var = "var",
+  struct = "struct",
+  table = "table",
+  exception = "exception",
+}
 
 // Parameter classes
-export const PARAMCLASS_IMPORT = "I",
-  PARAMCLASS_CHANGING = "C",
-  PARAMCLASS_TABLE = "T",
-  PARAMCLASS_EXPORT = "E";
+export enum paramClass {
+  import = "I",
+  changing = "C",
+  table = "T",
+  export = "E",
+}
 
-export const ParamClassDesc = {};
-ParamClassDesc[PARAMCLASS_IMPORT] = "IMPORT";
-ParamClassDesc[PARAMCLASS_CHANGING] = "CHANGING";
-ParamClassDesc[PARAMCLASS_TABLE] = "TABLE";
-ParamClassDesc[PARAMCLASS_EXPORT] = "EXPORT";
+// Parameter classes desc
+export const paramClassDesc = {
+  [paramClass.import]: "IMPORT",
+  [paramClass.changing]: "CHANGING",
+  [paramClass.table]: "TABLE",
+  [paramClass.export]: "EXPORT",
+};
 
 // unused parameters' properties
 export const PARAM_XPROPS = [

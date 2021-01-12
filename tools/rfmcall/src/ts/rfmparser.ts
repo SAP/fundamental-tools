@@ -125,13 +125,13 @@ export class parseRFM {
       result.abaptype = param.fieldKey;
     }
     switch (param.paramType) {
-      case CN.PARAMTYPE_TABLE:
+      case CN.paramType.table:
         result.init = `[]`;
         break;
-      case CN.PARAMTYPE_STRUCT:
+      case CN.paramType.struct:
         result.init = `{}`;
         break;
-      case CN.PARAMTYPE_VAR:
+      case CN.paramType.var:
         if (field) {
           result.abaptype = field.format.DATATYPE;
           result.leng = field.format.LENG;
@@ -203,7 +203,7 @@ export class parseRFM {
       });
 
       // ddif-> dfies
-      if (param.paramType === CN.PARAMTYPE_VAR) {
+      if (param.paramType === CN.paramType.var) {
         // variable
         if (ddif.DDOBJTYPE === "INTTAB" || ddif.DDOBJTYPE === "TRANSP") {
           dfies = ddif.DFIES_TAB[0];
@@ -227,7 +227,7 @@ export class parseRFM {
       param.fieldKey = fieldKey;
       return 0;
     } catch (ex) {
-      if (param.paramType === CN.PARAMTYPE_VAR && ex.key === "NOT_FOUND") {
+      if (param.paramType === CN.paramType.var && ex.key === "NOT_FOUND") {
         // native variable data type, w/o ddic
         param.nativeKey = param.TABNAME;
       } else {
@@ -268,10 +268,10 @@ export class parseRFM {
     // parameter type counters
     const param_type_stat = {};
     for (const k of [
-      CN.PARAMTYPE_VAR,
-      CN.PARAMTYPE_STRUCT,
-      CN.PARAMTYPE_TABLE,
-      CN.PARAMTYPE_EXC,
+      CN.paramType.var,
+      CN.paramType.struct,
+      CN.paramType.table,
+      CN.paramType.exception,
     ]) {
       param_type_stat[k] = 0;
     }
@@ -299,18 +299,18 @@ export class parseRFM {
 
       //  set param type
       if (p.PARAMCLASS == "X" || p.EXID.trim().length == 0) {
-        p.paramType = CN.PARAMTYPE_EXC;
+        p.paramType = CN.paramType.exception;
       } else if (p.EXID === "h" || p.PARAMCLASS === "T") {
-        p.paramType = CN.PARAMTYPE_TABLE;
+        p.paramType = CN.paramType.table;
       } else if ("uv".indexOf(p.EXID) != -1) {
-        p.paramType = CN.PARAMTYPE_STRUCT;
+        p.paramType = CN.paramType.struct;
       } else {
-        p.paramType = CN.PARAMTYPE_VAR;
+        p.paramType = CN.paramType.var;
       }
       param_type_stat[p.paramType]++;
 
       // skip exception parameters
-      if (p.paramType == CN.PARAMTYPE_EXC) continue;
+      if (p.paramType == CN.paramType.exception) continue;
 
       // set ddic ref
       await this.getDFIES(p, this.LANGU);
@@ -385,13 +385,13 @@ export class parseRFM {
 
     for (const k in param_type_stat) {
       let name;
-      if (k === CN.PARAMTYPE_VAR) {
+      if (k === CN.paramType.var) {
         name = "Variables ";
-      } else if (k === CN.PARAMTYPE_STRUCT) {
+      } else if (k === CN.paramType.struct) {
         name = "Structures";
-      } else if (k === CN.PARAMTYPE_TABLE) {
+      } else if (k === CN.paramType.table) {
         name = "Tables    ";
-      } else if (k === CN.PARAMTYPE_EXC) {
+      } else if (k === CN.paramType.exception) {
         name = "Exceptions";
       } else throw `Unknown parameter type : ${k}`;
       writer.write(`// ${name}: ${param_type_stat[k]}`);
@@ -404,11 +404,18 @@ export class parseRFM {
     // Parameters
     let paramClass: string = "";
     this.Params.forEach((paramData, paramKey) => {
-      if (["I", "C", "T", "E"].includes(paramData["PARAMCLASS"])) {
+      if (
+        [
+          CN.paramClass.import,
+          CN.paramClass.changing,
+          CN.paramClass.table,
+          CN.paramClass.export,
+        ].includes(paramData["PARAMCLASS"])
+      ) {
         if (paramClass !== paramData["PARAMCLASS"]) {
           paramClass = paramData["PARAMCLASS"];
           writer.write();
-          writer.write(`// ${CN.ParamClassDesc[paramClass]} PARAMETERS`);
+          writer.write(`// ${CN.paramClassDesc[paramClass]} PARAMETERS`);
           writer.write();
         }
         let paramName = this.JSToPKey(paramKey)[1];
@@ -450,18 +457,18 @@ export class parseRFM {
     paramClass = "";
     this.Params.forEach((paramData, paramKey) => {
       if (
-        paramData["paramType"] !== "var" &&
+        paramData["paramType"] !== CN.paramType.var &&
         [
-          CN.PARAMCLASS_IMPORT,
-          CN.PARAMCLASS_CHANGING,
-          CN.PARAMCLASS_TABLE,
+          CN.paramClass.import,
+          CN.paramClass.changing,
+          CN.paramClass.table,
         ].includes(paramData["PARAMCLASS"])
       ) {
         if (paramClass !== paramData["PARAMCLASS"]) {
           paramClass = paramData["PARAMCLASS"];
           writer.write();
           writer.write("//");
-          writer.write(`// ${CN.ParamClassDesc[paramClass]} PARAMETERS`);
+          writer.write(`// ${CN.paramClassDesc[paramClass]} PARAMETERS`);
           writer.write("//");
         }
         let paramName = this.JSToPKey(paramKey)[1];
@@ -503,7 +510,7 @@ export class parseRFM {
           );
         }
         if (
-          [CN.PARAMTYPE_STRUCT, CN.PARAMTYPE_TABLE].includes(
+          [CN.paramType.struct, CN.paramType.table].includes(
             paramData["paramType"]
           )
         ) {
