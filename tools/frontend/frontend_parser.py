@@ -15,7 +15,7 @@ import sys
 from collections import OrderedDict
 from datetime import datetime
 
-from backend.constants import get_ddic_js, SIGNATURE
+from backend.constants import get_ddic_js, SIGNATURE, ParamClass, ParamType
 from backend.business_objects import catalog
 from backend.utils import Writer, get_log_level
 from backend.backend_parser import INPUT_TYPE_KEY, INPUT_TYPE_BINARY, INPUT_TYPE_LIST
@@ -122,13 +122,13 @@ class ModelParser:
             field = self.Fields[param["FIELDKEY"]]
             result["abaptype"] = param["FIELDKEY"]
 
-        if param["paramType"] == "table":
+        if param["paramType"] == ParamType.table.value:
             result["init"] = "[]"
 
         elif param["paramType"] == "struct":
             result["init"] = "{}"
 
-        elif param["paramType"] == "var":
+        elif param["paramType"] == ParamType.var.value:
             if field:
                 result["abaptype"] = field["format"]["DATATYPE"]
                 result["leng"] = field["format"]["LENG"]
@@ -296,9 +296,6 @@ class ModelParser:
                     if rfm_parameter["PARAMCLASS"] != param_class:
                         continue
 
-                    if param_class == "E":
-                        print(parameter_name)
-
                     logging.info(f"rfm init rfm: {rfm_name} : {parameter_name}")
 
                     if not paramclass_header:
@@ -315,7 +312,7 @@ class ModelParser:
                     right = self.get_param_initializer(rfm_parameter)
                     param_text = rfm_parameter["PARAMTEXT"]
 
-                    if rfm_parameter["paramType"] == "var":
+                    if rfm_parameter["paramType"] == ParamType.var.value:
                         if "nativeKey" not in rfm_parameter:
                             field_ddic = self.Fields[rfm_parameter["FIELDKEY"]]
 
@@ -347,14 +344,14 @@ class ModelParser:
                                 )
                             )
 
-                    elif rfm_parameter["paramType"] == "struct":
+                    elif rfm_parameter["paramType"] == ParamType.struct.value:
                         model_js.write(
                             "{:<33}: {:>4}, // {} {}".format(
                                 left, right["init"], right["abaptype"], param_text
                             )
                         )
 
-                    elif rfm_parameter["paramType"] == "table":
+                    elif rfm_parameter["paramType"] == ParamType.table.value:
                         model_js.write(
                             "{:<33}: {:>4}, // {} {}".format(
                                 left, right["init"], right["abaptype"], param_text
@@ -804,15 +801,15 @@ class ModelParser:
                         model_js.write(HEADER_JS_PARAMCLASS % PARAMCLASS[param_class])
                         model_js.write("//")
 
-                    if rfm_parameter["paramType"] == "table":
+                    if rfm_parameter["paramType"] == ParamType.table.value:
                         structure_init(model_js, rfm_parameter)
                         html_table(model, rfm_parameter)
 
-                    elif rfm_parameter["paramType"] == "struct":
+                    elif rfm_parameter["paramType"] == ParamType.struct.value:
                         structure_init(model_js, rfm_parameter)
                         html_structure(model, rfm_parameter)
 
-                    elif rfm_parameter["paramType"] == "var":
+                    elif rfm_parameter["paramType"] == ParamType.var.value:
                         if "nativeKey" in rfm_parameter:
                             pass
                             # self.html_field(

@@ -8,7 +8,13 @@ import json
 import logging
 import os
 import sys
-from .constants import get_ddic_js, iso2_to_LANGU, DEFAULT_OUTPUT_FOLDER
+from .constants import (
+    get_ddic_js,
+    iso2_to_LANGU,
+    DEFAULT_OUTPUT_FOLDER,
+    ParamType,
+    ParamClass,
+)
 from .utils import get_log_level
 from .systems import (
     BACKEND_API,
@@ -226,7 +232,7 @@ class BackendParser:
                 GROUP_NAMES="X",
             )
         except Exception as e:
-            if p["paramType"] == "var" and e.key == "NOT_FOUND":
+            if p["paramType"] == ParamType.var.value and e.key == "NOT_FOUND":
                 print(
                     "!1 %1s %-30s %-10s        %-30s %-30s %s"
                     % (
@@ -242,7 +248,7 @@ class BackendParser:
             else:
                 raise e  # unexpected error
 
-        if p["paramType"] == "var":
+        if p["paramType"] == ParamType.var.value:
             if ddif["DDOBJTYPE"] == "INTTAB" or ddif["DDOBJTYPE"] == "TRANSP":
                 dfies = ddif["DFIES_TAB"][0]
             else:
@@ -436,7 +442,7 @@ class BackendParser:
                     continue
 
                 # remove exception parameters
-                if p["PARAMCLASS"] == "X" or not p["EXID"]:
+                if p["PARAMCLASS"] == ParamClass.exception.value or not p["EXID"]:
                     logging.info(
                         "!2 EXCEPTION parameter removed: %1s %-30s %-30s"
                         % (p["PARAMCLASS"], p["FUNCNAME"], p["PARAMETER"])
@@ -446,16 +452,19 @@ class BackendParser:
 
             for p in r["PARAMETERS"]:
                 #  set param type
-                if p["PARAMCLASS"] == "X" or len(p["EXID"].strip()) == 0:
-                    p["paramType"] = "exception"
-                elif p["EXID"] == "h" or p["PARAMCLASS"] == "T":
-                    p["paramType"] = "table"
+                if (
+                    p["PARAMCLASS"] == ParamClass.exception.value
+                    or len(p["EXID"].strip()) == 0
+                ):
+                    p["paramType"] = ParamType.exception.value
+                elif p["EXID"] == "h" or p["PARAMCLASS"] == ParamClass.table.value:
+                    p["paramType"] = ParamType.table.value
                 elif p["EXID"] in "uv":
-                    p["paramType"] = "struct"
+                    p["paramType"] = ParamType.struct.value
                 else:
-                    p["paramType"] = "var"
+                    p["paramType"] = ParamType.var.value
 
-                if p["paramType"] == "exception":
+                if p["paramType"] == ParamType.exception.value:
                     continue
 
                 # set optional/required
@@ -512,7 +521,7 @@ class BackendParser:
                     dfies = False
 
                 # Tables
-                if p["paramType"] == "table":
+                if p["paramType"] == ParamType.table.value:
                     t += 1
 
                     if not dfies:
@@ -537,7 +546,7 @@ class BackendParser:
                     )
 
                 # Structures
-                elif p["paramType"] == "struct":
+                elif p["paramType"] == ParamType.struct.value:
                     s += 1
 
                     if not dfies:
@@ -648,7 +657,12 @@ class BackendParser:
 
             self.Stat = {}
             for rfm_name in self.Params:
-                stat = {"var": 0, "struct": 0, "table": 0, "exception": 0}
+                stat = {
+                    ParamType.var.value: 0,
+                    ParamType.struct.value: 0,
+                    ParamType.table.value: 0,
+                    ParamType.exception.value: 0,
+                }
                 params = self.Params[rfm_name]
                 for parameter_name in params:
                     stat[params[parameter_name]["paramType"]] += 1
@@ -714,11 +728,11 @@ class BackendParser:
         if "FIELDKEY" in param:
             field = self.Fields[param["FIELDKEY"]]
             result["abaptype"] = param["FIELDKEY"]
-        if param["paramType"] == "table":
+        if param["paramType"] == ParamType.table.value:
             result["init"] = "[]"
-        elif param["paramType"] == "struct":
+        elif param["paramType"] == ParamType.struct.value:
             result["init"] = "{}"
-        elif param["paramType"] == "var":
+        elif param["paramType"] == ParamType.var.value:
             if field:
                 result["abaptype"] = field["format"]["DATATYPE"]
                 result["leng"] = field["format"]["LENG"]

@@ -120,6 +120,8 @@ SIGNATURE = f"""
     results when cutting character strings or comparing individual characters in character sets.
 """
 
+from enum import Enum
+
 
 def get_ddic_js(
     INPUT_TYPE_BINARY_TAG="checkbox",
@@ -388,3 +390,18 @@ all_languages = {
 }
 
 iso2_to_LANGU = {"en": "E", "de": "D", "nl": "N", "es": "S", "jp": "J"}
+
+
+class ParamType(Enum):
+    var = "var"
+    struct = "struct"
+    table = "table"
+    exception = "exception"
+
+
+class ParamClass(Enum):
+    _import = "I"
+    changing = "C"
+    table = "T"
+    export = "E"
+    exception = "X"
