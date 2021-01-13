@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import logging
+from enum import Enum
 from datetime import datetime
 from time import time
 
@@ -119,8 +120,6 @@ SIGNATURE = f"""
     These characters occupy four bytes and hence are handled as two characters by ABAP. This can produce unexpected
     results when cutting character strings or comparing individual characters in character sets.
 """
-
-from enum import Enum
 
 
 def get_ddic_js(

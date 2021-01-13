@@ -12,7 +12,9 @@ from .ui5_react import ui5_react
 
 
 class ParserUi5React(ModelParser):
-    def __init__(self, args):
+    def __init__(self, args, annotations=None):
+        super().__init__(args, annotations=annotations)
+
         self.ELEMENT_PREFIX = "fd-"
         self.INPUT_TYPE_BINARY_TAG = "checkbox"
         self.INPUT_TYPE_LIST_TAG = "combobox"
@@ -20,8 +22,6 @@ class ParserUi5React(ModelParser):
         self.DATE_TAGNAME = "datepicker"
         self.TIME_TAGNAME = "timepicker"
         self.TEXT_TAGNAME = "textarea"
-
-        super().__init__(args)
 
     def get_abap_field_attrs(self, markup):
         attrs = {}

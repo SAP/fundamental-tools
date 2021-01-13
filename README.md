@@ -9,7 +9,8 @@ Library" width="160"/>
 
 Fiori and cloud apps, with any front-end you like, the way you like.
 
-- Simple and fast, with any old or new ABAP system
+- Any old or new ABAP system
+- Simple and fast
 - The same code and programming model for on-premise and cloud
 - Front-ends
   - [Microsoft FAST Angular](https://www.fast.design/docs/integrations/angular)
@@ -28,7 +29,7 @@ Fiori and cloud apps, with any front-end you like, the way you like.
 
 - App server
 
-  - Running on SAP Cloud Platform or on-premise Windows, Linux, Darwin
+  - SAP Cloud Platform or on-premise Windows, Linux, Darwin system/notebook
   - Runtimes
     - Python with [PyRFC](https://github.com/SAP/PyRFC)
     - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
@@ -37,11 +38,167 @@ Fiori and cloud apps, with any front-end you like, the way you like.
 - Web browsers
   - Supported by [SAP Fundamental Library Styles](https://github.com/SAP/fundamental-styles) and [UI5 Web Components](https://sap.github.io/ui5-webcomponents/)
 
-:bulb: ABAP Value Input Help run-time component [fundamental-shlp](https://github.com/SAP/fundamental-shelp) for now runs on Python only
+## Scripts
 
-:bulb: Design-time tools run on Python and you can use them from docker as well.
+The toolset offers design-time scripts for pattern-based development of on-premise or cloud apps.
 
-## Usage
+To start using it, clone this repository, cd to `tools` folder and run the scripts. Results are saved in `model` folder:
+
+```shell
+git clone git clone https://github.com/SAP/fundamental-tools
+cd tools
+```
+### Quick summary
+
+```shell
+# single rfm call template, from NodeJS RFM
+rfmcall MME BAPI_PO_CREATE
+
+# single rfm call template, from Python
+python rfmcall.py MME BAPI_PO_CREATE
+
+# rfm call templates and API annotations for all API sets from BO catalog
+python backend.py MME
+
+# rfm call templates and API annotations for EQUIPMENT API
+python backend.py MME EQUIPMENT
+
+# fundamental-ngx frontend for EQUIPMENT API
+python frontend.py fundamental-ngx EQUIPMENT
+
+# all frontends for all API sets from BO catalog
+python -m test.test_frontend
+
+# single rfm call template, local test
+python -m test.test_rfmcall MME BAPI_PO_CREATE
+```
+
+- [rfmcall](#rfmcall-and-backendpy)
+- [alpha.py](#alphapy)
+- [backend.py](#rfmcall-and-backendpy)
+- [frontend.py](#frontendpy)
+
+- ABAP system connection parameters shall be maintained in local `sapnwrfc.ini` file, like:
+
+```ini
+DEST=MME
+USER=demo
+PASSWD=welcome
+ASHOST=coevi51
+SYSNR=00
+CLIENT=620
+LANG=EN
+```
+## rfmcall and backend.py
+
+Based on ABAP RFM name, the NodeJS or Python source code is generated for RFM invocation, with fully-expanded data structures and annotations. Blog: [Calling ABAP from NodeJS even easier](https://blogs.sap.com/2020/10/22/calling-abap-from-nodejs-even-easier/)
+
+Annotations
+
+- Parameter name, datatype and length (variable of CHAR10, table of BAPI_RETURN etc.)
+- Required/optional
+- Default value, if set in ABAP
+- ALPHA exit name, if relevant for the field
+
+Usage
+
+- single RFM using NodeJS
+
+```shell
+npm install rfmcall
+
+rfmcall MME BAPI_SALESORDER_CREATEFROMDAT2
+
+# output: console or file BAPI_SALESORDER_CREATEFROMDAT2.js
+```
+
+- single RFM using Python
+
+```shell
+python backend.py MME BAPI_SALESORDER_CREATEFROMDAT2
+
+# output: file model/BAPI_SALESORDER_CREATEFROMDAT2.js
+```
+
+- RFM set using Python
+
+```shell
+python rfmcall.py MME EQUIPMENT
+
+# output: files in model/EQUIPMENT
+```
+
+The RFM set shall be maintained in `tools/backend/business_objects.py`  catalog, similar to [examples provided there](https://github.com/SAP/fundamental-tools/blob/master/tools/backend/business_objects.py#L5).
+
+## alpha.py
+
+Conversion exits (ALPHA exits) for a given API set are parsed by `alpha.py` script:
+
+```shell
+python alpha.py
+cat data/<rfm set>/Alpha.json
+    "/COE/RBP_PAM_FUNC_LOC_GETLIST": [
+        {
+            "convexit": "TPLNR",
+            "field": "FUNCTLOCATION",
+            "parameter": "ET_FUNC_LOC_LIST"
+        },
+        {
+            "convexit": "TPLNR",
+            "field": "SUPFLOC",
+            "parameter": "ET_FUNC_LOC_LIST"
+        },
+        {
+            "convexit": "ALPHA",
+            "field": "SYSTEM",
+            "parameter": "ET_RETURN"
+        },
+        {
+            "convexit": "TPLNR",
+            "parameter": "IV_LOCATION"
+        }
+    ]
+}
+```
+
+Alternatively you can grep frontend HTMLs by "alpha" and optionally filter by business object, like BO_RECIPE:
+
+```shell
+grep -R "alpha" . | sort | grep BO_RECIPE
+```
+
+or grep the `rfmcall` script output:
+
+```shell
+$ rfmcall MME BAPI_BUPA_CENTRAL_GETDETAIL | grep ALPHA
+  BUSINESSPARTNER                  :   "", // CHAR (10) ALPHA=ALPHA Business Partner Number
+  BUSINESSPARTNER                  :   "", // CHAR (10) ALPHA=ALPHA Business Partner Number
+  LANGU                            :   "", // LANG (1) ALPHA=ISOLA Language Key
+  E_MAIL                           :   "", // CHAR (241) ALPHA=SXIDN E-Mail Address
+  PRINT_DEST                       :   "", // CHAR (4) ALPHA=SPDEV Spool: Output device
+  SYSTEM                           :   "", // CHAR (10) ALPHA=ALPHA Logical system from which message originates
+```
+
+## frontend.py
+
+Parse local API metadata and generate frontend UI elements, for a given UI framework:
+
+```shell
+python frontend.py fast-ngx PURCHASE_ORDER
+
+python frontend.py -h
+usage: python frontend.py <ui framework> <rfm set name> [<option>]
+where <ui> can be:
+    aurelia
+    fast-ngx
+    fundamental-ngx
+    fundamental-react
+    fundamental-vue
+    ui5-react
+```
+## Advanced usage: building an app
+
+Pattern-based apps comprises of four levels:
 
 - **ABAP:** Expose the ABAP backend logic as a set of remote-enabled Function Modules (RFMs)
 
@@ -54,14 +211,7 @@ Fiori and cloud apps, with any front-end you like, the way you like.
 
 - **View Model (ES/TS):** Implement the View Model logic, required for the app.
 
-## Example
-
-To start using the toolset check [Prerequisites](#prerequisites) and clone the project:
-
-```shell
-$ git clone https://github.com/SAP/fundamental-tools
-```
-
+Let build them from scratch.
 ### Step 1: ABAP API
 
 Preparation:
@@ -302,56 +452,6 @@ The implementation is under full developer's control, without any magic added by
 
 ![](assets/Equipment.jpg)
 
-## Conversion Exits
-
-Conversion exits for a given RFM set are parsed by `alpha.py` script:
-
-```shell
-$ python alpha.py
-$ cat data/<rfm set>/Alpha.json
-    "/COE/RBP_PAM_FUNC_LOC_GETLIST": [
-        {
-            "convexit": "TPLNR",
-            "field": "FUNCTLOCATION",
-            "parameter": "ET_FUNC_LOC_LIST"
-        },
-        {
-            "convexit": "TPLNR",
-            "field": "SUPFLOC",
-            "parameter": "ET_FUNC_LOC_LIST"
-        },
-        {
-            "convexit": "ALPHA",
-            "field": "SYSTEM",
-            "parameter": "ET_RETURN"
-        },
-        {
-            "convexit": "TPLNR",
-            "parameter": "IV_LOCATION"
-        }
-    ]
-}
-```
-
-Alternatively you can grep frontend HTMLs by "alpha" and optionally filter by business object, like BO_RECIPE:
-
-```shell
-grep -R "alpha" . | sort | grep BO_RECIPE
-```
-
-or use the NodeJS [`rfmcall`](https://www.npmjs.com/package/rfmcall) utility:
-
-```shell
-$ npm install rfmcall
-
-$ rfmcall MME BAPI_BUPA_CENTRAL_GETDETAIL | grep ALPHA
-  BUSINESSPARTNER                  :   "", // CHAR (10) ALPHA=ALPHA Business Partner Number
-  BUSINESSPARTNER                  :   "", // CHAR (10) ALPHA=ALPHA Business Partner Number
-  LANGU                            :   "", // LANG (1) ALPHA=ISOLA Language Key
-  E_MAIL                           :   "", // CHAR (241) ALPHA=SXIDN E-Mail Address
-  PRINT_DEST                       :   "", // CHAR (4) ALPHA=SPDEV Spool: Output device
-  SYSTEM                           :   "", // CHAR (10) ALPHA=ALPHA Logical system from which message originates
-```
 
 ## Value Input Helps
 

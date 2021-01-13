@@ -4,7 +4,6 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-import argparse
 import codecs
 import json
 import logging
@@ -54,15 +53,68 @@ FIELD_ATTRIBUTES = [
 ]
 
 
+def get_annotations(output_folder, rfm_set, rfm_name=None):
+    annotations = {}
+    with codecs.open(
+        f"{output_folder}/{rfm_set}/Params.json",
+        encoding="utf-8",
+        mode="r",
+    ) as fin:
+        annotations["Parameters"] = json.load(fin)
+    with codecs.open(
+        f"{output_folder}/{rfm_set}/Fields.json",
+        encoding="utf-8",
+        mode="r",
+    ) as fin:
+        annotations["Fields"] = OrderedDict(json.load(fin))
+    with codecs.open(
+        f"{output_folder}/{rfm_set}/Helps.json",
+        encoding="utf-8",
+        mode="r",
+    ) as fin:
+        annotations["Helps"] = OrderedDict(json.load(fin))
+    with codecs.open(
+        f"{output_folder}/{rfm_set}/Stat.json",
+        encoding="utf-8",
+        mode="r",
+    ) as fin:
+        annotations["Stat"] = json.load(fin)
+    if rfm_name is not None:
+        annotations["Parameters"] = {rfm_name: annotations["Parameters"][rfm_name]}
+
+    return annotations
+
+
 class ModelParser:
-    def __init__(self, args):
-        self.ui = args.ui
-        self.rfm_set = args.rfm_set
-        self.output_folder = args.output_folder
+    def __init__(self, args, annotations=None):
         self.args = args
+        self.ui = args.ui if "ui" in vars(args) else ""
+        self.output_folder = args.output_folder
+        self.rfm_name = None
+        self.annotations = annotations
+
+        if annotations is None:
+            self.rfm_set = args.rfm_set
+            self.model_prefix = f"ui/{self.ui.replace('-','/')}"
+        else:
+            self.rfm_name = args.rfm_name
+            self.rfm_set = ""
+            self.model_prefix = ""
+            self.Parameters = annotations["Parameters"]
+            self.Fields = annotations["Fields"]
+            self.Helps = annotations["Helps"]
+            self.Stat = annotations["Stat"]
+
         if args.log_level is not None:
             logging.basicConfig(level=get_log_level(args.log_level))
-        self.model_prefix = f"ui/{self.ui.replace('-','/')}"
+
+        self.ELEMENT_PREFIX = "ui-"
+        self.INPUT_TYPE_BINARY_TAG = "checkbox"
+        self.INPUT_TYPE_LIST_TAG = "combo"
+        self.DATE_TAGNAME = "date"
+        self.TIME_TAGNAME = "time"
+        self.TEXT_TAGNAME = "text"
+        self.COLUMN_TAGNAME = "dg-column"
 
     def initialize(self):
         self.DDIC_JS = get_ddic_js(
@@ -72,41 +124,29 @@ class ModelParser:
             TEXT_TAGNAME=self.TEXT_TAGNAME,
         )
 
-        # clear the frontend model
-        if os.path.exists(f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}"):
-            shutil.rmtree(f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}")
-        os.makedirs(f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}")
+        if self.annotations is None:
+            # clear the frontend model
+            if os.path.exists(
+                f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}"
+            ):
+                shutil.rmtree(
+                    f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}"
+                )
+            os.makedirs(f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}")
 
-        # read the backend model
-        try:
-            with codecs.open(
-                f"{self.output_folder}/{self.rfm_set}/Params.json",
-                encoding="utf-8",
-                mode="r",
-            ) as fin:
-                self.Parameters = json.load(fin)
-            with codecs.open(
-                f"{self.output_folder}/{self.rfm_set}/Fields.json",
-                encoding="utf-8",
-                mode="r",
-            ) as fin:
-                self.Fields = OrderedDict(json.load(fin))
-            with codecs.open(
-                f"{self.output_folder}/{self.rfm_set}/Helps.json",
-                encoding="utf-8",
-                mode="r",
-            ) as fin:
-                self.Helps = OrderedDict(json.load(fin))
-            with codecs.open(
-                f"{self.output_folder}/{self.rfm_set}/Stat.json",
-                encoding="utf-8",
-                mode="r",
-            ) as fin:
-                self.Stat = json.load(fin)
-        except Exception as ex:
-            raise Exception(
-                f"Local metadata not found for: {self.rfm_set}; Run: python backend.py <abap system> {self.rfm_set}"
-            ) from None
+            # read the backend model
+            try:
+                annotations = get_annotations(
+                    output_folder=self.output_folder, rfm_set=self.rfm_set
+                )
+                self.Parameters = annotations["Parameters"]
+                self.Fields = annotations["Fields"]
+                self.Helps = annotations["Helps"]
+                self.Stat = annotations["Stat"]
+            except Exception as ex:
+                raise Exception(
+                    f"Local metadata not found: {self.rfm_set} run: python backend.py <abap system> {self.rfm_set}"
+                ) from None
 
     def get_param_initializer(self, param):
         result = {
@@ -197,7 +237,8 @@ class ModelParser:
 
         self.parameter_init()
 
-        self.helps()
+        if self.rfm_name is None:
+            self.helps()
 
     def helps(self):
         help_js = Writer(
@@ -239,21 +280,22 @@ class ModelParser:
 
     def headers(self):
         for rfm_name in sorted(self.Parameters):
+            if self.rfm_name is None:
+                model = Writer(
+                    rfm_name=rfm_name,
+                    rfm_set=self.rfm_set,
+                    model_prefix=self.model_prefix,
+                    output_folder=self.output_folder,
+                )
+                model.write(HEADER % (rfm_name, SIGNATURE))
+                model.save()
 
-            model = Writer(
-                rfm_name=rfm_name,
-                rfm_set=self.rfm_set,
-                model_prefix=self.model_prefix,
-                output_folder=self.output_folder,
-            )
             model_js = Writer(
                 rfm_name=rfm_name,
                 rfm_set=self.rfm_set,
                 model_prefix=self.model_prefix,
                 write_to="js",
             )
-
-            model.write(HEADER % (rfm_name, SIGNATURE))
             model_js.write(HEADER_JS % (rfm_name, SIGNATURE))
             stat = self.Stat[rfm_name]
             model_js.write(
@@ -263,8 +305,6 @@ class ModelParser:
 // Exceptions: {stat["exception"]}
 """
             )
-
-            model.save()
             model_js.save()
 
     def rfm_init(self):
@@ -767,9 +807,13 @@ class ModelParser:
 
         for rfm_name in sorted(self.Parameters):
 
-            model = Writer(
-                rfm_name=rfm_name, rfm_set=self.rfm_set, model_prefix=self.model_prefix
-            )
+            if self.rfm_name is None:
+                model = Writer(
+                    rfm_name=rfm_name,
+                    rfm_set=self.rfm_set,
+                    model_prefix=self.model_prefix,
+                )
+
             model_js = Writer(
                 rfm_name=rfm_name,
                 rfm_set=self.rfm_set,
@@ -795,7 +839,8 @@ class ModelParser:
 
                     if not paramclass_header:
                         paramclass_header = True
-                        model.write(HEADER_PARAMCLASS % PARAMCLASS[param_class])
+                        if self.rfm_name is None:
+                            model.write(HEADER_PARAMCLASS % PARAMCLASS[param_class])
                         model_js.newline()
                         model_js.write("//")
                         model_js.write(HEADER_JS_PARAMCLASS % PARAMCLASS[param_class])
@@ -803,11 +848,13 @@ class ModelParser:
 
                     if rfm_parameter["paramType"] == ParamType.table.value:
                         structure_init(model_js, rfm_parameter)
-                        html_table(model, rfm_parameter)
+                        if self.rfm_name is None:
+                            html_table(model, rfm_parameter)
 
                     elif rfm_parameter["paramType"] == ParamType.struct.value:
                         structure_init(model_js, rfm_parameter)
-                        html_structure(model, rfm_parameter)
+                        if self.rfm_name is None:
+                            html_structure(model, rfm_parameter)
 
                     elif rfm_parameter["paramType"] == ParamType.var.value:
                         if "nativeKey" in rfm_parameter:
@@ -816,18 +863,20 @@ class ModelParser:
                             #     model, rfm_parameter, rfm_parameter["nativeKey"]
                             # )
                         else:
-                            self.html_field(
-                                model,
-                                rfm_parameter,
-                                self.Fields[rfm_parameter["FIELDKEY"]],
-                            )
+                            if self.rfm_name is None:
+                                self.html_field(
+                                    model,
+                                    rfm_parameter,
+                                    self.Fields[rfm_parameter["FIELDKEY"]],
+                                )
 
                     else:
                         raise ValueError(
                             "Invalid parameter type [%s]" % rfm_parameter["paramType"]
                         )
 
-                model.save()
+                if self.rfm_name is None:
+                    model.save()
                 model_js.save()
 
     def __del__(self):

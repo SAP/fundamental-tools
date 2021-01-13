@@ -11,3 +11,5 @@ if __name__ == "__main__":
     backend_parser = BackendParser(args)
 
     backend_parser.run()
+
+    print("done")

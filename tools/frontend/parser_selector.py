@@ -1,6 +1,7 @@
 import argparse
 from collections import OrderedDict
 
+from .frontend_parser import ModelParser
 from .parser_aurelia import ParserAurelia
 from .parser_fast_ngx import ParserFastAngular
 from .parser_fundamental_ngx import ParserFundamentalAngular
@@ -22,11 +23,14 @@ SUPPORTED_FRAMEWORKS = OrderedDict(
 )
 
 
-def get_frontend_parser(args):
-    try:
-        return SUPPORTED_FRAMEWORKS[args.ui](args)
-    except Exception as ex:
-        raise ValueError(f"Frontend not supported: {args.ui}")
+def get_frontend_parser(args, annotations=None):
+    if "ui" in vars(args):
+        if args.ui in SUPPORTED_FRAMEWORKS:
+            return SUPPORTED_FRAMEWORKS[args.ui](args, annotations)
+        else:
+            raise ValueError(f"Frontend not supported: {args.ui}")
+    else:
+        return ModelParser(args, annotations)
 
 
 def get_arg_parser():

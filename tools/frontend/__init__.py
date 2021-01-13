@@ -2,4 +2,5 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+from .frontend_parser import get_annotations
 from .parser_selector import get_arg_parser, get_frontend_parser, SUPPORTED_FRAMEWORKS

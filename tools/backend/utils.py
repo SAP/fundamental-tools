@@ -18,7 +18,7 @@ class Writer:
     def __init__(
         self,
         rfm_name,
-        rfm_set="n/a",
+        rfm_set=None,
         model_prefix="",
         write_to="HTML",
         output_folder=DEFAULT_OUTPUT_FOLDER,

@@ -4,6 +4,7 @@
 
 import argparse
 import codecs
+from collections import OrderedDict
 import json
 import logging
 import os
@@ -33,23 +34,36 @@ class BackendParser:
         if args.log_level is not None:
             logging.basicConfig(level=get_log_level(args.log_level))
 
-        self.abap_system = args.abap_system
+        self.destination_id = args.destination_id
         self.output_folder = args.output_folder
+        self.rfm_name = None
+        self.rfm_set = None
 
-        if args.rfm_set is None:
-            self.RFMLIST = rfm_sets
-        else:
-            if args.rfm_set not in catalog:
-                raise ValueError(f"RFM set not defined in BO catalog: {args.rfm_set}")
+        try:
+            # rfmcall, single RFM
+            self.rfm_name = args.rfm_name
+            self.RFMLIST = ["rfmcall_"]
+            catalog["rfmcall_"] = [self.rfm_name]
+        except Exception as ex:
+            # rfm set
+            if args.rfm_set is None:
+                self.RFMLIST = rfm_sets
             else:
-                self.RFMLIST = [args.rfm_set]
+                if args.rfm_set not in catalog:
+                    raise ValueError(
+                        f"RFM set not defined in BO catalog: {args.rfm_set}"
+                    )
+                else:
+                    self.RFMLIST = [args.rfm_set]
 
         if len(self.RFMLIST) == 0:
             self.RFMLIST = catalog
 
         self.LANGUAGES = args.languages
-        self.rfm_get_search_help = BACKEND_API[args.abap_system]["rfm_get_search_help"]
-        self.rfm_get_dom_values = BACKEND_API[args.abap_system]["rfm_get_dom_values"]
+        self.rfm_get_search_help = BACKEND_API[args.destination_id][
+            "rfm_get_search_help"
+        ]
+        self.rfm_get_dom_values = BACKEND_API[args.destination_id]["rfm_get_dom_values"]
 
         self.DDIC_JS = get_ddic_js()
 
@@ -366,7 +380,7 @@ class BackendParser:
         return dfies
 
     def run(self):
-        e, self.conn = get_connection(self.abap_system)
+        e, self.conn = get_connection(self.destination_id)
         if self.conn:
             a = self.conn.get_connection_attributes()
             print(
@@ -381,10 +395,12 @@ class BackendParser:
         self.Params = {}
         self.Fields = {}
         self.Helps = {}
+        self.Stat = {}
 
         for rfmset in sorted(self.RFMLIST):
-            if not os.path.exists(f"{self.output_folder}/{rfmset}"):
-                os.makedirs(f"{self.output_folder}/{rfmset}")
+            if self.rfm_name is None:
+                if not os.path.exists(f"{self.output_folder}/{rfmset}"):
+                    os.makedirs(f"{self.output_folder}/{rfmset}")
 
             rfm_list = catalog[rfmset]
 
@@ -671,49 +687,65 @@ class BackendParser:
                     )
                 self.Stat[rfm_name] = stat
 
-            with codecs.open(
-                f"{self.output_folder}/{rfmset}/Params.json", encoding="utf-8", mode="w"
-            ) as fout:
-                json.dump(
-                    self.Params,
-                    fout,
-                    indent=4,
-                    ensure_ascii=False,
-                    sort_keys=True,
-                )
+            if self.rfm_name is not None:
+                return {
+                    "Parameters": self.Params,
+                    "Fields": OrderedDict(self.Fields),
+                    "Helps": self.Helps,
+                    "Stat": self.Stat,
+                }
+            else:
+                with codecs.open(
+                    f"{self.output_folder}/{rfmset}/Params.json",
+                    encoding="utf-8",
+                    mode="w",
+                ) as fout:
+                    json.dump(
+                        self.Params,
+                        fout,
+                        indent=4,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                    )
 
-            with codecs.open(
-                f"{self.output_folder}/{rfmset}/Fields.json", encoding="utf-8", mode="w"
-            ) as fout:
-                json.dump(
-                    self.Fields,
-                    fout,
-                    indent=4,
-                    ensure_ascii=False,
-                    sort_keys=True,
-                )
+                with codecs.open(
+                    f"{self.output_folder}/{rfmset}/Fields.json",
+                    encoding="utf-8",
+                    mode="w",
+                ) as fout:
+                    json.dump(
+                        self.Fields,
+                        fout,
+                        indent=4,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                    )
 
-            with codecs.open(
-                f"{self.output_folder}/{rfmset}/Helps.json", encoding="utf-8", mode="w"
-            ) as fout:
-                json.dump(
-                    self.Helps,
-                    fout,
-                    indent=4,
-                    ensure_ascii=False,
-                    sort_keys=True,
-                )
+                with codecs.open(
+                    f"{self.output_folder}/{rfmset}/Helps.json",
+                    encoding="utf-8",
+                    mode="w",
+                ) as fout:
+                    json.dump(
+                        self.Helps,
+                        fout,
+                        indent=4,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                    )
 
-            with codecs.open(
-                f"{self.output_folder}/{rfmset}/Stat.json", encoding="utf-8", mode="w"
-            ) as fout:
-                json.dump(
-                    self.Stat,
-                    fout,
-                    indent=4,
-                    ensure_ascii=False,
-                    sort_keys=True,
-                )
+                with codecs.open(
+                    f"{self.output_folder}/{rfmset}/Stat.json",
+                    encoding="utf-8",
+                    mode="w",
+                ) as fout:
+                    json.dump(
+                        self.Stat,
+                        fout,
+                        indent=4,
+                        ensure_ascii=False,
+                        sort_keys=True,
+                    )
 
     def get_param_initializer(self, param):
         result = {
@@ -767,8 +799,8 @@ where <option> can be:
         usage=arg_usage,
         description="ABAP API backend parser",
     )
-    arg_parser.add_argument("abap_system", help="ABAP system id")
-    arg_parser.add_argument("rfm_set", nargs="?", help="ABAP RFM set name")
+    arg_parser.add_argument("destination_id", help="ABAP destination id")
+    arg_parser.add_argument("rfm_set", nargs="?", help="ABAP API name")
     arg_parser.add_argument(
         "-l",
         "--lang",
