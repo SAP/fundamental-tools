@@ -1,4 +1,4 @@
-# Fundamental Library for ABAP
+# Fundamental Library for ABAP <!-- omit in toc -->
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 
@@ -12,16 +12,28 @@ Fiori and cloud apps, with any front-end you like, the way you like.
 - Any old or new ABAP system
 - Simple and fast
 - The same code and programming model for on-premise and cloud
-- Front-ends
-  - [Microsoft FAST Angular](https://www.fast.design/docs/integrations/angular)
-  - [Aurelia](http://aurelia.io/)
-  - [Fundamental Library for Angular](https://sap.github.io/fundamental-ngx)
-  - [Fundamental Library for React](https://sap.github.io/fundamental-react)
-  - [Fundamental Library for Vue](https://sap.github.io/fundamental-vue)
-  - [UI5 WebComponents for React](https://github.com/SAP/ui5-webcomponents-react)
+- Front-ends:
+  - [Microsoft FAST Angular](https://www.fast.design/docs/integrations/angular), [Aurelia](http://aurelia.io/)
+  - Fundamental Library for [Angular](https://sap.github.io/fundamental-ngx), [React](https://sap.github.io/fundamental-react) and [Vue](https://sap.github.io/fundamental-vue)
+  - UI5 WebComponents for [React](https://github.com/SAP/ui5-webcomponents-react)
 - Servers: Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
 - Blog: [Fundamental Library for ABAP](https://blogs.sap.com/2020/08/23/fundamental-library-for-abap/)
+
+## Content <!-- omit in toc -->
+
+- [Prerequisites](#prerequisites)
+- [Quick summary](#quick-summary)
+- [Scripts](#scripts)
+  - [rfmcall and backend.py](#rfmcall-and-backendpy)
+  - [alpha.py](#alphapy)
+  - [frontend.py](#frontendpy)
+- [Advanced usage: building an app](#advanced-usage-building-an-app)
+  - [Step 1: ABAP API](#step-1-abap-api)
+  - [Step 2: App Server Model](#step-2-app-server-model)
+  - [Step 3: View](#step-3-view)
+  - [View Model](#view-model)
+  - [ABAP API + Server Model + View Model + View = App](#abap-api--server-model--view-model--view--app)
 
 ## Prerequisites
 
@@ -36,19 +48,22 @@ Fiori and cloud apps, with any front-end you like, the way you like.
     - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
 
 - Web browsers
+
   - Supported by [SAP Fundamental Library Styles](https://github.com/SAP/fundamental-styles) and [UI5 Web Components](https://sap.github.io/ui5-webcomponents/)
 
-## Scripts
+- ABAP system connection parameters shall be maintained in local `sapnwrfc.ini` file, like:
 
-The toolset offers design-time scripts for pattern-based development of on-premise or cloud apps.
-
-To start using it, clone this repository, cd to `tools` folder and run the scripts. Results are saved in `model` folder:
-
-```shell
-git clone git clone https://github.com/SAP/fundamental-tools
-cd tools
+```ini
+DEST=MME
+USER=demo
+PASSWD=welcome
+ASHOST=coevi51
+SYSNR=00
+CLIENT=620
+LANG=EN
 ```
-### Quick summary
+
+## Quick summary
 
 ```shell
 # single rfm call template, from NodeJS RFM
@@ -73,23 +88,18 @@ python -m test.test_frontend
 python -m test.test_rfmcall MME BAPI_PO_CREATE
 ```
 
-- [rfmcall](#rfmcall-and-backendpy)
-- [alpha.py](#alphapy)
-- [backend.py](#rfmcall-and-backendpy)
-- [frontend.py](#frontendpy)
+## Scripts
 
-- ABAP system connection parameters shall be maintained in local `sapnwrfc.ini` file, like:
+The toolset offers design-time scripts for pattern-based development of on-premise or cloud apps.
 
-```ini
-DEST=MME
-USER=demo
-PASSWD=welcome
-ASHOST=coevi51
-SYSNR=00
-CLIENT=620
-LANG=EN
+To start using it, clone this repository, cd to `tools` folder and run the scripts. Results are saved in `model` folder:
+
+```shell
+git clone https://github.com/SAP/fundamental-tools
+cd tools
 ```
-## rfmcall and backend.py
+
+### rfmcall and backend.py
 
 Based on ABAP RFM name, the NodeJS or Python source code is generated for RFM invocation, with fully-expanded data structures and annotations. Blog: [Calling ABAP from NodeJS even easier](https://blogs.sap.com/2020/10/22/calling-abap-from-nodejs-even-easier/)
 
@@ -128,9 +138,9 @@ python rfmcall.py MME EQUIPMENT
 # output: files in model/EQUIPMENT
 ```
 
-The RFM set shall be maintained in `tools/backend/business_objects.py`  catalog, similar to [examples provided there](https://github.com/SAP/fundamental-tools/blob/master/tools/backend/business_objects.py#L5).
+The RFM set shall be maintained in `tools/backend/business_objects.py` catalog, similar to [examples provided there](https://github.com/SAP/fundamental-tools/blob/master/tools/backend/business_objects.py#L5).
 
-## alpha.py
+### alpha.py
 
 Conversion exits (ALPHA exits) for a given API set are parsed by `alpha.py` script:
 
@@ -179,7 +189,7 @@ $ rfmcall MME BAPI_BUPA_CENTRAL_GETDETAIL | grep ALPHA
   SYSTEM                           :   "", // CHAR (10) ALPHA=ALPHA Logical system from which message originates
 ```
 
-## frontend.py
+### frontend.py
 
 Parse local API metadata and generate frontend UI elements, for a given UI framework:
 
@@ -196,6 +206,7 @@ where <ui> can be:
     fundamental-vue
     ui5-react
 ```
+
 ## Advanced usage: building an app
 
 Pattern-based apps comprises of four levels:
@@ -212,6 +223,7 @@ Pattern-based apps comprises of four levels:
 - **View Model (ES/TS):** Implement the View Model logic, required for the app.
 
 Let build them from scratch.
+
 ### Step 1: ABAP API
 
 Preparation:
@@ -451,7 +463,6 @@ Features:
 The implementation is under full developer's control, without any magic added by this toolset.
 
 ![](assets/Equipment.jpg)
-
 
 ## Value Input Helps
 
