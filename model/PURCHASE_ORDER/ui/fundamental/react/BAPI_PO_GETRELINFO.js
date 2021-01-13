@@ -1,7 +1,7 @@
 //
 // BAPI_PO_GETRELINFO 
 //
-// rfmcall.py 1.0 at: 2021-01-13 09:22:47
+// rfmcall.py 1.0 at: 2021-01-13 11:10:10
 //
 
 // Variables : 2

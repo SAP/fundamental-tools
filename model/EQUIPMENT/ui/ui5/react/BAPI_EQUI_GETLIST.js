@@ -1,7 +1,7 @@
 //
 // BAPI_EQUI_GETLIST 
 //
-// rfmcall.py 1.0 at: 2021-01-13 09:22:47
+// rfmcall.py 1.0 at: 2021-01-13 11:10:10
 //
 
 // Variables : 3
