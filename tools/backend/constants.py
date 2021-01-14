@@ -320,6 +320,12 @@ def get_ddic_js(
             "initial": "bytes()",
             "comment": "Binary string",
         },
+        "XSTRING": {
+            "type": "string",
+            "html-tag": TEXT_TAGNAME,
+            "initial": "bytes()",
+            "comment": "Binary string",
+        },
         # Long byte string, requires preceding INT2 field
         "LRAW": {"type": "string", "html-tag": TEXT_TAGNAME, "initial": "bytes()"},
         # native

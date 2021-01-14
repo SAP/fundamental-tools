@@ -25,9 +25,7 @@ FORMATTER_OFF = "<!-- @formatter:off -->"
 
 ABAP_TYPE = "abap-ddic"
 TIMESTAMP = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-PARAMCLASS = OrderedDict(
-    [("I", "INPUT"), ("C", "CHANGING"), ("T", "TABLE"), ("E", "OUTPUT")]
-)
+PARAMCLASS = OrderedDict([("I", "INPUT"), ("C", "CHANGING"), ("T", "TABLE"), ("E", "OUTPUT")])
 HEADER = """<!-- %s %s -->"""
 
 HEADER_JS = """//
@@ -126,19 +124,13 @@ class ModelParser:
 
         if self.annotations is None:
             # clear the frontend model
-            if os.path.exists(
-                f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}"
-            ):
-                shutil.rmtree(
-                    f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}"
-                )
+            if os.path.exists(f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}"):
+                shutil.rmtree(f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}")
             os.makedirs(f"{self.output_folder}/{self.rfm_set}/{self.model_prefix}")
 
             # read the backend model
             try:
-                annotations = get_annotations(
-                    output_folder=self.output_folder, rfm_set=self.rfm_set
-                )
+                annotations = get_annotations(output_folder=self.output_folder, rfm_set=self.rfm_set)
                 self.Parameters = annotations["Parameters"]
                 self.Fields = annotations["Fields"]
                 self.Helps = annotations["Helps"]
@@ -158,9 +150,9 @@ class ModelParser:
             "alpha": "",
         }
         field = False
-        if "nativeKey" not in param:
-            field = self.Fields[param["FIELDKEY"]]
-            result["abaptype"] = param["FIELDKEY"]
+        # if "nativeKey" not in param:
+        field = self.Fields[param["FIELDKEY"]]
+        result["abaptype"] = param["FIELDKEY"]
 
         if param["paramType"] == ParamType.table.value:
             result["init"] = "[]"
@@ -171,7 +163,8 @@ class ModelParser:
         elif param["paramType"] == ParamType.var.value:
             if field:
                 result["abaptype"] = field["format"]["DATATYPE"]
-                result["leng"] = field["format"]["LENG"]
+                if "LENG" in field["format"]:
+                    result["leng"] = field["format"]["LENG"]
                 if "input" in field:
                     if "CONVEXIT" in field["input"]:
                         result["alpha"] = field["input"]["CONVEXIT"]
@@ -259,9 +252,7 @@ class ModelParser:
                 if len(shlp["valueProperty"]) == 1:
                     value_property = f"'{shlp['valueProperty'][0]}'"
                 else:
-                    value_property = ", ".join(
-                        "'{0}'".format(v) for v in shlp["valueProperty"]
-                    )
+                    value_property = ", ".join("'{0}'".format(v) for v in shlp["valueProperty"])
                     value_property = f"[{value_property}]"
 
                 requested_fields = value_property
@@ -270,10 +261,7 @@ class ModelParser:
                     "%s: {type: '%s', id: '%s', valueProperty: %s,"
                     % (shlp_key.replace(" ", "_"), shlp_type, shlp_id, value_property)
                 )
-                help_js.write(
-                    "    displayProperty: [], selection: [], requestedFields: %s },"
-                    % requested_fields
-                )
+                help_js.write("    displayProperty: [], selection: [], requestedFields: %s }," % requested_fields)
                 help_js.write("")
 
                 help_js.save()
@@ -344,11 +332,7 @@ class ModelParser:
                         model_js.write(HEADER_JS_PARAMCLASS % PARAMCLASS[param_class])
                         model_js.newline()
 
-                    left = (
-                        parameter_name
-                        if rfm_parameter["required"]
-                        else f"//{parameter_name}"
-                    )
+                    left = parameter_name if rfm_parameter["required"] else f"//{parameter_name}"
                     right = self.get_param_initializer(rfm_parameter)
                     param_text = rfm_parameter["PARAMTEXT"]
 
@@ -362,10 +346,7 @@ class ModelParser:
                                 else:
                                     field_ddic["format"]["LENG"] = -1
 
-                            ttype = (
-                                field_ddic["format"]["DATATYPE"]
-                                + "(%u)" % field_ddic["format"]["LENG"]
-                            )
+                            ttype = field_ddic["format"]["DATATYPE"] + "(%u)" % field_ddic["format"]["LENG"]
 
                         if len(right["alpha"].strip()) > 0:
                             model_js.write(
@@ -379,28 +360,20 @@ class ModelParser:
                             )
                         else:
                             model_js.write(
-                                "{:<33}: {:>4}, // {} {}".format(
-                                    left, right["init"], right["abaptype"], param_text
-                                )
+                                "{:<33}: {:>4}, // {} {}".format(left, right["init"], right["abaptype"], param_text)
                             )
 
                     elif rfm_parameter["paramType"] == ParamType.struct.value:
                         model_js.write(
-                            "{:<33}: {:>4}, // {} {}".format(
-                                left, right["init"], right["abaptype"], param_text
-                            )
+                            "{:<33}: {:>4}, // {} {}".format(left, right["init"], right["abaptype"], param_text)
                         )
 
                     elif rfm_parameter["paramType"] == ParamType.table.value:
                         model_js.write(
-                            "{:<33}: {:>4}, // {} {}".format(
-                                left, right["init"], right["abaptype"], param_text
-                            )
+                            "{:<33}: {:>4}, // {} {}".format(left, right["init"], right["abaptype"], param_text)
                         )
                     else:
-                        raise ValueError(
-                            "Invalid parameter type [%s]" % rfm_parameter["paramType"]
-                        )
+                        raise ValueError("Invalid parameter type [%s]" % rfm_parameter["paramType"])
 
             model_js.deindent()
             model_js.write("};")
@@ -598,17 +571,12 @@ class ModelParser:
                         [stype, sid] = ddic["input"]["SHLP"].split()
                         markup["abap-shlp"] = f"{{type:'{stype}', id:'{sid}'}}"
                     except Exception as ex:
-                        raise ValueError(
-                            f"Invalid SHLP format: {ddic['input']['SHLP']}"
-                        )
+                        raise ValueError(f"Invalid SHLP format: {ddic['input']['SHLP']}")
 
             if "MEMORYID" in ddic["input"]:
                 markup["abap-mid"] = ddic["input"]["MEMORYID"]
 
-        if (
-            ddic["format"]["DATATYPE"] not in ["DATS", "TIMS", "ACCP"]
-            and "BOOLEAN" not in ddic["format"]
-        ):
+        if ddic["format"]["DATATYPE"] not in ["DATS", "TIMS", "ACCP"] and "BOOLEAN" not in ddic["format"]:
             markup["abap-length"] = self.field_length(ddic)
 
         if "abap-shlp" in markup:
@@ -641,18 +609,12 @@ class ModelParser:
         for param_class in PARAMCLASS:
             for parameter_name in rfm_param_names:
                 rfm_parameter = self.Parameters[rfm_name][parameter_name]
-                if (
-                    rfm_parameter["PARAMCLASS"] == param_class
-                    and rfm_parameter["required"]
-                ):
+                if rfm_parameter["PARAMCLASS"] == param_class and rfm_parameter["required"]:
                     rfm_params_sorted[parameter_name] = rfm_parameter
 
             for parameter_name in rfm_param_names:
                 rfm_parameter = self.Parameters[rfm_name][parameter_name]
-                if (
-                    rfm_parameter["PARAMCLASS"] == param_class
-                    and not rfm_parameter["required"]
-                ):
+                if rfm_parameter["PARAMCLASS"] == param_class and not rfm_parameter["required"]:
                     rfm_params_sorted[parameter_name] = rfm_parameter
 
         return rfm_params_sorted
@@ -701,9 +663,7 @@ class ModelParser:
             param_ddic = self.Fields[rfm_parameter["FIELDKEY"]]
 
             model_js.newline()
-            model_js.write(
-                f"// {rfm_parameter['PARAMETER']} {rfm_parameter['FIELDKEY']} {rfm_parameter['PARAMTEXT']}"
-            )
+            model_js.write(f"// {rfm_parameter['PARAMETER']} {rfm_parameter['FIELDKEY']} {rfm_parameter['PARAMTEXT']}")
             model_js.write()
             model_js.write("/* eslint-disable key-spacing */")
             model_js.write("// prettier-ignore")
@@ -731,9 +691,7 @@ class ModelParser:
                         field_text,
                     )
                 else:
-                    line = "{:<33}: {:>4}, // {} {}".format(
-                        left, right["init"], right["abaptype"], field_text
-                    )
+                    line = "{:<33}: {:>4}, // {} {}".format(left, right["init"], right["abaptype"], field_text)
                 model_js.write(line)
 
             model_js.deindent()
@@ -762,9 +720,7 @@ class ModelParser:
             model.addindent()
             model.write(FORMATTER_OFF)
             for rfm_field in sorted(param_ddic):
-                markup = self.html_markup(
-                    param_ddic[rfm_field], rfm_field, self.COLUMN_TAGNAME
-                )
+                markup = self.html_markup(param_ddic[rfm_field], rfm_field, self.COLUMN_TAGNAME)
                 if markup[ABAP_TYPE] in ["CUKY", "UNIT"]:
                     continue
                 element = '<%s sortable field="%s"' % (markup["html-tag"], rfm_field)
@@ -871,9 +827,7 @@ class ModelParser:
                                 )
 
                     else:
-                        raise ValueError(
-                            "Invalid parameter type [%s]" % rfm_parameter["paramType"]
-                        )
+                        raise ValueError("Invalid parameter type [%s]" % rfm_parameter["paramType"])
 
                 if self.rfm_name is None:
                     model.save()
