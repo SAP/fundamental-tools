@@ -1,0 +1,60 @@
+<!-- /COE/RBP_FE_DATATYPES2 
+//
+// rfmcall.py 1.0 at: 2021-01-14 13:00:36 -->
+
+<!-- INPUT PARAMETERS -->
+<ui-input value.bind="IV_DECF16" data-abap.bind='{ddic:"DECFLOAT16", type:"number", format:"decimal", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
+<ui-input value.bind="IV_DECF161" data-abap.bind='{ddic:"DECFLOAT16", type:"number", format:"decimal", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
+<ui-input value.bind="IV_DECF34" data-abap.bind='{ddic:"DECFLOAT34", type:"number", format:"decimal", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
+<ui-input value.bind="IV_INT1" data-abap.bind='{ddic:"INT1", type:"number", format:"integer", length:"3"}'
+          label="Dummy for B20 int1 (Local Everywhere)"></ui-input>
+
+<ui-input value.bind="IV_INT2" data-abap.bind='{ddic:"INT2", type:"number", format:"integer", length:"5"}'
+          label="2 byte integer (signed)"></ui-input>
+
+<ui-input value.bind="IV_INT4" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
+          label="Natural number"></ui-input>
+
+<ui-input value.bind="IV_INT8" data-abap.bind='{ddic:"INT8", type:"number", format:"integer", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
+
+<!-- OUTPUT PARAMETERS -->
+<ui-input value.bind="EV_DECF16" data-abap.bind='{ddic:"DECFLOAT16", type:"number", format:"decimal", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
+<ui-input value.bind="EV_DECF34" data-abap.bind='{ddic:"DECFLOAT34", type:"number", format:"decimal", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
+<ui-input value.bind="EV_INT1" data-abap.bind='{ddic:"INT1", type:"number", format:"integer", length:"3"}'
+          label="Dummy for B20 int1 (Local Everywhere)"></ui-input>
+
+<ui-input value.bind="EV_INT2" data-abap.bind='{ddic:"INT2", type:"number", format:"integer", length:"5"}'
+          label="2 byte integer (signed)"></ui-input>
+
+<ui-input value.bind="EV_INT4" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
+          label="Natural number"></ui-input>
+
+<ui-input value.bind="EV_INT8" data-abap.bind='{ddic:"INT8", type:"number", format:"integer", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
+
+<!-- EXP_ISSUE115 /COE/TT_TABNAME todo: param text -->
+<ui-datagrid data.bind="/COE/RBP_FE_DATATYPES2 EXP_ISSUE115" title="todo: param text"
+            data-summary="false" default-sort=""
+            selectable rowselect.trigger="object.selectObject($event.detail)">
+    <!-- @formatter:off -->
+    <ui-dg-column sortable field="" data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"DTB", shlp:{type:'CT', id:'DD02L'}}' label="Table Name" markup="{'html-tag': 'ui-dg-column', 'initial': '""', 'comment': 'string'}"></ui-dg-column>
+    <!-- @formatter:on -->
+</ui-datagrid>
+
+<!-- EXP_ISSUE115 /COE/TT_TABNAME todo: param text -->
+<ui-combo value.bind="EXP_ISSUE115." shlp.bind='{type:'CT', id:'DD02L'}' data-abap.bind='{ddic:"CHAR", type:"string", length:"30", mid:"DTB"}'
+          label="Table Name"></ui-combo>
+

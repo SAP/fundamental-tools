@@ -1,6 +1,6 @@
 <!-- /COE/RBP_FE_DATATYPES 
 //
-// rfmcall.py 1.0 at: 2021-01-13 11:10:10 -->
+// rfmcall.py 1.0 at: 2021-01-14 13:00:36 -->
 
 <!-- INPUT PARAMETERS -->
 
@@ -107,6 +107,9 @@
 <ui-input value.bind="IV_COUNT" data-abap.bind='{ddic:"INT4", type:"number", format:"integer", length:"+10"}'
           label="Natural number"></ui-input>
 
+<ui-input value.bind="IV_DECF16" data-abap.bind='{ddic:"DECFLOAT16", type:"number", format:"decimal", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
 <ui-input value.bind="IV_GENERATE" data-abap.bind='{ddic:"CHAR", type:"string", length:"1"}'
           label="Single-Character Flag"></ui-input>
 
@@ -116,11 +119,23 @@
 <ui-lang value.bind="IV_LANGU_D" shlp.bind='{type:'CT', id:'T002'}' data-abap.bind='{ddic:"LANG", type:"string", format:"lang", length:"1"}' alpha-exit="ISOLA" 
          label="Language Key"></ui-lang>
 
+<ui-text value.bind="IV_STRING" data-abap.bind='{ddic:"STRING", type:"string", length:"-1"}'
+         label="Native ABAP type"></ui-text>
+
+<ui-input value.bind="IV_STRING_SIZE" data-abap.bind='{ddic:"INT8", type:"number", format:"integer", length:"-1"}'
+          label="Native ABAP type"></ui-input>
+
 <ui-input value.bind="IV_UNAME" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
           label="ABAP System Field: Name of Current User"></ui-input>
 
 <ui-input value.bind="IV_UNAME_DOM" data-abap.bind='{ddic:"CHAR", type:"string", length:"12"}'
           label="CHAR12 for SYST"></ui-input>
+
+<ui-text value.bind="IV_XSTRING" data-abap.bind='{ddic:"XSTRING", type:"string", length:"-1"}'
+         label="Native ABAP type"></ui-text>
+
+<ui-input value.bind="IV_XSTRING_SIZE" data-abap.bind='{ddic:"INT8", type:"number", format:"integer", length:"-1"}'
+          label="Native ABAP type"></ui-input>
 
 
 <!-- CHANGING PARAMETERS -->
@@ -592,4 +607,10 @@
          label="todo: no field text"></ui-text>
 
 <ui-time time.bind="ES_OUTPUT.ZTIMS" label="todo: no field text"></ui-time>
+
+<ui-text value.bind="EV_STRING" data-abap.bind='{ddic:"STRING", type:"string", length:"-1"}'
+         label="Native ABAP type"></ui-text>
+
+<ui-text value.bind="EV_XSTRING" data-abap.bind='{ddic:"XSTRING", type:"string", length:"-1"}'
+         label="Native ABAP type"></ui-text>
 

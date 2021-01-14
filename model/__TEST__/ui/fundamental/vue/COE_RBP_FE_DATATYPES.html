@@ -1,6 +1,6 @@
 <!-- /COE/RBP_FE_DATATYPES 
 //
-// rfmcall.py 1.0 at: 2021-01-13 11:10:10 -->
+// rfmcall.py 1.0 at: 2021-01-14 13:00:36 -->
 
 <!-- INPUT PARAMETERS -->
 
@@ -295,6 +295,14 @@
 
 
 <fd-form-item>
+    <fd-form-label>Native ABAP type</fd-form-label>
+        <fd-input v-model="IV_DECF16"
+            data-abap="{type: 'number', length: '-1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
     <fd-form-label>Single-Character Flag</fd-form-label>
         <fd-input v-model="IV_GENERATE"
             data-abap="{type: 'string', length: '1'}"
@@ -323,6 +331,23 @@
 
 
 <fd-form-item>
+    <fd-form-label>Native ABAP type</label>
+    <fd-textarea v-model="IV_STRING"
+        data-abap="{type: 'string', length: '-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Native ABAP type</fd-form-label>
+        <fd-input v-model="IV_STRING_SIZE"
+            data-abap="{type: 'number', length: '-1'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
     <fd-form-label>ABAP System Field: Name of Current User</fd-form-label>
         <fd-input v-model="IV_UNAME"
             data-abap="{type: 'string', length: '12'}"
@@ -334,6 +359,23 @@
     <fd-form-label>CHAR12 for SYST</fd-form-label>
         <fd-input v-model="IV_UNAME_DOM"
             data-abap="{type: 'string', length: '12'}"
+        />
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Native ABAP type</label>
+    <fd-textarea v-model="IV_XSTRING"
+        data-abap="{type: 'string', length: '-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Native ABAP type</fd-form-label>
+        <fd-input v-model="IV_XSTRING_SIZE"
+            data-abap="{type: 'number', length: '-1'}"
         />
 </fd-form-item>
 
@@ -1548,5 +1590,23 @@
 <fd-form-item>
     <fd-form-label>todo: no field text</fd-form-label>
     <fd-time-picker v-model="ES_OUTPUT.ZTIMS"></fd-time-picker>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Native ABAP type</label>
+    <fd-textarea v-model="EV_STRING"
+        data-abap="{type: 'string', length: '-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
+
+
+<fd-form-item>
+    <fd-form-label>Native ABAP type</label>
+    <fd-textarea v-model="EV_XSTRING"
+        data-abap="{type: 'string', length: '-1'}"
+        aria-required="true"
+    ></fd-textarea>
 </fd-form-item>
 

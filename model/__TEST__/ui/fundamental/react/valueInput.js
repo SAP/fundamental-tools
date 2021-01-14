@@ -1,3 +1,7 @@
+// SAP Tables
+CT_DD02L: {type: 'CT', id: 'DD02L', valueProperty: ['TABNAME', 'AS4LOCAL', 'AS4VERS'],
+    displayProperty: [], selection: [], requestedFields: ['TABNAME', 'AS4LOCAL', 'AS4VERS'] },
+
 // Clients
 CT_T000: {type: 'CT', id: 'T000', valueProperty: [],
     displayProperty: [], selection: [], requestedFields: [] },

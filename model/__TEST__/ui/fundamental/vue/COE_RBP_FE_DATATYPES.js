@@ -1,7 +1,7 @@
 //
 // /COE/RBP_FE_DATATYPES 
 //
-// rfmcall.py 1.0 at: 2021-01-13 11:10:10
+// rfmcall.py 1.0 at: 2021-01-14 13:00:36
 //
 
 // Variables : 15
@@ -42,7 +42,7 @@ _COE_RBP_FE_DATATYPES = {
 
   ES_OUTPUT                        :   {}, // /COE/RBP_S_FE_RFM_STRUCTURE todo: param text
   EV_STRING                        :   "", // STRING todo: param text
-  EV_XSTRING                       : "native ABAP type", // XSTRING todo: param text
+  EV_XSTRING                       : bytes(), // XSTRING todo: param text
 };
 
 //
