@@ -125,7 +125,7 @@ rfmcall MME BAPI_SALESORDER_CREATEFROMDAT2
 - single RFM using Python
 
 ```shell
-python backend.py MME BAPI_SALESORDER_CREATEFROMDAT2
+python rfmcall.py MME BAPI_SALESORDER_CREATEFROMDAT2
 
 # output: file model/BAPI_SALESORDER_CREATEFROMDAT2.js
 ```
