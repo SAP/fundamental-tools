@@ -60,10 +60,13 @@ class BackendParser:
             self.RFMLIST = catalog
 
         self.LANGUAGES = args.languages
-        self.rfm_get_search_help = BACKEND_API[args.destination_id][
-            "rfm_get_search_help"
-        ]
-        self.rfm_get_dom_values = BACKEND_API[args.destination_id]["rfm_get_dom_values"]
+        if self.rfm_name is None:
+            self.rfm_get_search_help = BACKEND_API[args.destination_id][
+                "rfm_get_search_help"
+            ]
+            self.rfm_get_dom_values = BACKEND_API[args.destination_id][
+                "rfm_get_dom_values"
+            ]
 
         self.DDIC_JS = get_ddic_js()
 
@@ -143,7 +146,7 @@ class BackendParser:
             del markup["format"]["ROLLNAME"]
 
         # value input help
-        if dfies["F4AVAILABL"] == "X":
+        if dfies["F4AVAILABL"] == "X" and self.rfm_name is None:
             shlp_descriptor = self.conn.call(
                 self.rfm_get_search_help,
                 IV_TABNAME=dfies["TABNAME"],
@@ -810,17 +813,18 @@ where <option> can be:
         help="Texts' languages",
     )
     arg_parser.add_argument(
-        "--loglevel",
-        dest="log_level",
-        default=None,
-        choices=["info", "debug"],
-        help="log level",
-    )
-    arg_parser.add_argument(
         "-o",
         "--output_folder",
         dest="output_folder",
         default=DEFAULT_OUTPUT_FOLDER,
         help="Output folder",
     )
+    arg_parser.add_argument(
+        "--loglevel",
+        dest="log_level",
+        default=None,
+        choices=["info", "debug"],
+        help="log level",
+    )
+
     return arg_parser
