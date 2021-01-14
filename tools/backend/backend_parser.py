@@ -50,7 +50,9 @@ class BackendParser:
                 self.RFMLIST = rfm_sets
             else:
                 if args.rfm_set not in catalog:
-                    raise ValueError(f"RFM set not defined in BO catalog: {args.rfm_set}")
+                    raise ValueError(
+                        f"RFM set not defined in BO catalog: {args.rfm_set}"
+                    )
                 else:
                     self.RFMLIST = [args.rfm_set]
 
@@ -59,8 +61,12 @@ class BackendParser:
 
         self.LANGUAGES = args.languages
         if self.rfm_name is None:
-            self.rfm_get_search_help = BACKEND_API[args.destination_id]["rfm_get_search_help"]
-            self.rfm_get_dom_values = BACKEND_API[args.destination_id]["rfm_get_dom_values"]
+            self.rfm_get_search_help = BACKEND_API[args.destination_id][
+                "rfm_get_search_help"
+            ]
+            self.rfm_get_dom_values = BACKEND_API[args.destination_id][
+                "rfm_get_dom_values"
+            ]
 
         self.DDIC_JS = get_ddic_js()
 
@@ -154,10 +160,15 @@ class BackendParser:
 
             # domain field values
             if shlp["SHLPTYPE"] == "FV":
-                shlp_values = self.conn.call(self.rfm_get_dom_values, IV_DOMNAME=shlp["SHLPNAME"])["ET_VALUES"]
+                shlp_values = self.conn.call(
+                    self.rfm_get_dom_values, IV_DOMNAME=shlp["SHLPNAME"]
+                )["ET_VALUES"]
                 # if two elements list DOMVALUE_L set to 'X' and '', consider as binary input
                 if len(shlp_values) == 2:
-                    if (BINARY_VALUES & {shlp_values[0]["DOMVALUE_L"], shlp_values[1]["DOMVALUE_L"]}) == BINARY_VALUES:
+                    if (
+                        BINARY_VALUES
+                        & {shlp_values[0]["DOMVALUE_L"], shlp_values[1]["DOMVALUE_L"]}
+                    ) == BINARY_VALUES:
                         markup["format"][INPUT_TYPE_KEY] = INPUT_TYPE_BINARY
                         shlp_values = None
                         del markup["input"]["SHLP"]
@@ -167,9 +178,9 @@ class BackendParser:
 
         # add domain CT if no other shelp found
         if "DOMNAME" in markup["format"] and "SHLP" not in markup["input"]:
-            domain_ct = self.conn.call("DD_DOMA_GET", DOMAIN_NAME=markup["format"]["DOMNAME"])["DD01V_WA_A"][
-                "ENTITYTAB"
-            ]
+            domain_ct = self.conn.call(
+                "DD_DOMA_GET", DOMAIN_NAME=markup["format"]["DOMNAME"]
+            )["DD01V_WA_A"]["ENTITYTAB"]
             if domain_ct:
                 shlp = {"SHLPTYPE": "CT", "SHLPNAME": domain_ct}
                 shlp_key = "%s %s" % (shlp["SHLPTYPE"], shlp["SHLPNAME"])
@@ -179,8 +190,12 @@ class BackendParser:
             if shlp_key not in self.Helps:
                 if shlp["SHLPTYPE"] in "CH,CT":
                     markup["format"][INPUT_TYPE_KEY] = INPUT_TYPE_LIST
-                    tab_fields = self.conn.call("BDL_DDIF_TABL_GET", NAME=shlp["SHLPNAME"])["DD03P_TAB"]
-                    tab_metadata = self.conn.call("FDT_GET_DDIC_METADATA", IV_TYPENAME=shlp["SHLPNAME"])["ES_METADATA"]
+                    tab_fields = self.conn.call(
+                        "BDL_DDIF_TABL_GET", NAME=shlp["SHLPNAME"]
+                    )["DD03P_TAB"]
+                    tab_metadata = self.conn.call(
+                        "FDT_GET_DDIC_METADATA", IV_TYPENAME=shlp["SHLPNAME"]
+                    )["ES_METADATA"]
                     tab_text = tab_metadata["TEXT"]
                     if not tab_text:
                         tab_text = tab_metadata["SHORT_TEXT"]
@@ -189,7 +204,11 @@ class BackendParser:
                     sh_val_fields = []
                     # sh_disp_fields = []
                     for tf in tab_fields:
-                        if tf["KEYFLAG"] and tf["FIELDNAME"] != ".INCLUDE" and tf["ROLLNAME"] != "MANDT":
+                        if (
+                            tf["KEYFLAG"]
+                            and tf["FIELDNAME"] != ".INCLUDE"
+                            and tf["ROLLNAME"] != "MANDT"
+                        ):
                             sh_val_fields.append(tf["FIELDNAME"])
                     shlp_values = {
                         "valueProperty": sh_val_fields,
@@ -284,7 +303,10 @@ class BackendParser:
                 if "locale" not in dfies:
                     dfies["locale"] = {}
 
-                if dfies["TABNAME"] + dfies["FIELDNAME"] == dfies_lang["TABNAME"] + dfies_lang["FIELDNAME"]:
+                if (
+                    dfies["TABNAME"] + dfies["FIELDNAME"]
+                    == dfies_lang["TABNAME"] + dfies_lang["FIELDNAME"]
+                ):
                     dfies["locale"][lang] = self.get_text(dfies_lang)
                     # FIELDTEXT fallback to locale
                     if not dfies["FIELDTEXT"] and "FIELDTEXT" in dfies["locale"][lang]:
@@ -337,7 +359,10 @@ class BackendParser:
                         )
 
                     # FIELDTEXT fallback to locale
-                    if not dfies[i]["FIELDTEXT"] and "FIELDTEXT" in dfies[i]["locale"][lang]:
+                    if (
+                        not dfies[i]["FIELDTEXT"]
+                        and "FIELDTEXT" in dfies[i]["locale"][lang]
+                    ):
                         dfies[i]["FIELDTEXT"] = "?%s: %s" % (
                             lang,
                             dfies[i]["locale"][lang]["FIELDTEXT"],
@@ -348,9 +373,15 @@ class BackendParser:
                     dfies[i]["FIELDTEXT"] = "todo: no field text"
 
         elif type(dfies) is bool:
-            dfies = {"format": {"DATATYPE": p["TABNAME"]}}
+            dfies = {
+                "format": {"DATATYPE": p["TABNAME"]},
+                "text": {"FIELDTEXT": "Native ABAP type"},
+            }
         else:
-            raise ValueError("Parameter [%s] dfis type invalid: %s" % (p["PARAMETER"], str(type(dfies))))
+            raise ValueError(
+                "Parameter [%s] dfis type invalid: %s"
+                % (p["PARAMETER"], str(type(dfies)))
+            )
 
         return dfies
 
@@ -410,7 +441,9 @@ class BackendParser:
                 for i in range(len(r["PARAMETERS"])):
                     if "locale" not in r["PARAMETERS"][i]:
                         r["PARAMETERS"][i]["locale"] = {}
-                    r["PARAMETERS"][i]["locale"][lang] = rl["PARAMETERS"][i]["PARAMTEXT"]
+                    r["PARAMETERS"][i]["locale"][lang] = rl["PARAMETERS"][i][
+                        "PARAMTEXT"
+                    ]
 
             # output
             self.Params = {}
@@ -441,7 +474,10 @@ class BackendParser:
 
             for p in r["PARAMETERS"]:
                 #  set param type
-                if p["PARAMCLASS"] == ParamClass.exception.value or len(p["EXID"].strip()) == 0:
+                if (
+                    p["PARAMCLASS"] == ParamClass.exception.value
+                    or len(p["EXID"].strip()) == 0
+                ):
                     p["paramType"] = ParamType.exception.value
                 elif p["EXID"] == "h" or p["PARAMCLASS"] == ParamClass.table.value:
                     p["paramType"] = ParamType.table.value
@@ -652,7 +688,9 @@ class BackendParser:
                 params = self.Params[rfm_name]
                 for parameter_name in params:
                     stat[params[parameter_name]["paramType"]] += 1
-                    self.Params[rfm_name][parameter_name]["RFM"] = sorted(params[parameter_name]["RFM"])
+                    self.Params[rfm_name][parameter_name]["RFM"] = sorted(
+                        params[parameter_name]["RFM"]
+                    )
                 self.Stat[rfm_name] = stat
 
             if self.rfm_name is not None:

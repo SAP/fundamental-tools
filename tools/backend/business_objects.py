@@ -41,7 +41,7 @@ catalog = {
         # "/COE/RBP_PAM_SYMPSOL_SEARCH",
         # "/COE/RBP_PAM_SOLUTION_DET_GET",
     ],
-    "__TEST__": ["giy/COE/RBP_FE_DATATYPES", "/COE/RBP_FE_DATATYPES2"],
+    "__TEST__": ["/COE/RBP_FE_DATATYPES", "/COE/RBP_FE_DATATYPES2"],
     # 'Adobe': [
     #    'ZCREATE_MAT_10305_1'
     # ],
