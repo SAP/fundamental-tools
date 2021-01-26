@@ -1,0 +1,83 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# SAP ui5-react
+
+# ABAP data element placeholders:
+# ~bind  Binding: <parameter>[.field]
+# ~label Label
+# ~shlp  Value input help: Search Help, Check Table ...
+# ~abap  Annotations: field type, length, su3 mid, currency or uom field
+# ~title Table header title: parameter text
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-checkbox--default-story
+checkbox: >-
+  <FormItem label="~label">
+      <CheckBox value={this.~bind}/>
+  </FormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-combobox--default-story
+combo: >-
+  <FormItem label="~label">
+      <ComboBox value={this.~bind}
+          items="~shlp"
+          data-abap="~abap">
+      </ComboBox>
+  </FormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-datepicker--default-story
+datepicker: >-
+  <FormItem label="~label">
+      <DatePicker value={this.~bind}/>
+  </FormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-timepicker--default-story
+timepicker: >-
+  <FormItem label="~label">
+      <TimePicker value={this.~bind}/>
+  </FormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/components-form--default-story
+input: >-
+  <FormItem label="~label">
+      <Input value={this.~bind}
+            data-abap="~abap"
+            data-shlp="~shlp"
+      />
+  </FormItem>
+
+number: >-
+  <FormItem label="~label">
+      <Input value={this.~bind}
+            data-abap="~abap"
+            data-shlp="~shlp"
+      />
+  </FormItem>
+
+# https://sap.github.io/fundamental-ngx/#/core/textarea
+textarea: >-
+  <FormItem label="~label">
+      <TextArea value={this.~bind}
+            data-abap="~abap"
+      />
+  </FormItem>
+
+# same as input
+lang: >-
+  <FormItem label="~label">
+      <Input value={this.~bind}
+            data-abap="~abap"
+            data-shlp="~shlp"
+      />
+  </FormItem>
+
+# table
+table:
+  header: >-
+    <ui-datagrid data.bind="~bind" title="~title"
+                 data-summary="false" default-sort=""
+                 selectable rowselect.trigger="object.selectObject($event.detail)">
+  row: >-
+    <ui-dg-column sortable field="~bind" data-abap.bind="~abap" shlp.bind="~shlp" label="~label"></ui-dg-column>
+  footer: </ui-datagrid>

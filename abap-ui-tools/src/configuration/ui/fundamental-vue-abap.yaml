@@ -1,0 +1,231 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# SAP Fundamental Library for Vue
+
+# ABAP datatypes mapping to ui elements, defined in ui.yaml (key: tag)
+
+# Posting period YYYYMM
+ACCP:
+  type: string
+  format: accp
+  tag: input
+  initial: >-
+    ""
+  comment: YYYYMM
+# Client 000-999
+CLNT:
+  type: string
+  format: numeric
+  tag: input
+  initial: >-
+    ""
+  comment: 000 to 999
+# Language 1 char key
+LANG:
+  type: string
+  format: lang
+  tag: lang
+  initial: >-
+    ""
+  comment: 1-char lang
+# Character String
+CHAR:
+  type: string
+  tag: input
+  initial: >-
+    ""
+  comment: string
+# Date field (YYYYMMDD) stored as char(8)
+DATS:
+  type: string
+  format: date
+  tag: datepicker
+  initial: >-
+    ""
+  comment: YYYYMMDD
+# Time field (hhmmss), stored as char(6)
+TIMS:
+  type: string
+  format: time
+  tag: timepicker
+  initial: >-
+    ""
+  comment: HHMMSS
+# Boolean 1 char
+BOOLEAN:
+  type: boolean
+  tag: checkbox
+  initial: >-
+    ""
+  comment: Boolean
+# Character string with only digits
+NUMC:
+  type: string
+  format: numeric
+  tag: input
+  initial: >-
+    ""
+  comment: Numeric string
+# Floating point number, accurate to 8 bytes
+FLTP:
+  type: number
+  format: float
+  tag: input
+  initial: >-
+    "0.0"
+  comment: Float
+# 1-byte integer, integer number <= 255
+INT1:
+  type: number
+  format: integer
+  tag: input
+  initial: 0
+  comment: 1-byte integer
+# 2-byte integer, only for length field before LCHR or LRAW
+INT2:
+  type: number
+  format: integer
+  tag: input
+  initial: 0
+  comment: 2-byte integer
+# 4-byte integer, integer number with sign
+INT4:
+  type: number
+  format: integer
+  tag: input
+  initial: 0
+  comment: 4-byte integer
+# 8-byte integer, integer number with sign
+INT8:
+  type: number
+  format: integer
+  tag: input
+  initial: 0
+  comment: 8-byte integer
+# Counter or amount field with comma and sign
+DEC:
+  type: number
+  format: decimal
+  tag: input
+  initial: >-
+    "0"
+  comment: Decimal
+# Currency field, stored as DEC, points to currency field with format CUKY
+CURR:
+  type: number
+  format: currency
+  tag: input
+  initial: >-
+    "0.0"
+  comment: Currency
+# Quantity field, points to a unit field with format UNI
+QUAN:
+  type: number
+  format: quantity
+  tag: input
+  initial: >-
+    "0.0"
+  comment: Quantity
+# Currency key, referenced by CURR fields
+CUKY:
+  type: string
+  tag: input
+  initial: >-
+    ""
+  comment: Currency key
+# Unit key for QUAN fields
+UNIT:
+  type: string
+  tag: input
+  initial: >-
+    ""
+  comment: Quantity UoM
+  # Precision of a QUAN field
+PREC:
+  type: number
+  format: integer
+  tag: number
+  initial: 0
+# Decimals
+D16R:
+  type: number
+  format: decimal
+  tag: input
+  initial: >-
+    "0.0"
+  comment: Decimal float
+D34R:
+  type: number
+  format: decimal
+  tag: input
+  initial: >-
+    "0.0"
+  comment: Decimal float
+DECFLOAT16:
+  type: number
+  format: decimal
+  tag: input
+  initial: >-
+    "0.0"
+  comment: Decimal float
+DECFLOAT34:
+  type: number
+  format: decimal
+  tag: input
+  initial: >-
+    "0.0"
+  comment: Decimal float
+# Long character string, requires preceding INT2 field
+LCHR:
+  type: string
+  tag: textarea
+  initial: >-
+    ""
+# Byte String of Variable Length
+RSTR:
+  type: string
+  tag: textarea
+  initial: bytes()
+# Short Character String of Variable Lengt
+SSTR:
+  type: string
+  tag: textarea
+  initial: >-
+    ""
+# Character String of Variable Length
+STRG:
+  type: string
+  tag: textarea
+  initial: >-
+    ""
+# Uninterpreted sequence of bytes
+RAW:
+  type: string
+  tag: textarea
+  initial: bytes()
+  comment: Binary string
+XSTRING:
+  type: string
+  tag: textarea
+  initial: bytes()
+  comment: Binary string
+# Long byte string, requires preceding INT2 field
+LRAW:
+  type: string
+  tag: textarea
+  initial: bytes()
+# String of variable length
+STRING:
+  type: string
+  tag: textarea
+  initial: >-
+    ""
+  comment: String
+# Native HANA type TIMESTAMP
+UTCL:
+  type: string
+  tag: input
+  initial: >-
+    ""

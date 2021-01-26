@@ -1,6 +1,7 @@
 ## ABAP Helpers
 
-Two ABAP Function Modules need to be exposed as remote-enabled ABAP function modules.
+Value Input Helps annotations require remote-enablement of two ABAP Function Modules. Their names should be maintained in `system.yaml` of abap-ui-tools configuration file. Without these two function modules, Value Helps annotations are skipped.
+
 
 :exclamation: The implementation given here just as example, neither maintained, nor supported in this repository
 
