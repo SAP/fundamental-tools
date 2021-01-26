@@ -49,19 +49,18 @@ Command line tools for pattern based web applications with ABAP/HANA systems.
     - Python with [PyRFC](https://github.com/SAP/PyRFC)
     - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
 
-
-# Known Issues
+## Known Issues
 
 Click [here](https://github.com/SAP/fundamental-toolset/issues) to view the current issues.
 
-# Getting Support
+## Getting Support
 
 If you encounter an issue, you can [create a ticket](https://github.com/SAP/fundamental-toolset/issues/new).
 
-# Contributing
+## Contributing
 
 If you want to contribute, please check the [CONTRIBUTING.md](CONTRIBUTING.md) documentation for contribution guidelines.
 
-# License
+## License
 
 Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the [LICENSE file](LICENSE).
