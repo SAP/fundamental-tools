@@ -30,7 +30,7 @@ Command line tools for pattern based applications with ABAP/HANA systems:
 Check [prerequisites](https://github.com/SAP/node-rfc#prerequisites) and install globally or locally:
 
 ```shell
-npm install -g abap
+npm install -g abap-ui-tools
 ```
 
 ## Usage
@@ -50,6 +50,15 @@ ASHOST=coevi51
 SYSNR=00
 CLIENT=620
 LANG=EN
+```
+
+ABAP API for Value Input Help annotations, if implemented in backend system (see [abao helpers](../abap-helpers/README.md)), shall be maintained in `config/system.yaml` file. Not the sme destination name like in `sapnwrfc.ini`:
+
+```yaml
+MME:
+  search_help_api:
+    determine: YWS_SHLP_DETERMINE
+    dom_values: YWS_SHLP_DOMVALUES_GET
 ```
 
 Run `abap` command:
