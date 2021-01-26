@@ -4,11 +4,8 @@
 Pattern-based app comprises of four levels:
 
 - ABAP backend logic exposed as a set of remote-enabled Function Modules (RFMs)
-
 - Java/NodeJS/Python App Server like express, Flask, Jetty etc. mapping server routes to ABAP API
-
 - ES/TS View Model, invoking server routes
-
 - HTML View, rendering the View Model
 
 Let build them from scratch.
@@ -183,6 +180,7 @@ abap-ui-tools/api/equipment
 ├── bapi_equi_create.js
 ...
 ```
+
 HTML files contain UI components annotated with default bi-directional bindings to ABAP data model and with custom-attributes for:
 
 - Data type, length

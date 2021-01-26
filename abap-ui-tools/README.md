@@ -2,7 +2,7 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 
-Command line tools for pattern based applications with ABAP/HANA systems:
+Command line tools for pattern based applications with ABAP/HANA systems.
 
 - BAPI/RFM call templates
 - ui components'with ABAP data annotations:
@@ -264,7 +264,7 @@ datepicker: >-
   </FormItem>
 ```
 
-Using these two config files, you can create your custom ui configurations, defining BAP data types to ui components mapping and custom ui components layouts.
+Using these two config files, you can map ABAP data types to your own ui components and use practically any ui framework.
 
 Elements with tilde prefix `~` are placeholders for texts, data binding and value input helps, documented in yaml files.
 

@@ -3,7 +3,6 @@
 Using Dynpro/WebDynpro based transactions SAP users can run business processes implemented in SAP system. To make the same business logic available for on-premise or cloud consumption by SAP Fundamental UI, it shall be encapsulated and exposed. Assets exposed this way can be:
 
 - Business objects and methods
-
   - Real BO model like RAP: [ABAP RESTful Application Programming Model](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/LATEST/en-US/33a301e3fff5404e89f090910f7bd978.html)
   - Virtual BO model, like set of BAPIs or remote enable function modules (RFM) for example
   - Freestyle models like GOL, BOL, SPI ...
