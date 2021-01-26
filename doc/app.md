@@ -5,11 +5,11 @@ Pattern-based app comprises of four levels:
 
 - ABAP backend logic exposed as a set of remote-enabled Function Modules (RFMs)
 
-- App Server like express, Flask, Jetty etc. mapping server routes to ABAP API
+- Java/NodeJS/Python App Server like express, Flask, Jetty etc. mapping server routes to ABAP API
 
-- View Model (JS/TS), invoking server routes
+- ES/TS View Model, invoking server routes
 
-- View (HTML) rendering the View Model
+- HTML View, rendering the View Model
 
 Let build them from scratch.
 

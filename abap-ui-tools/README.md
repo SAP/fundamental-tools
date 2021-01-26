@@ -52,7 +52,7 @@ CLIENT=620
 LANG=EN
 ```
 
-ABAP API for Value Input Help annotations, if implemented in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be maintained in `config/system.yaml` file. Not the sme destination name like in `sapnwrfc.ini`:
+ABAP API for Value Input Help annotations, if implemented in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be maintained in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
 
 ```yaml
 MME:
@@ -61,10 +61,10 @@ MME:
     dom_values: YWS_SHLP_DOMVALUES_GET
 ```
 
-Run `abap` command:
+Run `abap` command to show help:
 
 ```shell
-abap <command>
+abap
 
 Commands:
   abap call <dest> <rfm...>   ABAP function module call template
@@ -88,9 +88,9 @@ abap call
 
 ### ABAP Function Module call template
 
-NodeJS call template of single BAPI/RFM.
+NodeJS call template of single ABAP function module.
 
-Echoed to console or saved to `bapi_user_get_details.js` if `-s` option given:
+Echoed to console or saved to `bapi_user_get_details.js` when the `-s` option given:
 
 ```shell
 abap call MME bapi_user_get_detail -s
@@ -98,7 +98,7 @@ abap call MME bapi_user_get_detail -s
 
 ### ABAP API annotations for ui elements
 
-More than one BAPI/RFM
+More than one ABAP function module
 
 ```shell
 abap call MME bapi_user_get_detail stfc_performance

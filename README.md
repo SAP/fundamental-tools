@@ -7,7 +7,7 @@
 Library" width="160"/>
 </a>
 
-Command line tools for pattern based applications with ABAP/HANA systems.
+Command line tools for pattern based web applications with ABAP/HANA systems.
 
 - Any old or new ABAP system
 - Front-end frameworks:
@@ -33,7 +33,7 @@ Command line tools for pattern based applications with ABAP/HANA systems.
 - [Custom ui configurations](./abap-ui-tools/README.md#custom-ui-configurations)
 - [Building a pattern based app](./doc/app.md)
 
-- NodeJS and Python connectors [docker images](./docker)
+- NodeJS and Python [docker images](./docker)
 
 ## Prerequisites
 
