@@ -52,7 +52,7 @@ CLIENT=620
 LANG=EN
 ```
 
-ABAP API for Value Input Help annotations, if implemented in backend system (see [abao helpers](../abap-helpers/README.md)), shall be maintained in `config/system.yaml` file. Not the sme destination name like in `sapnwrfc.ini`:
+ABAP API for Value Input Help annotations, if implemented in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be maintained in `config/system.yaml` file. Not the sme destination name like in `sapnwrfc.ini`:
 
 ```yaml
 MME:
@@ -284,8 +284,8 @@ If you encounter an issue, you can [create a ticket](https://github.com/SAP/fund
 
 ## Contributing
 
-If you want to contribute, please check the [CONTRIBUTING.md](CONTRIBUTING.md) documentation for contribution guidelines.
+If you want to contribute, please check the [CONTRIBUTING.md](https://github.com/SAP/fundamental-tools#contributing) documentation for contribution guidelines.
 
 ## License
 
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the [LICENSE file](LICENSE).
+Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the [LICENSE file](https://github.com/SAP/fundamental-tools#license).
