@@ -273,6 +273,7 @@ The custom configuration in local config folder is used instead of the standard 
 ```shell
 abap rm ui5-react
 ```
+
 ## Known Issues
 
 Click [here](https://github.com/SAP/fundamental-toolset/issues) to view the current issues.
