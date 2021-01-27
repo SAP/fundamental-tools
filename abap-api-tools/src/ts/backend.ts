@@ -525,9 +525,9 @@ export class Backend {
     this.annotations_clean();
 
     log.info(
-      `\nbackend: ${this.argv.dest} ${chalk.bold(this.api_name)} (${
+      `\napi ${this.argv.dest}: ${chalk.bold(this.api_name)} language: ${
         this.argv.lang
-      }) serch helps: ${
+      } serch helps: ${
         Object.keys(this.search_help_api).length > 0 ? "yes" : "no"
       }\n`
     );
@@ -705,7 +705,7 @@ export class Backend {
         delete p.TABNAME;
       }
 
-      // log
+      // parameter class
       if (p.PARAMCLASS === ParamClass.exception) {
         log.info(
           chalk.grey(
@@ -720,12 +720,12 @@ export class Backend {
             sprintf(
               "%-13s",
               `${ParamClassDesc[p.PARAMCLASS as string].toLowerCase()} ${
-                p.paramType
+                p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
               }`
             )
           ),
           chalk[p.nativeKey ? "red" : "grey"](
-            sprintf(`%-${param_name_len}s`, p.paramName)
+            sprintf(`%-${param_name_len}s`, p.paramName) // native ABAP type, no ddic warning
           ),
           chalk.grey(p.PARAMTEXT)
         );
