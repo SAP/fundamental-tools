@@ -1,4 +1,4 @@
-# abap ui tools<!-- omit in toc -->
+# abap api tools<!-- omit in toc -->
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 

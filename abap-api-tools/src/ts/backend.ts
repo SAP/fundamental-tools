@@ -525,7 +525,7 @@ export class Backend {
     this.annotations_clean();
 
     log.info(
-      `\napi ${this.argv.dest}: ${chalk.bold(this.api_name)} language: ${
+      `\napi ${this.argv.dest} ${chalk.bold(this.api_name)} language: ${
         this.argv.lang
       } serch helps: ${
         Object.keys(this.search_help_api).length > 0 ? "yes" : "no"
@@ -639,9 +639,9 @@ export class Backend {
 
       if (p.functionName !== functionName) {
         if (functionName) {
-          log.info(chalk(`\n${p.functionName}`));
+          log.info(`\n${p.functionName}`);
         } else {
-          log.info(chalk(p.functionName));
+          log.info(p.functionName);
         }
         functionName = p.functionName as string;
         // stat
@@ -708,26 +708,25 @@ export class Backend {
       // parameter class
       if (p.PARAMCLASS === ParamClass.exception) {
         log.info(
-          chalk.grey(
-            sprintf("%-13s", `${ParamClassDesc[p.PARAMCLASS].toLowerCase()}`)
-          ),
-          chalk.grey(sprintf(`%-${param_name_len}s`, p.paramName)),
-          chalk.grey(p.PARAMTEXT)
+          sprintf("%-15s", `${ParamClassDesc[p.PARAMCLASS].toLowerCase()}`),
+          sprintf(`%-${param_name_len}s`, p.paramName),
+          p.PARAMTEXT
         );
       } else {
         log.info(
-          chalk.grey(
-            sprintf(
-              "%-13s",
-              `${ParamClassDesc[p.PARAMCLASS as string].toLowerCase()} ${
-                p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
-              }`
-            )
+          sprintf(
+            "%-15s",
+            `${ParamClassDesc[p.PARAMCLASS as string].toLowerCase()} ${
+              p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
+            }`
           ),
-          chalk[p.nativeKey ? "red" : "grey"](
-            sprintf(`%-${param_name_len}s`, p.paramName) // native ABAP type, no ddic warning
-          ),
-          chalk.grey(p.PARAMTEXT)
+          sprintf(`%-${param_name_len}s`, p.paramName), // native ABAP type, no ddic warning
+          p.nativeKey
+            ? chalk.red(
+                "native! " + p.PARAMTEXT ||
+                  `No text in language: ${this.argv.lang}`
+              )
+            : p.PARAMTEXT || `No text in language: ${this.argv.lang}`
         );
       }
     }
