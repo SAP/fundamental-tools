@@ -2,18 +2,13 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 
-<a href="https://sap.github.io/fundamental-styles/?path=/docs/introduction-overview--page">
-<img src="doc/assets/logo/logo-fs.jpg" alt="Fundamental
-Library" width="160"/>
-</a>
-
 Command line tools for pattern based web applications with ABAP/HANA systems.
 
 - Any old or new ABAP system
 - Front-end frameworks:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
-  - Angular by [Microsot FAST](https://www.fast.design/docs/introduction/)
+  - Angular, React and Vue by [Microsot FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
 - Servers
   - SAP Cloud Platform
@@ -24,13 +19,13 @@ Command line tools for pattern based web applications with ABAP/HANA systems.
 ## Content <!-- omit in toc -->
 
 - [Prerequisites](#prerequisites)
-- [Installation](./abap-ui-tools/README.md#installation)
-- [Usage](./abap-ui-tools/README.md#usage)
-- [Examples](./abap-ui-tools/README.md#examples)
-  - [ABAP Function Module call template](./abap-ui-tools/README.md#abap-function-module-call-template)
-  - [ABAP API annotations for ui elements](./abap-ui-tools/README.md#abap-api-annotations-for-ui-elements)
-  - [ui elements](./abap-ui-tools/README.md#ui-elements)
-- [Custom ui configurations](./abap-ui-tools/README.md#custom-ui-configurations)
+- [Installation](./abap-api-tools/README.md#installation)
+- [Usage](./abap-api-tools/README.md#usage)
+- [Examples](./abap-api-tools/README.md#examples)
+  - [ABAP Function Module call template](./abap-api-tools/README.md#abap-function-module-call-template)
+  - [ABAP API annotations for ui elements](./abap-api-tools/README.md#abap-api-annotations-for-ui-elements)
+  - [ui elements](./abap-api-tools/README.md#ui-elements)
+- [Custom ui configurations](./abap-api-tools/README.md#custom-ui-configurations)
 - [Building a pattern based app](./doc/app.md)
 - NodeJS and Python [docker images](./docker)
 

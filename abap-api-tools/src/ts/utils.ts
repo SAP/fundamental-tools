@@ -21,10 +21,10 @@ export function getTimestamp(): string {
 }
 
 export function yamlLoad(fileName: string): unknown {
-  const y = yaml.load(fs.readFileSync(fileName), {
-    encoding: "utf8",
-    flag: "r",
-  });
+  fs.readFileSync(fileName);
+  const y = yaml.load(
+    fs.readFileSync(fileName, { encoding: "utf-8", flag: "r" })
+  );
   log.debug(`yaml load ${fileName}`);
   return y;
 }

@@ -30,7 +30,7 @@ Command line tools for pattern based applications with ABAP/HANA systems.
 Check [prerequisites](https://github.com/SAP/node-rfc#prerequisites) and install globally or locally:
 
 ```shell
-npm install -g abap-ui-tools
+npm install -g abap-api-tools
 ```
 
 ## Usage

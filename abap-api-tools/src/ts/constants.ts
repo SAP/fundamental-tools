@@ -4,9 +4,11 @@
 
 import path from "path";
 
-export const UIFrameworks = [
+export const UIFrameworks: readonly string[] = [
   "aurelia",
   "fast-ngx",
+  "fast-react",
+  "fast-vue",
   "fundamental-ngx",
   "fundamental-react",
   "fundamental-vue",

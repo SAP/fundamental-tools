@@ -155,6 +155,10 @@ class Alpha {
     }
   }
 }
+
+type SearchHelpApiType = { determine: string; dom_values: string };
+type SystemsYamlType = Record<string, { search_help_api: SearchHelpApiType }>;
+
 export class Backend {
   private argv: Arguments;
 
@@ -162,7 +166,7 @@ export class Backend {
   private apilist: string[];
   private alpha: Alpha;
 
-  private search_help_api: RfcStructure = {};
+  private search_help_api = {} as SearchHelpApiType;
   private SPRAS: string;
   private Helps: Helps;
   private Stat: Stat;
@@ -189,13 +193,21 @@ export class Backend {
     this.client = new Client(connectionParameters);
 
     try {
-      const systems = yamlLoad(
-        path.join(DefaultFolder.userConfig, "systems.yaml")
-      ) as RfcStructure;
+      const systemYmlPath = path.join(DefaultFolder.userConfig, "systems.yaml");
+      const systems = yamlLoad(systemYmlPath) as SystemsYamlType;
       if (this.argv.dest && systems[this.argv.dest]) {
-        this.search_help_api = systems[this.argv.dest][
-          "search_help_api"
-        ] as RfcStructure;
+        this.search_help_api = systems[this.argv.dest].search_help_api;
+
+        for (const k of Object.keys(this.search_help_api)) {
+          if (!["determine", "dom_values"].includes(k)) {
+            throw new Error(`Invalid key "${k}" found in ${systemYmlPath}`);
+          }
+          if (this.search_help_api[k].length > 30) {
+            throw new Error(
+              `Too long API name: ${this.search_help_api[k]}, found in ${systemYmlPath}[${this.argv.dest}][${k}]`
+            );
+          }
+        }
       }
     } catch (ex) {
       if (ex.code !== "ENOENT") throw ex; // ignore file not found error
@@ -300,7 +312,7 @@ export class Backend {
       // F4 Help
       if (dfies.F4AVAILABL) {
         const shlp_descriptor = await this.client.call(
-          this.search_help_api["determine"] as string,
+          this.search_help_api.determine,
           {
             IV_TABNAME: dfies["TABNAME"],
             IV_FIELDNAME: dfies["FIELDNAME"],
@@ -315,12 +327,9 @@ export class Backend {
         // Domain Field Values
         if (shlp["SHLPTYPE"] == "FV") {
           shlp_values = (
-            await this.client.call(
-              this.search_help_api["dom_values"] as string,
-              {
-                IV_DOMNAME: shlp["SHLPNAME"],
-              }
-            )
+            await this.client.call(this.search_help_api.dom_values as string, {
+              IV_DOMNAME: shlp["SHLPNAME"],
+            })
           )["ET_VALUES"] as RfcTable;
           if (shlp_values.length == 2) {
             result.format.value_input = { type: ValueInput.binary };
@@ -515,7 +524,9 @@ export class Backend {
     log.info(
       `\nbackend: ${this.argv.dest} ${chalk.blue(this.api_name)} (${
         this.argv.lang
-      }) serch helps: ${this.search_help_api ? "yes" : "no"}\n`
+      }) serch helps: ${
+        Object.keys(this.search_help_api).length > 0 ? "yes" : "no"
+      }\n`
     );
 
     await this.client.open();

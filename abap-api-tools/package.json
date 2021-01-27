@@ -1,6 +1,6 @@
 {
-  "name": "abap-ui-tools",
-  "description": "ABAP ui tools",
+  "name": "abap-api-tools",
+  "description": "ABAP api tools",
   "version": "0.8.0",
   "homepage": "https://github.com/sap/fundamental-tools",
   "author": "SAP",
@@ -18,7 +18,7 @@
   "main": "dist/abap.js",
   "types": "dist/abap.d.ts",
   "bin": {
-    "abap": "dist/src/abap.js"
+    "abap": "dist/abap.js"
   },
   "files": [
     "package.json",
@@ -26,11 +26,12 @@
   ],
   "type": "commonjs",
   "scripts": {
-    "ts": "tsc -p src && cp -r src/configuration dist/src/.",
-    "lint": "eslint src",
+    "ts": "tsc -p src/ts && cp -r src/configuration dist/.",
+    "lint": "eslint src/ts",
     "deps": "npm i --save chalk js-yaml loglevel sprintf-js yargs node-rfc",
-    "devdeps": "npm i --save-dev @types/node  @types/sprintf-js @types/yargs @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
-    "prepare": "rm -rf dist && npm run ts && npm run lint"
+    "devdeps": "npm i --save-dev @types/node @types/js-yaml @types/sprintf-js @types/yargs @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
+    "build": "rm -rf dist && npm run ts && npm run lint",
+    "lock": "npm install --package-lock-only"
   },
   "keywords": [
     "sap",
@@ -43,6 +44,7 @@
     "nodejs"
   ],
   "devDependencies": {
+    "@types/js-yaml": "^4.0.0",
     "@types/node": "^14.14.22",
     "@types/sprintf-js": "^1.1.2",
     "@types/yargs": "^15.0.12",

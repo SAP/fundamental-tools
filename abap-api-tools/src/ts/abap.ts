@@ -12,8 +12,6 @@ import { AbapObject, Backend } from "./backend";
 import { Frontend } from "./frontend";
 import { yamlLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
 
-import { version } from "../package.json";
-
 export let Signature: string;
 
 export const Command = Object.freeze({
@@ -300,7 +298,15 @@ export const argv = yargs(process.argv.slice(2))
       log.setDefaultLevel(log.levels["INFO"]);
     }
 
-    Signature = `${path.basename(argv.$0)} ${version} at: ${getTimestamp()}`;
+    // Write CLI version to output signature string
+    yargs.parse(
+      "--version",
+      (err: Error | undefined, argv: { $0: string }, output: string) => {
+        Signature = `${path.basename(argv.$0)} ${output} at: ${getTimestamp()}`;
+      }
+    );
 
     return true;
-  }).argv;
+  })
+  .help()
+  .version().argv;

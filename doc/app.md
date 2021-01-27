@@ -93,7 +93,7 @@ If the server logic operates with some ABAP data stuctures at field level, the `
 abap get MME -c myapp
 ```
 
-See also: [abap-ui-tools/templates](../abap-ui-tools/README.md#abap-function-module-call-template)
+See also: [abap-api-tools/templates](../abap-api-tools/README.md#abap-function-module-call-template)
 
 ### Step 3: View Model
 
@@ -168,12 +168,12 @@ Run the `abap ui` command to get ui components annotated with ABAP API metadata,
 abap ui aurelia -c myapp
 ```
 
-See also: [abap-ui-tools: ui elements annotations](../abap-ui-tools/README.md#abap-api-annotations-for-ui-elements)
+See also: [abap-api-tools: ui elements annotations](../abap-api-tools/README.md#abap-api-annotations-for-ui-elements)
 
 The output HTML and JavaScript files are written in a data model sub-directory (default: `api`), for example:
 
 ```
-abap-ui-tools/api/equipment
+abap-api-tools/api/equipment
 ├── bapi_equi_change.html
 ├── bapi_equi_change.js
 ├── bapi_equi_create.html
