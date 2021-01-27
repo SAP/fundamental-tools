@@ -60,11 +60,7 @@ export type FieldType = {
     REFTABLE?: string;
     REFFIELD?: string;
     OUTPUTLEN?: number;
-    value_input?: {
-      type: string;
-      values?: (string | number)[];
-      count?: number;
-    };
+    valueInputType?: string;
   };
   input?: {
     CONVEXIT?: string;
@@ -80,15 +76,22 @@ export type yamlFields = Record<string, FieldType | StructureType>;
 
 // AbapObject typings
 
+type FieldValuesHelpType = {
+  type: string;
+  count: number;
+  values: Record<string, string>;
+};
 type Helps = Record<
   string,
-  {
-    title: string;
-    valueProperty?: string[];
-    displayProperty?: string[];
-    selection?: Record<string, string>[];
-    requestedFields?: string[];
-  }
+  | {
+      // search helps
+      title: string;
+      valueProperty?: string[];
+      displayProperty?: string[];
+      selection?: Record<string, string>[];
+      requestedFields?: string[];
+    }
+  | FieldValuesHelpType // field values
 >;
 
 type Stat = Record<
@@ -321,41 +324,40 @@ export class Backend {
         shlp = shlp_descriptor["ES_SHLP"];
         shlp_title = shlp_descriptor["EV_SHLP_TITLE"] as string;
         shlp_key = `${shlp["SHLPTYPE"]} ${shlp["SHLPNAME"]}`;
-        if (!result["input"]) result["input"] = {};
-        result["input"]["SHLP"] = shlp_key;
+        if (!result.input) result.input = {};
+
+        result.input.SHLP = shlp_key;
 
         // Domain Field Values
         if (shlp["SHLPTYPE"] == "FV") {
-          shlp_values = (
-            await this.client.call(this.search_help_api.dom_values as string, {
-              IV_DOMNAME: shlp["SHLPNAME"],
-            })
-          )["ET_VALUES"] as RfcTable;
-          if (shlp_values.length == 2) {
-            result.format.value_input = { type: ValueInput.binary };
-            if (
-              shlp_values[0]["DOMVALUE_L"] !== "X" &&
-              shlp_values[1]["DOMVALUE_L"] !== "X"
-            ) {
-              // save only values different from X/"", like yes/no ...
-              result.format.value_input.values = [
-                shlp_values[0]["DOMVALUE_L"] as string | number,
-                shlp_values[1]["DOMVALUE_L"] as string | number,
-              ];
-            }
-            delete result.input.SHLP;
-          }
-          // otherwise list
-          else {
-            result.format.value_input = {
-              type: ValueInput.list,
-              count: shlp_values.length,
-            };
-            const values: (string | number)[] = [];
+          if (!this.Helps[shlp_key]) {
+            shlp_values = (
+              await this.client.call(
+                this.search_help_api.dom_values as string,
+                {
+                  IV_DOMNAME: shlp["SHLPNAME"],
+                }
+              )
+            )["ET_VALUES"] as RfcTable;
+            const domainValues: Record<string, string> = {};
             for (const line of shlp_values) {
-              values.push(line["DOMVALUE_L"] as number | string);
+              domainValues[line["DOMVALUE_L"] as string] = line[
+                "DDTEXT"
+              ] as string;
             }
-            result.format.value_input.values = values;
+            this.Helps[shlp_key] = {
+              type:
+                shlp_values.length > 2 ? ValueInput.list : ValueInput.binary,
+              count: Object.keys(domainValues).length,
+              values: domainValues,
+            };
+          }
+          result.format.valueInputType = (this.Helps[
+            shlp_key
+          ] as FieldValuesHelpType).type;
+          if (result.format.valueInputType === ValueInput.binary) {
+            // checkbox does not use SHLP
+            delete result.input.SHLP;
           }
         }
       }
@@ -386,7 +388,7 @@ export class Backend {
         !this.Helps[shlp_key]
       ) {
         if (["CH", "CT"].includes(shlp["SHLPTYPE"])) {
-          result["format"].value_input = { type: ValueInput.list };
+          result.format.valueInputType = ValueInput.list;
           const tab_fields = (
             await this.client.call("BDL_DDIF_TABL_GET", {
               NAME: shlp["SHLPNAME"],
@@ -418,8 +420,9 @@ export class Backend {
             title: tab_text,
           };
         }
-        if (shlp["SHLPTYPE"] === "SH")
+        if (shlp["SHLPTYPE"] === "SH") {
           this.Helps[shlp_key] = { title: shlp_title };
+        }
       }
     }
 
@@ -522,7 +525,7 @@ export class Backend {
     this.annotations_clean();
 
     log.info(
-      `\nbackend: ${this.argv.dest} ${chalk.blue(this.api_name)} (${
+      `\nbackend: ${this.argv.dest} ${chalk.bold(this.api_name)} (${
         this.argv.lang
       }) serch helps: ${
         Object.keys(this.search_help_api).length > 0 ? "yes" : "no"
@@ -532,7 +535,7 @@ export class Backend {
     await this.client.open();
 
     const R = await this.client.call("RFC_METADATA_GET", {
-      EVALUATE_LINKS: "X", // comment to go for lower level DDIC: BAPI_EQUI_CHANGE EQUIPMENT
+      EVALUATE_LINKS: "X",
       LANGUAGE: this.SPRAS,
       FUNCTIONNAMES: this.apilist,
     });

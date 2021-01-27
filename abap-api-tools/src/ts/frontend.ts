@@ -357,7 +357,7 @@ export class Frontend {
           `<!--\n${rfm_name} ${JSON.stringify(this.abap.stat[rfm_name])
             .replace(/"|{|}/g, "")
             .replace(/,/g, "  ")
-            .replace(/:/g, ": ")}\n\n${Signature}\n-->\n`
+            .replace(/:/g, ": ")}\n\n${Signature}\n-->`
         );
       }
 
@@ -443,18 +443,14 @@ export class Frontend {
         //
         if (paramClass !== Param.PARAMCLASS) {
           paramClass = Param.PARAMCLASS;
-          jsWriter.write();
-          jsWriter.write("//");
+          jsWriter.write("\n//");
           jsWriter.write(`// ${ParamClassDesc[paramClass]} PARAMETERS`);
-          jsWriter.write("//");
-          jsWriter.write();
+          jsWriter.write("//\n");
 
           if (htmlWriter) {
-            htmlWriter.write();
-            htmlWriter.write("<!--");
+            htmlWriter.write("\n<!--");
             htmlWriter.write(`${ParamClassDesc[paramClass]} PARAMETERS`);
-            htmlWriter.write("-->");
-            htmlWriter.write();
+            htmlWriter.write("-->\n");
           }
         }
 
@@ -486,13 +482,11 @@ export class Frontend {
           );
 
           if (htmlWriter) {
-            htmlWriter.write();
             htmlWriter.write(
               `<!-- Parameter: ${param_name} structure: ${Param.TABNAME} ${
                 Param.FIELDNAME || ""
               } ${Param.PARAMTEXT} -->`
             );
-            htmlWriter.write();
           }
         } else {
           throw new Error(
@@ -543,6 +537,7 @@ export class Frontend {
       .replace(/~bind/, Param.paramName)
       .replace(/~title/, Param.PARAMTEXT);
 
+    htmlWriter.write();
     htmlWriter.write(element_template.header);
     htmlWriter.addindent();
     for (const [field_name, Field] of Object.entries(_Field)) {
@@ -562,7 +557,6 @@ export class Frontend {
     }
     htmlWriter.deindent();
     htmlWriter.write(element_template["footer"]);
-    htmlWriter.write();
   }
 
   structure_init(
@@ -580,7 +574,7 @@ export class Frontend {
       if (Field.text.FIELDTEXT) {
         field_text = Field.text.FIELDTEXT;
       } else {
-        field_text = `No text`;
+        field_text = `Text not found`;
         // throw new Error(
         //   `Text not found for rfm parameter: ${Param.paramName} field: ${field_name}`
         // );
@@ -613,8 +607,7 @@ export class Frontend {
       if (htmlWriter) {
         const field = this.html_field(Param, Field, field_name);
         if (field) {
-          //htmlWriter.write(`${field_name} ${field.html}`);
-          htmlWriter.write(`${field.html}\n`);
+          htmlWriter.write(`\n${field.html}`);
         }
       }
     }
@@ -687,11 +680,11 @@ export class Frontend {
     if (ddic.format) result.format = ddic.format;
 
     // checkbox and combo tags for binary and list value inputs
-    if (!isEmpty(Field) && Field.format.value_input) {
-      if (Field.format.value_input.type === ValueInput.binary) {
+    if (!isEmpty(Field) && Field.format.valueInputType) {
+      if (Field.format.valueInputType === ValueInput.binary) {
         result.format = "boolean";
         result.tag = Tagname.binary;
-      } else if (Field.format.value_input.type === ValueInput.list) {
+      } else if (Field.format.valueInputType === ValueInput.list) {
         result.tag = Tagname.list;
       }
     }
