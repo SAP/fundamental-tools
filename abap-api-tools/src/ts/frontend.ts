@@ -77,11 +77,11 @@ type AbapConfigType = Record<
 >;
 
 type UiConfigTableType = {
-  header: string;
+  header?: string;
   header_row?: string;
   body?: string;
   row: string;
-  footer: string;
+  footer?: string;
 };
 
 type UiConfigType = Record<string, string | UiConfigTableType>;
@@ -141,7 +141,7 @@ export class Frontend {
           "ui",
           `${argv.ui}.yaml`
         );
-        this.uiConfig = yamlLoad(this.configPath["ui"]) as UiConfigType;
+        this.uiConfig = yamlLoad(this.configPath.ui) as UiConfigType;
         log.debug(`default ui configuration ${argv.ui}`);
       }
 
@@ -284,15 +284,11 @@ export class Frontend {
   parse(): void {
     log.info(
       `\nfrontend: ${this.argv.ui || ""} using ${
-        this.configPath["abapLocal"]
-          ? this.configPath["abap"]
-          : "default abap.yaml"
+        this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
       } ${
         this.argv.ui
           ? "and " +
-            (this.configPath["uiLocal"]
-              ? this.configPath["ui"]
-              : "default ui.yaml")
+            (this.configPath.uiLocal ? this.configPath.ui : "default ui.yaml")
           : ""
       }\n`
     );
@@ -539,14 +535,22 @@ export class Frontend {
       ...(this.uiConfig.table as UiConfigTableType),
     };
 
-    // header
-    element_template.header = element_template.header
-      .replace(/~bind/, Param.paramName)
-      .replace(/~title/, Param.PARAMTEXT);
-
     htmlWriter.write();
-    htmlWriter.write(element_template.header);
+    if (Object.keys(element_template).length === 0) {
+      htmlWriter.write(
+        `<!-- Table structure not defined in: ${this.configPath.ui} -->`
+      );
+      return;
+    }
 
+    // header
+    if (element_template.header) {
+      element_template.header = element_template.header
+        .replace(/~bind/, Param.paramName)
+        .replace(/~title/, Param.PARAMTEXT);
+
+      htmlWriter.write(element_template.header);
+    }
     // header row
     if (element_template.header_row) {
       for (const [field_name, Field] of Object.entries(_Field)) {
@@ -592,7 +596,9 @@ export class Frontend {
     }
 
     // footer
-    htmlWriter.write(element_template.footer);
+    if (element_template.footer) {
+      htmlWriter.write(element_template.footer);
+    }
   }
 
   structure_init(
@@ -801,7 +807,7 @@ export class Frontend {
 
     if (!(m.tag in this.uiConfig)) {
       throw new Error(
-        `html element ${m.tag} of ${this.configPath["abap"]} not found in ${this.configPath["ui"]}`
+        `html element ${m.tag} of ${this.configPath.abap} not found in ${this.configPath.ui}`
       );
     }
 

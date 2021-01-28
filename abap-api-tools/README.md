@@ -4,7 +4,7 @@
 
 Command line tool for pattern based applications with ABAP/HANA systems and any ui framework.
 
-- BAPI/RFM call templates
+- [BAPI/RFM](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/) call templates
 - ui components'with ABAP data annotations:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
@@ -87,13 +87,19 @@ abap call
 
 ### ABAP Function Module call template
 
-NodeJS call template of single ABAP function module.
+NodeJS call template of a single ABAP function module.
 
-Echoed to console or saved to `bapi_user_get_details.js` when the `-s` option given:
+Echoed to console or saved to local `js` file if the `-s` option is used:
 
 ```shell
-abap call MME stfc_connection -s
+abap call MME stfc_structure -s
 ```
+
+The call template provides a source code for ABAP function module invocaton, with all parameters and their data structures:
+
+- Optional parameters are commented and initialized with ABAP default values
+- Required parameters are initialized with empty string, buffer or zero number
+- Conversion ("ALPHA") exit, if attached to data element, is mentioned in data element comment
 
 More than one ABAP function module
 
@@ -175,20 +181,16 @@ After annotations are saved, ui elements can be created:
 abap make fudamental-ngx -c my-api # .yaml extension optional
 ```
 
-Now we have one `js` file and one `html` file for each ABAP function module:
+Now we have one `js` file with a call template one `html` file with ui components, for each ABAP function module:
 
 ```shell
 bapi_whse_to_get_detail.js
 bapi_whse_to_get_detail.html
 ```
 
-The **js file** is ABAP function module call template, with all parameters and data structure reset values:
+The `html` file contains ui components' templates, for each BAPI/RFM parameter and structure/table data field.
 
-- Optional parameters are commented and initialized with ABAP default values
-- Required parameters are initialized with standard defaults, like empty string or zero number
-- Conversion ("ALPHA") exit, if attached to data element, is mentioned in data element comment
-
-The **html file** contains ui component template, for each BAPI/RFM parameter and structure/table data field. Components are annoted with:
+Annoted with:
 
 - Data type, length
 - Texts (label, caption)
@@ -199,8 +201,8 @@ The **html file** contains ui component template, for each BAPI/RFM parameter an
 Ui components look like this (Aurelia example):
 
 ```html
-<ui-input value.bind="DATA_GENERAL.DISTR_CHAN" shlp.bind='{type:"SH", id:"CSH_TVTW"}'
-    data-abap.bind='{type:"CHAR",  length:"2", mid:"VTW"}'
+<ui-input bind="DATA_GENERAL.DISTR_CHAN" shlp.bind="{type: 'SH', id: 'CSH_TVTW'}"
+    data-abap.bind="{type:'CHAR', mid:'VTW', length:'2'}"
     label="Distribution Channel">
 </ui-input>
 
@@ -208,22 +210,22 @@ Ui components look like this (Aurelia example):
 
 <ui-date date.bind="DATA_FLEET.EXPIRY_DATE" label="Validity end date"></ui-date>
 
-<ui-combo value.bind="DATA_GENERAL.COSTCENTER" shlp.bind='{type:"CT", id:"CSKS"}'
-    data-abap.bind='{type:"CHAR", length:"10", mid:"KOS", alpha: "ALPHA"}'
+<ui-combo bind="DATA_GENERAL.COSTCENTER" shlp.bind="{type: 'CT', id: 'CSKS'}"
+    data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
     label="Cost Center">
 </ui-combo>
 
-<ui-combo value.bind="DATA_SPECIFIC.EQUICATGRY" shlp.bind='{type:"CT", id:"T370T"}'
-    data-abap.bind='{type:"CHAR", length:"1", mid:"EQT"}'
-    label="Equipment category">
+<ui-combo bind="INSPROVIDER_X.IV_DISPATCH" shlp.bind="{type: 'FV', id: 'KUEVERS'}"
+    data-abap.bind="{type:'CHAR', length:'1'}"
+    label="IS-H: Send IV Request Only if Diagnosis Is Maintained">
 </ui-combo>
 ```
 
 ## Custom ui configurations
 
-Standard ui components' templates can be changed using local ui configuration.
+Using two configuration files, you can map ABAP data types to your own ui components, for practically any ui framework.
 
-Using copy command, the `ui5-react` configuration for example is copied to local config folder:
+First copy the standard ui5-react configuration for example, to local config folder:
 
 ```shell
 abap cp ui5-react
@@ -234,7 +236,7 @@ config
 └── ui5-react.yaml
 ```
 
-The configuration file with `-abap` suffix defines the mapping of ABAP data types to ui components:
+The file with `-abap` suffix defines mapping of ABAP data types to ui components:
 
 `ui5-react-abap.yaml`
 
@@ -261,8 +263,6 @@ datepicker: >-
       <DatePicker value={this.~bind}/>
   </FormItem>
 ```
-
-Using these two config files, you can map ABAP data types to your own ui components and use practically any ui framework.
 
 Elements with tilde prefix `~` are placeholders for texts, data binding and value input helps, documented in `yaml` files.
 

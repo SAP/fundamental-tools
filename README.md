@@ -4,7 +4,7 @@
 
 Command line tool for pattern based web applications with ABAP/HANA systems and any ui framework.
 
-- Any old or new ABAP system
+- Any new or old SAP system
 - Front-end frameworks:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
