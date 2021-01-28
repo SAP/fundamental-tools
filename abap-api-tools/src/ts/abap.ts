@@ -17,7 +17,7 @@ export let Signature: string;
 export const Command = Object.freeze({
   call: "call",
   get: "get",
-  ui: "ui",
+  make: "make",
   set: "cp",
   reset: "rm",
 });
@@ -83,7 +83,7 @@ class CliHandler {
           abap = await backend.parse();
         }
 
-        if ([Command.call, Command.get, Command.ui].includes(this.argv.cmd)) {
+        if ([Command.call, Command.get, Command.make].includes(this.argv.cmd)) {
           const frontend = new Frontend(api_name, abap, this.argv);
           log.debug(`frontend run ${api_name}`);
           frontend.parse();
@@ -199,7 +199,7 @@ export const argv = yargs(process.argv.slice(2))
     },
   })
   .command({
-    command: `${Command.ui} <ui> [rfm...]`,
+    command: `${Command.make} <ui> [rfm...]`,
     describe: "Create ui elements for ABAP API",
     builder: (y) => {
       return y

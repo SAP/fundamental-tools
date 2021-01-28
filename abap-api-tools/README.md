@@ -35,14 +35,13 @@ npm install -g abap-api-tools
 
 ## Usage
 
-Create working folder with `sapnwrfc.ini` file, with your ABAP system(s) destinations:
+Create project folder and maintain ABAP system(s) destinations in `sapnwrfc.ini` file:
 
 `sapnwrfc.ini`
 
 ```ini
 # TRACE=3
 
-MME
 DEST=MME
 USER=demo
 PASSWD=welcome
@@ -52,7 +51,7 @@ CLIENT=620
 LANG=EN
 ```
 
-ABAP API for Value Input Help annotations, if implemented in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be maintained in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
+ABAP API for Value Input Help annotations, if implemented in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be maindefined in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
 
 ```yaml
 MME:
@@ -67,10 +66,10 @@ Run `abap` command to show help:
 abap
 
 Commands:
-  abap call <dest> <rfm...>   ABAP function module call template
+  abap call <dest> <rfm...> ABAP function module call template
   abap get <dest> [rfm...]  ABAP API annotations for ui elements
-  abap ui <ui> [rfm...]     Create ui elements for ABAP API
-  abap cp <ui>              Copy ui configuration to local folder ./config
+  abap make <ui> [rfm...]   Create ui elements for ABAP API
+  abap cp <ui>              Copy ui configuration to local config folder
   abap rm <ui>              Remove local ui configuration
 
 Options:
@@ -93,39 +92,39 @@ NodeJS call template of single ABAP function module.
 Echoed to console or saved to `bapi_user_get_details.js` when the `-s` option given:
 
 ```shell
-abap call MME bapi_user_get_detail -s
+abap call MME stfc_connection -s
 ```
-
-### ABAP API annotations for ui elements
 
 More than one ABAP function module
 
 ```shell
-abap call MME bapi_user_get_detail stfc_performance
+abap call MME stfc_connection stfc_performance
 ```
-
-Save ABAP API annotations to local file:
+### ABAP API annotations for ui elements
 
 ```shell
-abap get MME -c bapi_user_get_detail
+abap get MME stfc_connection stfc_performancr bapi_user_get_detail
 ```
 
-Annnotations in yaml format saved in local `api/yaml` folder:
+Call templates are now saved in `api` folder and annnotations for ui elements in `api/yaml`:
 
 ```shell
-ls model/yaml
-
-alpha.yaml
-fields.yaml
-helps.yaml
-parameters.yaml
-stat.yaml
-usage.yaml
+api
+├── bapi_user_get_detail.js
+├── stfc_connection.js
+├── stfc_performance.js
+└── yaml
+    ├── alpha.yaml
+    ├── fields.yaml
+    ├── helps.yaml
+    ├── parameters.yaml
+    ├── stat.yaml
+    └── usage.yaml
 ```
 
-Use `-o` option for output folder other than default `api`.
+Use `-o` option for output folder other than the default `api`.
 
-Using `-c` option a path to yaml file with BAPI/RFM names can be provided:
+Using `-c` option a path to yaml file with ABAP function modules' names can be provided:
 
 `my-api.yaml`
 
@@ -139,10 +138,10 @@ FI:
   ```
 
 ```shell
-abap get MME -c my-api # yaml is optional
+abap get MME -c my-api # .yaml extension optional
 ```
 
-Call templates and Annotations are saved in respective sub-folders of the output folder (`api` by default):
+Call templates and annotations are saved in respective sub-folders:
 
 ```shell
 tree api
@@ -171,34 +170,34 @@ api
 
 ### ui elements
 
-Once the local annotations are there, ui elements can be created:
+When local annotations are there, ui elements can be created:
 
 ```shell
-abap ui fudamental-ngx -c my-abap
+abap make fudamental-ngx -c my-api # .yaml extension optional
 ```
 
-Now there are one html file and one js file for each ABAP BAPI/RFM:
+Now we have one `js` file and one `html` file for each ABAP function module:
 
 ```shell
 bapi_whse_to_get_detail.js
 bapi_whse_to_create_stock.html
 ```
 
-The **js file** contains ABAP function module parameters and data structure reset values:
+The **js file** is ABAP function module call template, with all parameters and data structure reset values:
 
-- Optional parameters are commented and initialized with ABAP defaults
+- Optional parameters are commented and initialized with ABAP default values
 - Required parameters are initialized with standard defaults, like empty string or zero number
 - Conversion ("ALPHA") exit, if attached to data element, is mentioned in data element comment
 
-The **html file** contains ui (web) component template, for each BAPI/RFM parameter and structure/table data field. Components are annoted with:
+The **html file** contains ui component template, for each BAPI/RFM parameter and structure/table data field. Components are annoted with:
 
 - Data type, length
 - Texts (label, caption)
-- Unit of measure, for currency or quantity
+- Currency or quantity reference fields (unit of measure, currency)
 - Value Input Help: field domain values, check table, elementary or complex search help
 - SU3 parameters (User SET/GET parameters)
 
-Aurelia example:
+Ui components look like this (Aurelia example):
 
 ```html
 <ui-input value.bind="DATA_GENERAL.DISTR_CHAN" shlp.bind='{type:"SH", id:"CSH_TVTW"}'
@@ -223,7 +222,7 @@ Aurelia example:
 
 ## Custom ui configurations
 
-The standard ui components' templates can be changed using local ui configuration.
+Standard ui components' templates can be changed using local ui configuration.
 
 Using copy command, the `ui5-react` configuration for example is copied to local config folder:
 
@@ -266,9 +265,9 @@ datepicker: >-
 
 Using these two config files, you can map ABAP data types to your own ui components and use practically any ui framework.
 
-Elements with tilde prefix `~` are placeholders for texts, data binding and value input helps, documented in yaml files.
+Elements with tilde prefix `~` are placeholders for texts, data binding and value input helps, documented in `yaml` files.
 
-The custom configuration in local config folder is used instead of the standard configuration. To go back to standard, remove it from `config` folder or run:
+Custom configuration in local config folder, if present, is used instead of the standard configuration. To go back to standard, remove it from `config` folder or run:
 
 ```shell
 abap rm ui5-react
