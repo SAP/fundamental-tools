@@ -2,7 +2,7 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 
-Command line tools for pattern based web applications with ABAP/HANA systems.
+Command line tool for pattern based web applications with ABAP/HANA systems and any ui framework.
 
 - Any old or new ABAP system
 - Front-end frameworks:

@@ -2,7 +2,7 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 
-Command line tools for pattern based applications with ABAP/HANA systems.
+Command line tool for pattern based applications with ABAP/HANA systems and any ui framework.
 
 - BAPI/RFM call templates
 - ui components'with ABAP data annotations:
@@ -144,7 +144,6 @@ abap get MME -c my-api # .yaml extension optional
 Call templates and annotations are saved in respective sub-folders:
 
 ```shell
-tree api
 api
 ├── FI
 │   ├── bapi_acc_document_post.js
@@ -170,7 +169,7 @@ api
 
 ### ui elements
 
-When local annotations are there, ui elements can be created:
+After annotations are saved, ui elements can be created:
 
 ```shell
 abap make fudamental-ngx -c my-api # .yaml extension optional
@@ -180,7 +179,7 @@ Now we have one `js` file and one `html` file for each ABAP function module:
 
 ```shell
 bapi_whse_to_get_detail.js
-bapi_whse_to_create_stock.html
+bapi_whse_to_get_detail.html
 ```
 
 The **js file** is ABAP function module call template, with all parameters and data structure reset values:
