@@ -1,7 +1,5 @@
 # abap api tools<!-- omit in toc -->
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools) ![npm](https://img.shields.io/npm/dm/abap-api-tools) ![npm](https://img.shields.io/npm/v/abap-api-tools)
-
 Command line tool for pattern based applications with ABAP/HANA systems and any ui framework.
 
 - [BAPI/RFM](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/) call templates
@@ -99,13 +97,14 @@ The call template provides a source code for ABAP function module invocaton, wit
 
 - Optional parameters are commented and initialized with ABAP default values
 - Required parameters are initialized with empty string, buffer or zero number
-- Conversion ("ALPHA") exit, if attached to data element, is mentioned in data element comment
+- Conversion Exit ("ALPHA Exit"), if attached to data element, is mentioned in data element comment
 
 More than one ABAP function module
 
 ```shell
 abap call MME stfc_connection stfc_performance
 ```
+
 ### ABAP API annotations for ui elements
 
 ```shell
@@ -192,6 +191,7 @@ The `html` file contains ui components' templates, for each BAPI/RFM parameter a
 
 Annoted with:
 
+- Default binding
 - Data type, length
 - Texts (label, caption)
 - Currency or quantity reference fields (unit of measure, currency)
@@ -223,9 +223,9 @@ Ui components look like this (Aurelia example):
 
 ## Custom ui configurations
 
-Using two configuration files, you can map ABAP data types to your own ui components, for practically any ui framework.
+Using two configuration files, ABAP data types can be mapped to custom ui components, of practically any ui framework.
 
-First copy the standard ui5-react configuration for example, to local config folder:
+First copy the standard `ui5-react` configuration for example, to local config folder:
 
 ```shell
 abap cp ui5-react
