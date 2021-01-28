@@ -1,6 +1,6 @@
 # abap api tools<!-- omit in toc -->
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools) ![npm](https://img.shields.io/npm/dm/abap-api-tools) ![npm](https://img.shields.io/npm/v/abap-api-tools)
 
 Command line tool for pattern based applications with ABAP/HANA systems and any ui framework.
 
