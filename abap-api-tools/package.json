@@ -26,11 +26,11 @@
   ],
   "type": "commonjs",
   "scripts": {
-    "ts": "tsc -p src/ts && cp -r src/configuration dist/.",
+    "dist": "tsc -p src/ts && cp -r src/configuration dist/.",
     "lint": "eslint src/ts",
     "deps": "npm i --save chalk js-yaml loglevel sprintf-js yargs node-rfc",
     "devdeps": "npm i --save-dev @types/node @types/js-yaml @types/sprintf-js @types/yargs @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
-    "build": "rm -rf dist && npm run ts && npm run lint",
+    "build": "rm -rf dist && npm run dist && npm run lint",
     "lock": "npm install --package-lock-only"
   },
   "keywords": [

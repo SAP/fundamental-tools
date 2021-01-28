@@ -76,7 +76,13 @@ type AbapConfigType = Record<
   }
 >;
 
-type UiConfigTableType = { header: string; row: string; footer: string };
+type UiConfigTableType = {
+  header: string;
+  header_row?: string;
+  body?: string;
+  row: string;
+  footer: string;
+};
 
 type UiConfigType = Record<string, string | UiConfigTableType>;
 
@@ -533,17 +539,46 @@ export class Frontend {
       ...(this.uiConfig.table as UiConfigTableType),
     };
 
+    // header
     element_template.header = element_template.header
       .replace(/~bind/, Param.paramName)
       .replace(/~title/, Param.PARAMTEXT);
 
     htmlWriter.write();
     htmlWriter.write(element_template.header);
-    htmlWriter.addindent();
+
+    // header row
+    if (element_template.header_row) {
+      for (const [field_name, Field] of Object.entries(_Field)) {
+        const field = this.html_field(Param, Field, field_name);
+        if (!field) continue; // curr, uom
+        let column = element_template.header_row
+          .replace("~bind", field_name)
+          .replace(/~label/, field.markup.label as string)
+          .replace(/~abap/, field.markup.abap as string);
+        if (field.markup["shlp"]) {
+          column = column.replace(/~shlp/, field.markup["shlp"]);
+        } else {
+          // remove shlp
+          column = column.replace(/\s+\S*"~shlp"/, "");
+        }
+        htmlWriter.write(column);
+      }
+    }
+
+    // body
+    if (element_template.body) {
+      element_template.body = element_template.body
+        .replace(/~bind/, Param.paramName)
+        .replace(/~title/, Param.PARAMTEXT);
+      htmlWriter.write(element_template.body);
+    }
+
+    // row
     for (const [field_name, Field] of Object.entries(_Field)) {
       const field = this.html_field(Param, Field, field_name);
       if (!field) continue; // curr, uom
-      let column = element_template["row"]
+      let column = element_template.row
         .replace("~bind", field_name)
         .replace(/~label/, field.markup.label as string)
         .replace(/~abap/, field.markup.abap as string);
@@ -555,8 +590,9 @@ export class Frontend {
       }
       htmlWriter.write(column);
     }
-    htmlWriter.deindent();
-    htmlWriter.write(element_template["footer"]);
+
+    // footer
+    htmlWriter.write(element_template.footer);
   }
 
   structure_init(
