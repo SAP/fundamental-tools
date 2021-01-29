@@ -1,8 +1,10 @@
 # abap api tools<!-- omit in toc -->
 
-Command line tool for pattern based applications with ABAP/HANA systems and any ui framework.
+![NPM](https://img.shields.io/npm/l/abap-api-tools)
 
-- [BAPI/RFM](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/) call templates
+Command line tool for pattern based applications with ABAP/HANA systems.
+
+- BAPI/RFM call templates ([What is BAPI/RFM?](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/))
 - ui components'with ABAP data annotations:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
@@ -93,7 +95,7 @@ Echoed to console or saved to local `js` file if the `-s` option is used:
 abap call MME stfc_structure -s
 ```
 
-The call template provides a source code for ABAP function module invocaton, with all parameters and their data structures:
+The call template provides a source code for ABAP function module invocation, with all parameters and their data structures:
 
 - Optional parameters are commented and initialized with ABAP default values
 - Required parameters are initialized with empty string, buffer or zero number
