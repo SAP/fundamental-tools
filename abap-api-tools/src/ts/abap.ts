@@ -138,16 +138,22 @@ export const argv = yargs(process.argv.slice(2))
           describe: "ABAP texts language",
           default: "en",
         })
-        .option("o", {
-          alias: "output",
-          describe: "Output folder",
-          default: "",
+        .option("f", {
+          alias: "sort-fields",
+          describe: "Sort field names of structures and tables",
+          type: "boolean",
+          default: false,
         })
         .option("s", {
           alias: "save",
           type: "boolean",
           default: false,
           describe: "Save to local file",
+        })
+        .option("o", {
+          alias: "output",
+          describe: "Output folder",
+          default: "",
         })
         .option("d", {
           alias: "debug",
@@ -162,7 +168,7 @@ export const argv = yargs(process.argv.slice(2))
   })
   .command({
     command: `${Command.get} <dest> [rfm...]`,
-    describe: "ABAP API annotations for ui elements",
+    describe: "ABAP API annotations",
     builder: (y) => {
       return y
         .positional("dest", {
@@ -200,7 +206,7 @@ export const argv = yargs(process.argv.slice(2))
   })
   .command({
     command: `${Command.make} <ui> [rfm...]`,
-    describe: "Create ui elements for ABAP API",
+    describe: "Create ui elements",
     builder: (y) => {
       return y
         .positional("ui", {
@@ -213,6 +219,12 @@ export const argv = yargs(process.argv.slice(2))
         .option("c", {
           alias: "catalog",
           describe: "Read RFM names from file",
+        })
+        .option("f", {
+          alias: "sort-fields",
+          describe: "Sort field names of structures and tables",
+          type: "boolean",
+          default: false,
         })
         .option("o", {
           alias: "output",
@@ -273,6 +285,8 @@ export const argv = yargs(process.argv.slice(2))
   .check((argv) => {
     // set command
     argv.cmd = argv._[0];
+
+    log.debug(argv);
 
     // check language
     if (argv.lang && !Object.keys(Languages).includes(argv.lang as string)) {

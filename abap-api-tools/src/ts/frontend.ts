@@ -106,7 +106,7 @@ export class Frontend {
     this.argv = argv;
 
     // abap
-    if (isEmpty(this.abap.parameters)) {
+    if (!this.abap || isEmpty(this.abap.parameters)) {
       try {
         this.abap = annotations_read(this.api_name, argv);
       } catch (ex) {
@@ -119,8 +119,25 @@ export class Frontend {
       }
     }
 
-    // ui configuration
+    // field names sort
+    if (argv["sort-fields"]) {
+      for (const struct_name of Object.keys(this.abap.fields)) {
+        const Structure = this.abap.fields[struct_name];
+        if (Structure.format) continue;
+        this.abap.fields[struct_name] = Object.keys(Structure)
+          .sort()
+          .reduce(
+            (acc, key) => ({
+              ...acc,
+              [key]: Structure[key],
+            }),
+            {}
+          );
+      }
+    }
+
     if (argv.ui) {
+      // ui configuration
       try {
         // local ui first
         this.configPath.ui = path.join(
@@ -290,7 +307,7 @@ export class Frontend {
           ? "and " +
             (this.configPath.uiLocal ? this.configPath.ui : "default ui.yaml")
           : ""
-      }\n`
+      }; field names sorted: ${this.argv["sort-fields"] ? "yes" : "no"}\n`
     );
 
     for (const rfm_name of this.argv.apilist[this.api_name]) {
