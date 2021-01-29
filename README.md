@@ -1,9 +1,8 @@
 # Fundamental Library for ABAP <!-- omit in toc -->
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools) ![npm](https://img.shields.io/npm/dm/abap-api-tools) ![npm](https://img.shields.io/npm/v/abap-api-tools)
+![npm](https://img.shields.io/npm/v/abap-api-tools) [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM) [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools) ![npm](https://img.shields.io/npm/dm/abap-api-tools)  ![NPM](https://img.shields.io/npm/l/abap-api-tools)
 
-
-Command line tool for pattern based web applications with ABAP/HANA systems and any ui framework.
+Command line tool for pattern based web applications with ABAP/HANA systems.
 
 - Any new or old SAP system
 - Front-end frameworks:
