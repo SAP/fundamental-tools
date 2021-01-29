@@ -720,13 +720,14 @@ export class Backend {
               p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
             }`
           ),
-          sprintf(`%-${param_name_len}s`, p.paramName), // native ABAP type, no ddic warning
-          p.nativeKey
-            ? chalk.red(
-                "native! " + p.PARAMTEXT ||
+          sprintf(`%-${param_name_len}s`, p.paramName),
+          (p.nativeKey ? chalk.red : chalk)(
+            // native ABAP datatype printed in red
+            p.nativeKey
+              ? "Native ABAP datatype. no annotations " + p.PARAMTEXT ||
                   `No text in language: ${this.argv.lang}`
-              )
-            : p.PARAMTEXT || `No text in language: ${this.argv.lang}`
+              : p.PARAMTEXT || `No text in language: ${this.argv.lang}`
+          )
         );
       }
     }
