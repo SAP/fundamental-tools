@@ -13,6 +13,7 @@ export const UIFrameworks: readonly string[] = [
   "fundamental-react",
   "fundamental-vue",
   "ui5-react",
+  "custom",
 ];
 
 // T002

@@ -8,7 +8,7 @@ Command line tool for pattern based applications with ABAP/HANA systems.
 - ui components'with ABAP data annotations:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
-  - Angular by [Microsot FAST](https://www.fast.design/docs/introduction/)
+  - Angular, React and Vue by [Microsot FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
 
 ## Content<!-- omit in toc -->
@@ -227,7 +227,7 @@ Ui components look like this (Aurelia example):
 
 Using two configuration files, ABAP data types can be mapped to custom ui components, of practically any ui framework.
 
-First copy the standard `ui5-react` configuration for example, to local config folder:
+To modify existing ui configuration, first copy that configuration to local config folder:
 
 ```shell
 abap cp ui5-react
@@ -253,7 +253,7 @@ DATS:
   comment: YYYYMMDD
 ```
 
-ABAP `DATS` datatype shall be here represented by `datepicker` ui component.
+ABAP `DATS` datatype is here mapped to `datepicker` ui component.
 
 The ui component layout is defined in the ui config file without `abap` suffix:
 
@@ -272,6 +272,18 @@ Custom configuration in local config folder, if present, is used instead of the 
 
 ```shell
 abap rm ui5-react
+```
+
+To create new ui configuration, use the `custom` configuration template:
+
+```shell
+abap cp custom
+```
+
+and remove it when no more needed:
+
+```shell
+abap rm custom
 ```
 
 ## Known Issues
