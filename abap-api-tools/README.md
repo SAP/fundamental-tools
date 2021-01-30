@@ -99,7 +99,7 @@ The call template provides a source code for ABAP function module invocation, wi
 
 - Optional parameters are commented and initialized with ABAP default values
 - Required parameters are initialized with empty string, buffer or zero number
-- Conversion Exit ("ALPHA Exit"), if attached to data element, is mentioned in data element comment
+- Conversion Exit ("ALPHA Exit") and User Profile parameter (SU3) are mentioned in parameter or field comment
 
 More than one ABAP function module
 

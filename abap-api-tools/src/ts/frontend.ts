@@ -222,9 +222,7 @@ export class Frontend {
       result.init = this.abapConfig[result.abaptype].initial;
       if (Field.input) {
         if (Field.input.CONVEXIT) result.alpha = Field.input.CONVEXIT;
-        if (Field.input.MEMORYID) {
-          result.mid = Field.input.MEMORYID;
-        }
+        if (Field.input.MEMORYID) result.mid = Field.input.MEMORYID;
       }
     } else {
       result["init"] = '"native ABAP type"';
@@ -260,11 +258,9 @@ export class Frontend {
         if (!isEmpty(Field)) {
           result.abaptype = Field.format.DATATYPE;
           result.leng = `${Field.format.LENG}`;
-          if (Field.input && Field.input.CONVEXIT) {
-            result.alpha = Field.input.CONVEXIT;
-          }
-          if (Field.input && Field.input.MEMORYID) {
-            result.mid = Field.input.MEMORYID;
+          if (Field.input) {
+            if (Field.input.CONVEXIT) result.alpha = Field.input.CONVEXIT;
+            if (Field.input.MEMORYID) result.mid = Field.input.MEMORYID;
           }
         } else {
           if (!Param.nativeKey) {
@@ -399,7 +395,7 @@ export class Frontend {
         // parameter init
         //
 
-        const paramText = Param.PARAMTEXT
+        let paramText = Param.PARAMTEXT
           ? Param.PARAMTEXT
           : `no text (${this.argv.lang})`;
         let left = Param.paramName;
@@ -418,28 +414,17 @@ export class Frontend {
           jsWriter.write(sprintf("%-33s  // %s", left, paramText));
         } else {
           const right = this.get_param_initializer(Param, Field);
-          if (right.alpha) {
-            jsWriter.write(
-              sprintf(
-                `%-${paramNameLen}s: %12s, // %s ALPHA=%s %s`,
-                left,
-                right.init,
-                right.abaptype,
-                right.alpha,
-                paramText
-              )
-            );
-          } else {
-            jsWriter.write(
-              sprintf(
-                `%-${paramNameLen}s: %12s, // %s %s`,
-                left,
-                right.init,
-                right.abaptype,
-                paramText
-              )
-            );
-          }
+          if (right.mid) paramText = `SU3=${right.mid} ` + paramText;
+          if (right.alpha) paramText = `ALPHA=${right.alpha} ` + paramText;
+          jsWriter.write(
+            sprintf(
+              `%-${paramNameLen}s: %12s, // %s %s`,
+              left,
+              right.init,
+              right.abaptype,
+              paramText
+            )
+          );
         }
       }
       jsWriter.write("};");
@@ -643,26 +628,17 @@ export class Frontend {
         left = `""`; // line type table
         field_text += ` [line type table]`;
       }
-      let line: string;
-      if (right["alpha"]) {
-        line = sprintf(
-          "%-33s: %4s, // %s ALPHA=%s %s",
-          left,
-          right["init"],
-          right["abaptype"],
-          right["alpha"],
-          field_text
-        );
-      } else {
-        line = sprintf(
+      if (right.mid) field_text = `SU3=${right.mid} ` + field_text;
+      if (right.alpha) field_text = `ALPHA=${right.alpha} ` + field_text;
+      jsWriter.write(
+        sprintf(
           "%-33s: %4s, // %s %s",
           left,
-          right["init"],
-          right["abaptype"],
+          right.init,
+          right.abaptype,
           field_text
-        );
-      }
-      jsWriter.write(line);
+        )
+      );
       if (htmlWriter) {
         const field = this.html_field(Param, Field, field_name);
         if (field) {
