@@ -43,6 +43,7 @@ export interface Arguments {
   output: string;
   lang: string;
   save: boolean;
+  textOnly: boolean;
 }
 
 class CliHandler {
@@ -89,7 +90,10 @@ class CliHandler {
           abap = await backend.parse();
         }
 
-        if ([Command.call, Command.get, Command.make].includes(this.argv.cmd)) {
+        if (
+          (this.argv.cmd === Command.get && !this.argv.textOnly) ||
+          [Command.call, Command.make].includes(this.argv.cmd)
+        ) {
           const frontend = new Frontend(api_name, abap, this.argv);
           log.debug(`frontend run ${api_name}`);
           frontend.parse();
@@ -196,6 +200,12 @@ export const argv = yargs(process.argv.slice(2))
         .option("c", {
           alias: "catalog",
           describe: "Read RFM names from file",
+        })
+        .option("t", {
+          alias: "text-only",
+          type: "boolean",
+          default: false,
+          describe: "Get only texts in a given language",
         })
         .option("o", {
           alias: "output",

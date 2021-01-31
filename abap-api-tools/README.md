@@ -20,6 +20,7 @@ Command line tool for pattern based applications with ABAP/HANA systems.
   - [ABAP API annotations for ui elements](#abap-api-annotations-for-ui-elements)
   - [ui elements](#ui-elements)
 - [Custom ui configurations](#custom-ui-configurations)
+- [i18n](#i18n)
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
@@ -269,7 +270,7 @@ datepicker: >-
 You can edit both config files and use them with `make` command:
 
 ```shell
-abap make my-ui5 -c planned_order_api
+abap make my-ui5 -c my-api
 ```
 
 Elements with tilde prefix `~` are placeholders for texts, data binding and value input helps, described in standard ui configuration `yaml` file.
@@ -278,6 +279,53 @@ Custom configuration with the same name as standard one, if present in local fol
 
 ```shell
 abap rm my-ui5
+```
+
+## i18n
+
+Texts for i18n translations are saved in `texts.yaml`, for the language used in `get` command:
+
+```shell
+abap get MME -c my-api # default lang = en
+```
+
+`texts.yaml`
+
+```yaml
+en: City postal code
+short:
+  en:
+    FIELDTEXT: City postal code
+    REPTEXT: Postl Code
+    SCRTEXT_L: Postal Code
+    SCRTEXT_M: Postal Code
+    SCRTEXT_S: Postl Code
+```
+
+Texts in additional languages are added using `-t|--text-only` boolean option:
+
+```shell
+abap get MME -c my-api --text-only --lang de
+```
+
+`texts.yaml`
+
+```yaml
+de: Postleitzahl des Orts
+en: City postal code
+short:
+  de:
+    FIELDTEXT: Postleitzahl des Orts
+    REPTEXT: PLZ
+    SCRTEXT_L: Postleitzahl
+    SCRTEXT_M: Postleitzahl
+    SCRTEXT_S: PLZ
+  en:
+    FIELDTEXT: City postal code
+    REPTEXT: Postl Code
+    SCRTEXT_L: Postal Code
+    SCRTEXT_M: Postal Code
+    SCRTEXT_S: Postl Code
 ```
 
 ## Known Issues

@@ -37,7 +37,7 @@ export type ParameterType = {
 };
 type yamlParameters = Record<string, Record<string, ParameterType>>;
 
-export type FieldText = {
+export type FieldTextType = {
   FIELDTEXT?: string;
   REPTEXT?: string;
   SCRTEXT_S?: string;
@@ -67,12 +67,14 @@ export type FieldType = {
     MEMORYID?: string;
     SHLP?: string;
   };
-  text: FieldText;
+  text: FieldTextType;
 };
 
 export type StructureType = Record<string, FieldType>;
 
 export type yamlFields = Record<string, FieldType | StructureType>;
+
+export type yamlTexts = Record<string, Record<string, string | FieldTextType>>;
 
 // AbapObject typings
 
@@ -173,10 +175,10 @@ export class Backend {
   private SPRAS: string;
   private Helps: Helps;
   private Stat: Stat;
+  private Texts = {} as yamlTexts;
 
   private client: Client;
 
-  // tslint:disable:no-empty
   constructor(api_name: string, argv: Arguments) {
     this.argv = argv;
     this.api_name = api_name;
@@ -223,7 +225,7 @@ export class Backend {
     }
   }
 
-  getDfiesText(dfies: RfcStructure): FieldText {
+  getDfiesText(dfies: RfcStructure): FieldTextType {
     const TEXT_FIELDS = [
       "FIELDTEXT",
       "REPTEXT",
@@ -231,10 +233,12 @@ export class Backend {
       "SCRTEXT_M",
       "SCRTEXT_L",
     ];
-    const text: FieldText = {};
+    const text: FieldTextType = {};
     TEXT_FIELDS.forEach((t) => {
       if ((dfies[t] as string).length > 0) text[t] = dfies[t];
     });
+    // todo: remove this eventually
+    if (!text.FIELDTEXT) text.FIELDTEXT = "No field text";
     return text;
   }
 
@@ -498,6 +502,31 @@ export class Backend {
           if ((field.INTTYPE as string).trim() && !field[".INCLUDE"]) {
             this.alpha.field(field.FIELDNAME as string);
             result[field.FIELDNAME as string] = await this.getField(field);
+
+            // Field texts -> Texts
+            const tkey = JSON.stringify({
+              t: param.TABNAME as string,
+              f: field.FIELDNAME as string,
+            });
+            const texts = result[field.FIELDNAME as string].text;
+            if (this.argv.textOnly) {
+              for (const [k, v] of Object.entries(this.Texts)) {
+                if (v._id === tkey) {
+                  this.Texts[k][this.argv.lang] = texts.FIELDTEXT as string;
+                  this.Texts[k].short[this.argv.lang] = texts;
+                  break;
+                }
+              }
+              // if not found, the same text already added by another field
+            } else {
+              if (!this.Texts[texts.FIELDTEXT as string]) {
+                this.Texts[texts.FIELDTEXT as string] = {
+                  _id: tkey,
+                  [this.argv.lang]: texts.FIELDTEXT as string,
+                  short: { [this.argv.lang]: texts },
+                };
+              }
+            }
           }
         }
         return result;
@@ -522,7 +551,19 @@ export class Backend {
   }
 
   async parse(): Promise<AbapObject> {
-    this.annotations_clean();
+    if (!this.argv.textOnly) {
+      this.annotations_clean();
+    } else {
+      // Texts
+      if (this.argv.textOnly) {
+        const folder_yaml = this.api_name
+          ? path.join(this.argv.output, this.api_name, "yaml")
+          : path.join(this.argv.output, "yaml");
+        this.Texts = yamlLoad(
+          path.join(folder_yaml, "texts.yaml")
+        ) as yamlTexts;
+      }
+    }
 
     log.info(
       `\napi ${this.argv.dest} ${chalk.bold(this.api_name)} language: ${
@@ -561,8 +602,8 @@ export class Backend {
         continue;
       }
       // more intuitive names
-      p.functionName = p["FUNCNAME"].trim() as string;
-      p.paramName = p["PARAMETER"].trim() as string;
+      p.functionName = (p["FUNCNAME"] as string).trim();
+      p.paramName = (p["PARAMETER"] as string).trim();
 
       // Trim, jusr for any case
       p.FIELDNAME.trim();
@@ -603,7 +644,6 @@ export class Backend {
     }
 
     // Sort by rfm / parameter class / required/optional / parameter type and name
-
     (R["PARAMETERS"] as RfcTable).sort((a: RfcStructure, b: RfcStructure) => {
       const PClass = ["I", "C", "T", "E", "X"];
       const PType = [
@@ -657,6 +697,25 @@ export class Backend {
 
       // stat
       this.Stat[functionName][p.paramType as string]++;
+
+      // Parameter text -> Texts
+      const tkey = JSON.stringify({ r: p.functionName, p: p.paramName });
+      if (this.argv.textOnly) {
+        for (const [k, v] of Object.entries(this.Texts)) {
+          if (v._id === tkey) {
+            this.Texts[k][this.argv.lang] = p.PARAMTEXT as string;
+            break;
+          }
+        }
+        // if not found, the same text already added by another parameter
+      } else {
+        if (!this.Texts[p.PARAMTEXT as string]) {
+          this.Texts[p.PARAMTEXT as string] = {
+            _id: tkey,
+            [this.argv.lang]: p.PARAMTEXT as string,
+          };
+        }
+      }
 
       //
       // dfies
@@ -750,20 +809,26 @@ export class Backend {
       usage: usage,
     };
 
-    if (this.argv._[0] === Command.get) {
-      this.annotations_write(abap);
+    if (this.argv.cmd === Command.get) {
+      this.annotations_write(abap, this.Texts, this.argv.textOnly);
     }
 
     return abap;
   }
 
-  annotations_write(abap: AbapObject): void {
+  annotations_write(
+    abap: AbapObject,
+    texts: yamlTexts,
+    textOnly: boolean
+  ): void {
     const folder_root: string = path.join(
       this.argv.output as string,
       this.api_name
     );
     const folder_yaml: string = path.join(folder_root, "yaml");
-    log.debug(`Annotations save ${folder_yaml}`);
+    log.debug(
+      `Annotations save ${folder_yaml} ${textOnly ? "only texts" : ""}`
+    );
 
     if (!fs.existsSync(folder_root)) {
       fs.mkdirSync(folder_root);
@@ -771,15 +836,25 @@ export class Backend {
     if (!fs.existsSync(folder_yaml)) {
       fs.mkdirSync(folder_yaml);
     }
-
-    yamlSave(`${folder_yaml}/alpha.yaml`, abap.alpha, { sortKeys: true });
-    yamlSave(`${folder_yaml}/parameters.yaml`, abap.parameters);
-    yamlSave(`${folder_yaml}/fields.yaml`, abap.fields);
-    if (abap.helps) {
-      yamlSave(`${folder_yaml}/helps.yaml`, abap.helps, { sortKeys: true });
+    if (!textOnly) {
+      yamlSave(path.join(folder_yaml, "alpha.yaml"), abap.alpha, {
+        sortKeys: true,
+      });
+      yamlSave(path.join(folder_yaml, "parameters.yaml"), abap.parameters);
+      yamlSave(path.join(folder_yaml, "fields.yaml"), abap.fields);
+      if (abap.helps) {
+        yamlSave(path.join(folder_yaml, "helps.yaml"), abap.helps, {
+          sortKeys: true,
+        });
+      }
+      yamlSave(path.join(folder_yaml, "stat.yaml"), abap.stat);
+      yamlSave(path.join(folder_yaml, "usage.yaml"), abap.usage);
     }
-    yamlSave(`${folder_yaml}/stat.yaml`, abap.stat);
-    yamlSave(`${folder_yaml}/usage.yaml`, abap.usage);
+    if (!isEmpty(texts)) {
+      yamlSave(path.join(folder_yaml, "texts.yaml"), texts, {
+        sortKeys: true,
+      });
+    }
   }
 
   annotations_clean(): void {
@@ -790,6 +865,7 @@ export class Backend {
     );
 
     log.debug(`Annotations clean ${folder_yaml}`);
+
     for (const fileName of [
       "parameters",
       "fields",
@@ -797,8 +873,9 @@ export class Backend {
       "stat",
       "alpha",
       "usage",
+      "texts",
     ]) {
-      deleteFile(`${folder_yaml}/${fileName}.yaml`);
+      deleteFile(path.join(folder_yaml, `${fileName}.yaml`));
     }
   }
 }
@@ -814,8 +891,10 @@ export function annotations_read(
   log.debug(`reading annotations for: ${api_name} from ${folder_yaml}`);
 
   return {
-    parameters: yamlLoad(`${folder_yaml}/parameters.yaml`) as yamlParameters,
-    fields: yamlLoad(`${folder_yaml}/fields.yaml`) as yamlFields,
-    stat: yamlLoad(`${folder_yaml}/stat.yaml`) as Stat,
+    parameters: yamlLoad(
+      path.join(folder_yaml, "parameters.yaml")
+    ) as yamlParameters,
+    fields: yamlLoad(path.join(folder_yaml, "fields.yaml")) as yamlFields,
+    stat: yamlLoad(path.join(folder_yaml, "stat.yaml")) as Stat,
   };
 }
