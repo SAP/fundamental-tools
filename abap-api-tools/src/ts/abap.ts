@@ -7,7 +7,13 @@
 import fs from "fs";
 import path from "path";
 import yargs from "yargs";
-import { UIFrameworks, Languages, DefaultFolder } from "./constants";
+import {
+  UIFrameworks,
+  UIFrameworksAll,
+  UIFrameworksLocal,
+  Languages,
+  DefaultFolder,
+} from "./constants";
 import { AbapObject, Backend } from "./backend";
 import { Frontend } from "./frontend";
 import { yamlLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
@@ -101,19 +107,22 @@ class CliHandler {
     log.info(`Local configuration removed: ${ui}`);
   }
 
-  copyConfiguration(ui: string) {
+  copyConfiguration(source: string, target = "") {
     makeDir(DefaultFolder.userConfig);
-    for (const fn of [`${ui}-abap`, `${ui}`]) {
-      const source = path.join(DefaultFolder.configuration, "ui", `${fn}.yaml`);
-      const target = path.join(DefaultFolder.userConfig, path.basename(source));
+    if (target.length === 0) target = source;
+    for (const suffix of ["", "-abap"]) {
+      const sname = `${source}${suffix}.yaml`;
+      const tname = `${target}${suffix}.yaml`;
+      const sourcePath = path.join(DefaultFolder.configuration, "ui", sname);
+      const targetPath = path.join(DefaultFolder.userConfig, tname);
       try {
-        fs.copyFileSync(source, target, fs.constants.COPYFILE_EXCL);
+        fs.copyFileSync(sourcePath, targetPath, fs.constants.COPYFILE_EXCL);
       } catch (ex) {
         if (ex.code !== "EEXIST") throw ex; // ignore already exists error
-        throw new Error(`Remove local configuration first: ${target}`);
+        throw new Error(`Remove local configuration first: ${tname}`);
       }
     }
-    log.info(`Local configuration set: ${ui}`);
+    log.info(`Local configuration set: ${target}`);
   }
 }
 
@@ -210,7 +219,7 @@ export const argv = yargs(process.argv.slice(2))
     builder: (y) => {
       return y
         .positional("ui", {
-          choices: UIFrameworks,
+          choices: UIFrameworksAll,
           describe: `ui framework`,
         })
         .positional("rfm", {
@@ -243,13 +252,17 @@ export const argv = yargs(process.argv.slice(2))
     },
   })
   .command({
-    command: `${Command.set} <ui>`,
+    command: `${Command.set} <ui> [to]`,
     describe: `Copy ui configuration to local folder ${DefaultFolder.userConfig}`,
     builder: (y) => {
       return y
         .positional("ui", {
           choices: UIFrameworks,
-          describe: "ui framework",
+          describe: "ui framework name",
+        })
+        .positional("to", {
+          default: "",
+          describe: "New name for custom configuration",
         })
         .option("d", {
           alias: "debug",
@@ -259,7 +272,10 @@ export const argv = yargs(process.argv.slice(2))
         });
     },
     handler: (argv) => {
-      new CliHandler(argv as Arguments).copyConfiguration(argv.ui as string);
+      new CliHandler(argv as Arguments).copyConfiguration(
+        argv.ui as string,
+        argv.to as string
+      );
     },
   })
   .command({
@@ -268,7 +284,7 @@ export const argv = yargs(process.argv.slice(2))
     builder: (y) => {
       return y
         .positional("ui", {
-          choices: UIFrameworks,
+          choices: UIFrameworksLocal,
           describe: "ui framework",
         })
         .option("d", {

@@ -230,17 +230,17 @@ Using two configuration files, ABAP data types can be mapped to custom ui compon
 To modify existing ui configuration, first copy that configuration to local config folder:
 
 ```shell
-abap cp ui5-react
+abap cp ui5-react my-ui5
 
 tree config
 config
-├── ui5-react-abap.yaml
-└── ui5-react.yaml
+├── my-ui5-abap.yaml
+└── my-ui5.yaml
 ```
 
 The file with `-abap` suffix defines mapping of ABAP data types to ui components:
 
-`ui5-react-abap.yaml`
+`my-ui5-abap.yaml`
 
 ```yaml
 # Date field (YYYYMMDD) stored as char(8)
@@ -257,7 +257,7 @@ ABAP `DATS` datatype is here mapped to `datepicker` ui component.
 
 The ui component layout is defined in the ui config file without `abap` suffix:
 
-`ui5-react.yaml`
+`my-ui5.yaml`
 
 ```yaml
 datepicker: >-
@@ -266,24 +266,18 @@ datepicker: >-
   </FormItem>
 ```
 
-Elements with tilde prefix `~` are placeholders for texts, data binding and value input helps, documented in `yaml` files.
-
-Custom configuration in local config folder, if present, is used instead of the standard configuration. To go back to standard, remove it from `config` folder or run:
+You can edit both config files and use them with `make` command:
 
 ```shell
-abap rm ui5-react
+abap make my-ui5 -c planned_order_api
 ```
 
-To create new ui configuration, use the `custom` configuration template:
+Elements with tilde prefix `~` are placeholders for texts, data binding and value input helps, described in standard ui configuration `yaml` file.
+
+Custom configuration with the same name as standard one, if present in local folder, is used instead of the standard configuration. To go back to standard, remove it from `config` folder or run:
 
 ```shell
-abap cp custom
-```
-
-and remove it when no more needed:
-
-```shell
-abap rm custom
+abap rm my-ui5
 ```
 
 ## Known Issues

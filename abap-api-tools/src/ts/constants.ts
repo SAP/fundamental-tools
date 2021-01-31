@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
+import fs from "fs";
 import path from "path";
 
 export const UIFrameworks: readonly string[] = [
@@ -13,7 +14,6 @@ export const UIFrameworks: readonly string[] = [
   "fundamental-react",
   "fundamental-vue",
   "ui5-react",
-  "custom",
 ];
 
 // T002
@@ -138,3 +138,15 @@ export const DefaultFolder = Object.freeze({
   userConfig: "./config",
   output: "./api",
 });
+
+const localFrameworks: string[] = [];
+for (const fileName of fs.readdirSync(DefaultFolder.userConfig)) {
+  const m = fileName.match(/-abap.yaml$/);
+  if (m !== null) {
+    localFrameworks.push(fileName.substring(0, m.index));
+  }
+}
+export const UIFrameworksLocal = Object.freeze(localFrameworks);
+export const UIFrameworksAll = Object.freeze(
+  Array.from(new Set(UIFrameworks.concat(UIFrameworksLocal)))
+);
