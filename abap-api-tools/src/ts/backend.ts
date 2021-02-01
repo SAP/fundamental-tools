@@ -315,7 +315,7 @@ export class Backend {
       shlp_title = "",
       shlp_values: RfcTable = [];
 
-    if (!isEmpty(this.search_help_api)) {
+    if (!isEmpty(this.search_help_api) && !this.argv.textOnly) {
       // F4 Help
       if (dfies.F4AVAILABL) {
         const shlp_descriptor = await this.client.call(
@@ -507,7 +507,7 @@ export class Backend {
             const tkey = JSON.stringify({
               t: param.TABNAME as string,
               f: field.FIELDNAME as string,
-            });
+            }).replace(/"/g, "");
             const texts = result[field.FIELDNAME as string].text;
             if (this.argv.textOnly) {
               for (const [k, v] of Object.entries(this.Texts)) {
@@ -699,7 +699,10 @@ export class Backend {
       this.Stat[functionName][p.paramType as string]++;
 
       // Parameter text -> Texts
-      const tkey = JSON.stringify({ r: p.functionName, p: p.paramName });
+      const tkey = JSON.stringify({
+        r: p.functionName,
+        p: p.paramName,
+      }).replace(/"/g, "");
       if (this.argv.textOnly) {
         for (const [k, v] of Object.entries(this.Texts)) {
           if (v._id === tkey) {

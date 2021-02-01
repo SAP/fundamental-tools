@@ -414,7 +414,7 @@ export class Frontend {
           jsWriter.write(sprintf("%-33s  // %s", left, paramText));
         } else {
           const right = this.get_param_initializer(Param, Field);
-          if (right.mid) paramText = `SU3=${right.mid} ` + paramText;
+          if (right.mid) paramText += ` SU3=${right.mid}`;
           if (right.alpha) paramText = `ALPHA=${right.alpha} ` + paramText;
           jsWriter.write(
             sprintf(
@@ -628,7 +628,7 @@ export class Frontend {
         left = `""`; // line type table
         field_text += ` [line type table]`;
       }
-      if (right.mid) field_text = `SU3=${right.mid} ` + field_text;
+      if (right.mid) field_text += ` SU3=${right.mid}`;
       if (right.alpha) field_text = `ALPHA=${right.alpha} ` + field_text;
       jsWriter.write(
         sprintf(

@@ -36,7 +36,7 @@ npm install -g abap-api-tools
 
 ## Usage
 
-Create project folder and maintain ABAP system(s) destinations in `sapnwrfc.ini` file:
+Create project folder and maintain ABAP system(s) destinations in `sapnwrfc.ini` file, like:
 
 `sapnwrfc.ini`
 
@@ -52,7 +52,7 @@ CLIENT=620
 LANG=EN
 ```
 
-ABAP API for Value Input Help annotations, if implemented in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be maindefined in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
+ABAP API for Value Input Help annotations, if exposed in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be defined in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
 
 ```yaml
 MME:
@@ -67,11 +67,11 @@ Run `abap` command to show help:
 abap
 
 Commands:
-  abap call <dest> <rfm...> ABAP function module call template
-  abap get <dest> [rfm...]  ABAP API annotations for ui elements
-  abap make <ui> [rfm...]   Create ui elements for ABAP API
-  abap cp <ui>              Copy ui configuration to local config folder
-  abap rm <ui>              Remove local ui configuration
+  abap call <dest> <rfm...>  ABAP function module call template
+  abap get <dest> [rfm...]   ABAP API annotations
+  abap make <ui> [rfm...]    Create ui elements
+  abap cp <ui> [to]          Copy ui configuration to local folder ./config
+  abap rm <ui>               Remove local ui configuration
 
 Options:
   --help     Show help
@@ -111,7 +111,7 @@ abap call MME stfc_connection stfc_performance
 ### ABAP API annotations for ui elements
 
 ```shell
-abap get MME stfc_connection stfc_performancr bapi_user_get_detail
+abap get MME stfc_connection stfc_performance bapi_user_get_detail
 ```
 
 Call templates are now saved in `api` folder and annnotations for ui elements in `api/yaml`:
@@ -132,7 +132,7 @@ api
 
 Use `-o` option for output folder other than the default `api`.
 
-Using `-c` option a path to yaml file with ABAP function modules' names can be provided:
+Using `-c|--catalog` option a path to yaml file with ABAP function modules' names can be provided:
 
 `my-api.yaml`
 
@@ -190,7 +190,7 @@ bapi_whse_to_get_detail.js
 bapi_whse_to_get_detail.html
 ```
 
-The `html` file contains ui components' templates, for each BAPI/RFM parameter and structure/table data field.
+The `html` file contains ui elements, for each BAPI/RFM parameter and structure/table data field.
 
 Annoted with:
 
@@ -201,7 +201,7 @@ Annoted with:
 - Value Input Help: field domain values, check table, elementary or complex search help
 - SU3 parameters (User SET/GET parameters)
 
-Ui components look like this (Aurelia example):
+Aurelia example:
 
 ```html
 <ui-input bind="DATA_GENERAL.DISTR_CHAN" shlp.bind="{type: 'SH', id: 'CSH_TVTW'}"
@@ -283,7 +283,7 @@ abap rm my-ui5
 
 ## i18n
 
-Texts for i18n translations are saved in `texts.yaml`, for the language used in `get` command:
+Translations' texts are saved in `texts.yaml`, for the language used in `get` command:
 
 ```shell
 abap get MME -c my-api # default lang = en
@@ -302,7 +302,7 @@ short:
     SCRTEXT_S: Postl Code
 ```
 
-Texts in additional languages are added using `-t|--text-only` boolean option:
+Texts in additional languages are added using `-t|--text-only` flag:
 
 ```shell
 abap get MME -c my-api --text-only --lang de

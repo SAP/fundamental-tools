@@ -147,32 +147,38 @@ export const argv = yargs(process.argv.slice(2))
         })
         .option("l", {
           alias: "lang",
-          type: "string",
           describe: "ABAP texts language",
+          type: "string",
           default: "en",
+          nargs: 1,
         })
         .option("f", {
           alias: "sort-fields",
           describe: "Sort field names of structures and tables",
           type: "boolean",
           default: false,
+          nargs: 0,
         })
         .option("s", {
           alias: "save",
+          describe: "Save to local file",
           type: "boolean",
           default: false,
-          describe: "Save to local file",
+          nargs: 0,
         })
         .option("o", {
           alias: "output",
           describe: "Output folder",
+          type: "string",
           default: "",
+          nargs: 1,
         })
         .option("d", {
           alias: "debug",
+          describe: "Detailed logging",
           type: "boolean",
           default: false,
-          describe: "Detailed logging",
+          nargs: 0,
         });
     },
     handler: (argv) => {
@@ -193,30 +199,37 @@ export const argv = yargs(process.argv.slice(2))
         })
         .option("l", {
           alias: "lang",
-          type: "string",
           describe: "ABAP texts language",
+          type: "string",
           default: "en",
+          nargs: 1,
         })
         .option("c", {
           alias: "catalog",
           describe: "Read RFM names from file",
+          type: "string",
+          nargs: 1,
         })
         .option("t", {
           alias: "text-only",
+          describe: "Get only texts in a given language",
           type: "boolean",
           default: false,
-          describe: "Get only texts in a given language",
+          nargs: 0,
         })
         .option("o", {
           alias: "output",
           describe: "Output folder",
+          type: "string",
           default: DefaultFolder.output,
+          nargs: 1,
         })
         .option("d", {
           alias: "debug",
+          describe: "Detailed logging",
           type: "boolean",
           default: false,
-          describe: "Detailed logging",
+          nargs: 0,
         });
     },
     handler: (argv) => {
@@ -238,23 +251,28 @@ export const argv = yargs(process.argv.slice(2))
         .option("c", {
           alias: "catalog",
           describe: "Read RFM names from file",
+          nargs: 1,
         })
         .option("f", {
           alias: "sort-fields",
           describe: "Sort field names of structures and tables",
           type: "boolean",
           default: false,
+          nargs: 0,
         })
         .option("o", {
           alias: "output",
           describe: "Output folder",
+          type: "string",
           default: DefaultFolder.output,
+          nargs: 1,
         })
         .option("d", {
           alias: "debug",
+          describe: "Detailed logging",
           type: "boolean",
           default: false,
-          describe: "Detailed logging",
+          nargs: 0,
         });
     },
     handler: (argv) => {
@@ -276,9 +294,10 @@ export const argv = yargs(process.argv.slice(2))
         })
         .option("d", {
           alias: "debug",
+          describe: "Detailed logging",
           type: "boolean",
           default: false,
-          describe: "Detailed logging",
+          nargs: 0,
         });
     },
     handler: (argv) => {
@@ -299,9 +318,10 @@ export const argv = yargs(process.argv.slice(2))
         })
         .option("d", {
           alias: "debug",
+          describe: "Detailed logging",
           type: "boolean",
           default: false,
-          describe: "Detailed logging",
+          nargs: 0,
         });
     },
     handler: (argv) => {
@@ -313,6 +333,13 @@ export const argv = yargs(process.argv.slice(2))
     argv.cmd = argv._[0];
 
     log.debug(argv);
+
+    // check duplicates
+    for (const flag of ["lang", "output"]) {
+      if (Array.isArray(argv[flag])) {
+        throw new Error(`Too many arguments: ${flag}`);
+      }
+    }
 
     // check language
     if (argv.lang && !Object.keys(Languages).includes(argv.lang as string)) {
