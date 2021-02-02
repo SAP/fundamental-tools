@@ -1,12 +1,12 @@
 ## Business Logic Exposure
 
-Using Dynpro/WebDynpro based transactions SAP users can run business processes implemented in SAP system. To make the same business logic available for on-premise or cloud consumption by SAP Fundamental UI, it shall be encapsulated and exposed. Assets exposed this way can be:
+Using Dynpro/WebDynpro based transactions SAP users can run business processes implemented in SAP system. To make the same business logic available in on-premise or cloud pattern based apps, it shall be encapsulated and exposed. Assets exposed this way can be:
 
 - Business objects and methods
   - Real BO model like RAP: [ABAP RESTful Application Programming Model](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/LATEST/en-US/33a301e3fff5404e89f090910f7bd978.html)
   - Virtual BO model, like set of BAPIs or remote enable function modules (RFM) for example
   - Freestyle models like GOL, BOL, SPI ...
-  - Mixed model (of above)
+  - Mixed model (all of above)
 
 - Technical objects and methods
   - Configuration (customizing)
@@ -20,11 +20,9 @@ The exposure model is flexible with few simple guidelines:
 
 3. Factors like timeline, ABAP code maintainability and refactoring effors shall be considered when keeping the old ABAP code or writing the new one.
 
-### ABAP Model How-To
+### ABAP API How-To
 
-Use RAP, CDS, BAPIs or any other model, sustainable and maintainable in a time interval of interest, following few practical considerations:
-
-- The ABAP model does not have to be perfect. It should be as much as possible consistent, versatile and performant, offering a useful set of business functions.
+- The ABAP API model does not have to be perfect. It should be as much as possible consistent, versatile and performant, offering a useful set of business functions.
 
 - Inconsistencies, like different field names used in CREATE and READ ABAP structures for example, can be rectified at higher levels. Try not to propagate such inconsistencies, making the ABAP model as good as possible and practically feasible.
 
@@ -61,14 +59,11 @@ Here one technical checklist for releasing RFM based ABAP model, grown out of pr
 Conversion exits are not automatically triggered in RFC protocol and must be internally invoked in
 RFMs exposing ABAP API. The input conversion exits shall be implemented
 at the beginning of RFM, transforming input parameters to internal representation. Output conversion
-exits shall be added after the internal business logic is executed, to transform the core business logic results to
-external representation.
+exits shall be added after the internal business logic is executed, to transform the core business logic results to external representation.
 
-There are at least three possibilities how to find out which ABAP API fields relevant for conversions:
+Use [abap-api-tools](https://www.npmjs.com/package/abap-api-tools#abap-function-module-call-template) to find all ABAP API fields relevant for conversions.
 
-[fundamental-tools#conversion-exits](https://github.com/SAP/fundamental-tools#conversion-exits)
-
-Once the fields are known, the conversion can be quickly added manually for each field and that is the recommended way.
+Once the fields are known, the conversion can be added for each field and that is the recommended way.
 
 Also the generic solution is possible but not recommended because more complicated and slower, given here just as an experimental example:
 
