@@ -38,7 +38,7 @@ equipment:
   - BAPI_EQUI_INSTALL # Install Equipment (Functional Location, Superior Equipment)
 ```
 
-No cloud/web knowledge/skills required here, just standard ABAP development, like the ui will be implemented in ABAP.
+Cloud/web knowledge and skills are not required here, just standard ABAP development, like the ui will be implemented in ABAP.
 
 Nothing very new or exciting for ABAP developers, the work is mostly about finding the business logic units to be exposed for the app.
 
@@ -76,20 +76,20 @@ def equipment(path):
 
 - App server is RFC connected with ABAP system and the programming model is therefore still ABAP, with ABAP data structures, only in another programming language.
 
-- Therefore a nice opportunity for ABAP developers to do also NodeJS, Python or Java
+- Nice opportunity for ABAP developers to start with NodeJS, Python or Java
 
-- By default ABAP stateful, so that COMMIT BAPI can be invoked after CHANGE BAPI for example
+- By default ABAP stateful, COMMIT BAPI can be invoked after CHANGE BAPI for example
 
-- ABAP API adaptations, extensions, choreography, orchestration, caching etc. can be added here, covering industry or customer specific requirements for example
+- ABAP API adaptations, extensions, choreography, orchestration, caching etc. can be added here, covering industry or customer specific requirements
 
-- The server logic sometimes need access to ABAP data stuctures at field level and `abap get|call` commands can help here with [call templates](../abap-api-tools/README.md#abap-function-module-call-template)
+- The server logic sometimes need access to ABAP data stuctures at field level. `abap get` and `call` commands can help here with [call templates](../abap-api-tools/README.md#abap-function-module-call-template)
 
 ### View Model
 
-Via server routes, ABAP data structures reach the View-Model, now in JSON format. The programming language is now JavaScript but the business logic processing can be still done the ABAP way, like calling BAPI COMMIT after BAPI CHANGE, now via server routes.
+Via server routes, ABAP data structures reach the View-Model, now in JSON format. The programming language is now JavaScript but the business logic processing can be still done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
 
-- Modern object oriented JavaScript makes layer also this level doable by ABAP developers, interested in TypeScript for example.
-- The same logic can be implemented at app server or View Model level. With JavaScript servers, the same code can be used at either level.
+- Modern object oriented JavaScript makes also this layer doable by ABAP developers interested in JavaScript
+- One the same logic can run on app server or View Model level. With JavaScript servers, even the same code can be shifted back and forth, between app server and view model.
 
 The model pattern depends on ABAP API structure and app requirements and may look like this:
 
