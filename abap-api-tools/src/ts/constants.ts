@@ -140,10 +140,12 @@ export const DefaultFolder = Object.freeze({
 });
 
 const localFrameworks: string[] = [];
-for (const fileName of fs.readdirSync(DefaultFolder.userConfig)) {
-  const m = fileName.match(/-abap.yaml$/);
-  if (m !== null) {
-    localFrameworks.push(fileName.substring(0, m.index));
+if (fs.existsSync(DefaultFolder.userConfig)) {
+  for (const fileName of fs.readdirSync(DefaultFolder.userConfig)) {
+    const m = fileName.match(/-abap.yaml$/);
+    if (m !== null) {
+      localFrameworks.push(fileName.substring(0, m.index));
+    }
   }
 }
 export const UIFrameworksLocal = Object.freeze(localFrameworks);

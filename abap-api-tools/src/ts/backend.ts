@@ -198,18 +198,27 @@ export class Backend {
     this.client = new Client(connectionParameters);
 
     try {
-      const systemYmlPath = path.join(DefaultFolder.userConfig, "systems.yaml");
-      const systems = yamlLoad(systemYmlPath) as SystemsYamlType;
-      if (this.argv.dest && systems[this.argv.dest]) {
+      const systemYamlPath = path.join(
+        DefaultFolder.userConfig,
+        "systems.yaml"
+      );
+      const systems = yamlLoad(systemYamlPath) as SystemsYamlType;
+      if (
+        this.argv.dest &&
+        systems[this.argv.dest] &&
+        systems[this.argv.dest].search_help_api
+      ) {
         this.search_help_api = systems[this.argv.dest].search_help_api;
 
-        for (const k of Object.keys(this.search_help_api)) {
-          if (!["determine", "dom_values"].includes(k)) {
-            throw new Error(`Invalid key "${k}" found in ${systemYmlPath}`);
-          }
-          if (this.search_help_api[k].length > 30) {
+        for (const [apiKey, apiName] of Object.entries(this.search_help_api)) {
+          if (!["determine", "dom_values"].includes(apiKey)) {
             throw new Error(
-              `Too long API name: ${this.search_help_api[k]}, found in ${systemYmlPath}[${this.argv.dest}][${k}]`
+              `Invalid key "${apiKey}" found in ${systemYamlPath}`
+            );
+          }
+          if (apiName.length > 30) {
+            throw new Error(
+              `Too long API name "${apiName}" found in ${systemYamlPath}`
             );
           }
         }
