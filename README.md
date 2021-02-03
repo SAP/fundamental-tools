@@ -26,7 +26,8 @@ Command line tool for pattern based web applications with ABAP/HANA systems.
   - [ABAP API annotations for ui elements](./abap-api-tools/README.md#abap-api-annotations-for-ui-elements)
   - [ui elements](./abap-api-tools/README.md#ui-elements)
 - [Custom ui configurations](./abap-api-tools/README.md#custom-ui-configurations)
-- [Building a pattern based app](./doc/app.md)
+- [i18n](./abap-api-tools/README.md#i18n)
+- [Pattern based app](./doc/app.md)
 - NodeJS and Python [docker images](./docker)
 
 ## Prerequisites
