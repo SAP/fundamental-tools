@@ -567,14 +567,20 @@ export class Backend {
     if (!this.argv.textOnly) {
       this.annotations_clean();
     } else {
-      // Texts
       if (this.argv.textOnly) {
         const folder_yaml = this.api_name
           ? path.join(this.argv.output, this.api_name, "yaml")
           : path.join(this.argv.output, "yaml");
-        this.Texts = yamlLoad(
-          path.join(folder_yaml, "texts.yaml")
-        ) as yamlTexts;
+        try {
+          this.Texts = yamlLoad(
+            path.join(folder_yaml, "texts.yaml")
+          ) as yamlTexts;
+        } catch (ex) {
+          if (ex.code !== "ENOENT") throw ex; // throw if other than file not found
+          throw Error(
+            `Texts in primary language not found for ${this.apilist}\nDon't use -t|--text-option with language key, use the -l|--lang instead:\n -t -l <lang>`
+          );
+        }
       }
     }
 

@@ -332,6 +332,14 @@ export const argv = yargs(process.argv.slice(2))
     // set command
     argv.cmd = argv._[0];
 
+    // set log level first
+    if (argv.d) {
+      log.setDefaultLevel(log.levels["DEBUG"]);
+    } else {
+      log.setDefaultLevel(log.levels["INFO"]);
+    }
+
+    log.debug(process.argv);
     log.debug(argv);
 
     // check duplicates
@@ -352,17 +360,22 @@ export const argv = yargs(process.argv.slice(2))
       argv.save = true;
     }
 
-    // add leading ./
-    if ("output" in argv && (argv.output as string).substring(0, 2) !== "./") {
-      argv.output = `./${argv.output}`;
-      argv.o = argv.output;
+    // text only with lang key
+    if (
+      argv["text-only"] &&
+      Boolean(process.argv.indexOf("-l") === -1) &&
+      Boolean(process.argv.indexOf("--lang") === -1)
+    ) {
+      throw new Error(
+        `Text-only option -t requires -l option with language key`
+      );
     }
 
-    // set log level
-    if (argv.d) {
-      log.setDefaultLevel(log.levels["DEBUG"]);
-    } else {
-      log.setDefaultLevel(log.levels["INFO"]);
+    // output folder
+    if ("output" in argv && (argv.output as string).substring(0, 2) !== "./") {
+      // add leading ./
+      argv.output = `./${argv.output}`;
+      argv.o = argv.output;
     }
 
     // Write CLI version to output signature string
