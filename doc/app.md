@@ -1,5 +1,5 @@
 
-## Building an app<!-- omit in toc -->
+# Building an app<!-- omit in toc -->
 
 Pattern based web applications solve complex problems by simple repeatable patterns, rather than using complex frameworks.
 
@@ -12,13 +12,27 @@ Apps comprise of four levels (JavaScript or JS stands for TypeScript or EcmaScri
 
 Let build one such app from scratch:
 
+- [Technical Landscape](#technical-landscape)
 - [ABAP API](#abap-api)
 - [App Server](#app-server)
 - [View Model](#view-model)
 - [View (HTML)](#view-html)
 - [App = ABAP API + Server Model + View Model + View](#app--abap-api--server-model--view-model--view)
-- [Technical landscape](#technical-landscape)
-### ABAP API
+- [Deployment options](#deployment-options)
+
+## Technical Landscape
+
+<img src="../doc/assets/components.png" width="800px"/>
+
+- SAP standard products:
+  - [JCo](https://support.sap.com/en/product/connectors/jco.html)
+  - [SCC for Java](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/LATEST/en-US/e6c7616abb5710148cfcf3e75d96d596.html)
+- SAP open source based on standard product [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html)
+  - [PyRFC](https://github.com/SAP/PyRFC)
+  - [node-rfc](https://github.com/SAP/node-rfc)
+
+
+## ABAP API
 
 - Localize the ABAP business logic for app functional requirements
 - Expose it via remote-enabled Function Modules
@@ -42,7 +56,7 @@ Cloud/web knowledge and skills are not required here, just standard ABAP develop
 
 Nothing very new or exciting for ABAP developers, the work is mostly about finding the business logic units to be exposed for the app.
 
-### App Server
+## App Server
 
 The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app.
 
@@ -84,7 +98,7 @@ def equipment(path):
 
 - The server logic sometimes need access to ABAP data stuctures at field level. `abap get` and `call` commands can help here with [call templates](../abap-api-tools/README.md#abap-function-module-call-template)
 
-### View Model
+## View Model
 
 Via server routes, ABAP data structures reach the View-Model, now in JSON format. The programming language is now JavaScript but the business logic processing can be still done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
 
@@ -152,7 +166,7 @@ export class Equipment {
 // get ...
 ```
 
-### View (HTML)
+## View (HTML)
 
 HTML or JS Views are built of reusable ui components, put together into frontend layouts and forms.
 
@@ -211,7 +225,7 @@ DATA_FLEET = {
 ```
 
 
-### App = ABAP API + Server Model + View Model + View
+## App = ABAP API + Server Model + View Model + View
 
 Fully functional app shown below, is implemented with ca. 400 lines of code:
 
@@ -232,20 +246,6 @@ The implementation is under full developer's control, without any magic added by
 
 ![App](assets/Equipment.jpg)
 
-## Technical Landscape
-
-Technical components:
-
-- Standard products
-  - [JCo](https://support.sap.com/en/product/connectors/jco.html)
-  - [SCC for Java](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/LATEST/en-US/e6c7616abb5710148cfcf3e75d96d596.html)
-  - [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html)
-- Open Source
-  - [PyRFC](https://github.com/SAP/)
-  - [node-rfc](https://github.com/SAP/node-rfc)
-
-<img src="../doc/assets/components.png" width="480px"/>
-
-and their deployment options:
+## Deployment options
 
 <img src="../doc/assets/deployments.png" width="640px"/>
