@@ -324,7 +324,11 @@ export class Backend {
       shlp_title = "",
       shlp_values: RfcTable = [];
 
-    if (!isEmpty(this.search_help_api) && !this.argv.textOnly) {
+    if (
+      this.argv.cmd !== Command.call && // search helps not required for call template
+      !this.argv.textOnly && // neither for texts extraction
+      !isEmpty(this.search_help_api) // search help api implemented
+    ) {
       // F4 Help
       if (dfies.F4AVAILABL) {
         const shlp_descriptor = await this.client.call(
