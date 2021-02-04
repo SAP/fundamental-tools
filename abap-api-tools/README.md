@@ -331,11 +331,11 @@ short:
 
 ## Known Issues
 
-Click [here](https://github.com/SAP/fundamental-toolset/issues) to view the current issues.
+Click [here](https://github.com/SAP/fundamental-tools/issues) to view the current issues.
 
 ## Getting Support
 
-If you encounter an issue, you can [create a ticket](https://github.com/SAP/fundamental-toolset/issues/new).
+If you encounter an issue, you can [create a ticket](https://github.com/SAP/fundamental-tools/issues/new).
 
 ## Contributing
 
