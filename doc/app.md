@@ -1,4 +1,3 @@
-
 # Building an app<!-- omit in toc -->
 
 Pattern based web applications solve complex problems by simple repeatable patterns, rather than using complex frameworks.

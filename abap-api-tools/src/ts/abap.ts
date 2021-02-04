@@ -43,7 +43,7 @@ export interface Arguments {
   output: string;
   lang: string;
   save: boolean;
-  textOnly: boolean;
+  textOnly: string;
 }
 
 class CliHandler {
@@ -213,9 +213,9 @@ export const argv = yargs(process.argv.slice(2))
         .option("t", {
           alias: "text-only",
           describe: "Get only texts in a given language",
-          type: "boolean",
-          default: false,
-          nargs: 0,
+          type: "string",
+          default: "",
+          nargs: 1,
         })
         .option("o", {
           alias: "output",
@@ -343,15 +343,10 @@ export const argv = yargs(process.argv.slice(2))
     log.debug(argv);
 
     // check duplicates
-    for (const flag of ["lang", "output"]) {
+    for (const flag of ["lang", "output", "text-only"]) {
       if (Array.isArray(argv[flag])) {
         throw new Error(`Too many arguments: ${flag}`);
       }
-    }
-
-    // check language
-    if (argv.lang && !Object.keys(Languages).includes(argv.lang as string)) {
-      throw new Error(`Language not supported: ${argv.lang}`);
     }
 
     if (argv.output) {
@@ -361,14 +356,21 @@ export const argv = yargs(process.argv.slice(2))
     }
 
     // text only with lang key
-    if (
-      argv["text-only"] &&
-      Boolean(process.argv.indexOf("-l") === -1) &&
-      Boolean(process.argv.indexOf("--lang") === -1)
-    ) {
-      throw new Error(
-        `Text-only option -t requires -l option with language key`
-      );
+    if (argv["text-only"]) {
+      if (
+        process.argv.indexOf("-l") !== -1 ||
+        process.argv.indexOf("--lang") !== -1
+      ) {
+        throw new Error(`Text-only option is not allowed with lang options`);
+      }
+      // lang set by text-only
+      argv.l = argv.textOnly;
+      argv.lang = argv.textOnly;
+    }
+
+    // check language
+    if (argv.lang && !Object.keys(Languages).includes(argv.lang as string)) {
+      throw new Error(`Language not supported: ${argv.lang}`);
     }
 
     // output folder

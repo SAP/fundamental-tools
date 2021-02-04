@@ -303,10 +303,10 @@ short:
     SCRTEXT_S: Postl Code
 ```
 
-Texts in additional languages are added using `-t|--text-only` flag:
+Texts in additional languages are added using `-t|--text-only` option:
 
 ```shell
-abap get MME -c my-api --text-only --lang de
+abap get MME -c my-api -t de
 ```
 
 `texts.yaml`

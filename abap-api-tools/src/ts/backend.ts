@@ -172,6 +172,7 @@ export class Backend {
   private alpha: Alpha;
 
   private search_help_api = {} as SearchHelpApiType;
+  private getSearchHelps = false;
   private SPRAS: string;
   private Helps: Helps;
   private Stat: Stat;
@@ -226,6 +227,12 @@ export class Backend {
     } catch (ex) {
       if (ex.code !== "ENOENT") throw ex; // ignore file not found error
     }
+
+    // search helps processing
+    this.getSearchHelps =
+      this.argv.cmd === Command.get && // search helps are required for get command
+      !isEmpty(this.search_help_api) && // when search help api is configured
+      !this.argv.textOnly; // not in text-only mode
 
     // output folder
     if (this.argv.output && !fs.existsSync(this.argv.output)) {
@@ -324,11 +331,7 @@ export class Backend {
       shlp_title = "",
       shlp_values: RfcTable = [];
 
-    if (
-      this.argv.cmd !== Command.call && // search helps not required for call template
-      !this.argv.textOnly && // neither for texts extraction
-      !isEmpty(this.search_help_api) // search help api implemented
-    ) {
+    if (this.getSearchHelps) {
       // F4 Help
       if (dfies.F4AVAILABL) {
         const shlp_descriptor = await this.client.call(
@@ -587,9 +590,7 @@ export class Backend {
     log.info(
       `\napi ${this.argv.dest} ${chalk.bold(this.api_name)} language: ${
         this.argv.lang
-      } serch helps: ${
-        Object.keys(this.search_help_api).length > 0 ? "yes" : "no"
-      }\n`
+      } serch helps: ${this.getSearchHelps ? "yes" : "no"}\n`
     );
 
     await this.client.open();
@@ -832,7 +833,7 @@ export class Backend {
     };
 
     if (this.argv.cmd === Command.get) {
-      this.annotations_write(abap, this.Texts, this.argv.textOnly);
+      this.annotations_write(abap, this.Texts, Boolean(this.argv.textOnly));
     }
 
     return abap;
