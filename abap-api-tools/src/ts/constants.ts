@@ -5,17 +5,6 @@
 import fs from "fs";
 import path from "path";
 
-export const UIFrameworks: readonly string[] = [
-  "aurelia",
-  "fast-ngx",
-  "fast-react",
-  "fast-vue",
-  "fundamental-ngx",
-  "fundamental-react",
-  "fundamental-vue",
-  "ui5-react",
-];
-
 // T002
 export const Languages = Object.freeze({
   af: { spras: "a", text: "Afrikaans" },
@@ -139,16 +128,25 @@ export const DefaultFolder = Object.freeze({
   output: "./api",
 });
 
-const localFrameworks: string[] = [];
-if (fs.existsSync(DefaultFolder.userConfig)) {
-  for (const fileName of fs.readdirSync(DefaultFolder.userConfig)) {
-    const m = fileName.match(/-abap.yaml$/);
-    if (m !== null) {
-      localFrameworks.push(fileName.substring(0, m.index));
-    }
-  }
+// ui frameworks
+
+function getFrameworks(files: string[]): string[] {
+  return files
+    .filter((e) => e.match(/-abap\.yaml$/))
+    .join(",")
+    .replace(/-abap\.yaml/g, "")
+    .split(",");
 }
-export const UIFrameworksLocal = Object.freeze(localFrameworks);
-export const UIFrameworksAll = Object.freeze(
-  Array.from(new Set(UIFrameworks.concat(UIFrameworksLocal)))
+
+export const UIFrameworks: readonly string[] = getFrameworks(
+  fs.readdirSync(path.join(DefaultFolder.configuration, "ui"))
+);
+
+let localFrameworks: string[] = [];
+if (fs.existsSync(DefaultFolder.userConfig)) {
+  localFrameworks = getFrameworks(fs.readdirSync(DefaultFolder.userConfig));
+}
+export const UIFrameworksLocal: readonly string[] = localFrameworks;
+export const UIFrameworksAll: readonly string[] = Array.from(
+  new Set(UIFrameworks.concat(UIFrameworksLocal))
 );
