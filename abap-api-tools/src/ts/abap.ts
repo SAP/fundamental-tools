@@ -24,8 +24,9 @@ export const Command = Object.freeze({
   call: "call",
   get: "get",
   make: "make",
-  set: "cp",
-  reset: "rm",
+  copy: "cp",
+  remove: "rm",
+  languages: "languages",
 });
 
 export type ApiList = Record<string, string[]>;
@@ -280,7 +281,14 @@ export const argv = yargs(process.argv.slice(2))
     },
   })
   .command({
-    command: `${Command.set} <ui> [to]`,
+    command: `${Command.languages}`,
+    describe: "Supported languages",
+    handler: () => {
+      log.info(Languages);
+    },
+  })
+  .command({
+    command: `${Command.copy} <ui> [to]`,
     describe: `Copy ui configuration to local folder ${DefaultFolder.userConfig}`,
     builder: (y) => {
       return y
@@ -308,7 +316,7 @@ export const argv = yargs(process.argv.slice(2))
     },
   })
   .command({
-    command: `${Command.reset} <ui>`,
+    command: `${Command.remove} <ui>`,
     describe: "Remove local ui configuration",
     builder: (y) => {
       return y
