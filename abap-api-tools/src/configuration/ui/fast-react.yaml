@@ -1,0 +1,75 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Microsoft FAST for React
+
+# ABAP data element placeholders:
+# ~bind  Binding: <parameter>[.field]
+# ~label Label
+# ~shlp  Value input help: Search Help, Check Table ...
+# ~abap  Annotations: field type, length, su3 mid, currency or uom field
+# ~title Table header title: parameter text
+
+# https://sap.github.io/fundamental-react/?path=/docs/component-api-forms-checkbox--primary
+checkbox: >-
+  <Checkbox value={this.~bind}/>~label</Checkbox>
+
+# https://sap.github.io/fundamental-react/?path=/docs/component-api-comboboxinput--primary
+combo: >-
+  <ComboboxInput id="4711" label="~label"
+      value={this.~bind}
+      options="~shlp"
+      data-abap="{%s}"/>
+
+# https://sap.github.io/fundamental-react/?path=/docs/component-api-datepicker--primary
+datepicker: >-
+  <FormItem>
+      <FormLabel htmlFor="4711">~label</FormLabel>
+      <DatePicker id="4711" value={this.~bind}/>
+  </FormItem>
+
+# https://sap.github.io/fundamental-react/?path=/docs/component-api-timepicker--primary
+timepicker: >-
+  <FormItem>
+      <FormLabel htmlFor="4711">~label</FormLabel>
+      <TimePicker id="4711" value={this.~bind}/>
+  </FormItem>
+
+# https://sap.github.io/fundamental-react/?path=/docs/component-api-forms-formlabel--primary
+input: >-
+  <FormItem>
+      <FormLabel htmlFor="4711">~label</FormLabel>
+      <FormInput id="4711" value={this.~bind}
+          data-abap="~abap"
+          data-shlp="~shlp"
+      />
+  </FormItem>
+
+# https://sap.github.io/fundamental-react/?path=/docs/component-api-forms-formtextarea--primary
+textarea: >-
+  <FormItem>
+      <FormLabel htmlFor="4711">~label</FormLabel>
+      <FormTextArea id="4711" value={this.~bind}
+          data-abap="~abap"
+      />
+  </FormItem>
+
+# same as input
+lang: >-
+  <FormItem label="~label">
+      <Input value={this.~bind}
+          data-abap="~abap"
+          data-shlp="~shlp"
+      />
+  </FormItem>
+
+# table
+table:
+  header: >-
+    <ui-datagrid data.bind="~bind" title="~title"
+                 data-summary="false" default-sort=""
+                 selectable rowselect.trigger="object.selectObject($event.detail)">
+  row: >-
+    <ui-dg-column sortable field="~bind" data-abap.bind="~abap" shlp.bind="~shlp" label="~label"></ui-dg-column>
+  footer: </ui-datagrid>

@@ -14,6 +14,7 @@ Command line tool for pattern based web applications with ABAP/HANA systems.
   - SAP Cloud Platform
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
+- [Building a pattern based app](./doc/app.md)
 - Blog: [Fundamental Library for ABAP](https://blogs.sap.com/2020/08/23/fundamental-library-for-abap/)
 
 ## Content <!-- omit in toc -->
@@ -27,7 +28,7 @@ Command line tool for pattern based web applications with ABAP/HANA systems.
   - [ui elements](./abap-api-tools/README.md#ui-elements)
 - [Custom ui configurations](./abap-api-tools/README.md#custom-ui-configurations)
 - [i18n](./abap-api-tools/README.md#i18n)
-- [Pattern based app](./doc/app.md)
+- [Building a pattern based app](./doc/app.md)
 - NodeJS and Python [docker images](./docker)
 
 ## Prerequisites

@@ -1,0 +1,54 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# aurelia
+
+# ABAP data element annotations:
+# ~bind  Binding: <parameter>[.field]
+# ~label Label
+# ~shlp  Value input help: Search Help, Check Table ...
+# ~abap  Annotations: field type, length, su3 mid, currency or uom field
+# ~title Table header title: parameter text
+
+# checkbox
+checkbox: >-
+  <ui-checkbox value.bind="~bind" label="~label"></ui-checkbox>
+
+# combobox
+combo: >-
+  <ui-combo bind="~bind" shlp.bind="~shlp" data-abap.bind="~abap"
+            label="~label"></ui-combo>
+
+# datepicker
+datepicker: >-
+  <ui-date date.bind="~bind"  label="~label"></ui-date>
+
+# timepicker
+timepicker: >-
+  <ui-time time.bind="~bind"  label="~label"></ui-time>
+
+# input
+input: >-
+  <ui-input bind="~bind" shlp.bind="~shlp" data-abap.bind="~abap"
+            label="~label"></ui-input>
+
+# textarea
+textarea: >-
+  <ui-text bind="~bind" data-abap.bind="~abap"
+           label="~label"></ui-text>
+
+# same as input
+lang: >-
+  <ui-input bind="~bind" data-abap.bind="~abap"
+            label="~label"></ui-input>
+
+# table
+table:
+  header: >-
+    <ui-datagrid data.bind="~bind" title="~title"
+                 data-summary="false" default-sort=""
+                 selectable rowselect.trigger="object.selectObject($event.detail)">
+  row: >1-
+      <ui-dg-column sortable field="~bind" data-abap.bind="~abap" shlp.bind="~shlp" label="~label"></ui-dg-column>
+  footer: </ui-datagrid>

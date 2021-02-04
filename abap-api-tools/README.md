@@ -10,6 +10,7 @@ Command line tool for pattern based applications with ABAP/HANA systems.
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsot FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
+- [Building a pattern based app](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md)
 
 ## Content<!-- omit in toc -->
 

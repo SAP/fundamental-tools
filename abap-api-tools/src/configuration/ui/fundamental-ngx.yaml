@@ -1,0 +1,109 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# SAP Fundamental Library for Angular
+
+# ABAP data element placeholders:
+# ~bind  Binding: <parameter>[.field]
+# ~label Label
+# ~shlp  Value input help: Search Help, Check Table ...
+# ~abap  Annotations: field type, length, su3 mid, currency or uom field
+# ~title Table header title: parameter text
+
+# https://sap.github.io/fundamental-ngx/#/core/checkbox
+checkbox: >-
+  <div fd-form-item>
+      <fd-checkbox label="~label" [(ngModel)]="~bind"></fd-checkbox>
+  </div>
+
+# https://sap.github.io/fundamental-ngx/#/core/combobox
+combo: >-
+  <div fd-form-item>
+      <label fd-form-label>~label</label>
+      <fd-combobox
+          [(ngModel)]="~bind"
+          [dropdownValues]="~shlp"
+          data-abap="~abap"
+      >
+      </fd-combobox>
+  </div>
+
+# https://sap.github.io/fundamental-ngx/#/core/datePicker
+datepicker: >-
+  <div fd-form-item>
+      <label fd-form-label>~label</label>
+      <fd-date-picker [type]="single" [(ngModel)]="~bind"></fd-date-picker>
+  </div>
+
+# https://sap.github.io/fundamental-ngx/#/core/timePicker
+timepicker: >-
+  <div fd-form-item>
+      <label fd-form-label>~label</label>
+      <fd-time-picker [(ngModel)]="~bind"></fd-time-picker>
+  </div>
+
+# https://sap.github.io/fundamental-ngx/#/core/input
+input: >-
+  <div fd-form-item>
+      <label fd-form-label>~label</label>
+          <input fd-input fd-form-control
+              [(ngModel)]="~bind"
+              data-abap="~abap"
+              data-shlp="~shlp"
+          />
+  </div>
+
+number: >-
+  <div fd-form-item>
+      <label fd-form-label>~label</label>
+          <input fd-input fd-form-control
+              [(ngModel)]="~bind"
+              data-abap="~abap"
+              data-shlp="~shlp"
+          />
+  </div>
+
+# https://sap.github.io/fundamental-ngx/#/core/textarea
+textarea: >-
+  <div fd-form-item>
+      <label fd-form-label>~label</label>
+      <textarea fd-form-control
+          [(ngModel)]="~bind"
+          data-abap="~abap"
+          aria-required="true"
+      ></textarea>
+  </div>
+
+# same as input
+lang: >-
+  <div fd-form-item>
+      <label fd-form-label>~label</label>
+          <input fd-input fd-form-control
+              [(ngModel)]="~bind"
+              data-abap="~abap"
+              data-shlp="~shlp"
+          />
+  </div>
+
+# https://sap.github.io/fundamental-ngx/#/core/table
+table:
+  header: >-
+    <table fd-table>
+      <thead fd-table-header>
+        <tr fd-table-row>
+
+  header_row: "      <th fd-table-cell>~label</th>"
+
+  body: >1-
+       </tr>
+     </thead>
+     <tbody fd-table-body>
+       <tr *ngFor="let row of ~bind" fd-table-row>
+
+  row: "       <td fd-table-cell>{{ ~bind }}</td>"
+
+  footer: >1-
+       </tr>
+     </tbody>
+   </table>

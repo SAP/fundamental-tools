@@ -1,0 +1,68 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Microsoft FAST for Angular
+
+# ABAP data element placeholders:
+# ~bind  Binding: <parameter>[.field]
+# ~label Label
+# ~shlp  Value input help: Search Help, Check Table ...
+# ~abap  Annotations: field type, length, su3 mid, currency or uom field
+# ~title Table header title: parameter text
+
+# https://www.fast.design/docs/components/checkbox
+checkbox: >-
+  <fast-checkbox [(label)]="~label" [(checked)]="~bind"/>
+
+# todo
+combo: >-
+  <fast-select [(label)]="~label"
+      [(value)]="~bind" [(options)]="~shlp"
+      [(abap)]="~abap"
+  ></fast-select>
+
+# todo
+datepicker: >-
+  <fast-datepicker label="~label" [(value)]="~bind"/>
+
+# todo
+timepicker: >-
+  <fast-timepicker label="~label" [(value)]="~bind"/>
+
+# https://www.fast.design/docs/components/text-field
+# https://github.com/microsoft/fast/blob/master/specs/number-field.md
+input: >-
+  <fast-text-field [(label)]="~label"
+      [(value)]="~bind"
+      [(abap)]="~abap" [(shlp)]="~shlp"
+  />
+number: >-
+  <fast-text-field [(label)]="~label"
+      [(value)]="~bind"
+      [(abap)]="~abap" [(shlp)]="~shlp"
+  />
+
+# https://www.fast.design/docs/components/text-area
+textarea: >-
+  <fast-text-area [(label)]="~label"
+      [(value)]="~bind"
+      [(abap)]="~abap"
+  ></fast-text-area>
+
+# same as input
+lang: >-
+  <fast-text-field [(label)]="~label"
+      [(value)]="~bind"
+      [(abap)]="~abap" [(shlp)]="~shlp"
+  />
+
+# table
+table:
+  header: >-
+    <ui-datagrid data.bind="~bind" title="~title"
+                 data-summary="false" default-sort=""
+                 selectable rowselect.trigger="object.selectObject($event.detail)">
+  row: >-
+    <ui-dg-column sortable field="~bind" data-abap.bind="~abap" shlp.bind="~shlp" label="~label"></ui-dg-column>
+  footer: </ui-datagrid>

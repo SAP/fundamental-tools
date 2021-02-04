@@ -1,0 +1,83 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Microsoft FAST for Vue
+
+# ABAP data element placeholders:
+# ~bind  Binding: <parameter>[.field]
+# ~label Label
+# ~shlp  Value input help: Search Help, Check Table ...
+# ~abap  Annotations: field type, length, su3 mid, currency or uom field
+# ~title Table header title: parameter text
+
+# https://sap.github.io/fundamental-vue/#/examples/form
+checkbox: >-
+  <fd-form-item-checkbox label="~label">
+      <fd-checkbox v-model="~bind">
+  </fd-form-item-checkbox>
+
+# https://sap.github.io/fundamental-vue/#/examples/form
+combo: >-
+  <fd-form-item>
+      <fd-form-label>~label</fd-form-label>
+      <fd-select v-model="~bind"
+          options="~shlp"
+          data-abap="~abap"
+      >
+      </fd-select>
+  </fd-form-item>
+
+# https://sap.github.io/fundamental-vue/#/examples/date-picker
+datepicker: >-
+  <fd-form-item>
+      <fd-form-label>~label</fd-form-label>
+      <fd-date-picker v-model="~bind"></fd-date-picker>
+  </fd-form-item>
+
+# https://sap.github.io/fundamental-vue/#/examples/time-picker
+timepicker: >-
+  <fd-form-item>
+      <fd-form-label>~label</fd-form-label>
+      <fd-time-picker v-model="~bind"></fd-time-picker>
+  </fd-form-item>
+
+# https://sap.github.io/fundamental-vue/#/examples/form
+input: >-
+  <fd-form-item>
+      <fd-form-label>~label</fd-form-label>
+          <fd-input v-model="~bind"
+              data-abap="~abap"
+              data-shlp="~shlp"
+          />
+  </fd-form-item>
+
+# https://sap.github.io/fundamental-ngx/#/core/textarea
+textarea: >-
+  <fd-form-item>
+      <fd-form-label>~label</label>
+      <fd-textarea v-model="~bind"
+          data-abap="~abap"
+          aria-required="true"
+      ></fd-textarea>
+  </fd-form-item>
+
+# same as input
+lang: >-
+  <fd-form-item>
+      <fd-form-label>~label</fd-form-label>
+          <fd-input v-model="~bind"
+              data-abap="~abap"
+              data-shlp="~shlp"
+          />
+  </fd-form-item>
+
+# table
+table:
+  header: >-
+    <ui-datagrid data.bind="~bind" title="~title"
+                 data-summary="false" default-sort=""
+                 selectable rowselect.trigger="object.selectObject($event.detail)">
+  row: >-
+    <ui-dg-column sortable field="~bind" data-abap.bind="~abap" shlp.bind="~shlp" label="~label"></ui-dg-column>
+  footer: </ui-datagrid>
