@@ -14,7 +14,7 @@ import {
   Languages,
   DefaultFolder,
 } from "./constants";
-import { AbapObject, Backend } from "./backend";
+import { AnnotationsType, Backend } from "./backend";
 import { Frontend } from "./frontend";
 import { yamlLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
 
@@ -29,14 +29,14 @@ export const Command = Object.freeze({
   languages: "languages",
 });
 
-export type ApiList = Record<string, string[]>;
+type ApiListType = Record<string, string[]>;
 export interface Arguments {
   [argName: string]: unknown;
   _: (string | number)[];
   $0: string;
   rfm: string[];
   c: string | string[];
-  apilist: ApiList;
+  apilist: ApiListType;
   cmd: string;
   ui: string;
   debug: boolean;
@@ -51,7 +51,7 @@ class CliHandler {
   private argv: Arguments;
   constructor(argv: Arguments) {
     if (argv.c || (argv.rfm && argv.rfm.length)) {
-      const apilist: ApiList = {};
+      const apilist: ApiListType = {};
 
       // add apilists
       if (argv.c) {
@@ -80,7 +80,7 @@ class CliHandler {
   async run() {
     try {
       for (const api_name of Object.keys(this.argv.apilist)) {
-        let abap: AbapObject = {
+        let abap: AnnotationsType = {
           parameters: {},
           fields: {},
           stat: {},

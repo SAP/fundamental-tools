@@ -20,15 +20,15 @@ import {
 import {
   ParameterType,
   FieldType,
-  yamlFields,
-  AbapObject,
+  yamlFieldsType,
+  AnnotationsType,
   annotations_read,
   StructureType,
 } from "./backend";
 
 import { Command, Arguments, Signature } from "./abap";
 
-interface ParamInializer {
+type ParamInializer = {
   text: string;
   leng: string;
   abaptype: string;
@@ -36,16 +36,16 @@ interface ParamInializer {
   required: boolean;
   alpha: string;
   mid: string;
-}
+};
 
-interface FieldInitializer {
+type FieldInitializer = {
   abaptype: string;
   init: string | number;
   alpha: string;
   mid: string;
-}
+};
 
-interface ElementJS {
+type ElementJS = {
   tag: string;
   required: boolean;
   shlp?: { type: string; id: string };
@@ -54,14 +54,14 @@ interface ElementJS {
   type: string;
   abap: Record<string, string>;
   format: string;
-}
+};
 
 type ElementMarkup = { label?: string; abap?: string; shlp?: string };
 
-interface ElementHTML {
+type ElementHTML = {
   markup: ElementMarkup;
   html: string;
-}
+};
 
 // yaml config files
 
@@ -88,7 +88,7 @@ type UiConfigType = Record<string, string | UiConfigTableType>;
 
 export class Frontend {
   private api_name: string;
-  private abap: AbapObject;
+  private abap: AnnotationsType;
   private argv: Arguments;
 
   private configPath: {
@@ -100,7 +100,7 @@ export class Frontend {
   private uiConfig: UiConfigType = {};
   private abapConfig: AbapConfigType = {};
 
-  constructor(api_name: string, abap: AbapObject, argv: Arguments) {
+  constructor(api_name: string, abap: AnnotationsType, argv: Arguments) {
     this.api_name = api_name;
     this.abap = abap;
     this.argv = argv;
@@ -112,7 +112,7 @@ export class Frontend {
       } catch (ex) {
         log.info(ex);
         throw new Error(
-          `Annotations not found for ${
+          `AnnotationsType not found for ${
             api_name ? api_name : argv.apilist[0]
           }, run: ${argv.command} ${Command.get} ...\n`
         );
@@ -468,7 +468,7 @@ export class Frontend {
           continue;
         }
 
-        // only htnl fields for variables
+        // html fields only for variables
         if (Param.paramType === ParamType.var) {
           if (htmlWriter) {
             const field = this.html_field(Param, Field);
@@ -649,6 +649,7 @@ export class Frontend {
     jsWriter.deindent();
     jsWriter.write("};");
     jsWriter.write();
+    if (htmlWriter) htmlWriter.write();
   }
 
   field_length(Field: FieldType): string {
@@ -862,7 +863,10 @@ export class Frontend {
     return { markup: element.markup, html: element.html };
   }
 
-  getField(param: ParameterType, fields: yamlFields): FieldType | EmptyObject {
+  getField(
+    param: ParameterType,
+    fields: yamlFieldsType
+  ): FieldType | EmptyObject {
     if (param.nativeKey) return {};
     if (param.FIELDNAME) return fields[param.TABNAME][param.FIELDNAME];
     return fields[param.TABNAME] as FieldType;

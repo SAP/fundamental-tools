@@ -8,7 +8,7 @@ Command line tool for pattern based web applications with ABAP/HANA systems.
 - Front-end frameworks:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
-  - Angular, React and Vue by [Microsot FAST](https://www.fast.design/docs/introduction/)
+  - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
 - Servers
   - SAP Cloud Platform

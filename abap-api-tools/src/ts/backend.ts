@@ -7,9 +7,9 @@
 import chalk from "chalk";
 import fs from "fs";
 import path from "path";
-import { Command, Arguments } from "./abap";
 import { sprintf } from "sprintf-js";
 import { Client, RfcParameterValue, RfcTable, RfcStructure } from "node-rfc";
+import { Command, Arguments } from "./abap";
 import {
   Languages,
   ParamType,
@@ -18,7 +18,7 @@ import {
   ValueInput,
   DefaultFolder,
 } from "./constants";
-
+import { Alpha } from "./alpha";
 import { deleteFile, isEmpty, log, yamlLoad, yamlSave } from "./utils";
 
 // Parameter and Field typings
@@ -35,7 +35,7 @@ export type ParameterType = {
   default?: string;
   nativeKey?: string;
 };
-type yamlParameters = Record<string, Record<string, ParameterType>>;
+type yamlParametersType = Record<string, Record<string, ParameterType>>;
 
 export type FieldTextType = {
   FIELDTEXT?: string;
@@ -72,18 +72,22 @@ export type FieldType = {
 
 export type StructureType = Record<string, FieldType>;
 
-export type yamlFields = Record<string, FieldType | StructureType>;
+export type yamlFieldsType = Record<string, FieldType | StructureType>;
 
-export type yamlTexts = Record<string, Record<string, string | FieldTextType>>;
+// AnnotationsType typings
 
-// AbapObject typings
+export type yamlTextsType = Record<
+  string,
+  Record<string, string | FieldTextType>
+>;
 
 type FieldValuesHelpType = {
   type: string;
   count: number;
   values: Record<string, string>;
 };
-type Helps = Record<
+
+type HelpsType = Record<
   string,
   | {
       // search helps
@@ -96,7 +100,7 @@ type Helps = Record<
   | FieldValuesHelpType // field values
 >;
 
-type Stat = Record<
+type StatType = Record<
   string,
   {
     var?: number;
@@ -106,64 +110,21 @@ type Stat = Record<
   }
 >;
 
-type Usage = Record<string, string[]>;
+type UsageType = Record<string, string[]>;
 
-export type AbapObject = {
+export type AnnotationsType = {
   alpha?: { all: string[]; rfm: Record<string, RfcStructure> };
-  parameters: yamlParameters;
-  fields: yamlFields;
-  stat: Stat;
-  helps?: Helps;
-  usage?: Usage;
+  parameters: yamlParametersType;
+  fields: yamlFieldsType;
+  stat: StatType;
+  helps?: HelpsType;
+  usage?: UsageType;
 };
 
-class Alpha {
-  private all: Set<string> = new Set();
-  private found: Record<string, RfcStructure> = {};
-  private rfm_name = "";
-  private param_name = "";
-  private field_name = "";
-
-  rfm(rfm_name: string) {
-    this.rfm_name = rfm_name;
-    this.param("");
-  }
-
-  param(param_name: string) {
-    this.param_name = param_name;
-    this.field_name = "";
-  }
-
-  field(field_name: string) {
-    this.field_name = field_name;
-  }
-
-  get(): { all: string[]; rfm: Record<string, RfcStructure> } {
-    return { all: Array.from(this.all).sort(), rfm: this.found };
-  }
-
-  add(alpha_name: string) {
-    this.all.add(alpha_name);
-
-    if (!this.found[this.rfm_name]) {
-      this.found[this.rfm_name] = {};
-    }
-
-    if (!this.found[this.rfm_name][this.param_name]) {
-      this.found[this.rfm_name][this.param_name] = {};
-    }
-
-    if (this.field_name) {
-      this.found[this.rfm_name][this.param_name][this.field_name] = alpha_name;
-    } else {
-      this.found[this.rfm_name][this.param_name] = alpha_name;
-    }
-  }
-}
+// search help typings
 
 type SearchHelpApiType = { determine: string; dom_values: string };
 type SystemsYamlType = Record<string, { search_help_api: SearchHelpApiType }>;
-
 export class Backend {
   private argv: Arguments;
 
@@ -174,11 +135,11 @@ export class Backend {
   private search_help_api = {} as SearchHelpApiType;
   private getSearchHelps = false;
   private SPRAS: string;
-  private Helps: Helps;
-  private Stat: Stat;
-  private Texts = {} as yamlTexts;
+  private Helps: HelpsType;
+  private Stat: StatType;
+  private Texts = {} as yamlTextsType;
 
-  private client: Client;
+  private client = {} as Client;
 
   constructor(api_name: string, argv: Arguments) {
     this.argv = argv;
@@ -190,13 +151,9 @@ export class Backend {
     this.Helps = {};
     this.Stat = {};
 
-    const connectionParameters = { dest: this.argv.dest };
-
     log.debug(
       `backend: ${this.api_name} dest: ${this.argv.dest} lang: ${argv.lang} : ${this.SPRAS} api: ${this.apilist}`
     );
-
-    this.client = new Client(connectionParameters);
 
     try {
       const systemYamlPath = path.join(
@@ -566,7 +523,21 @@ export class Backend {
     }
   }
 
-  async parse(): Promise<AbapObject> {
+  async parse(): Promise<AnnotationsType> {
+    // lazy load so that other commands can be used even w/o SAP NWRFC SDK
+    try {
+      const addon = await import("node-rfc");
+      this.client = new addon.Client({ dest: this.argv.dest });
+    } catch (ex) {
+      throw new Error(
+        [
+          `            SAP NWRFC SDK could not be loaded, "call" and "get" commands are disabled.`,
+          "Where to download: https://launchpad.support.sap.com/#/notes/2573790",
+          "How to install   : https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation\n",
+        ].join("\n")
+      );
+    }
+
     if (!this.argv.textOnly) {
       this.annotations_clean();
     } else {
@@ -577,7 +548,7 @@ export class Backend {
         try {
           this.Texts = yamlLoad(
             path.join(folder_yaml, "texts.yaml")
-          ) as yamlTexts;
+          ) as yamlTextsType;
         } catch (ex) {
           if (ex.code !== "ENOENT") throw ex; // throw if other than file not found
           throw Error(
@@ -588,9 +559,9 @@ export class Backend {
     }
 
     log.info(
-      `\napi ${this.argv.dest} ${chalk.bold(this.api_name)} language: ${
-        this.argv.lang
-      } serch helps: ${this.getSearchHelps ? "yes" : "no"}\n`
+      `\n${chalk.bold(this.api_name)} ${this.argv.dest} (${this.argv.lang}) ${
+        this.argv.textOnly ? "only texts" : ""
+      } ${this.getSearchHelps ? "sarch helps" : ""}\n`.replace(/  +/g, " ")
     );
 
     await this.client.open();
@@ -688,7 +659,7 @@ export class Backend {
     // Parse
     //
 
-    const Parameters: yamlParameters = {};
+    const Parameters: yamlParametersType = {};
     const Fields = {};
 
     let functionName = "";
@@ -823,7 +794,7 @@ export class Backend {
     }
 
     // final result, todo: field names could be sorted, eventually
-    const abap: AbapObject = {
+    const abap: AnnotationsType = {
       alpha: this.alpha.get(),
       parameters: Parameters,
       fields: Fields,
@@ -840,8 +811,8 @@ export class Backend {
   }
 
   annotations_write(
-    abap: AbapObject,
-    texts: yamlTexts,
+    abap: AnnotationsType,
+    texts: yamlTextsType,
     textOnly: boolean
   ): void {
     const folder_root: string = path.join(
@@ -850,7 +821,7 @@ export class Backend {
     );
     const folder_yaml: string = path.join(folder_root, "yaml");
     log.debug(
-      `Annotations save ${folder_yaml} ${textOnly ? "only texts" : ""}`
+      `AnnotationsType save ${folder_yaml} ${textOnly ? "only texts" : ""}`
     );
 
     if (!fs.existsSync(folder_root)) {
@@ -887,7 +858,7 @@ export class Backend {
       "yaml"
     );
 
-    log.debug(`Annotations clean ${folder_yaml}`);
+    log.debug(`AnnotationsType clean ${folder_yaml}`);
 
     for (const fileName of [
       "parameters",
@@ -906,7 +877,7 @@ export class Backend {
 export function annotations_read(
   api_name: string,
   argv: Arguments
-): AbapObject {
+): AnnotationsType {
   const folder_yaml = api_name
     ? path.join(argv.output, api_name, "yaml")
     : path.join(argv.output, "yaml");
@@ -916,8 +887,8 @@ export function annotations_read(
   return {
     parameters: yamlLoad(
       path.join(folder_yaml, "parameters.yaml")
-    ) as yamlParameters,
-    fields: yamlLoad(path.join(folder_yaml, "fields.yaml")) as yamlFields,
-    stat: yamlLoad(path.join(folder_yaml, "stat.yaml")) as Stat,
+    ) as yamlParametersType,
+    fields: yamlLoad(path.join(folder_yaml, "fields.yaml")) as yamlFieldsType,
+    stat: yamlLoad(path.join(folder_yaml, "stat.yaml")) as StatType,
   };
 }
