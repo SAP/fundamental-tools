@@ -1,7 +1,7 @@
 {
   "name": "abap-api-tools",
   "description": "ABAP api tools",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "homepage": "https://github.com/sap/fundamental-tools",
   "author": "SAP",
   "license": "Apache-2.0",
@@ -28,9 +28,9 @@
   "scripts": {
     "ts": "tsc -p src/ts && cp -r src/configuration dist/.",
     "lint": "eslint src/ts",
-    "deps": "npm i --save chalk js-yaml loglevel sprintf-js yargs node-rfc",
-    "devdeps": "npm i --save-dev @types/node @types/js-yaml @types/sprintf-js @types/yargs @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
-    "build": "rm -rf dist && npm run ts && npm run lint",
+    "dependencies": "npm i --save chalk js-yaml loglevel sprintf-js yargs node-rfc",
+    "devDependencies": "npm i --save-dev @types/node @types/js-yaml @types/sprintf-js @types/yargs @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
+    "build": "reuse lint && rm -rf dist && npm run ts && npm run lint",
     "lock": "npm install --package-lock-only"
   },
   "keywords": [
@@ -53,11 +53,11 @@
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.0",
-    "@types/node": "^14.14.22",
+    "@types/node": "^14.14.25",
     "@types/sprintf-js": "^1.1.2",
     "@types/yargs": "^16.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.14.1",
-    "@typescript-eslint/parser": "^4.14.1",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
     "eslint": "^7.19.0",
     "jest": "^26.6.3",
     "typescript": "^4.1.3"

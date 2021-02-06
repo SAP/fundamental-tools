@@ -29,11 +29,13 @@ Command line tool for pattern based applications with ABAP/HANA systems.
 
 ## Installation
 
-Check [prerequisites](https://github.com/SAP/node-rfc#prerequisites) and install globally or locally:
-
 ```shell
 npm install -g abap-api-tools
 ```
+
+SAP NWRFC SDK binaries are required for ABAP systems connectivity and shall be locally installed on your notebook. Check [where to download](https://launchpad.support.sap.com/#/notes/2573790) and [how to install](https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation).
+
+Without SAP NWRFC SDK, you can still use the `make` command and custom ui configurations, with [ABAP API annotations sample](https://github.com/SAP/fundamental-tools/tree/sample).
 
 ## Usage
 
@@ -42,15 +44,25 @@ Create project folder and maintain ABAP system(s) destinations in `sapnwrfc.ini`
 `sapnwrfc.ini`
 
 ```ini
+DEFAULT
 # TRACE=3
 
+# user/password
 DEST=MME
 USER=demo
 PASSWD=welcome
-ASHOST=coevi51
+ASHOST=coevi51 # or 10.68.110.51
 SYSNR=00
 CLIENT=620
 LANG=EN
+
+# single sign-on
+DEST=MME_SSO
+SNC_LIB=C:\Program Files\SAP\FrontEnd\SecureLogin\libsapcrypto.dll
+SNC_PARTNERNAME=p/secude:CN=MME, O=SAP-AG, C=DE
+ASHOST=coevi51 # or 10.68.110.51
+SYSNR=20
+CLIENT=71
 ```
 
 ABAP API for Value Input Help annotations, if exposed in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be defined in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
