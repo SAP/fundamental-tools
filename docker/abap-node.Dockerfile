@@ -2,14 +2,16 @@
 # Build:
 #
 # Copy the "nwrfcsdk" folder from https://github.wdf.sap.corp/ng-apps/nwrfcsdk to Dockerfile folder
+#
 # docker build --rm --no-cache -t abap-node -f abap-node.Dockerfile .
 #
 # Map your working folder to docker volume: /Users/bsrdjan/myapp -> /abap-api-tools:
-# docker run --name abap-node -it -v /Users/bsrdjan/myapp:/abap-api-tools --env ABAP_API_TOOLS_WORKING_FOLDER=/abap-api-tools abap-node
 #
-# Start: docker start abap-node
-# Usage: docker exec abap-node abap
-# Stop:  docker stop abap-node
+# docker run --name cli -it -v /Users/bsrdjan/myapp:/abap-api-tools --env ABAP_API_TOOLS_WORKING_FOLDER=/abap-api-tools abap-node
+#
+# Start: docker start cli
+# Usage: docker exec cli abap
+# Stop:  docker stop cli
 
 FROM node:15
 
