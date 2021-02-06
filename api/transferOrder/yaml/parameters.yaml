@@ -1,0 +1,268 @@
+BAPI_WHSE_TO_CREATE_STOCK:
+  WHSEMVMT:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: WHSE_MVMT
+    PARAMTEXT: Movement type for Warehouse Management
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: WHSEMVMT
+    required: true
+    paramType: var
+  WHSENUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: WHSENUMBER
+    PARAMTEXT: Warehouse number / warehouse complex
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: WHSENUMBER
+    required: true
+    paramType: var
+  ADDREFNO:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: ADD_REF_NO
+    PARAMTEXT: Additional number for transfer requirement
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: ADDREFNO
+    required: false
+    default: SPACE
+    paramType: var
+  ADDREM:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: ADD_REM
+    PARAMTEXT: TO processing comment (code)
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: ADDREM
+    required: false
+    default: SPACE
+    paramType: var
+  MINWMIND:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: MIN_WM_IND
+    PARAMTEXT: Transfer order transfers no real storage bin stock
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: MINWMIND
+    required: false
+    default: SPACE
+    paramType: var
+  NOTPRIIND:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: NOT_PRI_IND
+    PARAMTEXT: Do not print transfer order
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: NOTPRIIND
+    required: false
+    default: SPACE
+    paramType: var
+  PRICTLIND:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: PRI_CTL_IND
+    PARAMTEXT: 'Indicator: form and sort code for printing transfer orders'
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: PRICTLIND
+    required: false
+    default: SPACE
+    paramType: var
+  REQNUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: REQ_NUMBER
+    PARAMTEXT: Requirement Tracking Number
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: REQNUMBER
+    required: false
+    default: SPACE
+    paramType: var
+  REQTYPE:
+    PARAMCLASS: I
+    TABNAME: BAPI2018E
+    FIELDNAME: REQ_TYPE
+    PARAMTEXT: Requirement Type
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: REQTYPE
+    required: false
+    default: SPACE
+    paramType: var
+  CREATEDATA:
+    PARAMCLASS: T
+    TABNAME: BAPICR2018RET
+    PARAMTEXT: BAPI Export Fields for Data Transmission BO 2018
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: CREATEDATA
+    required: true
+    paramType: table
+  IMPORTDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI2018D
+    PARAMTEXT: Import Structure D for Business Object WhseTransOrder
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: IMPORTDATA
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return parameter
+    functionName: BAPI_WHSE_TO_CREATE_STOCK
+    paramName: RETURN
+    required: true
+    paramType: table
+BAPI_WHSE_TO_GET_DETAIL:
+  TRANSFERORDERNO:
+    PARAMCLASS: I
+    TABNAME: BAPI2018A
+    FIELDNAME: TRANSFERORDERNO
+    PARAMTEXT: Transfer Order Number
+    functionName: BAPI_WHSE_TO_GET_DETAIL
+    paramName: TRANSFERORDERNO
+    required: true
+    paramType: var
+  WHSENUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2018A
+    FIELDNAME: WHSENUMBER
+    PARAMTEXT: Warehouse number / warehouse complex
+    functionName: BAPI_WHSE_TO_GET_DETAIL
+    paramName: WHSENUMBER
+    required: true
+    paramType: var
+  TRANSFERORDERITEM:
+    PARAMCLASS: I
+    TABNAME: BAPI2018C
+    FIELDNAME: TRANSFERORDERITEM
+    PARAMTEXT: Transfer order item
+    functionName: BAPI_WHSE_TO_GET_DETAIL
+    paramName: TRANSFERORDERITEM
+    required: false
+    default: ''
+    paramType: var
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_WHSE_TO_GET_DETAIL
+    paramName: EXTENSIONOUT
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return parameter
+    functionName: BAPI_WHSE_TO_GET_DETAIL
+    paramName: RETURN
+    required: true
+    paramType: table
+  TOHEADERDATA:
+    PARAMCLASS: T
+    TABNAME: BAPITOHEAD
+    PARAMTEXT: BAPI Export Structure for TO Header / Table LTAK
+    functionName: BAPI_WHSE_TO_GET_DETAIL
+    paramName: TOHEADERDATA
+    required: true
+    paramType: table
+  TOITEMDATA:
+    PARAMCLASS: T
+    TABNAME: BAPITOITEM
+    PARAMTEXT: BAPI Export Structure for TO Item / Table LTAP
+    functionName: BAPI_WHSE_TO_GET_DETAIL
+    paramName: TOITEMDATA
+    required: true
+    paramType: table
+BAPI_WHSE_TO_GET_LIST:
+  WAREHOUSENUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2018B
+    FIELDNAME: WHSENUMBER
+    PARAMTEXT: Warehouse number / warehouse complex
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: WAREHOUSENUMBER
+    required: true
+    paramType: var
+  CONFIRMIND:
+    PARAMCLASS: I
+    TABNAME: BAPI2018B
+    FIELDNAME: CONFIRM_IND
+    PARAMTEXT: 'Indicator: confirmation complete'
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: CONFIRMIND
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL:
+    PARAMCLASS: I
+    TABNAME: BAPI2018B
+    FIELDNAME: MATERIAL
+    PARAMTEXT: Material Number
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: MATERIAL
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL_LONG:
+    PARAMCLASS: I
+    TABNAME: BAPI2018B
+    FIELDNAME: MATERIAL_LONG
+    PARAMTEXT: Material Number (40 Characters, Compatibility Mode)
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: MATERIAL_LONG
+    required: false
+    default: ''
+    paramType: var
+  MAXROWS:
+    PARAMCLASS: I
+    TABNAME: BAPIF4A
+    FIELDNAME: MAX_ROWS
+    PARAMTEXT: Maximum Number of Lines of Hits
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: MAXROWS
+    required: false
+    default: '0'
+    paramType: var
+  SRCSTORAGETYPE:
+    PARAMCLASS: I
+    TABNAME: BAPI2018B
+    FIELDNAME: SOURCE_TYPE
+    PARAMTEXT: Source storage type
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: SRCSTORAGETYPE
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL_EVG:
+    PARAMCLASS: I
+    TABNAME: BAPIMGVMATNR
+    PARAMTEXT: ''
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: MATERIAL_EVG
+    required: false
+    default: ''
+    paramType: struct
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return parameter
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: RETURN
+    required: true
+    paramType: table
+  TRANSORDERKEY:
+    PARAMCLASS: T
+    TABNAME: BAPITRANSORDERKEY
+    PARAMTEXT: BAPI Export Structure for Transfer Order (Key Fields)
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: TRANSORDERKEY
+    required: true
+    paramType: table
+  SOURCEBINSELECT:
+    PARAMCLASS: T
+    TABNAME: BAPI2018F
+    PARAMTEXT: Import-Struktur F for Business Object WhseTransOrder
+    functionName: BAPI_WHSE_TO_GET_LIST
+    paramName: SOURCEBINSELECT
+    required: false
+    default: ''
+    paramType: table

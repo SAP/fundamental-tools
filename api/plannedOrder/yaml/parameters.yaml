@@ -1,0 +1,381 @@
+BAPI_PLANNEDORDER_CHANGE:
+  PLANNEDORDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_PLDORD
+    FIELDNAME: PLDORD_NUM
+    PARAMTEXT: Planned order number
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: PLANNEDORDER
+    required: true
+    paramType: var
+  HEADERDATA:
+    PARAMCLASS: I
+    TABNAME: BAPIPLAF_I2
+    PARAMTEXT: Header data (from external system)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: HEADERDATA
+    required: true
+    paramType: struct
+  HEADERDATAX:
+    PARAMCLASS: I
+    TABNAME: BAPIPLAF_I2X
+    PARAMTEXT: Change header data indicator fields
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: HEADERDATAX
+    required: true
+    paramType: struct
+  CAPACITYDATA1:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (detailed scheduling)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: CAPACITYDATA1
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYDATA2:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (rate-based scheduling)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: CAPACITYDATA2
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYDATA3:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (rough-cut scheduling)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: CAPACITYDATA3
+    required: false
+    default: ''
+    paramType: table
+  COMPONENTSDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCOMP_E1
+    PARAMTEXT: Material component data
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: COMPONENTSDATA
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYHEADERDATA1:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (detailed scheduling)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: CAPACITYHEADERDATA1
+    required: true
+    paramType: struct
+  CAPACITYHEADERDATA2:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (rate-based scheduling)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: CAPACITYHEADERDATA2
+    required: true
+    paramType: struct
+  CAPACITYHEADERDATA3:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (rough-cut scheduling)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: CAPACITYHEADERDATA3
+    required: true
+    paramType: struct
+  CHANGEDHEADERDATA:
+    PARAMCLASS: E
+    TABNAME: BAPIPLAF_E1
+    PARAMTEXT: Header Data (from SAP for External System)
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: CHANGEDHEADERDATA
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN1
+    PARAMTEXT: Confirmations
+    functionName: BAPI_PLANNEDORDER_CHANGE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PLANNEDORDER_CREATE:
+  HEADERDATA:
+    PARAMCLASS: I
+    TABNAME: BAPIPLAF_I1
+    PARAMTEXT: Header data (from external system)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: HEADERDATA
+    required: true
+    paramType: struct
+  CAPACITYDATA1:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (detailed scheduling)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CAPACITYDATA1
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYDATA2:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (rate-based scheduling)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CAPACITYDATA2
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYDATA3:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (rough-cut scheduling)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CAPACITYDATA3
+    required: false
+    default: ''
+    paramType: table
+  COMPONENTSDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCOMP_I1
+    PARAMTEXT: Component data - create
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: COMPONENTSDATA
+    required: false
+    default: ''
+    paramType: table
+  CREATEDCOMPONENTSDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCOMP_E1
+    PARAMTEXT: Created component data
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CREATEDCOMPONENTSDATA
+    required: false
+    default: ''
+    paramType: table
+  PLANNEDORDER:
+    PARAMCLASS: E
+    TABNAME: BAPI_PLDORD
+    FIELDNAME: PLDORD_NUM
+    PARAMTEXT: Planned order number
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: PLANNEDORDER
+    required: true
+    paramType: var
+  CAPACITYHEADERDATA1:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (detailed scheduling)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CAPACITYHEADERDATA1
+    required: true
+    paramType: struct
+  CAPACITYHEADERDATA2:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (rate-based scheduling)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CAPACITYHEADERDATA2
+    required: true
+    paramType: struct
+  CAPACITYHEADERDATA3:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (rough-cut scheduling)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CAPACITYHEADERDATA3
+    required: true
+    paramType: struct
+  CREATEDHEADERDATA:
+    PARAMCLASS: E
+    TABNAME: BAPIPLAF_E1
+    PARAMTEXT: Header Data (from SAP for the Ext. System)
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: CREATEDHEADERDATA
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN1
+    PARAMTEXT: Confirmations
+    functionName: BAPI_PLANNEDORDER_CREATE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PLANNEDORDER_DELETE:
+  PLANNEDORDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_PLDORD
+    FIELDNAME: PLDORD_NUM
+    PARAMTEXT: Planned order number
+    functionName: BAPI_PLANNEDORDER_DELETE
+    paramName: PLANNEDORDER
+    required: true
+    paramType: var
+  LAST_ORDER:
+    PARAMCLASS: I
+    TABNAME: BAPIPLAF_I1
+    FIELDNAME: LAST_ORDER
+    PARAMTEXT: 'BAPI: Indicator - Last Planned Order for Collective Update'
+    functionName: BAPI_PLANNEDORDER_DELETE
+    paramName: LAST_ORDER
+    required: false
+    default: ''' '''
+    paramType: var
+  USE_COLL_UPDATE:
+    PARAMCLASS: I
+    TABNAME: BAPIPLAF_I1
+    FIELDNAME: USE_COLL_UPD
+    PARAMTEXT: 'BAPI: Collective Update of Planning File Entries'
+    functionName: BAPI_PLANNEDORDER_DELETE
+    paramName: USE_COLL_UPDATE
+    required: false
+    default: ''' '''
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN1
+    PARAMTEXT: Confirmations
+    functionName: BAPI_PLANNEDORDER_DELETE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PLANNEDORDER_EXIST_CHECK:
+  PLANNEDORDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_PLDORD
+    FIELDNAME: PLDORD_NUM
+    PARAMTEXT: Planned order number
+    functionName: BAPI_PLANNEDORDER_EXIST_CHECK
+    paramName: PLANNEDORDER
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN1
+    PARAMTEXT: Confirmations
+    functionName: BAPI_PLANNEDORDER_EXIST_CHECK
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PLANNEDORDER_GET_DET_LIST:
+  SELECTIONCRITERIA:
+    PARAMCLASS: I
+    TABNAME: BAPIPLAF_I3
+    PARAMTEXT: Selection criteria for planned orders
+    functionName: BAPI_PLANNEDORDER_GET_DET_LIST
+    paramName: SELECTIONCRITERIA
+    required: true
+    paramType: struct
+  DETAILEDLIST:
+    PARAMCLASS: T
+    TABNAME: BAPIPLAF_E1
+    PARAMTEXT: List of planned orders with header data
+    functionName: BAPI_PLANNEDORDER_GET_DET_LIST
+    paramName: DETAILEDLIST
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN1
+    PARAMTEXT: Confirmations
+    functionName: BAPI_PLANNEDORDER_GET_DET_LIST
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PLANNEDORDER_GET_DETAIL:
+  PLANNEDORDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_PLDORD
+    FIELDNAME: PLDORD_NUM
+    PARAMTEXT: Planned order number
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: PLANNEDORDER
+    required: true
+    paramType: var
+  CAPACITYDATA1:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (detailed scheduling)
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: CAPACITYDATA1
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYDATA2:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (rate-based scheduling)
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: CAPACITYDATA2
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYDATA3:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCAPA_E1
+    PARAMTEXT: Capacity data (rough-cut scheduling)
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: CAPACITYDATA3
+    required: false
+    default: ''
+    paramType: table
+  COMPONENTSDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI_PLDORDCOMP_E1
+    PARAMTEXT: Material component data
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: COMPONENTSDATA
+    required: false
+    default: ''
+    paramType: table
+  FSH_MARKERS:
+    PARAMCLASS: T
+    TABNAME: FSH_T_BNDL_RETURN
+    PARAMTEXT: Fashion Marker and Bundle Details
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: FSH_MARKERS
+    required: false
+    default: ''
+    paramType: table
+  CAPACITYHEADERDATA1:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (detailed scheduling)
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: CAPACITYHEADERDATA1
+    required: true
+    paramType: struct
+  CAPACITYHEADERDATA2:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (rate-based scheduling)
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: CAPACITYHEADERDATA2
+    required: true
+    paramType: struct
+  CAPACITYHEADERDATA3:
+    PARAMCLASS: E
+    TABNAME: BAPI_KBKO
+    PARAMTEXT: Capacity header data (rough-cut scheduling)
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: CAPACITYHEADERDATA3
+    required: true
+    paramType: struct
+  HEADERDATA:
+    PARAMCLASS: E
+    TABNAME: BAPIPLAF_E1
+    PARAMTEXT: Header data
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: HEADERDATA
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN1
+    PARAMTEXT: Confirmations
+    functionName: BAPI_PLANNEDORDER_GET_DETAIL
+    paramName: RETURN
+    required: true
+    paramType: struct

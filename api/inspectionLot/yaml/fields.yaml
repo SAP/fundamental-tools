@@ -1,0 +1,6664 @@
+BAPI2045L3:
+  INSPCHAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUMC4
+      ROLLNAME: QIBPMERKNR
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Insp. Lot Charac. No.
+      SCRTEXT_S: Charac. no
+      SCRTEXT_M: Charac. no.
+      SCRTEXT_L: Charac. no.
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+BAPI2045D1:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+  INSPCHAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUMC4
+      ROLLNAME: QIBPMERKNR
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Insp. Lot Charac. No.
+      SCRTEXT_S: Charac. no
+      SCRTEXT_M: Charac. no.
+      SCRTEXT_L: Charac. no.
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QSTATUS
+      ROLLNAME: QSTATUS
+      OUTPUTLEN: 1
+    input:
+      SHLP: SH H_TQ76
+    text:
+      FIELDTEXT: Specification Record Status
+      REPTEXT: S
+      SCRTEXT_S: Status
+      SCRTEXT_M: Spec. status
+      SCRTEXT_L: Specification status
+  CHAR_DESCR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: QKURZTEXT
+      ROLLNAME: QMKKURZTXT
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Text for the Inspection Characteristic
+      REPTEXT: Short text for the characteristic
+      SCRTEXT_S: Short text
+      SCRTEXT_M: Short text
+      SCRTEXT_L: Short text
+  CHAR_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: QCHAR_TYPE
+      ROLLNAME: QCHAR_TYPE
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QCHAR_TYPE
+    text:
+      FIELDTEXT: Characteristic Type
+      REPTEXT: Char. type
+      SCRTEXT_S: Type
+      SCRTEXT_M: Char. type
+      SCRTEXT_L: Characteristic Type
+  CONFIRM_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: QRUECKNR
+      ROLLNAME: QRUECKNR
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: QRU
+    text:
+      FIELDTEXT: Confirmation Number for Inspection Characteristic
+      REPTEXT: Conf.No.
+      SCRTEXT_S: ConfirmNo.
+      SCRTEXT_M: ConfirmationNo.
+      SCRTEXT_L: Confirmation number
+  OBLIGATORY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QRZWANG
+      ROLLNAME: QEIFRWANG
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QRZWANG
+    text:
+      FIELDTEXT: Required Confirmation for Inspection Characteristic
+      REPTEXT: R
+      SCRTEXT_S: Confirmat.
+      SCRTEXT_M: Reqd confirmat.
+      SCRTEXT_L: Reqd confirmation
+  SINGLE_RES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QSINGLERES
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Single Results
+      REPTEXT: Single results
+      SCRTEXT_S: Single
+      SCRTEXT_M: Single results
+      SCRTEXT_L: Single results
+  SAMPLE_RES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QSAMPLERES
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Sample Results
+      REPTEXT: Sample results
+      SCRTEXT_S: Samples
+      SCRTEXT_M: Sample results
+      SCRTEXT_L: Sample results
+  CHAR_RES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QCHARRES
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Characteristic Results
+      REPTEXT: Charac. results
+      SCRTEXT_S: Char.
+      SCRTEXT_M: Charac. results
+      SCRTEXT_L: Charac. results
+  SAMPLES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUMFS
+      ROLLNAME: QTSTICHPRO
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUMFS
+    text:
+      FIELDTEXT: Partial Samples Possible
+      REPTEXT: PS
+      SCRTEXT_S: PartSample
+      SCRTEXT_M: Partial Samples
+      SCRTEXT_L: Partial Samples
+  SAMPLES_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 5
+      DOMNAME: CHAR5
+      ROLLNAME: QEIFSTPANZ
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Number of Planned Partial Samples
+      REPTEXT: PSmpl
+      SCRTEXT_S: PrtlSample
+      SCRTEXT_M: Partial samples
+      SCRTEXT_L: Partial Samples
+  SCOPE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 7
+      DOMNAME: NUM7
+      ROLLNAME: QEIFSTUMF
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Sample Size to Be Inspected in QM Subsystem
+      REPTEXT: Size
+      SCRTEXT_S: Size
+      SCRTEXT_M: Sample size
+      SCRTEXT_L: Sample size
+  SCOPE_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QPUMFKZ
+      ROLLNAME: QPUMFKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QPUMFKZ
+    text:
+      FIELDTEXT: Inspection Scope
+      REPTEXT: S
+      SCRTEXT_S: InspScope
+      SCRTEXT_M: Insp. scope
+      SCRTEXT_L: Inspection scope
+  DOCU_REQU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QDOKUKZ
+      ROLLNAME: QDOKUKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QDOKUKZ
+    text:
+      FIELDTEXT: Documentation Required for Inspection Results
+      REPTEXT: D
+      SCRTEXT_S: Doc.rslts
+      SCRTEXT_M: Document rslts
+      SCRTEXT_L: Document results
+  SERIALREQU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QEIFSERNR
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Serial Number To Be Recorded in QM Subsystem
+      REPTEXT: S
+      SCRTEXT_S: SNo. ind.
+      SCRTEXT_M: SNo. indicator
+      SCRTEXT_L: Serial no. indicator
+  INSP_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZRAST
+      ROLLNAME: QKZRAST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZRAST
+    text:
+      FIELDTEXT: 'Indicator: Sampling Procedure for Inspection Points'
+      REPTEXT: I
+      SCRTEXT_S: Insp. pts
+      SCRTEXT_M: With insp. pts.
+      SCRTEXT_L: With insp. points
+  GRID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: QRASTER
+      ROLLNAME: QRASTER
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Inspection Frequency (Only for Inspection with Insp. Points)
+      REPTEXT: IFr
+      SCRTEXT_S: Insp.freq.
+      SCRTEXT_M: Insp. frequency
+      SCRTEXT_L: Inspection frequency
+  MSTR_CHAR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QMSTR_CHAR
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Master Characteristic
+      REPTEXT: Mast.charac.
+      SCRTEXT_S: MastChar
+      SCRTEXT_M: Mast.charac.
+      SCRTEXT_L: Mast.charac.
+  VMSTR_CHAR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: QVERSNR
+      ROLLNAME: QVERSNRMK
+      OUTPUTLEN: 6
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Version Number of the Master Inspection Characteristic
+      REPTEXT: Version
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version
+      SCRTEXT_L: Version
+  PMSTR_CHAR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QZAEHLER
+      ROLLNAME: QEIFPMKWRK
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Plant for Master Inspection Characteristic
+      REPTEXT: Plnt
+      SCRTEXT_S: PlntInspCh
+      SCRTEXT_M: Plant InspChar.
+      SCRTEXT_L: Plant for inspChar.
+  METHOD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QPMETHODE
+      ROLLNAME: QPMETHODE
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: PMT
+      CONVEXIT: ALPHA
+      SHLP: SH QMTB
+    text:
+      FIELDTEXT: Inspection Method
+      REPTEXT: Method
+      SCRTEXT_S: Method
+      SCRTEXT_M: Insp. method
+      SCRTEXT_L: Inspection method
+  METHOD_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: QKURZTEXT
+      ROLLNAME: QEIFPMTTXT
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Text for Inspection Method
+      REPTEXT: Short text
+      SCRTEXT_S: Short text
+      SCRTEXT_M: Short text
+      SCRTEXT_L: Short text
+  VMETHOD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: QVERSNR
+      ROLLNAME: QVERSNRPM
+      OUTPUTLEN: 6
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Version Number of the Inspection Method
+      REPTEXT: Version
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version
+      SCRTEXT_L: Version
+  PMETHOD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: QEIFMTBWRK
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant for Inspection Method
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  SMPL_QUANT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM6
+      ROLLNAME: QEIFSTPFAK
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Sample Unit of Measurement Factor for QM Subsystem
+      REPTEXT: Factor
+      SCRTEXT_S: SplUntFctr
+      SCRTEXT_M: SmpleUnt MsmtFr
+      SCRTEXT_L: SampleUnit MsmtFctr
+  SMPL_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: QEIFMASS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure for the Inspection Lot
+      REPTEXT: Unit
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Unit of measure
+      SCRTEXT_L: Unit measure inspLot
+  SMPL_UNITT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TEXT20
+      ROLLNAME: QMEASUNITT
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Text for Unit of Measure
+      REPTEXT: STextForUnitofMeasure
+      SCRTEXT_S: Text
+      SCRTEXT_M: Text UnitOfMeas
+      SCRTEXT_L: STextForUnitofMeasure
+  SMPL_UNITC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: CHAR3
+      ROLLNAME: QMEASUNITC
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: ISO Code for Unit of Measure
+      REPTEXT: ISO code
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  PHYS_SMPL:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: QPROBENR
+      ROLLNAME: QPHYSPROBE
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH QASV
+    text:
+      FIELDTEXT: Number of the Partial Sample
+      REPTEXT: ParSamp
+      SCRTEXT_S: Par.Sample
+      SCRTEXT_M: Partial Sample
+      SCRTEXT_L: Partial Sample
+  CH_WGT_COD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: CHAR2
+      ROLLNAME: QCH_WGT_CO
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Characteristic Weighting
+      REPTEXT: Charac. weight.
+      SCRTEXT_S: Weight
+      SCRTEXT_M: Charac. weight.
+      SCRTEXT_L: Charac. weight.
+  CH_WGT_FAC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: QCH_WGT_FA
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Characteristic Weighting Factor
+      REPTEXT: Charac. weighting factor
+      SCRTEXT_S: Factor
+      SCRTEXT_M: Weighting factor
+      SCRTEXT_L: Charac. weighting factor
+  CH_WGT_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: QCH_WGT_TX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Text for Characteristic Weighting
+      REPTEXT: Text for charac. weight.
+      SCRTEXT_S: Text
+      SCRTEXT_M: Charac. weight.
+      SCRTEXT_L: Text for charac. weight.
+  FORMULA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 120
+      DOMNAME: QEIFFORMEL
+      ROLLNAME: QEIFFORMEL
+      OUTPUTLEN: 120
+    text:
+      FIELDTEXT: Complete Formula for Linking Insp. Char. to QM Subsystems
+      REPTEXT: Complete formula for linking inspection characteristics
+      SCRTEXT_S: Comp.form.
+      SCRTEXT_M: Compl. formula
+      SCRTEXT_L: Complete formula
+  INFOFIELD1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: TEXT10
+      ROLLNAME: QINFO_FLD1
+      OUTPUTLEN: 10
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Info Field 1 from the Characteristic
+      REPTEXT: InfoField1
+      SCRTEXT_S: InfoField1
+      SCRTEXT_M: InfoField1
+      SCRTEXT_L: InfoField1
+  INFOFIELD2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TEXT20
+      ROLLNAME: QINFO_FLD2
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Info Field 2 from the Characteristic
+      REPTEXT: InfoField2
+      SCRTEXT_S: InfoField2
+      SCRTEXT_M: InfoField2
+      SCRTEXT_L: InfoField2
+  INFOFIELD3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: QINFO_FLD3
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Info Field 3 from the Characteristic
+      REPTEXT: Info field 3
+      SCRTEXT_S: InfoField3
+      SCRTEXT_M: InfoField3
+      SCRTEXT_L: InfoField3
+  DEC_PLACES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: CHAR3
+      ROLLNAME: QDEC_PLACE
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Number of Decimal Places
+      REPTEXT: Decimal places
+      SCRTEXT_S: DecPlcs
+      SCRTEXT_M: Decimal places
+      SCRTEXT_L: Decimal places
+  MEAS_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: TEXT6
+      ROLLNAME: QMEAS_UNIT
+      OUTPUTLEN: 6
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Unit of Measurement (Internal Code)
+      REPTEXT: Int. unit/measure.
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Int. unit/measure.
+      SCRTEXT_L: Int. unit/measure.
+  MEAS_UNITT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TEXT20
+      ROLLNAME: QMEASUNITT
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Text for Unit of Measure
+      REPTEXT: STextForUnitofMeasure
+      SCRTEXT_S: Text
+      SCRTEXT_M: Text UnitOfMeas
+      SCRTEXT_L: STextForUnitofMeasure
+  MEAS_UNITC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: CHAR3
+      ROLLNAME: QMEASUNITC
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: ISO Code for Unit of Measure
+      REPTEXT: ISO code
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  TARGET_VAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QTARGET_VA
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Target Value
+      REPTEXT: TargVal.
+      SCRTEXT_S: Targ.Value
+      SCRTEXT_M: Target value
+      SCRTEXT_L: Target value
+  UP_TOL_LMT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QUPTOL_LMT
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Upper Tolerance Limit
+      REPTEXT: Upper tol. limit
+      SCRTEXT_S: UpprToler.
+      SCRTEXT_M: Upper tol. limit
+      SCRTEXT_L: Upper tol. limit
+  LW_TOL_LMT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QLWTOL_LMT
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Lower Tolerance Limit
+      REPTEXT: Lower tolerance limit
+      SCRTEXT_S: LowerLimit
+      SCRTEXT_M: LowerTolerance limit
+      SCRTEXT_L: LowerTolerance limit
+  UP_LMT_1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QUPLMT_1
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Limit 1 (Upper)
+      REPTEXT: Limit 1(uppr)
+      SCRTEXT_S: Limit1Uppr
+      SCRTEXT_M: Limit 1 (upper)
+      SCRTEXT_L: Limit 1(uppr)
+  LW_LMT_1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QLWLMT_1
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Limit 1 (Lower)
+      REPTEXT: Limit 1 (lower)
+      SCRTEXT_S: Limit1Lowr
+      SCRTEXT_M: Limit 1 (lower)
+      SCRTEXT_L: Limit 1 (lower)
+  UP_LMT_2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QUPLMT_2
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Limit 2 (Upper)
+      REPTEXT: Limit2(Upper)
+      SCRTEXT_S: Limit2Uppr
+      SCRTEXT_M: Limit 2 (upper)
+      SCRTEXT_L: Limit2(Upper)
+  LW_LMT_2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QLWLMT_2
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Limit 2 (Lower)
+      REPTEXT: Limit 2 (lower)
+      SCRTEXT_S: Limit2Lowr
+      SCRTEXT_M: Limit 2 (lower)
+      SCRTEXT_L: Limit 2 (lower)
+  UP_PLS_LMT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QUPPLS_LMT
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Plausibility Limit (Upper)
+      REPTEXT: PlausiLimit(Uppr)
+      SCRTEXT_S: PlausUppr
+      SCRTEXT_M: PlausiLimit(Uppr)
+      SCRTEXT_L: PlausiLimit(Uppr)
+  LW_PLS_LMT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QLWPLS_LMT
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Plausibility Limit (Lower)
+      REPTEXT: Plausi.limit(lowr)
+      SCRTEXT_S: PlausiLwr
+      SCRTEXT_M: Plausi.limit(lowr)
+      SCRTEXT_L: Plausi.limit(lowr)
+  UP_CTRL_1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QUP_CTRL_1
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Action Limit 1 (Upper)
+      REPTEXT: Action limit 1 (upper)
+      SCRTEXT_S: AL1(uppr)
+      SCRTEXT_M: AL1(uppr)
+      SCRTEXT_L: Action limit 1 (upper)
+  LW_CTRL_1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QLW_CTRL_1
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Lower Action Limit 1
+      REPTEXT: Lower action limit 1
+      SCRTEXT_S: LowerAL1
+      SCRTEXT_M: LowerAL1
+      SCRTEXT_L: Lower action limit 1
+  UP_CTRL_2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QUP_CTRL_2
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Action Limit 2 (Upper)
+      REPTEXT: Action limit 2 (upper)
+      SCRTEXT_S: AL2(Uppr)
+      SCRTEXT_M: AL2(Uppr)
+      SCRTEXT_L: Action limit 2 (upper)
+  LW_CTRL_2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QLW_CTRL_2
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Lower Action Limit 2
+      REPTEXT: Lower action limit 2
+      SCRTEXT_S: Lower AL 2
+      SCRTEXT_M: Lower AL 2
+      SCRTEXT_L: Lower action limit 2
+  CC_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QQRKNR
+      ROLLNAME: QCC_NO
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      SHLP: CH QASH
+    text:
+      FIELDTEXT: Control Chart Number in QM
+      REPTEXT: QM control chart
+      SCRTEXT_S: CtrlChart
+      SCRTEXT_M: QM control chart
+      SCRTEXT_L: QM control chart
+  CC_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: QQRKART
+      ROLLNAME: QCC_TYPE
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT QPSH
+    text:
+      FIELDTEXT: Control Chart Type
+      REPTEXT: CntrlChartType
+      SCRTEXT_S: CtrlChart
+      SCRTEXT_M: CntrlChartType
+      SCRTEXT_L: CntrlChartType
+  CC_TYPE_T:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: QCC_TYPE_T
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Text for Control Chart Type
+      REPTEXT: 'Short text: CntrlChartType'
+      SCRTEXT_S: Text
+      SCRTEXT_M: CntrlChartType
+      SCRTEXT_L: 'Short text: CntrlChartType'
+  SEL_SET1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QSEL_SET
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Selected Set
+      REPTEXT: Selected set
+      SCRTEXT_S: SlctdSet
+      SCRTEXT_M: Selected set
+      SCRTEXT_L: Selected set
+  PSEL_SET1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: QSEL_SET_P
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Plant for Selected Set
+      REPTEXT: Plant for sel. set
+      SCRTEXT_S: Plnt
+      SCRTEXT_M: Plnt
+      SCRTEXT_L: Plant for sel. set
+  CAT_TYPE1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: QCAT_TYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Catalog Type
+      REPTEXT: Cat. type
+      SCRTEXT_S: Cat. type
+      SCRTEXT_M: Cat. type
+      SCRTEXT_L: Cat. type
+  SEL_SET2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QSEL_SET
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Selected Set
+      REPTEXT: Selected set
+      SCRTEXT_S: SlctdSet
+      SCRTEXT_M: Selected set
+      SCRTEXT_L: Selected set
+  PSEL_SET2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: QSEL_SET_P
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Plant for Selected Set
+      REPTEXT: Plant for sel. set
+      SCRTEXT_S: Plnt
+      SCRTEXT_M: Plnt
+      SCRTEXT_L: Plant for sel. set
+  CAT_TYPE2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: QCAT_TYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Catalog Type
+      REPTEXT: Cat. type
+      SCRTEXT_S: Cat. type
+      SCRTEXT_M: Cat. type
+      SCRTEXT_L: Cat. type
+  SEL_SET3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QSEL_SET
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Selected Set
+      REPTEXT: Selected set
+      SCRTEXT_S: SlctdSet
+      SCRTEXT_M: Selected set
+      SCRTEXT_L: Selected set
+  PSEL_SET3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: QSEL_SET_P
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Plant for Selected Set
+      REPTEXT: Plant for sel. set
+      SCRTEXT_S: Plnt
+      SCRTEXT_M: Plnt
+      SCRTEXT_L: Plant for sel. set
+  CAT_TYPE3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: QCAT_TYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Catalog Type
+      REPTEXT: Cat. type
+      SCRTEXT_S: Cat. type
+      SCRTEXT_M: Cat. type
+      SCRTEXT_L: Cat. type
+  SEL_SET4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QSEL_SET
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Selected Set
+      REPTEXT: Selected set
+      SCRTEXT_S: SlctdSet
+      SCRTEXT_M: Selected set
+      SCRTEXT_L: Selected set
+  PSEL_SET4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: QSEL_SET_P
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Plant for Selected Set
+      REPTEXT: Plant for sel. set
+      SCRTEXT_S: Plnt
+      SCRTEXT_M: Plnt
+      SCRTEXT_L: Plant for sel. set
+  CAT_TYPE4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: QCAT_TYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Catalog Type
+      REPTEXT: Cat. type
+      SCRTEXT_S: Cat. type
+      SCRTEXT_M: Cat. type
+      SCRTEXT_L: Cat. type
+  SEL_SET5:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QSEL_SET
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Selected Set
+      REPTEXT: Selected set
+      SCRTEXT_S: SlctdSet
+      SCRTEXT_M: Selected set
+      SCRTEXT_L: Selected set
+  PSEL_SET5:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: QSEL_SET_P
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Plant for Selected Set
+      REPTEXT: Plant for sel. set
+      SCRTEXT_S: Plnt
+      SCRTEXT_M: Plnt
+      SCRTEXT_L: Plant for sel. set
+  CAT_TYPE5:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: QCAT_TYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Catalog Type
+      REPTEXT: Cat. type
+      SCRTEXT_S: Cat. type
+      SCRTEXT_M: Cat. type
+      SCRTEXT_L: Cat. type
+  VALN_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QEIFBEWART
+      ROLLNAME: QEIFBEWSP
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QEIFBEWART
+    text:
+      FIELDTEXT: Valuation Type for Sample for QM Subsystems
+      REPTEXT: V
+      SCRTEXT_S: Valn type
+      SCRTEXT_M: Sample val.type
+      SCRTEXT_L: Sample valn type
+  ACCEPT_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: NUMC5
+      ROLLNAME: QEIFANNAMZ
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Acceptance Number in Attrib. Insp. for QM Subsystems
+      REPTEXT: AcpNo
+      SCRTEXT_S: AcceptNo.
+      SCRTEXT_M: Acceptance no.
+      SCRTEXT_L: Acceptance number
+  REJECT_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: NUMC5
+      ROLLNAME: QEIFRUECKZ
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Rejection Number in Attributive Insp. for QM Subsystems
+      REPTEXT: RejNo
+      SCRTEXT_S: Reject.no.
+      SCRTEXT_M: Rejection no.
+      SCRTEXT_L: Rejection no.
+  K_FACTOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: QKFAKTORC
+      ROLLNAME: QKFAKTORC
+      OUTPUTLEN: 16
+    text:
+      FIELDTEXT: K-Factor for a Variable Inspection
+      REPTEXT: K-factor
+      SCRTEXT_S: K-factor
+      SCRTEXT_M: K-factor
+      SCRTEXT_L: K-factor
+  SHARE_CALC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QEIFANVERF
+      ROLLNAME: QEIFANVERF
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QEIFANVERF
+    text:
+      FIELDTEXT: Fraction Calculation
+  CHARACTERISTIC_NAME:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: QCHARACT_ID
+      ROLLNAME: QCHARACT_ID1
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Characteristic Description for Quality Data Exchange
+      REPTEXT: Internal charac. description
+      SCRTEXT_S: Char. ID
+      SCRTEXT_M: Char. descrip.
+      SCRTEXT_L: Int. char. descrip.
+  RES_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: QERGDATH
+      ROLLNAME: QERGDATHPL
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT TQ73
+    text:
+      FIELDTEXT: Planned Results Data Origin
+      SCRTEXT_S: ResDatOrgn
+      SCRTEXT_M: Data origin
+      SCRTEXT_L: Origin results data
+  CLASSES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QCLASSES
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Classed Recording
+      REPTEXT: Classed recording
+      SCRTEXT_S: Classed
+      SCRTEXT_M: Classed results
+      SCRTEXT_L: Classed results
+  NO_RECORDING:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QNO_RECORDING
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: No Characteristic Recording
+      REPTEXT: No results recording
+      SCRTEXT_S: No rec.
+      SCRTEXT_M: No recording
+      SCRTEXT_L: No recording
+  INPPROC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: CHAR3
+      ROLLNAME: QINPPROC
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Parameters for Input Processing in QM Results Recording
+      REPTEXT: Entry
+      SCRTEXT_S: Entry
+      SCRTEXT_M: Input Processng
+      SCRTEXT_L: Input Processing
+BAPIRETURN1:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+BAPI2045D4:
+  INSPCHAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUMC4
+      ROLLNAME: QIBPMERKNR
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Insp. Lot Charac. No.
+      SCRTEXT_S: Charac. no
+      SCRTEXT_M: Charac. no.
+      SCRTEXT_L: Charac. no.
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+  INSPSAMPLE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: QPROBENR
+      ROLLNAME: QIBPPROBE
+      OUTPUTLEN: 6
+    input:
+      SHLP: CH QASV
+    text:
+      FIELDTEXT: Insp. Lot Sample
+      REPTEXT: Sample
+      SCRTEXT_S: Sample
+      SCRTEXT_M: Sample number
+      SCRTEXT_L: Sample number
+BAPI2045D2:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+  INSPCHAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUMC4
+      ROLLNAME: QIBPMERKNR
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Insp. Lot Charac. No.
+      SCRTEXT_S: Charac. no
+      SCRTEXT_M: Charac. no.
+      SCRTEXT_L: Charac. no.
+  CLOSED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QEIFABSCHL
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Close Characteristic or Sample
+      SCRTEXT_S: Close
+      SCRTEXT_M: Close
+      SCRTEXT_L: Close
+  EVALUATED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QEIFBEWE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Copy Valuation from External System
+      SCRTEXT_S: Valuation
+      SCRTEXT_M: Copy valuation
+      SCRTEXT_L: Copy valuation
+  CHAR_ATTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QATTRIBUT
+      ROLLNAME: QATTRIBUT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QATTRIBUT
+    text:
+      FIELDTEXT: Attribute of the Results Record (Valid, Invalid,...)
+      REPTEXT: Att
+      SCRTEXT_S: Attribute
+      SCRTEXT_M: Attribute
+      SCRTEXT_L: Attribute
+  CHAR_INVAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: QRES_INVAL
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Invalid Result
+      REPTEXT: Invalid result
+      SCRTEXT_S: invalid
+      SCRTEXT_M: Invalid result
+      SCRTEXT_L: Invalid result
+  EVALUATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QEEBEWERTG
+      ROLLNAME: QMBEWERTG
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QEEBEWERTG
+    text:
+      FIELDTEXT: Inspection Result Valuation
+      REPTEXT: Val
+      SCRTEXT_S: Valuation
+      SCRTEXT_M: Valuation
+      SCRTEXT_L: Valuation
+  ERR_CLASS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: QFEHLKLAS
+      ROLLNAME: QFEHLKLAS
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT TQ17
+    text:
+      FIELDTEXT: Defect Class
+      REPTEXT: DC
+      SCRTEXT_S: Dfct class
+      SCRTEXT_M: Defect class
+      SCRTEXT_L: Defect class
+  VALID_VALS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAWERTG
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: No. of Valid Values for Char. Results Upload to QM Subsys.
+      REPTEXT: VldVals
+      SCRTEXT_S: Valid vals
+      SCRTEXT_M: Valid values
+      SCRTEXT_L: No. of valid values
+  NONCONF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAFEEH
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: No. of Nonconforming Units for Char. Confirmation via QM-IDI
+      REPTEXT: NcfUnts
+      SCRTEXT_S: Nonc.Units
+      SCRTEXT_M: Nonconf. Units
+      SCRTEXT_L: Nonconforming Units
+  DEFECTS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAFEHL
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Number of Defects for Confirmation of Charac. via QM-IDI
+      REPTEXT: No.Def.
+      SCRTEXT_S: No.defects
+      SCRTEXT_M: No. of defects
+      SCRTEXT_L: Number of defects
+  VALS_ABOVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAWRTO
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Number of Values Above the Tolerance Limit (Characteristic)
+      REPTEXT: NoAbove
+      SCRTEXT_S: Vals above
+      SCRTEXT_M: Vals over limit
+      SCRTEXT_L: Values above limit
+  VALS_BELOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAWRTU
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Number of Values Below the Tolerance Limit (Characteristic)
+      REPTEXT: NoBelow
+      SCRTEXT_S: Vals below
+      SCRTEXT_M: Vals bel. limit
+      SCRTEXT_L: Values below limit
+  MEAN_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QMEAN_VAL
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Mean Value
+      REPTEXT: Mean value
+      SCRTEXT_S: Mean value
+      SCRTEXT_M: Mean value
+      SCRTEXT_L: Mean value
+  VARIANCE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QVARIANCE
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Variance
+      REPTEXT: Variance
+      SCRTEXT_S: Variance
+      SCRTEXT_M: Variance
+      SCRTEXT_L: Variance
+  MAXIMUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QMAX_VAL
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Maximum
+      REPTEXT: Maximum
+      SCRTEXT_S: Maximum
+      SCRTEXT_M: Maximum
+      SCRTEXT_L: Maximum
+  MINIMUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QMIN_VAL
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Minimum
+      REPTEXT: Minimum
+      SCRTEXT_S: Minimum
+      SCRTEXT_M: Minimum
+      SCRTEXT_L: Minimum
+  START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: QEIFPRDATV
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Inspection Start Date (QM Subsystem Interface)
+      REPTEXT: InspDate
+      SCRTEXT_S: InspStart
+      SCRTEXT_M: Insp.start date
+      SCRTEXT_L: Insp. start date
+  START_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: QZEIT
+      ROLLNAME: QEIFPRZTV
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Inspection Start Time (QM Subsystem Interface)
+      REPTEXT: InsTime
+      SCRTEXT_S: InspTime
+      SCRTEXT_M: Insp.start time
+      SCRTEXT_L: Insp. start time
+  END_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: QEIFPRDATB
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Inspection End Date (QM Subsystem Interface)
+      REPTEXT: End date
+      SCRTEXT_S: Insp. end
+      SCRTEXT_M: Insp. end date
+      SCRTEXT_L: Inspection end date
+  END_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: QZEIT
+      ROLLNAME: QEIFPRZTB
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Inspection End Time (QM Subsystem Interface)
+      REPTEXT: End time
+      SCRTEXT_S: End time
+      SCRTEXT_M: Insp. end time
+      SCRTEXT_L: Inspection end time
+  INSPECTOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TEXT20
+      ROLLNAME: QINSPECTOR
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Name of the Inspector
+      REPTEXT: Inspector
+      SCRTEXT_S: Inspct
+      SCRTEXT_M: Inspct
+      SCRTEXT_L: Inspct
+  RES_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: QERGDATH
+      ROLLNAME: QRES_ORG
+      OUTPUTLEN: 2
+    input:
+      SHLP: CT TQ73
+    text:
+      FIELDTEXT: Data Origin
+      REPTEXT: Data origin
+      SCRTEXT_S: DataOrig.
+      SCRTEXT_M: Data origin
+      SCRTEXT_L: Data origin
+  REMARK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: QRES_REMAR
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Inspection Description for Single Value
+      REPTEXT: Insp. descr. for single val.
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Insp. descr.
+      SCRTEXT_L: Insp. descr. for single val.
+  CODE1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE5:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP5:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  ORIGINAL_INPUT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: QORIGINAL_INPUT
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Original Value Before Input Processing
+      REPTEXT: Original Value
+      SCRTEXT_S: OriginalV
+      SCRTEXT_M: Original Value
+      SCRTEXT_L: Original Value
+  INPPROC_READY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QINPPROC_READY
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Input Processing Successfully Completed
+      REPTEXT: Input Processing Completed
+      SCRTEXT_S: Completed
+      SCRTEXT_M: Input Processing
+      SCRTEXT_L: Input Processing Completed
+  DIFF_DEC_PLACES:
+    format:
+      DATATYPE: INT2
+      INTTYPE: s
+      LENG: 5
+      DOMNAME: INT2
+      ROLLNAME: QDIFF_DEC_PLACES
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Different Number of Decimal Places
+      REPTEXT: Different Number of Decimal Places
+      SCRTEXT_S: DiffDec.Pl
+      SCRTEXT_M: Diff. Decimal Places
+      SCRTEXT_L: Different Decimal Places
+  ADD_INFO1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: QEQUNR
+      ROLLNAME: QMASCHINE
+      OUTPUTLEN: 18
+      LOWERCASE: X
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: General Information
+      SCRTEXT_S: Addnl info
+      SCRTEXT_M: Information
+      SCRTEXT_L: Additional Info.
+  CONDITION_ACTIVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SAP_BOOL
+      ROLLNAME: QCONDITION_ACTIVE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Set Status of Conditional Characteristics to Active
+      REPTEXT: CndCh Actv
+      SCRTEXT_S: CndCh Actv
+      SCRTEXT_M: Cond.Chars Actv
+      SCRTEXT_L: Set Conditional Characteristics Active
+BAPI2045D3:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+  INSPCHAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUMC4
+      ROLLNAME: QIBPMERKNR
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Insp. Lot Charac. No.
+      SCRTEXT_S: Charac. no
+      SCRTEXT_M: Charac. no.
+      SCRTEXT_L: Charac. no.
+  INSPSAMPLE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: QPROBENR
+      ROLLNAME: QIBPPROBE
+      OUTPUTLEN: 6
+    input:
+      SHLP: CH QASV
+    text:
+      FIELDTEXT: Insp. Lot Sample
+      REPTEXT: Sample
+      SCRTEXT_S: Sample
+      SCRTEXT_M: Sample number
+      SCRTEXT_L: Sample number
+  LAST_SMPL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QEIFKZENDE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Last Original Value, Sample or Inspection Point
+      REPTEXT: L
+      SCRTEXT_S: LastRecord
+      SCRTEXT_M: Last record
+      SCRTEXT_L: Last record
+  CLOSED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QEIFABSCHL
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Close Characteristic or Sample
+      SCRTEXT_S: Close
+      SCRTEXT_M: Close
+      SCRTEXT_L: Close
+  EVALUATED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QEIFBEWE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Copy Valuation from External System
+      SCRTEXT_S: Valuation
+      SCRTEXT_M: Copy valuation
+      SCRTEXT_L: Copy valuation
+  SMPL_ATTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QATTRIBUT
+      ROLLNAME: QATTRIBUT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QATTRIBUT
+    text:
+      FIELDTEXT: Attribute of the Results Record (Valid, Invalid,...)
+      REPTEXT: Att
+      SCRTEXT_S: Attribute
+      SCRTEXT_M: Attribute
+      SCRTEXT_L: Attribute
+  SMPL_INVAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: QRES_INVAL
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Invalid Result
+      REPTEXT: Invalid result
+      SCRTEXT_S: invalid
+      SCRTEXT_M: Invalid result
+      SCRTEXT_L: Invalid result
+  EVALUATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QEEBEWERTG
+      ROLLNAME: QMBEWERTG
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QEEBEWERTG
+    text:
+      FIELDTEXT: Inspection Result Valuation
+      REPTEXT: Val
+      SCRTEXT_S: Valuation
+      SCRTEXT_M: Valuation
+      SCRTEXT_L: Valuation
+  ERR_CLASS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: QFEHLKLAS
+      ROLLNAME: QFEHLKLAS
+      OUTPUTLEN: 2
+    input:
+      SHLP: CT TQ17
+    text:
+      FIELDTEXT: Defect Class
+      REPTEXT: DC
+      SCRTEXT_S: Dfct class
+      SCRTEXT_M: Defect class
+      SCRTEXT_L: Defect class
+  VALID_VALS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAWERTG
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: No. of Valid Values for Char. Results Upload to QM Subsys.
+      REPTEXT: VldVals
+      SCRTEXT_S: Valid vals
+      SCRTEXT_M: Valid values
+      SCRTEXT_L: No. of valid values
+  NONCONF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAFEEH
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: No. of Nonconforming Units for Char. Confirmation via QM-IDI
+      REPTEXT: NcfUnts
+      SCRTEXT_S: Nonc.Units
+      SCRTEXT_M: Nonconf. Units
+      SCRTEXT_L: Nonconforming Units
+  DEFECTS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAFEHL
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Number of Defects for Confirmation of Charac. via QM-IDI
+      REPTEXT: No.Def.
+      SCRTEXT_S: No.defects
+      SCRTEXT_M: No. of defects
+      SCRTEXT_L: Number of defects
+  VALS_ABOVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAWRTU
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Number of Values Below the Tolerance Limit (Characteristic)
+      REPTEXT: NoBelow
+      SCRTEXT_S: Vals below
+      SCRTEXT_M: Vals bel. limit
+      SCRTEXT_L: Values below limit
+  VALS_BELOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: CHAR7
+      ROLLNAME: QEIFAWRTO
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Number of Values Above the Tolerance Limit (Characteristic)
+      REPTEXT: NoAbove
+      SCRTEXT_S: Vals above
+      SCRTEXT_M: Vals over limit
+      SCRTEXT_L: Values above limit
+  MEAN_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QMEAN_VAL
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Mean Value
+      REPTEXT: Mean value
+      SCRTEXT_S: Mean value
+      SCRTEXT_M: Mean value
+      SCRTEXT_L: Mean value
+  VARIANCE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QVARIANCE
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Variance
+      REPTEXT: Variance
+      SCRTEXT_S: Variance
+      SCRTEXT_M: Variance
+      SCRTEXT_L: Variance
+  MAXIMUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QMEAN_VAL
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Mean Value
+      REPTEXT: Mean value
+      SCRTEXT_S: Mean value
+      SCRTEXT_M: Mean value
+      SCRTEXT_L: Mean value
+  MINIMUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: QIFLTP
+      ROLLNAME: QMEAN_VAL
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Mean Value
+      REPTEXT: Mean value
+      SCRTEXT_S: Mean value
+      SCRTEXT_M: Mean value
+      SCRTEXT_L: Mean value
+  START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: QEIFPRDATV
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Inspection Start Date (QM Subsystem Interface)
+      REPTEXT: InspDate
+      SCRTEXT_S: InspStart
+      SCRTEXT_M: Insp.start date
+      SCRTEXT_L: Insp. start date
+  START_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: QZEIT
+      ROLLNAME: QEIFPRZTV
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Inspection Start Time (QM Subsystem Interface)
+      REPTEXT: InsTime
+      SCRTEXT_S: InspTime
+      SCRTEXT_M: Insp.start time
+      SCRTEXT_L: Insp. start time
+  END_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: QEIFPRDATB
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Inspection End Date (QM Subsystem Interface)
+      REPTEXT: End date
+      SCRTEXT_S: Insp. end
+      SCRTEXT_M: Insp. end date
+      SCRTEXT_L: Inspection end date
+  END_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: QZEIT
+      ROLLNAME: QEIFPRZTB
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Inspection End Time (QM Subsystem Interface)
+      REPTEXT: End time
+      SCRTEXT_S: End time
+      SCRTEXT_M: Insp. end time
+      SCRTEXT_L: Inspection end time
+  INSPECTOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TEXT20
+      ROLLNAME: QINSPECTOR
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Name of the Inspector
+      REPTEXT: Inspector
+      SCRTEXT_S: Inspct
+      SCRTEXT_M: Inspct
+      SCRTEXT_L: Inspct
+  RES_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: QERGDATH
+      ROLLNAME: QRES_ORG
+      OUTPUTLEN: 2
+    input:
+      SHLP: CT TQ73
+    text:
+      FIELDTEXT: Data Origin
+      REPTEXT: Data origin
+      SCRTEXT_S: DataOrig.
+      SCRTEXT_M: Data origin
+      SCRTEXT_L: Data origin
+  REMARK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: QRES_REMAR
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Inspection Description for Single Value
+      REPTEXT: Insp. descr. for single val.
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Insp. descr.
+      SCRTEXT_L: Insp. descr. for single val.
+  CODE1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE5:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QCODE
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: QCODE
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP5:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: QCODE_GROU
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Code Group
+      REPTEXT: Code group
+      SCRTEXT_S: CodeGrp
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  ORIGINAL_INPUT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: QORIGINAL_INPUT
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Original Value Before Input Processing
+      REPTEXT: Original Value
+      SCRTEXT_S: OriginalV
+      SCRTEXT_M: Original Value
+      SCRTEXT_L: Original Value
+  INPPROC_READY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QINPPROC_READY
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Input Processing Successfully Completed
+      REPTEXT: Input Processing Completed
+      SCRTEXT_S: Completed
+      SCRTEXT_M: Input Processing
+      SCRTEXT_L: Input Processing Completed
+  DIFF_DEC_PLACES:
+    format:
+      DATATYPE: INT2
+      INTTYPE: s
+      LENG: 5
+      DOMNAME: INT2
+      ROLLNAME: QDIFF_DEC_PLACES
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Different Number of Decimal Places
+      REPTEXT: Different Number of Decimal Places
+      SCRTEXT_S: DiffDec.Pl
+      SCRTEXT_M: Diff. Decimal Places
+      SCRTEXT_L: Different Decimal Places
+  ADD_INFO1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: QEQUNR
+      ROLLNAME: QMASCHINE
+      OUTPUTLEN: 18
+      LOWERCASE: X
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: General Information
+      SCRTEXT_S: Addnl info
+      SCRTEXT_M: Information
+      SCRTEXT_L: Additional Info.
+  ADD_INFO2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: QEIFPOSMAS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Position on the Machine (QM Interface - Subsystem)
+      REPTEXT: Pos.
+      SCRTEXT_S: Position
+      SCRTEXT_M: Pos. machine
+      SCRTEXT_L: Position machine
+  CONDITION_ACTIVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SAP_BOOL
+      ROLLNAME: QCONDITION_ACTIVE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Set Status of Conditional Characteristics to Active
+      REPTEXT: CndCh Actv
+      SCRTEXT_S: CndCh Actv
+      SCRTEXT_M: Cond.Chars Actv
+      SCRTEXT_L: Set Conditional Characteristics Active
+BAPI2045D_IL0:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+  MANUFACTURER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: QLIFNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Number of Manufacturer
+      REPTEXT: Mfr
+      SCRTEXT_S: Mfr
+      SCRTEXT_M: Manufacturer
+      SCRTEXT_L: Manufacturer
+  VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VERID
+      ROLLNAME: VERID
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VER
+      SHLP: SH H_MKAL
+    text:
+      FIELDTEXT: Production Version
+      REPTEXT: Ver.
+      SCRTEXT_S: Version
+      SCRTEXT_M: Prod. Version
+      SCRTEXT_L: Production Version
+BAPI2045LA:
+  LANGU:
+    format:
+      DATATYPE: LANG
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SPRAS
+      ROLLNAME: SPRAS
+      OUTPUTLEN: 2
+      LOWERCASE: X
+    input:
+      MEMORYID: SPR
+      CONVEXIT: ISOLA
+      SHLP: SH H_T002
+    text:
+      FIELDTEXT: Language Key
+      REPTEXT: Language
+      SCRTEXT_S: Language
+      SCRTEXT_M: Language
+      SCRTEXT_L: Language Key
+  LANGU_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LAISO
+      ROLLNAME: LAISO
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: 2-Character SAP Language Code
+      REPTEXT: Lng ISO
+      SCRTEXT_S: Lang.(ISO)
+      SCRTEXT_M: Lang. (ISO)
+      SCRTEXT_L: Lang. (ISO 639)
+BAPI2045MD:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+  INT_COUNTER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: Q_COUNT
+      ROLLNAME: Q_COUNT
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Internal Counter for DB Objects
+      REPTEXT: Count.
+      SCRTEXT_S: Counter
+      SCRTEXT_M: Counter
+      SCRTEXT_L: Counter
+  REFERENCE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QAMBTYPE
+      ROLLNAME: QAMBTYPE
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QAMBTYPE
+    text:
+      FIELDTEXT: Type of Reference Between Inspection Lot and Material Doc.
+      REPTEXT: Type
+      SCRTEXT_S: Ref. type
+      SCRTEXT_M: Reference type
+      SCRTEXT_L: Reference type
+  MAT_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: MBLNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: MBN
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of Material Document
+      REPTEXT: Mat. Doc.
+      SCRTEXT_S: Mat. Doc.
+      SCRTEXT_M: Material Doc.
+      SCRTEXT_L: Material Document
+  DOC_YEAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: GJAHR
+      ROLLNAME: MJAHR
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: MJA
+      CONVEXIT: GJAHR
+    text:
+      FIELDTEXT: Material Document Year
+      REPTEXT: MatYr
+      SCRTEXT_S: Mat. Year
+      SCRTEXT_M: Mat. Doc. Year
+      SCRTEXT_L: Material Doc. Year
+  MATDOC_ITM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: MBLPO
+      ROLLNAME: MBLPO
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: POS
+    text:
+      FIELDTEXT: Item in Material Document
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Mat. Doc.Item
+      SCRTEXT_L: Material Doc.Item
+  ENTRY_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: CPUDT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Day On Which Accounting Document Was Entered
+      REPTEXT: Entry Dte
+      SCRTEXT_S: Entered
+      SCRTEXT_M: Entered on
+      SCRTEXT_L: Entry Date
+  ENTRY_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: CPUTM
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time of Entry
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Entered at
+      SCRTEXT_L: Time of Entry
+BAPI2045SS:
+  SYS_STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 5
+      DOMNAME: J_ISTAT
+      ROLLNAME: J_ISTAT
+      OUTPUTLEN: 5
+    input:
+      SHLP: SH H_TJ02
+    text:
+      FIELDTEXT: System status
+      REPTEXT: SysSt
+      SCRTEXT_S: SystStatus
+      SCRTEXT_M: System status
+      SCRTEXT_L: System status
+  SY_ST_TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: TEXT4
+      ROLLNAME: SY_ST_TEXT
+      OUTPUTLEN: 4
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Individual status of an object (short form)
+      REPTEXT: St.
+      SCRTEXT_S: Status
+      SCRTEXT_M: System status
+      SCRTEXT_L: System status
+  SY_ST_DSCR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: TEXT30
+      ROLLNAME: SY_ST_DSCR
+      OUTPUTLEN: 30
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Object status
+      REPTEXT: System status
+      SCRTEXT_S: Status
+      SCRTEXT_M: System status
+      SCRTEXT_L: System status
+BAPI2045US:
+  STAT_PROF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: J_STSMA
+      ROLLNAME: J_STSMA
+      OUTPUTLEN: 8
+    input:
+      SHLP: SH H_TJ20
+    text:
+      FIELDTEXT: Status Profile
+      REPTEXT: StatProf
+      SCRTEXT_S: Stat.Prof.
+      SCRTEXT_M: Status Profile
+      SCRTEXT_L: Status Profile
+  USR_STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 5
+      DOMNAME: J_ESTAT
+      ROLLNAME: J_ESTAT
+      OUTPUTLEN: 5
+    input:
+      SHLP: SH H_TJ30
+    text:
+      FIELDTEXT: User Status
+      REPTEXT: UsrSt
+      SCRTEXT_S: UserStatus
+      SCRTEXT_M: User status
+      SCRTEXT_L: User Status
+  US_ST_NUMB:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: J_STONR
+      ROLLNAME: J_STONR
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Status Order Number
+      REPTEXT: StNo
+      SCRTEXT_S: Status No.
+      SCRTEXT_M: Status Number
+      SCRTEXT_L: Status Number
+  US_ST_TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: TEXT4
+      ROLLNAME: US_ST_TEXT
+      OUTPUTLEN: 4
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Individual status of an object (short form)
+      REPTEXT: St.
+      SCRTEXT_S: Status
+      SCRTEXT_M: User Status
+      SCRTEXT_L: User Status
+  US_ST_DSCR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: TEXT30
+      ROLLNAME: US_ST_DSCR
+      OUTPUTLEN: 30
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Object status
+      REPTEXT: User Status
+      SCRTEXT_S: Status
+      SCRTEXT_M: User Status
+      SCRTEXT_L: User Status
+BAPI2045D_IL3:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+  IND_SPECIAL_QM_ORDER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QKZPRFKOST
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Record Appraisal Costs in Individual QM Order
+      REPTEXT: InOr
+      SCRTEXT_S: IndivOrder
+      SCRTEXT_M: Indiv. QM order
+      SCRTEXT_L: Individual QM order
+  QM_ORDERID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: QAUFNR_CO
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number for Recording Appraisal Costs
+      REPTEXT: QM Order
+      SCRTEXT_S: QM Order
+      SCRTEXT_M: QM Order
+      SCRTEXT_L: QM Order
+  BUS_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: GSBER
+      ROLLNAME: GSBER
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: GSB
+      SHLP: SH H_TGSB
+    text:
+      FIELDTEXT: Business Area
+      REPTEXT: BusA
+      SCRTEXT_S: Bus. Area
+      SCRTEXT_M: Business Area
+      SCRTEXT_L: Business Area
+  CO_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CACCD
+      ROLLNAME: KOKRS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: CAC
+      SHLP: SH CSH_TKA01
+    text:
+      FIELDTEXT: Controlling Area
+      REPTEXT: COAr
+      SCRTEXT_S: CO Area
+      SCRTEXT_M: CO Area
+      SCRTEXT_L: Controlling Area
+  COMP_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: BUKRS
+      ROLLNAME: BUKRS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: BUK
+      SHLP: SH C_T001
+    text:
+      FIELDTEXT: Company Code
+      REPTEXT: CoCd
+      SCRTEXT_S: CoCode
+      SCRTEXT_M: Company Code
+      SCRTEXT_L: Company Code
+  PROFIT_CTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRCTR
+      ROLLNAME: PRCTR
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PRC
+      CONVEXIT: ALPHA
+      SHLP: CT CEPC
+    text:
+      FIELDTEXT: Profit Center
+      REPTEXT: Profit Ctr
+      SCRTEXT_S: Profit Ctr
+      SCRTEXT_M: Profit Center
+      SCRTEXT_L: Profit Center
+  INSPLOT_ACCTNG_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZQALSKNT
+      ROLLNAME: QKZQALSKNT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZQALSKNT
+    text:
+      FIELDTEXT: 'Account Assignment Key: Inspection Lot'
+      REPTEXT: AccAss key
+      SCRTEXT_S: AccAss key
+      SCRTEXT_M: AccAss key
+      SCRTEXT_L: AccAss. key
+  ORDERID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+  COSTCENTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KOSTL
+      ROLLNAME: KOSTL
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: KOS
+      CONVEXIT: ALPHA
+      SHLP: CT CSKS
+    text:
+      FIELDTEXT: Cost Center
+      REPTEXT: Cost Ctr
+      SCRTEXT_S: Cost Ctr
+      SCRTEXT_M: Cost Center
+      SCRTEXT_L: Cost Center
+  ASSET_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: ANLN1
+      ROLLNAME: ANLN1
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: AN1
+      CONVEXIT: ALPHA
+      SHLP: CH ANLH
+    text:
+      FIELDTEXT: Main Asset Number
+      REPTEXT: Asset
+      SCRTEXT_S: Asset
+      SCRTEXT_M: Asset
+      SCRTEXT_L: Asset
+  SUB_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: ANLN2
+      ROLLNAME: ANLN2
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: AN2
+      CONVEXIT: ALPHA
+      SHLP: CH ANLA
+    text:
+      FIELDTEXT: Asset Subnumber
+      REPTEXT: SNo.
+      SCRTEXT_S: Sub-number
+      SCRTEXT_M: Sub-number
+      SCRTEXT_L: Sub-number
+  ACCTNG_WBS_ELEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PS_POSNR
+      ROLLNAME: PS_PSP_PNR
+      OUTPUTLEN: 24
+      valueInputType: list
+    input:
+      CONVEXIT: ABPSP
+      SHLP: CH PRPS
+    text:
+      FIELDTEXT: Work Breakdown Structure Element (WBS Element)
+      REPTEXT: WBS Element
+      SCRTEXT_S: WBS Elem.
+      SCRTEXT_M: WBS Element
+      SCRTEXT_L: WBS Element
+  ACCTNG_WBS_ELEMENT_EXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 24
+      DOMNAME: PS_POSID
+      ROLLNAME: PS_POSID
+      OUTPUTLEN: 24
+    input:
+      MEMORYID: PRO
+      CONVEXIT: ABPSN
+    text:
+      FIELDTEXT: Work Breakdown Structure Element (WBS Element)
+      REPTEXT: WBS element
+      SCRTEXT_S: WBS elem.
+      SCRTEXT_M: WBS element
+      SCRTEXT_L: WBS element
+  ACCTNG_SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: KDAUF
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CH VBUK
+    text:
+      FIELDTEXT: Sales Order Number
+      REPTEXT: Sales Ord.
+      SCRTEXT_S: Sales Ord.
+      SCRTEXT_M: Sales Order
+      SCRTEXT_L: Sales Order
+  ACCTNG_S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Item number in Sales Order
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  PROFIT_SEGM_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RKEOBJNR
+      ROLLNAME: RKEOBJNR
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Profitability Segment Number (CO-PA)
+      REPTEXT: Prof. Seg.
+      SCRTEXT_S: Prof.Segmt
+      SCRTEXT_M: Profit. segment
+      SCRTEXT_L: Profitab. Segmt No.
+BAPI2045CI:
+  DMY_UNUSED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: Q_UNUSED01
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Field Not Used as of 3.0       Field Reserved for SAP
+      SCRTEXT_S: Dummy
+      SCRTEXT_M: Dummy
+      SCRTEXT_L: Dummy
+BAPI2045D_IL2:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+  IND_GR_BLOCKED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KZWES
+      ROLLNAME: KZWES
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: GR blocked stock
+      REPTEXT: GRB
+      SCRTEXT_S: GR blocked
+      SCRTEXT_M: GR blocked stck
+      SCRTEXT_L: GR blocked stock
+  IND_QUAL_INSPECTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QVINSMK
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Quantity Is or Was in Inspection Stock
+      REPTEXT: Inspection stock
+      SCRTEXT_S: InspStck
+      SCRTEXT_M: Insp. stock
+      SCRTEXT_L: Inspection stock
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  IND_BATCH_MGNT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: XCHPF
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Batch management requirement indicator
+      REPTEXT: BMR
+      SCRTEXT_S: Batch mgmt
+      SCRTEXT_M: Batch Mgmt Rqt
+      SCRTEXT_L: Batch management
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: CHA
+      SHLP: CH MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  BATCH_STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  STOCK_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: QWERKVORG
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant Where Stock for Inspection Lot Is Held
+      REPTEXT: Plnt
+      SCRTEXT_S: PlantStock
+      SCRTEXT_M: Plant for stock
+      SCRTEXT_L: Plant InspLotStock
+  STOCK_STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: QLGORTVORG
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Storage Location for Inspection Lot Stock
+      REPTEXT: SLoc
+      SCRTEXT_S: LocILotStk
+      SCRTEXT_M: StLoc.ILotStock
+      SCRTEXT_L: StorLoc.InspLotStock
+  SPEC_STOCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBKZ
+      ROLLNAME: SOBKZ
+      OUTPUTLEN: 1
+    input:
+      SHLP: SH H_T148
+    text:
+      FIELDTEXT: Special Stock Indicator
+      REPTEXT: S
+      SCRTEXT_S: Spec.Stock
+      SCRTEXT_M: Special Stock
+      SCRTEXT_L: Special Stock
+  VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  WBS_ELEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PS_POSNR
+      ROLLNAME: MAT_PSPNR
+      OUTPUTLEN: 24
+    input:
+      CONVEXIT: ABPSP
+      SHLP: CH PRPS
+    text:
+      FIELDTEXT: Valuated Sales Order Stock WBS Element
+      REPTEXT: WBS Element
+      SCRTEXT_S: WBS Elem.
+      SCRTEXT_M: WBS Element
+      SCRTEXT_L: WBS Element
+  WBS_ELEMENT_EXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 24
+      DOMNAME: PS_POSID
+      ROLLNAME: PS_POSID
+      OUTPUTLEN: 24
+    input:
+      MEMORYID: PRO
+      CONVEXIT: ABPSN
+    text:
+      FIELDTEXT: Work Breakdown Structure Element (WBS Element)
+      REPTEXT: WBS element
+      SCRTEXT_S: WBS elem.
+      SCRTEXT_M: WBS element
+      SCRTEXT_L: WBS element
+  SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: MAT_KDAUF
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CH VBUK
+    text:
+      FIELDTEXT: Sales order number of valuated sales order stock
+      REPTEXT: Sales ord.
+      SCRTEXT_S: Sales ord.
+      SCRTEXT_M: Sales order
+      SCRTEXT_L: Sales order
+  S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: MAT_KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Sales Order Item of Valuated Sales Order Stock
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  INSPLOT_SIZE:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLOSMENGE
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: INSPLOT_BASE_UOM
+    text:
+      FIELDTEXT: Inspection Lot Quantity
+      REPTEXT: Insp. Lot Qty
+      SCRTEXT_S: Lot Qty
+      SCRTEXT_M: Insp. Lot Qty
+      SCRTEXT_L: Insp. Lot Quantity
+  INSPLOT_BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: QLOSMENGEH
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure for Inspection Lot Quantity
+      REPTEXT: BUn
+      SCRTEXT_S: Base unit
+      SCRTEXT_M: Base unit
+      SCRTEXT_L: Base unit of measure
+  INSPLOT_BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  NO_OF_CONTAINERS:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 6
+      DOMNAME: QGEBPLOS
+      ROLLNAME: QANZGEB
+      OUTPUTLEN: 7
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: INSPLOT_CONTAINER_UOM
+    text:
+      FIELDTEXT: QM - No. of Containers
+      REPTEXT: Contnr
+      SCRTEXT_S: Containers
+      SCRTEXT_M: No. Containers
+      SCRTEXT_L: Number of Containers
+  INSPLOT_CONTAINER_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: QGEBEH
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Lot Container
+      REPTEXT: LotCt
+      SCRTEXT_S: Lot Cntnr.
+      SCRTEXT_M: Lot container
+      SCRTEXT_L: Lot container
+  INSPLOT_CONTAINER_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  SAMPLE_SIZE:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QGESTICH
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: INSPLOT_BASE_UOM
+    text:
+      FIELDTEXT: Sample Size
+      REPTEXT: Sample size
+      SCRTEXT_S: SampleSize
+      SCRTEXT_M: Sample size
+      SCRTEXT_L: Sample size
+  SAMPLE_BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: QPROBEMGEH
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure for the Sample Unit
+      REPTEXT: UOM
+      SCRTEXT_S: Sample UoM
+      SCRTEXT_M: Sample UOM
+      SCRTEXT_L: Sample unit of meas.
+  SAMPLE_BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  SAMPLE_WHSE_SIZE:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LVS_STIMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: INSPLOT_BASE_UOM
+    text:
+      FIELDTEXT: Sample in base unit of measure provided by WM
+      SCRTEXT_S: Insp.samp.
+      SCRTEXT_M: In.samp.(StkUn)
+      SCRTEXT_L: WM sample quantity
+  SAMPLE_WHSE_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: SH H_T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  SAMPLE_STGE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LGTYP
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGT
+      SHLP: SH H_T301
+    text:
+      FIELDTEXT: Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: Stge Type
+      SCRTEXT_M: Storage Type
+      SCRTEXT_L: Storage Type
+  SAMPLE_STGE_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LGPLA
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: LGP
+      SHLP: CH LAGP
+    text:
+      FIELDTEXT: Storage Bin
+      REPTEXT: Stor. Bin
+      SCRTEXT_S: StorageBin
+      SCRTEXT_M: Storage Bin
+      SCRTEXT_L: Storage Bin
+  QUANTITY_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: QLOSMENGEH
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure for Inspection Lot Quantity
+      REPTEXT: BUn
+      SCRTEXT_S: Base unit
+      SCRTEXT_M: Base unit
+      SCRTEXT_L: Base unit of measure
+  QUANTITY_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  QUANTITY_AVAILABLE:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE01F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity Posted to Unrestricted-Use Stock
+      REPTEXT: Unrestricted-Use Stock
+      SCRTEXT_S: UnrestrStk
+      SCRTEXT_M: Unrestr. Stck
+      SCRTEXT_L: Unrestrictd-Use Stck
+  QUANTITY_SCRAP:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE02F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity Posted to Scrap
+      REPTEXT: Scrap quantity
+      SCRTEXT_S: Scrap
+      SCRTEXT_M: Scrap quantity
+      SCRTEXT_L: Scrap quantity
+  QUANTITY_SAMPLE:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE03F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity Posted to Sample
+      REPTEXT: Sample
+      SCRTEXT_S: Sample
+      SCRTEXT_M: Sample
+      SCRTEXT_L: Sample
+  QUANTITY_BLOCKED:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE04F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity Posted to Blocked Stock
+      REPTEXT: Blocked stock
+      SCRTEXT_S: Blocked
+      SCRTEXT_M: Blocked
+      SCRTEXT_L: Blocked stock
+  QUANTITY_RESERVES:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE05F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity Posted to Reserves
+      REPTEXT: Reserves
+      SCRTEXT_S: Reserves
+      SCRTEXT_M: Reserves
+      SCRTEXT_L: Reserves
+  QUANTITY_NEW_MATERIAL:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE06F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity Posted to Another Material
+      REPTEXT: New material
+      SCRTEXT_S: New matl
+      SCRTEXT_M: New material
+      SCRTEXT_L: New material
+  NEW_MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: QMATNRNEU
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number to Which the Quantity is Posted
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  NEW_BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: QCHARGNEU
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: CHA
+      SHLP: CH MCH1
+    text:
+      FIELDTEXT: Batch to Which Goods Are Transferred
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  QUANTITY_RETURNED_TO_VENDOR:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE07F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity Returned to Vendor
+      REPTEXT: Return to vendor
+      SCRTEXT_S: Return
+      SCRTEXT_M: Return to vend.
+      SCRTEXT_L: Return to vendor
+  QUANTITY_OTHER:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGE08F
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Other Quantity Posted from Inspection Lot Stock
+      REPTEXT: Other qty.
+      SCRTEXT_S: Other qty.
+      SCRTEXT_M: Other quantity
+      SCRTEXT_L: Other quantity
+  QUANTITY_TO_BE_POSTED:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGEZUB
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Quantity That Must Be Posted
+      REPTEXT: Quantity to be posted
+      SCRTEXT_S: Postings
+      SCRTEXT_M: Postings
+      SCRTEXT_L: Post quantity
+  QUANTITY_ACTUAL:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: QMENGEPLOS
+      ROLLNAME: QLMENGEIST
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2045D_IL2
+      REFFIELD: QUANTITY_UOM
+    text:
+      FIELDTEXT: Actual Lot Quantity
+      REPTEXT: Act. lot qty
+      SCRTEXT_S: ActLotQty
+      SCRTEXT_M: Actual lot qty
+      SCRTEXT_L: Actual lot quantity
+  IND_UD_LOGS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QLTEXTKZBB
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Logs Exist for Usage Decision
+      REPTEXT: LT
+      SCRTEXT_S: Logs
+      SCRTEXT_M: Logs
+      SCRTEXT_L: Inspection lot logs
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  NEW_MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_NEW_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for NEW_MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  NEW_MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_NEW_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for NEW_MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  NEW_MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_NEW_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for NEW_MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  NEW_MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: QMATNRNEU40
+      OUTPUTLEN: 40
+    input:
+      MEMORYID: MAT
+    text:
+      FIELDTEXT: Material Number to Which the Quantity is Posted
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPI2045D_IL1:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+  IND_TASK_LIST_REQUIRED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QSTAT20
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspection Plan Required
+      REPTEXT: PR
+      SCRTEXT_S: Plan reqd
+      SCRTEXT_M: Insp.plan reqd
+      SCRTEXT_L: Insp. plan required
+  IND_SPEC_MATSPEC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QSPEZUEBER
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspect with Material Specification
+      SCRTEXT_S: Mat. spec.
+      SCRTEXT_M: Insp. with spec.
+      SCRTEXT_L: Insp. with mat spec.
+  IND_SPEC_CONFIG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QCONF
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspection Specifications from Configuration
+      SCRTEXT_S: Config.
+      SCRTEXT_M: Configuration
+      SCRTEXT_L: Insp. by configuratn
+  IND_SPEC_BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QCHARG
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspection Specifications from Batch Determination
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch determtn
+      SCRTEXT_L: Inspect by batch
+  TASK_LIST_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PLNTY
+      ROLLNAME: PLNTY
+      OUTPUTLEN: 1
+    input:
+      MEMORYID: PTY
+      SHLP: SH H_TCA01
+    text:
+      FIELDTEXT: Task List Type
+      REPTEXT: TLType
+      SCRTEXT_S: Type
+      SCRTEXT_M: Task List Type
+      SCRTEXT_L: Task List Type
+  TASK_LIST_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: PLNNR
+      ROLLNAME: PLNNR
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: PLN
+      CONVEXIT: ALPHA
+      SHLP: SH PLKS
+    text:
+      FIELDTEXT: Key for Task List Group
+      REPTEXT: Group
+      SCRTEXT_S: Group
+      SCRTEXT_M: Group
+      SCRTEXT_L: Group
+  TASK_LIST_USAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: PLN_VERWE
+      ROLLNAME: PLN_VERWE
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T411
+    text:
+      FIELDTEXT: Task list usage
+      REPTEXT: Usage
+      SCRTEXT_S: Usage
+      SCRTEXT_M: Usage
+      SCRTEXT_L: Usage
+  TASK_LIST_COUNTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: ALTNR
+      ROLLNAME: PLNAL
+      OUTPUTLEN: 2
+    input:
+      MEMORYID: PAL
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Group Counter
+      REPTEXT: GrC
+      SCRTEXT_S: Grp.Countr
+      SCRTEXT_M: Group Counter
+      SCRTEXT_L: Group Counter
+  TASK_LIST_VALID_FROM_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: DATUV
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Valid-From Date
+      REPTEXT: Valid From
+      SCRTEXT_S: Valid From
+      SCRTEXT_M: Valid From
+      SCRTEXT_L: Valid From
+  MAT_TL_ASSGNMT_VALID_FROM_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: DATUV
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Valid-From Date
+      REPTEXT: Valid From
+      SCRTEXT_S: Valid From
+      SCRTEXT_M: Valid From
+      SCRTEXT_L: Valid From
+  SPEC_SEL_MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  SPEC_SEL_REV_LEV:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: REVLV
+      ROLLNAME: REVLV
+      OUTPUTLEN: 2
+    input:
+      MEMORYID: RVS
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Revision level
+      REPTEXT: RevLev
+      SCRTEXT_S: Rev. level
+      SCRTEXT_M: Revision level
+      SCRTEXT_L: Revision level
+  SPEC_SEL_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  SPEC_SEL_VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  IND_MATPARTNO_MGNT_ACTIVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QHERST
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Manufacturer Part No. Processing Active
+      SCRTEXT_S: MPN
+      SCRTEXT_M: MPN active
+      SCRTEXT_L: ManufPartNo active
+  SPEC_SEL_MANUFACTURER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: QLIFNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Number of Manufacturer
+      REPTEXT: Mfr
+      SCRTEXT_S: Mfr
+      SCRTEXT_M: Manufacturer
+      SCRTEXT_L: Manufacturer
+  SPEC_SEL_CUSTOMER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KUNNR
+      ROLLNAME: EKUNN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: KUN
+      CONVEXIT: ALPHA
+      SHLP: SH DEBI
+    text:
+      FIELDTEXT: Account number of customer
+      REPTEXT: Customer
+      SCRTEXT_S: Customer
+      SCRTEXT_M: Customer
+      SCRTEXT_L: Customer
+  SPEC_SEL_TASK_LIST_USAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: PLN_VERWE
+      ROLLNAME: PLN_VERWE
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T411
+    text:
+      FIELDTEXT: Task list usage
+      REPTEXT: Usage
+      SCRTEXT_S: Usage
+      SCRTEXT_M: Usage
+      SCRTEXT_L: Usage
+  SPEC_SEL_TL_VALID_FROM_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: DATUV
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Valid-From Date
+      REPTEXT: Valid From
+      SCRTEXT_S: Valid From
+      SCRTEXT_M: Valid From
+      SCRTEXT_L: Valid From
+  SPEC_SEL_MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_SPEC_SEL_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for SPEC_SEL_MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  SPEC_SEL_MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_SPEC_SEL_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for SPEC_SEL_MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  SPEC_SEL_MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_SPEC_SEL_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for SPEC_SEL_MA Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  SPEC_SEL_MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPI2045D_IL4:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+  IND_AUTOMATIC_UD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QAUTO_VE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Automatic Usage Decision Planned
+      REPTEXT: Auto UD
+      SCRTEXT_S: Auto UD
+      SCRTEXT_M: Auto UD
+      SCRTEXT_L: Automatic UD
+  IND_DIG_SIGN_USAGE_DECISION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SIG_IL_USA
+      ROLLNAME: SIG_IL_USA
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Digital Signature for Insp. Lot when Usage Decision Made
+      REPTEXT: DS
+      SCRTEXT_S: Dig. sign.
+      SCRTEXT_M: Dig.sign UD
+      SCRTEXT_L: Dig. signature at usage decision
+  UD_MODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QMODUS_UD
+      ROLLNAME: QMODUS_UD
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QMODUS_UD
+    text:
+      FIELDTEXT: Usage Decision Mmode (UD Origin)
+      REPTEXT: UD mode
+      SCRTEXT_S: UD mode
+      SCRTEXT_M: UD mode
+      SCRTEXT_L: UD mode
+  UD_CATALOG_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKATART
+      ROLLNAME: QKATART
+      OUTPUTLEN: 1
+    input:
+      MEMORYID: QKT
+      SHLP: SH H_TQ15
+    text:
+      FIELDTEXT: Catalog
+      REPTEXT: C
+      SCRTEXT_S: Catalog
+      SCRTEXT_M: Catalog
+      SCRTEXT_L: Catalog
+  UD_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  UD_SELECTED_SET:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QAUSWAHLMG
+      ROLLNAME: QVMENGE
+      OUTPUTLEN: 8
+      valueInputType: list
+    input:
+      SHLP: CH QPAM
+    text:
+      FIELDTEXT: Selected Set of the Usage Decision
+      REPTEXT: UD set
+      SCRTEXT_S: UD set
+      SCRTEXT_M: UD selected set
+      SCRTEXT_L: UD selected set
+  UD_CODE_GROUP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QCODEGRP
+      ROLLNAME: QVGRUPPE
+      OUTPUTLEN: 8
+      valueInputType: list
+    input:
+      MEMORYID: CGP
+      SHLP: CT QPGR
+    text:
+      FIELDTEXT: Code Group of the Usage Decision
+      REPTEXT: Code group
+      SCRTEXT_S: UD group
+      SCRTEXT_M: UD code group
+      SCRTEXT_L: UD code group
+  UD_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QVCODE
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Usage Decision Code
+      REPTEXT: Code
+      SCRTEXT_S: UD code
+      SCRTEXT_M: UD code
+      SCRTEXT_L: UD code
+  CODE_VALUATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QBEWERTUNG
+      ROLLNAME: QBEWERTUNG
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QBEWERTUNG
+    text:
+      FIELDTEXT: Code Valuation
+      REPTEXT: V
+      SCRTEXT_S: Code val.
+      SCRTEXT_M: Valuation Code
+      SCRTEXT_L: Valuation Code
+  DYN_MODIF_VALUATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QBEWERTUNG
+      ROLLNAME: QDBEWERT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QBEWERTUNG
+    text:
+      FIELDTEXT: Dynamic Modif. Valuation According to Worst Case Principle
+      REPTEXT: DynMod. valuation
+      SCRTEXT_S: Valuation
+      SCRTEXT_M: DynModValuation
+      SCRTEXT_L: DynMod. valuation
+  FOLLOW_UP_ACTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QFOLGEAKTI
+      ROLLNAME: QFOLGEAKTI
+      OUTPUTLEN: 8
+    input:
+      SHLP: SH H_TQ07
+    text:
+      FIELDTEXT: Follow-Up Action
+      REPTEXT: FolUpAct
+      SCRTEXT_S: Fllw-upAct
+      SCRTEXT_M: Follow-up actn
+      SCRTEXT_L: Follow-up action
+  QUALITY_SCORE:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 3
+      DOMNAME: QKENNZAHL
+      ROLLNAME: QKENNZAHL
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Quality Score
+      REPTEXT: QSc
+      SCRTEXT_S: Q-score
+      SCRTEXT_M: Quality score
+      SCRTEXT_L: Quality score
+  IND_UD_LONG_TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QLTEXTAVE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Long Text for Usage Decision
+      REPTEXT: L
+      SCRTEXT_S: Long text
+      SCRTEXT_M: Long text
+      SCRTEXT_L: Long text
+  UD_RECORDED_BY_USER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: QAENDERER
+      ROLLNAME: QVNAME
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Person who Made the Usage Decision
+      REPTEXT: UDec.made by
+      SCRTEXT_S: Made by
+      SCRTEXT_M: UsgDec. made by
+      SCRTEXT_L: Usage dec. made by
+  UD_RECORDED_ON_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: QVEDATUM
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of Code Used for Usage Decision
+      REPTEXT: Code date
+      SCRTEXT_S: 'On'
+      SCRTEXT_M: UD Code Date
+      SCRTEXT_L: UD Code Date
+  UD_RECORDED_AT_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: QZEIT
+      ROLLNAME: QVEZEITERF
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time when Usage Decision Was Recorded
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: 'UD recorded at:'
+  UD_CHANGED_BY_USER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: QAENDERER
+      ROLLNAME: QVAENAME
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Person who Changed the Usage Decision
+      REPTEXT: UsgDec.chgd by
+      SCRTEXT_S: by
+      SCRTEXT_M: UsgDec. chgd by
+      SCRTEXT_L: Usage dec.changed by
+  UD_CHANGED_ON_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: QVAEDATUM
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Change Date of Usage Decision
+      REPTEXT: Date
+      SCRTEXT_S: 'On'
+      SCRTEXT_M: Date of UD
+      SCRTEXT_L: UsageDec.change date
+  UD_CHANGED_AT_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: QZEIT
+      ROLLNAME: QVEZEITAEN
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time when Usage Decision Changed
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: 'UD changed at:'
+BAPI2045L1:
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: CHA
+      SHLP: CH MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  CREAT_DAT:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: QDATUMERST
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date on Which the Data Record Was Created
+      REPTEXT: Created on
+      SCRTEXT_S: 'On'
+      SCRTEXT_M: Created on
+      SCRTEXT_L: Created on
+  CUSTOMER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KUNNR
+      ROLLNAME: QKUNWE
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+      SHLP: SH DEBI
+    text:
+      FIELDTEXT: Customer (Ship-To Party)
+      REPTEXT: Customer
+      SCRTEXT_S: Customer
+      SCRTEXT_M: Customer
+      SCRTEXT_L: Customer
+  DELIV_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: POSNR
+      ROLLNAME: POSNR_VL
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH VBUP
+    text:
+      FIELDTEXT: Delivery Item
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item
+  DELIV_NUMB:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: VBELN_VL
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: VL
+      CONVEXIT: ALPHA
+      SHLP: CH VBUK
+    text:
+      FIELDTEXT: Delivery
+      REPTEXT: Delivery
+      SCRTEXT_S: Delivery
+      SCRTEXT_M: Delivery
+      SCRTEXT_L: Delivery
+  MAT_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: MBLNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: MBN
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of Material Document
+      REPTEXT: Mat. Doc.
+      SCRTEXT_S: Mat. Doc.
+      SCRTEXT_M: Material Doc.
+      SCRTEXT_L: Material Document
+  MATDOC_ITM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: MBLPO
+      ROLLNAME: MBLPO
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: POS
+    text:
+      FIELDTEXT: Item in Material Document
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Mat. Doc.Item
+      SCRTEXT_L: Material Doc.Item
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  ORDER_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  PO_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: EBELP
+      ROLLNAME: EBELP
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      MEMORYID: BSP
+      SHLP: CH EKPO
+    text:
+      FIELDTEXT: Item Number of Purchasing Document
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item
+  PO_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: EBELN
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: BES
+      CONVEXIT: ALPHA
+      SHLP: CH EKKO
+    text:
+      FIELDTEXT: Purchasing Document Number
+      REPTEXT: Purch.doc.
+      SCRTEXT_S: Purch.doc.
+      SCRTEXT_M: Purchasing doc.
+      SCRTEXT_L: Purchasing document
+  VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+BAPI2045S1:
+  MAXROWS:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: QROWCOUNT
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Number of Lines
+      REPTEXT: No. of Lines
+      SCRTEXT_S: Number
+      SCRTEXT_M: Number of lines
+      SCRTEXT_L: Number of lines
+  FILTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QMODE
+      ROLLNAME: QMODE
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: QMO
+      SHLP: CT TQ78
+    text:
+      FIELDTEXT: Characteristic Filter (Processing Mode) for Inspection Chars
+      REPTEXT: Filter
+      SCRTEXT_S: Filter
+      SCRTEXT_M: Char. filter
+      SCRTEXT_L: Char. filter
+  FILTER_TCODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TCODE
+      ROLLNAME: QMODETCODE
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT TSTC
+    text:
+      FIELDTEXT: Transaction Code of Characteristic Filter for Insp. Chars.
+  IND_X_OR_BLANK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: X and Blank
+      REPTEXT: QMInd
+      SCRTEXT_S: QM ind.
+      SCRTEXT_M: QM indicator
+      SCRTEXT_L: QM indicator
+BAPIQMSTI7:
+  RD_HDR_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: SA_AUFNR
+      ROLLNAME: SA_AUFNR
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT SAFK
+    text:
+      FIELDTEXT: Run schedule header number
+      REPTEXT: RS header
+      SCRTEXT_S: RS header
+      SCRTEXT_M: RS header
+      SCRTEXT_L: Run schedule header
+BAPI2045AS:
+  SELECTION_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: SELID
+      ROLLNAME: SELID
+      OUTPUTLEN: 7
+      valueInputType: list
+    input:
+      SHLP: CT TJ48
+    text:
+      FIELDTEXT: Selection ID
+      REPTEXT: SelProf
+      SCRTEXT_S: SelProfile
+      SCRTEXT_M: Select. Profile
+      SCRTEXT_L: Selection Profile
+  STATUS_CREATED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QSTAT_ERO
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspection Lots with Status 'Created'
+      SCRTEXT_S: Created
+      SCRTEXT_M: Created
+      SCRTEXT_L: Created lots
+  STATUS_RELEASED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QSTAT_FREI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspection Lots with Status 'Released'
+      SCRTEXT_S: Released
+      SCRTEXT_M: Released
+      SCRTEXT_L: Released
+  STATUS_UD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QSTAT_VE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspection Lots with Status 'Usage Decision Made'
+      SCRTEXT_S: UDec.made
+      SCRTEXT_M: UsageDec.made
+      SCRTEXT_L: UsageDec.made
+BAPIMGVMATNR:
+  MATERIAL_EXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MATNR_EXT
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: External Long Material Number
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_VERS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MATNR_VERS
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: MATVERS
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Material Version Number
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SYSUUID_C
+      ROLLNAME: MATNR_EGUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Material number (external GUID)
+      REPTEXT: GUID (material number)
+      SCRTEXT_S: GUID
+      SCRTEXT_M: GUID (material)
+      SCRTEXT_L: GUID (material no.)
+QALS:
+  PRUEFLOS:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+BAPI2045L2:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  TXT_OPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: QKURZTEXT
+      ROLLNAME: QKURZTEXT
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Text
+      REPTEXT: Short text
+      SCRTEXT_S: Short text
+      SCRTEXT_M: Short text
+      SCRTEXT_L: Short text
+  WORKCENTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: ARBPL
+      ROLLNAME: QPRPLATZ
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: QAP
+    text:
+      FIELDTEXT: Work Center
+      REPTEXT: Work Ctr
+      SCRTEXT_S: Work Ctr
+      SCRTEXT_M: Work center
+      SCRTEXT_L: Work center
+  PLNT_WORKC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  TXT_WORKC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: QKURZTEXT
+      ROLLNAME: QKURZTEXT
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Text
+      REPTEXT: Short text
+      SCRTEXT_S: Short text
+      SCRTEXT_M: Short text
+      SCRTEXT_L: Short text
+  IDI_SUBSYS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: QEIFSUBSYS
+      ROLLNAME: QEIFSUBSYS
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CT QISUB
+    text:
+      FIELDTEXT: Subsystem Identifier for QM Subsystem Interface
+      REPTEXT: QDR sy
+      SCRTEXT_S: QDR system
+      SCRTEXT_M: QDR system
+      SCRTEXT_L: QDR system
+BAPI2045UD:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+BAPI2045UD_RETURN:
+  QUALITY_SCORE:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 3
+      DOMNAME: QKENNZAHL
+      ROLLNAME: QKENNZAHL
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Quality Score
+      REPTEXT: QSc
+      SCRTEXT_S: Q-score
+      SCRTEXT_M: Quality score
+      SCRTEXT_L: Quality score
+  INSPLOT_FRACTION_NONCONFORMING:
+    format:
+      DATATYPE: FLTP
+      INTTYPE: F
+      LENG: 16
+      DOMNAME: QFLTP16
+      ROLLNAME: QAUSANTEIL
+      OUTPUTLEN: 22
+      DECIMALS: 16
+    text:
+      FIELDTEXT: Share of Scrap in Inspection Lot
+      REPTEXT: Share of scrap
+      SCRTEXT_S: Share
+      SCRTEXT_M: Share of scrap
+      SCRTEXT_L: Share of scrap
+  FOLLOW_UP_ACTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QFOLGEAKTI
+      ROLLNAME: QFOLGEAKTI
+      OUTPUTLEN: 8
+    input:
+      SHLP: SH H_TQ07
+    text:
+      FIELDTEXT: Follow-Up Action
+      REPTEXT: FolUpAct
+      SCRTEXT_S: Fllw-upAct
+      SCRTEXT_M: Follow-up actn
+      SCRTEXT_L: Follow-up action
+  COUNTER_FOLLOW_UP:
+    format:
+      DATATYPE: INT2
+      INTTYPE: s
+      LENG: 5
+      DOMNAME: INT2
+      ROLLNAME: QCNT_LATE
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Number of Function Modules, Called After Update
+      REPTEXT: No. of function modules 'after' update
+      SCRTEXT_S: Number
+      SCRTEXT_M: No. Funct. Mods
+      SCRTEXT_L: No. function modules
+  IND_COMPLETION_FORCED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QINSP_FORCED
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inspection Completion Forced
+      REPTEXT: ICFor
+      SCRTEXT_S: Completion
+      SCRTEXT_M: ForcedInspCompl
+      SCRTEXT_L: Insp. Compl. Forced
+BAPI2045L5:
+  HANDHELD_APPLICATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: QEHHANWD
+      ROLLNAME: QEHHANWD
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CT TQ90
+    text:
+      FIELDTEXT: Mobile Application
+      REPTEXT: Appl.
+      SCRTEXT_S: Appl.
+      SCRTEXT_M: Mobile applic.
+      SCRTEXT_L: Mobile application
+BAPIRET2:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  PARAMETER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SWC_ELEM
+      ROLLNAME: BAPI_PARAM
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Parameter Name
+      REPTEXT: Param. Name
+      SCRTEXT_S: Parameters
+      SCRTEXT_M: Parameter Name
+      SCRTEXT_L: Parameter Name
+  ROW:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: BAPI_LINE
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Lines in parameter
+      REPTEXT: Lines in parameter
+      SCRTEXT_S: Line
+      SCRTEXT_M: Parameter line
+      SCRTEXT_L: Lines in parameter
+  FIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FDNAME
+      ROLLNAME: BAPI_FLD
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT DD03L
+    text:
+      FIELDTEXT: Field in parameter
+      REPTEXT: Fld.
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field name
+      SCRTEXT_L: Field name
+  SYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LOGSYS
+      ROLLNAME: BAPILOGSYS
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT TBDLS
+    text:
+      FIELDTEXT: Logical system from which message originates
+      REPTEXT: System from which message comes
+      SCRTEXT_S: System
+      SCRTEXT_M: Logical system
+      SCRTEXT_L: Logical system (source of message)
+BAPI2045L4:
+  INSPPOINT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: QPROBENR
+      ROLLNAME: QIBPPPKTNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH QAPP
+    text:
+      FIELDTEXT: Inspection Point Number
+      REPTEXT: InspPt
+      SCRTEXT_S: InspPoint
+      SCRTEXT_M: Inspection pt
+      SCRTEXT_L: Inspection pt
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+BAPI2045D5:
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QIBPLOSNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Inspectn Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection lot
+      SCRTEXT_L: Inspection lot
+  INSPOPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: QIBPVORNR
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Inspection Lot Operation Number
+      REPTEXT: Oper
+      SCRTEXT_S: Operation
+      SCRTEXT_M: Operation
+      SCRTEXT_L: Operation
+  INSPPOINT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: QPROBENR
+      ROLLNAME: QIBPPPKTNR
+      OUTPUTLEN: 6
+    input:
+      SHLP: CH QAPP
+    text:
+      FIELDTEXT: Inspection Point Number
+      REPTEXT: InspPt
+      SCRTEXT_S: InspPoint
+      SCRTEXT_M: Inspection pt
+      SCRTEXT_L: Inspection pt
+  CAT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKATART
+      ROLLNAME: QKATART
+      OUTPUTLEN: 1
+    input:
+      MEMORYID: QKT
+      SHLP: SH H_TQ15
+    text:
+      FIELDTEXT: Catalog
+      REPTEXT: C
+      SCRTEXT_S: Catalog
+      SCRTEXT_M: Catalog
+      SCRTEXT_L: Catalog
+  SEL_SET:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QAUSWAHLMG
+      ROLLNAME: QPPVEMENGE
+      OUTPUTLEN: 8
+    input:
+      SHLP: CH QPAM
+    text:
+      FIELDTEXT: Selected Set for Inspection Point Valuation
+      REPTEXT: SelSet
+      SCRTEXT_S: Selec. set
+      SCRTEXT_M: Selected set
+      SCRTEXT_L: Selected set
+  PSEL_SET:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: QPPVEWERK
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant of Selected Set for Inspection Point Valuation
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  CODE_GRP_A:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QCODEGRP
+      ROLLNAME: QPPVECODGR
+      OUTPUTLEN: 8
+    input:
+      SHLP: CT QPGR
+    text:
+      FIELDTEXT: Code Group for Inspection Point Valuation
+      REPTEXT: Code grp
+      SCRTEXT_S: Code group
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE_ACCEPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QPPVECODE
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code for Inspection Point Valuation
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  CODE_GRP_R:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: QCODEGRP
+      ROLLNAME: QPPVECODGR
+      OUTPUTLEN: 8
+    input:
+      SHLP: CT QPGR
+    text:
+      FIELDTEXT: Code Group for Inspection Point Valuation
+      REPTEXT: Code grp
+      SCRTEXT_S: Code group
+      SCRTEXT_M: Code group
+      SCRTEXT_L: Code group
+  CODE_REJECT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: QCODE
+      ROLLNAME: QPPVECODE
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT QPCD
+    text:
+      FIELDTEXT: Code for Inspection Point Valuation
+      REPTEXT: Code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Code
+      SCRTEXT_L: Code
+  TIME_GRID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QKZPRZEIT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Interval = Time (Time-Related)
+      REPTEXT: T
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time-related
+      SCRTEXT_L: Time-related
+  QUANT_GRID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QKZPRMENG
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Creation Cycle = Quantity  (Quantity-Reference)
+      REPTEXT: Q
+      SCRTEXT_S: Quantity
+      SCRTEXT_M: Qty-related
+      SCRTEXT_L: Quantity-related
+  FREE_GRID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QKZPRFREI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Interval Without Reference to Time or Quantity
+      REPTEXT: R
+      SCRTEXT_S: NoRelation
+      SCRTEXT_M: No relation
+      SCRTEXT_L: No relation
+  TIME_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: QRASTZEHT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Time Unit
+      REPTEXT: Tim
+      SCRTEXT_S: Time unit
+      SCRTEXT_M: Time unit
+      SCRTEXT_L: Time unit
+  TIME_FAC:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM6
+      ROLLNAME: QEIFRASTZF
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Time Factor
+      REPTEXT: TFac.
+      SCRTEXT_S: Time fact.
+      SCRTEXT_M: Time factor
+      SCRTEXT_L: Time factor
+  QUANT_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: QRASTEREH
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Grid Unit of Measure
+      REPTEXT: GMU
+      SCRTEXT_S: GridUnit
+      SCRTEXT_M: Grid msmt unit
+      SCRTEXT_L: Grid msmt unit
+  QUANT_FAC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 17
+      DOMNAME: CHAR17
+      ROLLNAME: QEIFRASTMG
+      OUTPUTLEN: 17
+    text:
+      FIELDTEXT: Quantity Between Two Inspections
+      REPTEXT: Qty interval
+      SCRTEXT_S: Quantity
+      SCRTEXT_M: QtyIntervalInsp
+      SCRTEXT_L: Qty interval insp.
+  IDENT_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: QSLWBEZ
+      ROLLNAME: QSLWBEZ
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: QBK
+      SHLP: SH H_TQ79
+    text:
+      FIELDTEXT: Identification for the Inspection Point Field Combination
+      REPTEXT: FCo
+      SCRTEXT_S: Fieldcomb.
+      SCRTEXT_M: Field combinat.
+      SCRTEXT_L: User field combinat.
+  IP_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QPPKTTYP
+      ROLLNAME: QPPKTTYP
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QPPKTTYP
+    text:
+      FIELDTEXT: Inspection Point Type
+      SCRTEXT_S: Type
+      SCRTEXT_M: InspPt type
+      SCRTEXT_L: Insp. point type
+  EQUI_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  EQUI_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  F_LOC_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  F_LOC_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  SMPL_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  SMPL_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  USERC1_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  USERC1_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  USERC2_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  USERC2_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  USERN1_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  USERN1_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  USERN2_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  USERN2_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  USERD1_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  USERD1_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  USERT1_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZUSRAKT
+      ROLLNAME: QKZUSRAKT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV QKZUSRAKT
+    text:
+      FIELDTEXT: Field Active
+      REPTEXT: A
+      SCRTEXT_S: Field act.
+      SCRTEXT_M: Usr.fld active
+      SCRTEXT_L: User field active
+  USERT1_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: QUSRSLW
+      ROLLNAME: QUSRSLW
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Keyword for User Field
+      REPTEXT: Keyword
+      SCRTEXT_S: Keyword
+      SCRTEXT_M: Keyword
+      SCRTEXT_L: Keyword
+  PARTLOTS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QEIFTLPFL
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Partial Lot Assignment Required for an Insp. Point
+  BATCHES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: XCHPF
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Batch management requirement indicator
+      REPTEXT: BMR
+      SCRTEXT_S: Batch mgmt
+      SCRTEXT_M: Batch Mgmt Rqt
+      SCRTEXT_L: Batch management
+  QUANTITIES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: QIBPQUANT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Quantities Must Be Assigned
+      REPTEXT: Q
+      SCRTEXT_S: Quants. rq
+      SCRTEXT_M: Quants. rqrd.
+      SCRTEXT_L: Quantities must be assigned
+  QUANTONCE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: QKZ
+      ROLLNAME: QKZZTMG1
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Quantity Confirmation for Each Partial Lot
+      SCRTEXT_S: Q. pt. lot
+      SCRTEXT_M: Quan. pt. lot
+      SCRTEXT_L: Q conf. partial lot
+  EVALUATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: QIBPEVAL
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Valuation Required
+      REPTEXT: V
+      SCRTEXT_S: Valuation
+      SCRTEXT_M: Valuation rqrd.
+      SCRTEXT_L: Valuation required

@@ -1,0 +1,952 @@
+BAPI_ALM_COMPONENT_GET_DETAIL:
+  IV_ACTIVITY:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_OPERATION_E
+    FIELDNAME: ACTIVITY
+    PARAMTEXT: Operation Number
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: IV_ACTIVITY
+    required: true
+    paramType: var
+  IV_ORDERID:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_HEADER_E
+    FIELDNAME: ORDERID
+    PARAMTEXT: Order Number
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: IV_ORDERID
+    required: true
+    paramType: var
+  IV_RES_ITEM:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_COMPONENT_E
+    FIELDNAME: RES_ITEM
+    PARAMTEXT: Item number of reservation / dependent requirements
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: IV_RES_ITEM
+    required: true
+    paramType: var
+  IV_RESERV_NO:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_COMPONENT_E
+    FIELDNAME: RESERV_NO
+    PARAMTEXT: Number of Reservation / Dependent Requirement
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: IV_RESERV_NO
+    required: true
+    paramType: var
+  IV_RES_TYPE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_COMPONENT_E
+    FIELDNAME: RES_TYPE
+    PARAMTEXT: 'Record Type (General Components: '' '', Follow-Up Material: ''1'' )'
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: IV_RES_TYPE
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: RETURN
+    required: true
+    paramType: table
+  ET_TEXT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT
+    PARAMTEXT: Text Header for ALM Order BAPIs
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: ET_TEXT
+    required: false
+    default: ''
+    paramType: table
+  ET_TEXT_LINES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT_LINES
+    PARAMTEXT: 'SAPscript: Text Lines'
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: ET_TEXT_LINES
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_IN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Customer Enhancement In
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: EXTENSION_IN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Customer Enhancement Out
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: EXTENSION_OUT
+    required: false
+    default: ''
+    paramType: table
+  ES_COMPONENT:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_COMPONENT_E
+    PARAMTEXT: PM/CS BAPI Order Components (Export Structure)
+    functionName: BAPI_ALM_COMPONENT_GET_DETAIL
+    paramName: ES_COMPONENT
+    required: true
+    paramType: struct
+BAPI_ALM_OPERATION_GET_DETAIL:
+  IV_ACTIVITY:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_OPERATION_E
+    FIELDNAME: ACTIVITY
+    PARAMTEXT: Operation Number
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: IV_ACTIVITY
+    required: true
+    paramType: var
+  IV_ORDERID:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_HEADER_E
+    FIELDNAME: ORDERID
+    PARAMTEXT: Order Number
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: IV_ORDERID
+    required: true
+    paramType: var
+  IV_SUB_ACTIVITY:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_OPERATION_E
+    FIELDNAME: SUB_ACTIVITY
+    PARAMTEXT: Suboperation Number
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: IV_SUB_ACTIVITY
+    required: false
+    default: ''
+    paramType: var
+  ET_TEXT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT
+    PARAMTEXT: Text Header for ALM Order BAPIs
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: ET_TEXT
+    required: true
+    paramType: table
+  ET_TEXT_LINES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT_LINES
+    PARAMTEXT: 'SAPscript: Text Lines'
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: ET_TEXT_LINES
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter Table
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: RETURN
+    required: true
+    paramType: table
+  COMP_PMCO_OP:
+    PARAMCLASS: T
+    TABNAME: PMCO_KGR_OP
+    PARAMTEXT: 'PMCO extract: Plan/actual costs and revenues by val.category'
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: COMP_PMCO_OP
+    required: false
+    default: ''
+    paramType: table
+  ET_SRULES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_SRULE_E
+    PARAMTEXT: Export Structure for PM/CS BAPIs Settlement Rule
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: ET_SRULES
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_IN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameter ExtensionIn
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: EXTENSION_IN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameter ExtensionOut
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: EXTENSION_OUT
+    required: false
+    default: ''
+    paramType: table
+  LIST_PMCO_OP:
+    PARAMCLASS: T
+    TABNAME: PMCO_EXT_OP
+    PARAMTEXT: 'PMCO extract: Total costs and revenues of a PM order'
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: LIST_PMCO_OP
+    required: false
+    default: ''
+    paramType: table
+  ES_OPERATION:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_OPERATION_E
+    PARAMTEXT: Export Structure for PM/CS BAPIs Operations
+    functionName: BAPI_ALM_OPERATION_GET_DETAIL
+    paramName: ES_OPERATION
+    required: true
+    paramType: struct
+BAPI_ALM_ORDER_GET_DETAIL:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_HEADER_E
+    FIELDNAME: ORDERID
+    PARAMTEXT: Order Number
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: NUMBER
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: RETURN
+    required: true
+    paramType: table
+  ET_COMPONENTS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_COMPONENT_E
+    PARAMTEXT: PM/CS BAPI Order Components
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_COMPONENTS
+    required: false
+    default: ''
+    paramType: table
+  ET_COSTS_DETAILS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_COSTS_DETAIL_E
+    PARAMTEXT: 'ALM Order BAPIs: Structure for Order Costs Detail'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_COSTS_DETAILS
+    required: false
+    default: ''
+    paramType: table
+  ET_COSTS_SUM:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_COSTS_SUM_E
+    PARAMTEXT: 'ALM Order BAPIs: Structure for Order Costs Sum'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_COSTS_SUM
+    required: false
+    default: ''
+    paramType: table
+  ET_OLIST:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_OBJECTLIST
+    PARAMTEXT: 'Export Structure BAPI PM/CS: Object List'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_OLIST
+    required: false
+    default: ''
+    paramType: table
+  ET_OPERATIONS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_OPERATION_E
+    PARAMTEXT: Export Structure for PM/CS BAPIs Operations
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_OPERATIONS
+    required: false
+    default: ''
+    paramType: table
+  ET_OPROL:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_OLIST_RELATION
+    PARAMTEXT: BAPI Structure for OPROL - Relation Operation Object List
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_OPROL
+    required: false
+    default: ''
+    paramType: table
+  ET_PARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PARTNER
+    PARAMTEXT: 'ALM Order BAPIs: Partner Data'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_PARTNER
+    required: false
+    default: ''
+    paramType: table
+  ET_PERMIT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PERMIT_READ
+    PARAMTEXT: Permits
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_PERMIT
+    required: false
+    default: ''
+    paramType: table
+  ET_PERMIT_ISSUE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PER_ISSUE_R
+    PARAMTEXT: Issued Permits
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_PERMIT_ISSUE
+    required: false
+    default: ''
+    paramType: table
+  ET_PRTS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PRT_E
+    PARAMTEXT: 'ALM Order BAPIs: Structure for Production Resources/Tools'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_PRTS
+    required: false
+    default: ''
+    paramType: table
+  ET_REFORDER_SERNO_OLIST:
+    PARAMCLASS: T
+    TABNAME: BAPI_REFORDER_SERNO_OLIST
+    PARAMTEXT: 'BAPI: Structure for Serial Number Object List'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_REFORDER_SERNO_OLIST
+    required: false
+    default: ''
+    paramType: table
+  ET_RELATIONS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_RELATION_EXPORT
+    PARAMTEXT: BAPI Structure for ALM Order Relationships
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_RELATIONS
+    required: false
+    default: ''
+    paramType: table
+  ET_SERVICECONTRACTLIMITS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_CONTRACT_LIMITS
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_SERVICECONTRACTLIMITS
+    required: false
+    default: ''
+    paramType: table
+  ET_SERVICELIMIT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_LIMIT_DATA
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_SERVICELIMIT
+    required: false
+    default: ''
+    paramType: table
+  ET_SERVICELINES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_SERVICE_LINE
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_SERVICELINES
+    required: false
+    default: ''
+    paramType: table
+  ET_SERVICEOUTLINE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_OUTLINE
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_SERVICEOUTLINE
+    required: false
+    default: ''
+    paramType: table
+  ET_SRULES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_SRULE_E
+    PARAMTEXT: Export Structure for PM/CS BAPIs Settlement Rule
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_SRULES
+    required: false
+    default: ''
+    paramType: table
+  ET_TEXT_LINES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT_LINES
+    PARAMTEXT: Text Lines for ALM BAPIs
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_TEXT_LINES
+    required: false
+    default: ''
+    paramType: table
+  ET_TEXTS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT
+    PARAMTEXT: Text Header for ALM Order BAPIs
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ET_TEXTS
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_IN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: EXTENSION_IN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: EXTENSION_OUT
+    required: false
+    default: ''
+    paramType: table
+  ES_HEADER:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_HEADER_E
+    PARAMTEXT: Export Structure for ALM Order Header
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ES_HEADER
+    required: true
+    paramType: struct
+  ES_REFORDER_ITEM:
+    PARAMCLASS: E
+    TABNAME: BAPI_REFORDER_ITEM
+    PARAMTEXT: 'BAPI: Header Component for Refurbishment Order'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ES_REFORDER_ITEM
+    required: true
+    paramType: struct
+  ES_SRVDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_SRVDAT_E
+    PARAMTEXT: 'ALM Order BAPIs: Service-Specific Data, External Structure'
+    functionName: BAPI_ALM_ORDER_GET_DETAIL
+    paramName: ES_SRVDATA
+    required: true
+    paramType: struct
+BAPI_ALM_ORDER_MAINTAIN:
+  IV_MMSRV_EXTERNAL_MAINTENACE:
+    PARAMCLASS: I
+    TABNAME: BAPI_FLAG
+    PARAMTEXT: MMSRV Data for Order Item Is Maintained Externally
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IV_MMSRV_EXTERNAL_MAINTENACE
+    required: false
+    default: ''
+    paramType: var
+  IT_METHODS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_METHOD
+    PARAMTEXT: 'BAPI structure: Processing methods'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_METHODS
+    required: true
+    paramType: table
+  ET_NOTIFICATION_NUMBERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_NOTIF_NUMBERS
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: ET_NOTIFICATION_NUMBERS
+    required: false
+    default: ''
+    paramType: table
+  ET_NUMBERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_NUMBERS
+    PARAMTEXT: Return Structure with Transferred and Issued Order Numbers
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: ET_NUMBERS
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_IN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: EXTENSION_IN
+    required: false
+    default: ''
+    paramType: table
+  IT_COMPONENT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_COMPONENT
+    PARAMTEXT: PM/CS BAPI Order Components
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_COMPONENT
+    required: false
+    default: ''
+    paramType: table
+  IT_COMPONENT_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_COMPONENT_UP
+    PARAMTEXT: PM/CS BAPI Order Components (Update Structure)
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_COMPONENT_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_ESTIMATED_COSTS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_COSTS_EST_I
+    PARAMTEXT: 'ALM Order BAPIs: Estimated Costs per Value Category'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_ESTIMATED_COSTS
+    required: false
+    default: ''
+    paramType: table
+  IT_HEADER:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_HEADERS_I
+    PARAMTEXT: Import Structure for ALM Order Headers
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_HEADER
+    required: false
+    default: ''
+    paramType: table
+  IT_HEADER_SRV:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_SRVDAT_E
+    PARAMTEXT: 'ALM Order BAPIs: Service-Specific Data, External Structure'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_HEADER_SRV
+    required: false
+    default: ''
+    paramType: table
+  IT_HEADER_SRV_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_SRVDAT_UP
+    PARAMTEXT: 'ALM Order BAPIs: Service-Specific Data, External Structure'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_HEADER_SRV_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_HEADER_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_HEADERS_UP
+    PARAMTEXT: Update Structure for ALM Order Headers
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_HEADER_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_OBJECTLIST:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_OBJECTLIST
+    PARAMTEXT: Object List - BAPI Structure
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_OBJECTLIST
+    required: false
+    default: ''
+    paramType: table
+  IT_OBJECTLIST_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_OLIST_UP
+    PARAMTEXT: Update Structure for Object List PM/CS
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_OBJECTLIST_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_OLIST_RELATION:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_OLIST_RELATION
+    PARAMTEXT: OPROL - Relation Operation Object List - BAPI Structure
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_OLIST_RELATION
+    required: false
+    default: ''
+    paramType: table
+  IT_OPERATION:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_OPERATION
+    PARAMTEXT: Input Structure for PM/CS BAPIs Operations
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_OPERATION
+    required: false
+    default: ''
+    paramType: table
+  IT_OPERATION_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_OPERATION_UP
+    PARAMTEXT: Update Structure for PM/CS BAPI Operations
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_OPERATION_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_PARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PARTN_MUL
+    PARAMTEXT: 'ALM Order BAPIs: Partner Data for Several Orders'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_PARTNER
+    required: false
+    default: ''
+    paramType: table
+  IT_PARTNER_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PARTN_MUL_UP
+    PARAMTEXT: 'ALM Order BAPIs: Partner Data for Several Orders, Update'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_PARTNER_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PERMIT
+    PARAMTEXT: Permits
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_PERMIT
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT_ISSUE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PERMITISSUE
+    PARAMTEXT: Issue Permits
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_PERMIT_ISSUE
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PERMIT_UP
+    PARAMTEXT: Update Table for Permits
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_PERMIT_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_PRT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PRT_I
+    PARAMTEXT: 'ALM Order BAPIs: Input Structure for Production Resources/Tools'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_PRT
+    required: false
+    default: ''
+    paramType: table
+  IT_PRT_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_PRT_UP
+    PARAMTEXT: 'ALM Order BAPIs: Changes for Production Resources/Tools'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_PRT_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_REFORDER_ITEM:
+    PARAMCLASS: T
+    TABNAME: BAPI_REFORDER_ITEM_I
+    PARAMTEXT: 'BAPI: Header Component for Refurbishment Order (Import)'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_REFORDER_ITEM
+    required: false
+    default: ''
+    paramType: table
+  IT_REFORDER_ITEM_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_REFORDER_ITEM_UP
+    PARAMTEXT: 'BAPI: Update Structure for Refurbishment Order Item'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_REFORDER_ITEM_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_REFORDER_OPERATION:
+    PARAMCLASS: T
+    TABNAME: BAPI_REFORDER_OPERATION
+    PARAMTEXT: BAPI Input Structure for Refurbishment Order First Operation
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_REFORDER_OPERATION
+    required: false
+    default: ''
+    paramType: table
+  IT_REFORDER_SERNO_OLIST_DEL:
+    PARAMCLASS: T
+    TABNAME: BAPI_REFORDER_SERNO_OLIST_I
+    PARAMTEXT: 'BAPI: Import Structure for Serial Number Object List'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_REFORDER_SERNO_OLIST_DEL
+    required: false
+    default: ''
+    paramType: table
+  IT_REFORDER_SERNO_OLIST_INS:
+    PARAMCLASS: T
+    TABNAME: BAPI_REFORDER_SERNO_OLIST_I
+    PARAMTEXT: 'BAPI: Import Structure for Serial Number Object List'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_REFORDER_SERNO_OLIST_INS
+    required: false
+    default: ''
+    paramType: table
+  IT_RELATION:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_RELATION
+    PARAMTEXT: BAPI Structure for ALM Order Relationships
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_RELATION
+    required: false
+    default: ''
+    paramType: table
+  IT_RELATION_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_RELATION_UP
+    PARAMTEXT: BAPI Structure for ALM Order Relationships
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_RELATION_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICECONTRACTLIMITS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_CONTRACT_LIMITS
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICECONTRACTLIMITS
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICECONTRACTLIMITS_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_CONTRACT_LIMITS_U
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICECONTRACTLIMITS_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICELIMIT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_LIMIT_DATA
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICELIMIT
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICELIMIT_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_LIMIT_DATA_UP
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICELIMIT_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICELINES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_SERVICE_LINE
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICELINES
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICELINES_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_SERVICE_LINE_UP
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICELINES_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICEOUTLINE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_OUTLINE
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICEOUTLINE
+    required: false
+    default: ''
+    paramType: table
+  IT_SERVICEOUTLINE_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_SRV_OUTLINE_UP
+    PARAMTEXT: ''
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SERVICEOUTLINE_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_SRULE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_SRULE
+    PARAMTEXT: PM/CS BAPI Settlement Rule
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SRULE
+    required: false
+    default: ''
+    paramType: table
+  IT_SRULE_UP:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_SRULE_UP
+    PARAMTEXT: PM/CS BAPI Settlement Rule (Update Structure)
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_SRULE_UP
+    required: false
+    default: ''
+    paramType: table
+  IT_TASKLISTS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_TASKLISTS_I
+    PARAMTEXT: Parameter for Integrating Task Lists
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_TASKLISTS
+    required: false
+    default: ''
+    paramType: table
+  IT_TEXT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT
+    PARAMTEXT: Text Header for ALM Order BAPIs
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_TEXT
+    required: false
+    default: ''
+    paramType: table
+  IT_TEXT_LINES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TEXT_LINES
+    PARAMTEXT: 'SAPscript: Text Lines'
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_TEXT_LINES
+    required: false
+    default: ''
+    paramType: table
+  IT_USERSTATUS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_USRSTAT
+    PARAMTEXT: Structure for ALM Order, User Status Change
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: IT_USERSTATUS
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter(s)
+    functionName: BAPI_ALM_ORDER_MAINTAIN
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+BAPI_ALM_ORDERHEAD_GET_LIST:
+  DISPLAY_PARAMETERS:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_LIST_NAVIGATION_IN
+    PARAMTEXT: 'ALM Order Lists: Parameter for Navigation'
+    functionName: BAPI_ALM_ORDERHEAD_GET_LIST
+    paramName: DISPLAY_PARAMETERS
+    required: false
+    default: ''
+    paramType: struct
+  ET_RESULT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTHEAD_RESULT
+    PARAMTEXT: 'ALM Orders: Order List from Selection'
+    functionName: BAPI_ALM_ORDERHEAD_GET_LIST
+    paramName: ET_RESULT
+    required: true
+    paramType: table
+  IT_RANGES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTHEAD_RANGES
+    PARAMTEXT: 'ALM Order BAPIs: Copy Structure for Selection Parameter'
+    functionName: BAPI_ALM_ORDERHEAD_GET_LIST
+    paramName: IT_RANGES
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_ORDERHEAD_GET_LIST
+    paramName: RETURN
+    required: true
+    paramType: table
+  ET_TEMPLATE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTHEAD_RANGES
+    PARAMTEXT: 'ALM Order BAPIs: Copy Structure for Selection Parameter'
+    functionName: BAPI_ALM_ORDERHEAD_GET_LIST
+    paramName: ET_TEMPLATE
+    required: false
+    default: ''
+    paramType: table
+  NAVIGATION_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_LIST_NAVIGATION_RET
+    PARAMTEXT: 'ALM Order Lists: Basic Dates for Navigation'
+    functionName: BAPI_ALM_ORDERHEAD_GET_LIST
+    paramName: NAVIGATION_DATA
+    required: true
+    paramType: struct
+BAPI_ALM_ORDEROPER_GET_LIST:
+  DISPLAY_PARAMETERS:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_LIST_NAVIGATION_IN
+    PARAMTEXT: 'ALM Order Lists: Parameter for Navigation'
+    functionName: BAPI_ALM_ORDEROPER_GET_LIST
+    paramName: DISPLAY_PARAMETERS
+    required: false
+    default: ''
+    paramType: struct
+  ET_RESULT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTOPER_RESULT
+    PARAMTEXT: 'ALM Orders: Operation List from Selection'
+    functionName: BAPI_ALM_ORDEROPER_GET_LIST
+    paramName: ET_RESULT
+    required: true
+    paramType: table
+  IT_RANGES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTOPER_RANGES
+    PARAMTEXT: 'ALM Order BAPIs: Copy Structure for Selection Parameter'
+    functionName: BAPI_ALM_ORDEROPER_GET_LIST
+    paramName: IT_RANGES
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_ORDEROPER_GET_LIST
+    paramName: RETURN
+    required: true
+    paramType: table
+  ET_TEMPLATE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTOPER_RANGES
+    PARAMTEXT: 'ALM Order BAPIs: Copy Structure for Selection Parameter'
+    functionName: BAPI_ALM_ORDEROPER_GET_LIST
+    paramName: ET_TEMPLATE
+    required: false
+    default: ''
+    paramType: table
+  NAVIGATION_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_LIST_NAVIGATION_RET
+    PARAMTEXT: 'ALM Order Lists: Basic Dates for Navigation'
+    functionName: BAPI_ALM_ORDEROPER_GET_LIST
+    paramName: NAVIGATION_DATA
+    required: true
+    paramType: struct

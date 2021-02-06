@@ -1,0 +1,668 @@
+BAPI_KANBAN_CHANGE:
+  KANBAN_ID:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_LIST_ALL
+    FIELDNAME: KANBAN_ID
+    PARAMTEXT: Identification Number
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: KANBAN_ID
+    required: true
+    paramType: var
+  KANBAN_CHANGE:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_KANBAN_CHANGE
+    PARAMTEXT: Change Kanban
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: KANBAN_CHANGE
+    required: true
+    paramType: struct
+  KANBAN_CHANGEX:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_KANBAN_CHANGEX
+    PARAMTEXT: Transfer Structure for Changing the Kanban
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: KANBAN_CHANGEX
+    required: true
+    paramType: struct
+  CONSIDER_TRIGGER_POINT:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_GEN
+    FIELDNAME: CONSIDER_TRIGGER_POINT
+    PARAMTEXT: Consideration of Trigger Point Logic
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: CONSIDER_TRIGGER_POINT
+    required: false
+    default: ''
+    paramType: var
+  EXCLUDE_STATUS_RESTRICTION:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_GEN
+    FIELDNAME: EXCLUDE_STATUS_RESTRICTION
+    PARAMTEXT: Exclude Authorization Check at Time of Kanban Status Change
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: EXCLUDE_STATUS_RESTRICTION
+    required: false
+    default: SPACE
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI0012_GEN
+    FIELDNAME: TESTRUN
+    PARAMTEXT: Switch to Simulation Mode for Write BAPIs
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: TESTRUN
+    required: false
+    default: ''
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter(s)
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: RETURN
+    required: true
+    paramType: table
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_KANBAN_CHANGE
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+BAPI_KANBAN_CHANGESTATUS1:
+  KANBANIDNUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_1
+    FIELDNAME: KANBAN_ID
+    PARAMTEXT: Identification Number
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: KANBANIDNUMBER
+    required: true
+    paramType: var
+  BATCH:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_GENERAL
+    FIELDNAME: BATCH
+    PARAMTEXT: Batch Number
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: BATCH
+    required: false
+    default: ''
+    paramType: var
+  EXCLUDE_STATUS_RESTRICTION:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_GEN
+    FIELDNAME: EXCLUDE_STATUS_RESTRICTION
+    PARAMTEXT: Exclude Authorization Check at Time of Kanban Status Change
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: EXCLUDE_STATUS_RESTRICTION
+    required: false
+    default: SPACE
+    paramType: var
+  NEXTSTATUS:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_1
+    FIELDNAME: STATUS
+    PARAMTEXT: Kanban status
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: NEXTSTATUS
+    required: false
+    default: ''
+    paramType: var
+  ACTUALQUANTITY:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_ACTUAL_QTY
+    PARAMTEXT: Actual Quantity of a Kanban
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: ACTUALQUANTITY
+    required: false
+    default: ''
+    paramType: struct
+  DELIVERYNOTES:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_4
+    PARAMTEXT: Reference Document Number
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: DELIVERYNOTES
+    required: false
+    default: ''
+    paramType: struct
+  PHYSICALTIME:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_PHYSTIME
+    PARAMTEXT: Time of an Entry in the Kanban Process
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: PHYSICALTIME
+    required: false
+    default: ''
+    paramType: struct
+  STATUSCHANGERESULT:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_3
+    PARAMTEXT: Result of a Kanban Status Change
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: STATUSCHANGERESULT
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Notification if Status Change not Possible
+    functionName: BAPI_KANBAN_CHANGESTATUS1
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_KANBAN_GETLIST:
+  MAXROWS:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_GENERAL
+    FIELDNAME: MAXROWS
+    PARAMTEXT: Maximum Number of Data Records Read
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: MAXROWS
+    required: false
+    default: '500'
+    paramType: var
+  KANBANLIST:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_LIST
+    PARAMTEXT: List of Kanbans
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: KANBANLIST
+    required: true
+    paramType: table
+  KANBANCONTROLCYCLERANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PKNUM_RANGE
+    PARAMTEXT: Selection Table for Control Cycle Number
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: KANBANCONTROLCYCLERANGE
+    required: false
+    default: ''
+    paramType: table
+  KANBANIDRANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_PKKEY_RANGE
+    PARAMTEXT: Selection Table for Kanban Identification Number
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: KANBANIDRANGE
+    required: false
+    default: ''
+    paramType: table
+  KANBANNUMBERRANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_PKPOS_RANGE
+    PARAMTEXT: Selection Table for Kanban Number
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: KANBANNUMBERRANGE
+    required: false
+    default: ''
+    paramType: table
+  STATUSDATERANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_SAEDT_RANGE
+    PARAMTEXT: Selection Table for Date of Status Change
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: STATUSDATERANGE
+    required: false
+    default: ''
+    paramType: table
+  STATUSRANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_PKBST_RANGE
+    PARAMTEXT: Selection table for the Status of a Kanban
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: STATUSRANGE
+    required: false
+    default: ''
+    paramType: table
+  STATUSTIMERANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_SAEUZ_RANGE
+    PARAMTEXT: Selection Table for the Time of Status Change
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: STATUSTIMERANGE
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Message if Function not Possible
+    functionName: BAPI_KANBAN_GETLIST
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_KANBAN_GETLIST_ALL:
+  LANGUAGE_KEY:
+    PARAMCLASS: I
+    TABNAME: BAPILANGU
+    FIELDNAME: SPRSL
+    PARAMTEXT: Language Key of Current Text Environment
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: LANGUAGE_KEY
+    required: false
+    default: ''
+    paramType: var
+  MAXROWS:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_GENERAL
+    FIELDNAME: MAXROWS
+    PARAMTEXT: Maximum Number of Lines of Hits
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: MAXROWS
+    required: false
+    default: ''
+    paramType: var
+  EXPORT_CONTROLCYCLE:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    PARAMTEXT: ID for Export of Control Cycle Table
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: EXPORT_CONTROLCYCLE
+    required: false
+    default: ''
+    paramType: struct
+  SELECT_BATCH:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    PARAMTEXT: ID for Selection of Batches and Quantities in Kanban
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: SELECT_BATCH
+    required: false
+    default: ''
+    paramType: struct
+  SELECT_DELIV:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    PARAMTEXT: ID for Selection of Additional Data for Kanban with Delivery
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: SELECT_DELIV
+    required: false
+    default: ''
+    paramType: struct
+  SELECT_DEV_CC_DATA:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    PARAMTEXT: Indicator for Selection of Alternative Control Cycle Data for Kanban
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: SELECT_DEV_CC_DATA
+    required: false
+    default: ''
+    paramType: struct
+  KANBAN_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_LIST_ALL
+    PARAMTEXT: Table for Kanban Data
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: KANBAN_LIST
+    required: true
+    paramType: table
+  BATCH_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_BATCH
+    PARAMTEXT: Table for Batch Data
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: BATCH_LIST
+    required: false
+    default: ''
+    paramType: table
+  CALC_PROFILE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_KCPRF_RANGE
+    PARAMTEXT: Selection Table for Calculation Profile
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: CALC_PROFILE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  CONTROLCYCLE_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_LIST_ALL
+    PARAMTEXT: Table for Control Cycle
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: CONTROLCYCLE_LIST
+    required: false
+    default: ''
+    paramType: table
+  CONTROLCYCLE_TYPE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_RKSTA_RANGE
+    PARAMTEXT: Selection Table for Control Cycle Category
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: CONTROLCYCLE_TYPE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  COSTCENTER_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_KOSTL_RANGE
+    PARAMTEXT: Selection Table for Cost Center
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: COSTCENTER_RANGE
+    required: false
+    default: ''
+    paramType: table
+  DELIV_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_DELIV
+    PARAMTEXT: Table of Additional Data for Kanban with Delivery
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: DELIV_LIST
+    required: false
+    default: ''
+    paramType: table
+  DEVDATA_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_DEV_DATA
+    PARAMTEXT: Table for Different Control Cycle Data
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: DEVDATA_LIST
+    required: false
+    default: ''
+    paramType: table
+  EXT_PROCURE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PKSTF_RANGE
+    PARAMTEXT: Selection Table for Replenishment with External Production
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: EXT_PROCURE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for Customer Data
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for Customer Data
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  IN_HOUSEPROD_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PKSTE_RANGE
+    PARAMTEXT: Selection Table for Replenishment with In-House Production
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: IN_HOUSEPROD_RANGE
+    required: false
+    default: ''
+    paramType: table
+  ISSUINGPLANT_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PKUMW_RANGE
+    PARAMTEXT: Selection Table for Supplying Plant
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: ISSUINGPLANT_RANGE
+    required: false
+    default: ''
+    paramType: table
+  ISSUINGSTGE_LOC_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_UMLGO_RANGE
+    PARAMTEXT: Selection Table for Supplying Storage Location
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: ISSUINGSTGE_LOC_RANGE
+    required: false
+    default: ''
+    paramType: table
+  JIT_PROFILE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PABPRF_RANGE
+    PARAMTEXT: Selection Table for JIT Call Profile
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: JIT_PROFILE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  KANBANCONTROL_CYCLE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PKNUM_RANGE
+    PARAMTEXT: Selection Table for Control Cycle Number
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: KANBANCONTROL_CYCLE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  KANBANID_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_PKKEY_RANGE
+    PARAMTEXT: Selection Table for Kanban ID Number
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: KANBANID_RANGE
+    required: false
+    default: ''
+    paramType: table
+  KANBANNUMBER_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_PKPOS_RANGE
+    PARAMTEXT: Selection Table for Kanban Number
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: KANBANNUMBER_RANGE
+    required: false
+    default: ''
+    paramType: table
+  MATERIAL_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPIMATRAM
+    PARAMTEXT: Selection Table for Material Number
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: MATERIAL_RANGE
+    required: false
+    default: ''
+    paramType: table
+  PLANT_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPIMATRAW
+    PARAMTEXT: Selection Table for Plant
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: PLANT_RANGE
+    required: false
+    default: ''
+    paramType: table
+  PURCH_ORG_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_EKORG_RANGE
+    PARAMTEXT: Selection Table for Purchasing Organization
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: PURCH_ORG_RANGE
+    required: false
+    default: ''
+    paramType: table
+  RESPONSIBLE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_QUVER_RANGE
+    PARAMTEXT: Selection Table for Person Responsible for Supply Source
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: RESPONSIBLE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  STATUS_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_PKBST_RANGE
+    PARAMTEXT: Selection Table for Kanban Status
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: STATUS_RANGE
+    required: false
+    default: ''
+    paramType: table
+  STATUSDATE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_SAEDT_RANGE
+    PARAMTEXT: Selection Table for Date of Status Switch
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: STATUSDATE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  STATUSTIME_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_SAEUZ_RANGE
+    PARAMTEXT: Selection Table for Time of Status Switch
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: STATUSTIME_RANGE
+    required: false
+    default: ''
+    paramType: table
+  STGE_NUM_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_LGNUM_RANGE
+    PARAMTEXT: Selection Table for Warehouse Number (WMS)
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: STGE_NUM_RANGE
+    required: false
+    default: ''
+    paramType: table
+  STGE_TYPE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_LGTYP_RANGE
+    PARAMTEXT: Selection Table for Storage Type (WMS)
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: STGE_TYPE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  STOCK_MOVEMNT_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PKSTU_RANGE
+    PARAMTEXT: Selection Table for Replenishment with Stock Transfer
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: STOCK_MOVEMNT_RANGE
+    required: false
+    default: ''
+    paramType: table
+  SUPPLYAREA_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_PRVBE_RANGE
+    PARAMTEXT: Selection Table for Supply Area
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: SUPPLYAREA_RANGE
+    required: false
+    default: ''
+    paramType: table
+  VENDOR_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI1172_LIFNR_RANGE
+    PARAMTEXT: Selection Table for Vendor
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: VENDOR_RANGE
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter(s)
+    functionName: BAPI_KANBAN_GETLIST_ALL
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_KANBAN_GETLISTFORSUPPLIE1:
+  SUPPLIER:
+    PARAMCLASS: I
+    TABNAME: BAPICTRLC1
+    FIELDNAME: SUPPLIER
+    PARAMTEXT: Vendor
+    functionName: BAPI_KANBAN_GETLISTFORSUPPLIE1
+    paramName: SUPPLIER
+    required: true
+    paramType: var
+  CONTROL_CYCLE:
+    PARAMCLASS: T
+    TABNAME: BAPICTRLC2
+    PARAMTEXT: List of Control Cycles
+    functionName: BAPI_KANBAN_GETLISTFORSUPPLIE1
+    paramName: CONTROL_CYCLE
+    required: true
+    paramType: table
+  KANBANS:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_1
+    PARAMTEXT: List of Kanbans
+    functionName: BAPI_KANBAN_GETLISTFORSUPPLIE1
+    paramName: KANBANS
+    required: true
+    paramType: table
+  SUPPLY_AREA:
+    PARAMCLASS: T
+    TABNAME: BAPISAREA
+    PARAMTEXT: List of Production Supply Areas
+    functionName: BAPI_KANBAN_GETLISTFORSUPPLIE1
+    paramName: SUPPLY_AREA
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Code If No Data Exists
+    functionName: BAPI_KANBAN_GETLISTFORSUPPLIE1
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_KANBAN_SETINPROCESS:
+  EXCLUDE_STATUS_RESTRICTION:
+    PARAMCLASS: I
+    TABNAME: BAPI1075_GEN
+    FIELDNAME: EXCLUDE_STATUS_RESTRICTION
+    PARAMTEXT: Exclude Authorization Check at Time of Kanban Status Change
+    functionName: BAPI_KANBAN_SETINPROCESS
+    paramName: EXCLUDE_STATUS_RESTRICTION
+    required: false
+    default: SPACE
+    paramType: var
+  KANBANS:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_1
+    PARAMTEXT: Kanbans to Be Set to Status "In Process"
+    functionName: BAPI_KANBAN_SETINPROCESS
+    paramName: KANBANS
+    required: true
+    paramType: table
+  KANBANS_NOT_UPDATED:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_1
+    PARAMTEXT: Kanbans that Were Not Set to Status "In Process"
+    functionName: BAPI_KANBAN_SETINPROCESS
+    paramName: KANBANS_NOT_UPDATED
+    required: false
+    default: ''
+    paramType: table
+  KANBANS_UPDATED:
+    PARAMCLASS: T
+    TABNAME: BAPI1075_1
+    PARAMTEXT: Kanbans that Were Set to Status "In Process"
+    functionName: BAPI_KANBAN_SETINPROCESS
+    paramName: KANBANS_UPDATED
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Code
+    functionName: BAPI_KANBAN_SETINPROCESS
+    paramName: RETURN
+    required: true
+    paramType: struct

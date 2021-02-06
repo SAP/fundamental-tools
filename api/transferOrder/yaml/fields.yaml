@@ -1,0 +1,4990 @@
+BAPI2018E:
+  WHSE_MVMT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: BWLVS
+      ROLLNAME: BWLVS
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: BWL
+      SHLP: CT T333
+    text:
+      FIELDTEXT: Movement Type for Warehouse Management
+      REPTEXT: MTy
+      SCRTEXT_S: Mvmt Type
+      SCRTEXT_M: Movement Type
+      SCRTEXT_L: Movement Type
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  ADD_REF_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: LZNUM
+      ROLLNAME: LZNUM
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Additional number for transfer requirement
+      SCRTEXT_S: Addit.no.
+      SCRTEXT_M: Additional number
+      SCRTEXT_L: Additional number
+  ADD_REM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LVS_AUSFB
+      ROLLNAME: LVS_AUSFB
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT T339
+    text:
+      FIELDTEXT: TO processing comment (code)
+      REPTEXT: Com.
+      SCRTEXT_S: Comment
+      SCRTEXT_M: TO proc. comment
+      SCRTEXT_L: TO processing comment (code)
+  MIN_WM_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAK_MINWM
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Transfer order transfers no real storage bin stock
+      REPTEXT: Lean
+      SCRTEXT_S: Lean WM
+      SCRTEXT_M: Lean WM
+      SCRTEXT_L: Lean WM
+  NOT_PRI_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: RL03ANIDRU
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Do not print transfer order
+      SCRTEXT_S: No print
+      SCRTEXT_M: Do not print
+      SCRTEXT_L: Do not print
+  PRI_CTL_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_DRUKZ
+      ROLLNAME: LVS_DRUKZ
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT T329F
+    text:
+      FIELDTEXT: 'Indicator: form and sort code for printing transfer orders'
+      REPTEXT: Print
+      SCRTEXT_S: Print code
+      SCRTEXT_M: Print code
+      SCRTEXT_L: Print code
+  REQ_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LVS_BENUM
+      ROLLNAME: LVS_BENUM
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Requirement Number
+      REPTEXT: Req. No.
+      SCRTEXT_S: Rqmnt.No.
+      SCRTEXT_M: Req. Number
+      SCRTEXT_L: Requirement Number
+  REQ_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_BETYP
+      ROLLNAME: LVS_BETYP
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      SHLP: CT T308
+    text:
+      FIELDTEXT: Requirement Type
+      REPTEXT: R
+      SCRTEXT_S: Req. Type
+      SCRTEXT_M: Req. Type
+      SCRTEXT_L: Requirement Type
+BAPICR2018RET:
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  TRANSFERORDERNO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: TANUM
+      ROLLNAME: TANUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: TAN
+    text:
+      FIELDTEXT: Transfer Order Number
+      REPTEXT: TO Number
+      SCRTEXT_S: TO Number
+      SCRTEXT_M: TO Number
+      SCRTEXT_L: Transfer Order Number
+  TRANSFERORDERPOS:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: TAPOS
+      ROLLNAME: TAPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: TAP
+    text:
+      FIELDTEXT: Transfer order item
+      REPTEXT: Item
+      SCRTEXT_S: TO item
+      SCRTEXT_M: Tr.order item
+      SCRTEXT_L: Transfer order item
+  STGE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LGTYP
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGT
+      SHLP: SH H_T301
+    text:
+      FIELDTEXT: Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: Stge Type
+      SCRTEXT_M: Storage Type
+      SCRTEXT_L: Storage Type
+  STGE_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LGPLA
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LGP
+      SHLP: SH LAG1
+    text:
+      FIELDTEXT: Storage Bin
+      REPTEXT: Stor. Bin
+      SCRTEXT_S: StorageBin
+      SCRTEXT_M: Storage Bin
+      SCRTEXT_L: Storage Bin
+  BIN_POSIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_PLPOS
+      ROLLNAME: LVS_PLPOS
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Position in storage bin
+      REPTEXT: Pos
+      SCRTEXT_S: Bin posit.
+      SCRTEXT_M: Bin position
+      SCRTEXT_L: Bin position
+  QUANT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: LVS_LQNUM
+      ROLLNAME: LVS_LQNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LQN
+    text:
+      FIELDTEXT: Quant
+      REPTEXT: Quant
+      SCRTEXT_S: Quant
+      SCRTEXT_M: Quant
+      SCRTEXT_L: Quant
+BAPI2018D:
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: SH S_MAT1
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W_C
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  REQ_QUTY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 15
+      DOMNAME: RLBESANFME
+      ROLLNAME: RLBESANFME
+      OUTPUTLEN: 15
+    text:
+      FIELDTEXT: Requested quantity in alternative unit of measure
+      REPTEXT: Requested qty
+      SCRTEXT_S: Req. qty
+      SCRTEXT_M: Requested qty
+      SCRTEXT_L: Quantity requested
+  ALT_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: LRMEI
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Alternative Unit of Measure for Stockkeeping Unit
+      REPTEXT: AUn
+      SCRTEXT_S: Alt. Unit
+      SCRTEXT_M: AlternativeUnit
+      SCRTEXT_L: Alternative Unit of Measure
+  ALT_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: LAG
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: CHA
+      SHLP: CT MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  STOCK_CAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BESTQ
+      ROLLNAME: BESTQ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BESTQ
+    text:
+      FIELDTEXT: Stock Category in the Warehouse Management System
+      REPTEXT: S
+      SCRTEXT_S: Stck.Cat.
+      SCRTEXT_M: Stock Category
+      SCRTEXT_L: Stock Category
+  SPEC_STOCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBKZ
+      ROLLNAME: SOBKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      SHLP: CT T148
+    text:
+      FIELDTEXT: Special Stock Indicator
+      REPTEXT: S
+      SCRTEXT_S: Spec.Stock
+      SCRTEXT_M: Special Stock
+      SCRTEXT_L: Special Stock
+  SP_STCK_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: LVS_SONUM
+      ROLLNAME: LVS_SONUM
+      OUTPUTLEN: 16
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Special Stock Number
+      REPTEXT: Spec.Stock No.
+      SCRTEXT_S: Sp.Stck No
+      SCRTEXT_M: Spec.Stock No.
+      SCRTEXT_L: Special Stock Number
+  STO_UNIT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LVS_LETYP
+      ROLLNAME: LVS_LETYP
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T307
+    text:
+      FIELDTEXT: Storage Unit Type
+      REPTEXT: SUT
+      SCRTEXT_S: SU Type
+      SCRTEXT_M: Stor. Unit Type
+      SCRTEXT_L: Storage Unit Type
+  GR_RCPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: WEMPF
+      ROLLNAME: WEMPF
+      OUTPUTLEN: 12
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Goods recipient
+      REPTEXT: Recipient
+      SCRTEXT_S: Recipient
+      SCRTEXT_M: Recipient
+      SCRTEXT_L: Goods recipient
+  D_STGE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LTAP_NLTYP
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T301
+    text:
+      FIELDTEXT: Destination Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: Dest.st.ty
+      SCRTEXT_M: DestStorType
+      SCRTEXT_L: Dest. Storage Type
+  D_STGE_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGBER
+      ROLLNAME: LTAP_NLBER
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T302
+    text:
+      FIELDTEXT: Destination storage section
+      REPTEXT: Sec
+      SCRTEXT_S: Dest.sect.
+      SCRTEXT_M: Dest.stor.sect.
+      SCRTEXT_L: Dest.storage section
+  D_STGE_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_NLPLA
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Destination Storage Bin
+      REPTEXT: Dest. Bin
+      SCRTEXT_S: Dest. Bin
+      SCRTEXT_M: Destination Bin
+      SCRTEXT_L: Dest.Storage Bin
+  D_STGE_BIN_P:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_PLPOS
+      ROLLNAME: LTAP_NPPOS
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Position in destination storage bin
+      REPTEXT: B.pos
+      SCRTEXT_S: Des.bn.pos
+      SCRTEXT_M: Dest.bin posit.
+      SCRTEXT_L: Dest.bin position
+  D_STGE_UNIT_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: LENUM
+      ROLLNAME: LTAP_NLENR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      MEMORYID: LEN
+      CONVEXIT: LENUM
+      SHLP: CT LEIN
+    text:
+      FIELDTEXT: Destination storage unit number
+      REPTEXT: Dest.storage unit
+      SCRTEXT_S: Dest.SU
+      SCRTEXT_M: Dest.stor.unit
+      SCRTEXT_L: Dest.storage unit
+  CONFIRM_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: RL03TSQUIT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: confirmation of a transfer order item'
+      REPTEXT: C
+      SCRTEXT_S: Confirm
+      SCRTEXT_M: Confirm
+      SCRTEXT_L: Confirm
+  CERTIFIC_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LVS_ZEUGN
+      ROLLNAME: LVS_ZEUGN
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Certificate Number
+      REPTEXT: Cert. No.
+      SCRTEXT_S: Cert. No.
+      SCRTEXT_M: Certificate No.
+      SCRTEXT_L: Certificate Number
+  GR_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LVS_WDATU
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of Goods Receipt
+      REPTEXT: GR Date
+      SCRTEXT_S: GR Date
+      SCRTEXT_M: GR Date
+      SCRTEXT_L: GR Date
+  S_STGE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LTAP_VLTYP
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T301
+    text:
+      FIELDTEXT: Source Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: SourceType
+      SCRTEXT_M: Source Stor.Ty.
+      SCRTEXT_L: Source Storage Type
+  S_STGE_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_VLPLA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Source Storage Bin
+      REPTEXT: Source Bin
+      SCRTEXT_S: Source Bin
+      SCRTEXT_M: Source Stor.Bin
+      SCRTEXT_L: Source Storage Bin
+  EXPIRYDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: VFDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Shelf Life Expiration or Best-Before Date
+      REPTEXT: SLED/BBD
+      SCRTEXT_S: SLED/BBD
+      SCRTEXT_M: SLED/BBD
+      SCRTEXT_L: SLED/BBD
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPIRET2:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  PARAMETER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SWC_ELEM
+      ROLLNAME: BAPI_PARAM
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Parameter Name
+      REPTEXT: Param. Name
+      SCRTEXT_S: Parameters
+      SCRTEXT_M: Parameter Name
+      SCRTEXT_L: Parameter Name
+  ROW:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: BAPI_LINE
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Lines in parameter
+      REPTEXT: Lines in parameter
+      SCRTEXT_S: Line
+      SCRTEXT_M: Parameter line
+      SCRTEXT_L: Lines in parameter
+  FIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FDNAME
+      ROLLNAME: BAPI_FLD
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT DD03L
+    text:
+      FIELDTEXT: Field in parameter
+      REPTEXT: Fld.
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field name
+      SCRTEXT_L: Field name
+  SYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LOGSYS
+      ROLLNAME: BAPILOGSYS
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT TBDLS
+    text:
+      FIELDTEXT: Logical system from which message originates
+      REPTEXT: System from which message comes
+      SCRTEXT_S: System
+      SCRTEXT_M: Logical system
+      SCRTEXT_L: Logical system (source of message)
+BAPI2018A:
+  TRANSFERORDERNO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: TANUM
+      ROLLNAME: TANUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: TAN
+    text:
+      FIELDTEXT: Transfer Order Number
+      REPTEXT: TO Number
+      SCRTEXT_S: TO Number
+      SCRTEXT_M: TO Number
+      SCRTEXT_L: Transfer Order Number
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+BAPI2018C:
+  TRANSFERORDERITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: TAPOS
+      ROLLNAME: TAPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: TAP
+    text:
+      FIELDTEXT: Transfer order item
+      REPTEXT: Item
+      SCRTEXT_S: TO item
+      SCRTEXT_M: Tr.order item
+      SCRTEXT_L: Transfer order item
+BAPIPAREX:
+  STRUCTURE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: AS4TAB
+      ROLLNAME: TE_STRUC
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT DD02L
+    text:
+      FIELDTEXT: Structure name of  BAPI table extension
+      SCRTEXT_S: Structure
+      SCRTEXT_M: Table ext.struct.
+      SCRTEXT_L: BAPI table extension struct.
+  VALUEPART1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+BAPITOHEAD:
+  CLIENT:
+    format:
+      DATATYPE: CLNT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MANDT
+      ROLLNAME: MANDT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T000
+    text:
+      FIELDTEXT: Client
+      REPTEXT: Cl.
+      SCRTEXT_S: Client
+      SCRTEXT_M: Client
+      SCRTEXT_L: Client
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  TRANS_ORD:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: TANUM
+      ROLLNAME: TANUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: TAN
+    text:
+      FIELDTEXT: Transfer Order Number
+      REPTEXT: TO Number
+      SCRTEXT_S: TO Number
+      SCRTEXT_M: TO Number
+      SCRTEXT_L: Transfer Order Number
+  MOVE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: BWART
+      ROLLNAME: BWART
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: BWA
+      SHLP: CT T156
+    text:
+      FIELDTEXT: Movement type (inventory management)
+      REPTEXT: MvT
+      SCRTEXT_S: Movmt type
+      SCRTEXT_M: Movement type
+      SCRTEXT_L: Movement type
+  WHSE_MVMT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: BWLVS
+      ROLLNAME: BWLVS
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: BWL
+      SHLP: CT T333
+    text:
+      FIELDTEXT: Movement Type for Warehouse Management
+      REPTEXT: MTy
+      SCRTEXT_S: Mvmt Type
+      SCRTEXT_M: Movement Type
+      SCRTEXT_L: Movement Type
+  TR_PRIOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TBPRI
+      ROLLNAME: TBPRI
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Transfer Priority
+      REPTEXT: Pr
+      SCRTEXT_S: Trfr Prio.
+      SCRTEXT_M: Trnsfr Priority
+      SCRTEXT_L: Transfer Priority
+  TRANS_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_TRART
+      ROLLNAME: LVS_TRART
+      OUTPUTLEN: 1
+    input:
+      SHLP: SH H_T333A
+    text:
+      FIELDTEXT: Shipment Type
+      REPTEXT: S
+      SCRTEXT_S: Ship. Type
+      SCRTEXT_M: Shipment Type
+      SCRTEXT_L: Shipment Type
+  TO_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LTAK_BDATU
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Creation Date of Transfer Order
+      REPTEXT: Created
+      SCRTEXT_S: Created On
+      SCRTEXT_M: Creation Date
+      SCRTEXT_L: Creation Date
+  TO_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: LTAK_BZEIT
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Creation time of transfer order
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Creation time
+      SCRTEXT_L: Time created
+  TO_USER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: USNAM
+      ROLLNAME: LVS_BNAME
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: User Name
+      REPTEXT: User
+      SCRTEXT_S: User
+      SCRTEXT_M: User
+      SCRTEXT_L: User
+  GROUP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LVS_REFNR
+      ROLLNAME: LVS_REFNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: REFNR
+      CONVEXIT: ALPHA
+      SHLP: SH H_LVS_REFNR
+    text:
+      FIELDTEXT: Group
+      REPTEXT: Group
+      SCRTEXT_S: Group
+      SCRTEXT_M: Group
+      SCRTEXT_L: Group
+  TRANS_REQ:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: TBNUM
+      ROLLNAME: TBNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: TBN
+      SHLP: CT LTBK
+    text:
+      FIELDTEXT: Transfer Requirement Number
+      REPTEXT: TR Number
+      SCRTEXT_S: TR No.
+      SCRTEXT_M: TR Number
+      SCRTEXT_L: TR Number
+  POST_CHANG:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: UBNUM
+      ROLLNAME: UBNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: UBN
+    text:
+      FIELDTEXT: Posting Change Number
+      REPTEXT: PostChNo
+      SCRTEXT_S: Post.Ch.No
+      SCRTEXT_M: Posting Chge No
+      SCRTEXT_L: PostingChange Number
+  SD_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: VBELN
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CT VBUK
+    text:
+      FIELDTEXT: Sales and Distribution Document Number
+      REPTEXT: Document
+      SCRTEXT_S: SD Doc.
+      SCRTEXT_M: Sales document
+      SCRTEXT_L: Sales document
+  CONF_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAK_KQUIT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Confirmation'
+      REPTEXT: C
+      SCRTEXT_S: Confirmat.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  CONF_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LTAK_QDATU
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of Confirmation
+      REPTEXT: Conf.Date
+      SCRTEXT_S: Conf.Date
+      SCRTEXT_M: Confirmat. Date
+      SCRTEXT_L: Confirmation Date
+  MAT_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: MBLNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: MBN
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of Material Document
+      REPTEXT: Mat. Doc.
+      SCRTEXT_S: Mat. Doc.
+      SCRTEXT_M: Material Doc.
+      SCRTEXT_L: Material Document
+  DOC_YEAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: GJAHR
+      ROLLNAME: MJAHR
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: MJA
+      CONVEXIT: GJAHR
+    text:
+      FIELDTEXT: Material Document Year
+      REPTEXT: MatYr
+      SCRTEXT_S: Mat. Year
+      SCRTEXT_M: Mat. Doc. Year
+      SCRTEXT_L: Material Doc. Year
+  REGMT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_BETYP
+      ROLLNAME: LVS_BETYP
+      OUTPUTLEN: 1
+    input:
+      SHLP: CT T308
+    text:
+      FIELDTEXT: Requirement Type
+      REPTEXT: R
+      SCRTEXT_S: Req. Type
+      SCRTEXT_M: Req. Type
+      SCRTEXT_L: Requirement Type
+  REGMT_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LVS_BENUM
+      ROLLNAME: LVS_BENUM
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Requirement Number
+      REPTEXT: Req. No.
+      SCRTEXT_S: Rqmnt.No.
+      SCRTEXT_M: Req. Number
+      SCRTEXT_L: Requirement Number
+  PRINT_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_DRUKZ
+      ROLLNAME: LVS_DRUKZ
+      OUTPUTLEN: 2
+    input:
+      SHLP: CT T329F
+    text:
+      FIELDTEXT: 'Indicator: form and sort code for printing transfer orders'
+      REPTEXT: Print
+      SCRTEXT_S: Print code
+      SCRTEXT_M: Print code
+      SCRTEXT_L: Print code
+  PRINT_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAK_DRUCK
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Transfer Order is Printed'
+      REPTEXT: Transfer Order Printed
+      SCRTEXT_S: TO Printed
+      SCRTEXT_M: TO Printed
+      SCRTEXT_L: Trfr order printed
+  PART_SUPPLY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LSAM_TEILK
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Ind.: partial supply for documents in multiple processing'
+      REPTEXT: P
+      SCRTEXT_S: Par.supply
+      SCRTEXT_M: Partially supp.
+      SCRTEXT_L: Partially supplied
+  IND_IMMED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LTAK_KR2SO
+      ROLLNAME: LTAK_KR2SO
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LTAK_KR2SO
+    text:
+      FIELDTEXT: 'Indicator: Call up R/2 immediately (RM posting)'
+      REPTEXT: Ind:immed
+      SCRTEXT_S: Ind:immed.
+      SCRTEXT_M: Ind:immediately
+      SCRTEXT_L: 'Ind: R/2 immediately'
+  IND_ACCUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAK_KR2KU
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: R/2 control accumulated (RM posting)'
+      REPTEXT: Ind.accum
+      SCRTEXT_S: Ind.accum.
+      SCRTEXT_M: Ind:accumulated
+      SCRTEXT_L: 'Ind: accumulated'
+  IND_DIFF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAK_KDISO
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Pass on diff. to R/2 immediately (RM posting)'
+      REPTEXT: Diff.imm.
+      SCRTEXT_S: Diff.imm.
+      SCRTEXT_M: Diff.immediat.
+      SCRTEXT_L: Difference immediat.
+  IND_PLND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KZPLA
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: preplanned transfer order'
+      REPTEXT: IdPl.
+      SCRTEXT_S: Ind.plnd
+      SCRTEXT_M: 'Ind: planned'
+      SCRTEXT_L: 'Indicator: planned'
+  DATE_PLND:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LVS_PLDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Planned execution date for a transfer order
+      REPTEXT: Pl.exec.
+      SCRTEXT_S: Exec.date
+      SCRTEXT_M: Execution date
+      SCRTEXT_L: Planned execution
+  RESERV_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RSNUM
+      ROLLNAME: RSNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: RES
+      SHLP: CT RESB
+    text:
+      FIELDTEXT: Number of reservation/dependent requirements
+      REPTEXT: Reserv.no.
+      SCRTEXT_S: Reserv.no.
+      SCRTEXT_M: Reservation
+      SCRTEXT_L: Reservation
+  ADDIT_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: LVS_LZNUM
+      ROLLNAME: LVS_LZNUM
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Additional Reference Number for Transport
+      REPTEXT: Additional Number
+      SCRTEXT_S: Addit.No.
+      SCRTEXT_M: Additional Number
+      SCRTEXT_L: Additional Number
+  REQ_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BDART
+      ROLLNAME: BDART
+      OUTPUTLEN: 2
+    input:
+      MEMORYID: BDA
+    text:
+      FIELDTEXT: Requirement type
+      REPTEXT: RqTy
+      SCRTEXT_S: Req.type
+      SCRTEXT_M: RequirementType
+      SCRTEXT_L: Requirement type
+  KANBANCONTROLCYCLE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: PKNUM
+      ROLLNAME: PKNUM
+      OUTPUTLEN: 7
+      valueInputType: list
+    input:
+      MEMORYID: PKNUM
+      CONVEXIT: ALPHA
+      SHLP: CT PKHD
+    text:
+      FIELDTEXT: Control cycle number
+      REPTEXT: CntCycle
+      SCRTEXT_S: ContrCycle
+      SCRTEXT_M: Contr.cycle no.
+      SCRTEXT_L: Control cycle number
+  KANBAN_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PKPOS
+      ROLLNAME: PKPOS
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Kanban item number / control cycle item
+      REPTEXT: No.
+      SCRTEXT_S: Kanban no.
+      SCRTEXT_M: Kanban number
+      SCRTEXT_L: Kanban item no.
+  PERF_DATA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_KZLEI
+      ROLLNAME: LVS_KZLEI
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LVS_KZLEI
+    text:
+      FIELDTEXT: Indicator for performance data
+      REPTEXT: P
+      SCRTEXT_S: Perf.data
+      SCRTEXT_M: PerformanceData
+      SCRTEXT_L: Performance data
+  ACT_TIMETO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_KISTZ
+      ROLLNAME: LVS_KISTZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LVS_KISTZ
+    text:
+      FIELDTEXT: 'Indicator: Actual time required in TO'
+      REPTEXT: Act.time required in TO
+      SCRTEXT_S: Act.timeTO
+      SCRTEXT_M: Act.time req.in TO
+      SCRTEXT_L: Actual time required  in TO
+  REQACTDATA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KISTP
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Input requirement for actual data'
+      REPTEXT: Input rqmnt for actual data
+      SCRTEXT_S: ReqActData
+      SCRTEXT_M: Reqmt act. data
+      SCRTEXT_L: Input rqmnt for act.data
+  PERSNO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PERNR
+      ROLLNAME: LTAK_PERNR
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Personnel Number of User
+      REPTEXT: P
+      SCRTEXT_S: PersNo.
+      SCRTEXT_M: Personnel No.
+      SCRTEXT_L: Personnel Number
+  PLAN_TIME:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: PW_QUAN13
+      ROLLNAME: LTAK_SOLWM
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOHEAD
+      REFFIELD: TIMEUNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Planned Transfer Order Processing Time From WM
+      REPTEXT: Plan Time WM
+      SCRTEXT_S: Plan Time
+      SCRTEXT_M: Plan Time WM
+      SCRTEXT_L: Plan Time WM
+  PLAN_EXT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: PW_QUAN13
+      ROLLNAME: LTAK_SOLEX
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOHEAD
+      REFFIELD: TIMEUNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Planned Transfer Order Processing Time from External System
+      REPTEXT: Plan Time Ext. Sys.
+      SCRTEXT_S: Plan Ext.
+      SCRTEXT_M: Plan Time Ext.
+      SCRTEXT_L: Plan Time External Sys.
+  ACTLTIME:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: PW_QUAN13
+      ROLLNAME: LTAK_ISTWM
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOHEAD
+      REFFIELD: TIMEUNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Actual Time of the WM Transfer Order
+      REPTEXT: Actual Time of WM Transfer Order
+      SCRTEXT_S: ActualTime
+      SCRTEXT_M: Actual Time of TO
+      SCRTEXT_L: Actual Time of WM Transfer Order
+  TIMEUNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: LVS_ZEIEI
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Time unit for performance data
+      REPTEXT: Tme
+      SCRTEXT_S: Time unit
+      SCRTEXT_M: Time unit
+      SCRTEXT_L: Time unit
+  TIMEUNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  HR_STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LTAK_HRSTS
+      ROLLNAME: LTAK_HRSTS
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LTAK_HRSTS
+    text:
+      FIELDTEXT: Transfer Order Human Resources (HR) Status
+      REPTEXT: Transfer Order HR Status
+      SCRTEXT_S: HR Status
+      SCRTEXT_M: TO HR Status
+      SCRTEXT_L: Transfer Order HR Status
+  START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LTAK_STDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Start Date of the Transfer Order
+      REPTEXT: Start Date of the Transfer Order
+      SCRTEXT_S: Start Date
+      SCRTEXT_M: Start Date
+      SCRTEXT_L: Start Date of the Transfer Order
+  END_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LTAK_ENDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Transfer Order End Date
+      REPTEXT: Transfer Order End Date
+      SCRTEXT_S: End Date
+      SCRTEXT_M: End Date
+      SCRTEXT_L: Transfer Order End Date
+  START_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: LTAK_STUZT
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Start time of the transfer order
+      REPTEXT: Start time of the transfer order
+      SCRTEXT_S: Start time
+      SCRTEXT_M: Start time
+      SCRTEXT_L: Start time of the transfer order
+  END_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: LTAK_ENUZT
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Transfer Order End Time
+      REPTEXT: Transfer Order End Time
+      SCRTEXT_S: End Time
+      SCRTEXT_M: End Time
+      SCRTEXT_L: Transfer Order End Time
+  TO_TYPE2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_2SKTAART
+      ROLLNAME: LTAK_L2SKA
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LVS_2SKTAART
+    text:
+      FIELDTEXT: Transfer Order Type in 2-Step Picking
+      REPTEXT: TOT
+      SCRTEXT_S: TO Type
+      SCRTEXT_M: TO Type
+      SCRTEXT_L: Transfer Order Type
+  LEAN_WM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAK_MINWM
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Transfer order transfers no real storage bin stock
+      REPTEXT: Lean
+      SCRTEXT_S: Lean WM
+      SCRTEXT_M: Lean WM
+      SCRTEXT_L: Lean WM
+  DOOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTOR
+      ROLLNAME: LGTOR
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T30B
+    text:
+      FIELDTEXT: Door for Warehouse Number
+      REPTEXT: Door
+      SCRTEXT_S: Door
+      SCRTEXT_M: Door for Whse
+      SCRTEXT_L: Door for Whse No.
+  STGINGAREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGBZO
+      ROLLNAME: LGBZO
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      SHLP: CT T30C
+    text:
+      FIELDTEXT: Staging Area for Warehouse Complex
+      REPTEXT: StgingArea
+      SCRTEXT_S: StgingArea
+      SCRTEXT_M: Staging Area
+      SCRTEXT_L: Staging Area
+  PACK_WM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_KZVEP
+      ROLLNAME: LVS_KZVEP
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LVS_KZVEP
+    text:
+      FIELDTEXT: 'Indicator: Connection to packaging in WM'
+      REPTEXT: SB
+      SCRTEXT_S: Pack. WM
+      SCRTEXT_M: Packaging in WM
+      SCRTEXT_L: Packaging in WM
+  DEV_P_A:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: LVS_SWABW
+      ROLLNAME: LVS_SWABW
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Threshold value of planned/actual time deviation as percent
+      REPTEXT: Dev.
+      SCRTEXT_S: Dev. P/A
+      SCRTEXT_M: Deviation pln/actual
+      SCRTEXT_L: Threshold deviation plan/actual time (%)
+  COMMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LVS_AUSFB
+      ROLLNAME: LVS_AUSFB
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT T339
+    text:
+      FIELDTEXT: TO processing comment (code)
+      REPTEXT: Com.
+      SCRTEXT_S: Comment
+      SCRTEXT_M: TO proc. comment
+      SCRTEXT_L: TO processing comment (code)
+  SPECIFIC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LTAK_SPEZI
+      ROLLNAME: LTAK_SPEZI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Indicator special reference
+      REPTEXT: SR
+      SCRTEXT_S: Specific
+      SCRTEXT_M: Special ref.
+      SCRTEXT_L: Special reference
+  SD_DOC_CAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: VBTYP
+      ROLLNAME: VBTYP
+      OUTPUTLEN: 1
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV VBTYP
+    text:
+      FIELDTEXT: SD document category
+      REPTEXT: DocCa
+      SCRTEXT_S: Doc.cat.
+      SCRTEXT_M: Document cat.
+      SCRTEXT_L: SD document categ.
+  QUEUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LRF_QUEUE
+      ROLLNAME: LRF_QUEUE
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      SHLP: CT T346
+    text:
+      FIELDTEXT: Queue
+      REPTEXT: Q
+      SCRTEXT_S: Queue
+      SCRTEXT_M: Queue
+      SCRTEXT_L: Queue
+  SEP_CONF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KGVNQ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Separate confirmation possible'
+      REPTEXT: Separate confirmatn
+      SCRTEXT_S: Sep.conf.
+      SCRTEXT_M: Separate conf.
+      SCRTEXT_L: Separate confirmatn
+  DLV_PRIO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: LPRIO
+      ROLLNAME: TAPRI
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT TPRIO
+    text:
+      FIELDTEXT: Transfer order priority
+      REPTEXT: Transfer order priority
+      SCRTEXT_S: TO prio
+      SCRTEXT_M: TO priority
+      SCRTEXT_L: Transfer order priority
+  PICK_CNFMD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAK_KVQUI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Material pick has been confirmed'
+      REPTEXT: Pick confirmed
+      SCRTEXT_S: Pick cnfmd
+      SCRTEXT_M: Pick confirmed
+      SCRTEXT_L: Pick confirmed
+  CONFIRM_HU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: HUCON
+      ROLLNAME: LTAK_HUCON
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Indicator, confirm HU
+      REPTEXT: H
+      SCRTEXT_S: Confirm HU
+      SCRTEXT_M: Confirm HU
+      SCRTEXT_L: Confirm HU
+  NO_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: TAPOS
+      ROLLNAME: LTAK_CNTPS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Current number of items in TO
+      SCRTEXT_S: No.of itms
+      SCRTEXT_M: Number of items
+      SCRTEXT_L: Number of line items
+  SD_DOC_CAT_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VBTYPL_S4
+      ROLLNAME: VBTYPL_S4
+      OUTPUTLEN: 4
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV VBTYPL_S4
+    text:
+      FIELDTEXT: Field is not supported – needed for technical reasons only
+      REPTEXT: Doc.Cat.
+      SCRTEXT_S: Doc.Cat.
+      SCRTEXT_M: Document Cat.
+      SCRTEXT_L: SD Document Cat.
+BAPITOITEM:
+  CLIENT:
+    format:
+      DATATYPE: CLNT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MANDT
+      ROLLNAME: MANDT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T000
+    text:
+      FIELDTEXT: Client
+      REPTEXT: Cl.
+      SCRTEXT_S: Client
+      SCRTEXT_M: Client
+      SCRTEXT_L: Client
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  TRANS_ORD:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: TANUM
+      ROLLNAME: TANUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: TAN
+    text:
+      FIELDTEXT: Transfer Order Number
+      REPTEXT: TO Number
+      SCRTEXT_S: TO Number
+      SCRTEXT_M: TO Number
+      SCRTEXT_L: Transfer Order Number
+  TO_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: TAPOS
+      ROLLNAME: TAPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: TAP
+    text:
+      FIELDTEXT: Transfer order item
+      REPTEXT: Item
+      SCRTEXT_S: TO item
+      SCRTEXT_M: Tr.order item
+      SCRTEXT_L: Transfer order item
+  TT_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: TBPOS
+      ROLLNAME: TBPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: TBP
+    text:
+      FIELDTEXT: Transfer Requirement Item
+      REPTEXT: Item
+      SCRTEXT_S: TR Item
+      SCRTEXT_M: TR Item
+      SCRTEXT_L: TR Item
+  ITM_NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: POSNR
+      ROLLNAME: POSNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CT VBUP
+    text:
+      FIELDTEXT: Item number of the SD document
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item (SD)
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: SH S_MAT1
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W_C
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: CHA
+      SHLP: CT MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  STOCK_CAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BESTQ
+      ROLLNAME: BESTQ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BESTQ
+    text:
+      FIELDTEXT: Stock Category in the Warehouse Management System
+      REPTEXT: S
+      SCRTEXT_S: Stck.Cat.
+      SCRTEXT_M: Stock Category
+      SCRTEXT_L: Stock Category
+  SPEC_STOCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBKZ
+      ROLLNAME: SOBKZ
+      OUTPUTLEN: 1
+    input:
+      SHLP: CT T148
+    text:
+      FIELDTEXT: Special Stock Indicator
+      REPTEXT: S
+      SCRTEXT_S: Spec.Stock
+      SCRTEXT_M: Special Stock
+      SCRTEXT_L: Special Stock
+  SP_STCK_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: LVS_SONUM
+      ROLLNAME: LVS_SONUM
+      OUTPUTLEN: 16
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Special Stock Number
+      REPTEXT: Spec.Stock No.
+      SCRTEXT_S: Sp.Stck No
+      SCRTEXT_M: Spec.Stock No.
+      SCRTEXT_L: Special Stock Number
+  HAZ_MAT_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: STOFF
+      ROLLNAME: STOFF
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: STO
+      CONVEXIT: MATN3
+      SHLP: CT MGEF
+    text:
+      FIELDTEXT: Hazardous material number
+      REPTEXT: Haz. material no.
+      SCRTEXT_S: Haz.
+      SCRTEXT_M: Haz. matl no.
+      SCRTEXT_L: Haz. material number
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  ALT_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: LRMEI
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Alternative Unit of Measure for Stockkeeping Unit
+      REPTEXT: AUn
+      SCRTEXT_S: Alt. Unit
+      SCRTEXT_M: AlternativeUnit
+      SCRTEXT_L: Alternative Unit of Measure
+  ALT_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  NUMERATOR:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 5
+      DOMNAME: UMBSZ
+      ROLLNAME: UMREZ
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Numerator for Conversion to Base Units of Measure
+      REPTEXT: Counter
+      SCRTEXT_S: Counter
+      SCRTEXT_M: Counter
+      SCRTEXT_L: Counter
+  DENOMINATR:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 5
+      DOMNAME: UMBSN
+      ROLLNAME: UMREN
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Denominator for conversion to base units of measure
+      REPTEXT: Denom.
+      SCRTEXT_S: Denominat.
+      SCRTEXT_M: Denominator
+      SCRTEXT_L: Denominator
+  UNITTYPE_1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LVS_LETYP
+      ROLLNAME: LVS_LETYP
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T307
+    text:
+      FIELDTEXT: Storage Unit Type
+      REPTEXT: SUT
+      SCRTEXT_S: SU Type
+      SCRTEXT_M: Stor. Unit Type
+      SCRTEXT_L: Storage Unit Type
+  PREALLSTCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_KZFEH
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: pre-allocated stock'
+      REPTEXT: P
+      SCRTEXT_S: PreAllStck
+      SCRTEXT_M: PreAllStck
+      SCRTEXT_L: PreAllStck
+  CURR_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: T310_LANUM
+      ROLLNAME: T310_LANUM
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Sequence number
+      REPTEXT: CrNo
+      SCRTEXT_S: Curr.no.
+      SCRTEXT_M: Current number
+      SCRTEXT_L: Sequence number
+  CONF_REQ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_KZQUI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: confirmation required'
+      REPTEXT: CR
+      SCRTEXT_S: Conf.req.
+      SCRTEXT_M: Conf. required
+      SCRTEXT_L: Confirmation req.
+  ZEROSTKCHK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KZNKO
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Execute Zero Stock Check'
+      REPTEXT: ZeroStkChk
+      SCRTEXT_S: ZeroStkChk
+      SCRTEXT_M: Zero stock chck
+      SCRTEXT_L: Zero stock check
+  ZEROSTOCK:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 1
+      DOMNAME: LTAP_NULKO
+      ROLLNAME: LTAP_NULKO
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LTAP_NULKO
+    text:
+      FIELDTEXT: Status of zero stock check in transfer order item
+      REPTEXT: Z
+      SCRTEXT_S: ZeroStChk
+      SCRTEXT_M: Zero stock chck
+      SCRTEXT_L: Zero stock check
+  INV_METHOD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_KZINV
+      ROLLNAME: LTAP_KZINV
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LVS_KZINV
+    text:
+      FIELDTEXT: Inventory indicators
+      REPTEXT: Inv.
+      SCRTEXT_S: Inv.method
+      SCRTEXT_M: Invent. method
+      SCRTEXT_L: Inventory method
+  INV_RECORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: LVS_IVNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: IVN
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of system inventory record
+      REPTEXT: Inv.Docmnt
+      SCRTEXT_S: Inv.record
+      SCRTEXT_M: Inventory rec.
+      SCRTEXT_L: Inventory record
+  CONFIRM_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_PQUIT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: confirmation complete'
+      REPTEXT: C
+      SCRTEXT_S: Confirmat.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  CONF_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LTAP_QDATU
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of confirmation
+      REPTEXT: Conf.dt.
+      SCRTEXT_S: Conf.date
+      SCRTEXT_M: Confirmat. date
+      SCRTEXT_L: Confirmation date
+  CONF_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: LTAP_QZEIT
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time of confirmation
+      REPTEXT: Conf.t.
+      SCRTEXT_S: Conf.time
+      SCRTEXT_M: Confirmat.time
+      SCRTEXT_L: Confirmation time
+  TO_USER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: USNAM
+      ROLLNAME: LTAP_QNAME
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: User name
+      REPTEXT: User
+      SCRTEXT_S: User
+      SCRTEXT_M: User
+      SCRTEXT_L: User
+  GROSS_WEIGHT:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 11
+      DOMNAME: DEC8_3
+      ROLLNAME: LTAP_BRGEW
+      OUTPUTLEN: 14
+      DECIMALS: 3
+    text:
+      FIELDTEXT: Gross weight of transfer order item
+      REPTEXT: Weight
+      SCRTEXT_S: Weight
+      SCRTEXT_M: Weight
+      SCRTEXT_L: Weight
+  UNIT_OF_WT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: GEWEI
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Weight Unit
+      REPTEXT: WUn
+      SCRTEXT_S: WeightUnit
+      SCRTEXT_M: Weight unit
+      SCRTEXT_L: Weight unit
+  UNIT_OF_WT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  MATDOC_ITM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: MBLPO
+      ROLLNAME: MBLPO
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: POS
+    text:
+      FIELDTEXT: Item in Material Document
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Mat. Doc.Item
+      SCRTEXT_L: Material Doc.Item
+  GR_RCPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: WEMPF
+      ROLLNAME: WEMPF
+      OUTPUTLEN: 12
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Goods recipient
+      REPTEXT: Recipient
+      SCRTEXT_S: Recipient
+      SCRTEXT_M: Recipient
+      SCRTEXT_L: Goods recipient
+  UNLOAD_PT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: TEXT25
+      ROLLNAME: ABLAD
+      OUTPUTLEN: 25
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Unloading Point
+      REPTEXT: Unloading Point
+      SCRTEXT_S: Unload.pt.
+      SCRTEXT_M: Unloading Point
+      SCRTEXT_L: Unloading Point
+  WDATU:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LVS_WDATU
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of Goods Receipt
+      REPTEXT: GR Date
+      SCRTEXT_S: GR Date
+      SCRTEXT_M: GR Date
+      SCRTEXT_L: GR Date
+  GR_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: LVS_WENUM
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Goods Receipt Number
+      REPTEXT: GR Number
+      SCRTEXT_S: GR Number
+      SCRTEXT_M: GR Number
+      SCRTEXT_L: GR Number
+  GR_DATE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: MBLPO
+      ROLLNAME: LVS_WEPOS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Goods receipt item
+      REPTEXT: Item
+      SCRTEXT_S: GR item
+      SCRTEXT_M: Goods rec.item
+      SCRTEXT_L: Goods receipt item
+  CERT_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LVS_ZEUGN
+      ROLLNAME: LVS_ZEUGN
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Certificate Number
+      REPTEXT: Cert. No.
+      SCRTEXT_S: Cert. No.
+      SCRTEXT_M: Certificate No.
+      SCRTEXT_L: Certificate Number
+  PRINTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: RSPOPNAME
+      ROLLNAME: LVS_LDEST
+      OUTPUTLEN: 30
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      MEMORYID: PRI
+      CONVEXIT: SPDEV
+      SHLP: CT TSP03
+    text:
+      FIELDTEXT: Name of printer
+      REPTEXT: Printer
+      SCRTEXT_S: Printer
+      SCRTEXT_M: Printer
+      SCRTEXT_L: Printer
+  PROCESS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LTAP_VORGA
+      ROLLNAME: LTAP_VORGA
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Transfer procedure
+      REPTEXT: Proc.
+      SCRTEXT_S: Process
+      SCRTEXT_M: Transfer proc.
+      SCRTEXT_L: Transfer procedure
+  SOURCE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LTAP_VLTYP
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T301
+    text:
+      FIELDTEXT: Source Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: SourceType
+      SCRTEXT_M: Source Stor.Ty.
+      SCRTEXT_L: Source Storage Type
+  SRCSTORSEC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGBER
+      ROLLNAME: LTAP_VLBER
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T302
+    text:
+      FIELDTEXT: Source storage section
+      REPTEXT: Sec
+      SCRTEXT_S: SrcStorSec
+      SCRTEXT_M: Src.stor.sectn
+      SCRTEXT_L: Source stor.section
+  SOURCE_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_VLPLA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Source Storage Bin
+      REPTEXT: Source Bin
+      SCRTEXT_S: Source Bin
+      SCRTEXT_M: Source Stor.Bin
+      SCRTEXT_L: Source Storage Bin
+  SRC_DYN_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KZDYN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: dynamic storage bin'
+      REPTEXT: DB
+      SCRTEXT_S: Dyn.bin
+      SCRTEXT_M: Dynamic bin
+      SCRTEXT_L: Dynamic storage bin
+  SRC_BIN_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_PLPOS
+      ROLLNAME: LTAP_VPPOS
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Position in source storage bin
+      REPTEXT: B.pos
+      SCRTEXT_S: Pos.src.bn
+      SCRTEXT_M: Source bin pos.
+      SCRTEXT_L: Source bin position
+  ST_REM_SU:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 9
+      DOMNAME: LAGP_ANZLE
+      ROLLNAME: LTAP_VANZL
+      OUTPUTLEN: 10
+      DECIMALS: 3
+    text:
+      FIELDTEXT: Number of storage units to be transferred from bulk storage
+      REPTEXT: St.r.SU
+      SCRTEXT_S: St.rem.SU.
+      SCRTEXT_M: St.un.rem.stock
+      SCRTEXT_L: Stor.units rem.stock
+  PAR_PALLET:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_VANBR
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: partial pallet quantity exists'
+      REPTEXT: PE
+      SCRTEXT_S: Par.pallet
+      SCRTEXT_M: Par.pallet qty.
+      SCRTEXT_L: Par.pallet quantity
+  SRCTGTQTYB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_VSOLM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Source target quantity in stockkeeping unit
+      REPTEXT: Srce tgt qty
+      SCRTEXT_S: SrceTgtQty
+      SCRTEXT_M: Source targ.qty
+      SCRTEXT_L: Source target qty
+  SRC_A_QTYB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_VISTM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Source actual quantity in stockkeeping unit
+      REPTEXT: Source act.qt
+      SCRTEXT_S: Srce.a.qty
+      SCRTEXT_M: Source act.qty.
+      SCRTEXT_L: Source actual qty.
+  SRC_B_DIFB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_VDIFM
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+      SIGN: X
+    text:
+      FIELDTEXT: Difference in source storage bin in stockkeeping unit
+      REPTEXT: Source bin diff.
+      SCRTEXT_S: Srce.b.df.
+      SCRTEXT_M: Source bin dif.
+      SCRTEXT_L: Source bin differ.
+  SRCTGTQTYA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_VSOLA
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+    text:
+      FIELDTEXT: Source target quantity in alternate unit
+      REPTEXT: Srce tgt qty
+      SCRTEXT_S: SrceTgtQty
+      SCRTEXT_M: Source targ.qty
+      SCRTEXT_L: Source target qty
+  SRC_A_QTYA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_VISTA
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+    text:
+      FIELDTEXT: Source actual quantity in alternative unit of measure
+      REPTEXT: Source act.qt
+      SCRTEXT_S: Srce.a.qty
+      SCRTEXT_M: Source act.qty.
+      SCRTEXT_L: Source actual qty.
+  SRC_B_DIFA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_VDIFA
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Difference in source storage bin in alternative unit
+      REPTEXT: Source b.diff.
+      SCRTEXT_S: Source df.
+      SCRTEXT_M: Source b.diff.
+      SCRTEXT_L: Source bin differ.
+  QUANT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: LVS_LQNUM
+      ROLLNAME: LVS_LQNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LQN
+    text:
+      FIELDTEXT: Quant
+      REPTEXT: Quant
+      SCRTEXT_S: Quant
+      SCRTEXT_M: Quant
+      SCRTEXT_L: Quant
+  SOURCEAPPC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_VAPPC
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Ind.: Pass on source item to APPC interface'
+      REPTEXT: S-APPC
+      SCRTEXT_S: SourceAPPC
+      SCRTEXT_M: Source it. APPC
+      SCRTEXT_L: Source it. to APPC
+  DEST_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LTAP_NLTYP
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T301
+    text:
+      FIELDTEXT: Destination Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: Dest.st.ty
+      SCRTEXT_M: DestStorType
+      SCRTEXT_L: Dest. Storage Type
+  DEST_SECT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGBER
+      ROLLNAME: LTAP_NLBER
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T302
+    text:
+      FIELDTEXT: Destination storage section
+      REPTEXT: Sec
+      SCRTEXT_S: Dest.sect.
+      SCRTEXT_M: Dest.stor.sect.
+      SCRTEXT_L: Dest.storage section
+  DEST_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_NLPLA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Destination Storage Bin
+      REPTEXT: Dest. Bin
+      SCRTEXT_S: Dest. Bin
+      SCRTEXT_M: Destination Bin
+      SCRTEXT_L: Dest.Storage Bin
+  DEST_DYN_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KZDYN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: dynamic storage bin'
+      REPTEXT: DB
+      SCRTEXT_S: Dyn.bin
+      SCRTEXT_M: Dynamic bin
+      SCRTEXT_L: Dynamic storage bin
+  DEST_BIN_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_PLPOS
+      ROLLNAME: LTAP_NPPOS
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Position in destination storage bin
+      REPTEXT: B.pos
+      SCRTEXT_S: Des.bn.pos
+      SCRTEXT_M: Dest.bin posit.
+      SCRTEXT_L: Dest.bin position
+  SU_PL_STCK:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 9
+      DOMNAME: LAGP_ANZLE
+      ROLLNAME: LTAP_NANZL
+      OUTPUTLEN: 10
+      DECIMALS: 3
+    text:
+      FIELDTEXT: Number of storage units to be transferred to bulk storage
+      REPTEXT: SU p.s.
+      SCRTEXT_S: SU pl.stck
+      SCRTEXT_M: SU to be pl.st.
+      SCRTEXT_L: St.un.to be pl.stock
+  PART_PALL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_NANBR
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: partial pallet quantity exists'
+      REPTEXT: PP
+      SCRTEXT_S: Part.pall.
+      SCRTEXT_M: Part.pallet qty
+      SCRTEXT_L: Partial pallet qty.
+  DEST_TARGB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_NSOLM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Destination target quantity in stockkeeping unit
+      REPTEXT: Dest.targ.qty
+      SCRTEXT_S: Dest.targ.
+      SCRTEXT_M: Dest.target qty
+      SCRTEXT_L: Dest.target quantity
+  DEST_ACTB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_NISTM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Destination actual quantity in stockkeeping unit
+      REPTEXT: Dest.act.qty.
+      SCRTEXT_S: Dest.qty
+      SCRTEXT_M: Act.qty (dest)
+      SCRTEXT_L: Act.qty (dest)
+  DEST_DIFB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_NDIFM
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+      SIGN: X
+    text:
+      FIELDTEXT: Destination difference quantity in stockkeeping unit
+      REPTEXT: Dest.diff.qty
+      SCRTEXT_S: Dest.qty
+      SCRTEXT_M: Dest.diff.qty.
+      SCRTEXT_L: Dest.difference qty.
+  DEST_TARGA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_NSOLA
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+    text:
+      FIELDTEXT: Destination target quantity in alternative unit
+      REPTEXT: Dest.targ.qty
+      SCRTEXT_S: Dest.targ.
+      SCRTEXT_M: Dest.target qty
+      SCRTEXT_L: Dest.target quantity
+  DEST_ACTA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_NISTA
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+    text:
+      FIELDTEXT: Actual destination quantity in alternative unit
+      REPTEXT: Actual qty
+      SCRTEXT_S: Dest.qty
+      SCRTEXT_M: Actual qty
+      SCRTEXT_L: Actual qty
+  DEST_DIFA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_NDIFA
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Destination difference qty. in alternative unit
+      REPTEXT: Dest.diff.qty
+      SCRTEXT_S: Dest.qty.
+      SCRTEXT_M: Dest.diff. qty.
+      SCRTEXT_L: Dest.diff. quantity
+  DEST_QUANT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: LVS_LQNUM
+      ROLLNAME: LVS_LQNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LQN
+    text:
+      FIELDTEXT: Quant
+      REPTEXT: Quant
+      SCRTEXT_S: Quant
+      SCRTEXT_M: Quant
+      SCRTEXT_L: Quant
+  DEST_APPC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_NAPPC
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: pass on destination item to APPC interface'
+      REPTEXT: D-APPC
+      SCRTEXT_S: Dest.APPC
+      SCRTEXT_M: Dest.it.to APPC
+      SCRTEXT_L: Pass on dest.it.APPC
+  RET_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LTAP_RLTYP
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T301
+    text:
+      FIELDTEXT: Return storage type
+      REPTEXT: Typ
+      SCRTEXT_S: ReturnType
+      SCRTEXT_M: Return stor.ty.
+      SCRTEXT_L: Return storage type
+  RET_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGBER
+      ROLLNAME: LTAP_RLBER
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T302
+    text:
+      FIELDTEXT: Return storage area
+      REPTEXT: Sec
+      SCRTEXT_S: Ret.area
+      SCRTEXT_M: Return stor.ar.
+      SCRTEXT_L: Return storage area
+  RET_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_RLPLA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Return storage bin
+      REPTEXT: Return bin
+      SCRTEXT_S: Return bin
+      SCRTEXT_M: Return stor.bin
+      SCRTEXT_L: Return storage bin
+  RET_BIN_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LVS_PLPOS
+      ROLLNAME: LTAP_RPPOS
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Position in return storage bin
+      REPTEXT: B.pos
+      SCRTEXT_S: Pos.ret.bn
+      SCRTEXT_M: Return bin pos.
+      SCRTEXT_L: Return bin position
+  RET_TARGB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_RSOLM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Return target quantity in stockkeeping unit
+      REPTEXT: Ret.targ.qty.
+      SCRTEXT_S: Ret.t.qty.
+      SCRTEXT_M: Ret.target qty.
+      SCRTEXT_L: Return target qty.
+  RET_ACTB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_RISTM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Actual returned quantity in stockkeeping unit
+      REPTEXT: Act. ret. qty
+      SCRTEXT_S: Return qty
+      SCRTEXT_M: Act. ret. qty
+      SCRTEXT_L: Actual returned qty
+  RET_DIFB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_RDIFM
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+      SIGN: X
+    text:
+      FIELDTEXT: Return difference quantity in stockkeeping unit
+      REPTEXT: Ret.diff.qty.
+      SCRTEXT_S: Return qty
+      SCRTEXT_M: Return diff.
+      SCRTEXT_L: Ret. diff. qty.
+  RET_TARGA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_RSOLA
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+    text:
+      FIELDTEXT: Return target quantity in alternative unit
+      REPTEXT: Ret.targ.qty.
+      SCRTEXT_S: Ret.t.qty.
+      SCRTEXT_M: Ret.target qty.
+      SCRTEXT_L: Return target qty.
+  RET_ACTA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_RISTA
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+    text:
+      FIELDTEXT: Actual return quantity in alternate unit of measure
+      REPTEXT: Act. ret. qty
+      SCRTEXT_S: Return qty
+      SCRTEXT_M: Act. ret. qty
+      SCRTEXT_L: Actual returned qty
+  RET_DIFA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_RDIFA
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Return difference quantity in alternative unit
+      REPTEXT: Return diff.
+      SCRTEXT_S: Ret. diff.
+      SCRTEXT_M: Return diff.
+      SCRTEXT_L: Return difference
+  RET_QUANT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: LVS_LQNUM
+      ROLLNAME: LVS_LQNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LQN
+    text:
+      FIELDTEXT: Quant
+      REPTEXT: Quant
+      SCRTEXT_S: Quant
+      SCRTEXT_M: Quant
+      SCRTEXT_L: Quant
+  RET_APPC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_RAPPC
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: pass on return item to APPC interface'
+      REPTEXT: R.APPC
+      SCRTEXT_S: Rt.to APPC
+      SCRTEXT_M: Ret.item toAPPC
+      SCRTEXT_L: Pass on rt.it.toAPPC
+  DIF_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LTAP_DLTYP
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T301
+    text:
+      FIELDTEXT: Difference storage type
+      REPTEXT: Typ
+      SCRTEXT_S: Stor.type
+      SCRTEXT_M: Storage type
+      SCRTEXT_L: Storage type
+  DIF_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_DLPLA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Difference storage bin
+      REPTEXT: Diff.bin
+      SCRTEXT_S: Stor. bin
+      SCRTEXT_M: Storage bin
+      SCRTEXT_L: Storage bin
+  DIF_QUANT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: LVS_LQNUM
+      ROLLNAME: LTAP_DLQNR
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Difference quant
+      REPTEXT: Quant
+      SCRTEXT_S: Quant
+      SCRTEXT_M: Quant
+      SCRTEXT_L: Quant
+  DIF_QTYB:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_DMENG
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: BASE_UOM
+      SIGN: X
+    text:
+      FIELDTEXT: Quantity of difference posting in stockkeeping unit
+      REPTEXT: Difference qty
+      SCRTEXT_S: Diff.qty
+      SCRTEXT_M: Difference qty
+      SCRTEXT_L: Difference Quantity
+  DIF_QTYA:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENSH
+      ROLLNAME: LTAP_DMENA
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: ALT_UNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Difference quantity in alternate unit of measure
+      REPTEXT: Difference qty
+      SCRTEXT_S: Diff.qty
+      SCRTEXT_M: Difference qty
+      SCRTEXT_L: Difference Quantity
+  DIF_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_KZDIF
+      ROLLNAME: LVS_KZDIF
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      SHLP: CT T336
+    text:
+      FIELDTEXT: Difference indicator
+      REPTEXT: DI
+      SCRTEXT_S: Diff.ind.
+      SCRTEXT_M: Difference ind.
+      SCRTEXT_L: Difference indicator
+  MATL_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: MAKTX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Material description
+      REPTEXT: Material description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Material description
+  TO_IT_PRTD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_DRUCK
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: transfer order item is printed'
+      REPTEXT: TO item printed
+      SCRTEXT_S: TO it.prtd
+      SCRTEXT_M: TO item printed
+      SCRTEXT_L: TO item printed
+  SRC_SU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: LENUM
+      ROLLNAME: LTAP_VLENR
+      OUTPUTLEN: 20
+    input:
+      MEMORYID: LEN
+      CONVEXIT: LENUM
+      SHLP: CT LEIN
+    text:
+      FIELDTEXT: Source storage unit number
+      REPTEXT: Source storage unit
+      SCRTEXT_S: Source SU
+      SCRTEXT_M: Source SU no.
+      SCRTEXT_L: Source storage unit
+  DEST_SU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: LENUM
+      ROLLNAME: LTAP_NLENR
+      OUTPUTLEN: 20
+    input:
+      MEMORYID: LEN
+      CONVEXIT: LENUM
+      SHLP: CT LEIN
+    text:
+      FIELDTEXT: Destination storage unit number
+      REPTEXT: Dest.storage unit
+      SCRTEXT_S: Dest.SU
+      SCRTEXT_M: Dest.stor.unit
+      SCRTEXT_L: Dest.storage unit
+  DIF_SU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: LENUM
+      ROLLNAME: LTAP_DLENR
+      OUTPUTLEN: 20
+    input:
+      MEMORYID: LEN
+      CONVEXIT: LENUM
+      SHLP: CT LEIN
+    text:
+      FIELDTEXT: Number of storage unit for difference quantities
+      REPTEXT: Difference stor.unit
+      SCRTEXT_S: Diff.SU
+      SCRTEXT_M: Difference SU
+      SCRTEXT_L: Difference stor.unit
+  SRC_SU_ST:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LEIN_STATU
+      ROLLNAME: LTAP_VLEST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LEIN_STATU
+    text:
+      FIELDTEXT: Status of source storage unit
+      REPTEXT: SSS
+      SCRTEXT_S: SrceSUstat
+      SCRTEXT_M: Srce SU status
+      SCRTEXT_L: Source SU status
+  DEST_SU_ST:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LEIN_STATU
+      ROLLNAME: LTAP_NLEST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LEIN_STATU
+    text:
+      FIELDTEXT: Status of destination storage unit
+      REPTEXT: DSS
+      SCRTEXT_S: Dest.SUst.
+      SCRTEXT_M: Dest.SU status
+      SCRTEXT_L: Dest.stor.unit stat.
+  SU_CONTNTS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_LELAS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: print storage unit contents'
+      REPTEXT: PSU
+      SCRTEXT_S: SU contnts
+      SCRTEXT_M: Stor.unit cnts
+      SCRTEXT_L: Print SU contents
+  HOM_ST_UN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_HOMVE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: stock removal of a total, homogenous storage unit'
+      REPTEXT: HSU
+      SCRTEXT_S: Hom.st.un.
+      SCRTEXT_M: Removal tot.SU
+      SCRTEXT_L: Removal of total SU
+  ITEM_CAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LTAP_POSTY
+      ROLLNAME: LTAP_POSTY
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LTAP_POSTY
+    text:
+      FIELDTEXT: Type of transfer order item
+      REPTEXT: T
+      SCRTEXT_S: Item cat.
+      SCRTEXT_M: Item category
+      SCRTEXT_L: Item category
+  ORIG_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: TAPOS
+      ROLLNAME: LTAP_ORPOS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: TO item from which current TO item was generated
+      REPTEXT: O
+      SCRTEXT_S: Orig.item
+      SCRTEXT_M: Original item
+      SCRTEXT_L: Original item
+  SRC_TOTALS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: T331BSUMME
+      ROLLNAME: LTAP_VSUMM
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV T331BSUMME
+    text:
+      FIELDTEXT: Level of totals information SOURCE
+      REPTEXT: T
+      SCRTEXT_S: TotalsInfo
+      SCRTEXT_M: Totals info
+      SCRTEXT_L: Level of totals info
+  SRC_MIX_BAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_VBLCH
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Blocks with mixed batches SOURCE
+      REPTEXT: B
+      SCRTEXT_S: Mix.batch
+      SCRTEXT_M: Mixed batches
+      SCRTEXT_L: Mixed batches
+  DEST_TOTALS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: T331BSUMME
+      ROLLNAME: LTAP_NSUMM
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV T331BSUMME
+    text:
+      FIELDTEXT: Level of totals information DEST.
+      REPTEXT: T
+      SCRTEXT_S: TotalsInfo
+      SCRTEXT_M: Totals info
+      SCRTEXT_L: Level of totals inf.
+  DEST_MIC_BAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_NBLCH
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Blocks with mixed batches DEST
+      REPTEXT: B
+      SCRTEXT_S: Mix.batch
+      SCRTEXT_M: Mixed batches
+      SCRTEXT_L: Mixed batches
+  RES_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: RSPOS
+      ROLLNAME: RSPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: RPO
+    text:
+      FIELDTEXT: Item Number of Reservation / Dependent Requirements
+      REPTEXT: Itm
+      SCRTEXT_S: Item no.
+      SCRTEXT_M: Item no.
+      SCRTEXT_L: Item number of reservation
+  EXPIRYDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: VFDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Shelf Life Expiration or Best-Before Date
+      REPTEXT: SLED/BBD
+      SCRTEXT_S: SLED/BBD
+      SCRTEXT_M: SLED/BBD
+      SCRTEXT_L: SLED/BBD
+  CAPAC_MAT:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 11
+      DOMNAME: DEC8_3
+      ROLLNAME: LTAP_VKAPV
+      OUTPUTLEN: 14
+      DECIMALS: 3
+    text:
+      FIELDTEXT: Capacity usage of transferred material
+      REPTEXT: Capac.material
+      SCRTEXT_S: Capac.mat.
+      SCRTEXT_M: Capac.material
+      SCRTEXT_L: Capacity usage mat
+  SRC_CAP_CHK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: T331_KAPAP
+      ROLLNAME: LTAP_VKAPA
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV T331_KAPAP
+    text:
+      FIELDTEXT: Capacity check for source storage type
+      REPTEXT: C
+      SCRTEXT_S: Cap. check
+      SCRTEXT_M: Capacity check
+      SCRTEXT_L: Capacity check
+  DEST_CAP_CHK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: T331_KAPAP
+      ROLLNAME: LTAP_NKAPA
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV T331_KAPAP
+    text:
+      FIELDTEXT: Capacity check for destination storage type
+      REPTEXT: C
+      SCRTEXT_S: Cap. check
+      SCRTEXT_M: Capacity check
+      SCRTEXT_L: Capacity check
+  RET_CAP_CHK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: T331_KAPAP
+      ROLLNAME: LTAP_RKAPA
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV T331_KAPAP
+    text:
+      FIELDTEXT: Capacity check return storage type
+      REPTEXT: C
+      SCRTEXT_S: Cap. check
+      SCRTEXT_M: Capacity check
+      SCRTEXT_L: Capacity check
+  SUBSYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LTAP_KZSUB
+      ROLLNAME: LTAP_KZSUB
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LTAP_KZSUB
+    text:
+      FIELDTEXT: 'Indicator: pass on TO item to subsystem'
+      REPTEXT: Sub
+      SCRTEXT_S: Subsystem
+      SCRTEXT_M: Item to subsys.
+      SCRTEXT_L: Item to subsystem
+  INSPLOT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOS
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: QLS
+      SHLP: SH QALS
+    text:
+      FIELDTEXT: Inspection Lot Number
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Inspection Lot
+      SCRTEXT_L: Inspection Lot
+  INSPLOTX:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: QPLOS
+      ROLLNAME: QPLOA
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: QLS
+      SHLP: CT QALS
+    text:
+      FIELDTEXT: Inspection Lot on Which the Usage Decision is Based
+      REPTEXT: Insp. Lot
+      SCRTEXT_S: Insp. Lot
+      SCRTEXT_M: Insp. Lot Old
+      SCRTEXT_L: Insp. Lot Old
+  INV_SAMP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_KZSTI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: transfer of insp.sample'
+      REPTEXT: IS
+      SCRTEXT_S: Insp.samp.
+      SCRTEXT_M: Inspect.sample
+      SCRTEXT_L: Inspection sample
+  RES_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RSART
+      ROLLNAME: RSART
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Record type
+      REPTEXT: RcT
+      SCRTEXT_S: Rec. type
+      SCRTEXT_M: Record type
+      SCRTEXT_L: Record type
+  CONF_BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KZECH
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Confirm Batch to PP'
+      REPTEXT: C
+      SCRTEXT_S: Conf.Batch
+      SCRTEXT_M: Confirm Batch
+      SCRTEXT_L: Confirm Batch
+  PICK_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: KOBER
+      ROLLNAME: KOBER
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T30A
+    text:
+      FIELDTEXT: Picking Area
+      REPTEXT: PAr
+      SCRTEXT_S: Pick. Area
+      SCRTEXT_M: Picking Area
+      SCRTEXT_L: Picking Area
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  PLAN_TIME:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: PW_QUAN13
+      ROLLNAME: LTAP_SOLPO
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: TIME_UNIT
+      SIGN: X
+    text:
+      FIELDTEXT: Planned proc.time in transfer order item
+      REPTEXT: PlndProcTimeTO itm
+      SCRTEXT_S: Plan time
+      SCRTEXT_M: Plnd time TOitm
+      SCRTEXT_L: Plnd proc.time TOitm
+  TIME_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: LVS_ZEIEI
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Time unit for performance data
+      REPTEXT: Tme
+      SCRTEXT_S: Time unit
+      SCRTEXT_M: Time unit
+      SCRTEXT_L: Time unit
+  TIME_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  REL_TWO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_2SKREL
+      ROLLNAME: LVS_2SKREL
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Relevance for 2-step picking
+      REPTEXT: 2stP
+      SCRTEXT_S: 2-st.Pickg
+      SCRTEXT_M: 2-step picking
+      SCRTEXT_L: 2-step picking
+  VOLUME:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: VOLUM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: VOLUMEUNIT
+    text:
+      FIELDTEXT: Volume
+      REPTEXT: Volume
+      SCRTEXT_S: Volume
+      SCRTEXT_M: Volume
+      SCRTEXT_L: Volume
+  VOLUMEUNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: VOLEH
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Volume unit
+      REPTEXT: VUn
+      SCRTEXT_S: VolumeUnit
+      SCRTEXT_M: Volume unit
+      SCRTEXT_L: Volume unit
+  VOLUMEUNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  INDINVMANG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KZBEF
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Indicator Inventory Management active
+      REPTEXT: IM
+      SCRTEXT_S: IM active
+      SCRTEXT_M: Inv.Mgmt active
+      SCRTEXT_L: Invent.Mgmt active
+  IM_RELEVANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_IMREL
+      ROLLNAME: LVS_IMREL
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LVS_IMREL
+    text:
+      FIELDTEXT: Trigger posting in Inventory Management
+      REPTEXT: IM
+      SCRTEXT_S: IM relev.
+      SCRTEXT_M: Posting in IM
+      SCRTEXT_L: Trigger posting in Inventory Mgmt
+  INGRED_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LTAP_NWIRM
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPITOITEM
+      REFFIELD: INGRED_UOM
+    text:
+      FIELDTEXT: Transferred ingredient qty
+      REPTEXT: Act.ingred.qty
+      SCRTEXT_S: Indredient
+      SCRTEXT_M: Quantity ActIng
+      SCRTEXT_L: Quantity ActIng
+  INGRED_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: LTAP_WIRME
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Active ingredient unit of measure
+      REPTEXT: AIU
+      SCRTEXT_S: AIU
+      SCRTEXT_M: Act.ingred.UoM
+      SCRTEXT_L: Active ingred. UoM
+  INGRED_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  DEST_BIN_CHG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_NPLEI
+      ROLLNAME: LVS_NPLEI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Dest.stor.bin changeable during confirmation
+      REPTEXT: DC
+      SCRTEXT_S: DstBnChgbl
+      SCRTEXT_M: Dest.bin chgble
+      SCRTEXT_L: Dest.bin changeable
+  KANBAN_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KBNKZ
+      ROLLNAME: KBNKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Kanban Indicator
+      SCRTEXT_S: KanbanInd.
+      SCRTEXT_M: Kanban Indicat.
+      SCRTEXT_L: Kanban Indicator
+  CANCEL_REQ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_STOAN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Cancellation req. for TO item (currently only from Kanban)
+      REPTEXT: Z
+      SCRTEXT_S: CancelReq.
+      SCRTEXT_M: Cancell.request
+      SCRTEXT_L: Cancellation request
+  SEP_CONF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LVS_KGVNQ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Separate confirmation possible'
+      REPTEXT: Separate confirmatn
+      SCRTEXT_S: Sep.conf.
+      SCRTEXT_M: Separate conf.
+      SCRTEXT_L: Separate confirmatn
+  MAT_PICK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_PVQUI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Material pick has been confirmed'
+      REPTEXT: Confrmation
+      SCRTEXT_S: Confirmat.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  ECONF_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: LTAP_EDATU
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of Pick Confirmation (First Step)
+      REPTEXT: Conf.dt.
+      SCRTEXT_S: Conf.date
+      SCRTEXT_M: Confirmat. date
+      SCRTEXT_L: Confirmation date
+  ECONF_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: LTAP_EZEIT
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time of Pick Confirmation (First Step)
+      REPTEXT: ConfTme
+      SCRTEXT_S: Conf.time
+      SCRTEXT_M: Confirmat.time
+      SCRTEXT_L: Confirmation time
+  CONF_USER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: USNAM
+      ROLLNAME: LTAP_ENAME
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: User Name in Pick Confirmation (First Step)
+      REPTEXT: User
+      SCRTEXT_S: User
+      SCRTEXT_M: User
+      SCRTEXT_L: User
+  FLG_LEAD_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KZFME
+      ROLLNAME: KZFME
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV KZFME
+    text:
+      FIELDTEXT: 'ID: Leading unit of measure for completing a transaction'
+      REPTEXT: L
+      SCRTEXT_S: Lead. UoM
+      SCRTEXT_M: Leading UoM
+      SCRTEXT_L: Leading UoM
+  SUB_TWO_STEP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RL03TQUKNZ
+      ROLLNAME: LTAP_QUSUB
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV RL03TQUKNZ
+    text:
+      FIELDTEXT: 'Confirmation ind.: Two-step confirmation for external system'
+      REPTEXT: CSub
+      SCRTEXT_S: CIndExtSys
+      SCRTEXT_M: Conf.ind.ExtSys
+      SCRTEXT_L: Conf.ind.ext.system
+  HU_ITEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LTAP_FHUTA
+      ROLLNAME: LTAP_FHUTA
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LTAP_FHUTA
+    text:
+      FIELDTEXT: 'Flag: Transfer order item is HU TO item'
+      REPTEXT: HU item
+      SCRTEXT_S: HU item
+      SCRTEXT_M: HU item
+      SCRTEXT_L: HU item
+  SRC_HU_NEST:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: VLEIN_NEST
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Indicates whether the source storage unit is a nested HU
+      SCRTEXT_S: Src nested
+      SCRTEXT_M: ScStrgeUnitNstd
+      SCRTEXT_L: Src strge unit nstd
+  PACK_MAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: VHILM
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Packaging Materials
+      REPTEXT: PackMatls
+      SCRTEXT_S: PackMatls
+      SCRTEXT_M: PackMaterials
+      SCRTEXT_L: Packaging materials
+  SRC_SU_HU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_VDUMM
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Source SU is pseudo SU (only HUs)'
+  DEST_SU_HU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_NDUMM
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Destination SU is pseudo SU (only HUs)'
+  SRC_SU_SER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_VSERI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Source SU is a HU with serial numbers'
+  SRC_HU_PICK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_HUPIK
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: source HU suggested as pick HU at confirmation'
+  HU_EXID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: EXIDV
+      ROLLNAME: EXIDV
+      OUTPUTLEN: 20
+    input:
+      CONVEXIT: ALPHA
+      SHLP: SH HU_IDENT_ALLG
+    text:
+      FIELDTEXT: External Handling Unit Identification
+      REPTEXT: Handling Unit
+      SCRTEXT_S: HU
+      SCRTEXT_M: Handling Unit
+      SCRTEXT_L: Handling Unit
+  NO_CONTROL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_NOLIS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Flag: Do not update whse controlling during TO creation'
+  SU_NO_PICK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_NPIPO
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Flag: Do not transfer SU to pick point (for SU block stor.)'
+      REPTEXT: Do not transfer to pck pnt
+      SCRTEXT_S: NoTrnsfPPt
+      SCRTEXT_M: NoTransf.PckPnt
+      SCRTEXT_L: Do not transf.pck pt
+  TA_POS_HU:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_PIPAR
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Assignment of TO item to handling unit is required
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  PACK_MAT_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_PACK_MAT_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for PACK_MAT Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  PACK_MAT_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_PACK_MAT_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for PACK_MAT Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  PACK_MAT_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_PACK_MAT_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for PACK_MAT Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  HAZ_MAT_NO_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: STOFF40
+      ROLLNAME: STOFF40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Hazardous Material Number (40 Chars, Technically Required)
+      REPTEXT: Hazardous Matl No.
+      SCRTEXT_S: Haz.
+      SCRTEXT_M: Haz. Matl No.
+      SCRTEXT_L: Hazardous Matl No.
+  PACK_MAT_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: VHILM40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Packaging Materials
+      REPTEXT: PackMatls
+      SCRTEXT_S: PackMatls
+      SCRTEXT_M: PackMaterials
+      SCRTEXT_L: Packaging materials
+BAPI2018B:
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  CONFIRM_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LTAP_PQUIT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: confirmation complete'
+      REPTEXT: C
+      SCRTEXT_S: Confirmat.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: SH S_MAT1
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  SOURCE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LTAP_VLTYP
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T301
+    text:
+      FIELDTEXT: Source Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: SourceType
+      SCRTEXT_M: Source Stor.Ty.
+      SCRTEXT_L: Source Storage Type
+BAPIF4A:
+  MAX_ROWS:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: SYST_LONG
+      ROLLNAME: BAPIMAXROW
+      OUTPUTLEN: 11
+      SIGN: X
+    text:
+      FIELDTEXT: Maximum number of lines of hits
+      SCRTEXT_S: MAXrow
+      SCRTEXT_M: Max. no. of lines
+      SCRTEXT_L: Maximum number of lines of hits
+BAPIMGVMATNR:
+  MATERIAL_EXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MATNR_EXT
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: External Long Material Number
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_VERS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MATNR_VERS
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: MATVERS
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Material Version Number
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SYSUUID_C
+      ROLLNAME: MATNR_EGUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Material number (external GUID)
+      REPTEXT: GUID (material number)
+      SCRTEXT_S: GUID
+      SCRTEXT_M: GUID (material)
+      SCRTEXT_L: GUID (material no.)
+BAPITRANSORDERKEY:
+  CLIENT:
+    format:
+      DATATYPE: CLNT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MANDT
+      ROLLNAME: MANDT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T000
+    text:
+      FIELDTEXT: Client
+      REPTEXT: Cl.
+      SCRTEXT_S: Client
+      SCRTEXT_M: Client
+      SCRTEXT_L: Client
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  TRANS_ORD:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: TANUM
+      ROLLNAME: TANUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: TAN
+    text:
+      FIELDTEXT: Transfer Order Number
+      REPTEXT: TO Number
+      SCRTEXT_S: TO Number
+      SCRTEXT_M: TO Number
+      SCRTEXT_L: Transfer Order Number
+  TO_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: TAPOS
+      ROLLNAME: TAPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: TAP
+    text:
+      FIELDTEXT: Transfer order item
+      REPTEXT: Item
+      SCRTEXT_S: TO item
+      SCRTEXT_M: Tr.order item
+      SCRTEXT_L: Transfer order item
+BAPI2018F:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STGE_BIN_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_VLPLA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Source Storage Bin
+      REPTEXT: Source Bin
+      SCRTEXT_S: Source Bin
+      SCRTEXT_M: Source Stor.Bin
+      SCRTEXT_L: Source Storage Bin
+  STGE_BIN_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LTAP_VLPLA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT LAGP
+    text:
+      FIELDTEXT: Source Storage Bin
+      REPTEXT: Source Bin
+      SCRTEXT_S: Source Bin
+      SCRTEXT_M: Source Stor.Bin
+      SCRTEXT_L: Source Storage Bin

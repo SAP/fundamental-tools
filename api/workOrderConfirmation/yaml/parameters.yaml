@@ -1,0 +1,283 @@
+BAPI_ALM_CONF_CANCEL:
+  CONFIRMATION:
+    PARAMCLASS: I
+    TABNAME: BAPI_CONF_KEY
+    FIELDNAME: CONF_NO
+    PARAMTEXT: Confirmation
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: CONFIRMATION
+    required: true
+    paramType: var
+  CONFIRMATIONCOUNTER:
+    PARAMCLASS: I
+    TABNAME: BAPI_CONF_KEY
+    FIELDNAME: CONF_CNT
+    PARAMTEXT: Confirmation counter
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: CONFIRMATIONCOUNTER
+    required: true
+    paramType: var
+  CONFTEXT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_CONFIRMATION
+    FIELDNAME: CONF_TEXT
+    PARAMTEXT: Confirmation Text
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: CONFTEXT
+    required: false
+    default: ''
+    paramType: var
+  POSTGDATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_CONFIRMATION
+    FIELDNAME: POSTG_DATE
+    PARAMTEXT: Posting Date
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: POSTGDATE
+    required: false
+    default: ''
+    paramType: var
+  CREATED_CONF_COUNT:
+    PARAMCLASS: E
+    TABNAME: BAPI_CONF_KEY
+    FIELDNAME: CONF_CNT
+    PARAMTEXT: Confirmation counter for cancellation record
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: CREATED_CONF_COUNT
+    required: true
+    paramType: var
+  CREATED_CONF_NO:
+    PARAMCLASS: E
+    TABNAME: BAPI_CONF_KEY
+    FIELDNAME: CONF_NO
+    PARAMTEXT: Confirmation of cancellation record
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: CREATED_CONF_NO
+    required: true
+    paramType: var
+  LOCKED:
+    PARAMCLASS: E
+    TABNAME: BAPI_CORU_PARAM
+    FIELDNAME: LOCKED
+    PARAMTEXT: 'Indicator: Order is locked'
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: LOCKED
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_ALM_CONF_CANCEL
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_CONF_CREATE:
+  POST_WRONG_ENTRIES:
+    PARAMCLASS: I
+    TABNAME: BAPI_CORU_PARAM
+    FIELDNAME: INS_ERR
+    PARAMTEXT: 'Ind.: Incorrect data in error pool'
+    functionName: BAPI_ALM_CONF_CREATE
+    paramName: POST_WRONG_ENTRIES
+    required: false
+    default: '''0'''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI_CORU_PARAM
+    FIELDNAME: TESTRUN
+    PARAMTEXT: Test is active
+    functionName: BAPI_ALM_CONF_CREATE
+    paramName: TESTRUN
+    required: false
+    default: ''
+    paramType: var
+  TIMETICKETS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TIMECONFIRMATION
+    PARAMTEXT: Table of confirmations
+    functionName: BAPI_ALM_CONF_CREATE
+    paramName: TIMETICKETS
+    required: true
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_RETURN
+    PARAMTEXT: Return parameter for confirmation table
+    functionName: BAPI_ALM_CONF_CREATE
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_ALM_CONF_CREATE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_CONF_GETDETAIL:
+  CONFIRMATION:
+    PARAMCLASS: I
+    TABNAME: BAPI_CONF_KEY
+    FIELDNAME: CONF_NO
+    PARAMTEXT: Confirmation
+    functionName: BAPI_ALM_CONF_GETDETAIL
+    paramName: CONFIRMATION
+    required: true
+    paramType: var
+  CONFIRMATIONCOUNTER:
+    PARAMCLASS: I
+    TABNAME: BAPI_CONF_KEY
+    FIELDNAME: CONF_CNT
+    PARAMTEXT: Confirmation counter
+    functionName: BAPI_ALM_CONF_GETDETAIL
+    paramName: CONFIRMATIONCOUNTER
+    required: true
+    paramType: var
+  FAILEDGMOVES:
+    PARAMCLASS: T
+    TABNAME: BAPI_CORU_FGM
+    PARAMTEXT: Incorrect or Flagged Goods Movements
+    functionName: BAPI_ALM_CONF_GETDETAIL
+    paramName: FAILEDGMOVES
+    required: false
+    default: ''
+    paramType: table
+  GOODSMOVEMENTS:
+    PARAMCLASS: T
+    TABNAME: BAPI2017_GM_ITEM_SHOW
+    PARAMTEXT: Successfully Posted Goods Movements
+    functionName: BAPI_ALM_CONF_GETDETAIL
+    paramName: GOODSMOVEMENTS
+    required: false
+    default: ''
+    paramType: table
+  CONF_DETAIL:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_CONFIRMATION
+    PARAMTEXT: Display Structure for PM/CS Confirmation
+    functionName: BAPI_ALM_CONF_GETDETAIL
+    paramName: CONF_DETAIL
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_ALM_CONF_GETDETAIL
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_CONF_GETLIST:
+  COMPLETED:
+    PARAMCLASS: I
+    TABNAME: BAPI_CORU_PARAM
+    FIELDNAME: TESTRUN
+    PARAMTEXT: Confirmations for completed orders
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: COMPLETED
+    required: false
+    default: ''
+    paramType: var
+  IN_PROCESS:
+    PARAMCLASS: I
+    TABNAME: BAPI_CORU_PARAM
+    FIELDNAME: TESTRUN
+    PARAMTEXT: Confirmations for orders "in process"
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: IN_PROCESS
+    required: false
+    default: ''
+    paramType: var
+  OPERATION:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_CONFIRMATION
+    FIELDNAME: OPERATION
+    PARAMTEXT: Operation
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: OPERATION
+    required: false
+    default: ''
+    paramType: var
+  SUBOPERATION:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_CONFIRMATION
+    FIELDNAME: SUB_OPER
+    PARAMTEXT: Suboperation
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: SUBOPERATION
+    required: false
+    default: ''
+    paramType: var
+  CONFIRMATIONS:
+    PARAMCLASS: T
+    TABNAME: BAPI_CONF_KEY
+    PARAMTEXT: Keys of Selected Confirmations
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: CONFIRMATIONS
+    required: true
+    paramType: table
+  CONF_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_PP_CONFRANGE
+    PARAMTEXT: Confirmations to be selected
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: CONF_RANGE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_PP_ORDERRANGE
+    PARAMTEXT: Orders to be selected
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: ORDER_RANGE
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_ALM_CONF_GETLIST
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_GET_PROP:
+  PROPOSAL:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_CONF_PROP
+    PARAMTEXT: Indicators - Suggest Confirmation Data in PM/CS
+    functionName: BAPI_ALM_GET_PROP
+    paramName: PROPOSAL
+    required: false
+    default: SPACE
+    paramType: struct
+  TIMETICKETS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_TIMECONFIRMATION
+    PARAMTEXT: BAPI Structure for Confirmation in PM/CS
+    functionName: BAPI_ALM_GET_PROP
+    paramName: TIMETICKETS
+    required: true
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_RETURN
+    PARAMTEXT: Return Information for APIs
+    functionName: BAPI_ALM_GET_PROP
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_ALM_GET_PROP
+    paramName: RETURN
+    required: true
+    paramType: struct

@@ -1,0 +1,2255 @@
+BAPI_BUSPARTNER_CHANGE:
+  BPARTNERID:
+    PARAMCLASS: I
+    TABNAME: BAPI1309BPARTNER
+    FIELDNAME: BPARTNER
+    PARAMTEXT: Business Partner Number
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: BPARTNERID
+    required: true
+    paramType: var
+  CLIENT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: CLIENT
+    PARAMTEXT: Client
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: CLIENT
+    required: true
+    paramType: var
+  ROLE_CUST:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Change/Create Customer'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ROLE_CUST
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_EMPL:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Change/Create Employer'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ROLE_EMPL
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_FEE:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Change/Create Fee Recipient'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ROLE_FEE
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_HOSP:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Change/Create Hospital'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ROLE_HOSP
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_INS:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Change/Create Insurance Provider'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ROLE_INS
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_PERS:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Change/Create Person (Physician/Employee)'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ROLE_PERS
+    required: false
+    default: SPACE
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: TESTRUN
+    PARAMTEXT: Test Mode (No Changes in Database)
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  ADDRESS_X:
+    PARAMCLASS: I
+    TABNAME: BAPINADDRX
+    PARAMTEXT: 'Change Structure: Address General Business Partner'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ADDRESS_X
+    required: false
+    default: ''
+    paramType: struct
+  BPARTNER_X:
+    PARAMCLASS: I
+    TABNAME: BAPI1309BPARTINX
+    PARAMTEXT: 'Change Structure: General Business Partner'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: BPARTNER_X
+    required: false
+    default: ''
+    paramType: struct
+  CUSTOMER_X:
+    PARAMCLASS: I
+    TABNAME: BAPI1309CUSTINX
+    PARAMTEXT: 'Change Structure/Create Structure: Function "IS-H Customer"'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: CUSTOMER_X
+    required: false
+    default: ''
+    paramType: struct
+  EMPLOYER_X:
+    PARAMCLASS: I
+    TABNAME: BAPI1309EMPLINX
+    PARAMTEXT: 'Change Structure/Create Structure: Function "Employer"'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: EMPLOYER_X
+    required: false
+    default: ''
+    paramType: struct
+  FEE_X:
+    PARAMCLASS: I
+    TABNAME: BAPI1309FEEINX
+    PARAMTEXT: 'Change/Create Structure: Function "Fee Recipient"'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: FEE_X
+    required: false
+    default: ''
+    paramType: struct
+  HOSPITAL_X:
+    PARAMCLASS: I
+    TABNAME: BAPI1309HOSPINX
+    PARAMTEXT: 'Change Structure/Create Structure: Function "Hospital"'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: HOSPITAL_X
+    required: false
+    default: ''
+    paramType: struct
+  INSPROVIDER_X:
+    PARAMCLASS: I
+    TABNAME: BAPI1309INSPROVINX
+    PARAMTEXT: 'Change Structure/Create Structure: Function "Insurance Provider"'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: INSPROVIDER_X
+    required: false
+    default: ''
+    paramType: struct
+  PERSON_X:
+    PARAMCLASS: I
+    TABNAME: BAPI1309PERSINX
+    PARAMTEXT: 'Change Structure/Create Structure: Function "Person"'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: PERSON_X
+    required: false
+    default: ''
+    paramType: struct
+  ADD_PHONE_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPINADDR2
+    PARAMTEXT: Deleted Telephone Numbers
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ADD_PHONE_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ADD_PHONE_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPINADDR2
+    PARAMTEXT: Created Telephone Numbers
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ADD_PHONE_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ADD_PHONE_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNADR2X
+    PARAMTEXT: 'Change Data: Telephone Numbers'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ADD_PHONE_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEB_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEB
+    PARAMTEXT: Fee Recipient Fee Authorizations Deleted
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEB_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEB_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEB
+    PARAMTEXT: Fee Recipient Fee Authorizations Created
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEB_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEB_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEB
+    PARAMTEXT: Fee Recipient Fee Authorizations Changed
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEB_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEB_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEBX
+    PARAMTEXT: 'Change Data: Fee Recipient Fee Authorizations'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEB_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEK_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEK
+    PARAMTEXT: Fee Recipient Vendors Deleted
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEK_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEK_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEK
+    PARAMTEXT: Fee Recipient Vendors Created
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEK_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEK_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEK
+    PARAMTEXT: Fee Recipient Vendors Changed
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEK_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEK_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEKX
+    PARAMTEXT: 'Change Data: Fee Recipient Vendors'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEEK_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEER_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEER
+    PARAMTEXT: Fee Recipient Ranks Deleted
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEER_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEER_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEER
+    PARAMTEXT: Fee Recipient Ranks Created
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEER_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEER_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEER
+    PARAMTEXT: Fee Recipient Ranks Changed
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEER_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEER_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEERX
+    PARAMTEXT: 'Change Data: Fee Recipient Ranks'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_FEER_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_INSPROVIDER_INSTITU_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROV_INSTITU
+    PARAMTEXT: Deleted Institution-Dependent Insurance Provider Data
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_INSPROVIDER_INSTITU_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_INSPROVIDER_INSTITU_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROV_INSTITU
+    PARAMTEXT: Created Institution-Dependent Insurance Provider Data
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_INSPROVIDER_INSTITU_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_INSPROVIDER_INSTITU_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROV_INSTITU
+    PARAMTEXT: Changed Institution-Dependent Insurance Provider Data
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_INSPROVIDER_INSTITU_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_INSPROVIDER_INSTITU_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROV_INSTITU_X
+    PARAMTEXT: 'Change Data: Institution-Dependent Insurance Provider Data'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_INSPROVIDER_INSTITU_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_KVPHYSNO_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERPHYSNO
+    PARAMTEXT: Deleted Person-HI Physician Number Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_KVPHYSNO_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_KVPHYSNO_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERPHYSNO
+    PARAMTEXT: Created Person-HI Physician Number Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_KVPHYSNO_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_KVPHYSNO_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERPHYSNO
+    PARAMTEXT: Changed Person-HI Physician Number Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_KVPHYSNO_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_KVPHYSNO_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERPHYSNOX
+    PARAMTEXT: 'Change Data: Change Structure for Person-HI Physician Number Assignment'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_KVPHYSNO_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_NASHOSP_DDATA:
+    PARAMCLASS: T
+    TABNAME: /ISHFR/BAPI1309NASHOSP
+    PARAMTEXT: 'BAPI: Assigned Hospitals'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_NASHOSP_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_NASHOSP_IDATA:
+    PARAMCLASS: T
+    TABNAME: /ISHFR/BAPI1309NASHOSP
+    PARAMTEXT: 'BAPI: Assigned Hospitals'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_NASHOSP_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_NASHOSP_UDATA:
+    PARAMCLASS: T
+    TABNAME: /ISHFR/BAPI1309NASHOSP
+    PARAMTEXT: 'BAPI: Assigned Hospitals'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_NASHOSP_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_NASHOSP_X:
+    PARAMCLASS: T
+    TABNAME: /ISHFR/BAPI1309NASHOSPX
+    PARAMTEXT: 'BAPI: Assigned Hospitals - Change Structure'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_NASHOSP_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QLDI_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQLDI
+    PARAMTEXT: Deleted Person-to-Qualitative Grade Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QLDI_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QLDI_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQLDI
+    PARAMTEXT: Created Person-to-Qualitative Grade Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QLDI_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QLDI_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQLDI
+    PARAMTEXT: Changed Person-to-Qualitative Grade Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QLDI_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QLDI_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQLDIX
+    PARAMTEXT: 'Change Data: Person-to-Qualitative Grade Asgmt'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QLDI_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QTDI_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQTDI
+    PARAMTEXT: Deleted Person-to-Quantitative Grade Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QTDI_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QTDI_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQTDI
+    PARAMTEXT: Created Person-to-Quantitative Grade Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QTDI_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QTDI_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQTDI
+    PARAMTEXT: Changed Person-to-Quantitative Grade Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QTDI_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QTDI_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQTDIX
+    PARAMTEXT: 'Change Data: Person-to-Quantitative Grade Asgmt'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_QTDI_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_SPEC_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERSPEC
+    PARAMTEXT: Deleted Person-to-Specialty Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_SPEC_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_SPEC_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERSPEC
+    PARAMTEXT: Created Person-to-Specialty Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_SPEC_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_SPEC_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERSPECX
+    PARAMTEXT: 'Change Date: Person-to-Specialty Assignment'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_SPEC_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_USR_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERUSR
+    PARAMTEXT: Deleted Person-to-User Name Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_USR_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_USR_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERUSR
+    PARAMTEXT: Created Person-to-User Name Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_USR_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_USR_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERUSRX
+    PARAMTEXT: 'Change Data: Person-to-User Name Assignment'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_USR_X
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_WORKNO_DDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERWORKNO
+    PARAMTEXT: Deleted Person-Place of Work Number Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_WORKNO_DDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_WORKNO_IDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERWORKNO
+    PARAMTEXT: Created Person-Place of Work Number Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_WORKNO_IDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_WORKNO_UDATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERWORKNO
+    PARAMTEXT: Changed Person-Place of Work Number Assignment
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_WORKNO_UDATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_WORKNO_X:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERWORKNOX
+    PARAMTEXT: 'Change Data: Person-Place of Work Number Assignment'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ASS_PER_WORKNO_X
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+  ADDRESS_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPINADDR
+    PARAMTEXT: Changed Address
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: ADDRESS_CDATA
+    required: true
+    paramType: struct
+  BPARTNER_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309BPARTNER
+    PARAMTEXT: Changed General Business Partner
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: BPARTNER_CDATA
+    required: true
+    paramType: struct
+  CUSTOMER_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309CUSTOMER
+    PARAMTEXT: Changed IS-H Customer
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: CUSTOMER_CDATA
+    required: true
+    paramType: struct
+  CUSTOMER_IDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309CUSTOMER
+    PARAMTEXT: Created IS-H Customer
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: CUSTOMER_IDATA
+    required: true
+    paramType: struct
+  EMPLOYER_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309EMPLOYER
+    PARAMTEXT: Changed Employer
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: EMPLOYER_CDATA
+    required: true
+    paramType: struct
+  EMPLOYER_IDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309EMPLOYER
+    PARAMTEXT: Created Employer
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: EMPLOYER_IDATA
+    required: true
+    paramType: struct
+  FEE_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309FEE
+    PARAMTEXT: Fee Recipient Changed
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: FEE_CDATA
+    required: true
+    paramType: struct
+  FEE_IDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309FEE
+    PARAMTEXT: Fee Recipient Created
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: FEE_IDATA
+    required: true
+    paramType: struct
+  HOSPITAL_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309HOSPITAL
+    PARAMTEXT: Changed Hospital
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: HOSPITAL_CDATA
+    required: true
+    paramType: struct
+  HOSPITAL_IDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309HOSPITAL
+    PARAMTEXT: Created Hospital
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: HOSPITAL_IDATA
+    required: true
+    paramType: struct
+  INSPROVIDER_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309INS_PROVIDER
+    PARAMTEXT: Changed Insurance Provider
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: INSPROVIDER_CDATA
+    required: true
+    paramType: struct
+  INSPROVIDER_IDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309INS_PROVIDER
+    PARAMTEXT: Created Insurance Provider
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: INSPROVIDER_IDATA
+    required: true
+    paramType: struct
+  PERSON_CDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309PERSON
+    PARAMTEXT: Changed Person
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: PERSON_CDATA
+    required: true
+    paramType: struct
+  PERSON_IDATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309PERSON
+    PARAMTEXT: Created Person
+    functionName: BAPI_BUSPARTNER_CHANGE
+    paramName: PERSON_IDATA
+    required: true
+    paramType: struct
+BAPI_BUSPARTNER_CREATE:
+  CLIENT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: CLIENT
+    PARAMTEXT: Client
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: CLIENT
+    required: true
+    paramType: var
+  BPARTNER_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309BPARTIN
+    PARAMTEXT: 'Create Structure: General Business Partner'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: BPARTNER_CREATE
+    required: true
+    paramType: struct
+  BPARTNERID:
+    PARAMCLASS: I
+    TABNAME: BAPI1309BPARTNER
+    FIELDNAME: BPARTNER
+    PARAMTEXT: Business Partner Number (with External Number Assignment)
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: BPARTNERID
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_CUST:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Create Customer'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ROLE_CUST
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_EMPL:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Create Employer'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ROLE_EMPL
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_FEE:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Create Fee Recipient'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ROLE_FEE
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_HOSP:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Create Hospital'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ROLE_HOSP
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_INS:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Create Insurance Provider'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ROLE_INS
+    required: false
+    default: SPACE
+    paramType: var
+  ROLE_PERS:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: XIND
+    PARAMTEXT: 'Checkbox: Create Person (Physician/Employee)'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ROLE_PERS
+    required: false
+    default: SPACE
+    paramType: var
+  SAP_BPARTNERID:
+    PARAMCLASS: I
+    TABNAME: BAPIBUS1006_HEAD
+    FIELDNAME: BPARTNER
+    PARAMTEXT: Business Partner Number
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: SAP_BPARTNERID
+    required: false
+    default: ''
+    paramType: var
+  SAP_BPCATEGORY:
+    PARAMCLASS: I
+    TABNAME: BAPIBUS1006_HEAD
+    FIELDNAME: PARTN_CAT
+    PARAMTEXT: SAP Business Partner Category
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: SAP_BPCATEGORY
+    required: false
+    default: ''
+    paramType: var
+  SAP_BPGROUP:
+    PARAMCLASS: I
+    TABNAME: BAPIBUS1006_HEAD
+    FIELDNAME: PARTN_GRP
+    PARAMTEXT: SAP Business Partner Grouping
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: SAP_BPGROUP
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: TESTRUN
+    PARAMTEXT: Test Mode (No Changes in Database)
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  TRANSACT_MODE:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: TRANSACT_MODE
+    PARAMTEXT: Transaction Mode for Number Assignment
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: TRANSACT_MODE
+    required: false
+    default: '''N'''
+    paramType: var
+  ADDRESS_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPINADDR
+    PARAMTEXT: 'Create Structure: Address General Business Partner'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ADDRESS_CREATE
+    required: false
+    default: ''
+    paramType: struct
+  CUSTOMER_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309CUSTIN
+    PARAMTEXT: 'Create Structure: Function "IS-H Customer"'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: CUSTOMER_CREATE
+    required: false
+    default: ''
+    paramType: struct
+  EMPLOYER_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309EMPLIN
+    PARAMTEXT: 'Create Structure: Function "Employer"'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: EMPLOYER_CREATE
+    required: false
+    default: ''
+    paramType: struct
+  FEE_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309FEEIN
+    PARAMTEXT: 'Create Structure: Function "Fee Recipient"'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: FEE_CREATE
+    required: false
+    default: ''
+    paramType: struct
+  HOSPITAL_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309HOSPIN
+    PARAMTEXT: 'Create Structure: Function "Hospital"'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: HOSPITAL_CREATE
+    required: false
+    default: ''
+    paramType: struct
+  INSPROVIDER_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309INSPROVIN
+    PARAMTEXT: 'Create Structure: Function "Insurance Provider"'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: INSPROVIDER_CREATE
+    required: false
+    default: ''
+    paramType: struct
+  PERSON_CREATE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309PERSIN
+    PARAMTEXT: 'Create Structure: Function "Person"'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: PERSON_CREATE
+    required: false
+    default: ''
+    paramType: struct
+  ADD_PHONE_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPINADDR2
+    PARAMTEXT: Additional Telephone Number(s) to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ADD_PHONE_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ADD_PHONE_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPINADDR2
+    PARAMTEXT: Additional Telephone Numbers Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ADD_PHONE_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEB_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEB
+    PARAMTEXT: Fee Recipient Authorization to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_FEEB_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEB_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEB
+    PARAMTEXT: Fee Recipient Authorization Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_FEEB_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEK_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEK
+    PARAMTEXT: Fee Recipient Vendors to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_FEEK_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEK_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEK
+    PARAMTEXT: Fee Recipient Vendors Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_FEEK_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEER_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEER
+    PARAMTEXT: Fee Recipient Ranks to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_FEER_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEER_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEER
+    PARAMTEXT: Fee Recipient Ranks Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_FEER_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_INSPROVIDER_INSTITU_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROV_INSTITUIN
+    PARAMTEXT: Institution-Dependent Insurance Provider Data to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_INSPROVIDER_INSTITU_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_INSPROVIDER_INSTITU_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROV_INSTITU
+    PARAMTEXT: Created Institution-Dependent Insurance Provider Data
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_INSPROVIDER_INSTITU_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_KVPHYSNO_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERPHYSNO
+    PARAMTEXT: Person-HI Physician Number Assignment to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_KVPHYSNO_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_KVPHYSNO_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERPHYSNO
+    PARAMTEXT: Created Person-HI Physician Number Assignment
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_KVPHYSNO_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_NASHOSP_CREATE:
+    PARAMCLASS: T
+    TABNAME: /ISHFR/BAPI1309NASHOSP
+    PARAMTEXT: Assigned Hospitals to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_NASHOSP_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_NASHOSP_DATA:
+    PARAMCLASS: T
+    TABNAME: /ISHFR/BAPI1309NASHOSP
+    PARAMTEXT: Assigned Hospitals Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_NASHOSP_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QLDI_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQLDI
+    PARAMTEXT: 'IS-H CH: Person-to-Qualitative Grade Asgmt to Be Created'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_QLDI_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QLDI_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQLDI
+    PARAMTEXT: 'IS-H CH: Created Person-to-Qualitative Grade Assignment'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_QLDI_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QTDI_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQTDI
+    PARAMTEXT: 'IS-H CH: Person-to-Quantitative Grade Asgmt to Be Created'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_QTDI_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QTDI_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQTDI
+    PARAMTEXT: 'IS-H CH: Created Person-to-Quantitative Grade Assignment'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_QTDI_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_SPEC_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERSPEC
+    PARAMTEXT: Person-to-Specialty Assignment to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_SPEC_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_SPEC_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERSPEC
+    PARAMTEXT: Created Person-to-Specialty Assignment
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_SPEC_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_USR_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERUSR
+    PARAMTEXT: Person-to-User Name Assignment to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_USR_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_USR_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERUSR
+    PARAMTEXT: Created Person-to-User Name Assignment
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_USR_DATA
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_WORKNO_CREATE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERWORKNO
+    PARAMTEXT: Person-Place of Work Number Assignment to Be Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_WORKNO_CREATE
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_WORKNO_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERWORKNO
+    PARAMTEXT: Created Person-Place of Work Number Assignment
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ASS_PER_WORKNO_DATA
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+  ADDRESS_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPINADDR
+    PARAMTEXT: Created Address
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: ADDRESS_DATA
+    required: true
+    paramType: struct
+  BPARTNER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309BPARTNER
+    PARAMTEXT: Created General Business Partner
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: BPARTNER_DATA
+    required: true
+    paramType: struct
+  CUSTOMER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309CUSTOMER
+    PARAMTEXT: Created IS-H Customer
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: CUSTOMER_DATA
+    required: true
+    paramType: struct
+  EMPLOYER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309EMPLOYER
+    PARAMTEXT: Created Employer
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: EMPLOYER_DATA
+    required: true
+    paramType: struct
+  FEE_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309FEE
+    PARAMTEXT: Fee Recipient Created
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: FEE_DATA
+    required: true
+    paramType: struct
+  HOSPITAL_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309HOSPITAL
+    PARAMTEXT: Created Hospital
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: HOSPITAL_DATA
+    required: true
+    paramType: struct
+  INSPROVIDER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309INS_PROVIDER
+    PARAMTEXT: Created Insurance Provider
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: INSPROVIDER_DATA
+    required: true
+    paramType: struct
+  PERSON_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309PERSON
+    PARAMTEXT: Created Person
+    functionName: BAPI_BUSPARTNER_CREATE
+    paramName: PERSON_DATA
+    required: true
+    paramType: struct
+BAPI_BUSPARTNER_GETDETAIL:
+  BPARTNERID:
+    PARAMCLASS: I
+    TABNAME: BAPI1309BPARTNER
+    FIELDNAME: BPARTNER
+    PARAMTEXT: 'IS-H: Business Partner'
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: BPARTNERID
+    required: true
+    paramType: var
+  COMP_CODE:
+    PARAMCLASS: I
+    TABNAME: BAPI1309CUSTOMER
+    FIELDNAME: COMP_CODE
+    PARAMTEXT: Company Code
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: COMP_CODE
+    required: false
+    default: ''
+    paramType: var
+  INSTITUTION:
+    PARAMCLASS: I
+    TABNAME: BAPI2098DATA
+    FIELDNAME: INSTITUTION
+    PARAMTEXT: 'IS-H: Institution'
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: INSTITUTION
+    required: false
+    default: ''
+    paramType: var
+  ADD_PHONE:
+    PARAMCLASS: T
+    TABNAME: BAPINADDR2
+    PARAMTEXT: IS-H BAPI Additional Telephone Numbers
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ADD_PHONE
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEB:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEB
+    PARAMTEXT: BAPI Fee Recipient-Fee Authorization Assignment
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_FEEB
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEEK:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEEK
+    PARAMTEXT: BAPI Fee Recipient-Vendor Assignment
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_FEEK
+    required: false
+    default: ''
+    paramType: table
+  ASS_FEER:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FEER
+    PARAMTEXT: BAPI Fee Recipient-Rank Assignment
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_FEER
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_KVPHYSNO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERPHYSNO
+    PARAMTEXT: IS-H BAPI Person-HI Physician Number Assignment
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_PER_KVPHYSNO
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_NASHOSP:
+    PARAMCLASS: T
+    TABNAME: /ISHFR/BAPI1309NASHOSP
+    PARAMTEXT: Hospitals Assigned
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_PER_NASHOSP
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QLDI:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQLDI
+    PARAMTEXT: 'IS-H CH: BAPI Person-to-Qualitative Grade Assignment'
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_PER_QLDI
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_QTDI:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERQTDI
+    PARAMTEXT: 'IS-H CH: BAPI Person-to-Quantitative Grade Assignment'
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_PER_QTDI
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_SPEC:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERSPEC
+    PARAMTEXT: IS-H BAPI Person-to-Specialty Assignment
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_PER_SPEC
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_USR:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERUSR
+    PARAMTEXT: IS-H BAPI Person-to-User Name Assignment
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_PER_USR
+    required: false
+    default: ''
+    paramType: table
+  ASS_PER_WORKNO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309PERWORKNO
+    PARAMTEXT: IS-H BAPI Person-Place of Work Number Assignment
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ASS_PER_WORKNO
+    required: false
+    default: ''
+    paramType: table
+  CUSTOMER_BANK:
+    PARAMCLASS: T
+    TABNAME: BAPI1309FIBANK
+    PARAMTEXT: IS-H BAPI Business Partner FI Bank Data Return Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: CUSTOMER_BANK
+    required: false
+    default: ''
+    paramType: table
+  INSPROVIDER_INSTITU:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROV_INSTITU
+    PARAMTEXT: Institution-Dependent Insurance Provider Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: INSPROVIDER_INSTITU
+    required: false
+    default: ''
+    paramType: table
+  INSPROVIDER_REL:
+    PARAMCLASS: T
+    TABNAME: BAPI1309INSPROVIDER_REL
+    PARAMTEXT: IS-H BAPI Insurance Provider Relationships
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: INSPROVIDER_REL
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+  ADDRESS_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPINADDR
+    PARAMTEXT: 'IS-H: Addresses (Central Address Structure)'
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: ADDRESS_DATA
+    required: true
+    paramType: struct
+  BPARTNER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309BPARTNER
+    PARAMTEXT: IS-H BAPI Business Partner Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: BPARTNER_DATA
+    required: true
+    paramType: struct
+  CUSTOMER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309CUSTOMER
+    PARAMTEXT: IS-H BAPI Business Partner - Customer Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: CUSTOMER_DATA
+    required: true
+    paramType: struct
+  DEFAULT_CSCHEME:
+    PARAMCLASS: E
+    TABNAME: BAPI1309CONTSCHEMEDEFAULT
+    PARAMTEXT: IS-H BAPI Business Partner - Default Contract Scheme-Ins.Provider
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: DEFAULT_CSCHEME
+    required: true
+    paramType: struct
+  EMPLOYER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309EMPLOYER
+    PARAMTEXT: IS-H BAPI Business Partner - Employer Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: EMPLOYER_DATA
+    required: true
+    paramType: struct
+  FEE_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309FEE
+    PARAMTEXT: IS-H BAPI Business Partner - Fee Recipient Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: FEE_DATA
+    required: true
+    paramType: struct
+  FICUSTOMER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309FICUSTOMER
+    PARAMTEXT: IS-H BAPI Business Partner FI Customer Data Return Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: FICUSTOMER_DATA
+    required: true
+    paramType: struct
+  HOSPITAL_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309HOSPITAL
+    PARAMTEXT: IS-H BAPI Business Partner - Hospital Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: HOSPITAL_DATA
+    required: true
+    paramType: struct
+  INSPROVIDER_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309INS_PROVIDER
+    PARAMTEXT: IS-H BAPI Business Partner - Insurance Provider Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: INSPROVIDER_DATA
+    required: true
+    paramType: struct
+  IP_TYPE_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309INS_PROVIDER_TYPE
+    PARAMTEXT: IS-H Business Partner - Insurance Provider Type
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: IP_TYPE_DATA
+    required: true
+    paramType: struct
+  PERSON_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI1309PERSON
+    PARAMTEXT: IS-H BAPI Business Partner - Person Data
+    functionName: BAPI_BUSPARTNER_GETDETAIL
+    paramName: PERSON_DATA
+    required: true
+    paramType: struct
+BAPI_BUSPARTNER_GETLIST:
+  MAXCNT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: MAXCNT
+    PARAMTEXT: Read Maximum Number of Business Partners from Database
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: MAXCNT
+    required: false
+    default: '0'
+    paramType: var
+  BUSPARTNER_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309BPARTNERHITS
+    PARAMTEXT: Hit List of Determined Business Partners
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: BUSPARTNER_DATA
+    required: true
+    paramType: table
+  FILTER_BUSPARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGBUSPART
+    PARAMTEXT: Filter for Business Partner
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_BUSPARTNER
+    required: false
+    default: ''
+    paramType: table
+  FILTER_CITY:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGCITY
+    PARAMTEXT: Filter for City
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_CITY
+    required: false
+    default: ''
+    paramType: table
+  FILTER_FIRSTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGFNAME
+    PARAMTEXT: Filter for 1st / 2nd Name
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_FIRSTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_LASTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGLNAME
+    PARAMTEXT: Filter for Last Name
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_LASTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_GUID:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_GUID
+    PARAMTEXT: Filter for GUID
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_PARTNER_GUID
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_NO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_NO
+    PARAMTEXT: Filter for External Partner Number
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_PARTNER_NO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PCODE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPCODE
+    PARAMTEXT: Filter for Postal Code
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_PCODE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SEX:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSEX
+    PARAMTEXT: Filter for Sex
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_SEX
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SHORTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSNAME
+    PARAMTEXT: Filter for Short Name
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: FILTER_SHORTNAME
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_GETLIST
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+BAPI_BUSPARTNER_GETLISTCUST:
+  MAXCNT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: MAXCNT
+    PARAMTEXT: Read Maximum Number of Business Partners from Database
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: MAXCNT
+    required: false
+    default: '0'
+    paramType: var
+  BUSPARTNER_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309BPARTNERHITS
+    PARAMTEXT: Hit List of Determined Business Partners
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: BUSPARTNER_DATA
+    required: true
+    paramType: table
+  FILTER_BUSPARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGBUSPART
+    PARAMTEXT: Filter for Business Partner
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_BUSPARTNER
+    required: false
+    default: ''
+    paramType: table
+  FILTER_CITY:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGCITY
+    PARAMTEXT: Filter for City
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_CITY
+    required: false
+    default: ''
+    paramType: table
+  FILTER_COMP_CODE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGCOMPCODE
+    PARAMTEXT: Filter for Company Code
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_COMP_CODE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_FIRSTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGFNAME
+    PARAMTEXT: Filter for 1st / 2nd Name
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_FIRSTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_INSTITUTION:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGINSTITUTION
+    PARAMTEXT: Filter for Institution
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_INSTITUTION
+    required: false
+    default: ''
+    paramType: table
+  FILTER_LASTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGLNAME
+    PARAMTEXT: Filter for Last Name
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_LASTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_GUID:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_GUID
+    PARAMTEXT: Filter for GUID
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_PARTNER_GUID
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_NO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_NO
+    PARAMTEXT: Filter for External Partner Number
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_PARTNER_NO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PCODE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPCODE
+    PARAMTEXT: Filter for Postal Code
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_PCODE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SHORTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSNAME
+    PARAMTEXT: Filter for Short Name
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: FILTER_SHORTNAME
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_GETLISTCUST
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+BAPI_BUSPARTNER_GETLISTEMPL:
+  MAXCNT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: MAXCNT
+    PARAMTEXT: Read Maximum Number of Business Partners from Database
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: MAXCNT
+    required: false
+    default: '0'
+    paramType: var
+  BUSPARTNER_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309BPARTNERHITS
+    PARAMTEXT: Hit List of Determined Business Partners
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: BUSPARTNER_DATA
+    required: true
+    paramType: table
+  FILTER_BUSPARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGBUSPART
+    PARAMTEXT: Filter for Business Partner
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: FILTER_BUSPARTNER
+    required: false
+    default: ''
+    paramType: table
+  FILTER_CITY:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGCITY
+    PARAMTEXT: Filter for City
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: FILTER_CITY
+    required: false
+    default: ''
+    paramType: table
+  FILTER_FIRSTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGFNAME
+    PARAMTEXT: Filter for 1st / 2nd Name
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: FILTER_FIRSTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_LASTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGLNAME
+    PARAMTEXT: Filter for Last Name
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: FILTER_LASTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_GUID:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_GUID
+    PARAMTEXT: Filter for GUID
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: FILTER_PARTNER_GUID
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PCODE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPCODE
+    PARAMTEXT: Filter for Postal Code
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: FILTER_PCODE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SHORTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSNAME
+    PARAMTEXT: Filter for Short Name
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: FILTER_SHORTNAME
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_GETLISTEMPL
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+BAPI_BUSPARTNER_GETLISTHOSP:
+  MAXCNT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: MAXCNT
+    PARAMTEXT: Read Maximum Number of Business Partners from Database
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: MAXCNT
+    required: false
+    default: '0'
+    paramType: var
+  BUSPARTNER_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309BPARTNERHITS
+    PARAMTEXT: Hit List of Determined Business Partners
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: BUSPARTNER_DATA
+    required: true
+    paramType: table
+  FILTER_BUSPARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGBUSPART
+    PARAMTEXT: Filter for Business Partner
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_BUSPARTNER
+    required: false
+    default: ''
+    paramType: table
+  FILTER_CITY:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGCITY
+    PARAMTEXT: Filter for City
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_CITY
+    required: false
+    default: ''
+    paramType: table
+  FILTER_FIRSTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGFNAME
+    PARAMTEXT: Filter for 1st / 2nd Name
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_FIRSTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_LASTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGLNAME
+    PARAMTEXT: Filter for Last Name
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_LASTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_GUID:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_GUID
+    PARAMTEXT: Filter for GUID
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_PARTNER_GUID
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_NO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_NO
+    PARAMTEXT: Filter for External Partner Number
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_PARTNER_NO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PCODE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPCODE
+    PARAMTEXT: Filter for Postal Code
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_PCODE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SHORTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSNAME
+    PARAMTEXT: Filter for Short Name
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: FILTER_SHORTNAME
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_GETLISTHOSP
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+BAPI_BUSPARTNER_GETLISTINSPROV:
+  MAXCNT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: MAXCNT
+    PARAMTEXT: Read Maximum Number of Business Partners from Database
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: MAXCNT
+    required: false
+    default: '0'
+    paramType: var
+  BUSPARTNER_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309BPARTNERHITS
+    PARAMTEXT: Hit List of Determined Business Partners
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: BUSPARTNER_DATA
+    required: true
+    paramType: table
+  FILTER_BUSPARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGBUSPART
+    PARAMTEXT: Filter for Business Partner
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_BUSPARTNER
+    required: false
+    default: ''
+    paramType: table
+  FILTER_CITY:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGCITY
+    PARAMTEXT: Filter for City
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_CITY
+    required: false
+    default: ''
+    paramType: table
+  FILTER_FIRSTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGFNAME
+    PARAMTEXT: Filter for 1st / 2nd Name
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_FIRSTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_HICNO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGHICNO
+    PARAMTEXT: Filter Health Insurer Number on HC Smart Card
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_HICNO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_HICOMPNO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGHICOMPNO
+    PARAMTEXT: Filter Health Insurer Number
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_HICOMPNO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_INSTIND:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGINSTIND
+    PARAMTEXT: Filter Institute Indicator
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_INSTIND
+    required: false
+    default: ''
+    paramType: table
+  FILTER_IPTYPE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGIPTYPE
+    PARAMTEXT: Filter for Ins. Provider Type
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_IPTYPE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_LASTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGLNAME
+    PARAMTEXT: Filter for Last Name
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_LASTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_GUID:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_GUID
+    PARAMTEXT: Filter for GUID
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_PARTNER_GUID
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_NO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_NO
+    PARAMTEXT: Filter for External Partner Number
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_PARTNER_NO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PCODE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPCODE
+    PARAMTEXT: Filter for Postal Code
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_PCODE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PRIVATE_SIGN:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPRIVATE
+    PARAMTEXT: Filter for Insurance Provider Private/Statutory
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_PRIVATE_SIGN
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SEARCHNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSEARCHNAME
+    PARAMTEXT: Filter Insurer Search Name (KBV)
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_SEARCHNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SHORTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSNAME
+    PARAMTEXT: Filter for Short Name
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: FILTER_SHORTNAME
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_GETLISTINSPROV
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var
+BAPI_BUSPARTNER_GETLISTPERSON:
+  MAXCNT:
+    PARAMCLASS: I
+    TABNAME: BAPINALL
+    FIELDNAME: MAXCNT
+    PARAMTEXT: Read Maximum Number of Business Partners from Database
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: MAXCNT
+    required: false
+    default: '0'
+    paramType: var
+  BUSPARTNER_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPI1309BPARTNERHITS
+    PARAMTEXT: Hit List of Determined Business Partners
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: BUSPARTNER_DATA
+    required: true
+    paramType: table
+  FILTER_ACCOUNT:
+    PARAMCLASS: T
+    TABNAME: BAPINRNGXIND
+    PARAMTEXT: 'Indicator: Person Has Internal Accreditation'
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_ACCOUNT
+    required: false
+    default: ''
+    paramType: table
+  FILTER_BUSPARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGBUSPART
+    PARAMTEXT: Filter for Business Partner
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_BUSPARTNER
+    required: false
+    default: ''
+    paramType: table
+  FILTER_CITY:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGCITY
+    PARAMTEXT: Filter for City
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_CITY
+    required: false
+    default: ''
+    paramType: table
+  FILTER_COWORKER:
+    PARAMCLASS: T
+    TABNAME: BAPINRNGXIND
+    PARAMTEXT: 'Indicator: Person is Employee'
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_COWORKER
+    required: false
+    default: ''
+    paramType: table
+  FILTER_EXT_PERSNO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGEXTPERSNO
+    PARAMTEXT: Fitler for Ext. Person Number
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_EXT_PERSNO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_FIRSTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGFNAME
+    PARAMTEXT: Filter for 1st / 2nd Name
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_FIRSTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_LASTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGLNAME
+    PARAMTEXT: Filter for Last Name
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_LASTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_LICENSE:
+    PARAMCLASS: T
+    TABNAME: BAPINRNGXIND
+    PARAMTEXT: 'Indicator: Person Has External Accreditation'
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_LICENSE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_GUID:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_GUID
+    PARAMTEXT: Filter for GUID
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_PARTNER_GUID
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PARTNER_NO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPARTNER_NO
+    PARAMTEXT: Filter for External Partner Number
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_PARTNER_NO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PCODE:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPCODE
+    PARAMTEXT: Filter for Postal Code
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_PCODE
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PHYSICIAN:
+    PARAMCLASS: T
+    TABNAME: BAPINRNGXIND
+    PARAMTEXT: 'Indicator: Person Is Physician'
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_PHYSICIAN
+    required: false
+    default: ''
+    paramType: table
+  FILTER_PHYSNO:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGPHYSNO
+    PARAMTEXT: Filter for Physician Number
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_PHYSNO
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SEX:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSEX
+    PARAMTEXT: Filter for Sex
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_SEX
+    required: false
+    default: ''
+    paramType: table
+  FILTER_SHORTNAME:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGSNAME
+    PARAMTEXT: Filter for Short Name
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_SHORTNAME
+    required: false
+    default: ''
+    paramType: table
+  FILTER_ZSR_NUM:
+    PARAMCLASS: T
+    TABNAME: BAPI1309RNGZSR_NUM
+    PARAMTEXT: Filter for Swiss ZSR Number
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: FILTER_ZSR_NUM
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  WORST_RETURNED_MSGTY:
+    PARAMCLASS: E
+    TABNAME: BAPINALL
+    FIELDNAME: WORSTRETMSG
+    PARAMTEXT: 'IS-H: Most Severe Message Type Generated'
+    functionName: BAPI_BUSPARTNER_GETLISTPERSON
+    paramName: WORST_RETURNED_MSGTY
+    required: true
+    paramType: var

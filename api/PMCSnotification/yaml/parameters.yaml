@@ -1,0 +1,1680 @@
+BAPI_ALM_NOTIF_CHANGEUSRSTAT:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_CHANGEUSRSTAT
+    paramName: NUMBER
+    required: true
+    paramType: var
+  USR_STATUS:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTUSRSTATI
+    PARAMTEXT: User Status to be Set
+    functionName: BAPI_ALM_NOTIF_CHANGEUSRSTAT
+    paramName: USR_STATUS
+    required: true
+    paramType: struct
+  SET_INACTIVE:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Set Inactive Indicator
+    functionName: BAPI_ALM_NOTIF_CHANGEUSRSTAT
+    paramName: SET_INACTIVE
+    required: false
+    default: SPACE
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Test Flag
+    functionName: BAPI_ALM_NOTIF_CHANGEUSRSTAT
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: 'Message Type: S = Success, E = Error, W = Warning, I = Information'
+    functionName: BAPI_ALM_NOTIF_CHANGEUSRSTAT
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: SYSTATUS
+    PARAMTEXT: System Status Notification
+    functionName: BAPI_ALM_NOTIF_CHANGEUSRSTAT
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: USRSTATUS
+    PARAMTEXT: User Status Notification
+    functionName: BAPI_ALM_NOTIF_CHANGEUSRSTAT
+    paramName: USERSTATUS
+    required: true
+    paramType: var
+BAPI_ALM_NOTIF_CLOSE:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_CLOSE
+    paramName: NUMBER
+    required: true
+    paramType: var
+  SYSTSTAT:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    PARAMTEXT: Completion Data
+    functionName: BAPI_ALM_NOTIF_CLOSE
+    paramName: SYSTSTAT
+    required: true
+    paramType: struct
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Test Flag
+    functionName: BAPI_ALM_NOTIF_CLOSE
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: 'Message Type: S = Success, E = Error, W = Warning, I = Information'
+    functionName: BAPI_ALM_NOTIF_CLOSE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: SYSTATUS
+    PARAMTEXT: System Status Notification
+    functionName: BAPI_ALM_NOTIF_CLOSE
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: USRSTATUS
+    PARAMTEXT: User Status Notification
+    functionName: BAPI_ALM_NOTIF_CLOSE
+    paramName: USERSTATUS
+    required: true
+    paramType: var
+BAPI_ALM_NOTIF_CREATE:
+  NOTIF_TYPE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080
+    FIELDNAME: NOTIF_TYPE
+    PARAMTEXT: Notification Type
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIF_TYPE
+    required: true
+    paramType: var
+  NOTIFHEADER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRI
+    PARAMTEXT: BAPI Service Notification for Creation
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIFHEADER
+    required: true
+    paramType: struct
+  DOCUMENT_ASSIGN_COPY:
+    PARAMCLASS: I
+    TABNAME: XFELD
+    PARAMTEXT: Copy Document Assignment
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: DOCUMENT_ASSIGN_COPY
+    required: false
+    default: SPACE
+    paramType: var
+  EXTERNAL_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification Number
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: EXTERNAL_NUMBER
+    required: false
+    default: ''
+    paramType: var
+  IV_DONT_CHK_MANDATORY_PARTNER:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Do Not Check Mandatory Partner for Notification
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: IV_DONT_CHK_MANDATORY_PARTNER
+    required: false
+    default: ''
+    paramType: var
+  NOTIFCATION_COPY:
+    PARAMCLASS: I
+    TABNAME: QWRNUM
+    PARAMTEXT: Reference Notification Number
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIFCATION_COPY
+    required: false
+    default: ''
+    paramType: var
+  ORDERID:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: ORDERID
+    PARAMTEXT: Order Number
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: ORDERID
+    required: false
+    default: ''
+    paramType: var
+  SENDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_SENDER
+    PARAMTEXT: Logical System of Sender
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: SENDER
+    required: false
+    default: ''
+    paramType: struct
+  TASK_DETERMINATION:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    PARAMTEXT: Indicator
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: TASK_DETERMINATION
+    required: false
+    default: SPACE
+    paramType: struct
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  KEY_RELATIONSHIPS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTKEYE
+    PARAMTEXT: Key Relationships
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: KEY_RELATIONSHIPS
+    required: false
+    default: ''
+    paramType: table
+  LONGTEXTS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTFULLTXTI
+    PARAMTEXT: Notif. Long Text
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: LONGTEXTS
+    required: false
+    default: ''
+    paramType: table
+  NOTIFACTV:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTACTVI
+    PARAMTEXT: Notification Activities for Creation
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIFACTV
+    required: false
+    default: ''
+    paramType: table
+  NOTIFCAUS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTCAUSI
+    PARAMTEXT: Notification Cause for Creation
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIFCAUS
+    required: false
+    default: ''
+    paramType: table
+  NOTIFPARTNR:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTPARTNRI
+    PARAMTEXT: Partner for Creation/Change
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIFPARTNR
+    required: false
+    default: ''
+    paramType: table
+  NOTIFTASK:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTTASKI
+    PARAMTEXT: Notification Task for Creation
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIFTASK
+    required: false
+    default: ''
+    paramType: table
+  NOTITEM:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTITEMI
+    PARAMTEXT: Notification Item for Creation
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTITEM
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  NOTIFHEADER_EXPORT:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDRE
+    PARAMTEXT: BAPI Service Notification Header
+    functionName: BAPI_ALM_NOTIF_CREATE
+    paramName: NOTIFHEADER_EXPORT
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_DATA_ADD:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NUMBER
+    required: true
+    paramType: var
+  NO_BUFFER_REFRESH_ON_ERROR:
+    PARAMCLASS: I
+    TABNAME: QM00
+    FIELDNAME: QKZ
+    PARAMTEXT: X and Blank
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NO_BUFFER_REFRESH_ON_ERROR
+    required: false
+    default: SPACE
+    paramType: var
+  ORDERID:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: ORDERID
+    PARAMTEXT: Order Number
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: ORDERID
+    required: false
+    default: ''
+    paramType: var
+  NOTIFHEADER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRI
+    PARAMTEXT: BAPI Service Notification for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTIFHEADER
+    required: false
+    default: ''
+    paramType: struct
+  SENDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_SENDER
+    PARAMTEXT: Logical System of Sender
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: SENDER
+    required: false
+    default: ''
+    paramType: struct
+  TASK_DETERMINATION:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    PARAMTEXT: Indicator
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: TASK_DETERMINATION
+    required: false
+    default: SPACE
+    paramType: struct
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  KEY_RELATIONSHIPS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTKEYE
+    PARAMTEXT: Key Relationships
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: KEY_RELATIONSHIPS
+    required: false
+    default: ''
+    paramType: table
+  NOTFULLTXT:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTFULLTXTI
+    PARAMTEXT: Notif. long text
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTFULLTXT
+    required: false
+    default: ''
+    paramType: table
+  NOTIFACTV:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTACTVI
+    PARAMTEXT: Notification Activities for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTIFACTV
+    required: false
+    default: ''
+    paramType: table
+  NOTIFCAUS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTCAUSI
+    PARAMTEXT: Notification Cause for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTIFCAUS
+    required: false
+    default: ''
+    paramType: table
+  NOTIFPARTNR:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTPARTNRI
+    PARAMTEXT: Partner for Creation/Change
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTIFPARTNR
+    required: false
+    default: ''
+    paramType: table
+  NOTIFTASK:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTTASKI
+    PARAMTEXT: Notification Task for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTIFTASK
+    required: false
+    default: ''
+    paramType: table
+  NOTITEM:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTITEMI
+    PARAMTEXT: Notification Item for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTITEM
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  NOTIFHDTEXT:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDTXTE
+    PARAMTEXT: Text Fields for Notification Header
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTIFHDTEXT
+    required: true
+    paramType: struct
+  NOTIFHEADER_EXPORT:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDRE
+    PARAMTEXT: BAPI Service Notification Header
+    functionName: BAPI_ALM_NOTIF_DATA_ADD
+    paramName: NOTIFHEADER_EXPORT
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_DATA_DELETE:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: NUMBER
+    required: true
+    paramType: var
+  NO_BUFFER_REFRESH_ON_ERROR:
+    PARAMCLASS: I
+    TABNAME: BAPI_FLAG
+    PARAMTEXT: Use in BAPIs
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: NO_BUFFER_REFRESH_ON_ERROR
+    required: false
+    default: SPACE
+    paramType: var
+  NOTIFACTV:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTACTVI
+    PARAMTEXT: Notification Activities for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: NOTIFACTV
+    required: false
+    default: ''
+    paramType: table
+  NOTIFCAUS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTCAUSI
+    PARAMTEXT: Notification Cause for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: NOTIFCAUS
+    required: false
+    default: ''
+    paramType: table
+  NOTIFPARTNR:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTPARTNRI
+    PARAMTEXT: Partner for Creation/Change
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: NOTIFPARTNR
+    required: false
+    default: ''
+    paramType: table
+  NOTIFTASK:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTTASKI
+    PARAMTEXT: Notification Task for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: NOTIFTASK
+    required: false
+    default: ''
+    paramType: table
+  NOTITEM:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTITEMI
+    PARAMTEXT: Notification Item for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: NOTITEM
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_DATA_DELETE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+BAPI_ALM_NOTIF_DATA_MODIFY:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NUMBER
+    required: true
+    paramType: var
+  NO_BUFFER_REFRESH_ON_ERROR:
+    PARAMCLASS: I
+    TABNAME: QM00
+    FIELDNAME: QKZ
+    PARAMTEXT: X and Blank
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NO_BUFFER_REFRESH_ON_ERROR
+    required: false
+    default: SPACE
+    paramType: var
+  NOTIFHEADER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRI
+    PARAMTEXT: BAPI Service Notification for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFHEADER
+    required: false
+    default: SPACE
+    paramType: struct
+  NOTIFHEADER_X:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRI_X
+    PARAMTEXT: 'BAPI: Indicator for Notifcation Header'
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFHEADER_X
+    required: false
+    default: ''
+    paramType: struct
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  NOTIFACTV:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTACTVI
+    PARAMTEXT: Notification Activities for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFACTV
+    required: false
+    default: ''
+    paramType: table
+  NOTIFACTV_X:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTACTVI_X
+    PARAMTEXT: Change Indicator Actions, Work Structure for Changes
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFACTV_X
+    required: false
+    default: ''
+    paramType: table
+  NOTIFCAUS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTCAUSI
+    PARAMTEXT: Notification Cause for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFCAUS
+    required: false
+    default: ''
+    paramType: table
+  NOTIFCAUS_X:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTCAUSI_X
+    PARAMTEXT: Change Indicator Changes of Notification Cause
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFCAUS_X
+    required: false
+    default: ''
+    paramType: table
+  NOTIFITEM:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTITEMI
+    PARAMTEXT: Notification Item for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFITEM
+    required: false
+    default: ''
+    paramType: table
+  NOTIFITEM_X:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTITEMI_X
+    PARAMTEXT: Change Indicator Changes of Notification Item
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFITEM_X
+    required: false
+    default: ''
+    paramType: table
+  NOTIFPARTNR:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTPARTNRI
+    PARAMTEXT: Partner for Creation/Change
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFPARTNR
+    required: false
+    default: ''
+    paramType: table
+  NOTIFPARTNR_X:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTPARTNRI_X
+    PARAMTEXT: Change Indicator Partner
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFPARTNR_X
+    required: false
+    default: ''
+    paramType: table
+  NOTIFTASK:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTTASKI
+    PARAMTEXT: Notification Task for Creation
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFTASK
+    required: false
+    default: ''
+    paramType: table
+  NOTIFTASK_X:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTTASKI_X
+    PARAMTEXT: Change Indicator Change Notification Task
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFTASK_X
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  NOTIFHEADER_EXPORT:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDRE
+    PARAMTEXT: BAPI Service Notification Header
+    functionName: BAPI_ALM_NOTIF_DATA_MODIFY
+    paramName: NOTIFHEADER_EXPORT
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_GET_DETAIL:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NUMBER
+    required: true
+    paramType: var
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  NOTIFACTV:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTACTVE
+    PARAMTEXT: Work Structure Activities
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTIFACTV
+    required: false
+    default: ''
+    paramType: table
+  NOTIFCAUS:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTCAUSE
+    PARAMTEXT: Work table for causes
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTIFCAUS
+    required: false
+    default: ''
+    paramType: table
+  NOTIFPARTNR:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTPARTNRE
+    PARAMTEXT: Partner for Display
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTIFPARTNR
+    required: false
+    default: ''
+    paramType: table
+  NOTIFTASK:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTTASKE
+    PARAMTEXT: Work table for tasks
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTIFTASK
+    required: false
+    default: ''
+    paramType: table
+  NOTITEM:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTITEME
+    PARAMTEXT: Work Table for Notification Item
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTITEM
+    required: false
+    default: ''
+    paramType: table
+  NOTLONGTXT:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_NOTFULLTXTE
+    PARAMTEXT: BAPI Service Notification Long Text
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTLONGTXT
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  NOTIFHDTEXT:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDTXTE
+    PARAMTEXT: Text Fields for Notification Header
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTIFHDTEXT
+    required: true
+    paramType: struct
+  NOTIFHEADER_EXPORT:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDRE
+    PARAMTEXT: BAPI Service Notification Header
+    functionName: BAPI_ALM_NOTIF_GET_DETAIL
+    paramName: NOTIFHEADER_EXPORT
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_LIST_EQUI:
+  EQUIPMENT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Equipment Number
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  COMPLETE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_2
+    FIELDNAME: COMPLETE
+    PARAMTEXT: Completed Notifications
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: COMPLETE
+    required: false
+    default: '''X'''
+    paramType: var
+  IN_PROCESS:
+    PARAMCLASS: I
+    TABNAME: DY_IAR
+    PARAMTEXT: in process (notification or order)
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: IN_PROCESS
+    required: false
+    default: '''X'''
+    paramType: var
+  NOTIFICATION_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_1
+    FIELDNAME: NOTIFDATE
+    PARAMTEXT: Notification Date
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: NOTIFICATION_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  OUTSTANDING:
+    PARAMCLASS: I
+    TABNAME: DY_OFN
+    PARAMTEXT: Outstanding (notification or order)
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: OUTSTANDING
+    required: false
+    default: '''X'''
+    paramType: var
+  PARTNER:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_NUM
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: PARTNER
+    required: false
+    default: ''
+    paramType: var
+  PARTNER_USER:
+    PARAMCLASS: I
+    TABNAME: BAPI_IHPA
+    FIELDNAME: PARTNER
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: PARTNER_USER
+    required: false
+    default: ''
+    paramType: var
+  PARTNERFUNCTION:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_FUNCT
+    PARAMTEXT: Partner Function
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: PARTNERFUNCTION
+    required: false
+    default: ''
+    paramType: var
+  POSTPONED:
+    PARAMCLASS: I
+    TABNAME: DY_RST
+    PARAMTEXT: postponed (notification)
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: POSTPONED
+    required: false
+    default: '''X'''
+    paramType: var
+  NOTIFICATION:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_1
+    PARAMTEXT: Table of service notifications
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: NOTIFICATION
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_LIST_EQUI
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_LIST_FUNCLOC:
+  COMPLETE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_2
+    FIELDNAME: COMPLETE
+    PARAMTEXT: Completed Notifications
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: COMPLETE
+    required: false
+    default: '''X'''
+    paramType: var
+  EXTERNAL_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: FUNCLOC
+    PARAMTEXT: Functional location label
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: EXTERNAL_NUMBER
+    required: false
+    default: ''
+    paramType: var
+  FUNCLOC:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: FUNCLOC_INT
+    PARAMTEXT: Equipment Number
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: FUNCLOC
+    required: false
+    default: ''
+    paramType: var
+  IN_PROCESS:
+    PARAMCLASS: I
+    TABNAME: DY_IAR
+    PARAMTEXT: in process (notification or order)
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: IN_PROCESS
+    required: false
+    default: '''X'''
+    paramType: var
+  LABEL_SYST:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_FL_SEL_RESULT
+    FIELDNAME: LABEL_SYST
+    PARAMTEXT: Labeling system for functional locations
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: LABEL_SYST
+    required: false
+    default: ''
+    paramType: var
+  NOTIFICATION_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_1
+    FIELDNAME: NOTIFDATE
+    PARAMTEXT: Notification Date
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: NOTIFICATION_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  OUTSTANDING:
+    PARAMCLASS: I
+    TABNAME: DY_OFN
+    PARAMTEXT: Outstanding (notification or order)
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: OUTSTANDING
+    required: false
+    default: '''X'''
+    paramType: var
+  PARTNER:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_NUM
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: PARTNER
+    required: false
+    default: ''
+    paramType: var
+  PARTNER_USER:
+    PARAMCLASS: I
+    TABNAME: BAPI_IHPA
+    FIELDNAME: PARTNER
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: PARTNER_USER
+    required: false
+    default: ''
+    paramType: var
+  PARTNERFUNCTION:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_FUNCT
+    PARAMTEXT: Partner Function
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: PARTNERFUNCTION
+    required: false
+    default: ''
+    paramType: var
+  POSTPONED:
+    PARAMCLASS: I
+    TABNAME: DY_RST
+    PARAMTEXT: postponed (notification)
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: POSTPONED
+    required: false
+    default: '''X'''
+    paramType: var
+  NOTIFICATION:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_1
+    PARAMTEXT: Table of service notifications
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: NOTIFICATION
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_LIST_FUNCLOC
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_LIST_PARTNER:
+  PARTNER:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_NUM
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_PARTNER
+    paramName: PARTNER
+    required: true
+    paramType: var
+  PARTNERFUNCTION:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_FUNCT
+    PARAMTEXT: Partner Function
+    functionName: BAPI_ALM_NOTIF_LIST_PARTNER
+    paramName: PARTNERFUNCTION
+    required: true
+    paramType: var
+  COMPLETE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_2
+    FIELDNAME: COMPLETE
+    PARAMTEXT: Completed Notifications
+    functionName: BAPI_ALM_NOTIF_LIST_PARTNER
+    paramName: COMPLETE
+    required: false
+    default: '''X'''
+    paramType: var
+  NOTIFICATION_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_1
+    FIELDNAME: NOTIFDATE
+    PARAMTEXT: Notification Date
+    functionName: BAPI_ALM_NOTIF_LIST_PARTNER
+    paramName: NOTIFICATION_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  PARTNER_USER:
+    PARAMCLASS: I
+    TABNAME: BAPI_IHPA
+    FIELDNAME: PARTNER
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_PARTNER
+    paramName: PARTNER_USER
+    required: false
+    default: ''
+    paramType: var
+  NOTIFICATION:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_1
+    PARAMTEXT: Table of service notifications
+    functionName: BAPI_ALM_NOTIF_LIST_PARTNER
+    paramName: NOTIFICATION
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_LIST_PARTNER
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_LIST_PLANGROUP:
+  PLANGROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_SEL_PLANGROUP
+    FIELDNAME: LOW
+    PARAMTEXT: Planner Group for Customer Service and Plant Maintenance
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: PLANGROUP
+    required: true
+    paramType: var
+  PLANPLANT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_SEL_PLANPLANT
+    FIELDNAME: LOW
+    PARAMTEXT: Maintenance Planning Plant
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: PLANPLANT
+    required: true
+    paramType: var
+  COMPLETE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_2
+    FIELDNAME: COMPLETE
+    PARAMTEXT: Completed Notifications
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: COMPLETE
+    required: false
+    default: '''X'''
+    paramType: var
+  NOTIFICATION_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_1
+    FIELDNAME: NOTIFDATE
+    PARAMTEXT: Notification Date
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: NOTIFICATION_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  PARTNER:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_NUM
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: PARTNER
+    required: false
+    default: ''
+    paramType: var
+  PARTNER_USER:
+    PARAMCLASS: I
+    TABNAME: BAPI_IHPA
+    FIELDNAME: PARTNER
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: PARTNER_USER
+    required: false
+    default: ''
+    paramType: var
+  PARTNERFUNCTION:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_FUNCT
+    PARAMTEXT: Partner Function
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: PARTNERFUNCTION
+    required: false
+    default: ''
+    paramType: var
+  NOTIFICATION:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_1
+    PARAMTEXT: Table of service notifications
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: NOTIFICATION
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_LIST_PLANGROUP
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_LIST_SORTFIELD:
+  SORTFIELD:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_SEL_SORTFIELD
+    PARAMTEXT: 'BAPI Communication Structure: Range for Sort Field'
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: SORTFIELD
+    required: true
+    paramType: struct
+  COMPLETE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_2
+    FIELDNAME: COMPLETE
+    PARAMTEXT: Completed Notifications
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: COMPLETE
+    required: false
+    default: '''X'''
+    paramType: var
+  NOTIFICATION_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_1
+    FIELDNAME: NOTIFDATE
+    PARAMTEXT: Notification Date
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: NOTIFICATION_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  PARTNER:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_NUM
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: PARTNER
+    required: false
+    default: ''
+    paramType: var
+  PARTNER_USER:
+    PARAMCLASS: I
+    TABNAME: BAPI_IHPA
+    FIELDNAME: PARTNER
+    PARAMTEXT: Partner
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: PARTNER_USER
+    required: false
+    default: ''
+    paramType: var
+  PARTNERFUNCTION:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_FUNCT
+    PARAMTEXT: Partner Function
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: PARTNERFUNCTION
+    required: false
+    default: ''
+    paramType: var
+  NOTIFICATION:
+    PARAMCLASS: T
+    TABNAME: BAPI2080_1
+    PARAMTEXT: Table of service notifications
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: NOTIFICATION
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_LIST_SORTFIELD
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_POSTPONE:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_POSTPONE
+    paramName: NUMBER
+    required: true
+    paramType: var
+  LANGU:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGU
+    PARAMTEXT: Language Key
+    functionName: BAPI_ALM_NOTIF_POSTPONE
+    paramName: LANGU
+    required: false
+    default: SY-LANGU
+    paramType: var
+  LANGUISO:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGUISO
+    PARAMTEXT: Language According to ISO 639
+    functionName: BAPI_ALM_NOTIF_POSTPONE
+    paramName: LANGUISO
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Test flag
+    functionName: BAPI_ALM_NOTIF_POSTPONE
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: 'Message Type: S = Success, E = Error, W = Warning, I = Information'
+    functionName: BAPI_ALM_NOTIF_POSTPONE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: SYSTATUS
+    PARAMTEXT: System Status Notification
+    functionName: BAPI_ALM_NOTIF_POSTPONE
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: USRSTATUS
+    PARAMTEXT: User Status Notification
+    functionName: BAPI_ALM_NOTIF_POSTPONE
+    paramName: USERSTATUS
+    required: true
+    paramType: var
+BAPI_ALM_NOTIF_PUTINPROGRESS:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_PUTINPROGRESS
+    paramName: NUMBER
+    required: true
+    paramType: var
+  LANGU:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGU
+    PARAMTEXT: Language Key
+    functionName: BAPI_ALM_NOTIF_PUTINPROGRESS
+    paramName: LANGU
+    required: false
+    default: SY-LANGU
+    paramType: var
+  LANGUISO:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGUISO
+    PARAMTEXT: Language According to ISO 639
+    functionName: BAPI_ALM_NOTIF_PUTINPROGRESS
+    paramName: LANGUISO
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Test flag
+    functionName: BAPI_ALM_NOTIF_PUTINPROGRESS
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: 'Message Type: S = Success, E = Error, W = Warning, I = Information'
+    functionName: BAPI_ALM_NOTIF_PUTINPROGRESS
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: SYSTATUS
+    PARAMTEXT: System Status Notification
+    functionName: BAPI_ALM_NOTIF_PUTINPROGRESS
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: USRSTATUS
+    PARAMTEXT: User Status Notification
+    functionName: BAPI_ALM_NOTIF_PUTINPROGRESS
+    paramName: USERSTATUS
+    required: true
+    paramType: var
+BAPI_ALM_NOTIF_SAVE:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_SAVE
+    paramName: NUMBER
+    required: true
+    paramType: var
+  TOGETHER_WITH_ORDER:
+    PARAMCLASS: I
+    TABNAME: QM00
+    FIELDNAME: QKZ
+    PARAMTEXT: X and Blank
+    functionName: BAPI_ALM_NOTIF_SAVE
+    paramName: TOGETHER_WITH_ORDER
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: 'Message Type: S = Success, E = Error, W = Warning, I = Information'
+    functionName: BAPI_ALM_NOTIF_SAVE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  NOTIFHEADER:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDRE
+    PARAMTEXT: Notification Header Data
+    functionName: BAPI_ALM_NOTIF_SAVE
+    paramName: NOTIFHEADER
+    required: true
+    paramType: struct
+BAPI_ALM_NOTIF_TASK_COMPLETE:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: NUMBER
+    required: true
+    paramType: var
+  TASK_KEY:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTTASKE
+    FIELDNAME: TASK_KEY
+    PARAMTEXT: Task Number
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: TASK_KEY
+    required: true
+    paramType: var
+  CARRIED_OUT_BY:
+    PARAMCLASS: I
+    TABNAME: BAPIQMSM
+    FIELDNAME: CARRIED_OUT_BY
+    PARAMTEXT: Completed By
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: CARRIED_OUT_BY
+    required: false
+    default: ''
+    paramType: var
+  CARRIED_OUT_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPIQMSM
+    FIELDNAME: CARRIED_OUT_DATE
+    PARAMTEXT: Completed On
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: CARRIED_OUT_DATE
+    required: false
+    default: ''
+    paramType: var
+  CARRIED_OUT_TIME:
+    PARAMCLASS: I
+    TABNAME: BAPIQMSM
+    FIELDNAME: CARRIED_OUT_TIME
+    PARAMTEXT: Completed At
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: CARRIED_OUT_TIME
+    required: false
+    default: ''
+    paramType: var
+  LANGU:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGU
+    PARAMTEXT: Language
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: LANGU
+    required: false
+    default: SY-LANGU
+    paramType: var
+  LANGUISO:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGUISO
+    PARAMTEXT: Language According to ISO 639
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: LANGUISO
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Check Only
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: 'Message Type: S Success, E Error, W Warning, I In'
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: SYSTATUS
+    PARAMTEXT: System Status of Task
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: USRSTATUS
+    PARAMTEXT: User Status of Task
+    functionName: BAPI_ALM_NOTIF_TASK_COMPLETE
+    paramName: USERSTATUS
+    required: true
+    paramType: var
+BAPI_ALM_NOTIF_TASK_RELEASE:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: NUMBER
+    required: true
+    paramType: var
+  TASK_KEY:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTTASKE
+    FIELDNAME: TASK_KEY
+    PARAMTEXT: Task Number
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: TASK_KEY
+    required: true
+    paramType: var
+  LANGU:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGU
+    PARAMTEXT: Language
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: LANGU
+    required: false
+    default: SY-LANGU
+    paramType: var
+  LANGUISO:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGUISO
+    PARAMTEXT: Language According to ISO 639
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: LANGUISO
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Check Only
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: 'Message Type: S Success, E Error, W Warning, I In'
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: SYSTATUS
+    PARAMTEXT: System Status of Task
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: USRSTATUS
+    PARAMTEXT: User Status of Task
+    functionName: BAPI_ALM_NOTIF_TASK_RELEASE
+    paramName: USERSTATUS
+    required: true
+    paramType: var
+BAPI_ALM_NOTIF_TASK_SUCCESS:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTHDRE
+    FIELDNAME: NOTIF_NO
+    PARAMTEXT: Notification No
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: NUMBER
+    required: true
+    paramType: var
+  TASK_KEY:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTTASKE
+    FIELDNAME: TASK_KEY
+    PARAMTEXT: Task Number
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: TASK_KEY
+    required: true
+    paramType: var
+  LANGU:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGU
+    PARAMTEXT: Language
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: LANGU
+    required: false
+    default: SY-LANGU
+    paramType: var
+  LANGUISO:
+    PARAMCLASS: I
+    TABNAME: BAPI2080_NOTSTI
+    FIELDNAME: LANGUISO
+    PARAMTEXT: Language According to ISO 639
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: LANGUISO
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPI20783T
+    FIELDNAME: STATUS_IND
+    PARAMTEXT: Check Only
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: TESTRUN
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: SYSTATUS
+    PARAMTEXT: System Status of Task
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTADT
+    FIELDNAME: USRSTATUS
+    PARAMTEXT: User Status of Task
+    functionName: BAPI_ALM_NOTIF_TASK_SUCCESS
+    paramName: USERSTATUS
+    required: true
+    paramType: var

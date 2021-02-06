@@ -1,0 +1,5395 @@
+BAPI_PLDORD:
+  PLDORD_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PLNUM
+      ROLLNAME: PLNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PAF
+      CONVEXIT: ALPHA
+      SHLP: CH PLAF
+    text:
+      FIELDTEXT: Planned order number
+      REPTEXT: Plnnd Ord.
+      SCRTEXT_S: Plnnd Ord.
+      SCRTEXT_M: Planned order
+      SCRTEXT_L: Planned order
+BAPIPLAF_I2:
+  PROD_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PWWRK
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Production plant in planned order
+      REPTEXT: PrPn
+      SCRTEXT_S: Prod.plant
+      SCRTEXT_M: Producing plant
+      SCRTEXT_L: Production plant
+  TOTAL_PLORD_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: GSMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_I2
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Total planned order quantity
+      REPTEXT: Ord.quantity
+      SCRTEXT_S: Order qty
+      SCRTEXT_M: Order quantity
+      SCRTEXT_L: Planned order qty
+  FIXED_SCRAP_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: AVMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_I2
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Fixed quantity of scrap from production
+      REPTEXT: Scrap
+      SCRTEXT_S: Scrap
+      SCRTEXT_M: Scrap quantity
+      SCRTEXT_L: Scrap quantity
+  ORDER_START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PSTTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Order start date in planned order
+      REPTEXT: OrderStart
+      SCRTEXT_S: OrderStart
+      SCRTEXT_M: Order start
+      SCRTEXT_L: Order start date
+  ORDER_FIN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PEDTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Order finish date in the planned order
+      REPTEXT: Ord.finish
+      SCRTEXT_S: Ord.finish
+      SCRTEXT_M: Order finish
+      SCRTEXT_L: Order finish date
+  PLAN_OPEN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PERTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Planned opening date in planned order
+      REPTEXT: Pln open
+      SCRTEXT_S: Plnd open.
+      SCRTEXT_M: Planned opening
+      SCRTEXT_L: Planned opening date
+  GR_PROC_TIME:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 3
+      DOMNAME: DEC3
+      ROLLNAME: PLWEZ
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Goods receipt processing time in days
+      REPTEXT: GRT
+      SCRTEXT_S: GR time
+      SCRTEXT_M: GR ProcessTime
+      SCRTEXT_L: GR processing time
+  CONVERSION_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLUMS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Conversion indicator for planned order
+      REPTEXT: C
+      SCRTEXT_S: Conversion
+      SCRTEXT_M: Conversion
+      SCRTEXT_L: Conversion indicator
+  FIRMING_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLAFX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Firming indicator for planned order data
+      REPTEXT: Fmd
+      SCRTEXT_S: Firming
+      SCRTEXT_M: Firming
+      SCRTEXT_L: Firming indicator
+  BOM_EXP_FIX_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLSFX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Fixing indicator for BOM explosion
+      REPTEXT: FEx
+      SCRTEXT_S: Fix explsn
+      SCRTEXT_M: Fixed explosion
+      SCRTEXT_L: Fixed explosion
+  ACCTASSCAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KNTTP
+      ROLLNAME: KNTTP
+      OUTPUTLEN: 1
+    input:
+      MEMORYID: KNT
+      SHLP: SH H_T163K
+    text:
+      FIELDTEXT: Account assignment category
+      REPTEXT: A
+      SCRTEXT_S: AcctAssCat
+      SCRTEXT_M: Acct.assig.cat.
+      SCRTEXT_L: Acct assignment cat.
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  BOMEXPL_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: SERNR
+      ROLLNAME: SERNR
+      OUTPUTLEN: 8
+    input:
+      SHLP: SH H_SNUM
+    text:
+      FIELDTEXT: BOM explosion number
+      REPTEXT: BOMexpNo
+      SCRTEXT_S: BOMexpl.no
+      SCRTEXT_M: BOM expl.number
+      SCRTEXT_L: BOM explosion number
+  VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VERID
+      ROLLNAME: VERID
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VER
+      SHLP: SH H_MKAL
+    text:
+      FIELDTEXT: Production Version
+      REPTEXT: Ver.
+      SCRTEXT_S: Version
+      SCRTEXT_M: Prod. Version
+      SCRTEXT_L: Production Version
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: KDAUF
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CT VBUK
+    text:
+      FIELDTEXT: Sales Order Number
+      REPTEXT: Sales Ord.
+      SCRTEXT_S: Sales Ord.
+      SCRTEXT_M: Sales Order
+      SCRTEXT_L: Sales Order
+  S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Item number in Sales Order
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  INT_PROJECT_NUM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PS_POSNR
+      ROLLNAME: PS_POSNR
+      OUTPUTLEN: 24
+      valueInputType: list
+    input:
+      CONVEXIT: ABPSP
+      SHLP: CT PRPS
+    text:
+      FIELDTEXT: WBS Element
+      REPTEXT: WBS Elem
+      SCRTEXT_S: WBS Elem.
+      SCRTEXT_M: WBS Element
+      SCRTEXT_L: WBS Element
+  AGREEMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: KONNR
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: KTR
+      CONVEXIT: ALPHA
+      SHLP: CT EKKO
+    text:
+      FIELDTEXT: Number of principal purchase agreement
+      REPTEXT: Agmt.
+      SCRTEXT_S: Agreement
+      SCRTEXT_M: Agreement
+      SCRTEXT_L: Outline agreement
+  FIXED_VEND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: FLIEF
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT LFA1
+    text:
+      FIELDTEXT: Fixed vendor
+      REPTEXT: Fixed vend
+      SCRTEXT_S: Fixed vend
+      SCRTEXT_M: Fixed vendor
+      SCRTEXT_L: Fixed vendor
+  AGMT_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: EBELP
+      ROLLNAME: KTPNR
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      SHLP: CT EKPO
+    text:
+      FIELDTEXT: Item number of principal purchase agreement
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Agreement item
+      SCRTEXT_L: Princ.agreement item
+  PURCH_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: EKORG
+      ROLLNAME: EKORG
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: EKO
+      SHLP: CT T024E
+    text:
+      FIELDTEXT: Purchasing organization
+      REPTEXT: POrg
+      SCRTEXT_S: Purch.org.
+      SCRTEXT_M: Purchasing org.
+      SCRTEXT_L: Purch. organization
+  DET_SCHEDULE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: TERMX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Lead time scheduling (detailed planning)
+      REPTEXT: Sch
+      SCRTEXT_S: Scheduling
+      SCRTEXT_M: Scheduling
+      SCRTEXT_L: Scheduling
+  USE_COLL_UPD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: MD_COLL_UPD
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'BAPI: Collective Update of Planning File Entries'
+      SCRTEXT_S: IndColUpdt
+      SCRTEXT_M: Ind. Col.Update
+      SCRTEXT_L: Ind. Collect. Update
+  LAST_ORDER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: MD_LAST_ORD
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'BAPI: Indicator - Last Planned Order for Collective Update'
+      SCRTEXT_S: IndLastOrd
+      SCRTEXT_M: Ind. Last Order
+      SCRTEXT_L: Ind. Last Order
+  SUPPL_STLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: RESLO
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Issuing Storage Location for Stock Transport Order
+      REPTEXT: IStLoc
+      SCRTEXT_S: Iss.St.Loc
+      SCRTEXT_M: Iss. Stor. Loc.
+      SCRTEXT_L: Issuing Storage Loc.
+  STOCK_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: SGT_SRCA
+      ROLLNAME: SGT_SCAT
+      OUTPUTLEN: 16
+    input:
+      MEMORYID: SGT_S
+      SHLP: SH SGT_CAT_FIELD_POPUP
+    text:
+      FIELDTEXT: Stock Segment
+      REPTEXT: Stock Segment
+      SCRTEXT_S: Stk Seg.
+      SCRTEXT_M: Stock Segment
+      SCRTEXT_L: Stock Segment
+BAPIPLAF_I2X:
+  PROD_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  TOTAL_PLORD_QTY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FIXED_SCRAP_QTY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ORDER_START_DATE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ORDER_FIN_DATE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PLAN_OPEN_DATE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  GR_PROC_TIME:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONVERSION_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FIRMING_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  BOM_EXP_FIX_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ACCTASSCAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  BOMEXPL_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  S_ORD_ITEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  INT_PROJECT_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  AGREEMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FIXED_VEND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  AGMT_ITEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PURCH_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DET_SCHEDULE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SUPPL_STLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  STOCK_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+BAPI_PLDORDCAPA_E1:
+  SEQUENCE_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: PLNFOLGE
+      ROLLNAME: PLNFOLGE
+      OUTPUTLEN: 6
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Sequence
+      REPTEXT: Seq.
+      SCRTEXT_S: Sequence
+      SCRTEXT_M: Sequence
+      SCRTEXT_L: Sequence
+  ACTIVITY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: VORNR
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VGN
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Activity Number
+      REPTEXT: Act
+      SCRTEXT_S: Activity
+      SCRTEXT_M: Activity
+      SCRTEXT_L: Activity
+  SUB_ACTIVITY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: UVORN
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Suboperation
+      REPTEXT: SOp
+      SCRTEXT_S: Subop.
+      SCRTEXT_M: Suboperation
+      SCRTEXT_L: Suboperation
+  WORK_CNTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: ARBPL
+      ROLLNAME: ARBPL
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: AGR
+    text:
+      FIELDTEXT: Work center
+      REPTEXT: Work ctr
+      SCRTEXT_S: Work ctr
+      SCRTEXT_M: Work center
+      SCRTEXT_L: Work center
+  START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: SSTAD
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Latest start / date
+      REPTEXT: Start date
+      SCRTEXT_S: Lat. start
+      SCRTEXT_M: Latest start
+      SCRTEXT_L: Latest start / date
+  START_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: T
+      ROLLNAME: SSTAU
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Latest start / time
+      REPTEXT: Time
+      SCRTEXT_S: Lat.st.tme
+      SCRTEXT_M: Lat. start time
+      SCRTEXT_L: Latest start / time
+  FIN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: SENDD
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Latest finish / date
+      REPTEXT: FinDate
+      SCRTEXT_S: Lat.finish
+      SCRTEXT_M: Latest finish
+      SCRTEXT_L: Latest finish / date
+  FIN_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: T
+      ROLLNAME: SENDU
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Latest finish / time
+      REPTEXT: Time
+      SCRTEXT_S: Lat.finish
+      SCRTEXT_M: Lat.finish time
+      SCRTEXT_L: Latest finish / time
+  CAP_CAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: KAPART
+      ROLLNAME: KAPART
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: CAA
+      SHLP: CT TC26
+    text:
+      FIELDTEXT: Capacity category
+      REPTEXT: Cat
+      SCRTEXT_S: Category
+      SCRTEXT_M: Capacity cat.
+      SCRTEXT_L: Capacity category
+  CAP_REQ:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 7
+      DOMNAME: CY_KBED_P
+      ROLLNAME: CY_KBEDSOL
+      OUTPUTLEN: 9
+      DECIMALS: 2
+      REFTABLE: BAPI_PLDORDCAPA_E1
+      REFFIELD: DISPLAY_UOM
+    text:
+      FIELDTEXT: Capacity requirements scheduled for the operation/activity
+      REPTEXT: CapReqs.
+      SCRTEXT_S: CapReqs.
+      SCRTEXT_M: Capacity reqs.
+      SCRTEXT_L: Cap. requirements
+  DISPLAY_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: CY_KEINH
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Unit of of measure for displaying capacity requirements
+      REPTEXT: Unit of capacity requirements
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Capacity unit
+      SCRTEXT_L: Cap. unit of measure
+  DESCRIPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: LTXA1
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Operation short text
+      REPTEXT: Operation short text
+      SCRTEXT_S: OprShrtTxt
+      SCRTEXT_M: Opr. short text
+      SCRTEXT_L: Operation short text
+  DISPLAY_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+BAPI_PLDORDCOMP_E1:
+  ORDER_LVL:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: AUFST
+      ROLLNAME: AUFST
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Order level
+      REPTEXT: OLvl
+      SCRTEXT_S: Level
+      SCRTEXT_M: Order level
+      SCRTEXT_L: Order level
+  ORDER_PATH:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: AUFWG
+      ROLLNAME: AUFWG
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Order path
+      REPTEXT: Path
+      SCRTEXT_S: Order path
+      SCRTEXT_M: Order path
+      SCRTEXT_L: Order path
+  SORT_STRING:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHAR10
+      ROLLNAME: SORTP
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Sort String
+      REPTEXT: SortStrng
+      SCRTEXT_S: SortStrng
+      SCRTEXT_M: Sort String
+      SCRTEXT_L: Sort String
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: SH S_MAT1
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W_C
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  ITEM_CAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: POSTP
+      ROLLNAME: POSTP
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      SHLP: CT T418
+    text:
+      FIELDTEXT: Item category (bill of material)
+      REPTEXT: ICt
+      SCRTEXT_S: Item cat.
+      SCRTEXT_M: Item category
+      SCRTEXT_L: Item category
+  BOM_ITEM_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: SPOSN
+      ROLLNAME: SPOSN
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: BOM Item Number
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item Number
+  PHANT_ITEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: DUMPS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Phantom item indicator
+      REPTEXT: Phantom item
+      SCRTEXT_S: Phant.item
+      SCRTEXT_M: Phantom item
+      SCRTEXT_L: Phantom item
+  SPEC_STOCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBKZ
+      ROLLNAME: SOBKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      SHLP: CT T148
+    text:
+      FIELDTEXT: Special Stock Indicator
+      REPTEXT: S
+      SCRTEXT_S: Spec.Stock
+      SCRTEXT_M: Special Stock
+      SCRTEXT_L: Special Stock
+  REQ_QUAN:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: BDMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Requirement Quantity
+      REPTEXT: Reqmnt qty
+      SCRTEXT_S: Reqmnt qty
+      SCRTEXT_M: Requirement qty
+      SCRTEXT_L: Requirement Quantity
+  CONF_QUAN:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 15
+      DOMNAME: MENG15
+      ROLLNAME: VMENG
+      OUTPUTLEN: 19
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Confirmed quantity for availability check in SKU
+      REPTEXT: Qty. f. avail.check
+      SCRTEXT_S: Quantity
+      SCRTEXT_M: Qty.f.avail.chk
+      SCRTEXT_L: Qty. for avail.check
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  ENTRY_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENGV13
+      ROLLNAME: CO_MENGE
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: ENTRY_UOM
+      SIGN: X
+    text:
+      FIELDTEXT: Requirement Quantity of Component
+      REPTEXT: Reqmt Qty
+      SCRTEXT_S: Reqmt Qty
+      SCRTEXT_M: Requirement Qty
+      SCRTEXT_L: Requirement Quantity
+  ENTRY_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: ERFME
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Unit of entry
+      REPTEXT: EUn
+      SCRTEXT_S: Entry unit
+      SCRTEXT_M: Unit of Entry
+      SCRTEXT_L: Unit of Entry
+  FIXED_QUAN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: FMENG
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Quantity is fixed
+      REPTEXT: Fix
+      SCRTEXT_S: Fixed qty.
+      SCRTEXT_M: Qty. is fixed
+      SCRTEXT_L: Quantity is fixed
+  COMP_SCRAP:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 5
+      DOMNAME: DEC3_2
+      ROLLNAME: KAUSF
+      OUTPUTLEN: 6
+      DECIMALS: 2
+    text:
+      FIELDTEXT: Component scrap in percent
+      REPTEXT: C.scrap
+      SCRTEXT_S: Comp.scrap
+      SCRTEXT_M: Component Scrap
+      SCRTEXT_L: Component scrap (%)
+  REQ_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: BDTER
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Requirements date for the component
+      REPTEXT: ReqmtsDate
+      SCRTEXT_S: ReqmtsDate
+      SCRTEXT_M: Reqmts date
+      SCRTEXT_L: Requirements date
+  LATEST_REQ_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: SBTER
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Latest requirements date
+      REPTEXT: LtstReDate
+      SCRTEXT_S: LtstReDate
+      SCRTEXT_M: Latest req.date
+      SCRTEXT_L: Latest reqmts date
+  DIST_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: SA_VERTL
+      ROLLNAME: SA_VERTI
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT T437V
+    text:
+      FIELDTEXT: Distribution key for component consumption
+      REPTEXT: DKey
+      SCRTEXT_S: Distribut.
+      SCRTEXT_M: Distribution
+      SCRTEXT_L: Distribution key
+  REV_LEV:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: REVLV
+      ROLLNAME: REVLV
+      OUTPUTLEN: 2
+    input:
+      MEMORYID: RVS
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Revision level
+      REPTEXT: RevLev
+      SCRTEXT_S: Rev. level
+      SCRTEXT_M: Revision level
+      SCRTEXT_L: Revision level
+  VARSIZE_ITEM_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: ROHPS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Variable-sized item indicator
+      REPTEXT: Variable-sized item
+      SCRTEXT_S: Var-szdItm
+      SCRTEXT_M: Var-sized item
+      SCRTEXT_L: Variable-sized item
+  VARSIZE_ITEM_NUM:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ROANZ
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Number of variable-size items
+      REPTEXT: No of VS items
+      SCRTEXT_S: Number
+      SCRTEXT_M: Number
+      SCRTEXT_L: No of var-size items
+  VARSIZE_ITEM_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ROMEN
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: ENTRY_UOM
+    text:
+      FIELDTEXT: Quantity of variable-size item
+      REPTEXT: Qty var-size item
+      SCRTEXT_S: Qty VSI
+      SCRTEXT_M: Qty Var-sz item
+      SCRTEXT_L: Qty of var-size item
+  VARSIZE_ITEM_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: ROMEI
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Unit of measure for sizes 1 to 3
+      REPTEXT: SzUn
+      SCRTEXT_S: Size unit
+      SCRTEXT_M: Size unit
+      SCRTEXT_L: Size unit
+  VARSIZE_1:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ROMS1
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: VARSIZE_ITEM_UOM
+    text:
+      FIELDTEXT: Size 1
+      REPTEXT: Size 1
+      SCRTEXT_S: Size 1
+      SCRTEXT_M: Size 1
+      SCRTEXT_L: Size 1
+  VARSIZE_2:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ROMS2
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: VARSIZE_ITEM_UOM
+    text:
+      FIELDTEXT: Size 2
+      REPTEXT: Size 2
+      SCRTEXT_S: Size 2
+      SCRTEXT_M: Size 2
+      SCRTEXT_L: Size 2
+  VARSIZE_3:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ROMS3
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_E1
+      REFFIELD: VARSIZE_ITEM_UOM
+    text:
+      FIELDTEXT: Size 3
+      REPTEXT: Size 3
+      SCRTEXT_S: Size 3
+      SCRTEXT_M: Size 3
+      SCRTEXT_L: Size 3
+  FORMULA_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: RFORM
+      ROLLNAME: RFORM
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT T418F
+    text:
+      FIELDTEXT: Formula key
+      REPTEXT: Formula
+      SCRTEXT_S: Formula
+      SCRTEXT_M: Formula key
+      SCRTEXT_L: Formula key
+  ISS_ST_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGPRO
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Issue Storage Location
+      REPTEXT: SLoc
+      SCRTEXT_S: Prod.SLoc.
+      SCRTEXT_M: Prod. Stor.Loc.
+      SCRTEXT_L: Prod. stor. location
+  FOLLOWUP_ITEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: CS_KZNFP
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Follow-Up Item'
+      REPTEXT: Fol.
+      SCRTEXT_S: Follow-Up
+      SCRTEXT_M: Follow-Up Item
+      SCRTEXT_L: Follow-Up Item
+  MRP_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DISMM
+      ROLLNAME: DISMM
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT T438A
+    text:
+      FIELDTEXT: MRP Type
+      REPTEXT: Typ
+      SCRTEXT_S: MRP Type
+      SCRTEXT_M: MRP Type
+      SCRTEXT_L: MRP Type
+  MATL_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: MAKTX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Material description
+      REPTEXT: Material description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Material description
+  PLAN_WO_FA_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: VRPLA
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: planning without final assembly'
+      REPTEXT: W/o final assy
+      SCRTEXT_S: W/oFnlAssy
+      SCRTEXT_M: W/o final assy
+      SCRTEXT_L: Plng w/o final assy
+  CHANGE_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AENNR
+      ROLLNAME: AENNR
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: AEN
+      CONVEXIT: AENNR
+      SHLP: CT AENR
+    text:
+      FIELDTEXT: Change Number
+      REPTEXT: Change No.
+      SCRTEXT_S: Change No.
+      SCRTEXT_M: Change Number
+      SCRTEXT_L: Change Number
+  SUPPLYAREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+  REQ_TOTALING_TYP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: AGGRQ
+      ROLLNAME: AGGRQ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Requirements totaling type
+      REPTEXT: Reqmts totaling
+      SCRTEXT_S: Reqmts tot
+      SCRTEXT_M: Reqmts totaling
+      SCRTEXT_L: Reqmts totaling
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  ENTRY_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  VARSIZE_ITEM_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  REQ_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: SGT_SRCA
+      ROLLNAME: SGT_RCAT
+      OUTPUTLEN: 16
+    input:
+      MEMORYID: SGT_R
+      SHLP: SH SGT_CAT_FIELD_POPUP
+    text:
+      FIELDTEXT: Requirement Segment
+      REPTEXT: Req. Segment
+      SCRTEXT_S: Req. Seg.
+      SCRTEXT_M: Reqmnt Segment
+      SCRTEXT_L: Requirement Segment
+  STOCK_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: SGT_SRCA
+      ROLLNAME: SGT_SCAT
+      OUTPUTLEN: 16
+    input:
+      MEMORYID: SGT_S
+      SHLP: SH SGT_CAT_FIELD_POPUP
+    text:
+      FIELDTEXT: Stock Segment
+      REPTEXT: Stock Segment
+      SCRTEXT_S: Stk Seg.
+      SCRTEXT_M: Stock Segment
+      SCRTEXT_L: Stock Segment
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPI_KBKO:
+  CAP_REQ_RECORDID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: BEDID
+      ROLLNAME: BEDID
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      SHLP: CT KBKO
+    text:
+      FIELDTEXT: ID of the capacity requirements record
+      REPTEXT: Id number
+      SCRTEXT_S: ID no.
+      SCRTEXT_M: ID
+      SCRTEXT_L: ID
+  ROUTING_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: AUFPL
+      ROLLNAME: CO_AUFPL
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Routing number of operations in the order
+      REPTEXT: Routing number for operations
+      SCRTEXT_S: Plan no.
+      SCRTEXT_M: Plan no.f.oper.
+      SCRTEXT_L: Opertn task list no.
+  TASK_LIST_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PLNTY
+      ROLLNAME: PLNTY
+      OUTPUTLEN: 1
+    input:
+      MEMORYID: PTY
+      SHLP: SH H_TCA01
+    text:
+      FIELDTEXT: Task List Type
+      REPTEXT: TLType
+      SCRTEXT_S: Type
+      SCRTEXT_M: Task List Type
+      SCRTEXT_L: Task List Type
+  GROUP_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: PLNNR
+      ROLLNAME: PLNNR
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: PLN
+      CONVEXIT: ALPHA
+      SHLP: SH PLKS
+    text:
+      FIELDTEXT: Key for Task List Group
+      REPTEXT: Group
+      SCRTEXT_S: Group
+      SCRTEXT_M: Group
+      SCRTEXT_L: Group
+  GROUP_COUNTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: ALTNR
+      ROLLNAME: PLNAL
+      OUTPUTLEN: 2
+    input:
+      MEMORYID: PAL
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Group Counter
+      REPTEXT: GrC
+      SCRTEXT_S: Grp.Countr
+      SCRTEXT_M: Group Counter
+      SCRTEXT_L: Group Counter
+  LAST_SCHED_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: TRMDT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of the last scheduling
+      REPTEXT: Sched. on
+      SCRTEXT_S: Sched. on
+      SCRTEXT_M: Scheduled on
+      SCRTEXT_L: Scheduled on
+  PROD_FIN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: CO_GLTRS
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Scheduled finish
+      REPTEXT: Scheduled finish
+      SCRTEXT_S: Sched.Fin.
+      SCRTEXT_M: Sched. finish
+      SCRTEXT_L: Scheduled finish
+  EARLY_FIN_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: ATIME
+      ROLLNAME: FSEDZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: 'Earliest scheduled finish: Execution (time)'
+      REPTEXT: Earliest finish
+      SCRTEXT_S: Earl. fin.
+      SCRTEXT_M: Earliest finish
+      SCRTEXT_L: Earliest finish time
+  PROD_START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: CO_GSTRS
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Scheduled start
+      REPTEXT: Scheduled start
+      SCRTEXT_S: SchedStart
+      SCRTEXT_M: Sched. start
+      SCRTEXT_L: Scheduled start
+  EARLY_START_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: ATIME
+      ROLLNAME: FSAVZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: 'Earliest scheduled start: Execution (time)'
+      REPTEXT: Earl.start time
+      SCRTEXT_S: Earl.start
+      SCRTEXT_M: Earl.start time
+      SCRTEXT_L: Earliest start time
+  SCHED_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TERART
+      ROLLNAME: TERMKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      SHLP: CT T482
+    text:
+      FIELDTEXT: Scheduling type
+      REPTEXT: ST
+      SCRTEXT_S: SchedType
+      SCRTEXT_M: Scheduling type
+      SCRTEXT_L: Scheduling type
+  BREAK_ALLOW_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: BREAKS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator:  Scheduling allowing for breaks'
+      REPTEXT: Break
+      SCRTEXT_S: Breaks
+      SCRTEXT_M: Exact breaks
+      SCRTEXT_L: Exact break times
+  SCHED_REDTN_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: REDKZ
+      ROLLNAME: REDKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV REDKZ
+    text:
+      FIELDTEXT: Reduction indicator for scheduling
+      REPTEXT: Reduction indicator
+      SCRTEXT_S: RedInd
+      SCRTEXT_M: Reduction ind.
+      SCRTEXT_L: Reduction indicator
+  SCHEDULING_ERROR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: TRMER
+      ROLLNAME: TRMER
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRMER
+    text:
+      FIELDTEXT: Scheduling error
+      REPTEXT: SE
+      SCRTEXT_S: SchedError
+      SCRTEXT_M: Schedul. error
+      SCRTEXT_L: Scheduling error
+  SCHED_SOURCE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TRMHK
+      ROLLNAME: TRMHK
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Scheduling source
+      REPTEXT: S
+      SCRTEXT_S: Sched.srce
+      SCRTEXT_M: Schedul. source
+      SCRTEXT_L: Scheduling source
+  ROUTING_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: CO_PLAUF
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date for Routing Explosion
+      REPTEXT: Explosion date
+      SCRTEXT_S: Expl. Date
+      SCRTEXT_M: Explosion Date
+      SCRTEXT_L: Explosion date
+BAPIPLAF_E1:
+  PLANNEDORDER_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PLNUM
+      ROLLNAME: PLNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PAF
+      CONVEXIT: ALPHA
+      SHLP: CT PLAF
+    text:
+      FIELDTEXT: Planned order number
+      REPTEXT: Plnnd Ord.
+      SCRTEXT_S: Plnnd Ord.
+      SCRTEXT_M: Planned order
+      SCRTEXT_L: Planned order
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: PLMAT
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Planning material
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLAN_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PLWRK
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Planning Plant
+      REPTEXT: PlPl
+      SCRTEXT_S: Plng plant
+      SCRTEXT_M: Planning plant
+      SCRTEXT_L: Planning plant
+  PROD_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PWWRK
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Production plant in planned order
+      REPTEXT: PrPn
+      SCRTEXT_S: Prod.plant
+      SCRTEXT_M: Producing plant
+      SCRTEXT_L: Production plant
+  ORDER_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PAART
+      ROLLNAME: PAART
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PAART
+    text:
+      FIELDTEXT: Order type
+      REPTEXT: Procurement proposal type
+      SCRTEXT_S: Order type
+      SCRTEXT_M: Order type
+      SCRTEXT_L: Order type
+  PROCUREMENT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BESKZ
+      ROLLNAME: BESKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      MEMORYID: MBS
+      VALEXI: X
+      SHLP: FV BESKZ
+    text:
+      FIELDTEXT: Procurement Type
+      REPTEXT: ProcType
+      SCRTEXT_S: Proc. type
+      SCRTEXT_M: Procurement
+      SCRTEXT_L: Procurement type
+  SPECIALPROC_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBES
+      ROLLNAME: SOBES
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV SOBES
+    text:
+      FIELDTEXT: Special procurement type
+      REPTEXT: SPr
+      SCRTEXT_S: Spec.proc.
+      SCRTEXT_M: Spec. procuremt
+      SCRTEXT_L: Special procurement
+  TOTAL_PLORD_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: GSMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Total planned order quantity
+      REPTEXT: Ord.quantity
+      SCRTEXT_S: Order qty
+      SCRTEXT_M: Order quantity
+      SCRTEXT_L: Planned order qty
+  FIXED_SCRAP_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: AVMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Fixed quantity of scrap from production
+      REPTEXT: Scrap
+      SCRTEXT_S: Scrap
+      SCRTEXT_M: Scrap quantity
+      SCRTEXT_L: Scrap quantity
+  REQ_QUAN:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: BDMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Requirement Quantity
+      REPTEXT: Reqmnt qty
+      SCRTEXT_S: Reqmnt qty
+      SCRTEXT_M: Requirement qty
+      SCRTEXT_L: Requirement Quantity
+  ORDER_START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PSTTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Order start date in planned order
+      REPTEXT: OrderStart
+      SCRTEXT_S: OrderStart
+      SCRTEXT_M: Order start
+      SCRTEXT_L: Order start date
+  ORDER_FIN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PEDTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Order finish date in the planned order
+      REPTEXT: Ord.finish
+      SCRTEXT_S: Ord.finish
+      SCRTEXT_M: Order finish
+      SCRTEXT_L: Order finish date
+  PLAN_OPEN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PERTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Planned opening date in planned order
+      REPTEXT: Pln open
+      SCRTEXT_S: Plnd open.
+      SCRTEXT_M: Planned opening
+      SCRTEXT_L: Planned opening date
+  GR_PROC_TIME:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 3
+      DOMNAME: DEC3
+      ROLLNAME: PLWEZ
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Goods receipt processing time in days
+      REPTEXT: GRT
+      SCRTEXT_S: GR time
+      SCRTEXT_M: GR ProcessTime
+      SCRTEXT_L: GR processing time
+  MRP_CONTROLLER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: DISPO
+      ROLLNAME: PLDSP
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T024D
+    text:
+      FIELDTEXT: MRP controller
+      REPTEXT: MRP
+      SCRTEXT_S: MRP ctrlr
+      SCRTEXT_M: MRP controller
+      SCRTEXT_L: MRP controller
+  CONVERSION_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLUMS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Conversion indicator for planned order
+      REPTEXT: C
+      SCRTEXT_S: Conversion
+      SCRTEXT_M: Conversion
+      SCRTEXT_L: Conversion indicator
+  FIRMING_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLAFX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Firming indicator for planned order data
+      REPTEXT: Fmd
+      SCRTEXT_S: Firming
+      SCRTEXT_M: Firming
+      SCRTEXT_L: Firming indicator
+  BOM_EXP_FIX_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLSFX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Fixing indicator for BOM explosion
+      REPTEXT: FEx
+      SCRTEXT_S: Fix explsn
+      SCRTEXT_M: Fixed explosion
+      SCRTEXT_L: Fixed explosion
+  ACCTASSCAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KNTTP
+      ROLLNAME: KNTTP
+      OUTPUTLEN: 1
+    input:
+      MEMORYID: KNT
+      SHLP: SH H_T163K
+    text:
+      FIELDTEXT: Account assignment category
+      REPTEXT: A
+      SCRTEXT_S: AcctAssCat
+      SCRTEXT_M: Acct.assig.cat.
+      SCRTEXT_L: Acct assignment cat.
+  SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: KDAUF
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CH VBUK
+    text:
+      FIELDTEXT: Sales Order Number
+      REPTEXT: Sales Ord.
+      SCRTEXT_S: Sales Ord.
+      SCRTEXT_M: Sales Order
+      SCRTEXT_L: Sales Order
+  S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Item number in Sales Order
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  SCHED_LINE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUM04
+      ROLLNAME: KDEIN
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Delivery schedule for sales order
+      REPTEXT: Sch.
+      SCRTEXT_S: SO sched.
+      SCRTEXT_M: SOrder schedule
+      SCRTEXT_L: Sales order schedule
+  RESERV_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RSNUM
+      ROLLNAME: RSNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: RES
+      SHLP: CT RESB
+    text:
+      FIELDTEXT: Number of reservation/dependent requirements
+      REPTEXT: Reserv.no.
+      SCRTEXT_S: Reserv.no.
+      SCRTEXT_M: Reservation
+      SCRTEXT_L: Reservation
+  QUOTA_ARR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: QUNUM
+      ROLLNAME: QUNUM
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of quota arrangement
+      REPTEXT: Quota arr.
+      SCRTEXT_S: Quota arr.
+      SCRTEXT_M: Quota arr.
+      SCRTEXT_L: Quota arrangement
+  QUOTARRITM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: NUM03
+      ROLLNAME: QUPOS
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Quota arrangement item
+      REPTEXT: QAI
+      SCRTEXT_S: QuotArrItm
+      SCRTEXT_M: Quota arr. item
+      SCRTEXT_L: Quota arrangemt.item
+  FIXED_VEND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: FLIEF
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Fixed vendor
+      REPTEXT: Fixed vend
+      SCRTEXT_S: Fixed vend
+      SCRTEXT_M: Fixed vendor
+      SCRTEXT_L: Fixed vendor
+  AGREEMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: KONNR
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: KTR
+      CONVEXIT: ALPHA
+      SHLP: CH EKKO
+    text:
+      FIELDTEXT: Number of principal purchase agreement
+      REPTEXT: Agmt.
+      SCRTEXT_S: Agreement
+      SCRTEXT_M: Agreement
+      SCRTEXT_L: Outline agreement
+  AGMT_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: EBELP
+      ROLLNAME: KTPNR
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      SHLP: CH EKPO
+    text:
+      FIELDTEXT: Item number of principal purchase agreement
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Agreement item
+      SCRTEXT_L: Princ.agreement item
+  PURCH_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: EKORG
+      ROLLNAME: EKORG
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: EKO
+      SHLP: SH H_T024E
+    text:
+      FIELDTEXT: Purchasing organization
+      REPTEXT: POrg
+      SCRTEXT_S: Purch.org.
+      SCRTEXT_M: Purchasing org.
+      SCRTEXT_L: Purch. organization
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  CONSUMPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KZVBR
+      ROLLNAME: KZVBR
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV KZVBR
+    text:
+      FIELDTEXT: Consumption posting
+      REPTEXT: Cns
+      SCRTEXT_S: Consumpt.
+      SCRTEXT_M: Consumption
+      SCRTEXT_L: Consumption
+  SPEC_STOCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBKZ
+      ROLLNAME: SOBKZ
+      OUTPUTLEN: 1
+    input:
+      SHLP: CT T148
+    text:
+      FIELDTEXT: Special Stock Indicator
+      REPTEXT: S
+      SCRTEXT_S: Spec.Stock
+      SCRTEXT_M: Special Stock
+      SCRTEXT_L: Special Stock
+  INT_PROJ_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PS_POSNR
+      ROLLNAME: PS_POSNR
+      OUTPUTLEN: 24
+    input:
+      CONVEXIT: ABPSP
+      SHLP: CT PRPS
+    text:
+      FIELDTEXT: WBS Element
+      REPTEXT: WBS Elem
+      SCRTEXT_S: WBS Elem.
+      SCRTEXT_M: WBS Element
+      SCRTEXT_L: WBS Element
+  BOMEXPL_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: SERNR
+      ROLLNAME: SERNR
+      OUTPUTLEN: 8
+    input:
+      SHLP: SH H_SNUM
+    text:
+      FIELDTEXT: BOM explosion number
+      REPTEXT: BOMexpNo
+      SCRTEXT_S: BOMexpl.no
+      SCRTEXT_M: BOM expl.number
+      SCRTEXT_L: BOM explosion number
+  BOMEXPL_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PALTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Explosion date
+      REPTEXT: ExplDate
+      SCRTEXT_S: QtyStrDate
+      SCRTEXT_M: Explosion date
+      SCRTEXT_L: Explosion date
+  VALIDITY_OBJECT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: TECHS
+      ROLLNAME: TECHS
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Parameter Variant/Standard Variant
+      REPTEXT: Std Variant
+      SCRTEXT_S: StdVariant
+      SCRTEXT_M: StandardVariant
+      SCRTEXT_L: Standard Variant
+  BOM_USAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: STLAN
+      ROLLNAME: STLAN
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      MEMORYID: CSV
+      SHLP: CT T416
+    text:
+      FIELDTEXT: BOM Usage
+      REPTEXT: BOM Usg
+      SCRTEXT_S: BOM Usage
+      SCRTEXT_M: Usage
+      SCRTEXT_L: BOM Usage
+  ALTERNATIVE_BOM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: ALTNR
+      ROLLNAME: STALT
+      OUTPUTLEN: 2
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Alternative BOM
+      REPTEXT: AltBOM
+      SCRTEXT_S: Alt. BOM
+      SCRTEXT_M: Alternative
+      SCRTEXT_L: Alternative BOM
+  BOM_STATUS:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: STLST
+      ROLLNAME: STLST
+      OUTPUTLEN: 2
+    input:
+      SHLP: SH H_T415S
+    text:
+      FIELDTEXT: BOM status
+      REPTEXT: BOM St.
+      SCRTEXT_S: BOM status
+      SCRTEXT_M: BOM status
+      SCRTEXT_L: BOM status
+  CHANGE_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AENNR
+      ROLLNAME: AENNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: AEN
+      CONVEXIT: AENNR
+      SHLP: CT AENR
+    text:
+      FIELDTEXT: Change Number
+      REPTEXT: Change No.
+      SCRTEXT_S: Change No.
+      SCRTEXT_M: Change Number
+      SCRTEXT_L: Change Number
+  SETRESERNO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: MDNUM
+      ROLLNAME: ARSNR
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Settlement reservation number
+      REPTEXT: '*'
+      SCRTEXT_S: SetReserNo
+      SCRTEXT_M: Settle.reser.No
+      SCRTEXT_L: Settlement res. no.
+  SETTLITMNO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: RSPOS
+      ROLLNAME: ARSPS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Item number of the settlement reservation
+      REPTEXT: '*'
+      SCRTEXT_S: SettlItmNo
+      SCRTEXT_M: Settle.item no.
+      SCRTEXT_L: Item settlem.reser.
+  DIST_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: SA_VERTL
+      ROLLNAME: SA_VERTO
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT T437V
+    text:
+      FIELDTEXT: Distribution key for quantity produced
+      REPTEXT: DKey
+      SCRTEXT_S: Distribut.
+      SCRTEXT_M: Distribution
+      SCRTEXT_L: Distribution Key
+  VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VERID
+      ROLLNAME: VERID
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VER
+      SHLP: SH H_MKAL
+    text:
+      FIELDTEXT: Production Version
+      REPTEXT: Ver.
+      SCRTEXT_S: Version
+      SCRTEXT_M: Prod. Version
+      SCRTEXT_L: Production Version
+  RUNSCHD_HD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: SA_AUFNR
+      ROLLNAME: SA_AUFNR
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CH SAFK
+    text:
+      FIELDTEXT: Run schedule header number
+      REPTEXT: RS header
+      SCRTEXT_S: RS header
+      SCRTEXT_M: RS header
+      SCRTEXT_L: Run schedule header
+  PROD_SCHEDULER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: FEVOR
+      ROLLNAME: FEVOR
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: CFV
+      SHLP: SH H_T024F
+    text:
+      FIELDTEXT: Production Supervisor
+      REPTEXT: ProdS
+      SCRTEXT_S: Pr.Superv.
+      SCRTEXT_M: Prodn Superv.
+      SCRTEXT_L: Prodn Supervisor
+  PROD_START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: TERST
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Start date for production
+      REPTEXT: Prod.start
+      SCRTEXT_S: Prod.start
+      SCRTEXT_M: Prod.start date
+      SCRTEXT_L: Product.start date
+  PROD_FINISH_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: TERED
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Finish date for production
+      REPTEXT: ProdFinish
+      SCRTEXT_S: ProdFinish
+      SCRTEXT_M: Product. finish
+      SCRTEXT_L: Product.finish date
+  CAP_REQ_RECORDID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: BEDID
+      ROLLNAME: BEDID
+      OUTPUTLEN: 12
+    input:
+      SHLP: CT KBKO
+    text:
+      FIELDTEXT: ID of the capacity requirements record
+      REPTEXT: Id number
+      SCRTEXT_S: ID no.
+      SCRTEXT_M: ID
+      SCRTEXT_L: ID
+  SCHEDULING_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 15
+      DOMNAME: SP_OPID
+      ROLLNAME: SP_OPID
+      OUTPUTLEN: 15
+    text:
+      FIELDTEXT: ID for a schedule record
+      SCRTEXT_S: ID
+      SCRTEXT_M: Number
+      SCRTEXT_L: Schedule record key
+  SCHEDULING_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: TRMFL
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Scheduling indicator
+      REPTEXT: T
+      SCRTEXT_S: Scheduled
+      SCRTEXT_M: Scheduling
+      SCRTEXT_L: Scheduling
+  SCHEDULING_ERROR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: TRMER
+      ROLLNAME: TRMER
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRMER
+    text:
+      FIELDTEXT: Scheduling error
+      REPTEXT: SE
+      SCRTEXT_S: SchedError
+      SCRTEXT_M: Schedul. error
+      SCRTEXT_L: Scheduling error
+  PRODUCTION_NOTE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: FRTHW
+      ROLLNAME: FRTHW
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Production note in the planned order
+      REPTEXT: P
+      SCRTEXT_S: Prod. note
+      SCRTEXT_M: Production note
+      SCRTEXT_L: Production note
+  BACKFLUSH_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CO_RGEKZ
+      ROLLNAME: CO_RGEKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Backflushing for order'
+      SCRTEXT_S: Backflush
+      SCRTEXT_M: Backflushing
+      SCRTEXT_L: Backflushing
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  CONFIGURATION:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 18
+      DOMNAME: CUOBJ
+      ROLLNAME: CUOBJ
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: CUX
+    text:
+      FIELDTEXT: Configuration (internal object number)
+      REPTEXT: Object no.
+      SCRTEXT_S: Int.obj.no
+      SCRTEXT_M: Int. object no.
+      SCRTEXT_L: Internal object no.
+  REVISION_LEVEL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: REVLV
+      ROLLNAME: REVLV
+      OUTPUTLEN: 2
+    input:
+      MEMORYID: RVS
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Revision level
+      REPTEXT: RevLev
+      SCRTEXT_S: Rev. level
+      SCRTEXT_M: Revision level
+      SCRTEXT_L: Revision level
+  REDUCED_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENGE
+      ROLLNAME: ABMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Reduced quantity in the planned order
+      SCRTEXT_S: Red.qty
+      SCRTEXT_M: Reduced qty
+      SCRTEXT_L: Reduced quantity
+  SCHED_RATE_INDEX:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: BEDID
+      ROLLNAME: RATID
+      OUTPUTLEN: 12
+    input:
+      SHLP: CT KBKO
+    text:
+      FIELDTEXT: Index for the results of scheduling production rates
+      SCRTEXT_S: Rate ID
+      SCRTEXT_M: Rate ID
+      SCRTEXT_L: Rate ID
+  ROUGH_SCHEDINDEXLT_INDEX:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 12
+      DOMNAME: BEDID
+      ROLLNAME: GROID
+      OUTPUTLEN: 12
+    input:
+      SHLP: CT KBKO
+    text:
+      FIELDTEXT: Index for rough scheduling results
+      SCRTEXT_S: RoughSchID
+      SCRTEXT_M: Rough sched. ID
+      SCRTEXT_L: Rough sched. ID
+  SCHED_ERROR_PR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: TRMER
+      ROLLNAME: RATER
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRMER
+    text:
+      FIELDTEXT: Scheduling error in scheduling production rates
+      REPTEXT: SE
+      SCRTEXT_S: SchedError
+      SCRTEXT_M: SchedError rate
+      SCRTEXT_L: Sched.error:prodRate
+  SCHED_ERROR_RS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: TRMER
+      ROLLNAME: GROER
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRMER
+    text:
+      FIELDTEXT: Scheduling error in rough scheduling
+      REPTEXT: SE
+      SCRTEXT_S: SchedError
+      SCRTEXT_M: Sched.error
+      SCRTEXT_L: Error in rough sched
+  OBJECT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: OBART
+      ROLLNAME: OBART
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV OBART
+    text:
+      FIELDTEXT: Object type
+      REPTEXT: Object type
+      SCRTEXT_S: Object
+      SCRTEXT_M: Object type
+      SCRTEXT_L: Object type
+  PLNG_SCENARIO_LT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PLSCN
+      ROLLNAME: PLSCN
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: PLS
+      SHLP: SH H_PLSC
+    text:
+      FIELDTEXT: Planning Scenario of Long-Term Planning
+      REPTEXT: PSc
+      SCRTEXT_S: Scenario
+      SCRTEXT_M: Plnng scenario
+      SCRTEXT_L: Planning Scenario
+  SIM_REQ_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: SBNUM
+      ROLLNAME: SBNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      SHLP: CT MDSM
+    text:
+      FIELDTEXT: Simulation requirements number
+      SCRTEXT_S: SimReq.No.
+      SCRTEXT_M: Sim.requmts no.
+      SCRTEXT_L: Sim.reqmts number
+  KANBAN_INDICATOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KBNKZ
+      ROLLNAME: KBNKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Kanban Indicator
+      SCRTEXT_S: KanbanInd.
+      SCRTEXT_M: Kanban Indicat.
+      SCRTEXT_L: Kanban Indicator
+  DISP_CAP_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: KAPFX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: capacity for planned order dispatched'
+      REPTEXT: Cap.disp.
+      SCRTEXT_S: Cap. disp.
+      SCRTEXT_M: Cap. dispatched
+      SCRTEXT_L: Capacity dispatched
+  SEQ_NUMBER_ORDER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 14
+      DOMNAME: CY_SEQNR
+      ROLLNAME: CY_SEQNR
+      OUTPUTLEN: 14
+    text:
+      FIELDTEXT: Seq. number order
+      SCRTEXT_S: Seq. no.
+      SCRTEXT_M: Sequence number
+      SCRTEXT_L: Sequence number
+  ORDER_STR_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: PSTTI
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Start Time of Planned Order
+      REPTEXT: Start
+      SCRTEXT_S: Start Time
+      SCRTEXT_M: Start Time
+      SCRTEXT_L: Start Time
+  ORDER_FIN_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: PEDTI
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: End Time of Planned Order
+      REPTEXT: End
+      SCRTEXT_S: End Time
+      SCRTEXT_M: End Time
+      SCRTEXT_L: End Time
+  ASS_ORD_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: MONKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: for assembly order procedures'
+      SCRTEXT_S: Assembly
+      SCRTEXT_M: Assembly orders
+      SCRTEXT_L: Assembly orders
+  COLLORD_LEAD_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KREUZ
+      ROLLNAME: PRNKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Ind.: Leading order in collective order is planned ordre'
+      SCRTEXT_S: CollOrder
+      SCRTEXT_M: Coll. Order
+      SCRTEXT_L: Collective order
+  AVAILABLE_CONF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: MDPBV
+      ROLLNAME: MDPBV
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV MDPBV
+    text:
+      FIELDTEXT: 'Planned order: confirmation of availability'
+      REPTEXT: A
+      SCRTEXT_S: AvailConf
+      SCRTEXT_M: Avail.confirm.
+      SCRTEXT_L: Availability confirm
+  COMMIT_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: VFMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: 'Planned order: committed quantity'
+      REPTEXT: Committed qty
+      SCRTEXT_S: Comm. qty
+      SCRTEXT_M: Committed qty
+      SCRTEXT_L: Committed quantity
+  PLORD_CTRL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: MDACH
+      ROLLNAME: MDACH
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CH T46AC
+    text:
+      FIELDTEXT: 'Action control: planned order processing'
+      REPTEXT: AC
+      SCRTEXT_S: ActionCtrl
+      SCRTEXT_M: Action control
+      SCRTEXT_L: Action control
+  ACTION_PLND_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: MDACC
+      ROLLNAME: MDACC
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT T46AS
+    text:
+      FIELDTEXT: 'Action: planned order processing'
+      REPTEXT: Action
+      SCRTEXT_S: Action
+      SCRTEXT_M: Action(PlndOrd)
+      SCRTEXT_L: Action (Plnnd Order)
+  DATE_OF_ACTION:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: MDACD
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: 'Date of action: planned order'
+      REPTEXT: Date
+      SCRTEXT_S: Date
+      SCRTEXT_M: Action date
+      SCRTEXT_L: Date of action
+  TIME_OF_ACTION:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: MDACT
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: 'Time of action: Planned order processing'
+      SCRTEXT_S: Curr. time
+      SCRTEXT_M: Action time
+      SCRTEXT_L: Action time
+  TOTAL_COMMIT_DAT:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: GSBTR_PLAF
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Total commitment date of plnd ord. after ATP check f.comps.
+      REPTEXT: Commitment
+      SCRTEXT_S: Commitment
+      SCRTEXT_M: Tot. commitment
+      SCRTEXT_L: Total commitment
+  SCHED_PROD_DATES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: MD_PRSCHED
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Planned order: scheduling using production dates'
+      REPTEXT: PrDts
+      SCRTEXT_S: Prod.dates
+      SCRTEXT_M: By prod. dates
+      SCRTEXT_L: Sched.by prod.dates
+  LEAD_SCHED_LEVEL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SCHED_TYPE
+      ROLLNAME: MD_LVSCHED
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV SCHED_TYPE
+    text:
+      FIELDTEXT: 'Planned order: leading scheduling level (determines dates)'
+      REPTEXT: Sched.lvl
+      SCRTEXT_S: Sched.lvl
+      SCRTEXT_M: Scheduling lvl
+      SCRTEXT_L: Leading sched. level
+  ATP_CHECK_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KZAVC
+      ROLLNAME: KZAVC
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Indicator for type of availability check
+      REPTEXT: TAC
+      SCRTEXT_S: TypeAvChck
+      SCRTEXT_M: Type avail.chck
+      SCRTEXT_L: Type avail. check
+  PLN_WO_ASSEMBLY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: VRPLA
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: planning without final assembly'
+      REPTEXT: W/o final assy
+      SCRTEXT_S: W/oFnlAssy
+      SCRTEXT_M: W/o final assy
+      SCRTEXT_L: Plng w/o final assy
+  REQ_PLAN_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHAR10
+      ROLLNAME: PBDNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PBN
+    text:
+      FIELDTEXT: Requirements Plan Number
+      REPTEXT: Reqmts Plan
+      SCRTEXT_S: ReqPlanNo.
+      SCRTEXT_M: Reqmts Plan
+      SCRTEXT_L: Requirements Plan
+  REQ_TOTALING:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: AGREQ
+      ROLLNAME: AGREQ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Requirements totaling
+      REPTEXT: S
+      SCRTEXT_S: Aggr.reqmt
+      SCRTEXT_M: Aggregate reqmts
+      SCRTEXT_L: Aggregate reqmts
+  NUMERATOR:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 5
+      DOMNAME: UMBSZ
+      ROLLNAME: UMREZ
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Numerator for Conversion to Base Units of Measure
+      REPTEXT: Counter
+      SCRTEXT_S: Counter
+      SCRTEXT_M: Counter
+      SCRTEXT_L: Counter
+  DENOMINATR:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 5
+      DOMNAME: UMBSN
+      ROLLNAME: UMREN
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Denominator for conversion to base units of measure
+      REPTEXT: Denom.
+      SCRTEXT_S: Denominat.
+      SCRTEXT_M: Denominator
+      SCRTEXT_L: Denominator
+  ENTRY_QNT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ERFMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: UNIT_OF_ENTRY
+    text:
+      FIELDTEXT: Quantity in unit of entry
+      REPTEXT: Quantity
+      SCRTEXT_S: Qty in UnE
+      SCRTEXT_M: Quantity in UnE
+      SCRTEXT_L: Qty in unit of entry
+  UNIT_OF_ENTRY:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: ERFME
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit of entry
+      REPTEXT: EUn
+      SCRTEXT_S: Entry unit
+      SCRTEXT_M: Unit of Entry
+      SCRTEXT_L: Unit of Entry
+  REQ_RECORD_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RQNUM
+      ROLLNAME: RQNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PLA
+      SHLP: CT RQHD
+    text:
+      FIELDTEXT: Requirements record number
+      SCRTEXT_S: Rqmnt
+      SCRTEXT_M: Requirement
+      SCRTEXT_L: Requirement
+  SPEC_STVAL_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KZBWS
+      ROLLNAME: KZBWS
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV KZBWS
+    text:
+      FIELDTEXT: Valuation of Special Stock
+      SCRTEXT_S: Valuation
+      SCRTEXT_M: Valuation
+      SCRTEXT_L: Spec. stk valuation
+  DELIV_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: WEMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Quantity of Goods Received
+      REPTEXT: Received
+      SCRTEXT_S: GR Qty
+      SCRTEXT_M: Received
+      SCRTEXT_L: Quantity Received
+  WITHDR_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: WAMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_E1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Issued Quantity
+      REPTEXT: Issued Quantity
+      SCRTEXT_S: Issued
+      SCRTEXT_M: Issued
+      SCRTEXT_L: Issued Quantity
+  OBJ_DEPEND_TREE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 17
+      DOMNAME: EDGNO
+      ROLLNAME: EDGNO
+      OUTPUTLEN: 17
+      valueInputType: list
+    input:
+      SHLP: CT M60I
+    text:
+      FIELDTEXT: Internal number for edge of object dependencies tree
+      REPTEXT: Edge Object Dependencies
+      SCRTEXT_S: Edge
+      SCRTEXT_M: Edge obj. dep.
+      SCRTEXT_L: Edge obj. dep.
+  SC_VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LBLKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Subcontracting vendor
+      REPTEXT: S
+      SCRTEXT_S: SC vendor
+      SCRTEXT_M: SC vendor
+      SCRTEXT_L: SC vendor
+  DELIV_REC_VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: EMLIF
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT LFA1
+    text:
+      FIELDTEXT: Vendor to be supplied/who is to receive delivery
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  MRP_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BERID
+      ROLLNAME: BERID
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: BERID
+      SHLP: CT MDLV
+    text:
+      FIELDTEXT: MRP Area
+      REPTEXT: MRP Area
+      SCRTEXT_S: MRP Area
+      SCRTEXT_M: MRP Area
+      SCRTEXT_L: MRP Area
+  ISSUE_MRP_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BERID
+      ROLLNAME: UBERI
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT MDLV
+    text:
+      FIELDTEXT: Issuing MRP area when transferring stock
+      REPTEXT: from MRP area
+      SCRTEXT_S: from MRPa.
+      SCRTEXT_M: from MRP area
+      SCRTEXT_L: from MRP area
+  MPN_MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: EMATN
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: HTN
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material number corresponding to manufacturer part number
+      REPTEXT: MPN material
+      SCRTEXT_S: MPN mat.
+      SCRTEXT_M: MPN material
+      SCRTEXT_L: MPN material
+  REPETITIVE_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: REMFL
+      ROLLNAME: REMFL
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Repetitive Manufacturing indicator
+      REPTEXT: Repetitive mfg
+      SCRTEXT_S: Repet. mfg
+      SCRTEXT_M: Repetitive mfg
+      SCRTEXT_L: Repetitive mfg
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  UNIT_OF_ENTRY_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MPN_MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MPN_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MPN_MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MPN_MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MPN_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MPN_MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MPN_MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MPN_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MPN_MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  SUPPL_STLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: RESLO
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Issuing Storage Location for Stock Transport Order
+      REPTEXT: IStLoc
+      SCRTEXT_S: Iss.St.Loc
+      SCRTEXT_M: Iss. Stor. Loc.
+      SCRTEXT_L: Issuing Storage Loc.
+  STOCK_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: SGT_SRCA
+      ROLLNAME: SGT_SCAT
+      OUTPUTLEN: 16
+    input:
+      MEMORYID: SGT_S
+      SHLP: SH SGT_CAT_FIELD_POPUP
+    text:
+      FIELDTEXT: Stock Segment
+      REPTEXT: Stock Segment
+      SCRTEXT_S: Stk Seg.
+      SCRTEXT_M: Stock Segment
+      SCRTEXT_L: Stock Segment
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: PLMAT40
+      OUTPUTLEN: 40
+    input:
+      MEMORYID: MAT
+    text:
+      FIELDTEXT: Planning material
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  MPN_MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: EMATN40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material number corresponding to MPN (technically required)
+      REPTEXT: MPN Material
+      SCRTEXT_S: MPN Matl
+      SCRTEXT_M: MPN Material
+      SCRTEXT_L: MPN Material
+BAPIRETURN1:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+BAPIPLAF_I1:
+  PLANNEDORDER_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PLNUM
+      ROLLNAME: PLNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PAF
+      CONVEXIT: ALPHA
+      SHLP: CT PLAF
+    text:
+      FIELDTEXT: Planned order number
+      REPTEXT: Plnnd Ord.
+      SCRTEXT_S: Plnnd Ord.
+      SCRTEXT_M: Planned order
+      SCRTEXT_L: Planned order
+  PLDORD_PROFILE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PASCH
+      ROLLNAME: PASCH
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: PASCH
+      SHLP: SH H_T460C
+    text:
+      FIELDTEXT: Planned order profile
+      REPTEXT: Profile
+      SCRTEXT_S: Profile
+      SCRTEXT_M: Order profile
+      SCRTEXT_L: Plnned order profile
+  PLNG_SCENARIO_LT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PLSCN
+      ROLLNAME: PLSCN
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: PLS
+      SHLP: CT PLSC
+    text:
+      FIELDTEXT: Planning Scenario of Long-Term Planning
+      REPTEXT: PSc
+      SCRTEXT_S: Scenario
+      SCRTEXT_M: Plnng scenario
+      SCRTEXT_L: Planning Scenario
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLAN_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PLWRK
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Planning Plant
+      REPTEXT: PlPl
+      SCRTEXT_S: Plng plant
+      SCRTEXT_M: Planning plant
+      SCRTEXT_L: Planning plant
+  PROD_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PWWRK
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Production plant in planned order
+      REPTEXT: PrPn
+      SCRTEXT_S: Prod.plant
+      SCRTEXT_M: Producing plant
+      SCRTEXT_L: Production plant
+  TOTAL_PLORD_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: GSMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_I1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Total planned order quantity
+      REPTEXT: Ord.quantity
+      SCRTEXT_S: Order qty
+      SCRTEXT_M: Order quantity
+      SCRTEXT_L: Planned order qty
+  FIXED_SCRAP_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: AVMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPIPLAF_I1
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Fixed quantity of scrap from production
+      REPTEXT: Scrap
+      SCRTEXT_S: Scrap
+      SCRTEXT_M: Scrap quantity
+      SCRTEXT_L: Scrap quantity
+  ORDER_START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PSTTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Order start date in planned order
+      REPTEXT: OrderStart
+      SCRTEXT_S: OrderStart
+      SCRTEXT_M: Order start
+      SCRTEXT_L: Order start date
+  ORDER_FIN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PEDTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Order finish date in the planned order
+      REPTEXT: Ord.finish
+      SCRTEXT_S: Ord.finish
+      SCRTEXT_M: Order finish
+      SCRTEXT_L: Order finish date
+  PLAN_OPEN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PERTR
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Planned opening date in planned order
+      REPTEXT: Pln open
+      SCRTEXT_S: Plnd open.
+      SCRTEXT_M: Planned opening
+      SCRTEXT_L: Planned opening date
+  GR_PROC_TIME:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 3
+      DOMNAME: DEC3
+      ROLLNAME: PLWEZ
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Goods receipt processing time in days
+      REPTEXT: GRT
+      SCRTEXT_S: GR time
+      SCRTEXT_M: GR ProcessTime
+      SCRTEXT_L: GR processing time
+  CONVERSION_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLUMS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Conversion indicator for planned order
+      REPTEXT: C
+      SCRTEXT_S: Conversion
+      SCRTEXT_M: Conversion
+      SCRTEXT_L: Conversion indicator
+  FIRMING_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLAFX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Firming indicator for planned order data
+      REPTEXT: Fmd
+      SCRTEXT_S: Firming
+      SCRTEXT_M: Firming
+      SCRTEXT_L: Firming indicator
+  BOM_EXP_FIX_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PLSFX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Fixing indicator for BOM explosion
+      REPTEXT: FEx
+      SCRTEXT_S: Fix explsn
+      SCRTEXT_M: Fixed explosion
+      SCRTEXT_L: Fixed explosion
+  ACCTASSCAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KNTTP
+      ROLLNAME: KNTTP
+      OUTPUTLEN: 1
+    input:
+      MEMORYID: KNT
+      SHLP: SH H_T163K
+    text:
+      FIELDTEXT: Account assignment category
+      REPTEXT: A
+      SCRTEXT_S: AcctAssCat
+      SCRTEXT_M: Acct.assig.cat.
+      SCRTEXT_L: Acct assignment cat.
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  BOMEXPL_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: SERNR
+      ROLLNAME: SERNR
+      OUTPUTLEN: 8
+    input:
+      SHLP: SH H_SNUM
+    text:
+      FIELDTEXT: BOM explosion number
+      REPTEXT: BOMexpNo
+      SCRTEXT_S: BOMexpl.no
+      SCRTEXT_M: BOM expl.number
+      SCRTEXT_L: BOM explosion number
+  VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VERID
+      ROLLNAME: VERID
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VER
+      SHLP: SH H_MKAL
+    text:
+      FIELDTEXT: Production Version
+      REPTEXT: Ver.
+      SCRTEXT_S: Version
+      SCRTEXT_M: Prod. Version
+      SCRTEXT_L: Production Version
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  MANUAL_COMPONENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPCO
+      ROLLNAME: BAPCO
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPCO
+    text:
+      FIELDTEXT: Processing Indicator for BAPI Call
+      SCRTEXT_S: BAPI Type
+      SCRTEXT_M: BAPI Type Ind.
+      SCRTEXT_L: BAPI Type Indicator
+  SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: KDAUF
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CT VBUK
+    text:
+      FIELDTEXT: Sales Order Number
+      REPTEXT: Sales Ord.
+      SCRTEXT_S: Sales Ord.
+      SCRTEXT_M: Sales Order
+      SCRTEXT_L: Sales Order
+  S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Item number in Sales Order
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  INT_PROJECT_NUM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PS_POSNR
+      ROLLNAME: PS_POSNR
+      OUTPUTLEN: 24
+    input:
+      CONVEXIT: ABPSP
+      SHLP: CT PRPS
+    text:
+      FIELDTEXT: WBS Element
+      REPTEXT: WBS Elem
+      SCRTEXT_S: WBS Elem.
+      SCRTEXT_M: WBS Element
+      SCRTEXT_L: WBS Element
+  AGREEMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: KONNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: KTR
+      CONVEXIT: ALPHA
+      SHLP: CT EKKO
+    text:
+      FIELDTEXT: Number of principal purchase agreement
+      REPTEXT: Agmt.
+      SCRTEXT_S: Agreement
+      SCRTEXT_M: Agreement
+      SCRTEXT_L: Outline agreement
+  FIXED_VEND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: FLIEF
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT LFA1
+    text:
+      FIELDTEXT: Fixed vendor
+      REPTEXT: Fixed vend
+      SCRTEXT_S: Fixed vend
+      SCRTEXT_M: Fixed vendor
+      SCRTEXT_L: Fixed vendor
+  AGMT_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: EBELP
+      ROLLNAME: KTPNR
+      OUTPUTLEN: 5
+    input:
+      SHLP: CT EKPO
+    text:
+      FIELDTEXT: Item number of principal purchase agreement
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Agreement item
+      SCRTEXT_L: Princ.agreement item
+  PURCH_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: EKORG
+      ROLLNAME: EKORG
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: EKO
+      SHLP: CT T024E
+    text:
+      FIELDTEXT: Purchasing organization
+      REPTEXT: POrg
+      SCRTEXT_S: Purch.org.
+      SCRTEXT_M: Purchasing org.
+      SCRTEXT_L: Purch. organization
+  DET_SCHEDULE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: TERMX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Lead time scheduling (detailed planning)
+      REPTEXT: Sch
+      SCRTEXT_S: Scheduling
+      SCRTEXT_M: Scheduling
+      SCRTEXT_L: Scheduling
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  USE_COLL_UPD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: MD_COLL_UPD
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'BAPI: Collective Update of Planning File Entries'
+      SCRTEXT_S: IndColUpdt
+      SCRTEXT_M: Ind. Col.Update
+      SCRTEXT_L: Ind. Collect. Update
+  LAST_ORDER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: MD_LAST_ORD
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'BAPI: Indicator - Last Planned Order for Collective Update'
+      SCRTEXT_S: IndLastOrd
+      SCRTEXT_M: Ind. Last Order
+      SCRTEXT_L: Ind. Last Order
+  MRP_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BERID
+      ROLLNAME: BERID
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: BERID
+      SHLP: CT MDLV
+    text:
+      FIELDTEXT: MRP Area
+      REPTEXT: MRP Area
+      SCRTEXT_S: MRP Area
+      SCRTEXT_M: MRP Area
+      SCRTEXT_L: MRP Area
+  SUPPL_STLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: RESLO
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Issuing Storage Location for Stock Transport Order
+      REPTEXT: IStLoc
+      SCRTEXT_S: Iss.St.Loc
+      SCRTEXT_M: Iss. Stor. Loc.
+      SCRTEXT_L: Issuing Storage Loc.
+  STOCK_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: SGT_SRCA
+      ROLLNAME: SGT_SCAT
+      OUTPUTLEN: 16
+    input:
+      MEMORYID: SGT_S
+      SHLP: SH SGT_CAT_FIELD_POPUP
+    text:
+      FIELDTEXT: Stock Segment
+      REPTEXT: Stock Segment
+      SCRTEXT_S: Stk Seg.
+      SCRTEXT_M: Stock Segment
+      SCRTEXT_L: Stock Segment
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPI_PLDORDCOMP_I1:
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  ENTRY_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENGV13
+      ROLLNAME: CO_MENGE
+      OUTPUTLEN: 18
+      DECIMALS: 3
+      REFTABLE: BAPI_PLDORDCOMP_I1
+      REFFIELD: ENTRY_UOM
+      SIGN: X
+    text:
+      FIELDTEXT: Requirement Quantity of Component
+      REPTEXT: Reqmt Qty
+      SCRTEXT_S: Reqmt Qty
+      SCRTEXT_M: Requirement Qty
+      SCRTEXT_L: Requirement Quantity
+  ENTRY_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: ERFME
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit of entry
+      REPTEXT: EUn
+      SCRTEXT_S: Entry unit
+      SCRTEXT_M: Unit of Entry
+      SCRTEXT_L: Unit of Entry
+  REQ_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: BDTER
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Requirements date for the component
+      REPTEXT: ReqmtsDate
+      SCRTEXT_S: ReqmtsDate
+      SCRTEXT_M: Reqmts date
+      SCRTEXT_L: Requirements date
+  BOM_ITEM_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: SPOSN
+      ROLLNAME: SPOSN
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: BOM Item Number
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item Number
+  ITEM_CAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: POSTP
+      ROLLNAME: POSTP
+      OUTPUTLEN: 1
+    input:
+      SHLP: SH H_T418
+    text:
+      FIELDTEXT: Item category (bill of material)
+      REPTEXT: ICt
+      SCRTEXT_S: Item cat.
+      SCRTEXT_M: Item category
+      SCRTEXT_L: Item category
+  FIXED_QTY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: FMENG
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Quantity is fixed
+      REPTEXT: Fix
+      SCRTEXT_S: Fixed qty.
+      SCRTEXT_M: Qty. is fixed
+      SCRTEXT_L: Quantity is fixed
+  ISS_ST_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGPRO
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Issue Storage Location
+      REPTEXT: SLoc
+      SCRTEXT_S: Prod.SLoc.
+      SCRTEXT_M: Prod. Stor.Loc.
+      SCRTEXT_L: Prod. stor. location
+  ENTRY_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  SUPPLYAREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  DIST_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: SA_VERTL
+      ROLLNAME: SA_VERTI
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT T437V
+    text:
+      FIELDTEXT: Distribution key for component consumption
+      REPTEXT: DKey
+      SCRTEXT_S: Distribut.
+      SCRTEXT_M: Distribution
+      SCRTEXT_L: Distribution key
+  SORT_STRING:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHAR10
+      ROLLNAME: SORTP
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Sort String
+      REPTEXT: SortStrng
+      SCRTEXT_S: SortStrng
+      SCRTEXT_M: Sort String
+      SCRTEXT_L: Sort String
+  REQ_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: SGT_SRCA
+      ROLLNAME: SGT_RCAT
+      OUTPUTLEN: 16
+    input:
+      MEMORYID: SGT_R
+      SHLP: SH SGT_CAT_FIELD_POPUP
+    text:
+      FIELDTEXT: Requirement Segment
+      REPTEXT: Req. Segment
+      SCRTEXT_S: Req. Seg.
+      SCRTEXT_M: Reqmnt Segment
+      SCRTEXT_L: Requirement Segment
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPIPLAF_I3:
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  MRP_CTRLER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: DISPO
+      ROLLNAME: DISPO
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: DGR
+      SHLP: SH H_T024D
+    text:
+      FIELDTEXT: MRP controller
+      REPTEXT: MRPCn
+      SCRTEXT_S: MRP ctrlr
+      SCRTEXT_M: MRP controller
+      SCRTEXT_L: MRP controller
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  RUNSCHD_HD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: SA_AUFNR
+      ROLLNAME: SA_AUFNR
+      OUTPUTLEN: 12
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CH SAFK
+    text:
+      FIELDTEXT: Run schedule header number
+      REPTEXT: RS header
+      SCRTEXT_S: RS header
+      SCRTEXT_M: RS header
+      SCRTEXT_L: Run schedule header
+  VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VERID
+      ROLLNAME: VERID
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VER
+      SHLP: SH H_MKAL
+    text:
+      FIELDTEXT: Production Version
+      REPTEXT: Ver.
+      SCRTEXT_S: Version
+      SCRTEXT_M: Prod. Version
+      SCRTEXT_L: Production Version
+  PROD_LINE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: ARBPL
+      ROLLNAME: SA_LINE1
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: AGR
+      SHLP: SH RMLINE
+    text:
+      FIELDTEXT: Production line for repetitive manufacturing
+      REPTEXT: ProdLine
+      SCRTEXT_S: Prod.line
+      SCRTEXT_M: Production line
+      SCRTEXT_L: Production line
+  PLANNING_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: MDVXX
+      ROLLNAME: MDV02
+      OUTPUTLEN: 8
+    input:
+      SHLP: SH H_T437P
+    text:
+      FIELDTEXT: Planning identification 2
+      REPTEXT: PlngID 2
+      SCRTEXT_S: Plng ID 2
+      SCRTEXT_M: Planning ID 2
+      SCRTEXT_L: Planning ID 2
+  END_SEL_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: DATBE
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: End of the Period of Examination
+      REPTEXT: To
+      SCRTEXT_S: To
+      SCRTEXT_M: To
+      SCRTEXT_L: Planning End
+  STR_SEL_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: DATVE
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Start of the Period to Be Evaluated
+      REPTEXT: From
+      SCRTEXT_S: From
+      SCRTEXT_M: From
+      SCRTEXT_L: Planning start
+  PLAN_SCENARIO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PLSCN
+      ROLLNAME: PLSCN
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: PLS
+      SHLP: SH H_PLSC
+    text:
+      FIELDTEXT: Planning Scenario of Long-Term Planning
+      REPTEXT: PSc
+      SCRTEXT_S: Scenario
+      SCRTEXT_M: Plnng scenario
+      SCRTEXT_L: Planning Scenario
+  SIMULATIVE_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SIM_PLAUF
+      ROLLNAME: SIM_PLAUF
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Indicator for simulative planned orders
+      SCRTEXT_S: SimPlndOrd
+      SCRTEXT_M: Ind.sim.PlndOrd
+      SCRTEXT_L: Ind. sim. plnd ord.
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+FSH_T_BNDL_RETURN:
+  MARKER_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHAR10
+      ROLLNAME: FSH_MKID
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Marker ID for Planned Orders/Production Orders
+      REPTEXT: Marker ID
+      SCRTEXT_S: Marker ID
+      SCRTEXT_M: Marker ID
+      SCRTEXT_L: Marker ID
+  MARKER_NAME:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: CHAR30
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: 30 Characters
+  MARKER_NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: NUMC2
+      ROLLNAME: FSH_MKNR
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Marker Number
+      REPTEXT: Marker Number
+      SCRTEXT_S: Marker No.
+      SCRTEXT_M: Marker No.
+      SCRTEXT_L: Marker Number
+  MARKER_SECTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: CHAR2
+      ROLLNAME: FSH_MSECT
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Marker Section
+      REPTEXT: Marker Section
+      SCRTEXT_S: Section
+      SCRTEXT_M: Marker Section
+      SCRTEXT_L: Marker Section
+  BUNDLE_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: CIM_COUNT
+      ROLLNAME: FSH_BLFD
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Bundle ID for Order
+      REPTEXT: Bundle ID
+      SCRTEXT_S: Bundle ID
+      SCRTEXT_M: Bundle ID
+      SCRTEXT_L: Bundle ID
+  BUNDLE_QUANTITY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: FSH_MNGS
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: MENGE
+      REFFIELD: MEINH
+    text:
+      FIELDTEXT: Bundle Quantity
+      REPTEXT: Bundle Quantity
+      SCRTEXT_S: Bundle Qty
+      SCRTEXT_M: Bundle Quantity
+      SCRTEXT_L: Bundle Quantity

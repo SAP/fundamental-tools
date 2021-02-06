@@ -1,0 +1,744 @@
+BAPI_EQUI_CHANGE:
+  EQUIPMENT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment to be Changed
+    functionName: BAPI_EQUI_CHANGE
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  DATA_GENERAL:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_GENERAL
+    required: true
+    paramType: struct
+  DATA_GENERALX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOBX
+    PARAMTEXT: Flag Structure for BAPI_ITOB for Fields to be Copied
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_GENERALX
+    required: true
+    paramType: struct
+  DATA_SPECIFIC:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific data
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_SPECIFIC
+    required: true
+    paramType: struct
+  DATA_SPECIFICX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_EQ_ONLYX
+    PARAMTEXT: Flag Structure for BAPI_ITOB_EQ_ONLY for Fields to be Copied
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_SPECIFICX
+    required: true
+    paramType: struct
+  VALID_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: INST_DATE
+    PARAMTEXT: Date for Validity of an Equipment Usage Period Relevant Change
+    functionName: BAPI_EQUI_CHANGE
+    paramName: VALID_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  VALID_TIME:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: INST_TIME
+    PARAMTEXT: Time for Validity of a Equipment Usage Period Relevant Change
+    functionName: BAPI_EQUI_CHANGE
+    paramName: VALID_TIME
+    required: false
+    default: SY-UZEIT
+    paramType: var
+  DATA_FLEET:
+    PARAMCLASS: I
+    TABNAME: BAPI_FLEET
+    PARAMTEXT: Vehicle-Specific Data
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_FLEET
+    required: false
+    default: ''
+    paramType: struct
+  DATA_FLEETX:
+    PARAMCLASS: I
+    TABNAME: BAPI_FLEETX
+    PARAMTEXT: Flag Structure Belonging to BAPI_FLEET (for Change BAPIs)
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_FLEETX
+    required: false
+    default: ''
+    paramType: struct
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_EQUI_CHANGE
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_EQUI_CHANGE
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  DATA_FLEET_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_FLEET
+    PARAMTEXT: Vehicle-Specific Data
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_FLEET_EXP
+    required: true
+    paramType: struct
+  DATA_GENERAL_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_GENERAL_EXP
+    required: true
+    paramType: struct
+  DATA_SPECIFIC_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific data
+    functionName: BAPI_EQUI_CHANGE
+    paramName: DATA_SPECIFIC_EXP
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_EQUI_CHANGE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_EQUI_CREATE:
+  DATA_GENERAL:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_CREATE
+    paramName: DATA_GENERAL
+    required: true
+    paramType: struct
+  DATA_SPECIFIC:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific data
+    functionName: BAPI_EQUI_CREATE
+    paramName: DATA_SPECIFIC
+    required: true
+    paramType: struct
+  EXTERNAL_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment to be Created (Initial => Internal Assignment)
+    functionName: BAPI_EQUI_CREATE
+    paramName: EXTERNAL_NUMBER
+    required: false
+    default: ''
+    paramType: var
+  VALID_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: INST_DATE
+    PARAMTEXT: Valid-From Date for Equipment to be Created
+    functionName: BAPI_EQUI_CREATE
+    paramName: VALID_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  DATA_FLEET:
+    PARAMCLASS: I
+    TABNAME: BAPI_FLEET
+    PARAMTEXT: Vehicle-Specific Data
+    functionName: BAPI_EQUI_CREATE
+    paramName: DATA_FLEET
+    required: false
+    default: ''
+    paramType: struct
+  DATA_INSTALL:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_EQ_INSTALL
+    PARAMTEXT: Installation Date for Equipment
+    functionName: BAPI_EQUI_CREATE
+    paramName: DATA_INSTALL
+    required: false
+    default: ''
+    paramType: struct
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_EQUI_CREATE
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_EQUI_CREATE
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  EQUIPMENT:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment Created
+    functionName: BAPI_EQUI_CREATE
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  DATA_FLEET_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_FLEET
+    PARAMTEXT: Vehicle-Specific Data
+    functionName: BAPI_EQUI_CREATE
+    paramName: DATA_FLEET_EXP
+    required: true
+    paramType: struct
+  DATA_GENERAL_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_CREATE
+    paramName: DATA_GENERAL_EXP
+    required: true
+    paramType: struct
+  DATA_SPECIFIC_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific data
+    functionName: BAPI_EQUI_CREATE
+    paramName: DATA_SPECIFIC_EXP
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_EQUI_CREATE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_EQUI_CREATE_BY_REFERENCE:
+  REFERENCE_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment Reference
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: REFERENCE_NUMBER
+    required: true
+    paramType: var
+  EXTERNAL_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment to be Created (Initial => Internal Assignment)
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: EXTERNAL_NUMBER
+    required: false
+    default: ''
+    paramType: var
+  VALID_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: INST_DATE
+    PARAMTEXT: Valid-From Date for Equipment to be Created
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: VALID_DATE
+    required: false
+    default: ''
+    paramType: var
+  COPY_FLAGS:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_EQ_COPY_FLAGS
+    PARAMTEXT: Indicators for Sub-Objects to be Copied from Reference
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: COPY_FLAGS
+    required: false
+    default: ''
+    paramType: struct
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: ''
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  EQUIPMENT:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment Created
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  DATA_GENERAL_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: DATA_GENERAL_EXP
+    required: true
+    paramType: struct
+  DATA_SPECIFIC_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific data
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: DATA_SPECIFIC_EXP
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_EQUI_CREATE_BY_REFERENCE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_EQUI_DISMANTLE:
+  EQUIPMENT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment to be Installed
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  DISM_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: INST_DATE
+    PARAMTEXT: Date of Dismantling
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: DISM_DATE
+    required: false
+    default: SY-DATUM
+    paramType: var
+  DISM_TIME:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: INST_TIME
+    PARAMTEXT: Time of Dismantling
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: DISM_TIME
+    required: false
+    default: SY-UZEIT
+    paramType: var
+  FUNCLOC:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: FUNCLOC
+    PARAMTEXT: Number of Previous Installation Location (Functional Location)
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: FUNCLOC
+    required: false
+    default: ''
+    paramType: var
+  SUPEQUI:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Previous Installation Location (Superior Equipment)
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: SUPEQUI
+    required: false
+    default: ''
+    paramType: var
+  DATA_GENERAL_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: DATA_GENERAL_EXP
+    required: true
+    paramType: struct
+  DATA_SPECIFIC_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific data
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: DATA_SPECIFIC_EXP
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_EQUI_DISMANTLE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_EQUI_GETDETAIL:
+  EQUIPMENT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment to be Read
+    functionName: BAPI_EQUI_GETDETAIL
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_EQUI_GETDETAIL
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  DATA_FLEET_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_FLEET
+    PARAMTEXT: Vehicle-Specific Data
+    functionName: BAPI_EQUI_GETDETAIL
+    paramName: DATA_FLEET_EXP
+    required: true
+    paramType: struct
+  DATA_GENERAL_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_GETDETAIL
+    paramName: DATA_GENERAL_EXP
+    required: true
+    paramType: struct
+  DATA_SPECIFIC_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific data
+    functionName: BAPI_EQUI_GETDETAIL
+    paramName: DATA_SPECIFIC_EXP
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_EQUI_GETDETAIL
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_EQUI_GETLIST:
+  LANGUAGE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: LANGU
+    PARAMTEXT: Language Key
+    functionName: BAPI_EQUI_GETLIST
+    paramName: LANGUAGE
+    required: false
+    default: SY-LANGU
+    paramType: var
+  LANGUAGE_ISO:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: LANGU_ISO
+    PARAMTEXT: Language According to ISO 639
+    functionName: BAPI_EQUI_GETLIST
+    paramName: LANGUAGE_ISO
+    required: false
+    default: ''
+    paramType: var
+  PARTNERFUNCTION:
+    PARAMCLASS: I
+    TABNAME: BAPIIHPA
+    FIELDNAME: PAR_FUNCT
+    PARAMTEXT: Partner Role
+    functionName: BAPI_EQUI_GETLIST
+    paramName: PARTNERFUNCTION
+    required: false
+    default: ''
+    paramType: var
+  EQUIPMENT_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_EQ_SEL_RESULT
+    PARAMTEXT: 'BAPI Communication Structure: Results List for GetList'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: EQUIPMENT_LIST
+    required: true
+    paramType: table
+  ADDRESS_CITY_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_ADDR_CITY
+    PARAMTEXT: 'BAPI Communication Structure: Range for Address City'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: ADDRESS_CITY_RA
+    required: false
+    default: ''
+    paramType: table
+  ADDRESS_NAME_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_ADDR_NAME
+    PARAMTEXT: 'BAPI Communication Structure: Range for Address Name'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: ADDRESS_NAME_RA
+    required: false
+    default: ''
+    paramType: table
+  ADDRESS_POST_CODE_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_ADDR_POST_CODE
+    PARAMTEXT: 'BAPI Communication Structure: Range for Address Postal Code'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: ADDRESS_POST_CODE_RA
+    required: false
+    default: ''
+    paramType: table
+  ADDRESS_SEARCH_TERM_1_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_ADDR_SORT1
+    PARAMTEXT: 'BAPI Communication Structure: Range for Address Search Term 1'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: ADDRESS_SEARCH_TERM_1_RA
+    required: false
+    default: ''
+    paramType: table
+  ADDRESS_SEARCH_TERM_2_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_ADDR_SORT2
+    PARAMTEXT: 'BAPI Communication Structure: Range for Address Search Term 2'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: ADDRESS_SEARCH_TERM_2_RA
+    required: false
+    default: ''
+    paramType: table
+  ADDRESS_STREET_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_ADDR_STREET
+    PARAMTEXT: 'BAPI Communication Structure: Range for Address Street'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: ADDRESS_STREET_RA
+    required: false
+    default: ''
+    paramType: table
+  DESCRIPT_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_DESCRIPT
+    PARAMTEXT: 'BAPI Communication Structure: Description Range'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: DESCRIPT_RA
+    required: false
+    default: ''
+    paramType: table
+  EQUIPMENT_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_EQUIPMENT
+    PARAMTEXT: 'BAPI Communication Structure: Range for Functional Location'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: EQUIPMENT_RA
+    required: false
+    default: ''
+    paramType: table
+  MAINTPLANT_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_MAINTPLANT
+    PARAMTEXT: 'BApi Communication Structure: Range for Maintenance Plant'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: MAINTPLANT_RA
+    required: false
+    default: ''
+    paramType: table
+  OBJECTTYPE_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_OBJECTTYPE
+    PARAMTEXT: 'BAPI Communication Structure: Range for Object Type'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: OBJECTTYPE_RA
+    required: false
+    default: ''
+    paramType: table
+  PARTNER_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_PARTNER
+    PARAMTEXT: 'BAPI Communication Structure: Range for Partner'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: PARTNER_RA
+    required: false
+    default: ''
+    paramType: table
+  PLANGROUP_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_PLANGROUP
+    PARAMTEXT: 'BAPI Communication Structure: Range for Maintenance Planner Group'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: PLANGROUP_RA
+    required: false
+    default: ''
+    paramType: table
+  PLANPLANT_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_PLANPLANT
+    PARAMTEXT: 'BAPI Communication Structure: Range for Maintenance Planning'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: PLANPLANT_RA
+    required: false
+    default: ''
+    paramType: table
+  SORTFIELD_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_SORTFIELD
+    PARAMTEXT: 'BAPI Communication Structure: Range for Sort Field'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: SORTFIELD_RA
+    required: false
+    default: ''
+    paramType: table
+  STATUS_RA:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_SEL_STATUS
+    PARAMTEXT: 'BAPI Communication Structure: Range for Status'
+    functionName: BAPI_EQUI_GETLIST
+    paramName: STATUS_RA
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_EQUI_GETLIST
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_EQUI_GETSTATUS:
+  EQUIPMENT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Equipment Number
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  LANGUAGE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: LANGU
+    PARAMTEXT: Language for reading status texts (both keys initial => no reading)
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: LANGUAGE
+    required: false
+    default: SY-LANGU
+    paramType: var
+  LANGUAGE_ISO:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: LANGU_ISO
+    PARAMTEXT: ISO 639 Language Key
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: LANGUAGE_ISO
+    required: false
+    default: ''
+    paramType: var
+  SYSTEM_STATUS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_STATUS
+    PARAMTEXT: Equipment System Status
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: SYSTEM_STATUS
+    required: true
+    paramType: table
+  USER_STATUS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ITOB_STATUS
+    PARAMTEXT: Equipment User Status
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: USER_STATUS
+    required: true
+    paramType: table
+  SYSTEMSTATUS:
+    PARAMCLASS: E
+    TABNAME: J_STEXT
+    PARAMTEXT: System Status Line
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: SYSTEMSTATUS
+    required: true
+    paramType: var
+  USERSTATUS:
+    PARAMCLASS: E
+    TABNAME: ASTTX
+    PARAMTEXT: User Status Line
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: USERSTATUS
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_EQUI_GETSTATUS
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_EQUI_INSTALL:
+  EQUIPMENT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_PARMS
+    FIELDNAME: EQUIPMENT
+    PARAMTEXT: Number of Equipment to be Installed
+    functionName: BAPI_EQUI_INSTALL
+    paramName: EQUIPMENT
+    required: true
+    paramType: var
+  DATA_INSTALL:
+    PARAMCLASS: I
+    TABNAME: BAPI_ITOB_EQ_INSTALL_EXT
+    PARAMTEXT: Installation Date for Equipment
+    functionName: BAPI_EQUI_INSTALL
+    paramName: DATA_INSTALL
+    required: true
+    paramType: struct
+  DATA_GENERAL_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB
+    PARAMTEXT: General Data for Technical Objects
+    functionName: BAPI_EQUI_INSTALL
+    paramName: DATA_GENERAL_EXP
+    required: true
+    paramType: struct
+  DATA_SPECIFIC_EXP:
+    PARAMCLASS: E
+    TABNAME: BAPI_ITOB_EQ_ONLY
+    PARAMTEXT: Equipment-Specific Data
+    functionName: BAPI_EQUI_INSTALL
+    paramName: DATA_SPECIFIC_EXP
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_EQUI_INSTALL
+    paramName: RETURN
+    required: true
+    paramType: struct

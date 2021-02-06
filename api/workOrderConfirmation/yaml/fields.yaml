@@ -1,0 +1,4052 @@
+BAPI_CONF_KEY:
+  CONF_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: CO_RUECK
+      ROLLNAME: CO_RUECK
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: RCK
+    text:
+      FIELDTEXT: Completion confirmation number for the operation
+      REPTEXT: Confirm.
+      SCRTEXT_S: Confirm.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  CONF_CNT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: CIM_COUNT
+      ROLLNAME: CO_RMZHL
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: RZL
+    text:
+      FIELDTEXT: Confirmation counter
+      REPTEXT: Counter
+      SCRTEXT_S: Counter
+      SCRTEXT_M: Counter
+      SCRTEXT_L: Counter
+BAPI_ALM_CONFIRMATION:
+  CONF_TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: CO_RTEXT
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Confirmation text
+      REPTEXT: Confirmation text
+      SCRTEXT_S: Conf. text
+      SCRTEXT_M: Confirm. text
+      SCRTEXT_L: Confirmation text
+  POSTG_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: BUCHDATUM
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Posting Date
+      REPTEXT: Postg Date
+      SCRTEXT_S: Postg Date
+      SCRTEXT_M: Posting Date
+      SCRTEXT_L: Posting Date
+  OPERATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: VORNR
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VGN
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Activity Number
+      REPTEXT: Act
+      SCRTEXT_S: Activity
+      SCRTEXT_M: Activity
+      SCRTEXT_L: Activity
+  SUB_OPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: UVORN
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Suboperation
+      REPTEXT: SOp
+      SCRTEXT_S: Subop.
+      SCRTEXT_M: Suboperation
+      SCRTEXT_L: Suboperation
+BAPI_CORU_PARAM:
+  LOCKED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: RU_LOCKED
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Entry blocked'
+      REPTEXT: B
+      SCRTEXT_S: Blocked
+      SCRTEXT_M: Blocked
+      SCRTEXT_L: Record blocked
+  INS_ERR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RU_INS_ERR
+      ROLLNAME: RU_INS_ERR
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV RU_INS_ERR
+    text:
+      FIELDTEXT: 'Key: Insert Confirmation with Errors'
+      REPTEXT: E
+      SCRTEXT_S: Error
+      SCRTEXT_M: 'Ind.: Error'
+      SCRTEXT_L: 'Ind.: Error Records'
+  TESTRUN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIFLAG
+      ROLLNAME: TESTRUN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Switch to Simulation Session for Write BAPIs
+      REPTEXT: Switch to Simulation Mode
+      SCRTEXT_S: Simulation
+      SCRTEXT_M: Simulation Mode
+      SCRTEXT_L: Switch to Simulation Mode
+BAPIRET2:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  PARAMETER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SWC_ELEM
+      ROLLNAME: BAPI_PARAM
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Parameter Name
+      REPTEXT: Param. Name
+      SCRTEXT_S: Parameters
+      SCRTEXT_M: Parameter Name
+      SCRTEXT_L: Parameter Name
+  ROW:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: BAPI_LINE
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Lines in parameter
+      REPTEXT: Lines in parameter
+      SCRTEXT_S: Line
+      SCRTEXT_M: Parameter line
+      SCRTEXT_L: Lines in parameter
+  FIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FDNAME
+      ROLLNAME: BAPI_FLD
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT DD03L
+    text:
+      FIELDTEXT: Field in parameter
+      REPTEXT: Fld.
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field name
+      SCRTEXT_L: Field name
+  SYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LOGSYS
+      ROLLNAME: BAPILOGSYS
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT TBDLS
+    text:
+      FIELDTEXT: Logical system from which message originates
+      REPTEXT: System from which message comes
+      SCRTEXT_S: System
+      SCRTEXT_M: Logical system
+      SCRTEXT_L: Logical system (source of message)
+BAPI_ALM_TIMECONFIRMATION:
+  CONF_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: CO_RUECK
+      ROLLNAME: CO_RUECK
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: RCK
+    text:
+      FIELDTEXT: Completion confirmation number for the operation
+      REPTEXT: Confirm.
+      SCRTEXT_S: Confirm.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  ORDERID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+  OPERATION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: VORNR
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VGN
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Activity Number
+      REPTEXT: Act
+      SCRTEXT_S: Activity
+      SCRTEXT_M: Activity
+      SCRTEXT_L: Activity
+  SUB_OPER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: UVORN
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Suboperation
+      REPTEXT: SOp
+      SCRTEXT_S: Subop.
+      SCRTEXT_M: Suboperation
+      SCRTEXT_L: Suboperation
+  CAPA_CATEGORY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: KAPART
+      ROLLNAME: KAPART
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: CAA
+      SHLP: SH CSH_TC26
+    text:
+      FIELDTEXT: Capacity category
+      REPTEXT: Cat
+      SCRTEXT_S: Category
+      SCRTEXT_M: Capacity cat.
+      SCRTEXT_L: Capacity category
+  SPLIT:
+    format:
+      DATATYPE: INT1
+      INTTYPE: b
+      LENG: 3
+      DOMNAME: INT1
+      ROLLNAME: CY_SPLIT
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Split number
+      REPTEXT: Spl
+      SCRTEXT_S: Split
+      SCRTEXT_M: Split number
+      SCRTEXT_L: Split number
+  FIN_CONF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: AUERU_VS
+      ROLLNAME: AUERU_VS
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV AUERU_VS
+    text:
+      FIELDTEXT: Partial/Final Confirmation
+      REPTEXT: F
+      SCRTEXT_S: FinalConf
+      SCRTEXT_M: Final Confirmtn
+      SCRTEXT_L: Final Confirmation
+  COMPLETE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: LEKNW
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: No Remaining Work Expected'
+      REPTEXT: C
+      SCRTEXT_S: Completed
+      SCRTEXT_M: No Remain. Work
+      SCRTEXT_L: No Remaining Work
+  CLEAR_RES:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: AUSBU
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Clear Open Reservations
+      REPTEXT: COR
+      SCRTEXT_S: Clear Res.
+      SCRTEXT_M: Clear Open Res.
+      SCRTEXT_L: Clear Open Reservs.
+  POSTG_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: BUCHDATUM
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Posting Date
+      REPTEXT: Postg Date
+      SCRTEXT_S: Postg Date
+      SCRTEXT_M: Posting Date
+      SCRTEXT_L: Posting Date
+  DEV_REASON:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CO_AGRND
+      ROLLNAME: CO_AGRND
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT TRUG
+    text:
+      FIELDTEXT: Reason for Variance
+      REPTEXT: Cause
+      SCRTEXT_S: Cause
+      SCRTEXT_M: Reason
+      SCRTEXT_L: Reason for Variance
+  CONF_TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: CO_RTEXT
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Confirmation text
+      REPTEXT: Confirmation text
+      SCRTEXT_S: Conf. text
+      SCRTEXT_M: Confirm. text
+      SCRTEXT_L: Confirmation text
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  WORK_CNTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: ARBPL
+      ROLLNAME: ARBPL
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: AGR
+    text:
+      FIELDTEXT: Work center
+      REPTEXT: Work ctr
+      SCRTEXT_S: Work ctr
+      SCRTEXT_M: Work center
+      SCRTEXT_L: Work center
+  ACT_WORK:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 7
+      DOMNAME: ARBEIT
+      ROLLNAME: ISMNW
+      OUTPUTLEN: 9
+      DECIMALS: 1
+      REFTABLE: BAPI_ALM_TIMECONFIRMATION
+      REFFIELD: UN_WORK
+    text:
+      FIELDTEXT: Actual work
+      REPTEXT: Act.work
+      SCRTEXT_S: Act. work
+      SCRTEXT_M: Actual work
+      SCRTEXT_L: Actual work
+  UN_WORK:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: ARBEITE
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit for work
+      REPTEXT: Un.
+      SCRTEXT_S: Work unit
+      SCRTEXT_M: Unit for work
+      SCRTEXT_L: Unit for work
+  UN_WORK_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  REM_WORK:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 7
+      DOMNAME: ARBEIT
+      ROLLNAME: REMNW
+      OUTPUTLEN: 9
+      DECIMALS: 1
+      REFTABLE: BAPI_ALM_TIMECONFIRMATION
+      REFFIELD: UN_REM_WRK
+    text:
+      FIELDTEXT: Remaining work
+      REPTEXT: RemainWrk
+      SCRTEXT_S: RemainWrk
+      SCRTEXT_M: Remaining work
+      SCRTEXT_L: Remaining work
+  UN_REM_WRK:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: OFMNE
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit of measure for remaining work
+      REPTEXT: Un.
+      SCRTEXT_S: UnRemWork
+      SCRTEXT_M: Unit rem. work
+      SCRTEXT_L: Unit remaining work
+  UN_REM_WRK_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  ACTUAL_DUR:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 5
+      DOMNAME: DAUER_4_1
+      ROLLNAME: IDAUR
+      OUTPUTLEN: 7
+      DECIMALS: 1
+      REFTABLE: BAPI_ALM_TIMECONFIRMATION
+      REFFIELD: UN_ACT_DUR
+    text:
+      FIELDTEXT: Actual Duration for Confirmation
+      REPTEXT: ActDur.
+      SCRTEXT_S: ActDuratn
+      SCRTEXT_M: Actual Duration
+      SCRTEXT_L: Actual Duration
+  UN_ACT_DUR:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: IDAURE
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit for actual duration
+      REPTEXT: Un.
+      SCRTEXT_S: Un/actual
+      SCRTEXT_M: Un/actual dur.
+      SCRTEXT_L: Unit for actual dur.
+  UN_ACT_DUR_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  EXEC_START_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: RU_ISDD
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Confirmed Start Date of Execution
+      REPTEXT: Start Exec.
+      SCRTEXT_S: Start Ex.
+      SCRTEXT_M: Start Execution
+      SCRTEXT_L: Start of Execution
+  EXEC_START_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: ATIME
+      ROLLNAME: RU_ISDZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Confirmed Time for 'Start Execution'
+      REPTEXT: Start Exec.
+      SCRTEXT_S: Act. start
+      SCRTEXT_M: Act. Start Time
+      SCRTEXT_L: Actual start (time)
+  EXEC_FIN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: RU_IEDD
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: EDR
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Confirmed Finish Date of Execution
+      REPTEXT: Finish Exec.
+      SCRTEXT_S: FinExecut.
+      SCRTEXT_M: Finish Execut.
+      SCRTEXT_L: Execution Finish
+  EXEC_FIN_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: ATIME
+      ROLLNAME: RU_IEDZ
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: EZR
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Confirmed Time for 'Finish Execution'
+      REPTEXT: Finish Exec.
+      SCRTEXT_S: Act. Fin.
+      SCRTEXT_M: Act.Fin. (Time)
+      SCRTEXT_L: Actual Finish (Time)
+  FCST_FIN_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: CO_PEDD
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Forecast finish date of operation from confirmation
+      REPTEXT: FcstFin.
+      SCRTEXT_S: FcstFinish
+      SCRTEXT_M: Forecast finish
+      SCRTEXT_L: Forecast finish date
+  FCST_FIN_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: ATIME
+      ROLLNAME: CO_PEDZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Forecast End Time of Operation from Confirmation
+      REPTEXT: FcstFin.
+      SCRTEXT_S: FcstFin.
+      SCRTEXT_M: Forecast finish
+      SCRTEXT_L: Forecast End (Time)
+  PERS_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PERNR
+      ROLLNAME: CO_PERNR
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: PER
+    text:
+      FIELDTEXT: Personnel number
+      REPTEXT: Pers. No.
+      SCRTEXT_S: Pers.No.
+      SCRTEXT_M: Personnel no.
+      SCRTEXT_L: Personnel number
+  TIMEID_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: ZAUSW
+      ROLLNAME: DZAUSW
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Time Recording ID Number
+      REPTEXT: TR ID no
+      SCRTEXT_S: TR ID no
+      SCRTEXT_M: Time rec.ID no.
+      SCRTEXT_L: Time ID number
+  ACT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: LSTAR
+      ROLLNAME: LEARR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CT CSLA
+    text:
+      FIELDTEXT: Activity Type for Confirmation
+      REPTEXT: ActTyp
+      SCRTEXT_S: Acty Type
+      SCRTEXT_M: Activity Type
+      SCRTEXT_L: Activity Type
+  WAGETYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LOART
+      ROLLNAME: LOHNART
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Wage type
+      REPTEXT: WageTy
+      SCRTEXT_S: Wage type
+      SCRTEXT_M: Wage type
+      SCRTEXT_L: Wage type
+  CALC_MOTIVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BEMOT
+      ROLLNAME: BEMOT
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT TBMOT
+    text:
+      FIELDTEXT: Accounting Indicator
+      REPTEXT: AInd
+      SCRTEXT_S: AcctIndic
+      SCRTEXT_M: AcctIndicator
+      SCRTEXT_L: Accounting Indicator
+  EX_CREATED_BY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: USNAM
+      ROLLNAME: RU_EXNAM
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: External creator of confirmation
+      REPTEXT: Created by
+      SCRTEXT_S: Created by
+      SCRTEXT_M: Created by
+      SCRTEXT_L: Created by
+  EX_CREATED_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: RU_EXERD
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: External date of entry for confirmation
+      REPTEXT: Created
+      SCRTEXT_S: Created
+      SCRTEXT_M: Created on
+      SCRTEXT_L: Created on
+  EX_CREATED_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: RU_EXERZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: External time of entry for confirmation
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: Time
+  EX_IDENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SYSUUID_C
+      ROLLNAME: RU_EXTID_CHAR
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External key of a confirmation (for example from PDC system)
+      REPTEXT: External key
+      SCRTEXT_S: Ext. key
+      SCRTEXT_M: External key
+      SCRTEXT_L: External key
+  ACT_WORK_2:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 8
+      DOMNAME: ARBEIT_2
+      ROLLNAME: ISMNW_2
+      OUTPUTLEN: 10
+      DECIMALS: 2
+      REFTABLE: BAPI_ALM_TIMECONFIRMATION
+      REFFIELD: UN_WORK
+    text:
+      FIELDTEXT: Actual Work
+      REPTEXT: Act. Work
+      SCRTEXT_S: Act. Work
+      SCRTEXT_M: Actual Work
+      SCRTEXT_L: Actual Work
+  REM_WORK_2:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 8
+      DOMNAME: ARBEIT_2
+      ROLLNAME: REMNW_2
+      OUTPUTLEN: 10
+      DECIMALS: 2
+      REFTABLE: BAPI_ALM_TIMECONFIRMATION
+      REFFIELD: UN_REM_WRK
+    text:
+      FIELDTEXT: Remaining Work
+      REPTEXT: Rem. Work
+      SCRTEXT_S: Rem. Work
+      SCRTEXT_M: Remaining Work
+      SCRTEXT_L: Remaining Work
+  START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_START_POINT
+      OUTPUTLEN: 18
+    input:
+      SHLP: SH EAML_SH_LINEAR_POINT
+    text:
+      FIELDTEXT: Start Point
+      REPTEXT: Start Point
+      SCRTEXT_S: St Pt
+      SCRTEXT_M: Start Point
+      SCRTEXT_L: Start Point
+  END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_END_POINT
+      OUTPUTLEN: 18
+    input:
+      SHLP: SH EAML_SH_LINEAR_POINT
+    text:
+      FIELDTEXT: End Point
+      REPTEXT: End Point
+      SCRTEXT_S: End Pt
+      SCRTEXT_M: End Point
+      SCRTEXT_L: End Point
+  LINEAR_LENGTH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_LINEAR_LENGTH
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Length
+      REPTEXT: Length
+      SCRTEXT_S: Length
+      SCRTEXT_M: Length
+      SCRTEXT_L: Length
+  LINEAR_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_LINEAR_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH EAML_H_T006
+    text:
+      FIELDTEXT: Unit of Measurement for Linear Data
+      REPTEXT: UoM
+      SCRTEXT_S: UoM
+      SCRTEXT_M: UoM
+      SCRTEXT_L: Unit of Measure
+  LINEAR_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_LINEAR_UNIT_ISO
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: Unit of Measurement for Linear Data in ISO Code
+      REPTEXT: UoM ISO
+      SCRTEXT_S: UoM ISO
+      SCRTEXT_M: UoM ISO
+      SCRTEXT_L: UoM ISO
+  FIRST_OFFSET_TYPE_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: EAML_OFFSET_TYPE_CODE
+      ROLLNAME: EAML_OFFSET1_TYPE_CODE
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT EAML_D_OFFSET_TC
+    text:
+      FIELDTEXT: Type of First Offset
+      REPTEXT: Type of First Offset
+      SCRTEXT_S: Type Off.1
+      SCRTEXT_M: Type Offset 1
+      SCRTEXT_L: Type of First Offset
+  FIRST_OFFSET_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_OFFSET1_VALUE
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Value of Offset 1
+      REPTEXT: Value of Offset 1
+      SCRTEXT_S: Offs 1
+      SCRTEXT_M: Offset 1
+      SCRTEXT_L: Value of Offset 1
+  FIRST_OFFSET_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_OFFSET1_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH EAML_H_T006_OFFSET
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 1
+      REPTEXT: UoM
+      SCRTEXT_S: UoM Off.1
+      SCRTEXT_M: UoM Offset 1
+      SCRTEXT_L: UoM for Offset 1
+  FIRST_OFFSET_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_OFFSET1_UNIT_ISO
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 1 in ISO Code
+      REPTEXT: UoM Offset1 ISO
+      SCRTEXT_S: UoM O1 ISO
+      SCRTEXT_M: UoM Offset1 ISO
+      SCRTEXT_L: UoM for Offset1 ISO
+  SECOND_OFFSET_TYPE_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: EAML_OFFSET_TYPE_CODE
+      ROLLNAME: EAML_OFFSET2_TYPE_CODE
+      OUTPUTLEN: 2
+    input:
+      SHLP: CT EAML_D_OFFSET_TC
+    text:
+      FIELDTEXT: Type of Second Offset
+      REPTEXT: Type of Second Offset
+      SCRTEXT_S: Type Off.2
+      SCRTEXT_M: Type Offset 2
+      SCRTEXT_L: Type of Second Offset
+  SECOND_OFFSET_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_OFFSET2_VALUE
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Value of Offset 2
+      REPTEXT: Value of Offset 2
+      SCRTEXT_S: Offs 2
+      SCRTEXT_M: Offset 2
+      SCRTEXT_L: Value of Offset 2
+  SECOND_OFFSET_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_OFFSET2_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH EAML_H_T006_OFFSET
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 2
+      REPTEXT: UoM
+      SCRTEXT_S: UoM Off.2
+      SCRTEXT_M: UoM Offset 2
+      SCRTEXT_L: UoM for Offset 2
+  SECOND_OFFSET_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_OFFSET2_UNIT_ISO
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 2 in ISO Code
+      REPTEXT: UoM Offset2 ISO
+      SCRTEXT_S: UoM O2 ISO
+      SCRTEXT_M: UoM Offset2 ISO
+      SCRTEXT_L: UoM for Offset2 ISO
+  MARKER_START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_MARKER
+      ROLLNAME: EAML_MARKER_START_POINT
+      OUTPUTLEN: 18
+    input:
+      SHLP: SH EAML_SH_MARKER
+    text:
+      FIELDTEXT: Marker for Start Point
+      REPTEXT: St. Marker
+      SCRTEXT_S: S.Mark
+      SCRTEXT_M: St.Marker
+      SCRTEXT_L: Start Marker
+  MARKER_DISTANCE_START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_MARKER_DISTANCE_START
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Distance between Marker and Start Point
+      REPTEXT: Dist.S.Mkr
+      SCRTEXT_S: Dist.
+      SCRTEXT_M: Dist.St.M.
+      SCRTEXT_L: Dist.Start Mkr
+  MARKER_END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_MARKER
+      ROLLNAME: EAML_MARKER_END_POINT
+      OUTPUTLEN: 18
+    input:
+      SHLP: SH EAML_SH_MARKER
+    text:
+      FIELDTEXT: Marker for End Point
+      REPTEXT: End Marker
+      SCRTEXT_S: E.Mark
+      SCRTEXT_M: End Marker
+      SCRTEXT_L: End Marker
+  MARKER_DISTANCE_END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_MARKER_DISTANCE_END
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Length Spec for Distance between Marker and End Point
+      REPTEXT: Dist.End M
+      SCRTEXT_S: Dist.
+      SCRTEXT_M: Dist.E.Mkr
+      SCRTEXT_L: Dist End Marker
+  MARKER_DISTANCE_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_MARKER_DISTANCE_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit for the Distance from Marker
+      REPTEXT: UoM
+      SCRTEXT_S: UoM
+      SCRTEXT_M: UoM
+      SCRTEXT_L: Marker Distance Unit
+  MARKER_DISTANCE_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_MARKER_DISTANCE_UNIT_ISO
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: Unit for the Distance from Marker in ISO Code
+      REPTEXT: UoM ISO
+      SCRTEXT_S: UoM ISO
+      SCRTEXT_M: UoM ISO
+      SCRTEXT_L: UoM ISO
+BAPI_ALM_RETURN:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  MESSAGE_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  MESSAGE_NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CT BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  PARAMETER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SWC_ELEM
+      ROLLNAME: BAPI_PARAM
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Parameter Name
+      REPTEXT: Param. Name
+      SCRTEXT_S: Parameters
+      SCRTEXT_M: Parameter Name
+      SCRTEXT_L: Parameter Name
+  ROW:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: BAPI_LINE
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Lines in parameter
+      REPTEXT: Lines in parameter
+      SCRTEXT_S: Line
+      SCRTEXT_M: Parameter line
+      SCRTEXT_L: Lines in parameter
+  FIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FDNAME
+      ROLLNAME: BAPI_FLD
+      OUTPUTLEN: 30
+    input:
+      SHLP: CT DD03L
+    text:
+      FIELDTEXT: Field in parameter
+      REPTEXT: Fld.
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field name
+      SCRTEXT_L: Field name
+  SYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LOGSYS
+      ROLLNAME: BAPILOGSYS
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT TBDLS
+    text:
+      FIELDTEXT: Logical system from which message originates
+      REPTEXT: System from which message comes
+      SCRTEXT_S: System
+      SCRTEXT_M: Logical system
+      SCRTEXT_L: Logical system (source of message)
+  FLG_LOCKED:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: RU_LOCKED
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: Entry blocked'
+      REPTEXT: B
+      SCRTEXT_S: Blocked
+      SCRTEXT_M: Blocked
+      SCRTEXT_L: Record blocked
+  CONF_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: CO_RUECK
+      ROLLNAME: CO_RUECK
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: RCK
+    text:
+      FIELDTEXT: Completion confirmation number for the operation
+      REPTEXT: Confirm.
+      SCRTEXT_S: Confirm.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  CONF_CNT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: CIM_COUNT
+      ROLLNAME: CO_RMZHL
+      OUTPUTLEN: 8
+    input:
+      MEMORYID: RZL
+    text:
+      FIELDTEXT: Confirmation counter
+      REPTEXT: Counter
+      SCRTEXT_S: Counter
+      SCRTEXT_M: Counter
+      SCRTEXT_L: Counter
+BAPI_CORU_FGM:
+  DOC_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: WEBLNR
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of a document from a goods movement with errors
+      REPTEXT: Doc.GMvtEr
+      SCRTEXT_S: Doc.GMvtEr
+      SCRTEXT_M: Doc.gds mvt err
+      SCRTEXT_L: Doc. goods mvt error
+  DOC_ITM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: CIM_COUNT
+      ROLLNAME: CIM_COUNT
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Internal counter
+      REPTEXT: Counter
+      SCRTEXT_S: Counter
+      SCRTEXT_M: Counter
+      SCRTEXT_L: Counter
+  CREATED_BY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: USNAM
+      ROLLNAME: ERNAM
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Name of Person who Created the Object
+      REPTEXT: Created by
+      SCRTEXT_S: Created
+      SCRTEXT_M: Created by
+      SCRTEXT_L: Created by
+  CREATED_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: ERSDA
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Created On
+      REPTEXT: Created
+      SCRTEXT_S: Created
+      SCRTEXT_M: Created On
+      SCRTEXT_L: Created On
+  CREATED_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: ERZET
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Entry time
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: Time
+  FAILED_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: CO_FWDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date when the error first arose
+      REPTEXT: Error date
+      SCRTEXT_S: Error date
+      SCRTEXT_M: Error date
+      SCRTEXT_L: Error date
+  FAILED_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: CO_FWZET
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time when the error first arose
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time of error
+      SCRTEXT_L: Time of error
+  MSG_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  MSG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MSGNR
+      ROLLNAME: MSGNO
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH T100F4
+    text:
+      FIELDTEXT: System Message Number
+      REPTEXT: Msg.
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message Number
+      SCRTEXT_L: Message Number
+  MSG_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: MSGAR
+      ROLLNAME: MSGTY
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV MSGAR
+    text:
+      FIELDTEXT: Message Type
+      REPTEXT: MT
+      SCRTEXT_S: MessageTyp
+      SCRTEXT_M: Message Type
+      SCRTEXT_L: Message Type
+  MSG_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: CHAR50
+      ROLLNAME: MSGV1
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message variable 01
+      REPTEXT: '*'
+      SCRTEXT_S: Msg.var.
+      SCRTEXT_M: Message var.
+      SCRTEXT_L: Message variable
+  MSG_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: CHAR50
+      ROLLNAME: MSGV2
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message variable 02
+      REPTEXT: '*'
+      SCRTEXT_S: Msg.var.
+      SCRTEXT_M: Message var.
+      SCRTEXT_L: Message variable
+  MSG_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: CHAR50
+      ROLLNAME: MSGV3
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message variable 03
+      REPTEXT: '*'
+      SCRTEXT_S: Msg.var.
+      SCRTEXT_M: Message var.
+      SCRTEXT_L: Message variable
+  MSG_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: CHAR50
+      ROLLNAME: MSGV4
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message variable 04
+      REPTEXT: '*'
+      SCRTEXT_S: Msg.var.
+      SCRTEXT_M: Message var.
+      SCRTEXT_L: Message variable
+  PSTNG_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: BUDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Posting Date in the Document
+      REPTEXT: Pstng Date
+      SCRTEXT_S: Pstng Date
+      SCRTEXT_M: Posting Date
+      SCRTEXT_L: Posting Date
+  DOC_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: BLDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Document Date in Document
+      REPTEXT: Doc. Date
+      SCRTEXT_S: Doc..Date
+      SCRTEXT_M: Document Date
+      SCRTEXT_L: Document Date
+  EXPIRYDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: TMHHD
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: SLED/Best-Before Date or Date of Production
+      REPTEXT: BBD/PD
+      SCRTEXT_S: BBD/ProdDt
+      SCRTEXT_M: BBD/Prod. Date
+      SCRTEXT_L: BBD/Prod. Date
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: CHA
+      SHLP: CH MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  MOVE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: BWART
+      ROLLNAME: BWART
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: BWA
+      SHLP: SH H_T156
+    text:
+      FIELDTEXT: Movement type (inventory management)
+      REPTEXT: MvT
+      SCRTEXT_S: Movmt type
+      SCRTEXT_M: Movement type
+      SCRTEXT_L: Movement type
+  STCK_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: INSMK
+      ROLLNAME: INSMK
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV INSMK
+    text:
+      FIELDTEXT: Stock Type
+      REPTEXT: T
+      SCRTEXT_S: Stock Type
+      SCRTEXT_M: Stock Type
+      SCRTEXT_L: Stock Type
+  SPEC_STOCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBKZ
+      ROLLNAME: SOBKZ
+      OUTPUTLEN: 1
+    input:
+      SHLP: SH H_T148
+    text:
+      FIELDTEXT: Special Stock Indicator
+      REPTEXT: S
+      SCRTEXT_S: Spec.Stock
+      SCRTEXT_M: Special Stock
+      SCRTEXT_L: Special Stock
+  VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: LIFNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Account Number of Vendor or Creditor
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: KDAUF
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CH VBUK
+    text:
+      FIELDTEXT: Sales Order Number
+      REPTEXT: Sales Ord.
+      SCRTEXT_S: Sales Ord.
+      SCRTEXT_M: Sales Order
+      SCRTEXT_L: Sales Order
+  S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Item number in Sales Order
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  SCHED_LINE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUM04
+      ROLLNAME: KDEIN
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Delivery schedule for sales order
+      REPTEXT: Sch.
+      SCRTEXT_S: SO sched.
+      SCRTEXT_M: SOrder schedule
+      SCRTEXT_L: Sales order schedule
+  ENTRY_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: ERFME
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit of entry
+      REPTEXT: EUn
+      SCRTEXT_S: Entry unit
+      SCRTEXT_M: Unit of Entry
+      SCRTEXT_L: Unit of Entry
+  ENTRY_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  ENTRY_QNT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ERFMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_CORU_FGM
+      REFFIELD: ENTRY_UOM
+    text:
+      FIELDTEXT: Quantity in unit of entry
+      REPTEXT: Quantity
+      SCRTEXT_S: Qty in UnE
+      SCRTEXT_M: Quantity in UnE
+      SCRTEXT_L: Qty in unit of entry
+  NO_MORE_GR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: ELIKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: '"Delivery Completed" Indicator'
+      REPTEXT: DCI
+      SCRTEXT_S: Processed
+      SCRTEXT_M: Deliv. Compl.
+      SCRTEXT_L: Delivery Completed
+  GR_RCPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: WEMPF
+      ROLLNAME: WEMPF
+      OUTPUTLEN: 12
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Goods recipient
+      REPTEXT: Recipient
+      SCRTEXT_S: Recipient
+      SCRTEXT_M: Recipient
+      SCRTEXT_L: Goods recipient
+  UNLOAD_PT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: TEXT25
+      ROLLNAME: ABLAD
+      OUTPUTLEN: 25
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Unloading Point
+      REPTEXT: Unloading Point
+      SCRTEXT_S: Unload.pt.
+      SCRTEXT_M: Unloading Point
+      SCRTEXT_L: Unloading Point
+  ORDERID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+  ORDERID_ITNO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: CO_POSNR
+      ROLLNAME: CO_POSNR
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Order item number
+      REPTEXT: Order item number
+      SCRTEXT_S: Item no.
+      SCRTEXT_M: Order item no.
+      SCRTEXT_L: Order item number
+  CALC_MOTIVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BEMOT
+      ROLLNAME: BEMOT
+      OUTPUTLEN: 2
+    input:
+      SHLP: SH CSH_TBMOT
+    text:
+      FIELDTEXT: Accounting Indicator
+      REPTEXT: AInd
+      SCRTEXT_S: AcctIndic
+      SCRTEXT_M: AcctIndicator
+      SCRTEXT_L: Accounting Indicator
+  RESERV_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RSNUM
+      ROLLNAME: RSNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: RES
+      SHLP: CH RESB
+    text:
+      FIELDTEXT: Number of reservation/dependent requirements
+      REPTEXT: Reserv.no.
+      SCRTEXT_S: Reserv.no.
+      SCRTEXT_M: Reservation
+      SCRTEXT_L: Reservation
+  RES_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: RSPOS
+      ROLLNAME: RSPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: RPO
+    text:
+      FIELDTEXT: Item Number of Reservation / Dependent Requirements
+      REPTEXT: Itm
+      SCRTEXT_S: Item no.
+      SCRTEXT_M: Item no.
+      SCRTEXT_L: Item number of reservation
+  RES_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RSART
+      ROLLNAME: RSART
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Record type
+      REPTEXT: RcT
+      SCRTEXT_S: Rec. type
+      SCRTEXT_M: Record type
+      SCRTEXT_L: Record type
+  WITHDRAWN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: KZEAR
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Final issue for this reservation
+      REPTEXT: FIs
+      SCRTEXT_S: Fin.iss
+      SCRTEXT_M: Final issue
+      SCRTEXT_L: Final issue
+  MVT_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KZBEW
+      ROLLNAME: KZBEW
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV KZBEW
+    text:
+      FIELDTEXT: Movement Indicator
+      REPTEXT: Mvt
+      SCRTEXT_S: Mvt ind.
+      SCRTEXT_M: Movement ind.
+      SCRTEXT_L: Movement indicator
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPI2017_GM_ITEM_SHOW:
+  MAT_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: MBLNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: MBN
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of Material Document
+      REPTEXT: Mat. Doc.
+      SCRTEXT_S: Mat. Doc.
+      SCRTEXT_M: Material Doc.
+      SCRTEXT_L: Material Document
+  DOC_YEAR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: GJAHR
+      ROLLNAME: MJAHR
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: MJA
+      CONVEXIT: GJAHR
+    text:
+      FIELDTEXT: Material Document Year
+      REPTEXT: MatYr
+      SCRTEXT_S: Mat. Year
+      SCRTEXT_M: Mat. Doc. Year
+      SCRTEXT_L: Material Doc. Year
+  MATDOC_ITM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: MBLPO
+      ROLLNAME: MBLPO
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: POS
+    text:
+      FIELDTEXT: Item in Material Document
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Mat. Doc.Item
+      SCRTEXT_L: Material Doc.Item
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: CHA
+      SHLP: SH H_MCHA
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  MOVE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: BWART
+      ROLLNAME: BWART
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: BWA
+      SHLP: SH H_T156
+    text:
+      FIELDTEXT: Movement type (inventory management)
+      REPTEXT: MvT
+      SCRTEXT_S: Movmt type
+      SCRTEXT_M: Movement type
+      SCRTEXT_L: Movement type
+  STCK_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: MB_INSMK
+      ROLLNAME: MB_INSMK
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV MB_INSMK
+    text:
+      FIELDTEXT: Stock Type
+      REPTEXT: S
+      SCRTEXT_S: Stock Type
+      SCRTEXT_M: Stock Type
+      SCRTEXT_L: Stock Type
+  SPEC_STOCK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SOBKZ
+      ROLLNAME: SOBKZ
+      OUTPUTLEN: 1
+    input:
+      SHLP: SH H_T148
+    text:
+      FIELDTEXT: Special Stock Indicator
+      REPTEXT: S
+      SCRTEXT_S: Spec.Stock
+      SCRTEXT_M: Special Stock
+      SCRTEXT_L: Special Stock
+  VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  CUSTOMER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KUNNR
+      ROLLNAME: EKUNN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: KUN
+      CONVEXIT: ALPHA
+      SHLP: SH DEBI
+    text:
+      FIELDTEXT: Account number of customer
+      REPTEXT: Customer
+      SCRTEXT_S: Customer
+      SCRTEXT_M: Customer
+      SCRTEXT_L: Customer
+  SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: KDAUF
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CH VBUK
+    text:
+      FIELDTEXT: Sales Order Number
+      REPTEXT: Sales Ord.
+      SCRTEXT_S: Sales Ord.
+      SCRTEXT_M: Sales Order
+      SCRTEXT_L: Sales Order
+  S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Item number in Sales Order
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  SCHED_LINE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUM04
+      ROLLNAME: KDEIN
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Delivery schedule for sales order
+      REPTEXT: Sch.
+      SCRTEXT_S: SO sched.
+      SCRTEXT_M: SOrder schedule
+      SCRTEXT_L: Sales order schedule
+  VAL_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BWTAR
+      ROLLNAME: BWTAR_D
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: BWT
+      SHLP: SH H_T149D
+    text:
+      FIELDTEXT: Valuation type
+      REPTEXT: Val. type
+      SCRTEXT_S: Val. type
+      SCRTEXT_M: Valuation type
+      SCRTEXT_L: Valuation type
+  ENTRY_QNT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ERFMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2017_GM_ITEM_SHOW
+      REFFIELD: ENTRY_UOM
+    text:
+      FIELDTEXT: Quantity in unit of entry
+      REPTEXT: Quantity
+      SCRTEXT_S: Qty in UnE
+      SCRTEXT_M: Quantity in UnE
+      SCRTEXT_L: Qty in unit of entry
+  ENTRY_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: ERFME
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Unit of entry
+      REPTEXT: EUn
+      SCRTEXT_S: Entry unit
+      SCRTEXT_M: Unit of Entry
+      SCRTEXT_L: Unit of Entry
+  ENTRY_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  PO_PR_QNT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: BPMNG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI2017_GM_ITEM_SHOW
+      REFFIELD: ORDERPR_UN
+    text:
+      FIELDTEXT: Quantity in Purchase Order Price Unit
+      REPTEXT: Qty in OPUn
+      SCRTEXT_S: Qty OPUn
+      SCRTEXT_M: Qty in OPUn
+      SCRTEXT_L: Qty in OPUn
+  ORDERPR_UN:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: BBPRM
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Order Price Unit (Purchasing)
+      REPTEXT: OPU
+      SCRTEXT_S: OrderPr.Un
+      SCRTEXT_M: Order Price Un.
+      SCRTEXT_L: Order Price Unit
+  ORDERPR_UN_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  PO_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: BSTNR
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: BES
+      CONVEXIT: ALPHA
+      SHLP: CH EKKO
+    text:
+      FIELDTEXT: Purchase order number
+      REPTEXT: PO
+      SCRTEXT_S: PO
+      SCRTEXT_M: Purchase order
+      SCRTEXT_L: Purchase order
+  PO_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: EBELP
+      ROLLNAME: EBELP
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      MEMORYID: BSP
+      SHLP: CH EKPO
+    text:
+      FIELDTEXT: Item Number of Purchasing Document
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item
+  SHIPPING:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: EVERS
+      ROLLNAME: EVERS
+      OUTPUTLEN: 2
+    input:
+      SHLP: SH H_T027A
+    text:
+      FIELDTEXT: Shipping Instructions
+      REPTEXT: SI
+      SCRTEXT_S: Shipping
+      SCRTEXT_M: Shipping Instr.
+      SCRTEXT_L: Shipping Instr.
+  COMP_SHIP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: EVERE
+      ROLLNAME: EVERE
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      SHLP: CT T027C
+    text:
+      FIELDTEXT: Compliance with Shipping Instructions
+      REPTEXT: Comp
+      SCRTEXT_S: Compliance
+      SCRTEXT_M: Compliance
+      SCRTEXT_L: Compliance with Shipping Instr.
+  NO_MORE_GR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: ELIKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: '"Delivery Completed" Indicator'
+      REPTEXT: DCI
+      SCRTEXT_S: Processed
+      SCRTEXT_M: Deliv. Compl.
+      SCRTEXT_L: Delivery Completed
+  ITEM_TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: TEXT50
+      ROLLNAME: SGTXT
+      OUTPUTLEN: 50
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Item Text
+      REPTEXT: Text
+      SCRTEXT_S: Text
+      SCRTEXT_M: Text
+      SCRTEXT_L: Text
+  GR_RCPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: WEMPF
+      ROLLNAME: WEMPF
+      OUTPUTLEN: 12
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Goods recipient
+      REPTEXT: Recipient
+      SCRTEXT_S: Recipient
+      SCRTEXT_M: Recipient
+      SCRTEXT_L: Goods recipient
+  UNLOAD_PT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: TEXT25
+      ROLLNAME: ABLAD
+      OUTPUTLEN: 25
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Unloading Point
+      REPTEXT: Unloading Point
+      SCRTEXT_S: Unload.pt.
+      SCRTEXT_M: Unloading Point
+      SCRTEXT_L: Unloading Point
+  COSTCENTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KOSTL
+      ROLLNAME: KOSTL
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: KOS
+      CONVEXIT: ALPHA
+      SHLP: CT CSKS
+    text:
+      FIELDTEXT: Cost Center
+      REPTEXT: Cost Ctr
+      SCRTEXT_S: Cost Ctr
+      SCRTEXT_M: Cost Center
+      SCRTEXT_L: Cost Center
+  ORDERID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+  ORDER_ITNO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: CO_POSNR
+      ROLLNAME: CO_POSNR
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Order item number
+      REPTEXT: Order item number
+      SCRTEXT_S: Item no.
+      SCRTEXT_M: Order item no.
+      SCRTEXT_L: Order item number
+  CALC_MOTIVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BEMOT
+      ROLLNAME: BEMOT
+      OUTPUTLEN: 2
+    input:
+      SHLP: SH CSH_TBMOT
+    text:
+      FIELDTEXT: Accounting Indicator
+      REPTEXT: AInd
+      SCRTEXT_S: AcctIndic
+      SCRTEXT_M: AcctIndicator
+      SCRTEXT_L: Accounting Indicator
+  ASSET_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: ANLN1
+      ROLLNAME: ANLN1
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: AN1
+      CONVEXIT: ALPHA
+      SHLP: CH ANLH
+    text:
+      FIELDTEXT: Main Asset Number
+      REPTEXT: Asset
+      SCRTEXT_S: Asset
+      SCRTEXT_M: Asset
+      SCRTEXT_L: Asset
+  SUB_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: ANLN2
+      ROLLNAME: ANLN2
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: AN2
+      CONVEXIT: ALPHA
+      SHLP: CH ANLA
+    text:
+      FIELDTEXT: Asset Subnumber
+      REPTEXT: SNo.
+      SCRTEXT_S: Sub-number
+      SCRTEXT_M: Sub-number
+      SCRTEXT_L: Sub-number
+  RESERV_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RSNUM
+      ROLLNAME: RSNUM
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: RES
+      SHLP: CH RESB
+    text:
+      FIELDTEXT: Number of reservation/dependent requirements
+      REPTEXT: Reserv.no.
+      SCRTEXT_S: Reserv.no.
+      SCRTEXT_M: Reservation
+      SCRTEXT_L: Reservation
+  RES_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: RSPOS
+      ROLLNAME: RSPOS
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: RPO
+    text:
+      FIELDTEXT: Item Number of Reservation / Dependent Requirements
+      REPTEXT: Itm
+      SCRTEXT_S: Item no.
+      SCRTEXT_M: Item no.
+      SCRTEXT_L: Item number of reservation
+  RES_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RSART
+      ROLLNAME: RSART
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Record type
+      REPTEXT: RcT
+      SCRTEXT_S: Rec. type
+      SCRTEXT_M: Record type
+      SCRTEXT_L: Record type
+  WITHDRAWN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: KZEAR
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Final issue for this reservation
+      REPTEXT: FIs
+      SCRTEXT_S: Fin.iss
+      SCRTEXT_M: Final issue
+      SCRTEXT_L: Final issue
+  MOVE_MAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: UMMAT
+      OUTPUTLEN: 18
+    input:
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Receiving/Issuing Material
+      REPTEXT: Receiving Material
+      SCRTEXT_S: Rec. Mat.
+      SCRTEXT_M: Receiving Mat.
+      SCRTEXT_L: Receiving Material
+  MOVE_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: UMWRK
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Receiving plant/issuing plant
+      REPTEXT: Plant
+      SCRTEXT_S: Rec. plant
+      SCRTEXT_M: Receiving plant
+      SCRTEXT_L: Receiving plant
+  MOVE_STLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: UMLGO
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001L
+    text:
+      FIELDTEXT: Receiving/issuing storage location
+      REPTEXT: Rec.
+      SCRTEXT_S: Rec. SLoc.
+      SCRTEXT_M: Receiving SLoc.
+      SCRTEXT_L: Receiving stor. loc.
+  MOVE_BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: UMCHA
+      OUTPUTLEN: 10
+    input:
+      SHLP: SH H_MCHA
+    text:
+      FIELDTEXT: Receiving/Issuing Batch
+      REPTEXT: Rec. Batch
+      SCRTEXT_S: Rec. Batch
+      SCRTEXT_M: Receiving Batch
+      SCRTEXT_L: Receiving Batch
+  MOVE_VAL_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BWTAR
+      ROLLNAME: UMBAR
+      OUTPUTLEN: 10
+    input:
+      SHLP: SH H_T149D
+    text:
+      FIELDTEXT: Valuation Type of Transfer Batch
+      REPTEXT: Val. Type
+      SCRTEXT_S: Val. Type
+      SCRTEXT_M: Val. Type Tfr.
+      SCRTEXT_L: Val. Type Tfr Batch
+  MVT_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KZBEW
+      ROLLNAME: KZBEW
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV KZBEW
+    text:
+      FIELDTEXT: Movement Indicator
+      REPTEXT: Mvt
+      SCRTEXT_S: Mvt ind.
+      SCRTEXT_M: Movement ind.
+      SCRTEXT_L: Movement indicator
+  MOVE_REAS:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: MB_GRBEW
+      ROLLNAME: MB_GRBEW
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T157D
+    text:
+      FIELDTEXT: Reason for Movement
+      REPTEXT: Reas.
+      SCRTEXT_S: Reason
+      SCRTEXT_M: Reason for Mvmt
+      SCRTEXT_L: Reason for Movement
+  RL_EST_KEY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: IMKEY
+      ROLLNAME: IMKEY
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: IMKEY
+    text:
+      FIELDTEXT: Internal Key for Real Estate Object
+      REPTEXT: REst Key
+      SCRTEXT_S: RE Key
+      SCRTEXT_M: Real Estate Key
+      SCRTEXT_L: Real Estate Key
+  REF_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DDAT
+      ROLLNAME: DABRBEZ
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Reference date for settlement
+      REPTEXT: Ref date
+      SCRTEXT_S: Ref date
+      SCRTEXT_M: Reference date
+      SCRTEXT_L: Reference date
+  COST_OBJ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: KSTRG
+      ROLLNAME: KSTRG
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: KTR
+      SHLP: CH CKPH
+    text:
+      FIELDTEXT: Cost Object
+      REPTEXT: CostObject
+      SCRTEXT_S: CostObject
+      SCRTEXT_M: Cost Object
+      SCRTEXT_L: Cost Object
+  PROFIT_SEGM_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RKEOBJNR
+      ROLLNAME: RKEOBJNR
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Profitability Segment Number (CO-PA)
+      REPTEXT: Prof. Seg.
+      SCRTEXT_S: Prof.Segmt
+      SCRTEXT_M: Profit. segment
+      SCRTEXT_L: Profitab. Segmt No.
+  PROFIT_CTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRCTR
+      ROLLNAME: PRCTR
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PRC
+      CONVEXIT: ALPHA
+      SHLP: CT CEPC
+    text:
+      FIELDTEXT: Profit Center
+      REPTEXT: Profit Ctr
+      SCRTEXT_S: Profit Ctr
+      SCRTEXT_M: Profit Center
+      SCRTEXT_L: Profit Center
+  WBS_ELEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 24
+      DOMNAME: PS_POSID
+      ROLLNAME: PS_POSID
+      OUTPUTLEN: 24
+    input:
+      MEMORYID: PRO
+      CONVEXIT: ABPSN
+    text:
+      FIELDTEXT: Work Breakdown Structure Element (WBS Element)
+      REPTEXT: WBS element
+      SCRTEXT_S: WBS elem.
+      SCRTEXT_M: WBS element
+      SCRTEXT_L: WBS element
+  NETWORK:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: NPLNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: NET
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Network Number for Account Assignment
+      REPTEXT: Network
+      SCRTEXT_S: Network
+      SCRTEXT_M: Network
+      SCRTEXT_L: Network
+  ACTIVITY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: VORNR
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: VGN
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Activity Number
+      REPTEXT: Act
+      SCRTEXT_S: Activity
+      SCRTEXT_M: Activity
+      SCRTEXT_L: Activity
+  PART_ACCT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KUNNR
+      ROLLNAME: JV_PART
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+      SHLP: SH DEBI
+    text:
+      FIELDTEXT: Partner account number
+      REPTEXT: Partner
+      SCRTEXT_S: Partner
+      SCRTEXT_M: Partner
+      SCRTEXT_L: Partner
+  AMOUNT_LC:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 23
+      DOMNAME: BAPICURR
+      ROLLNAME: BAPI_EXBWR
+      OUTPUTLEN: 30
+      DECIMALS: 4
+    text:
+      FIELDTEXT: Externally entered posting amount in local currency
+      REPTEXT: Loc.curr.amount
+      SCRTEXT_S: Amount LC
+      SCRTEXT_M: Amount in LC
+      SCRTEXT_L: Amount loc.curr
+  AMOUNT_SV:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 23
+      DOMNAME: BAPICURR
+      ROLLNAME: BAPI_EXVKW
+      OUTPUTLEN: 30
+      DECIMALS: 4
+    text:
+      FIELDTEXT: Externally entered sales value in local currency
+      REPTEXT: Sales value
+      SCRTEXT_S: Sales val.
+      SCRTEXT_M: Sales value
+      SCRTEXT_L: Sales value
+  CURRENCY:
+    format:
+      DATATYPE: CUKY
+      INTTYPE: C
+      LENG: 5
+      DOMNAME: WAERS
+      ROLLNAME: WAERS
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      MEMORYID: FWS
+      SHLP: CT TCURC
+    text:
+      FIELDTEXT: Currency Key
+      REPTEXT: Crcy
+      SCRTEXT_S: Currency
+      SCRTEXT_M: Currency
+      SCRTEXT_L: Currency
+  CURRENCY_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD
+      ROLLNAME: ISOCD
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: ISO currency code
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  REF_DOC_YR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: GJAHR
+      ROLLNAME: LFBJA
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: GJAHR
+    text:
+      FIELDTEXT: Fiscal Year of a Reference Document
+      REPTEXT: FYrRef
+      SCRTEXT_S: FiscYrRefD
+      SCRTEXT_M: Fisc.yr.ref.doc
+      SCRTEXT_L: Fisc. Year Ref. Doc.
+  REF_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: LFBNR
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Document No. of a Reference Document
+      REPTEXT: Ref. Doc.
+      SCRTEXT_S: Ref. Doc.
+      SCRTEXT_M: Reference Doc.
+      SCRTEXT_L: Reference Document
+  REF_DOC_IT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: MBLPO
+      ROLLNAME: LFPOS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Item of a Reference Document
+      REPTEXT: RfIt
+      SCRTEXT_S: Item
+      SCRTEXT_M: Ref. Doc. Item
+      SCRTEXT_L: Reference Doc. Item
+  EXPIRYDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: VFDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Shelf Life Expiration or Best-Before Date
+      REPTEXT: SLED/BBD
+      SCRTEXT_S: SLED/BBD
+      SCRTEXT_M: SLED/BBD
+      SCRTEXT_L: SLED/BBD
+  PROD_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: HSDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of Manufacture
+      REPTEXT: Manuf. Dte
+      SCRTEXT_S: Manuf. Dte
+      SCRTEXT_M: Date of Manuf.
+      SCRTEXT_L: Date of Manufacture
+  FUND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BP_GEBER
+      ROLLNAME: BP_GEBER
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: FIC
+      SHLP: CT FMFINCODE
+    text:
+      FIELDTEXT: Fund
+      REPTEXT: Fund
+      SCRTEXT_S: Fund
+      SCRTEXT_M: Fund
+      SCRTEXT_L: Fund
+  FUNDS_CTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: FISTL
+      ROLLNAME: FISTL
+      OUTPUTLEN: 16
+      valueInputType: list
+    input:
+      MEMORYID: FIS
+      SHLP: CT FMFCTR
+    text:
+      FIELDTEXT: Funds Center
+      REPTEXT: Funds ctr
+      SCRTEXT_S: Funds ctr
+      SCRTEXT_M: Funds center
+      SCRTEXT_L: Funds center
+  CMMT_ITEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 14
+      DOMNAME: FIPOS
+      ROLLNAME: FIPOS
+      OUTPUTLEN: 24
+      valueInputType: list
+    input:
+      MEMORYID: FIP
+      CONVEXIT: FMCIS
+      SHLP: CT FMFPO
+    text:
+      FIELDTEXT: Commitment Item
+      REPTEXT: Commitment itm
+      SCRTEXT_S: Cmmt item
+      SCRTEXT_M: Commitment item
+      SCRTEXT_L: Commitment item
+  VAL_SALES_ORD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: MAT_KDAUF
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: AUN
+      CONVEXIT: ALPHA
+      SHLP: CH VBUK
+    text:
+      FIELDTEXT: Sales order number of valuated sales order stock
+      REPTEXT: Sales ord.
+      SCRTEXT_S: Sales ord.
+      SCRTEXT_M: Sales order
+      SCRTEXT_L: Sales order
+  VAL_S_ORD_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: NUM06
+      ROLLNAME: MAT_KDPOS
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: KPO
+    text:
+      FIELDTEXT: Sales Order Item of Valuated Sales Order Stock
+      REPTEXT: SO item
+      SCRTEXT_S: SO item
+      SCRTEXT_M: Sales ord. item
+      SCRTEXT_L: Sales order item
+  VAL_WBS_ELEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 24
+      DOMNAME: PS_POSID
+      ROLLNAME: PS_POSID
+      OUTPUTLEN: 24
+    input:
+      MEMORYID: PRO
+      CONVEXIT: ABPSN
+    text:
+      FIELDTEXT: Work Breakdown Structure Element (WBS Element)
+      REPTEXT: WBS element
+      SCRTEXT_S: WBS elem.
+      SCRTEXT_M: WBS element
+      SCRTEXT_L: WBS element
+  CO_BUSPROC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: CO_PRZNR
+      ROLLNAME: CO_PRZNR
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: KWP
+      CONVEXIT: ALPHA
+      SHLP: CT CBPR
+    text:
+      FIELDTEXT: Business Process
+      REPTEXT: Bus. Process
+      SCRTEXT_S: BusProcess
+      SCRTEXT_M: Business Proc.
+      SCRTEXT_L: Business Process
+  ACTTYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: LSTAR
+      ROLLNAME: LSTAR
+      OUTPUTLEN: 6
+    input:
+      MEMORYID: LAR
+      SHLP: SH LART_EMPTY
+    text:
+      FIELDTEXT: Activity Type
+      REPTEXT: ActTyp
+      SCRTEXT_S: Acty Type
+      SCRTEXT_M: Activity Type
+      SCRTEXT_L: Activity Type
+  SUPPL_VEND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: LLIEF
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: LLI
+      CONVEXIT: ALPHA
+      SHLP: CT LFA1
+    text:
+      FIELDTEXT: Supplying Vendor
+      REPTEXT: Suppl.Vndr
+      SCRTEXT_S: Suppl.Vndr
+      SCRTEXT_M: Suppl. Vendor
+      SCRTEXT_L: Supplying Vendor
+  X_AUTO_CRE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: MB_XAUTO
+      ROLLNAME: MB_XAUTO
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV MB_XAUTO
+    text:
+      FIELDTEXT: Item automatically created
+      REPTEXT: Aut
+      SCRTEXT_S: Auto.creat
+      SCRTEXT_M: Auto. created
+      SCRTEXT_L: Item automatically created
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MOVE_MAT_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MOVE_MAT_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MOVE_MAT Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MOVE_MAT_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MOVE_MAT_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MOVE_MAT Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MOVE_MAT_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MOVE_MAT_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MOVE_MAT Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  GRANT_NBR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: GM_GRANT_NBR
+      ROLLNAME: GM_GRANT_NBR
+      OUTPUTLEN: 20
+    input:
+      MEMORYID: GM_GRANT_NBR
+      CONVEXIT: ALPHA
+      SHLP: SH GRANTS_GENERIC
+    text:
+      FIELDTEXT: Grant
+      REPTEXT: Grant
+      SCRTEXT_S: Grant
+      SCRTEXT_M: Grant
+      SCRTEXT_L: Grant
+  CMMT_ITEM_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 24
+      DOMNAME: FM_FIPEX
+      ROLLNAME: FM_FIPEX
+      OUTPUTLEN: 24
+      valueInputType: list
+    input:
+      MEMORYID: FPS
+      CONVEXIT: FMCIL
+      SHLP: CT FMCI
+    text:
+      FIELDTEXT: Commitment item
+      REPTEXT: Commitment item
+      SCRTEXT_S: Cmmt item
+      SCRTEXT_M: Commitment item
+      SCRTEXT_L: Commitment item
+  FUNC_AREA_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: FKBER
+      ROLLNAME: FKBER
+      OUTPUTLEN: 16
+      valueInputType: list
+    input:
+      MEMORYID: FBE
+      SHLP: CT TFKB
+    text:
+      FIELDTEXT: Functional Area
+      REPTEXT: Functional Area
+      SCRTEXT_S: Func. Area
+      SCRTEXT_M: Functional Area
+      SCRTEXT_L: Functional Area
+  LINE_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: MB_LINE_ID
+      ROLLNAME: MB_LINE_ID
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Unique identification of document line
+      REPTEXT: ID
+      SCRTEXT_S: ID
+      SCRTEXT_M: Line ID
+      SCRTEXT_L: Identification
+  PARENT_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: MB_LINE_ID
+      ROLLNAME: MB_PARENT_ID
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Identifier of immediately superior line
+      REPTEXT: PID
+      SCRTEXT_S: PID
+      SCRTEXT_M: Parent ID
+      SCRTEXT_L: Parent line ID
+  LINE_DEPTH:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: MB_LINE_DEPTH
+      ROLLNAME: MB_LINE_DEPTH
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Hierarchy level of line in document
+      REPTEXT: LV
+      SCRTEXT_S: Lvl
+      SCRTEXT_M: Level
+      SCRTEXT_L: Hierarchy level
+  BUDGET_PERIOD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: FM_BUDGET_PERIOD
+      ROLLNAME: FM_BUDGET_PERIOD
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: BUDPER
+      SHLP: CT FMFUNDBPD
+    text:
+      FIELDTEXT: 'FM: Budget Period'
+      REPTEXT: Budget Period
+      SCRTEXT_S: BP
+      SCRTEXT_M: Budget Period
+      SCRTEXT_L: Budget Period
+  EARMARKED_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KBLNR
+      ROLLNAME: KBLNR
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: KBL
+      CONVEXIT: ALPHA
+      SHLP: CT KBLK
+    text:
+      FIELDTEXT: Document Number for Earmarked Funds
+      REPTEXT: Doc. No.
+      SCRTEXT_S: DocumentNo
+      SCRTEXT_M: Earmarked Funds
+      SCRTEXT_L: Earmarked Funds
+  EARMARKED_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: KBLPOS
+      ROLLNAME: KBLPOS
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: KBP
+      SHLP: CT KBLP
+    text:
+      FIELDTEXT: 'Earmarked Funds: Document Item'
+      REPTEXT: Itm
+      SCRTEXT_S: Doc. item
+      SCRTEXT_M: Document item
+      SCRTEXT_L: Document item
+  STK_SEGMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: SGT_SRCA
+      ROLLNAME: SGT_SCAT
+      OUTPUTLEN: 16
+    input:
+      MEMORYID: SGT_S
+      SHLP: SH SGT_CAT_FIELD_POPUP
+    text:
+      FIELDTEXT: Stock Segment
+      REPTEXT: Stock Segment
+      SCRTEXT_S: Stk Seg.
+      SCRTEXT_M: Stock Segment
+      SCRTEXT_L: Stock Segment
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  MOVE_MAT_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: UMMAT40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Receiving/Issuing Material
+      REPTEXT: Receiving Material
+      SCRTEXT_S: Rec. Mat.
+      SCRTEXT_M: Receiving Mat.
+      SCRTEXT_L: Receiving Material
+BAPI_PP_CONFRANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: CO_RUECK
+      ROLLNAME: CO_RUECK
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: RCK
+      SHLP: CH AFRU
+    text:
+      FIELDTEXT: Completion confirmation number for the operation
+      REPTEXT: Confirm.
+      SCRTEXT_S: Confirm.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+  HIGH:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: CO_RUECK
+      ROLLNAME: CO_RUECK
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: RCK
+      SHLP: CH AFRU
+    text:
+      FIELDTEXT: Completion confirmation number for the operation
+      REPTEXT: Confirm.
+      SCRTEXT_S: Confirm.
+      SCRTEXT_M: Confirmation
+      SCRTEXT_L: Confirmation
+BAPI_PP_ORDERRANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+BAPI_ALM_CONF_PROP:
+  ACTIVITY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: VSSLE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Propose activities
+      REPTEXT: Actvts
+      SCRTEXT_S: ProposeAct
+      SCRTEXT_M: Propose activ.
+      SCRTEXT_L: Propose activities
+  DATE_AND_TIME:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: VSSZT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Propose dates
+      REPTEXT: Date
+      SCRTEXT_S: PrpseDates
+      SCRTEXT_M: Propose dates
+      SCRTEXT_L: Propose dates

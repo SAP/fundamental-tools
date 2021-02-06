@@ -1,0 +1,1384 @@
+BAPI_PROCORD_CHANGE:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_KEY
+    FIELDNAME: ORDER_NUMBER
+    PARAMTEXT: Process Order Number
+    functionName: BAPI_PROCORD_CHANGE
+    paramName: NUMBER
+    required: true
+    paramType: var
+  ORDERDATA:
+    PARAMCLASS: I
+    TABNAME: BAPI_PI_ORDER_CHANGE
+    PARAMTEXT: Transfer Structure for Changing Process Orders
+    functionName: BAPI_PROCORD_CHANGE
+    paramName: ORDERDATA
+    required: true
+    paramType: struct
+  ORDERDATAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_PI_ORDER_CHANGEX
+    PARAMTEXT: Transfer Structure for Changing Process Orders
+    functionName: BAPI_PROCORD_CHANGE
+    paramName: ORDERDATAX
+    required: true
+    paramType: struct
+  MASTER_DATA_READ:
+    PARAMCLASS: E
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: 'Indicator: Master Data Read'
+    functionName: BAPI_PROCORD_CHANGE
+    paramName: MASTER_DATA_READ
+    required: true
+    paramType: var
+  ORDER_TYPE:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_TYPE
+    PARAMTEXT: Order Category
+    functionName: BAPI_PROCORD_CHANGE
+    paramName: ORDER_TYPE
+    required: true
+    paramType: var
+  ORDER_STATUS:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_STATUS
+    PARAMTEXT: Order Status Indicator
+    functionName: BAPI_PROCORD_CHANGE
+    paramName: ORDER_STATUS
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_CHANGE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_CHECK_MAT_AVAIL:
+  FIX_PLANNED_ORDERS:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FIX_PLANNED_ORDERS
+    PARAMTEXT: Firm Planned Orders
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: FIX_PLANNED_ORDERS
+    required: false
+    default: ''
+    paramType: var
+  RESET_AVAIL_DATA:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: RESET_AVAIL_DATA
+    PARAMTEXT: Reset Availability Data
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: RESET_AVAIL_DATA
+    required: false
+    default: ''
+    paramType: var
+  SCOPE_AVAIL:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: SCOPE_AVAIL
+    PARAMTEXT: Execute availability check (session)
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: SCOPE_AVAIL
+    required: false
+    default: ''
+    paramType: var
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_CHECK_MAT_AVAIL
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_CLOSE:
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_CLOSE
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_CLOSE
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_CLOSE
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_CLOSE
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_CLOSE
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_CLOSE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_COMPLETE_TECH:
+  SCOPE_COMPL_TECH:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: SCOPE_COMPL_TECH
+    PARAMTEXT: 'Complete technically: Order network explosion'
+    functionName: BAPI_PROCORD_COMPLETE_TECH
+    paramName: SCOPE_COMPL_TECH
+    required: false
+    default: '''1'''
+    paramType: var
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_COMPLETE_TECH
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_COMPLETE_TECH
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_COMPLETE_TECH
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_COMPLETE_TECH
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_COMPLETE_TECH
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_COMPLETE_TECH
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_COSTING:
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_COSTING
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_COSTING
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_COSTING
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_COSTING
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_COSTING
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_COSTING
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_CREATE:
+  ORDERDATA:
+    PARAMCLASS: I
+    TABNAME: BAPI_PI_ORDER_CREATE
+    PARAMTEXT: Transfer Structure for Creating Process Orders
+    functionName: BAPI_PROCORD_CREATE
+    paramName: ORDERDATA
+    required: true
+    paramType: struct
+  ORDER_NUMBER:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_KEY
+    FIELDNAME: ORDER_NUMBER
+    PARAMTEXT: Process Order Number
+    functionName: BAPI_PROCORD_CREATE
+    paramName: ORDER_NUMBER
+    required: true
+    paramType: var
+  ORDER_TYPE:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_TYPE
+    PARAMTEXT: Order Type
+    functionName: BAPI_PROCORD_CREATE
+    paramName: ORDER_TYPE
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_CREATE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_CREATE_CAP_REQ:
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_CREATE_CAP_REQ
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_CREATE_CAP_REQ
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_CREATE_CAP_REQ
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_CREATE_CAP_REQ
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_CREATE_CAP_REQ
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_CREATE_CAP_REQ
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_CREATE_FROM_PLORD:
+  PLANNED_ORDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_PLDORD
+    FIELDNAME: PLDORD_NUM
+    PARAMTEXT: Planned Order Number
+    functionName: BAPI_PROCORD_CREATE_FROM_PLORD
+    paramName: PLANNED_ORDER
+    required: true
+    paramType: var
+  ORDER_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_NUMBER
+    PARAMTEXT: Order Number
+    functionName: BAPI_PROCORD_CREATE_FROM_PLORD
+    paramName: ORDER_NUMBER
+    required: false
+    default: ''
+    paramType: var
+  ORDER_TYPE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_TYPE
+    PARAMTEXT: Order Type
+    functionName: BAPI_PROCORD_CREATE_FROM_PLORD
+    paramName: ORDER_TYPE
+    required: false
+    default: ''
+    paramType: var
+  PROC_ORDER_TYPE:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_TYPE
+    PARAMTEXT: Order Type
+    functionName: BAPI_PROCORD_CREATE_FROM_PLORD
+    paramName: PROC_ORDER_TYPE
+    required: true
+    paramType: var
+  PROCESS_ORDER:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_NUMBER
+    PARAMTEXT: Order Number
+    functionName: BAPI_PROCORD_CREATE_FROM_PLORD
+    paramName: PROCESS_ORDER
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_CREATE_FROM_PLORD
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_CREATE_FROM_REF:
+  REFCOPY:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_COPY
+    PARAMTEXT: Transfer Structure PP/PI Order (Create with Template)
+    functionName: BAPI_PROCORD_CREATE_FROM_REF
+    paramName: REFCOPY
+    required: true
+    paramType: struct
+  ORDER_NUMBER:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_NUMBER
+    PARAMTEXT: Order Number
+    functionName: BAPI_PROCORD_CREATE_FROM_REF
+    paramName: ORDER_NUMBER
+    required: true
+    paramType: var
+  ORDER_TYPE:
+    PARAMCLASS: E
+    TABNAME: BAPI_ORDER_COPY
+    FIELDNAME: ORDER_TYPE
+    PARAMTEXT: Order Type
+    functionName: BAPI_PROCORD_CREATE_FROM_REF
+    paramName: ORDER_TYPE
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_CREATE_FROM_REF
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_EXIST_CHECK:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_KEY
+    FIELDNAME: ORDER_NUMBER
+    PARAMTEXT: Process Order Number
+    functionName: BAPI_PROCORD_EXIST_CHECK
+    paramName: NUMBER
+    required: true
+    paramType: var
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_EXIST_CHECK
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_GET_DETAIL:
+  NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_KEY
+    FIELDNAME: ORDER_NUMBER
+    PARAMTEXT: Process Order Number
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: NUMBER
+    required: true
+    paramType: var
+  ORDER_OBJECTS:
+    PARAMCLASS: I
+    TABNAME: BAPI_PI_ORDER_OBJECTS
+    PARAMTEXT: Selection Structure for Process Order Objects
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: ORDER_OBJECTS
+    required: true
+    paramType: struct
+  COLLECTIVE_ORDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: COLLECTIVE_ORDER
+    PARAMTEXT: Display complete collective order
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: COLLECTIVE_ORDER
+    required: false
+    default: ''
+    paramType: var
+  COMPONENT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_COMPONENT
+    PARAMTEXT: Component Data
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: COMPONENT
+    required: false
+    default: ''
+    paramType: table
+  HEADER:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_HEADER1
+    PARAMTEXT: Order header data
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: HEADER
+    required: false
+    default: ''
+    paramType: table
+  PHASE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_PHASE
+    PARAMTEXT: Phase Data
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: PHASE
+    required: false
+    default: ''
+    paramType: table
+  POSITION:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_ITEM
+    PARAMTEXT: Order Item Data
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: POSITION
+    required: false
+    default: ''
+    paramType: table
+  PROD_REL_TOOL:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_PROD_REL_TOOLS
+    PARAMTEXT: Production resources and tools data
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: PROD_REL_TOOL
+    required: false
+    default: ''
+    paramType: table
+  SEQUENCE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_SEQUENCE
+    PARAMTEXT: Order Sequence Data
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: SEQUENCE
+    required: false
+    default: ''
+    paramType: table
+  TRIGGER_POINT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_TRIGGER_POINT
+    PARAMTEXT: Trigger Point Data
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: TRIGGER_POINT
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_GET_DETAIL
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_GET_LIST:
+  COLLECTIVE_ORDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: COLLECTIVE_ORDER
+    PARAMTEXT: Display complete collective order
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: COLLECTIVE_ORDER
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_MATERIAL_RANGE
+    PARAMTEXT: Header Materials for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: MATERIAL_RANGE
+    required: false
+    default: ''
+    paramType: table
+  MRP_CNTRL_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_MRP_CNTRL_RANGE
+    PARAMTEXT: MRP Controllers for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: MRP_CNTRL_RANGE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_HEADER:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_HEADER1
+    PARAMTEXT: Order header data
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: ORDER_HEADER
+    required: false
+    default: ''
+    paramType: table
+  ORDER_NUMBER_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_PI_ORDERRANGE
+    PARAMTEXT: BAPI Interface Structure for Ranges of the Production Orders
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: ORDER_NUMBER_RANGE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_PRIO_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_PRIO_RANGE
+    PARAMTEXT: Order Priority for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: ORDER_PRIO_RANGE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_TYPE_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_ORDER_TYPE_RANGE
+    PARAMTEXT: Order Types for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: ORDER_TYPE_RANGE
+    required: false
+    default: ''
+    paramType: table
+  PLANPLANT_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_PLANPLANT_RANGE
+    PARAMTEXT: Planning Plants for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: PLANPLANT_RANGE
+    required: false
+    default: ''
+    paramType: table
+  PROD_SCHED_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_PROD_SCHED_RANGE
+    PARAMTEXT: Production Schedulers for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: PROD_SCHED_RANGE
+    required: false
+    default: ''
+    paramType: table
+  PRODPLANT_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_PRODPLANT_RANGE
+    PARAMTEXT: Production Plants for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: PRODPLANT_RANGE
+    required: false
+    default: ''
+    paramType: table
+  SALES_ORD_ITM_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_SALES_ORD_ITM_RANGE
+    PARAMTEXT: Sales Order Items for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: SALES_ORD_ITM_RANGE
+    required: false
+    default: ''
+    paramType: table
+  SALES_ORD_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_SALES_ORD_RANGE
+    PARAMTEXT: Sales Orders for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: SALES_ORD_RANGE
+    required: false
+    default: ''
+    paramType: table
+  SEQ_NO_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_SEQ_NO_RANGE
+    PARAMTEXT: Sequence Numbers for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: SEQ_NO_RANGE
+    required: false
+    default: ''
+    paramType: table
+  WBS_ELEMENT_RANGE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_WBS_ELEMENT_RANGE
+    PARAMTEXT: WBS Elements for Order Selection
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: WBS_ELEMENT_RANGE
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_GET_LIST
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_RELEASE:
+  RELEASE_CONTROL:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: RELEASE_CNTRL_PI
+    PARAMTEXT: Release control order
+    functionName: BAPI_PROCORD_RELEASE
+    paramName: RELEASE_CONTROL
+    required: true
+    paramType: var
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_RELEASE
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_RELEASE
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_RELEASE
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_RELEASE
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_RELEASE
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_RELEASE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_REVOKEUSERSTATUS:
+  STATUS:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: STATUS
+    PARAMTEXT: Object Status
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: STATUS
+    required: true
+    paramType: var
+  STATUS_PROFILE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: STATUS_PROFILE
+    PARAMTEXT: Status Profile Assigned to an Order Header
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: STATUS_PROFILE
+    required: true
+    paramType: var
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_REVOKEUSERSTATUS
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_SCHEDULE:
+  BCK_BEG_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_BEG_DATE
+    PARAMTEXT: Basic Start Date
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_BEG_DATE
+    required: false
+    default: ''
+    paramType: var
+  BCK_BEG_OFFSET:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_BEG_OFFSET
+    PARAMTEXT: Date Shift
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_BEG_OFFSET
+    required: false
+    default: ''
+    paramType: var
+  BCK_BEG_ORIGIN:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_BEG_ORIGIN
+    PARAMTEXT: Origin of scheduling dates
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_BEG_ORIGIN
+    required: false
+    default: ''
+    paramType: var
+  BCK_BEG_TIME:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_BEG_TIME
+    PARAMTEXT: Basic Start (Time)
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_BEG_TIME
+    required: false
+    default: ''
+    paramType: var
+  BCK_BEG_UNIT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_BEG_UNIT
+    PARAMTEXT: Time Unit
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_BEG_UNIT
+    required: false
+    default: ''
+    paramType: var
+  BCK_DLV_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_DLV_DATE
+    PARAMTEXT: Basic Finish Date
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_DLV_DATE
+    required: false
+    default: ''
+    paramType: var
+  BCK_DLV_OFFSET:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_DLV_OFFSET
+    PARAMTEXT: Date Shift
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_DLV_OFFSET
+    required: false
+    default: ''
+    paramType: var
+  BCK_DLV_ORIGIN:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_DLV_ORIGIN
+    PARAMTEXT: Origin of scheduling dates
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_DLV_ORIGIN
+    required: false
+    default: ''
+    paramType: var
+  BCK_DLV_TIME:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_DLV_TIME
+    PARAMTEXT: Basic finish (time)
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_DLV_TIME
+    required: false
+    default: ''
+    paramType: var
+  BCK_DLV_UNIT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: BCK_DLV_UNIT
+    PARAMTEXT: Time Unit
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: BCK_DLV_UNIT
+    required: false
+    default: ''
+    paramType: var
+  FWD_BEG_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_BEG_DATE
+    PARAMTEXT: Basic Start Date
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_BEG_DATE
+    required: false
+    default: ''
+    paramType: var
+  FWD_BEG_OFFSET:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_BEG_OFFSET
+    PARAMTEXT: Date Shift
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_BEG_OFFSET
+    required: false
+    default: ''
+    paramType: var
+  FWD_BEG_ORIGIN:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_BEG_ORIGIN
+    PARAMTEXT: Origin of scheduling dates
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_BEG_ORIGIN
+    required: false
+    default: ''
+    paramType: var
+  FWD_BEG_TIME:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_BEG_TIME
+    PARAMTEXT: Basic Start (Time)
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_BEG_TIME
+    required: false
+    default: ''
+    paramType: var
+  FWD_BEG_UNIT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_BEG_UNIT
+    PARAMTEXT: Time Unit
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_BEG_UNIT
+    required: false
+    default: ''
+    paramType: var
+  FWD_DLV_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_DLV_DATE
+    PARAMTEXT: Basic Finish Date
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_DLV_DATE
+    required: false
+    default: ''
+    paramType: var
+  FWD_DLV_OFFSET:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_DLV_OFFSET
+    PARAMTEXT: Date Shift
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_DLV_OFFSET
+    required: false
+    default: ''
+    paramType: var
+  FWD_DLV_ORIGIN:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_DLV_ORIGIN
+    PARAMTEXT: Origin of scheduling dates
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_DLV_ORIGIN
+    required: false
+    default: ''
+    paramType: var
+  FWD_DLV_TIME:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_DLV_TIME
+    PARAMTEXT: Basic finish (time)
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_DLV_TIME
+    required: false
+    default: ''
+    paramType: var
+  FWD_DLV_UNIT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: FWD_DLV_UNIT
+    PARAMTEXT: Time Unit
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: FWD_DLV_UNIT
+    required: false
+    default: ''
+    paramType: var
+  SCHED_TYPE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: SCHED_TYPE
+    PARAMTEXT: Scheduling Type
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: SCHED_TYPE
+    required: false
+    default: ''
+    paramType: var
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_SCHEDULE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_SET_DEL_INDICATOR:
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_SET_DEL_INDICATOR
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_SET_DEL_INDICATOR
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_SET_DEL_INDICATOR
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_SET_DEL_INDICATOR
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_SET_DEL_INDICATOR
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_SET_DEL_INDICATOR
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_SET_DELETION_FLAG:
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_SET_DELETION_FLAG
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_SET_DELETION_FLAG
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_SET_DELETION_FLAG
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_SET_DELETION_FLAG
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_SET_DELETION_FLAG
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_SET_DELETION_FLAG
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_SETUSERSTATUS:
+  STATUS:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: STATUS
+    PARAMTEXT: Object Status
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: STATUS
+    required: true
+    paramType: var
+  STATUS_PROFILE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_FUNC_CNTRL
+    FIELDNAME: STATUS_PROFILE
+    PARAMTEXT: Status Profile Assigned to an Order Header
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: STATUS_PROFILE
+    required: true
+    paramType: var
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_SETUSERSTATUS
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_PROCORD_WM_MAT_STAGING:
+  WORK_PROCESS_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_GROUP
+    PARAMTEXT: Logon/Server Group Name
+    functionName: BAPI_PROCORD_WM_MAT_STAGING
+    paramName: WORK_PROCESS_GROUP
+    required: false
+    default: '''COWORK_BAPI'''
+    paramType: var
+  WORK_PROCESS_MAX:
+    PARAMCLASS: I
+    TABNAME: BAPI_ORDER_CNTRL_PARAM
+    FIELDNAME: WORK_PROC_MAX
+    PARAMTEXT: Maximum number of work processes that can be used
+    functionName: BAPI_PROCORD_WM_MAT_STAGING
+    paramName: WORK_PROCESS_MAX
+    required: false
+    default: '99'
+    paramType: var
+  ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_KEY
+    PARAMTEXT: Order Numbers
+    functionName: BAPI_PROCORD_WM_MAT_STAGING
+    paramName: ORDERS
+    required: true
+    paramType: table
+  APPLICATION_LOG:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_APPLICATION_LOG
+    PARAMTEXT: ApplicationLog Handle
+    functionName: BAPI_PROCORD_WM_MAT_STAGING
+    paramName: APPLICATION_LOG
+    required: false
+    default: ''
+    paramType: table
+  DETAIL_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPI_ORDER_RETURN
+    PARAMTEXT: Return Structure for Order BAPIs
+    functionName: BAPI_PROCORD_WM_MAT_STAGING
+    paramName: DETAIL_RETURN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameters
+    functionName: BAPI_PROCORD_WM_MAT_STAGING
+    paramName: RETURN
+    required: true
+    paramType: struct

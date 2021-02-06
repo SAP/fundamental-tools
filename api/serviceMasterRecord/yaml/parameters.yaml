@@ -1,0 +1,312 @@
+BAPI_SERVICE_CHANGE:
+  SERVICENUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPISRV_ASMD
+    FIELDNAME: SERVICE
+    PARAMTEXT: Service Number
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: SERVICENUMBER
+    required: true
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Test Indicator
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: TESTRUN
+    required: false
+    default: ''
+    paramType: var
+  IM_SERVICE_DATA:
+    PARAMCLASS: I
+    TABNAME: BAPISRV_ASMD
+    PARAMTEXT: General Data for Service, Import
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: IM_SERVICE_DATA
+    required: false
+    default: ''
+    paramType: struct
+  IM_SERVICE_DATAX:
+    PARAMCLASS: I
+    TABNAME: BAPISRV_ASMDX
+    PARAMTEXT: Change Parameter for Service Data, Import
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: IM_SERVICE_DATAX
+    required: false
+    default: ''
+    paramType: struct
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter(s)
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: RETURN
+    required: true
+    paramType: table
+  SERVICE_DESCRIPTION:
+    PARAMCLASS: T
+    TABNAME: BAPISRV_ASMDT
+    PARAMTEXT: Short Texts for Service
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: SERVICE_DESCRIPTION
+    required: true
+    paramType: table
+  EXTENSION_IN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Customer's Own Fields (Import Parameters)
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: EXTENSION_IN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Customer's Own Fields (Export Parameters)
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: EXTENSION_OUT
+    required: false
+    default: ''
+    paramType: table
+  SERVICE_LONG_TEXTS:
+    PARAMCLASS: T
+    TABNAME: BAPISRV_TEXT
+    PARAMTEXT: Long Texts for Service
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: SERVICE_LONG_TEXTS
+    required: false
+    default: ''
+    paramType: table
+  EX_SERVICE_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPISRV_ASMD
+    PARAMTEXT: General Data for Service, Export
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: EX_SERVICE_DATA
+    required: true
+    paramType: struct
+  EX_SERVICE_DATAX:
+    PARAMCLASS: E
+    TABNAME: BAPISRV_ASMDX
+    PARAMTEXT: Change Parameter for Service Data, Export
+    functionName: BAPI_SERVICE_CHANGE
+    paramName: EX_SERVICE_DATAX
+    required: true
+    paramType: struct
+BAPI_SERVICE_CREATE:
+  IM_SERVICE_DATA:
+    PARAMCLASS: I
+    TABNAME: BAPISRV_ASMD
+    PARAMTEXT: General Data for Service, Import
+    functionName: BAPI_SERVICE_CREATE
+    paramName: IM_SERVICE_DATA
+    required: true
+    paramType: struct
+  IM_SERVICE_DATAX:
+    PARAMCLASS: I
+    TABNAME: BAPISRV_ASMDX
+    PARAMTEXT: Change Parameter for Service Data, Import
+    functionName: BAPI_SERVICE_CREATE
+    paramName: IM_SERVICE_DATAX
+    required: true
+    paramType: struct
+  NO_NUMBER_RANGE_CHECK:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Indicator to Circumvent the Number Range Check
+    functionName: BAPI_SERVICE_CREATE
+    paramName: NO_NUMBER_RANGE_CHECK
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Switch to Simulation Mode for Write BAPIs
+    functionName: BAPI_SERVICE_CREATE
+    paramName: TESTRUN
+    required: false
+    default: ''
+    paramType: var
+  EXTENSION_IN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_SERVICE_CREATE
+    paramName: EXTENSION_IN
+    required: false
+    default: ''
+    paramType: table
+  EXTENSION_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_SERVICE_CREATE
+    paramName: EXTENSION_OUT
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter(s)
+    functionName: BAPI_SERVICE_CREATE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SERVICE_DESCRIPTION:
+    PARAMCLASS: T
+    TABNAME: BAPISRV_ASMDT
+    PARAMTEXT: 'Communication Structure Short Text: Service Master'
+    functionName: BAPI_SERVICE_CREATE
+    paramName: SERVICE_DESCRIPTION
+    required: false
+    default: ''
+    paramType: table
+  SERVICE_LONG_TEXTS:
+    PARAMCLASS: T
+    TABNAME: BAPISRV_TEXT
+    PARAMTEXT: 'Communication Structure Long Text: Service Master'
+    functionName: BAPI_SERVICE_CREATE
+    paramName: SERVICE_LONG_TEXTS
+    required: false
+    default: ''
+    paramType: table
+  SERVICE:
+    PARAMCLASS: E
+    TABNAME: BAPISRV_ASMD
+    FIELDNAME: SERVICE
+    PARAMTEXT: Service Number
+    functionName: BAPI_SERVICE_CREATE
+    paramName: SERVICE
+    required: true
+    paramType: var
+  EX_SERVICE_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPISRV_ASMD
+    PARAMTEXT: General Data for Service, Export
+    functionName: BAPI_SERVICE_CREATE
+    paramName: EX_SERVICE_DATA
+    required: true
+    paramType: struct
+  EX_SERVICE_DATAX:
+    PARAMCLASS: E
+    TABNAME: BAPISRV_ASMDX
+    PARAMTEXT: Change Parameter for Service Data, Export
+    functionName: BAPI_SERVICE_CREATE
+    paramName: EX_SERVICE_DATAX
+    required: true
+    paramType: struct
+BAPI_SERVICE_GET_DETAIL:
+  SERVICENUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPISRVPAR
+    FIELDNAME: SERVICE
+    PARAMTEXT: Service Master Record Number
+    functionName: BAPI_SERVICE_GET_DETAIL
+    paramName: SERVICENUMBER
+    required: true
+    paramType: var
+  SERVICETEXTS:
+    PARAMCLASS: I
+    TABNAME: BAPISRVPAR
+    FIELDNAME: SELECTION
+    PARAMTEXT: Service Description
+    functionName: BAPI_SERVICE_GET_DETAIL
+    paramName: SERVICETEXTS
+    required: false
+    default: SPACE
+    paramType: var
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_SERVICE_GET_DETAIL
+    paramName: RETURN
+    required: true
+    paramType: table
+  SERVICETEXTLINES:
+    PARAMCLASS: T
+    TABNAME: BAPISRVTXT
+    PARAMTEXT: Long Text of Service Master Record
+    functionName: BAPI_SERVICE_GET_DETAIL
+    paramName: SERVICETEXTLINES
+    required: false
+    default: ''
+    paramType: table
+  SERVICEGENERALDATA:
+    PARAMCLASS: E
+    TABNAME: BAPISRV
+    PARAMTEXT: General Data on Service
+    functionName: BAPI_SERVICE_GET_DETAIL
+    paramName: SERVICEGENERALDATA
+    required: true
+    paramType: struct
+BAPI_SERVICE_GET_LIST:
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: System Messages for Selection
+    functionName: BAPI_SERVICE_GET_LIST
+    paramName: RETURN
+    required: true
+    paramType: table
+  SERVICELIST:
+    PARAMCLASS: T
+    TABNAME: BAPISRVLST
+    PARAMTEXT: List of Service Master Records Found
+    functionName: BAPI_SERVICE_GET_LIST
+    paramName: SERVICELIST
+    required: false
+    default: ''
+    paramType: table
+  SERVICESELECTION:
+    PARAMCLASS: T
+    TABNAME: BAPIASNRAN
+    PARAMTEXT: Number of Service Master Record
+    functionName: BAPI_SERVICE_GET_LIST
+    paramName: SERVICESELECTION
+    required: false
+    default: ''
+    paramType: table
+  SRVGROUPSELECTION:
+    PARAMCLASS: T
+    TABNAME: BAPIMTKRAN
+    PARAMTEXT: Material/Service Group
+    functionName: BAPI_SERVICE_GET_LIST
+    paramName: SRVGROUPSELECTION
+    required: false
+    default: ''
+    paramType: table
+  SRVSHORTTEXTSELECTION:
+    PARAMCLASS: T
+    TABNAME: BAPIASKRAN
+    PARAMTEXT: Service Short Text
+    functionName: BAPI_SERVICE_GET_LIST
+    paramName: SRVSHORTTEXTSELECTION
+    required: false
+    default: ''
+    paramType: table
+  SRVSTLVSELECTION:
+    PARAMCLASS: T
+    TABNAME: BAPISTLRAN
+    PARAMTEXT: Standard Service Catalog Number
+    functionName: BAPI_SERVICE_GET_LIST
+    paramName: SRVSTLVSELECTION
+    required: false
+    default: ''
+    paramType: table
+  SRVTYPSELECTION:
+    PARAMCLASS: T
+    TABNAME: BAPIASTRAN
+    PARAMTEXT: Service Category
+    functionName: BAPI_SERVICE_GET_LIST
+    paramName: SRVTYPSELECTION
+    required: false
+    default: ''
+    paramType: table

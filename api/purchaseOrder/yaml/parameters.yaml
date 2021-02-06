@@ -1,0 +1,1005 @@
+BAPI_PO_CREATE:
+  PO_HEADER:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKOC
+    PARAMTEXT: PO Header Data
+    functionName: BAPI_PO_CREATE
+    paramName: PO_HEADER
+    required: true
+    paramType: struct
+  HEADER_ADD_DATA_RELEVANT:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: 'Indicator: Additional Data (Header) Relevant'
+    functionName: BAPI_PO_CREATE
+    paramName: HEADER_ADD_DATA_RELEVANT
+    required: false
+    default: ''
+    paramType: var
+  ITEM_ADD_DATA_RELEVANT:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: 'Indicator: Additional Data (Item) Relevant'
+    functionName: BAPI_PO_CREATE
+    paramName: ITEM_ADD_DATA_RELEVANT
+    required: false
+    default: ''
+    paramType: var
+  SKIP_ITEMS_WITH_ERROR:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: 'Indicator: Skip Faulty Items'
+    functionName: BAPI_PO_CREATE
+    paramName: SKIP_ITEMS_WITH_ERROR
+    required: false
+    default: '''X'''
+    paramType: var
+  HEADER_TECH_FIELDS:
+    PARAMCLASS: I
+    TABNAME: BAPITECH
+    PARAMTEXT: Technical Header Fields
+    functionName: BAPI_PO_CREATE
+    paramName: HEADER_TECH_FIELDS
+    required: false
+    default: ''
+    paramType: struct
+  PO_ADDRESS:
+    PARAMCLASS: I
+    TABNAME: BAPIADDRESS
+    PARAMTEXT: Ordering Address for One-Time Vendor
+    functionName: BAPI_PO_CREATE
+    paramName: PO_ADDRESS
+    required: false
+    default: ''
+    paramType: struct
+  PO_HEADER_ADD_DATA:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKOA
+    PARAMTEXT: 'Additional Data: PO Header'
+    functionName: BAPI_PO_CREATE
+    paramName: PO_HEADER_ADD_DATA
+    required: false
+    default: ''
+    paramType: struct
+  PO_ITEM_SCHEDULES:
+    PARAMCLASS: T
+    TABNAME: BAPIEKET
+    PARAMTEXT: Table of Schedule Lines
+    functionName: BAPI_PO_CREATE
+    paramName: PO_ITEM_SCHEDULES
+    required: true
+    paramType: table
+  PO_ITEMS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPOC
+    PARAMTEXT: Table of PO Items
+    functionName: BAPI_PO_CREATE
+    paramName: PO_ITEMS
+    required: true
+    paramType: table
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_PO_CREATE
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  PO_BUSINESS_PARTNER:
+    PARAMCLASS: T
+    TABNAME: BAPIEKKOP
+    PARAMTEXT: Partner Roles
+    functionName: BAPI_PO_CREATE
+    paramName: PO_BUSINESS_PARTNER
+    required: false
+    default: ''
+    paramType: table
+  PO_CONTRACT_LIMITS:
+    PARAMCLASS: T
+    TABNAME: BAPIESUCC
+    PARAMTEXT: Limits with Contract Reference
+    functionName: BAPI_PO_CREATE
+    paramName: PO_CONTRACT_LIMITS
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_ACCOUNT_ASSIGNMENT:
+    PARAMCLASS: T
+    TABNAME: BAPIEKKN
+    PARAMTEXT: Table of Account Assignments
+    functionName: BAPI_PO_CREATE
+    paramName: PO_ITEM_ACCOUNT_ASSIGNMENT
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_ADD_DATA:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPOA
+    PARAMTEXT: 'Additional Data: PO Item'
+    functionName: BAPI_PO_CREATE
+    paramName: PO_ITEM_ADD_DATA
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_TEXT:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPOTX
+    PARAMTEXT: Table of Item Texts
+    functionName: BAPI_PO_CREATE
+    paramName: PO_ITEM_TEXT
+    required: false
+    default: ''
+    paramType: table
+  PO_LIMITS:
+    PARAMCLASS: T
+    TABNAME: BAPIESUHC
+    PARAMTEXT: Limits
+    functionName: BAPI_PO_CREATE
+    paramName: PO_LIMITS
+    required: false
+    default: ''
+    paramType: table
+  PO_SERVICES:
+    PARAMCLASS: T
+    TABNAME: BAPIESLLC
+    PARAMTEXT: Services
+    functionName: BAPI_PO_CREATE
+    paramName: PO_SERVICES
+    required: false
+    default: ''
+    paramType: table
+  PO_SERVICES_TEXT:
+    PARAMCLASS: T
+    TABNAME: BAPIESLLTX
+    PARAMTEXT: Text for Service Line
+    functionName: BAPI_PO_CREATE
+    paramName: PO_SERVICES_TEXT
+    required: false
+    default: ''
+    paramType: table
+  PO_SRV_ACCASS_VALUES:
+    PARAMCLASS: T
+    TABNAME: BAPIESKLC
+    PARAMTEXT: Value/Link to Service Account Assignment
+    functionName: BAPI_PO_CREATE
+    paramName: PO_SRV_ACCASS_VALUES
+    required: false
+    default: ''
+    paramType: table
+  POADDRDELIVERY:
+    PARAMCLASS: T
+    TABNAME: BAPIMEPOADDRDELIVERY
+    PARAMTEXT: 'PO Item: Address Structure BAPIADDR1 for Inbound Delivery'
+    functionName: BAPI_PO_CREATE
+    paramName: POADDRDELIVERY
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Messages
+    functionName: BAPI_PO_CREATE
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  PURCHASEORDER:
+    PARAMCLASS: E
+    TABNAME: BAPIEKKOC
+    FIELDNAME: PO_NUMBER
+    PARAMTEXT: Purchase Order Number
+    functionName: BAPI_PO_CREATE
+    paramName: PURCHASEORDER
+    required: true
+    paramType: var
+BAPI_PO_GET_LIST:
+  ITEMS_FOR_RELEASE:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: 'Indicator: Display Purchase Orders Awaiting Release Only'
+    functionName: BAPI_PO_GET_LIST
+    paramName: ITEMS_FOR_RELEASE
+    required: false
+    default: '''X'''
+    paramType: var
+  REL_CODE:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: REL_CODE
+    PARAMTEXT: Release Code
+    functionName: BAPI_PO_GET_LIST
+    paramName: REL_CODE
+    required: false
+    default: ''
+    paramType: var
+  REL_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: REL_GROUP
+    PARAMTEXT: Release Group
+    functionName: BAPI_PO_GET_LIST
+    paramName: REL_GROUP
+    required: false
+    default: ''
+    paramType: var
+  PO_HEADERS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKKO
+    PARAMTEXT: PO Header Data
+    functionName: BAPI_PO_GET_LIST
+    paramName: PO_HEADERS
+    required: true
+    paramType: table
+  PO_ITEMS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPO
+    PARAMTEXT: Purchase Order Items
+    functionName: BAPI_PO_GET_LIST
+    paramName: PO_ITEMS
+    required: true
+    paramType: table
+  PO_ADDRESSES:
+    PARAMCLASS: T
+    TABNAME: BAPIEKAN
+    PARAMTEXT: Vendor Address for SAP Releases < 4.0A
+    functionName: BAPI_PO_GET_LIST
+    paramName: PO_ADDRESSES
+    required: false
+    default: ''
+    paramType: table
+  PO_ADDRESSES_NEW:
+    PARAMCLASS: T
+    TABNAME: BAPIADDRESS
+    PARAMTEXT: Vendor Address for SAP Releases >= 4.0A
+    functionName: BAPI_PO_GET_LIST
+    paramName: PO_ADDRESSES_NEW
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Processing Errors That Occurred
+    functionName: BAPI_PO_GET_LIST
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  REL_AUTHORITY_CHECK_FAILED:
+    PARAMCLASS: X
+    PARAMTEXT: No Authorization to Release
+    functionName: BAPI_PO_GET_LIST
+    paramName: REL_AUTHORITY_CHECK_FAILED
+    required: true
+    paramType: exception
+  REL_CODE_MISSING:
+    PARAMCLASS: X
+    PARAMTEXT: Release Code Missing
+    functionName: BAPI_PO_GET_LIST
+    paramName: REL_CODE_MISSING
+    required: true
+    paramType: exception
+BAPI_PO_GETDETAIL:
+  PURCHASEORDER:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: PO_NUMBER
+    PARAMTEXT: Purchase Order Number
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PURCHASEORDER
+    required: true
+    paramType: var
+  ACCOUNT_ASSIGNMENT:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Account Assignment Data
+    functionName: BAPI_PO_GETDETAIL
+    paramName: ACCOUNT_ASSIGNMENT
+    required: false
+    default: SPACE
+    paramType: var
+  CONFIRMATIONS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Confirmations
+    functionName: BAPI_PO_GETDETAIL
+    paramName: CONFIRMATIONS
+    required: false
+    default: SPACE
+    paramType: var
+  EXTENSIONS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Customer's Own Fields
+    functionName: BAPI_PO_GETDETAIL
+    paramName: EXTENSIONS
+    required: false
+    default: SPACE
+    paramType: var
+  HEADER_TEXTS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Header Texts
+    functionName: BAPI_PO_GETDETAIL
+    paramName: HEADER_TEXTS
+    required: false
+    default: SPACE
+    paramType: var
+  HISTORY:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide PO History
+    functionName: BAPI_PO_GETDETAIL
+    paramName: HISTORY
+    required: false
+    default: SPACE
+    paramType: var
+  ITEM_TEXTS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Item Texts
+    functionName: BAPI_PO_GETDETAIL
+    paramName: ITEM_TEXTS
+    required: false
+    default: SPACE
+    paramType: var
+  ITEMS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Item Data
+    functionName: BAPI_PO_GETDETAIL
+    paramName: ITEMS
+    required: false
+    default: '''X'''
+    paramType: var
+  SCHEDULES:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Schedule Lines
+    functionName: BAPI_PO_GETDETAIL
+    paramName: SCHEDULES
+    required: false
+    default: SPACE
+    paramType: var
+  SERVICE_TEXTS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Service Texts
+    functionName: BAPI_PO_GETDETAIL
+    paramName: SERVICE_TEXTS
+    required: false
+    default: SPACE
+    paramType: var
+  SERVICES:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Services and Limits
+    functionName: BAPI_PO_GETDETAIL
+    paramName: SERVICES
+    required: false
+    default: SPACE
+    paramType: var
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters EXTENSIONIN/EXTENSIONOUT
+    functionName: BAPI_PO_GETDETAIL
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  PO_HEADER_TEXTS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKKOTX
+    PARAMTEXT: PO Header Texts
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_HEADER_TEXTS
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_ACCOUNT_ASSIGNMENT:
+    PARAMCLASS: T
+    TABNAME: BAPIEKKN
+    PARAMTEXT: Account Assignment Data for Item
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_ACCOUNT_ASSIGNMENT
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_CONFIRMATIONS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKES
+    PARAMTEXT: Confirmations for Item
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_CONFIRMATIONS
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_CONTRACT_LIMITS:
+    PARAMCLASS: T
+    TABNAME: BAPIESUC
+    PARAMTEXT: Limits with Contract Reference
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_CONTRACT_LIMITS
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_HISTORY:
+    PARAMCLASS: T
+    TABNAME: BAPIEKBE
+    PARAMTEXT: PO History for Item
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_HISTORY
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_HISTORY_TOTALS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKBES
+    PARAMTEXT: 'PO History for Item: Totals'
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_HISTORY_TOTALS
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_LIMITS:
+    PARAMCLASS: T
+    TABNAME: BAPIESUH
+    PARAMTEXT: Limits
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_LIMITS
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_SCHEDULES:
+    PARAMCLASS: T
+    TABNAME: BAPIEKET
+    PARAMTEXT: Schedule Lines for Item
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_SCHEDULES
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_SERVICES:
+    PARAMCLASS: T
+    TABNAME: BAPIESLL
+    PARAMTEXT: Services
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_SERVICES
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_SRV_ACCASS_VALUES:
+    PARAMCLASS: T
+    TABNAME: BAPIESKL
+    PARAMTEXT: Value/Link to Service Account Assignment
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_SRV_ACCASS_VALUES
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEM_TEXTS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPOTX
+    PARAMTEXT: Texts for Item
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEM_TEXTS
+    required: false
+    default: ''
+    paramType: table
+  PO_ITEMS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPO
+    PARAMTEXT: Purchase Order Items
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ITEMS
+    required: false
+    default: ''
+    paramType: table
+  PO_SERVICES_TEXTS:
+    PARAMCLASS: T
+    TABNAME: BAPIESLLTX
+    PARAMTEXT: Long Texts for Service Line
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_SERVICES_TEXTS
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Messages
+    functionName: BAPI_PO_GETDETAIL
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  PO_ADDRESS:
+    PARAMCLASS: E
+    TABNAME: BAPIADDRESS
+    PARAMTEXT: Ordering Address Data
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_ADDRESS
+    required: true
+    paramType: struct
+  PO_HEADER:
+    PARAMCLASS: E
+    TABNAME: BAPIEKKOL
+    PARAMTEXT: PO Header Data
+    functionName: BAPI_PO_GETDETAIL
+    paramName: PO_HEADER
+    required: true
+    paramType: struct
+BAPI_PO_GETITEMS:
+  ACCTASSCAT:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: ACCTASSCAT
+    PARAMTEXT: Account Assignment Category
+    functionName: BAPI_PO_GETITEMS
+    paramName: ACCTASSCAT
+    required: false
+    default: ''
+    paramType: var
+  CREATED_BY:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKOC
+    FIELDNAME: CREATED_BY
+    PARAMTEXT: Creator
+    functionName: BAPI_PO_GETITEMS
+    paramName: CREATED_BY
+    required: false
+    default: ''
+    paramType: var
+  DELETED_ITEMS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Including Deleted Items
+    functionName: BAPI_PO_GETITEMS
+    paramName: DELETED_ITEMS
+    required: false
+    default: SPACE
+    paramType: var
+  DOC_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: DOC_DATE
+    PARAMTEXT: As of PO Date
+    functionName: BAPI_PO_GETITEMS
+    paramName: DOC_DATE
+    required: false
+    default: ''
+    paramType: var
+  DOC_TYPE:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: DOC_TYPE
+    PARAMTEXT: Order Type
+    functionName: BAPI_PO_GETITEMS
+    paramName: DOC_TYPE
+    required: false
+    default: ''
+    paramType: var
+  ITEM_CAT:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: ITEM_CAT
+    PARAMTEXT: Item Category
+    functionName: BAPI_PO_GETITEMS
+    paramName: ITEM_CAT
+    required: false
+    default: ''
+    paramType: var
+  ITEMS_OPEN_FOR_RECEIPT:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Items with Still-Open Goods Receipt Only
+    functionName: BAPI_PO_GETITEMS
+    paramName: ITEMS_OPEN_FOR_RECEIPT
+    required: false
+    default: SPACE
+    paramType: var
+  MAT_GRP:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: MAT_GRP
+    PARAMTEXT: Material Group
+    functionName: BAPI_PO_GETITEMS
+    paramName: MAT_GRP
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: MATERIAL
+    PARAMTEXT: Material
+    functionName: BAPI_PO_GETITEMS
+    paramName: MATERIAL
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL_LONG:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: MATERIAL_LONG
+    PARAMTEXT: Material Number (40 Characters, Necessary for Technical Reasons)
+    functionName: BAPI_PO_GETITEMS
+    paramName: MATERIAL_LONG
+    required: false
+    default: ''
+    paramType: var
+  PLANT:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: PLANT
+    PARAMTEXT: Plant
+    functionName: BAPI_PO_GETITEMS
+    paramName: PLANT
+    required: false
+    default: ''
+    paramType: var
+  PREQ_NAME:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPOC
+    FIELDNAME: PREQ_NAME
+    PARAMTEXT: ''
+    functionName: BAPI_PO_GETITEMS
+    paramName: PREQ_NAME
+    required: false
+    default: SPACE
+    paramType: var
+  PUR_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: PUR_GROUP
+    PARAMTEXT: Purchasing Group
+    functionName: BAPI_PO_GETITEMS
+    paramName: PUR_GROUP
+    required: false
+    default: ''
+    paramType: var
+  PUR_MAT:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: PUR_MAT
+    PARAMTEXT: Material Number
+    functionName: BAPI_PO_GETITEMS
+    paramName: PUR_MAT
+    required: false
+    default: SPACE
+    paramType: var
+  PUR_MAT_LONG:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: PUR_MAT_LONG
+    PARAMTEXT: Material Number (40 Characters, Technical Requirement)
+    functionName: BAPI_PO_GETITEMS
+    paramName: PUR_MAT_LONG
+    required: false
+    default: SPACE
+    paramType: var
+  PURCH_ORG:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: PURCH_ORG
+    PARAMTEXT: Purchasing Organization
+    functionName: BAPI_PO_GETITEMS
+    paramName: PURCH_ORG
+    required: false
+    default: ''
+    paramType: var
+  PURCHASEORDER:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: PO_NUMBER
+    PARAMTEXT: Purchase Order Number
+    functionName: BAPI_PO_GETITEMS
+    paramName: PURCHASEORDER
+    required: false
+    default: ''
+    paramType: var
+  SHORT_TEXT:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: SHORT_TEXT
+    PARAMTEXT: Short Text
+    functionName: BAPI_PO_GETITEMS
+    paramName: SHORT_TEXT
+    required: false
+    default: ''
+    paramType: var
+  SUPPL_PLANT:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: SUPPL_PLNT
+    PARAMTEXT: Supplying Plant
+    functionName: BAPI_PO_GETITEMS
+    paramName: SUPPL_PLANT
+    required: false
+    default: ''
+    paramType: var
+  TRACKINGNO:
+    PARAMCLASS: I
+    TABNAME: BAPIEKPO
+    FIELDNAME: TRACKINGNO
+    PARAMTEXT: Requirement Tracking Number
+    functionName: BAPI_PO_GETITEMS
+    paramName: TRACKINGNO
+    required: false
+    default: ''
+    paramType: var
+  VENDOR:
+    PARAMCLASS: I
+    TABNAME: BAPIEKKO
+    FIELDNAME: VENDOR
+    PARAMTEXT: Vendor
+    functionName: BAPI_PO_GETITEMS
+    paramName: VENDOR
+    required: false
+    default: ''
+    paramType: var
+  WITH_PO_HEADERS:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Also Provide Header Data
+    functionName: BAPI_PO_GETITEMS
+    paramName: WITH_PO_HEADERS
+    required: false
+    default: SPACE
+    paramType: var
+  MATERIAL_EVG:
+    PARAMCLASS: I
+    TABNAME: BAPIMGVMATNR
+    PARAMTEXT: Long Material Number
+    functionName: BAPI_PO_GETITEMS
+    paramName: MATERIAL_EVG
+    required: false
+    default: ''
+    paramType: struct
+  PUR_MAT_EVG:
+    PARAMCLASS: I
+    TABNAME: BAPIMGVMATNR
+    PARAMTEXT: Long Material Number
+    functionName: BAPI_PO_GETITEMS
+    paramName: PUR_MAT_EVG
+    required: false
+    default: ''
+    paramType: struct
+  PO_ITEMS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPOC
+    PARAMTEXT: Table of Items
+    functionName: BAPI_PO_GETITEMS
+    paramName: PO_ITEMS
+    required: true
+    paramType: table
+  PO_HEADERS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKKOL
+    PARAMTEXT: Table of PO Header Data
+    functionName: BAPI_PO_GETITEMS
+    paramName: PO_HEADERS
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Messages
+    functionName: BAPI_PO_GETITEMS
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+BAPI_PO_GETITEMSREL:
+  ITEMS_FOR_RELEASE:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: 'Indicator: Display Purchase Orders Awaiting Release Only'
+    functionName: BAPI_PO_GETITEMSREL
+    paramName: ITEMS_FOR_RELEASE
+    required: false
+    default: '''X'''
+    paramType: var
+  REL_CODE:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: REL_CODE
+    PARAMTEXT: Release Code
+    functionName: BAPI_PO_GETITEMSREL
+    paramName: REL_CODE
+    required: false
+    default: ''
+    paramType: var
+  REL_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: REL_GROUP
+    PARAMTEXT: Release Group
+    functionName: BAPI_PO_GETITEMSREL
+    paramName: REL_GROUP
+    required: false
+    default: ''
+    paramType: var
+  PO_HEADERS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKKOL
+    PARAMTEXT: PO Header Data
+    functionName: BAPI_PO_GETITEMSREL
+    paramName: PO_HEADERS
+    required: true
+    paramType: table
+  PO_ITEMS:
+    PARAMCLASS: T
+    TABNAME: BAPIEKPOC
+    PARAMTEXT: Purchase Order Items
+    functionName: BAPI_PO_GETITEMSREL
+    paramName: PO_ITEMS
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Messages
+    functionName: BAPI_PO_GETITEMSREL
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+BAPI_PO_GETRELINFO:
+  PURCHASEORDER:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: PO_NUMBER
+    PARAMTEXT: Purchase Order Number
+    functionName: BAPI_PO_GETRELINFO
+    paramName: PURCHASEORDER
+    required: true
+    paramType: var
+  PO_REL_CODE:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: PO_REL_COD
+    PARAMTEXT: Release Code
+    functionName: BAPI_PO_GETRELINFO
+    paramName: PO_REL_CODE
+    required: false
+    default: ''
+    paramType: var
+  RELEASE_FINAL:
+    PARAMCLASS: T
+    TABNAME: BAPIRLCOPO
+    PARAMTEXT: Final Release
+    functionName: BAPI_PO_GETRELINFO
+    paramName: RELEASE_FINAL
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Messages
+    functionName: BAPI_PO_GETRELINFO
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  GENERAL_RELEASE_INFO:
+    PARAMCLASS: E
+    TABNAME: BAPIRLGNPO
+    PARAMTEXT: General Release Information
+    functionName: BAPI_PO_GETRELINFO
+    paramName: GENERAL_RELEASE_INFO
+    required: true
+    paramType: struct
+  RELEASE_ALREADY_POSTED:
+    PARAMCLASS: E
+    TABNAME: BAPIRLCOPO
+    PARAMTEXT: Releases to Date
+    functionName: BAPI_PO_GETRELINFO
+    paramName: RELEASE_ALREADY_POSTED
+    required: true
+    paramType: struct
+  RELEASE_PREREQUISITES:
+    PARAMCLASS: E
+    TABNAME: BAPIRLCOPO
+    PARAMTEXT: Release Prerequisites
+    functionName: BAPI_PO_GETRELINFO
+    paramName: RELEASE_PREREQUISITES
+    required: true
+    paramType: struct
+BAPI_PROCOPERATION_GETCATALOGS:
+  MATERIAL_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPIPOGN
+    FIELDNAME: MAT_GRP
+    PARAMTEXT: Material Group
+    functionName: BAPI_PROCOPERATION_GETCATALOGS
+    paramName: MATERIAL_GROUP
+    required: true
+    paramType: var
+  PLANT:
+    PARAMCLASS: I
+    TABNAME: BAPIPOGN
+    FIELDNAME: PLANT
+    PARAMTEXT: Plant
+    functionName: BAPI_PROCOPERATION_GETCATALOGS
+    paramName: PLANT
+    required: false
+    default: ''
+    paramType: var
+  WITHOUT_MATERIAL_GRP:
+    PARAMCLASS: I
+    TABNAME: BAPIMMPARA
+    FIELDNAME: SELECTION
+    PARAMTEXT: Search Independently of Material Group
+    functionName: BAPI_PROCOPERATION_GETCATALOGS
+    paramName: WITHOUT_MATERIAL_GRP
+    required: false
+    default: ''
+    paramType: var
+  VALID_CATALOGS:
+    PARAMCLASS: T
+    TABNAME: BAPICATALOG
+    PARAMTEXT: List of Valid Catalogs
+    functionName: BAPI_PROCOPERATION_GETCATALOGS
+    paramName: VALID_CATALOGS
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Return Messages
+    functionName: BAPI_PROCOPERATION_GETCATALOGS
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+BAPI_PROCOPERATION_GETINFO:
+  PROCUREMENT_ITEM:
+    PARAMCLASS: T
+    TABNAME: BAPIPOGN
+    PARAMTEXT: Item Data
+    functionName: BAPI_PROCOPERATION_GETINFO
+    paramName: PROCUREMENT_ITEM
+    required: true
+    paramType: table
+  PROCUREMENT_ACCOUNT:
+    PARAMCLASS: T
+    TABNAME: BAPIPOGNA
+    PARAMTEXT: Account Assignment Data
+    functionName: BAPI_PROCOPERATION_GETINFO
+    paramName: PROCUREMENT_ACCOUNT
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Processing Errors
+    functionName: BAPI_PROCOPERATION_GETINFO
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table

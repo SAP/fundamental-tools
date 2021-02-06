@@ -1,0 +1,730 @@
+BAPISCTS01:
+  AUTHOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AS4USER
+      ROLLNAME: TR_AS4USER
+      OUTPUTLEN: 12
+    input:
+      SHLP: SH USER_ADDR
+    text:
+      FIELDTEXT: Owner of a Request or Task
+      REPTEXT: Owner
+      SCRTEXT_S: Owner
+      SCRTEXT_M: Owner
+      SCRTEXT_L: Owner
+  TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 60
+      DOMNAME: AS4TEXT
+      ROLLNAME: AS4TEXT
+      OUTPUTLEN: 60
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Description of Repository Objects
+      REPTEXT: Short Description
+      SCRTEXT_S: Short Text
+      SCRTEXT_M: Short Description
+      SCRTEXT_L: Short Description
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TRFUNCTION
+      ROLLNAME: TRFUNCTION
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRFUNCTION
+    text:
+      FIELDTEXT: Type of request/task
+      SCRTEXT_M: Type
+  REQUESTID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TRKORR
+      ROLLNAME: TRKORR
+      OUTPUTLEN: 20
+    input:
+      SHLP: CT E070
+    text:
+      FIELDTEXT: Request/Task
+      REPTEXT: Request/Task
+      SCRTEXT_S: Request
+      SCRTEXT_M: Request/Task
+      SCRTEXT_L: Request/Task
+BAPISCTS03:
+  PROJECTTYP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: TEXT32
+      ROLLNAME: TR_EXTPS
+      OUTPUTLEN: 32
+      LOWERCASE: X
+    input:
+      SHLP: SH CTS_EXT_PS
+    text:
+      FIELDTEXT: External Project System
+      SCRTEXT_L: Project System
+  PROJECT_NR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: TEXT32
+      ROLLNAME: TR_EXTPID
+      OUTPUTLEN: 32
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Project ID
+      SCRTEXT_S: Project
+      SCRTEXT_L: Project ID
+BAPISCTS02:
+  LAYER_SET:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: FLAG
+      ROLLNAME: FLAG
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: General Flag
+      REPTEXT: Flag
+      SCRTEXT_S: Indicator
+      SCRTEXT_M: Indicator
+      SCRTEXT_L: Indicator
+  LAYER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: DEVLAYER
+      ROLLNAME: DEVLAYER
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH TCE_TRANSPORT_LAYERS
+    text:
+      FIELDTEXT: Transport Layer in ABAP Workbench
+      REPTEXT: Transport Layer
+      SCRTEXT_S: Layer
+      SCRTEXT_M: Transport Layer
+      SCRTEXT_L: Transport Layer
+BAPISCTS07:
+  TASKID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TRKORR
+      ROLLNAME: TRKORR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT E070
+    text:
+      FIELDTEXT: Request/Task
+      REPTEXT: Request/Task
+      SCRTEXT_S: Request
+      SCRTEXT_M: Request/Task
+      SCRTEXT_L: Request/Task
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TRFUNCTION
+      ROLLNAME: TRFUNCTION
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRFUNCTION
+    text:
+      FIELDTEXT: Type of request/task
+      SCRTEXT_M: Type
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TRSTATUS
+      ROLLNAME: TRSTATUS
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRSTATUS
+    text:
+      FIELDTEXT: Status of request/task
+      REPTEXT: Status of request/task
+      SCRTEXT_S: Status
+      SCRTEXT_M: Status
+      SCRTEXT_L: Status
+  AUTHOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AS4USER
+      ROLLNAME: TR_AS4USER
+      OUTPUTLEN: 12
+    input:
+      SHLP: SH USER_ADDR
+    text:
+      FIELDTEXT: Owner of a Request or Task
+      REPTEXT: Owner
+      SCRTEXT_S: Owner
+      SCRTEXT_M: Owner
+      SCRTEXT_L: Owner
+  TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 60
+      DOMNAME: AS4TEXT
+      ROLLNAME: AS4TEXT
+      OUTPUTLEN: 60
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Description of Repository Objects
+      REPTEXT: Short Description
+      SCRTEXT_S: Short Text
+      SCRTEXT_M: Short Description
+      SCRTEXT_L: Short Description
+  CHANGEDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: AS4DATE
+      ROLLNAME: AS4DATE
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Last Changed On
+      REPTEXT: Date
+      SCRTEXT_M: Date
+      SCRTEXT_L: Date
+  CHANGETIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: AS4TIME
+      ROLLNAME: AS4TIME
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Last changed at
+      REPTEXT: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: Time
+  REQUESTID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TRKORR
+      ROLLNAME: TRKORR
+      OUTPUTLEN: 20
+    input:
+      SHLP: CT E070
+    text:
+      FIELDTEXT: Request/Task
+      REPTEXT: Request/Task
+      SCRTEXT_S: Request
+      SCRTEXT_M: Request/Task
+      SCRTEXT_L: Request/Task
+BAPISCTS12:
+  TASK_OWNER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AS4USER
+      ROLLNAME: TR_AS4USER
+      OUTPUTLEN: 12
+    input:
+      SHLP: SH USER_ADDR
+    text:
+      FIELDTEXT: Owner of a Request or Task
+      REPTEXT: Owner
+      SCRTEXT_S: Owner
+      SCRTEXT_M: Owner
+      SCRTEXT_L: Owner
+BAPISCTS06:
+  REQUESTID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TRKORR
+      ROLLNAME: TRKORR
+      OUTPUTLEN: 20
+    input:
+      SHLP: CT E070
+    text:
+      FIELDTEXT: Request/Task
+      REPTEXT: Request/Task
+      SCRTEXT_S: Request
+      SCRTEXT_M: Request/Task
+      SCRTEXT_L: Request/Task
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TRFUNCTION
+      ROLLNAME: TRFUNCTION
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRFUNCTION
+    text:
+      FIELDTEXT: Type of request/task
+      SCRTEXT_M: Type
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: TRSTATUS
+      ROLLNAME: TRSTATUS
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV TRSTATUS
+    text:
+      FIELDTEXT: Status of request/task
+      REPTEXT: Status of request/task
+      SCRTEXT_S: Status
+      SCRTEXT_M: Status
+      SCRTEXT_L: Status
+  AUTHOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AS4USER
+      ROLLNAME: TR_AS4USER
+      OUTPUTLEN: 12
+    input:
+      SHLP: SH USER_ADDR
+    text:
+      FIELDTEXT: Owner of a Request or Task
+      REPTEXT: Owner
+      SCRTEXT_S: Owner
+      SCRTEXT_M: Owner
+      SCRTEXT_L: Owner
+  TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 60
+      DOMNAME: AS4TEXT
+      ROLLNAME: AS4TEXT
+      OUTPUTLEN: 60
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Short Description of Repository Objects
+      REPTEXT: Short Description
+      SCRTEXT_S: Short Text
+      SCRTEXT_M: Short Description
+      SCRTEXT_L: Short Description
+  SRC_CLIENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: CHAR3
+      ROLLNAME: TRCLIENT
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Source client of request
+      REPTEXT: Source client
+      SCRTEXT_S: Client
+      SCRTEXT_M: Source client
+      SCRTEXT_L: Source client
+  CHANGEDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: AS4DATE
+      ROLLNAME: AS4DATE
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Last Changed On
+      REPTEXT: Date
+      SCRTEXT_M: Date
+      SCRTEXT_L: Date
+  CHANGETIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: AS4TIME
+      ROLLNAME: AS4TIME
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Last changed at
+      REPTEXT: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: Time
+  TARGET:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: TR_TARGET
+      ROLLNAME: TR_TARGET
+      OUTPUTLEN: 10
+    input:
+      SHLP: SH TCE_TRANSPORT_TARGET
+    text:
+      FIELDTEXT: Transport Target of Request
+      REPTEXT: Transport Target
+      SCRTEXT_S: Target
+      SCRTEXT_M: Transport Target
+      SCRTEXT_L: Transport Target
+  PROJECTTYP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: TRATTR
+      ROLLNAME: TRATTR
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT WBOATTR
+    text:
+      FIELDTEXT: Request attribute
+      SCRTEXT_S: Attribute
+      SCRTEXT_L: Attribute
+  PROJECT_NR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      ROLLNAME: TRVALUE
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Attribute value
+      SCRTEXT_S: Value
+      SCRTEXT_L: Value
+BAPIRET2:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  PARAMETER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SWC_ELEM
+      ROLLNAME: BAPI_PARAM
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Parameter Name
+      REPTEXT: Param. Name
+      SCRTEXT_S: Parameters
+      SCRTEXT_M: Parameter Name
+      SCRTEXT_L: Parameter Name
+  ROW:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: BAPI_LINE
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Lines in parameter
+      REPTEXT: Lines in parameter
+      SCRTEXT_S: Line
+      SCRTEXT_M: Parameter line
+      SCRTEXT_L: Lines in parameter
+  FIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FDNAME
+      ROLLNAME: BAPI_FLD
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT DD03L
+    text:
+      FIELDTEXT: Field in parameter
+      REPTEXT: Fld.
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field name
+      SCRTEXT_L: Field name
+  SYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LOGSYS
+      ROLLNAME: BAPILOGSYS
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT TBDLS
+    text:
+      FIELDTEXT: Logical system from which message originates
+      REPTEXT: System from which message comes
+      SCRTEXT_S: System
+      SCRTEXT_M: Logical system
+      SCRTEXT_L: Logical system (source of message)
+CHAR01:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 1
+    DOMNAME: CHAR1
+    ROLLNAME: CHAR01
+    OUTPUTLEN: 1
+  text:
+    FIELDTEXT: Character Field Length 1
+    SCRTEXT_S: Char01
+    SCRTEXT_M: Char01
+    SCRTEXT_L: Character Length 1
+CHAR3:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 3
+    DOMNAME: CHAR3
+    ROLLNAME: CHAR3
+    OUTPUTLEN: 3
+  text:
+    FIELDTEXT: 3-Byte field
+TEXT60:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 60
+    DOMNAME: TEXT60
+    ROLLNAME: TEXT60
+    OUTPUTLEN: 60
+    LOWERCASE: X
+  text:
+    FIELDTEXT: Text Field of Length 60
+    REPTEXT: Text
+    SCRTEXT_S: Text
+    SCRTEXT_M: Text
+    SCRTEXT_L: Text
+CHAR012:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 12
+    DOMNAME: CHAR12
+    ROLLNAME: CHAR012
+    OUTPUTLEN: 12
+  text:
+    FIELDTEXT: Character field of length 12
+    SCRTEXT_S: char12
+    SCRTEXT_M: char12
+    SCRTEXT_L: char12
+TEXT80:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 80
+    DOMNAME: TEXT80UEB
+    ROLLNAME: TEXT80
+    OUTPUTLEN: 80
+    LOWERCASE: X
+  text:
+    FIELDTEXT: Text (80 Characters)
+    REPTEXT: Text
+    SCRTEXT_S: Text
+    SCRTEXT_M: Text
+    SCRTEXT_L: Text
+CHAR20:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 20
+    DOMNAME: CHAR20
+    ROLLNAME: CHAR20
+    OUTPUTLEN: 20
+  text:
+    FIELDTEXT: Char 20
+    REPTEXT: Char20
+    SCRTEXT_S: Char20
+    SCRTEXT_M: Char20
+    SCRTEXT_L: Char20

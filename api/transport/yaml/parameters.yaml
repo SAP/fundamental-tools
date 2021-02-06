@@ -1,0 +1,180 @@
+BAPI_CTREQUEST_CREATE:
+  AUTHOR:
+    PARAMCLASS: I
+    TABNAME: BAPISCTS01
+    FIELDNAME: AUTHOR
+    PARAMTEXT: Author of request to be created
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: AUTHOR
+    required: true
+    paramType: var
+  TEXT:
+    PARAMCLASS: I
+    TABNAME: BAPISCTS01
+    FIELDNAME: TEXT
+    PARAMTEXT: Short text for the request to be created
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: TEXT
+    required: true
+    paramType: var
+  REQUEST_TYPE:
+    PARAMCLASS: I
+    TABNAME: BAPISCTS01
+    FIELDNAME: TYPE
+    PARAMTEXT: W = Customizing request, otherwise Workbench request
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: REQUEST_TYPE
+    required: false
+    default: ''
+    paramType: var
+  PROJECT:
+    PARAMCLASS: I
+    TABNAME: BAPISCTS03
+    PARAMTEXT: Project assignment for the request
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: PROJECT
+    required: false
+    default: ''
+    paramType: struct
+  TRANSLAYER:
+    PARAMCLASS: I
+    TABNAME: BAPISCTS02
+    PARAMTEXT: Transport layer of request
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: TRANSLAYER
+    required: false
+    default: ''
+    paramType: struct
+  TASK_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPISCTS07
+    PARAMTEXT: List of header information for the tasks
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: TASK_LIST
+    required: true
+    paramType: table
+  AUTHORLIST:
+    PARAMCLASS: T
+    TABNAME: BAPISCTS12
+    PARAMTEXT: List of task authors and task types
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: AUTHORLIST
+    required: false
+    default: ''
+    paramType: table
+  REQUESTID:
+    PARAMCLASS: E
+    TABNAME: BAPISCTS01
+    FIELDNAME: REQUESTID
+    PARAMTEXT: Number of the created request
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: REQUESTID
+    required: true
+    paramType: var
+  HEADER:
+    PARAMCLASS: E
+    TABNAME: BAPISCTS06
+    PARAMTEXT: Header information for request
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: HEADER
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return structure of the errors
+    functionName: BAPI_CTREQUEST_CREATE
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_CTREQUEST_CREATE_TASKS:
+  REQUESTID:
+    PARAMCLASS: I
+    TABNAME: BAPISCTS01
+    FIELDNAME: REQUESTID
+    PARAMTEXT: Request number
+    functionName: BAPI_CTREQUEST_CREATE_TASKS
+    paramName: REQUESTID
+    required: true
+    paramType: var
+  AUTHORLIST:
+    PARAMCLASS: T
+    TABNAME: BAPISCTS12
+    PARAMTEXT: List of task authors and task types
+    functionName: BAPI_CTREQUEST_CREATE_TASKS
+    paramName: AUTHORLIST
+    required: true
+    paramType: table
+  TASK_LIST:
+    PARAMCLASS: T
+    TABNAME: BAPISCTS07
+    PARAMTEXT: List of header information for the tasks
+    functionName: BAPI_CTREQUEST_CREATE_TASKS
+    paramName: TASK_LIST
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return structure of the errors
+    functionName: BAPI_CTREQUEST_CREATE_TASKS
+    paramName: RETURN
+    required: true
+    paramType: struct
+CTS_API_CREATE_CHANGE_REQUEST:
+  CATEGORY:
+    PARAMCLASS: I
+    TABNAME: CHAR01
+    PARAMTEXT: ''
+    functionName: CTS_API_CREATE_CHANGE_REQUEST
+    paramName: CATEGORY
+    required: true
+    paramType: var
+  CLIENT:
+    PARAMCLASS: I
+    TABNAME: CHAR3
+    PARAMTEXT: ''
+    functionName: CTS_API_CREATE_CHANGE_REQUEST
+    paramName: CLIENT
+    required: true
+    paramType: var
+  DESCRIPTION:
+    PARAMCLASS: I
+    TABNAME: TEXT60
+    PARAMTEXT: Description
+    functionName: CTS_API_CREATE_CHANGE_REQUEST
+    paramName: DESCRIPTION
+    required: true
+    paramType: var
+  OWNER:
+    PARAMCLASS: I
+    TABNAME: CHAR012
+    PARAMTEXT: ''
+    functionName: CTS_API_CREATE_CHANGE_REQUEST
+    paramName: OWNER
+    required: true
+    paramType: var
+  MESSAGE:
+    PARAMCLASS: E
+    TABNAME: TEXT80
+    PARAMTEXT: Error Message
+    functionName: CTS_API_CREATE_CHANGE_REQUEST
+    paramName: MESSAGE
+    required: true
+    paramType: var
+  REQUEST:
+    PARAMCLASS: E
+    TABNAME: CHAR20
+    PARAMTEXT: Change Request
+    functionName: CTS_API_CREATE_CHANGE_REQUEST
+    paramName: REQUEST
+    required: true
+    paramType: var
+  RETCODE:
+    PARAMCLASS: E
+    TABNAME: CHAR3
+    PARAMTEXT: Return code
+    functionName: CTS_API_CREATE_CHANGE_REQUEST
+    paramName: RETCODE
+    required: true
+    paramType: var

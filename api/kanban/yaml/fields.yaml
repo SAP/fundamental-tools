@@ -1,0 +1,5144 @@
+BAPI1075_LIST_ALL:
+  KANBAN_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      SHLP: CT PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+BAPI1075_KANBAN_CHANGE:
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PKBST
+      ROLLNAME: PKBST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PKBST
+    text:
+      FIELDTEXT: Kanban status
+      REPTEXT: Kanban status
+      SCRTEXT_S: Status
+      SCRTEXT_M: Kanban status
+      SCRTEXT_L: Kanban status
+  ACTUAL_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: PKIMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1075_KANBAN_CHANGE
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Actual quantity
+      REPTEXT: Actual quantity
+      SCRTEXT_S: Actual qty
+      SCRTEXT_M: Actual quantity
+      SCRTEXT_L: Actual quantity
+  REQUESTED_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: PKBMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1075_KANBAN_CHANGE
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Quantity requested
+      REPTEXT: Qty requested
+      SCRTEXT_S: Qty reqst
+      SCRTEXT_M: Qty requested
+      SCRTEXT_L: Quantity requested
+  PLANNEDRECEIPT:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 15
+      DOMNAME: TZNTSTMPS
+      ROLLNAME: PKGPZG
+      OUTPUTLEN: 19
+    text:
+      FIELDTEXT: Planned Receipt
+      REPTEXT: Plnd rcpt
+      SCRTEXT_S: Plnd rcpt
+      SCRTEXT_M: Planned receipt
+      SCRTEXT_L: Planned receipt
+  DELETION_INDICATOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: PKLKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Deletion Indicator for a Kanban
+      REPTEXT: DeID
+      SCRTEXT_S: Del. Ind.
+      SCRTEXT_M: Deletion Ind.
+      SCRTEXT_L: Deletion Ind.
+  BLOCKING_INDICATOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: SPKKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Blocking indicator for kanban container
+      REPTEXT: BkIn
+      SCRTEXT_S: BkIn
+      SCRTEXT_M: BlckInd
+      SCRTEXT_L: Blcking indicat.
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+BAPI1075_KANBAN_CHANGEX:
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ACTUAL_QTY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  REQUESTED_QTY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PLANNEDRECEIPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DELETION_INDICATOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  BLOCKING_INDICATOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+BAPI1075_GEN:
+  CONSIDER_TRIGGER_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: FLAGTP
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Consideration of Trigger Point Logic
+      REPTEXT: Consideration of Trigger Point Logic
+      SCRTEXT_S: Trigger Pt
+      SCRTEXT_M: Trigger Point
+      SCRTEXT_L: Consideration of Trigger Point Logic
+  EXCLUDE_STATUS_RESTRICTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: FLAGRESTR
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Exclude Authorization Check at Time of Kanban Status Change
+      REPTEXT: No Auth. Check at Time of Kanban Status Change
+      SCRTEXT_S: Auth.
+      SCRTEXT_M: No Auth. Check
+      SCRTEXT_L: No Authorization Check
+BAPI0012_GEN:
+  TESTRUN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIFLAG
+      ROLLNAME: TESTRUN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Switch to Simulation Session for Write BAPIs
+      REPTEXT: Switch to Simulation Mode
+      SCRTEXT_S: Simulation
+      SCRTEXT_M: Simulation Mode
+      SCRTEXT_L: Switch to Simulation Mode
+BAPIRET2:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  PARAMETER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SWC_ELEM
+      ROLLNAME: BAPI_PARAM
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Parameter Name
+      REPTEXT: Param. Name
+      SCRTEXT_S: Parameters
+      SCRTEXT_M: Parameter Name
+      SCRTEXT_L: Parameter Name
+  ROW:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: BAPI_LINE
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Lines in parameter
+      REPTEXT: Lines in parameter
+      SCRTEXT_S: Line
+      SCRTEXT_M: Parameter line
+      SCRTEXT_L: Lines in parameter
+  FIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FDNAME
+      ROLLNAME: BAPI_FLD
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT DD03L
+    text:
+      FIELDTEXT: Field in parameter
+      REPTEXT: Fld.
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field name
+      SCRTEXT_L: Field name
+  SYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LOGSYS
+      ROLLNAME: BAPILOGSYS
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT TBDLS
+    text:
+      FIELDTEXT: Logical system from which message originates
+      REPTEXT: System from which message comes
+      SCRTEXT_S: System
+      SCRTEXT_M: Logical system
+      SCRTEXT_L: Logical system (source of message)
+BAPIPAREX:
+  STRUCTURE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: AS4TAB
+      ROLLNAME: TE_STRUC
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      SHLP: CT DD02L
+    text:
+      FIELDTEXT: Structure name of  BAPI table extension
+      SCRTEXT_S: Structure
+      SCRTEXT_M: Table ext.struct.
+      SCRTEXT_L: BAPI table extension struct.
+  VALUEPART1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+BAPI1075_1:
+  KANBAN_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      SHLP: CH PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PKBST
+      ROLLNAME: PKBST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PKBST
+    text:
+      FIELDTEXT: Kanban status
+      REPTEXT: Kanban status
+      SCRTEXT_S: Status
+      SCRTEXT_M: Kanban status
+      SCRTEXT_L: Kanban status
+BAPI1075_GENERAL:
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: CHA
+      SHLP: CT MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  MAXROWS:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: SYST_LONG
+      ROLLNAME: BAPIMAXROW
+      OUTPUTLEN: 11
+      SIGN: X
+    text:
+      FIELDTEXT: Maximum number of lines of hits
+      SCRTEXT_S: MAXrow
+      SCRTEXT_M: Max. no. of lines
+      SCRTEXT_L: Maximum number of lines of hits
+BAPI1075_ACTUAL_QTY:
+  ACTUAL_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: PKIMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1075_ACTUAL_QTY
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Actual quantity
+      REPTEXT: Actual quantity
+      SCRTEXT_S: Actual qty
+      SCRTEXT_M: Actual quantity
+      SCRTEXT_L: Actual quantity
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+BAPI1075_4:
+  DELIVERY_NOTE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: XBLNR
+      ROLLNAME: LFSNR
+      OUTPUTLEN: 16
+    text:
+      FIELDTEXT: Number of External Delivery Note
+      REPTEXT: Delivery note
+      SCRTEXT_S: Deliv.note
+      SCRTEXT_M: Delivery note
+      SCRTEXT_L: Delivery note
+  DELIVERY_NOTE_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 35
+      DOMNAME: XBLNR_LONG
+      ROLLNAME: LFSNR_LONG
+      OUTPUTLEN: 35
+    text:
+      FIELDTEXT: Number of Extern. Delivery Note (Dependencies see Long Text)
+      REPTEXT: Delivery Note
+      SCRTEXT_S: Deliv.Note
+      SCRTEXT_M: Delivery Note
+      SCRTEXT_L: Delivery Note
+BAPI1075_PHYSTIME:
+  PHYSDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: PHDAT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Created on
+      REPTEXT: Creatd on
+      SCRTEXT_S: Created on
+      SCRTEXT_M: Created on
+      SCRTEXT_L: Created on
+  PHYSTIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: PHTIM
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Created at
+      REPTEXT: CreateAt
+      SCRTEXT_S: Created at
+      SCRTEXT_M: Created at
+      SCRTEXT_L: Created at
+BAPI1075_3:
+  KANBAN_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+    input:
+      SHLP: CH PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+  CTRLCYC_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: PKNUM
+      ROLLNAME: PKNUM
+      OUTPUTLEN: 7
+    input:
+      MEMORYID: PKNUM
+      CONVEXIT: ALPHA
+      SHLP: SH HV_PKHD
+    text:
+      FIELDTEXT: Control cycle number
+      REPTEXT: CntCycle
+      SCRTEXT_S: ContrCycle
+      SCRTEXT_M: Contr.cycle no.
+      SCRTEXT_L: Control cycle number
+  KANBAN_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PKPOS
+      ROLLNAME: PKPOS
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Kanban item number / control cycle item
+      REPTEXT: No.
+      SCRTEXT_S: Kanban no.
+      SCRTEXT_M: Kanban number
+      SCRTEXT_L: Kanban item no.
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  SUPPLYAREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PKBST
+      ROLLNAME: PKBST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PKBST
+    text:
+      FIELDTEXT: Kanban status
+      REPTEXT: Kanban status
+      SCRTEXT_S: Status
+      SCRTEXT_M: Kanban status
+      SCRTEXT_L: Kanban status
+  STATUSTEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 6
+      DOMNAME: BHSKT
+      ROLLNAME: BHSKT
+      OUTPUTLEN: 6
+    text:
+      FIELDTEXT: Short text - container status Kanban
+      REPTEXT: Status
+      SCRTEXT_S: Status
+      SCRTEXT_M: Cont. status
+      SCRTEXT_L: Cont. status short text
+  KANBAN_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: BEHMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1075_3
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Kanban Quantity
+      REPTEXT: Kanban Quantity
+      SCRTEXT_S: Kanban Qty
+      SCRTEXT_M: Kanban Quantity
+      SCRTEXT_L: Kanban Quantity
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: SH H_T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  STATUSDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: SAEDT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of last change
+      REPTEXT: Date
+      SCRTEXT_S: Date
+      SCRTEXT_M: Date
+      SCRTEXT_L: Date
+  STATUSTIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: SAEUZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time of the last status change
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: Time
+  PLANNEDORDER_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PLNUM
+      ROLLNAME: PLNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PAF
+      CONVEXIT: ALPHA
+      SHLP: CH PLAF
+    text:
+      FIELDTEXT: Planned order number
+      REPTEXT: Plnnd Ord.
+      SCRTEXT_S: Plnnd Ord.
+      SCRTEXT_M: Planned order
+      SCRTEXT_L: Planned order
+  ORDERID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: AUFNR
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: ANR
+      CONVEXIT: ALPHA
+      SHLP: CH AUFK
+    text:
+      FIELDTEXT: Order Number
+      REPTEXT: Order
+      SCRTEXT_S: Order
+      SCRTEXT_M: Order
+      SCRTEXT_L: Order
+  PURCH_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: EBELN
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: BES
+      CONVEXIT: ALPHA
+      SHLP: CH EKKO
+    text:
+      FIELDTEXT: Purchasing Document Number
+      REPTEXT: Purch.doc.
+      SCRTEXT_S: Purch.doc.
+      SCRTEXT_M: Purchasing doc.
+      SCRTEXT_L: Purchasing document
+  RESERV_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: RSNUM
+      ROLLNAME: RSNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: RES
+      SHLP: CH RESB
+    text:
+      FIELDTEXT: Number of reservation/dependent requirements
+      REPTEXT: Reserv.no.
+      SCRTEXT_S: Reserv.no.
+      SCRTEXT_M: Reservation
+      SCRTEXT_L: Reservation
+  SUMJITCALL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PABNUM
+      ROLLNAME: PABNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: PABNUM
+      CONVEXIT: ALPHA
+      SHLP: CH PABHD
+    text:
+      FIELDTEXT: JIT Call Number
+      REPTEXT: JIT No.
+      SCRTEXT_S: JIT No.
+      SCRTEXT_M: JIT Call Number
+      SCRTEXT_L: JIT Call Number
+  SUMJITCALL_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: PABPOS
+      ROLLNAME: PABPOS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: JIT call item
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item
+  MAT_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: BELNR
+      ROLLNAME: MBLNR
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: MBN
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Number of Material Document
+      REPTEXT: Mat. Doc.
+      SCRTEXT_S: Mat. Doc.
+      SCRTEXT_M: Material Doc.
+      SCRTEXT_L: Material Document
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+    input:
+      SHLP: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  PACKINSTRID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: PL_EXIDV
+      ROLLNAME: PL_PIID
+      OUTPUTLEN: 20
+    input:
+      MEMORYID: PIID
+      CONVEXIT: ALPHA
+      SHLP: SH PL_PI0
+    text:
+      FIELDTEXT: Identification number of packing instruction
+      REPTEXT: PackInstructn
+      SCRTEXT_S: Pack.inst.
+      SCRTEXT_M: PackInstructn
+      SCRTEXT_L: Packing instruction
+  NUMBER_LOADCARRIER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: ANZLT
+      ROLLNAME: ANZLT
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Number of Load Carriers
+      REPTEXT: No. LCs
+      SCRTEXT_S: No. LCs
+      SCRTEXT_M: No.Load Carrier
+      SCRTEXT_L: No.Load Carriers
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPI1075_LIST:
+  KANBAN_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+    input:
+      SHLP: CH PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+  KANBANCONTROLCYCLE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: PKNUM
+      ROLLNAME: PKNUM
+      OUTPUTLEN: 7
+    input:
+      MEMORYID: PKNUM
+      CONVEXIT: ALPHA
+      SHLP: SH HV_PKHD
+    text:
+      FIELDTEXT: Control cycle number
+      REPTEXT: CntCycle
+      SCRTEXT_S: ContrCycle
+      SCRTEXT_M: Contr.cycle no.
+      SCRTEXT_L: Control cycle number
+  KANBAN_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PKPOS
+      ROLLNAME: PKPOS
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Kanban item number / control cycle item
+      REPTEXT: No.
+      SCRTEXT_S: Kanban no.
+      SCRTEXT_M: Kanban number
+      SCRTEXT_L: Kanban item no.
+BAPI1172_PKNUM_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  CTRLCYC_NO_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: PKNUM
+      ROLLNAME: PKNUM
+      OUTPUTLEN: 7
+    input:
+      MEMORYID: PKNUM
+      CONVEXIT: ALPHA
+      SHLP: SH HV_PKHD
+    text:
+      FIELDTEXT: Control cycle number
+      REPTEXT: CntCycle
+      SCRTEXT_S: ContrCycle
+      SCRTEXT_M: Contr.cycle no.
+      SCRTEXT_L: Control cycle number
+  CTRLCYC_NO_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: PKNUM
+      ROLLNAME: PKNUM
+      OUTPUTLEN: 7
+    input:
+      MEMORYID: PKNUM
+      CONVEXIT: ALPHA
+      SHLP: SH HV_PKHD
+    text:
+      FIELDTEXT: Control cycle number
+      REPTEXT: CntCycle
+      SCRTEXT_S: ContrCycle
+      SCRTEXT_M: Contr.cycle no.
+      SCRTEXT_L: Control cycle number
+BAPI1075_PKKEY_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  KANBAN_ID_LOW:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+    input:
+      SHLP: CH PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+  KANBAN_ID_HIGH:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+    input:
+      SHLP: CH PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+BAPI1075_PKPOS_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  KANBAN_NO_LOW:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PKPOS
+      ROLLNAME: PKPOS
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Kanban item number / control cycle item
+      REPTEXT: No.
+      SCRTEXT_S: Kanban no.
+      SCRTEXT_M: Kanban number
+      SCRTEXT_L: Kanban item no.
+  KANBAN_NO_HIGH:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: PKPOS
+      ROLLNAME: PKPOS
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Kanban item number / control cycle item
+      REPTEXT: No.
+      SCRTEXT_S: Kanban no.
+      SCRTEXT_M: Kanban number
+      SCRTEXT_L: Kanban item no.
+BAPI1075_SAEDT_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STATUSDATE_LOW:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: SAEDT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of last change
+      REPTEXT: Date
+      SCRTEXT_S: Date
+      SCRTEXT_M: Date
+      SCRTEXT_L: Date
+  STATUSDATE_HIGH:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: SAEDT
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Date of last change
+      REPTEXT: Date
+      SCRTEXT_S: Date
+      SCRTEXT_M: Date
+      SCRTEXT_L: Date
+BAPI1075_PKBST_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STATUS_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PKBST
+      ROLLNAME: PKBST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PKBST
+    text:
+      FIELDTEXT: Kanban status
+      REPTEXT: Kanban status
+      SCRTEXT_S: Status
+      SCRTEXT_M: Kanban status
+      SCRTEXT_L: Kanban status
+  STATUS_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PKBST
+      ROLLNAME: PKBST
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PKBST
+    text:
+      FIELDTEXT: Kanban status
+      REPTEXT: Kanban status
+      SCRTEXT_S: Status
+      SCRTEXT_M: Kanban status
+      SCRTEXT_L: Kanban status
+BAPI1075_SAEUZ_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STATUSTIME_LOW:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: SAEUZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time of the last status change
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: Time
+  STATUSTIME_HIGH:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: UZEIT
+      ROLLNAME: SAEUZ
+      OUTPUTLEN: 8
+    input:
+      SHLP: CL CLOCK
+    text:
+      FIELDTEXT: Time of the last status change
+      REPTEXT: Time
+      SCRTEXT_S: Time
+      SCRTEXT_M: Time
+      SCRTEXT_L: Time
+BAPILANGU:
+  SPRSL:
+    format:
+      DATATYPE: LANG
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SPRAS
+      ROLLNAME: SPRSL
+      OUTPUTLEN: 2
+      LOWERCASE: X
+    input:
+      CONVEXIT: ISOLA
+      SHLP: SH H_T002
+    text:
+      FIELDTEXT: Language Key
+      REPTEXT: L
+      SCRTEXT_S: L
+      SCRTEXT_M: Language
+      SCRTEXT_L: Language key
+BAPIFLAG:
+  BAPIFLAG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: CHAR1
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Single-Character Flag
+BAPI1075_BATCH:
+  KANBAN_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: CHA
+      SHLP: CT MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  ACTUAL_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: PKIMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1075_BATCH
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Actual quantity
+      REPTEXT: Actual quantity
+      SCRTEXT_S: Actual qty
+      SCRTEXT_M: Actual quantity
+      SCRTEXT_L: Actual quantity
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+BAPI1172_KCPRF_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  KANBAN_CALC_PROF_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: KCPRF
+      ROLLNAME: KCPRF
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT TPKBP
+    text:
+      FIELDTEXT: Kanban Calculation Profile
+      REPTEXT: Calc
+      SCRTEXT_S: CalProfile
+      SCRTEXT_M: Calc. Profile
+      SCRTEXT_L: Calculation Profile
+  KANBAN_CALC_PROF_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: KCPRF
+      ROLLNAME: KCPRF
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPKBP
+    text:
+      FIELDTEXT: Kanban Calculation Profile
+      REPTEXT: Calc
+      SCRTEXT_S: CalProfile
+      SCRTEXT_M: Calc. Profile
+      SCRTEXT_L: Calculation Profile
+BAPI1172_LIST_ALL:
+  KANBANCONTROLCYCLE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: PKNUM
+      ROLLNAME: PKNUM
+      OUTPUTLEN: 7
+      valueInputType: list
+    input:
+      MEMORYID: PKNUM
+      CONVEXIT: ALPHA
+      SHLP: CT PKHD
+    text:
+      FIELDTEXT: Control cycle number
+      REPTEXT: CntCycle
+      SCRTEXT_S: ContrCycle
+      SCRTEXT_M: Contr.cycle no.
+      SCRTEXT_L: Control cycle number
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: SH S_MAT1
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W_C
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  SUPPLYAREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+  KANBAN_CT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: BEHAZ
+      ROLLNAME: BEHAZ
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Number of Kanban Containers
+      SCRTEXT_S: Number
+      SCRTEXT_M: No. of Kanbans
+      SCRTEXT_L: No. of Kanbans
+  KANBAN_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: BEHMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1172_LIST_ALL
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Kanban Quantity
+      REPTEXT: Kanban Quantity
+      SCRTEXT_S: Kanban Qty
+      SCRTEXT_M: Kanban Quantity
+      SCRTEXT_L: Kanban Quantity
+  VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VERID
+      ROLLNAME: VERID
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: VER
+      SHLP: CT MKAL
+    text:
+      FIELDTEXT: Production Version
+      REPTEXT: Ver.
+      SCRTEXT_S: Version
+      SCRTEXT_M: Prod. Version
+      SCRTEXT_L: Production Version
+  MAX_EMPTY:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: BEHAZ
+      ROLLNAME: SIGAZ
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Maximum Number of Empty Kanban Containers
+      REPTEXT: MEm
+      SCRTEXT_S: Max.Empty
+      SCRTEXT_M: Maximum Empty
+      SCRTEXT_L: Maximum Empty
+  RESP_SUPPLY_SOURCE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: DISPO
+      ROLLNAME: QUVER
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: DGR
+      SHLP: CT T024D
+    text:
+      FIELDTEXT: Person Responsible for Supply Source
+      REPTEXT: PRs
+      SCRTEXT_S: Pers. Res.
+      SCRTEXT_M: Person Respons.
+      SCRTEXT_L: Pers.Resp.for Source
+  STRATEGY_INHOUSE_PROD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTS
+      ROLLNAME: PKSTE
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT TPK01
+    text:
+      FIELDTEXT: Control Cycle Replenishment Strategy for In-House Production
+      REPTEXT: In-hs
+      SCRTEXT_S: In-HseProd
+      SCRTEXT_M: In-House Prod.
+      SCRTEXT_L: In-House Production
+  MAT_STAG_INDICATOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LVS_BERKZ
+      ROLLNAME: BERKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LVS_BERKZ
+    text:
+      FIELDTEXT: Material Staging Indicator for Production Supply
+      REPTEXT: S
+      SCRTEXT_S: Stg.Ind.
+      SCRTEXT_M: Staging Ind.
+      SCRTEXT_L: Mat.Staging Indicat.
+  WHSENUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  STGE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LGTYP
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGT
+      SHLP: SH H_T301
+    text:
+      FIELDTEXT: Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: Stge Type
+      SCRTEXT_M: Storage Type
+      SCRTEXT_L: Storage Type
+  STGE_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LGPLA
+      ROLLNAME: LGPLA
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LGP
+      SHLP: SH LAG1
+    text:
+      FIELDTEXT: Storage Bin
+      REPTEXT: Stor. Bin
+      SCRTEXT_S: StorageBin
+      SCRTEXT_M: Storage Bin
+      SCRTEXT_L: Storage Bin
+  DYN_DESTINATION_BIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: T333_NKDYN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Indicator: dynamic destination bin'
+      REPTEXT: DB
+      SCRTEXT_S: Dyn.bin
+      SCRTEXT_M: Dynamic bin
+      SCRTEXT_L: Dynamic storage bin
+  STRATEGY_EXT_REPL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTF
+      ROLLNAME: PKSTF
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT TPK02
+    text:
+      FIELDTEXT: Replenishment Strategy of Control Cycle - Ext. Procurement
+      REPTEXT: Ext.
+      SCRTEXT_S: Ext. Proc.
+      SCRTEXT_M: External Proc.
+      SCRTEXT_L: External Procurement
+  STRATEGY_STOCK_TRANSF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTU
+      ROLLNAME: PKSTU
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT TPK03
+    text:
+      FIELDTEXT: Control Cycle Replenishment Strategy for Stock Transfer
+      REPTEXT: Trns
+      SCRTEXT_S: Stock Tfr
+      SCRTEXT_M: Stock Transfer
+      SCRTEXT_L: Stock Transfer
+  VENDOR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED_C
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  PURCH_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: EKORG
+      ROLLNAME: EKORG
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: EKO
+      SHLP: CT T024E
+    text:
+      FIELDTEXT: Purchasing organization
+      REPTEXT: POrg
+      SCRTEXT_S: Purch.org.
+      SCRTEXT_M: Purchasing org.
+      SCRTEXT_L: Purch. organization
+  AGREEMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: EVRTN
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: VRT
+      CONVEXIT: ALPHA
+      SHLP: CT EKKO
+    text:
+      FIELDTEXT: Agreement Number
+      REPTEXT: Agreement
+      SCRTEXT_S: Agreement
+      SCRTEXT_M: Agreement
+      SCRTEXT_L: Agreement
+  AGRMT_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: EBELP
+      ROLLNAME: EVRTP
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      SHLP: CT EKPO
+    text:
+      FIELDTEXT: Agreement Item
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Agreement Item
+  INDEP_REPL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: ANSWB
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Replenishment Controlled Independently By Supply Source
+      REPTEXT: I
+      SCRTEXT_S: Ind. Srce
+      SCRTEXT_M: Indep. Source
+      SCRTEXT_L: Indep. Supply Source
+  KANBANCONTAINER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: PKBHT
+      OUTPUTLEN: 18
+    input:
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Kanban Container
+      REPTEXT: Container
+      SCRTEXT_S: Container
+      SCRTEXT_M: Container
+      SCRTEXT_L: Container
+  SEPARATE_GR_IF_FULL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: XFELD
+      ROLLNAME: QUFKT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Separate GR If Status Changed to Full
+      REPTEXT: SGR
+      SCRTEXT_S: Separ. GR
+      SCRTEXT_M: Separate GR
+      SCRTEXT_L: Separate GR
+  STGE_LOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: LAG
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  BASE_UOM:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: CT T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  BASE_UOM_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+    input:
+      SHLP: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  CC_STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RKSTA
+      ROLLNAME: RKSTAT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV RKSTA
+    text:
+      FIELDTEXT: Control Cycle Category
+      REPTEXT: CC Cat.
+      SCRTEXT_S: CC Cat.
+      SCRTEXT_M: Ctrl Cycle Cat.
+      SCRTEXT_L: CC Category (KN)
+  COSTCENTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KOSTL
+      ROLLNAME: KOSTL
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: KOS
+      CONVEXIT: ALPHA
+      SHLP: CT CSKS
+    text:
+      FIELDTEXT: Cost Center
+      REPTEXT: Cost Ctr
+      SCRTEXT_S: Cost Ctr
+      SCRTEXT_M: Cost Center
+      SCRTEXT_L: Cost Center
+  OUTPUT_DEVICE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: RSPOPNAME
+      ROLLNAME: SYPDEST
+      OUTPUTLEN: 30
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: SPDEV
+      SHLP: CT TSP03
+    text:
+      FIELDTEXT: Spool Output Device
+      REPTEXT: Device
+      SCRTEXT_S: Device
+      SCRTEXT_M: Output Device
+      SCRTEXT_L: Output Device
+  KANBAN_PRINT_CONTROL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PKDRS
+      ROLLNAME: PKDRS
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PKDRS
+    text:
+      FIELDTEXT: Kanban Card Print Control
+      SCRTEXT_S: PrintCard
+      SCRTEXT_M: Print Card
+      SCRTEXT_L: Print Card
+  ISSUINGPLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PKUMW
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT T001W
+    text:
+      FIELDTEXT: Issuing Plant in Kanban Processing
+      REPTEXT: Plnt
+      SCRTEXT_S: Iss. Plant
+      SCRTEXT_M: Issuing Plant
+      SCRTEXT_L: Issuing Plant
+  DELIV_ADDR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: AD_ADDRNUM
+      ROLLNAME: PKADR
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT ADRC
+    text:
+      FIELDTEXT: Kanban delivery address
+      REPTEXT: Deliv.add.
+      SCRTEXT_S: Deliv.add.
+      SCRTEXT_M: Deliv. address
+      SCRTEXT_L: Delivery Address
+  STAT_SEQ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSFG
+      ROLLNAME: PKSFG
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT TPKSF
+    text:
+      FIELDTEXT: Status Sequence Kanban
+      REPTEXT: Seq.
+      SCRTEXT_S: Stat. Seq.
+      SCRTEXT_M: Status Sequence
+      SCRTEXT_L: Status Seq. Kanban
+  LOGIC_SET_EMPTY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PKLOG
+      ROLLNAME: PKLOG
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV PKLOG
+    text:
+      FIELDTEXT: Logic for Setting Kanban to Empty
+      REPTEXT: Lgc
+      SCRTEXT_S: Replenish.
+      SCRTEXT_M: Trigger Replen.
+      SCRTEXT_L: Trigger Replenishmnt
+  TRIGGER_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ALSMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1172_LIST_ALL
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Kanban Trigger Quantity
+      REPTEXT: Trigger Quantity
+      SCRTEXT_S: TriggerQty
+      SCRTEXT_M: Trigger Qty
+      SCRTEXT_L: Kanban Trigger Qty
+  STORING_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: TEXT25
+      ROLLNAME: STLPL
+      OUTPUTLEN: 25
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Storing Position
+      REPTEXT: Storing Position
+      SCRTEXT_S: StorPos.
+      SCRTEXT_M: Storing Pos.
+      SCRTEXT_L: Storing Position
+  CC_CALCU_INDEX:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: KCART
+      ROLLNAME: KCART
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV KCART
+    text:
+      FIELDTEXT: 'Ind.: Whether and How a Kanban Control Cycle is Calculated'
+      REPTEXT: CTyp
+      SCRTEXT_S: Calc. Type
+      SCRTEXT_M: Calc. Type
+      SCRTEXT_L: Calculation Type
+  SAFTYFACTOR:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 5
+      DOMNAME: DEC2_3
+      ROLLNAME: KCSAF
+      OUTPUTLEN: 6
+      DECIMALS: 3
+    text:
+      FIELDTEXT: Safety Factor for Kanban Calculation
+      REPTEXT: Factor
+      SCRTEXT_S: Safety
+      SCRTEXT_M: Safety
+      SCRTEXT_L: Safety Factor
+  CONST_KANBAN_CALC:
+    format:
+      DATATYPE: INT1
+      INTTYPE: b
+      LENG: 3
+      DOMNAME: INT1
+      ROLLNAME: KCCON
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Constant for Kanban Calculation
+      REPTEXT: Const.
+      SCRTEXT_S: Constant
+      SCRTEXT_M: Constant
+      SCRTEXT_L: Constant
+  ROUNDING_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: PKRMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1172_LIST_ALL
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Rounding Quantity
+      REPTEXT: Rounding Qty
+      SCRTEXT_S: Rndg Qty
+      SCRTEXT_M: Rounding Qty
+      SCRTEXT_L: Rounding Quantity
+  FIX_KANBAN_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: PKFMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI1172_LIST_ALL
+      REFFIELD: BASE_UOM
+    text:
+      FIELDTEXT: Fixed Kanban Quantity
+      REPTEXT: Fixed Kanban Qty
+      SCRTEXT_S: Fixed KQty
+      SCRTEXT_M: Fixed Kanb. Qty
+      SCRTEXT_L: Fixed Kanban Qty
+  KANBAN_CALC_PROF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: KCPRF
+      ROLLNAME: KCPRF
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPKBP
+    text:
+      FIELDTEXT: Kanban Calculation Profile
+      REPTEXT: Calc
+      SCRTEXT_S: CalProfile
+      SCRTEXT_M: Calc. Profile
+      SCRTEXT_L: Calculation Profile
+  REPL_LEADTIME_DAY:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 3
+      DOMNAME: DEC3
+      ROLLNAME: KWBZD
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Replenishment Lead Time in Workdays
+      REPTEXT: RLT [Days]
+      SCRTEXT_S: RLT [Days]
+      SCRTEXT_M: RLT [Days]
+      SCRTEXT_L: Replen. Lead [Days]
+  REPL_LEADTIME_MIN:
+    format:
+      DATATYPE: DEC
+      INTTYPE: P
+      LENG: 11
+      DOMNAME: TSTRDURAN
+      ROLLNAME: KWBZM
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: TSTRN
+    text:
+      FIELDTEXT: Replenishment Lead Time in Hours/Minutes
+      REPTEXT: RLT(h:min)
+      SCRTEXT_S: RLT[h:min]
+      SCRTEXT_M: RLT [h:min]
+      SCRTEXT_L: Repl. Lead [h:min]
+  SD_SCHED_AGRMNT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: VBELN_PK
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      SHLP: CT VBUK
+    text:
+      FIELDTEXT: SD Scheduling Agreement (Sales Doc.) in Kanban Processing
+      REPTEXT: Sch. Agmt
+      SCRTEXT_S: Sch. Agmt
+      SCRTEXT_M: SD Sched. Agmt
+      SCRTEXT_L: SD Sched. Agreement
+  SD_SCHED_AGRMNT_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: POSNR
+      ROLLNAME: VBELP_PK
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      SHLP: CT VBUP
+    text:
+      FIELDTEXT: SD Scheduling Agreement Item in Kanban Processing
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Schd. Agmt Item
+      SCRTEXT_L: SD Sched. Agmt Item
+  SOURCE_SUPP_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: QUPVB
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Source Production Supply Area for Kanban Stock Transfers
+      REPTEXT: Source PSA
+      SCRTEXT_S: Source PSA
+      SCRTEXT_M: Source PSA
+      SCRTEXT_L: Source Supply Area
+  JIT_CALL_PROF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PABPRF
+      ROLLNAME: PABPRF
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      SHLP: CT CPABPRF
+    text:
+      FIELDTEXT: JIT Call Profile
+      REPTEXT: Prf.
+      SCRTEXT_S: JC Profile
+      SCRTEXT_M: JIT Call Prof.
+      SCRTEXT_L: JIT Call Profile
+  INTERNAL_PACK_OBJ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: SYSUUID_22
+      ROLLNAME: PL_PACKNR
+      OUTPUTLEN: 22
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Unique internal packing object number
+      REPTEXT: Pack.obj.
+      SCRTEXT_S: Pack.obj.
+      SCRTEXT_M: Packing object
+      SCRTEXT_L: Packing object
+  NUMBER_LOADCARRIER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: ANZLT
+      ROLLNAME: ANZLT
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Number of Load Carriers
+      REPTEXT: No. LCs
+      SCRTEXT_S: No. LCs
+      SCRTEXT_M: No.Load Carrier
+      SCRTEXT_L: No.Load Carriers
+  CC_CARD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 16
+      DOMNAME: TDFORM
+      ROLLNAME: RKFORM
+      OUTPUTLEN: 16
+    text:
+      FIELDTEXT: Card for Printing Control Cycle Data
+      REPTEXT: Card
+      SCRTEXT_S: Card
+      SCRTEXT_M: Ctrl Cycle Card
+      SCRTEXT_L: Control Cycle Card
+  MATL_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: MAKTX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Material description
+      REPTEXT: Material description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Material description
+  PLANT_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: TEXT30
+      ROLLNAME: NAME1
+      OUTPUTLEN: 30
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Name
+      REPTEXT: Name 1
+      SCRTEXT_S: Name 1
+      SCRTEXT_M: Name 1
+      SCRTEXT_L: Name 1
+  SUPPLYAREA_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: PVBTX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Production supply area description
+      REPTEXT: Descrip.
+      SCRTEXT_S: Descrip.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Supply area descr.
+  STRATEGY_INHOUSE_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: PKSBZ
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: 'Description: Kanban replenishment strategy'
+      REPTEXT: Replenishment strategy description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Strategy description
+  STRATEGY_EXT_REPL_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: PKSBZ
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: 'Description: Kanban replenishment strategy'
+      REPTEXT: Replenishment strategy description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Strategy description
+  STRATEGY_STOCK_TRANSF_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: PKSBZ
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: 'Description: Kanban replenishment strategy'
+      REPTEXT: Replenishment strategy description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Strategy description
+  PACKINSTRID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: PL_EXIDV
+      ROLLNAME: PL_PIID
+      OUTPUTLEN: 20
+    input:
+      MEMORYID: PIID
+      CONVEXIT: ALPHA
+      SHLP: SH PL_PI0
+    text:
+      FIELDTEXT: Identification number of packing instruction
+      REPTEXT: PackInstructn
+      SCRTEXT_S: Pack.inst.
+      SCRTEXT_M: PackInstructn
+      SCRTEXT_L: Packing instruction
+  KANBANCONTAINER_DESC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: MAKTX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Material description
+      REPTEXT: Material description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Material description
+  REP_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VORNR
+      ROLLNAME: SA_ZPUNKT
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: NUMCV
+    text:
+      FIELDTEXT: Reporting Point
+      REPTEXT: RPoint
+      SCRTEXT_S: Rptg Point
+      SCRTEXT_M: Reporting Point
+      SCRTEXT_L: Reporting Point
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  KANBANCONTAINER_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_KANBANCONTAINER_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for KANBANCONTAINER Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  KANBANCONTAINER_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_KANBANCONTAINER_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for KANBANCONTAINER Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  KANBANCONTAINER_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_KANBANCONTAINER_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for KANBANCONTAINER Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  LIFECYCLE_STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: LCM_STATUS
+      ROLLNAME: LCM_STATUS
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV LCM_STATUS
+    text:
+      FIELDTEXT: Lifecycle Status of Control Cycle
+      REPTEXT: LC Status
+      SCRTEXT_S: LC Status
+      SCRTEXT_M: Lifecycle Stat.
+      SCRTEXT_L: Lifecycle Status (KN)
+  CREATION_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: CRE_DATE
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Creation Date of Control Cycle
+      REPTEXT: Created On
+      SCRTEXT_S: Created On
+      SCRTEXT_M: Creation Date
+      SCRTEXT_L: Creation Date
+  RELEASE_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: RLS_DATE
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Release Date for Control Cycle
+      REPTEXT: Release Date
+      SCRTEXT_S: Rel. Date
+      SCRTEXT_M: Release Date
+      SCRTEXT_L: Release Date
+  LOCK_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: OBS_DATE
+      OUTPUTLEN: 10
+    input:
+      SHLP: CA CALENDAR
+    text:
+      FIELDTEXT: Control Cycle Lock Date
+      REPTEXT: Lock Date
+      SCRTEXT_S: Lock Date
+      SCRTEXT_M: Lock Date
+      SCRTEXT_L: Lock Date
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  KANBANCONTAINER_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: PKBHT40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Kanban Container
+      REPTEXT: Container
+      SCRTEXT_S: Container
+      SCRTEXT_M: Container
+      SCRTEXT_L: Container
+BAPI1172_RKSTA_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  CTRLCYC_STAT_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RKSTA
+      ROLLNAME: RKSTAT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV RKSTA
+    text:
+      FIELDTEXT: Control Cycle Category
+      REPTEXT: CC Cat.
+      SCRTEXT_S: CC Cat.
+      SCRTEXT_M: Ctrl Cycle Cat.
+      SCRTEXT_L: CC Category (KN)
+  CTRLCYC_STAT_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: RKSTA
+      ROLLNAME: RKSTAT
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV RKSTA
+    text:
+      FIELDTEXT: Control Cycle Category
+      REPTEXT: CC Cat.
+      SCRTEXT_S: CC Cat.
+      SCRTEXT_M: Ctrl Cycle Cat.
+      SCRTEXT_L: CC Category (KN)
+BAPI1172_KOSTL_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  COSTCENTER_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KOSTL
+      ROLLNAME: KOSTL
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: KOS
+      CONVEXIT: ALPHA
+      SHLP: CT CSKS
+    text:
+      FIELDTEXT: Cost Center
+      REPTEXT: Cost Ctr
+      SCRTEXT_S: Cost Ctr
+      SCRTEXT_M: Cost Center
+      SCRTEXT_L: Cost Center
+  COSTCENTER_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KOSTL
+      ROLLNAME: KOSTL
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: KOS
+      CONVEXIT: ALPHA
+      SHLP: CT CSKS
+    text:
+      FIELDTEXT: Cost Center
+      REPTEXT: Cost Ctr
+      SCRTEXT_S: Cost Ctr
+      SCRTEXT_M: Cost Center
+      SCRTEXT_L: Cost Center
+BAPI1075_DELIV:
+  KANBAN_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+  SOLD_TO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KUNNR
+      ROLLNAME: KUNAG
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: VAG
+      CONVEXIT: ALPHA
+      SHLP: CT KNA1
+    text:
+      FIELDTEXT: Sold-to party
+      REPTEXT: Sold-to pt
+      SCRTEXT_S: Sold-to pt
+      SCRTEXT_M: Sold-to party
+      SCRTEXT_L: Sold-to party
+  PURCH_NO_C:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 35
+      DOMNAME: BSTKD
+      ROLLNAME: BSTKD
+      OUTPUTLEN: 35
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Customer purchase order number
+      REPTEXT: Purchase order number
+      SCRTEXT_S: Pur. order
+      SCRTEXT_M: PO number
+      SCRTEXT_L: PO number
+  DELIV_NUMB:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: VBELN
+      ROLLNAME: VBELN_VL
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: VL
+      CONVEXIT: ALPHA
+      SHLP: CT VBUK
+    text:
+      FIELDTEXT: Delivery
+      REPTEXT: Delivery
+      SCRTEXT_S: Delivery
+      SCRTEXT_M: Delivery
+      SCRTEXT_L: Delivery
+  DELIV_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: POSNR
+      ROLLNAME: POSNR_VL
+      OUTPUTLEN: 6
+    input:
+      SHLP: CT VBUP
+    text:
+      FIELDTEXT: Delivery Item
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Item
+BAPI1075_DEV_DATA:
+  KANBAN_ID:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 10
+      DOMNAME: PKKEY
+      ROLLNAME: PKKEY
+      OUTPUTLEN: 10
+    input:
+      SHLP: CT PKPS
+    text:
+      FIELDTEXT: Identification Number
+      REPTEXT: ID number
+      SCRTEXT_S: ID number
+      SCRTEXT_M: ID number
+      SCRTEXT_L: ID number
+  PACK_OBJ_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: SYSUUID_22
+      ROLLNAME: PL_PACKNR
+      OUTPUTLEN: 22
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Unique internal packing object number
+      REPTEXT: Pack.obj.
+      SCRTEXT_S: Pack.obj.
+      SCRTEXT_M: Packing object
+      SCRTEXT_L: Packing object
+  NUMBER_LOADCARRIER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: ANZLT
+      ROLLNAME: ANZLT
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Number of Load Carriers
+      REPTEXT: No. LCs
+      SCRTEXT_S: No. LCs
+      SCRTEXT_M: No.Load Carrier
+      SCRTEXT_L: No.Load Carriers
+BAPI1172_PKSTF_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STRATEGY_EXT_REPL_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTF
+      ROLLNAME: PKSTF
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPK02
+    text:
+      FIELDTEXT: Replenishment Strategy of Control Cycle - Ext. Procurement
+      REPTEXT: Ext.
+      SCRTEXT_S: Ext. Proc.
+      SCRTEXT_M: External Proc.
+      SCRTEXT_L: External Procurement
+  STRATEGY_EXT_REPL_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTF
+      ROLLNAME: PKSTF
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPK02
+    text:
+      FIELDTEXT: Replenishment Strategy of Control Cycle - Ext. Procurement
+      REPTEXT: Ext.
+      SCRTEXT_S: Ext. Proc.
+      SCRTEXT_M: External Proc.
+      SCRTEXT_L: External Procurement
+BAPI1172_PKSTE_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STRATEGY_INHOUSE_PROD_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTS
+      ROLLNAME: PKSTE
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPK01
+    text:
+      FIELDTEXT: Control Cycle Replenishment Strategy for In-House Production
+      REPTEXT: In-hs
+      SCRTEXT_S: In-HseProd
+      SCRTEXT_M: In-House Prod.
+      SCRTEXT_L: In-House Production
+  STRATEGY_INHOUSE_PROD_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTS
+      ROLLNAME: PKSTE
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPK01
+    text:
+      FIELDTEXT: Control Cycle Replenishment Strategy for In-House Production
+      REPTEXT: In-hs
+      SCRTEXT_S: In-HseProd
+      SCRTEXT_M: In-House Prod.
+      SCRTEXT_L: In-House Production
+BAPI1172_PKUMW_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  ISSUINGPLANT_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PKUMW
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Issuing Plant in Kanban Processing
+      REPTEXT: Plnt
+      SCRTEXT_S: Iss. Plant
+      SCRTEXT_M: Issuing Plant
+      SCRTEXT_L: Issuing Plant
+  ISSUINGPLANT_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: PKUMW
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Issuing Plant in Kanban Processing
+      REPTEXT: Plnt
+      SCRTEXT_S: Iss. Plant
+      SCRTEXT_M: Issuing Plant
+      SCRTEXT_L: Issuing Plant
+BAPI1172_UMLGO_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STGE_LOC_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+  STGE_LOC_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: LGORT
+      ROLLNAME: LGORT_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: LAG
+      SHLP: CT T001L
+    text:
+      FIELDTEXT: Storage location
+      REPTEXT: SLoc
+      SCRTEXT_S: Stor. loc.
+      SCRTEXT_M: Stor. location
+      SCRTEXT_L: Storage location
+BAPI1172_PABPRF_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  JIT_CALL_PROF_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PABPRF
+      ROLLNAME: PABPRF
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT CPABPRF
+    text:
+      FIELDTEXT: JIT Call Profile
+      REPTEXT: Prf.
+      SCRTEXT_S: JC Profile
+      SCRTEXT_M: JIT Call Prof.
+      SCRTEXT_L: JIT Call Profile
+  JIT_CALL_PROF_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PABPRF
+      ROLLNAME: PABPRF
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT CPABPRF
+    text:
+      FIELDTEXT: JIT Call Profile
+      REPTEXT: Prf.
+      SCRTEXT_S: JC Profile
+      SCRTEXT_M: JIT Call Prof.
+      SCRTEXT_L: JIT Call Profile
+BAPIMATRAM:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  MATNR_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR_V
+      OUTPUTLEN: 18
+    input:
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: From material number
+      REPTEXT: From material number
+      SCRTEXT_S: From no.
+      SCRTEXT_M: From material number
+      SCRTEXT_L: From material number
+  MATNR_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR_B
+      OUTPUTLEN: 18
+    input:
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: To material number
+      REPTEXT: To material number
+      SCRTEXT_S: to
+      SCRTEXT_M: To material number
+      SCRTEXT_L: To material number
+  MATNR_HIGH_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATNR_HIGH_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATNR Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATNR_HIGH_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATNR_HIGH_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATNR_HIGH Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATNR_HIGH_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATNR_HIGH_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATNR_HIGH Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATNR_LOW_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATNR_LOW_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATNR_LOW Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATNR_LOW_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATNR_LOW_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATNR_LOW Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATNR_LOW_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATNR_LOW_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATNR_LOW Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATNR_LOW_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  MATNR_HIGH_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPIMATRAW:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  PLANT_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_V
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH S_T001W
+    text:
+      FIELDTEXT: From plant
+      REPTEXT: Fr.plant
+      SCRTEXT_S: From plant
+      SCRTEXT_M: From plant
+      SCRTEXT_L: From plant
+  PLANT_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_B
+      OUTPUTLEN: 4
+    input:
+      SHLP: SH S_T001W
+    text:
+      FIELDTEXT: To plant
+      REPTEXT: To plant
+      SCRTEXT_S: To plant
+      SCRTEXT_M: To plant
+      SCRTEXT_L: To plant
+BAPI1172_EKORG_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  PURCH_ORG_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: EKORG
+      ROLLNAME: EKORG
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: EKO
+      SHLP: SH H_T024E
+    text:
+      FIELDTEXT: Purchasing organization
+      REPTEXT: POrg
+      SCRTEXT_S: Purch.org.
+      SCRTEXT_M: Purchasing org.
+      SCRTEXT_L: Purch. organization
+  PURCH_ORG_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: EKORG
+      ROLLNAME: EKORG
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: EKO
+      SHLP: SH H_T024E
+    text:
+      FIELDTEXT: Purchasing organization
+      REPTEXT: POrg
+      SCRTEXT_S: Purch.org.
+      SCRTEXT_M: Purchasing org.
+      SCRTEXT_L: Purch. organization
+BAPI1172_QUVER_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  RESP_SUPPLY_SOURCE_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: DISPO
+      ROLLNAME: QUVER
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: DGR
+      SHLP: CT T024D
+    text:
+      FIELDTEXT: Person Responsible for Supply Source
+      REPTEXT: PRs
+      SCRTEXT_S: Pers. Res.
+      SCRTEXT_M: Person Respons.
+      SCRTEXT_L: Pers.Resp.for Source
+  RESP_SUPPLY_SOURCE_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: DISPO
+      ROLLNAME: QUVER
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: DGR
+      SHLP: CT T024D
+    text:
+      FIELDTEXT: Person Responsible for Supply Source
+      REPTEXT: PRs
+      SCRTEXT_S: Pers. Res.
+      SCRTEXT_M: Person Respons.
+      SCRTEXT_L: Pers.Resp.for Source
+BAPI1172_LGNUM_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  WHSENUMBER_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+  WHSENUMBER_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGNUM
+      ROLLNAME: LGNUM
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGN
+      SHLP: CT T300
+    text:
+      FIELDTEXT: Warehouse Number / Warehouse Complex
+      REPTEXT: WhN
+      SCRTEXT_S: Whse No.
+      SCRTEXT_M: Warehouse No.
+      SCRTEXT_L: Warehouse Number
+BAPI1172_LGTYP_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STGE_TYPE_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LGTYP
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGT
+      SHLP: SH H_T301
+    text:
+      FIELDTEXT: Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: Stge Type
+      SCRTEXT_M: Storage Type
+      SCRTEXT_L: Storage Type
+  STGE_TYPE_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LGTYP
+      ROLLNAME: LGTYP
+      OUTPUTLEN: 3
+    input:
+      MEMORYID: LGT
+      SHLP: SH H_T301
+    text:
+      FIELDTEXT: Storage Type
+      REPTEXT: Typ
+      SCRTEXT_S: Stge Type
+      SCRTEXT_M: Storage Type
+      SCRTEXT_L: Storage Type
+BAPI1172_PKSTU_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  STRATEGY_STOCK_TRANSF_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTU
+      ROLLNAME: PKSTU
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPK03
+    text:
+      FIELDTEXT: Control Cycle Replenishment Strategy for Stock Transfer
+      REPTEXT: Trns
+      SCRTEXT_S: Stock Tfr
+      SCRTEXT_M: Stock Transfer
+      SCRTEXT_L: Stock Transfer
+  STRATEGY_STOCK_TRANSF_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: PKSTU
+      ROLLNAME: PKSTU
+      OUTPUTLEN: 4
+    input:
+      SHLP: CT TPK03
+    text:
+      FIELDTEXT: Control Cycle Replenishment Strategy for Stock Transfer
+      REPTEXT: Trns
+      SCRTEXT_S: Stock Tfr
+      SCRTEXT_M: Stock Transfer
+      SCRTEXT_L: Stock Transfer
+BAPI1172_PRVBE_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  SUPPLYAREA_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+  SUPPLYAREA_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+BAPI1172_LIFNR_RANGE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      SHLP: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  VENDOR_LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  VENDOR_HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+BAPICTRLC1:
+  SUPPLIER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+BAPICTRLC2:
+  CTRLCYC_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 7
+      DOMNAME: PKNUM
+      ROLLNAME: PKNUM
+      OUTPUTLEN: 7
+    input:
+      MEMORYID: PKNUM
+      CONVEXIT: ALPHA
+      SHLP: SH HV_PKHD
+    text:
+      FIELDTEXT: Control cycle number
+      REPTEXT: CntCycle
+      SCRTEXT_S: ContrCycle
+      SCRTEXT_M: Contr.cycle no.
+      SCRTEXT_L: Control cycle number
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      SHLP: CT MARA
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  SUPPLYAREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+  KANBAN_CT:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: BEHAZ
+      ROLLNAME: BEHAZ
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Number of Kanban Containers
+      SCRTEXT_S: Number
+      SCRTEXT_M: No. of Kanbans
+      SCRTEXT_L: No. of Kanbans
+  KANBAN_QTY:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: BEHMG
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: MARA
+      REFFIELD: MEINS
+    text:
+      FIELDTEXT: Kanban Quantity
+      REPTEXT: Kanban Quantity
+      SCRTEXT_S: Kanban Qty
+      SCRTEXT_M: Kanban Quantity
+      SCRTEXT_L: Kanban Quantity
+  UNIT_MEAS:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: MEINS
+      OUTPUTLEN: 3
+      LOWERCASE: X
+    input:
+      CONVEXIT: CUNIT
+      SHLP: SH H_T006
+    text:
+      FIELDTEXT: Base Unit of Measure
+      REPTEXT: BUn
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Base Unit
+      SCRTEXT_L: Base Unit of Measure
+  MAX_EMPTY:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: BEHAZ
+      ROLLNAME: SIGAZ
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Maximum Number of Empty Kanban Containers
+      REPTEXT: MEm
+      SCRTEXT_S: Max.Empty
+      SCRTEXT_M: Maximum Empty
+      SCRTEXT_L: Maximum Empty
+  CNTNR_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: MAKTX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Material description
+      REPTEXT: Material description
+      SCRTEXT_S: Descr.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Material description
+  SUPPLIER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LIFNR
+      ROLLNAME: ELIFN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: LIF
+      CONVEXIT: ALPHA
+      SHLP: SH KRED
+    text:
+      FIELDTEXT: Vendor's account number
+      REPTEXT: Vendor
+      SCRTEXT_S: Vendor
+      SCRTEXT_M: Vendor
+      SCRTEXT_L: Vendor
+  AGREEMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EBELN
+      ROLLNAME: EVRTN
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: VRT
+      CONVEXIT: ALPHA
+      SHLP: CH EKKO
+    text:
+      FIELDTEXT: Agreement Number
+      REPTEXT: Agreement
+      SCRTEXT_S: Agreement
+      SCRTEXT_M: Agreement
+      SCRTEXT_L: Agreement
+  AGRMT_ITEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 5
+      DOMNAME: EBELP
+      ROLLNAME: EVRTP
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      SHLP: CH EKPO
+    text:
+      FIELDTEXT: Agreement Item
+      REPTEXT: Item
+      SCRTEXT_S: Item
+      SCRTEXT_M: Item
+      SCRTEXT_L: Agreement Item
+  SUPPL_MAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: IDNEX22
+      ROLLNAME: IDNLF22
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Material number used by vendor
+      REPTEXT: Vendor material number
+      SCRTEXT_S: Vend. mat.
+      SCRTEXT_M: Vendor mat. no.
+      SCRTEXT_L: Vendor material no.
+  NAME:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: AD_NAME1
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Name 1
+      REPTEXT: Name
+      SCRTEXT_S: Name
+      SCRTEXT_M: Name
+      SCRTEXT_L: Name
+  NAME_2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: AD_NAME2
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Name 2
+      REPTEXT: Name 2
+      SCRTEXT_S: Name 2
+      SCRTEXT_M: Name 2
+      SCRTEXT_L: Name 2
+  NAME_3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: AD_NAME3
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Name 3
+      REPTEXT: Name 3
+      SCRTEXT_S: Name 3
+      SCRTEXT_M: Name 3
+      SCRTEXT_L: Name 3
+  NAME_4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: AD_NAME4
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Name 4
+      REPTEXT: Name 4
+      SCRTEXT_S: Name 4
+      SCRTEXT_M: Name 4
+      SCRTEXT_L: Name 4
+  STREET:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 60
+      DOMNAME: TEXT60
+      ROLLNAME: AD_STREET
+      OUTPUTLEN: 60
+      LOWERCASE: X
+    input:
+      SHLP: SH CLSTRTNAME
+    text:
+      FIELDTEXT: Street
+      REPTEXT: Street
+      SCRTEXT_S: Street
+      SCRTEXT_M: Street
+      SCRTEXT_L: Street
+  CITY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: AD_CITY1
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    input:
+      SHLP: SH CLCITYNAME
+    text:
+      FIELDTEXT: City
+      REPTEXT: City
+      SCRTEXT_S: City
+      SCRTEXT_M: City
+      SCRTEXT_L: City
+  POSTL_COD1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHAR10
+      ROLLNAME: AD_PSTCD1
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: City postal code
+      REPTEXT: Postl Code
+      SCRTEXT_S: Postl Code
+      SCRTEXT_M: Postal Code
+      SCRTEXT_L: Postal Code
+  COUNTRY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LAND1
+      ROLLNAME: LAND1
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: LND
+      SHLP: CT T005
+    text:
+      FIELDTEXT: Country Key
+      REPTEXT: Ctr
+      SCRTEXT_S: Country
+      SCRTEXT_M: Country
+      SCRTEXT_L: Country Key
+  SUPPL_MAT35:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 35
+      DOMNAME: IDNEX
+      ROLLNAME: IDNLF
+      OUTPUTLEN: 35
+    text:
+      FIELDTEXT: Material Number Used by Vendor
+      REPTEXT: Vendor Material Number
+      SCRTEXT_S: Vend. Mat.
+      SCRTEXT_M: Vendor Mat. No.
+      SCRTEXT_L: Vendor Material No.
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPISAREA:
+  PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: WERKS_D
+      OUTPUTLEN: 4
+    input:
+      MEMORYID: WRK
+      SHLP: SH H_T001W
+    text:
+      FIELDTEXT: Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plant
+      SCRTEXT_M: Plant
+      SCRTEXT_L: Plant
+  SUPPLYAREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: PRVBE
+      ROLLNAME: PRVBE
+      OUTPUTLEN: 10
+    input:
+      MEMORYID: PVB
+      SHLP: CT PVBE
+    text:
+      FIELDTEXT: Production Supply Area
+      REPTEXT: SupplyArea
+      SCRTEXT_S: SupplyArea
+      SCRTEXT_M: Supply Area
+      SCRTEXT_L: Prodn Supply Area
+  DESCRIP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: PVBTX
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Production supply area description
+      REPTEXT: Descrip.
+      SCRTEXT_S: Descrip.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Supply area descr.
+BAPIRETURN:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 5
+      DOMNAME: CHAR5
+      ROLLNAME: BAPI_RCODE
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Message code
+      SCRTEXT_S: Code
+      SCRTEXT_M: Message code
+      SCRTEXT_L: Message code
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+    input:
+      SHLP: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+    input:
+      SHLP: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable

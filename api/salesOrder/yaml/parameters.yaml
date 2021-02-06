@@ -1,0 +1,1259 @@
+BAPI_SALESORDER_CHANGE:
+  SALESDOCUMENT:
+    PARAMCLASS: I
+    TABNAME: BAPIVBELN
+    FIELDNAME: VBELN
+    PARAMTEXT: Order Number
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: SALESDOCUMENT
+    required: true
+    paramType: var
+  ORDER_HEADER_INX:
+    PARAMCLASS: I
+    TABNAME: BAPISDH1X
+    PARAMTEXT: Sales Order Check List
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_HEADER_INX
+    required: true
+    paramType: struct
+  BEHAVE_WHEN_ERROR:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Error Handling
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: BEHAVE_WHEN_ERROR
+    required: false
+    default: SPACE
+    paramType: var
+  INT_NUMBER_ASSIGNMENT:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Internal Item Number Assignment
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: INT_NUMBER_ASSIGNMENT
+    required: false
+    default: SPACE
+    paramType: var
+  NO_STATUS_BUF_INIT:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: No Refresh of Status Buffer
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: NO_STATUS_BUF_INIT
+    required: false
+    default: SPACE
+    paramType: var
+  SIMULATION:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Simulation Mode
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: SIMULATION
+    required: false
+    default: ''
+    paramType: var
+  LOGIC_SWITCH:
+    PARAMCLASS: I
+    TABNAME: BAPISDLS
+    PARAMTEXT: SD Checkbox for the Logic Switch
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: LOGIC_SWITCH
+    required: false
+    default: ''
+    paramType: struct
+  ORDER_HEADER_IN:
+    PARAMCLASS: I
+    TABNAME: BAPISDH1
+    PARAMTEXT: Order Header
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_HEADER_IN
+    required: false
+    default: ''
+    paramType: struct
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Code
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: RETURN
+    required: true
+    paramType: table
+  CONDITIONS_IN:
+    PARAMCLASS: T
+    TABNAME: BAPICOND
+    PARAMTEXT: Conditions
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: CONDITIONS_IN
+    required: false
+    default: ''
+    paramType: table
+  CONDITIONS_INX:
+    PARAMCLASS: T
+    TABNAME: BAPICONDX
+    PARAMTEXT: Conditions Checkbox
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: CONDITIONS_INX
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONEX:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: EXTENSIONEX
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Customer Enhancement for VBAK, VBAP, VBEP
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_BLOB:
+    PARAMCLASS: T
+    TABNAME: BAPICUBLB
+    PARAMTEXT: Internal Configuration Data (SCE)
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_CFGS_BLOB
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_INST:
+    PARAMCLASS: T
+    TABNAME: BAPICUINS
+    PARAMTEXT: 'Configuration: Instances'
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_CFGS_INST
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_PART_OF:
+    PARAMCLASS: T
+    TABNAME: BAPICUPRT
+    PARAMTEXT: 'Configuration: Part-of Specifications'
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_CFGS_PART_OF
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_REF:
+    PARAMCLASS: T
+    TABNAME: BAPICUCFG
+    PARAMTEXT: 'Configuration: Reference Data'
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_CFGS_REF
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_REFINST:
+    PARAMCLASS: T
+    TABNAME: BAPICUREF
+    PARAMTEXT: 'Configuration: Reference Item / Instance'
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_CFGS_REFINST
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_VALUE:
+    PARAMCLASS: T
+    TABNAME: BAPICUVAL
+    PARAMTEXT: 'Configuration: Characteristic Values'
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_CFGS_VALUE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_VK:
+    PARAMCLASS: T
+    TABNAME: BAPICUVK
+    PARAMTEXT: 'Configuration: Variant Condition Key'
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_CFGS_VK
+    required: false
+    default: ''
+    paramType: table
+  ORDER_ITEM_IN:
+    PARAMCLASS: T
+    TABNAME: BAPISDITM
+    PARAMTEXT: Order Items
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_ITEM_IN
+    required: false
+    default: ''
+    paramType: table
+  ORDER_ITEM_INX:
+    PARAMCLASS: T
+    TABNAME: BAPISDITMX
+    PARAMTEXT: Sales Order Items Check Table
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_ITEM_INX
+    required: false
+    default: ''
+    paramType: table
+  ORDER_KEYS:
+    PARAMCLASS: T
+    TABNAME: BAPISDKEY
+    PARAMTEXT: Output Table of Reference Keys
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_KEYS
+    required: false
+    default: ''
+    paramType: table
+  ORDER_TEXT:
+    PARAMCLASS: T
+    TABNAME: BAPISDTEXT
+    PARAMTEXT: Texts
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: ORDER_TEXT
+    required: false
+    default: ''
+    paramType: table
+  PARTNERADDRESSES:
+    PARAMCLASS: T
+    TABNAME: BAPIADDR1
+    PARAMTEXT: BAPI Reference Structure for Addresses (Org./Company)
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: PARTNERADDRESSES
+    required: false
+    default: ''
+    paramType: table
+  PARTNERCHANGES:
+    PARAMCLASS: T
+    TABNAME: BAPIPARNRC
+    PARAMTEXT: Partner changes
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: PARTNERCHANGES
+    required: false
+    default: ''
+    paramType: table
+  PARTNERS:
+    PARAMCLASS: T
+    TABNAME: BAPIPARNR
+    PARAMTEXT: 'Communications Fields: SD Document Partner: WWW'
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: PARTNERS
+    required: false
+    default: ''
+    paramType: table
+  SCHEDULE_LINES:
+    PARAMCLASS: T
+    TABNAME: BAPISCHDL
+    PARAMTEXT: Schedule Lines
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: SCHEDULE_LINES
+    required: false
+    default: ''
+    paramType: table
+  SCHEDULE_LINESX:
+    PARAMCLASS: T
+    TABNAME: BAPISCHDLX
+    PARAMTEXT: Check Table for Schedule Lines
+    functionName: BAPI_SALESORDER_CHANGE
+    paramName: SCHEDULE_LINESX
+    required: false
+    default: ''
+    paramType: table
+BAPI_SALESORDER_CONFIRMDELVRY:
+  SALESDOCUMENT:
+    PARAMCLASS: I
+    TABNAME: BAPIVBELN
+    FIELDNAME: VBELN
+    PARAMTEXT: Sales Document
+    functionName: BAPI_SALESORDER_CONFIRMDELVRY
+    paramName: SALESDOCUMENT
+    required: true
+    paramType: var
+  DLVITEM:
+    PARAMCLASS: T
+    TABNAME: BAPISDDLVITEM
+    PARAMTEXT: 'BAPI: Delivery Confirmation'
+    functionName: BAPI_SALESORDER_CONFIRMDELVRY
+    paramName: DLVITEM
+    required: true
+    paramType: table
+  DLVITEMDATA:
+    PARAMCLASS: T
+    TABNAME: BAPISDDLVITEMDATA
+    PARAMTEXT: 'BAPI: Delivery Confirmation Data'
+    functionName: BAPI_SALESORDER_CONFIRMDELVRY
+    paramName: DLVITEMDATA
+    required: true
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Parameter
+    functionName: BAPI_SALESORDER_CONFIRMDELVRY
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  TOKENREFERENCE:
+    PARAMCLASS: T
+    TABNAME: CSL_TR_EXS
+    PARAMTEXT: 'CSL: Data Element CSL_TR_EXT as Structure (BAPI Tab.Arg.)'
+    functionName: BAPI_SALESORDER_CONFIRMDELVRY
+    paramName: TOKENREFERENCE
+    required: false
+    default: ''
+    paramType: table
+BAPI_SALESORDER_CREATEFROMDAT2:
+  ORDER_HEADER_IN:
+    PARAMCLASS: I
+    TABNAME: BAPISDHD1
+    PARAMTEXT: Order Header
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_HEADER_IN
+    required: true
+    paramType: struct
+  BEHAVE_WHEN_ERROR:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Error Handling
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: BEHAVE_WHEN_ERROR
+    required: false
+    default: ''
+    paramType: var
+  BINARY_RELATIONSHIPTYPE:
+    PARAMCLASS: I
+    TABNAME: BAPIRELTYPE
+    FIELDNAME: RELTYPE
+    PARAMTEXT: Binary Relationship Type (Private)
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: BINARY_RELATIONSHIPTYPE
+    required: false
+    default: ''
+    paramType: var
+  CONVERT:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Conversion of Partner Function + Order Type
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: CONVERT
+    required: false
+    default: SPACE
+    paramType: var
+  INT_NUMBER_ASSIGNMENT:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Internal Item Number Assignment
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: INT_NUMBER_ASSIGNMENT
+    required: false
+    default: ''
+    paramType: var
+  SALESDOCUMENTIN:
+    PARAMCLASS: I
+    TABNAME: BAPIVBELN
+    FIELDNAME: VBELN
+    PARAMTEXT: Sales and Distribution Document Number
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: SALESDOCUMENTIN
+    required: false
+    default: ''
+    paramType: var
+  TESTRUN:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Test Run
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: TESTRUN
+    required: false
+    default: ''
+    paramType: var
+  LOGIC_SWITCH:
+    PARAMCLASS: I
+    TABNAME: BAPISDLS
+    PARAMTEXT: Internal Control Parameter
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: LOGIC_SWITCH
+    required: false
+    default: ''
+    paramType: struct
+  ORDER_HEADER_INX:
+    PARAMCLASS: I
+    TABNAME: BAPISDHD1X
+    PARAMTEXT: Sales Order Check List
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_HEADER_INX
+    required: false
+    default: ''
+    paramType: struct
+  SENDER:
+    PARAMCLASS: I
+    TABNAME: BAPI_SENDER
+    PARAMTEXT: Logical System - Sender
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: SENDER
+    required: false
+    default: ''
+    paramType: struct
+  ORDER_PARTNERS:
+    PARAMCLASS: T
+    TABNAME: BAPIPARNR
+    PARAMTEXT: Document Partner
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_PARTNERS
+    required: true
+    paramType: table
+  EXTENSIONEX:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: EXTENSIONEX
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Customer Enhancement for VBAK, VBAP, VBEP
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CCARD:
+    PARAMCLASS: T
+    TABNAME: BAPICCARD
+    PARAMTEXT: Credit Card Data
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CCARD
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_BLOB:
+    PARAMCLASS: T
+    TABNAME: BAPICUBLB
+    PARAMTEXT: 'Configuration: BLOB Internal Data (SCE)'
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CFGS_BLOB
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_INST:
+    PARAMCLASS: T
+    TABNAME: BAPICUINS
+    PARAMTEXT: 'Configuration: Instances'
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CFGS_INST
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_PART_OF:
+    PARAMCLASS: T
+    TABNAME: BAPICUPRT
+    PARAMTEXT: 'Configuration: Part-of Specifications'
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CFGS_PART_OF
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_REF:
+    PARAMCLASS: T
+    TABNAME: BAPICUCFG
+    PARAMTEXT: 'Configuration: Reference Data'
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CFGS_REF
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_REFINST:
+    PARAMCLASS: T
+    TABNAME: BAPICUREF
+    PARAMTEXT: 'Configuration: Reference Item / Instance'
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CFGS_REFINST
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_VALUE:
+    PARAMCLASS: T
+    TABNAME: BAPICUVAL
+    PARAMTEXT: 'Configuration: Characteristic Values'
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CFGS_VALUE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_VK:
+    PARAMCLASS: T
+    TABNAME: BAPICUVK
+    PARAMTEXT: 'Configuration: Variant Condition Key'
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CFGS_VK
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CONDITIONS_IN:
+    PARAMCLASS: T
+    TABNAME: BAPICOND
+    PARAMTEXT: Conditions
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CONDITIONS_IN
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CONDITIONS_INX:
+    PARAMCLASS: T
+    TABNAME: BAPICONDX
+    PARAMTEXT: Conditions Checkbox
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_CONDITIONS_INX
+    required: false
+    default: ''
+    paramType: table
+  ORDER_ITEMS_IN:
+    PARAMCLASS: T
+    TABNAME: BAPISDITM
+    PARAMTEXT: Item Data
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_ITEMS_IN
+    required: false
+    default: ''
+    paramType: table
+  ORDER_ITEMS_INX:
+    PARAMCLASS: T
+    TABNAME: BAPISDITMX
+    PARAMTEXT: Item Data Checkbox
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_ITEMS_INX
+    required: false
+    default: ''
+    paramType: table
+  ORDER_KEYS:
+    PARAMCLASS: T
+    TABNAME: BAPISDKEY
+    PARAMTEXT: Output Table of Reference Keys
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_KEYS
+    required: false
+    default: ''
+    paramType: table
+  ORDER_SCHEDULES_IN:
+    PARAMCLASS: T
+    TABNAME: BAPISCHDL
+    PARAMTEXT: Schedule Line Data
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_SCHEDULES_IN
+    required: false
+    default: ''
+    paramType: table
+  ORDER_SCHEDULES_INX:
+    PARAMCLASS: T
+    TABNAME: BAPISCHDLX
+    PARAMTEXT: Checkbox Schedule Line Data
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_SCHEDULES_INX
+    required: false
+    default: ''
+    paramType: table
+  ORDER_TEXT:
+    PARAMCLASS: T
+    TABNAME: BAPISDTEXT
+    PARAMTEXT: Texts
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: ORDER_TEXT
+    required: false
+    default: ''
+    paramType: table
+  PARTNERADDRESSES:
+    PARAMCLASS: T
+    TABNAME: BAPIADDR1
+    PARAMTEXT: BAPI Reference Structure for Addresses (Org./Company)
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: PARTNERADDRESSES
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Return Messages
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: RETURN
+    required: false
+    default: ''
+    paramType: table
+  SALESDOCUMENT:
+    PARAMCLASS: E
+    TABNAME: BAPIVBELN
+    FIELDNAME: VBELN
+    PARAMTEXT: Number of Generated Document
+    functionName: BAPI_SALESORDER_CREATEFROMDAT2
+    paramName: SALESDOCUMENT
+    required: true
+    paramType: var
+BAPI_SALESORDER_GETLIST:
+  CUSTOMER_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPI1007
+    FIELDNAME: CUSTOMER
+    PARAMTEXT: Customer number
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: CUSTOMER_NUMBER
+    required: true
+    paramType: var
+  SALES_ORGANIZATION:
+    PARAMCLASS: I
+    TABNAME: BAPIORDERS
+    FIELDNAME: SALES_ORG
+    PARAMTEXT: Sales organization
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: SALES_ORGANIZATION
+    required: true
+    paramType: var
+  DOCUMENT_DATE:
+    PARAMCLASS: I
+    TABNAME: BAPIORDERS
+    FIELDNAME: DOC_DATE
+    PARAMTEXT: Entry date
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: DOCUMENT_DATE
+    required: false
+    default: ''
+    paramType: var
+  DOCUMENT_DATE_TO:
+    PARAMCLASS: I
+    TABNAME: BAPIORDERS
+    FIELDNAME: DOC_DATE
+    PARAMTEXT: Entry date up to and including
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: DOCUMENT_DATE_TO
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL:
+    PARAMCLASS: I
+    TABNAME: BAPIORDERS
+    FIELDNAME: MATERIAL
+    PARAMTEXT: Material number
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: MATERIAL
+    required: false
+    default: ''
+    paramType: var
+  MATERIAL_LONG:
+    PARAMCLASS: I
+    TABNAME: BAPIORDERS
+    FIELDNAME: MATERIAL_LONG
+    PARAMTEXT: Material Number (40 Characters, Necessary for Technical Reasons)
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: MATERIAL_LONG
+    required: false
+    default: ''
+    paramType: var
+  PURCHASE_ORDER:
+    PARAMCLASS: I
+    TABNAME: BAPIORDERS
+    FIELDNAME: PURCH_NO
+    PARAMTEXT: Customer purchase order number
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: PURCHASE_ORDER
+    required: false
+    default: ''
+    paramType: var
+  PURCHASE_ORDER_NUMBER:
+    PARAMCLASS: I
+    TABNAME: BAPIORDERS
+    FIELDNAME: PURCH_NO_C
+    PARAMTEXT: Customer Purchase Order Number
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: PURCHASE_ORDER_NUMBER
+    required: false
+    default: ''
+    paramType: var
+  TRANSACTION_GROUP:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Single-Character Indicator
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: TRANSACTION_GROUP
+    required: false
+    default: '0'
+    paramType: var
+  MATERIAL_EVG:
+    PARAMCLASS: I
+    TABNAME: BAPIMGVMATNR
+    PARAMTEXT: Long Material Number
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: MATERIAL_EVG
+    required: false
+    default: ''
+    paramType: struct
+  SALES_ORDERS:
+    PARAMCLASS: T
+    TABNAME: BAPIORDERS
+    PARAMTEXT: Table of orders for the customer
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: SALES_ORDERS
+    required: true
+    paramType: table
+  EXTENSIONEX:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: EXTENSIONEX
+    required: false
+    default: ''
+    paramType: table
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Error Text
+    functionName: BAPI_SALESORDER_GETLIST
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_SALESORDER_GETSTATUS:
+  SALESDOCUMENT:
+    PARAMCLASS: I
+    TABNAME: BAPIVBELN
+    FIELDNAME: VBELN
+    PARAMTEXT: Sales and Distribution Document Number
+    functionName: BAPI_SALESORDER_GETSTATUS
+    paramName: SALESDOCUMENT
+    required: true
+    paramType: var
+  STATUSINFO:
+    PARAMCLASS: T
+    TABNAME: BAPISDSTAT
+    PARAMTEXT: Status Information
+    functionName: BAPI_SALESORDER_GETSTATUS
+    paramName: STATUSINFO
+    required: false
+    default: ''
+    paramType: table
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Error Text
+    functionName: BAPI_SALESORDER_GETSTATUS
+    paramName: RETURN
+    required: true
+    paramType: struct
+BAPI_SALESORDER_SIMULATE:
+  ORDER_HEADER_IN:
+    PARAMCLASS: I
+    TABNAME: BAPISDHEAD
+    PARAMTEXT: Order Header
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_HEADER_IN
+    required: true
+    paramType: struct
+  CONVERT_PARVW_AUART:
+    PARAMCLASS: I
+    TABNAME: BAPIFLAG
+    FIELDNAME: BAPIFLAG
+    PARAMTEXT: Conversion of partner function + order type
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: CONVERT_PARVW_AUART
+    required: false
+    default: SPACE
+    paramType: var
+  ORDER_ITEMS_IN:
+    PARAMCLASS: T
+    TABNAME: BAPIITEMIN
+    PARAMTEXT: Item Data Input
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_ITEMS_IN
+    required: true
+    paramType: table
+  ORDER_PARTNERS:
+    PARAMCLASS: T
+    TABNAME: BAPIPARTNR
+    PARAMTEXT: Partners
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_PARTNERS
+    required: true
+    paramType: table
+  EXTENSIONIN:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: Customer enhancment import
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: EXTENSIONIN
+    required: false
+    default: ''
+    paramType: table
+  MESSAGETABLE:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: Warning table (XVBFS)
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: MESSAGETABLE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CCARD:
+    PARAMCLASS: T
+    TABNAME: BAPICCARD
+    PARAMTEXT: Credit Card Data
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CCARD
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CCARD_EX:
+    PARAMCLASS: T
+    TABNAME: BAPICCARD_EX
+    PARAMTEXT: Credit card data output
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CCARD_EX
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_BLOB:
+    PARAMCLASS: T
+    TABNAME: BAPICUBLB
+    PARAMTEXT: Internal configuration data (SCE)
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CFGS_BLOB
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_INST:
+    PARAMCLASS: T
+    TABNAME: BAPICUINS
+    PARAMTEXT: 'Configuration: Instances'
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CFGS_INST
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_PART_OF:
+    PARAMCLASS: T
+    TABNAME: BAPICUPRT
+    PARAMTEXT: 'Configuration: Part-of Specifications'
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CFGS_PART_OF
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_REF:
+    PARAMCLASS: T
+    TABNAME: BAPICUCFG
+    PARAMTEXT: 'Configuration: Reference Data'
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CFGS_REF
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_VALUE:
+    PARAMCLASS: T
+    TABNAME: BAPICUVAL
+    PARAMTEXT: 'Configuration: Characteristic Values'
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CFGS_VALUE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CONDITION_EX:
+    PARAMCLASS: T
+    TABNAME: BAPICOND
+    PARAMTEXT: Conditions Output
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_CONDITION_EX
+    required: false
+    default: ''
+    paramType: table
+  ORDER_INCOMPLETE:
+    PARAMCLASS: T
+    TABNAME: BAPIINCOMP
+    PARAMTEXT: ''
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_INCOMPLETE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_ITEMS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPIITEMEX
+    PARAMTEXT: Item Data Output
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_ITEMS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_SCHEDULE_EX:
+    PARAMCLASS: T
+    TABNAME: BAPISDHEDU
+    PARAMTEXT: Schedule line data output
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_SCHEDULE_EX
+    required: false
+    default: ''
+    paramType: table
+  ORDER_SCHEDULE_IN:
+    PARAMCLASS: T
+    TABNAME: BAPISCHDL
+    PARAMTEXT: Schedule Line Data Input
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: ORDER_SCHEDULE_IN
+    required: false
+    default: ''
+    paramType: table
+  PARTNERADDRESSES:
+    PARAMCLASS: T
+    TABNAME: BAPIADDR1
+    PARAMTEXT: BAPI Reference Structure for Addresses (Org./Company)
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: PARTNERADDRESSES
+    required: false
+    default: ''
+    paramType: table
+  SALESDOCUMENT:
+    PARAMCLASS: E
+    TABNAME: BAPIVBELN
+    FIELDNAME: VBELN
+    PARAMTEXT: Sales and Distribution Document Number
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: SALESDOCUMENT
+    required: true
+    paramType: var
+  BILLING_PARTY:
+    PARAMCLASS: E
+    TABNAME: BAPIPAYER
+    PARAMTEXT: Payer
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: BILLING_PARTY
+    required: true
+    paramType: struct
+  RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETURN
+    PARAMTEXT: Error Text
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: RETURN
+    required: true
+    paramType: struct
+  SHIP_TO_PARTY:
+    PARAMCLASS: E
+    TABNAME: BAPISHIPTO
+    PARAMTEXT: Ship-To Party
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: SHIP_TO_PARTY
+    required: true
+    paramType: struct
+  SOLD_TO_PARTY:
+    PARAMCLASS: E
+    TABNAME: BAPISOLDTO
+    PARAMTEXT: Sold-to party
+    functionName: BAPI_SALESORDER_SIMULATE
+    paramName: SOLD_TO_PARTY
+    required: true
+    paramType: struct
+BAPISDORDER_GETDETAILEDLIST:
+  I_BAPI_VIEW:
+    PARAMCLASS: I
+    TABNAME: ORDER_VIEW
+    PARAMTEXT: Bapi View for Data Reduction
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: I_BAPI_VIEW
+    required: true
+    paramType: struct
+  I_MEMORY_READ:
+    PARAMCLASS: I
+    TABNAME: ORDER_READ
+    FIELDNAME: MEM_ACCESS
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: I_MEMORY_READ
+    required: false
+    default: ''
+    paramType: var
+  I_WITH_HEADER_CONDITIONS:
+    PARAMCLASS: I
+    TABNAME: XFELD
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: I_WITH_HEADER_CONDITIONS
+    required: false
+    default: SPACE
+    paramType: var
+  SALES_DOCUMENTS:
+    PARAMCLASS: T
+    TABNAME: SALES_KEY
+    PARAMTEXT: Document Numbers to Be Selected
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: SALES_DOCUMENTS
+    required: true
+    paramType: table
+  EXTENSIONOUT:
+    PARAMCLASS: T
+    TABNAME: BAPIPAREX
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: EXTENSIONOUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_ADDRESS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDCOAD
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_ADDRESS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_BILLINGDATES_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDBPLD
+    PARAMTEXT: Billing Plan Deadlines for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_BILLINGDATES_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_BILLINGPLANS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDBPL
+    PARAMTEXT: Billing Plan for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_BILLINGPLANS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_BUSINESS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDBUSI
+    PARAMTEXT: Business Data for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_BUSINESS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_CUBLBS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICUBLBM
+    PARAMTEXT: Configuration BLOB for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CFGS_CUBLBS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_CUCFGS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICUCFGM
+    PARAMTEXT: Configuration Data for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CFGS_CUCFGS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_CUINS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICUINSM
+    PARAMTEXT: Instance Data for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CFGS_CUINS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_CUPRTS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICUPRTM
+    PARAMTEXT: PartOf Data for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CFGS_CUPRTS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_CUREFS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICUREFM
+    PARAMTEXT: Instance in the Configuration for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CFGS_CUREFS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_CUVALS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICUVALM
+    PARAMTEXT: Characteristic Value Assignment for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CFGS_CUVALS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CFGS_CUVKS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICUVKM
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CFGS_CUVKS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_COND_HEAD:
+    PARAMCLASS: T
+    TABNAME: BAPICONDHD
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_COND_HEAD
+    required: false
+    default: ''
+    paramType: table
+  ORDER_COND_ITEM:
+    PARAMCLASS: T
+    TABNAME: BAPICONDIT
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_COND_ITEM
+    required: false
+    default: ''
+    paramType: table
+  ORDER_COND_QTY_SCALE:
+    PARAMCLASS: T
+    TABNAME: BAPICONDQS
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_COND_QTY_SCALE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_COND_VAL_SCALE:
+    PARAMCLASS: T
+    TABNAME: BAPICONDVS
+    PARAMTEXT: ''
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_COND_VAL_SCALE
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CONDITIONS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDCOND
+    PARAMTEXT: Order Conditions for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CONDITIONS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CONTRACTS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDCNTR
+    PARAMTEXT: Contract Data for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CONTRACTS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_CREDITCARDS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPICCARDM
+    PARAMTEXT: Credit Cards for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_CREDITCARDS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_FLOWS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDFLOW
+    PARAMTEXT: Document Flows for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_FLOWS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_HEADERS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDHD
+    PARAMTEXT: Order Headers for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_HEADERS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_ITEMS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDIT
+    PARAMTEXT: Order Item Data for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_ITEMS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_PARTNERS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDPART
+    PARAMTEXT: Order Partners for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_PARTNERS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_SCHEDULES_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDHEDU
+    PARAMTEXT: Order Schedule Lines for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_SCHEDULES_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_STATUSHEADERS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDHDST
+    PARAMTEXT: Header Status for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_STATUSHEADERS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_STATUSITEMS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDITST
+    PARAMTEXT: Item Status for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_STATUSITEMS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_TEXTHEADERS_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPISDTEHD
+    PARAMTEXT: Text Header Information for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_TEXTHEADERS_OUT
+    required: false
+    default: ''
+    paramType: table
+  ORDER_TEXTLINES_OUT:
+    PARAMCLASS: T
+    TABNAME: BAPITEXTLI
+    PARAMTEXT: Text Lines for Document Numbers
+    functionName: BAPISDORDER_GETDETAILEDLIST
+    paramName: ORDER_TEXTLINES_OUT
+    required: false
+    default: ''
+    paramType: table
