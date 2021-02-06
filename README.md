@@ -1,6 +1,7 @@
 # Fundamental Library for ABAP <!-- omit in toc -->
 
-![npm](https://img.shields.io/npm/v/abap-api-tools) [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM) [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools) ![npm](https://img.shields.io/npm/dm/abap-api-tools)  ![NPM](https://img.shields.io/npm/l/abap-api-tools)
+![License](https://img.shields.io/npm/l/abap-api-tools) ![npm](https://img.shields.io/npm/v/abap-api-tools) [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM) [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools) ![npm](https://img.shields.io/npm/dm/abap-api-tools) [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
 Command line tool for pattern based web applications with ABAP/HANA systems.
 
@@ -15,7 +16,8 @@ Command line tool for pattern based web applications with ABAP/HANA systems.
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
 - [Building a pattern based app](./doc/app.md)
-- Blog: [Fundamental Library for ABAP](https://blogs.sap.com/2020/08/23/fundamental-library-for-abap/)
+
+:star: Your star is appreciated, it helps!
 
 ## Content <!-- omit in toc -->
 
