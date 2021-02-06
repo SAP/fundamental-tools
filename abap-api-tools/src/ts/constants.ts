@@ -122,10 +122,13 @@ export const Tagname = Object.freeze({
   [ValueInput.list]: "combo",
 });
 
+// when running in docker, the root folder
+const WorkingFolder = process.env.ABAP_API_TOOLS_WORKING_FOLDER || "./";
+
 export const DefaultFolder = Object.freeze({
   configuration: path.join(__dirname, "configuration"),
-  userConfig: "./config",
-  output: "./api",
+  userConfig: path.join(WorkingFolder, "config"),
+  output: path.join(WorkingFolder, "api"),
 });
 
 // ui frameworks

@@ -25,7 +25,7 @@ ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
 ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
 
 ARG nwrfc_pl=PL7
-ARG nwrfc_source=/NWRFCSDK/${nwrfc_pl}
+ARG nwrfc_source=/nwrfcsdk-portal/${nwrfc_pl}
 ARG nwrfc_target=/usr/local/sap
 
 # Add sudo user

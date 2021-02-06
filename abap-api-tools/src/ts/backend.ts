@@ -524,9 +524,13 @@ export class Backend {
   }
 
   async parse(): Promise<AnnotationsType> {
-    // lazy load so that other commands can be used even w/o SAP NWRFC SDK
+    // lazy load so that other commands can be used w/o SAP NWRFC SDK
     try {
       const addon = await import("node-rfc");
+      // set sapnwrfc.ini path to working folder mapped to docker image
+      if (process.env.ABAP_API_TOOLS_WORKING_FOLDER) {
+        addon.setIniFileDirectory(process.env.ABAP_API_TOOLS_WORKING_FOLDER);
+      }
       this.client = new addon.Client({ dest: this.argv.dest });
     } catch (ex) {
       throw new Error(

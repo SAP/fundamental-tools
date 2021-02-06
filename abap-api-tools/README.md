@@ -33,9 +33,15 @@ Command line tool for pattern based applications with ABAP/HANA systems.
 npm install -g abap-api-tools
 ```
 
-SAP NWRFC SDK binaries are required for ABAP systems connectivity and shall be locally installed on your notebook. Check [where to download](https://launchpad.support.sap.com/#/notes/2573790) and [how to install](https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation).
+SAP NWRFC SDK dll or so libs are required for ABAP systems connectivity and shall be locally installed on your notebook. Check [where to download](https://launchpad.support.sap.com/#/notes/2573790) and [how to install](https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation).
 
-Without SAP NWRFC SDK, you can still use the `make` command and custom ui configurations, with [ABAP API annotations sample](https://github.com/SAP/fundamental-tools/tree/sample).
+Without SAP NWRFC SDK, the `make` command and custom ui configurations can be used with [ABAP  annotations sample](https://github.com/SAP/fundamental-tools/tree/sample).
+
+SAP employees and developers in SAP internal network can also use [abap-api-tools docker image](../docker/abap-node.Dockerfile), with full functionality. The `abap` command shall be invoked with `docker exec abap-node` prefix:
+
+```shell
+docker exec abap-node abap
+```
 
 ## Usage
 
@@ -51,7 +57,7 @@ DEFAULT
 DEST=MME
 USER=demo
 PASSWD=welcome
-ASHOST=coevi51 # or 10.68.110.51
+ASHOST=10.68.110.51
 SYSNR=00
 CLIENT=620
 LANG=EN
@@ -60,7 +66,7 @@ LANG=EN
 DEST=MME_SSO
 SNC_LIB=C:\Program Files\SAP\FrontEnd\SecureLogin\libsapcrypto.dll
 SNC_PARTNERNAME=p/secude:CN=MME, O=SAP-AG, C=DE
-ASHOST=coevi51 # or 10.68.110.51
+ASHOST=coevi51
 SYSNR=20
 CLIENT=71
 ```

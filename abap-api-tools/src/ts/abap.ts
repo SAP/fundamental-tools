@@ -73,8 +73,10 @@ class CliHandler {
       }
       argv.apilist = apilist;
     }
-    log.debug(argv);
+
     this.argv = argv;
+    log.debug(argv);
+    log.debug(DefaultFolder);
   }
 
   async run() {
@@ -348,7 +350,6 @@ export const argv = yargs(process.argv.slice(2))
     }
 
     log.debug(process.argv);
-    log.debug(argv);
 
     // check duplicates
     for (const flag of ["lang", "output", "text-only"]) {
