@@ -37,7 +37,7 @@ SAP NWRFC SDK dll or so libs are required for ABAP systems connectivity and shal
 
 Without SAP NWRFC SDK, the `make` command and custom ui configurations can be used with [ABAP  annotations sample](https://github.com/SAP/fundamental-tools/tree/sample).
 
-SAP employees and developers in SAP internal network can also use [abap-api-tools docker image](../docker/abap-node.Dockerfile), with full functionality. The `abap` command shall be invoked with `docker exec abap-node` prefix:
+SAP employees and developers in SAP internal network can also use [abap-api-tools docker image](https://github.com/SAP/fundamental-tools/blob/main/docker/abap-node.Dockerfile), with full functionality. The `abap` command shall be invoked with `docker exec abap-node` prefix:
 
 ```shell
 docker exec abap-node abap
