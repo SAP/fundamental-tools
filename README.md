@@ -36,10 +36,9 @@ Command line tool for pattern based web applications with ABAP/HANA systems.
 ## Prerequisites
 
 - ABAP backend: from latest releases, down to 4.6C
-- [ABAP helpers](/abap-helpers)
-- App server
-  - SAP Cloud Platform or on-premise Windows, Linux, Darwin system/notebook
-  - Runtimes
+- Optional: [ABAP helpers](/abap-helpers)
+- SAP Cloud Platform or on-premise Windows, Linux, Darwin system/notebook
+- Runtimes
   - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
   - Python with [PyRFC](https://github.com/SAP/PyRFC)
   - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
