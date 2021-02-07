@@ -53,7 +53,7 @@ equipment:
 
 Cloud/web knowledge and skills are not required here, just standard ABAP development, like the ui will be implemented in ABAP.
 
-Nothing very new or exciting for ABAP developers, the work is mostly about finding the business logic units to be exposed for the app.
+Nothing very new or exciting for ABAP developers, the business logic is exposed like the ui will be done in ABAP.
 
 ## App Server
 
@@ -95,16 +95,16 @@ def equipment(path):
 
 - ABAP API adaptations, extensions, choreography, orchestration, caching etc. can be added here, covering industry or customer specific requirements
 
-- The server logic sometimes need access to ABAP data stuctures at field level. `abap get` and `call` commands can help here with [call templates](../abap-api-tools/README.md#abap-function-module-call-template)
+- The server logic sometimes need access to ABAP data stuctures at field level. `abap` CLI [call templates](../abap-api-tools/README.md#abap-function-module-call-template) can help here.
 
 ## View Model
 
-Via server routes, ABAP data structures reach the View-Model, now in JSON format. The programming language is now JavaScript but the business logic processing can be still done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
+Via server routes, ABAP data structures reach the View-Model. The programming language is now JavaScript and the business logic processing can be also here done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
 
 - Modern object oriented JavaScript makes also this layer doable by ABAP developers interested in JavaScript
 - One the same logic can run on app server or View Model level. With JavaScript servers, even the same code can be shifted back and forth, between app server and view model.
 
-The model pattern depends on ABAP API structure and app requirements and may look like this:
+The model pattern depends on ABAP API structure and app requirements, may look like this:
 
 ```JavaScript
 import { UIApp, UIHttp, UIUtils } from '../../resources/index';
@@ -169,13 +169,13 @@ export class Equipment {
 
 HTML or JS Views are built of reusable ui components, put together into frontend layouts and forms.
 
-ui components are bound to View Model data structures, which are ABAP data structures. Components' templates can be therefore generated using [abap get](../abap-api-tools/README.md#abap-api-annotations-for-ui-elements) and [make](../abap-api-tools/README.md#ui-elements) commands and reused with or without adaptations in the View:
+ui components are bound to View Model data structures, which are ABAP data structures. Components' templates can be therefore generated using `abap` CLI [get](../abap-api-tools/README.md#abap-api-annotations-for-ui-elements) and [make](../abap-api-tools/README.md#ui-elements) commands and reused in Views, with or without adaptations:
 
 ```shell
 abap make aurelia -c my-app # from the first ABAP API step above
 ```
 
-Using generator is options, ui components can be also manually coded, with arbitrary attributes. Generated components can be also changed, add/remove SU3 id, value input help etc.
+Using generator is optional. Ui components can be manually coded from scratch and generated components can be changed, like add/remove SU3 id, value input help etc.
 
 
 ```html
@@ -241,7 +241,7 @@ Features:
 - Grouped and ungrouped Classifications/Characteristics read/update
 - Attachments preview/upload/download
 
-The implementation is under full developer's control, without any magic added by abap toolset.
+The implementation is under full developer's control, without any magic added by `abap` CLI.
 
 ![App](assets/Equipment.jpg)
 
