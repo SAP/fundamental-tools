@@ -1,16 +1,29 @@
-# How-to:
+# How-to
 #
-# Copy the "nwrfcsdk" folder from https://github.wdf.sap.corp/ng-apps/nwrfcsdk to Dockerfile folder
-# docker build --rm --no-cache -t abap-node -f abap-node.Dockerfile .
+# Prepare the working folder with sapnwrfc.ini file:
 #
-# Map your working folder to docker volume: /Users/bsrdjan/myapp -> /abap-api-tools:
-# docker run --name cli -it -v /Users/bsrdjan/myapp:/abap-api-tools --env ABAP_API_TOOLS_WORKING_FOLDER=/abap-api-tools abap-node
+#   mkdir mywork
+#   cd mywork
+#   edit sapnwrfc.ini
 #
-# Create your sapnwrfc.ini file in working folder and start using abap CLI:
+# Use the pre-built docker image (SAP internal network only):
 #
-# docker start cli
-# docker exec  cli abap ...
-# docker stop  cli
+#   docker pull docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
+#   docker run --name cli -it -v <absolute path to>/myapi:/work --env ABAP_API_TOOLS_WORKING_FOLDER=/work docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
+#
+# You can also build the image, using SAP NWRFC SDK downloaded from:
+# - SAP Support Portal (https://support.sap.com/nwrfcsdk) or from
+# - SAP-internal production shares (https://wiki.wdf.sap.corp/wiki/display/PIC/UsingConnectors)
+#
+# To build the image, copy the SAP NWRFC SDK folder "nwrfcsdk" to Dockerfile folder and run:
+#
+#   docker build --rm --no-cache -t abap-api-tools -f abap-node.Dockerfile .
+#   docker run --name cli -it -v <path to>/mywork:/work --env ABAP_API_TOOLS_WORKING_FOLDER=/work abap-api-tools
+#
+# Once the cli container is created and running (docker start cli), the abap CLI can be invoked like:
+#
+#   docker exec cli abap
+#
 
 FROM node:15
 
