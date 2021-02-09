@@ -27,14 +27,14 @@ Docker image with pre-installed SAP NWRFC SDK is available in SAP-internal netwo
 
 ```shell
 docker pull docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
-docker run --name cli -it -v <absolute path to>/myproject:/work docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
+docker run --name cli -it -v <absolute path>/myproject:/work docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
 ```
 
 The container can be also built from [abap-api-tools.Dockerfile](./abap-api-tools.Dockerfile). SAP NWRFC SDK folder "nwrfcsdk" shall be in that case first copied to Dockerfile folder:
 
 ```shell
 docker build --rm --no-cache -t abap-api-tools -f abap-api-tools.Dockerfile .
-docker run --name cli -it -v <path to>/myproject:/work abap-api-tools
+docker run --name cli -it -v <absolute path>/myproject:/work abap-api-tools
 ```
 
 Once the `cli` container is up and running, the `abap` CLI can be invoked:
