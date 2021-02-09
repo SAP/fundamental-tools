@@ -6,6 +6,8 @@
 
 FROM node:15
 
+ENV container docker
+
 ARG nwrfc_source=/nwrfcsdk
 ARG nwrfc_target=/usr/local/sap
 

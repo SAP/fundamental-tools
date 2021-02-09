@@ -17,6 +17,8 @@ import {
   ParamClassDesc,
   ValueInput,
   DefaultFolder,
+  DockerVolume,
+  runningInDocker,
 } from "./constants";
 import { Alpha } from "./alpha";
 import { deleteFile, isEmpty, log, yamlLoad, yamlSave } from "./utils";
@@ -528,8 +530,8 @@ export class Backend {
     try {
       const addon = await import("node-rfc");
       // set sapnwrfc.ini path to working folder mapped to docker image
-      if (process.env.ABAP_API_TOOLS_WORKING_FOLDER) {
-        addon.setIniFileDirectory(process.env.ABAP_API_TOOLS_WORKING_FOLDER);
+      if (runningInDocker) {
+        addon.setIniFileDirectory(DockerVolume);
       }
       this.client = new addon.Client({ dest: this.argv.dest });
     } catch (ex) {

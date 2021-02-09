@@ -1,4 +1,4 @@
-## NodeJS and Python RFC Connectivity
+## NodeJS and Python containers
 
 - [Node on Centos](./centos-node.Dockerfile)
 - [Python on Centos](./centos-python.Dockerfile)
@@ -23,18 +23,18 @@ cd myproject
 edit sapnwrfc.ini
 ```
 
-Docker image with pre-installed SAP NWRFC SDK is available in SAP-internal network only ([link](https://docker.wdf.sap.corp:10443/artifactory/webapp/#/packages/docker/vpcoe~2Fabap-api-tools)).  The local working directory `myproject` must be mapped to docker volume `work`:
+Docker image with pre-installed SAP NWRFC SDK is available in SAP-internal network only ([link](https://docker.wdf.sap.corp:10443/artifactory/webapp/#/packages/docker/vpcoe~2Fabap-api-tools)).  The local working directory `myproject` shall be mapped to docker volume `work`:
 
 ```shell
 docker pull docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
-docker run --name cli -it -v <absolute path to>/myproject:/work --env ABAP_API_TOOLS_WORKING_FOLDER=/work docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
+docker run --name cli -it -v <absolute path to>/myproject:/work docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
 ```
 
-The container can be also built from [abap-node.Dockerfile](./abap-node.Dockerfile). SAP NWRFC SDK folder "nwrfcsdk" shall be in that case first copied to Dockerfile folder:
+The container can be also built from [abap-api-tools.Dockerfile](./abap-api-tools.Dockerfile). SAP NWRFC SDK folder "nwrfcsdk" shall be in that case first copied to Dockerfile folder:
 
 ```shell
-docker build --rm --no-cache -t abap-api-tools -f abap-node.Dockerfile .
-docker run --name cli -it -v <path to>/myproject:/work --env ABAP_API_TOOLS_WORKING_FOLDER=/work abap-api-tools
+docker build --rm --no-cache -t abap-api-tools -f abap-api-tools.Dockerfile .
+docker run --name cli -it -v <path to>/myproject:/work abap-api-tools
 ```
 
 Once the `cli` container is up and running, the `abap` CLI can be invoked:

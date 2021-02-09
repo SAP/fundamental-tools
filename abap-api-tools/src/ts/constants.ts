@@ -122,8 +122,11 @@ export const Tagname = Object.freeze({
   [ValueInput.list]: "combo",
 });
 
-// when running in docker, the root folder
-const WorkingFolder = process.env.ABAP_API_TOOLS_WORKING_FOLDER || "./";
+
+// work folder
+export const runningInDocker = process.env.container === "docker";
+export const DockerVolume = "/work";
+const WorkingFolder = runningInDocker ? DockerVolume : "./";
 
 export const DefaultFolder = Object.freeze({
   configuration: path.join(__dirname, "configuration"),
