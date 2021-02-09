@@ -1,29 +1,8 @@
-# How-to
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
 #
-# Prepare the working folder with sapnwrfc.ini file:
-#
-#   mkdir mywork
-#   cd mywork
-#   edit sapnwrfc.ini
-#
-# Use the pre-built docker image (SAP internal network only):
-#
-#   docker pull docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
-#   docker run --name cli -it -v <absolute path to>/myapi:/work --env ABAP_API_TOOLS_WORKING_FOLDER=/work docker.wdf.sap.corp:51689/vpcoe/abap-api-tools
-#
-# You can also build the image, using SAP NWRFC SDK downloaded from:
-# - SAP Support Portal (https://support.sap.com/nwrfcsdk) or from
-# - SAP-internal production shares (https://wiki.wdf.sap.corp/wiki/display/PIC/UsingConnectors)
-#
-# To build the image, copy the SAP NWRFC SDK folder "nwrfcsdk" to Dockerfile folder and run:
-#
-#   docker build --rm --no-cache -t abap-api-tools -f abap-node.Dockerfile .
-#   docker run --name cli -it -v <path to>/mywork:/work --env ABAP_API_TOOLS_WORKING_FOLDER=/work abap-api-tools
-#
-# Once the cli container is created and running (docker start cli), the abap CLI can be invoked like:
-#
-#   docker exec cli abap
-#
+# SPDX-License-Identifier: Apache-2.0
+
+# How-to use: check ./README.md
 
 FROM node:15
 

@@ -37,7 +37,7 @@ With [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html
 
 Without [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html), the `make` command and custom ui configurations can be used with [ABAP  annotations sample](https://github.com/SAP/fundamental-tools/tree/sample).
 
-You can also use the [docker image](https://github.com/SAP/fundamental-tools/blob/main/docker/abap-node.Dockerfile), without installing NodeJS or `abap-api-tools` on your notebook:
+You can also use the [docker image](https://github.com/SAP/fundamental-tools/tree/main/docker#abap-api-tools), without installing NodeJS or `abap-api-tools` on your notebook:
 
 ```shell
 docker exec cli abap
