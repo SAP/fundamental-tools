@@ -24,8 +24,8 @@ ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
 ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
 
-ARG nwrfc_pl=PL7
-ARG nwrfc_source=/nwrfcsdk-portal/${nwrfc_pl}
+ARG nwrfcsdk=nwrfcsdk-pl7
+ARG nwrfc_source=/sap
 ARG nwrfc_target=/usr/local/sap
 
 # Add sudo user
@@ -71,24 +71,18 @@ USER ${adminuser}
 # devtools-8 enable
 RUN printf "\n# devtools-8\nsource /opt/rh/devtoolset-8/enable\n" >> ~/.bashrc
 
-# git configuration
-RUN \
-    git config --global http.sslVerify false && \
-    git config --global user.name bsrdjan && \
-    git config --global user.email srdjan.boskovic@sap.com
-
 # sap nwrfc sdk
 RUN printf "\n# nwrfc sdk \n" >> ~/.bashrc && \
-    printf "export SAPNWRFC_HOME=${nwrfc_target}/nwrfcsdk\n" >> ~/.bashrc
+    printf "export SAPNWRFC_HOME=${nwrfc_target}/${nwrfcsdk}\n" >> ~/.bashrc
 USER root
 RUN mkdir -p ${nwrfc_target}
-COPY ${nwrfc_source}/linux/nwrfcsdk ${nwrfc_target}/nwrfcsdk
-RUN chmod -R a+r ${nwrfc_target}/nwrfcsdk && \
-    chmod -R a+x ${nwrfc_target}/nwrfcsdk/bin && \
-    printf "# include nwrfcsdk\n${nwrfc_target}/nwrfcsdk/lib\n" | tee /etc/ld.so.conf.d/nwrfcsdk.conf && \
+COPY ${nwrfc_source} ${nwrfc_target}
+RUN chmod -R a+r ${nwrfc_target}/${nwrfcsdk} && \
+    chmod -R a+x ${nwrfc_target}/${nwrfcsdk}/bin && \
+    chmod -R a+x ${nwrfc_target}/${nwrfcsdk}/lib && \
+    printf "# include nwrfcsdk\n${nwrfc_target}/${nwrfcsdk}/lib\n" | tee /etc/ld.so.conf.d/nwrfcsdk.conf && \
     ldconfig && ldconfig -p | grep sap
 
-USER root
 RUN rm -rf /tmp/* && \
     systemctl mask systemd-machine-id-commit && systemctl enable multi-user.target && systemctl set-default multi-user.target
 VOLUME [ "/sys/fs/cgroup" ]

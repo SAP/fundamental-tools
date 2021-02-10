@@ -51,9 +51,9 @@ equipment:
   - BAPI_EQUI_INSTALL # Install Equipment (Functional Location, Superior Equipment)
 ```
 
-Cloud/web knowledge and skills are not required here, just standard ABAP development, like the ui will be implemented in ABAP.
+Cloud/web knowledge and skills are not required here.
 
-Nothing very new or exciting for ABAP developers, the business logic is exposed like the ui will be done in ABAP.
+Just a regular ABAP development, like the ui will be implemented in ABAP.
 
 ## App Server
 

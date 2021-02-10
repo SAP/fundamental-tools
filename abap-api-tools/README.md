@@ -33,14 +33,20 @@ Command line tool for pattern based applications with ABAP/HANA systems.
 npm install -g abap-api-tools
 ```
 
-With [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html) binaries installed on your notebook, CLI tool can connect to ABAP systems. Check [where to download](https://launchpad.support.sap.com/#/notes/2573790) and [how to install](https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation).
+[SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html) binaries shall be installed on your notebook, for CLI connectivity to ABAP systems. Check [where to download](https://launchpad.support.sap.com/#/notes/2573790) and [how to install](https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation).
 
 Without [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html), the `make` command and custom ui configurations can be tested with [ABAP  annotations sample](https://github.com/SAP/fundamental-tools/tree/sample).
 
-Using [docker container](https://github.com/SAP/fundamental-tools/tree/main/docker#abap-api-tools) with pre-installed SAP NWRFC SDK, no NodeJS or `abap-api-tools` installation are required. Just run:
+Using CLI from [docker container](https://github.com/SAP/fundamental-tools/tree/main/docker#abap-api-tools), only docker is required on your notebook and CLI is invoked by:
 
 ```shell
 docker exec cli abap
+```
+
+or with npm installation::
+
+```shell
+abap
 ```
 
 ## Usage
@@ -80,7 +86,7 @@ MME:
     dom_values: YWS_SHLP_DOMVALUES_GET
 ```
 
-Run `abap` command to show help:
+Run `abap` command, to show help:
 
 ```shell
 abap

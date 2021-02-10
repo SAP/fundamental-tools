@@ -21,12 +21,8 @@ export function getTimestamp(): string {
 }
 
 export function yamlLoad(fileName: string): unknown {
-  fs.readFileSync(fileName);
-  const y = yaml.load(
-    fs.readFileSync(fileName, { encoding: "utf-8", flag: "r" })
-  );
   log.debug(`yaml load ${fileName}`);
-  return y;
+  return yaml.load(fs.readFileSync(fileName, { encoding: "utf-8", flag: "r" }));
 }
 
 export function yamlSave(fileName: string, obj: unknown, options = {}): void {

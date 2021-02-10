@@ -157,34 +157,41 @@ export class Backend {
       `backend: ${this.api_name} dest: ${this.argv.dest} lang: ${argv.lang} : ${this.SPRAS} api: ${this.apilist}`
     );
 
-    try {
-      const systemYamlPath = path.join(
-        DefaultFolder.userConfig,
-        "systems.yaml"
-      );
-      const systems = yamlLoad(systemYamlPath) as SystemsYamlType;
-      if (
-        this.argv.dest &&
-        systems[this.argv.dest] &&
-        systems[this.argv.dest].search_help_api
-      ) {
-        this.search_help_api = systems[this.argv.dest].search_help_api;
+    // check if search help api configured
+    if (this.argv.dest && this.argv.cmd === Command.get) {
+      try {
+        const systemYamlPath = path.join(
+          DefaultFolder.userConfig,
+          "systems.yaml"
+        );
+        const systems = yamlLoad(systemYamlPath) as SystemsYamlType;
+        if (!systems) {
+          log.info(`systems.yaml not found: ${systemYamlPath}`);
+        } else if (!systems[this.argv.dest]) {
+          log.info(`system ${this.argv.dest} not found in systems.yaml`);
+        } else if (!systems[this.argv.dest].search_help_api) {
+          log.info(`search help api not configured for ${this.argv.dest}`);
+        } else {
+          this.search_help_api = systems[this.argv.dest].search_help_api;
 
-        for (const [apiKey, apiName] of Object.entries(this.search_help_api)) {
-          if (!["determine", "dom_values"].includes(apiKey)) {
-            throw new Error(
-              `Invalid key "${apiKey}" found in ${systemYamlPath}`
-            );
-          }
-          if (apiName.length > 30) {
-            throw new Error(
-              `Too long API name "${apiName}" found in ${systemYamlPath}`
-            );
+          for (const [apiKey, apiName] of Object.entries(
+            this.search_help_api
+          )) {
+            if (!["determine", "dom_values"].includes(apiKey)) {
+              throw new Error(
+                `Invalid key "${apiKey}" found in ${systemYamlPath}`
+              );
+            }
+            if (apiName.length > 30) {
+              throw new Error(
+                `Too long API name "${apiName}" found in ${systemYamlPath}`
+              );
+            }
           }
         }
+      } catch (ex) {
+        if (ex.code !== "ENOENT") throw ex; // ignore file not found error
       }
-    } catch (ex) {
-      if (ex.code !== "ENOENT") throw ex; // ignore file not found error
     }
 
     // search helps processing
@@ -567,7 +574,7 @@ export class Backend {
     log.info(
       `\n${chalk.bold(this.api_name)} ${this.argv.dest} (${this.argv.lang}) ${
         this.argv.textOnly ? "only texts" : ""
-      } ${this.getSearchHelps ? "sarch helps" : ""}\n`.replace(/  +/g, " ")
+      } ${this.getSearchHelps ? "search helps" : ""}\n`.replace(/  +/g, " ")
     );
 
     await this.client.open();

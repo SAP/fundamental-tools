@@ -122,7 +122,6 @@ export const Tagname = Object.freeze({
   [ValueInput.list]: "combo",
 });
 
-
 // work folder
 export const runningInDocker = process.env.container === "docker";
 export const DockerVolume = "/work";
