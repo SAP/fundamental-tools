@@ -820,9 +820,9 @@ export class Frontend {
       .replace(/,/g, ", ");
 
     e = e
-      .replace("~bind", m.bind)
-      .replace("~label", m.label)
-      .replace("~abap", abap);
+      .replace(/~bind/g, m.bind)
+      .replace(/~label/g, m.label)
+      .replace(/~abap/g, abap);
 
     if (shlp) {
       e = e.replace("~shlp", shlp);
