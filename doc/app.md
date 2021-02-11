@@ -1,6 +1,6 @@
 # Building an app<!-- omit in toc -->
 
-Pattern based web applications solve complex problems by simple repeatable patterns, rather than using complex frameworks.
+Pattern based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
 
 Apps comprise of four levels (JavaScript or JS stands for TypeScript or EcmaScript):
 
@@ -13,9 +13,9 @@ Let build one such app from scratch:
 
 - [Technical Landscape](#technical-landscape)
 - [ABAP API](#abap-api)
-- [App Server](#app-server)
-- [View Model](#view-model)
-- [View (HTML)](#view-html)
+- [App Server (Java, Node, Python)](#app-server-java-node-python)
+- [View Model (JS)](#view-model-js)
+- [View (HTML or JS)](#view-html-or-js)
 - [App = ABAP API + Server Model + View Model + View](#app--abap-api--server-model--view-model--view)
 - [Deployment options](#deployment-options)
 
@@ -55,7 +55,7 @@ Cloud/web knowledge and skills are not required here.
 
 Just a regular ABAP development, like the ui will be implemented in ABAP.
 
-## App Server
+## App Server (Java, Node, Python)
 
 The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app.
 
@@ -97,7 +97,7 @@ def equipment(path):
 
 - The server logic sometimes need access to ABAP data stuctures at field level. `abap` CLI [call templates](../abap-api-tools/README.md#abap-function-module-call-template) can help here.
 
-## View Model
+## View Model (JS)
 
 Via server routes, ABAP data structures reach the View-Model. The programming language is now JavaScript and the business logic processing can be also here done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
 
@@ -165,7 +165,7 @@ export class Equipment {
 // get ...
 ```
 
-## View (HTML)
+## View (HTML or JS)
 
 HTML or JS Views are built of reusable ui components, put together into frontend layouts and forms.
 
