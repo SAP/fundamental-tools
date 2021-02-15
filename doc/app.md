@@ -58,9 +58,7 @@ Just a regular ABAP development, like the ui will be implemented in ABAP.
 
 The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app.
 
-The NodeJS or Java code is identical and data mappings work the same way:
-
-<style>table td:nth-child(4) {font-size: smaller}</style>
+The NodeJS or Java code is almost identical and data mappings work the same way:
 
 | ABAP      | Node                      | Python                | Example                                                                                                                                                                |
 | --------- | ------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
