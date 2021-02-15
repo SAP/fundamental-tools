@@ -59,7 +59,14 @@ Just a regular ABAP development, like the ui will be implemented in ABAP.
 
 The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app.
 
-NodeJS or Java implementations looks almost identical:
+The NodeJS or Java code is identical and data mappings work the same way:
+
+<style>table td:nth-child(4) {font-size: smaller}</style>
+| ABAP      | Node                      | Python                | Example                                                                                                                                                                |
+| --------- | ------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable  | Variable                  | Variable              |                                                                                                                                                                        |
+| Structure | Plain JS object           | Python dictionary     | `{ INSTDATE: ”20180327”, EQUI: “1000485” …}`                                                                                                                           |
+| Table     | Array of JS plain objects | Array of Python dicts | `[`<br>&nbsp;&nbsp;&nbsp;&nbsp;```{ INSTDATE: ”20180327”, EQUI: “1000485” …}```,<br>&nbsp;&nbsp;&nbsp;&nbsp;```{ INSTDATE: ”20200912”, EQUI: “1000486” …}``` … <br>`]` |
 
 ```python
 # Equipment
@@ -167,7 +174,10 @@ export class Equipment {
 
 ## View (HTML or JS)
 
-HTML or JS Views are built of reusable ui components, put together into frontend layouts and forms.
+HTML or JS Views comprise of generic ui components, grouped together into frontend layout elements.
+
+
+![](assets/View.png)
 
 ui components are bound to View Model data structures, which are ABAP data structures. Components' templates can be therefore generated using `abap` CLI [get](../abap-api-tools/README.md#abap-api-annotations-for-ui-elements) and [make](../abap-api-tools/README.md#ui-elements) commands and reused in Views, with or without adaptations:
 
@@ -175,22 +185,23 @@ ui components are bound to View Model data structures, which are ABAP data struc
 abap make aurelia -c my-app # from the first ABAP API step above
 ```
 
-Using generator is optional. Ui components can be manually coded from scratch and generated components can be changed, like add/remove SU3 id, value input help etc.
+`abap make` use is optional. Ui components can be manually coded from scratch and generated app components can be changed, like add/remove SU3 id, value input help etc.
 
+- ABAP developers can build also this layer, by reusing (copy/paste) standard patterns for components positioning and grouping. Learning a bit more about HTML/JS, developers can start modifying standard patterns and buil their own.
+
+- Standard ui components' templates (default ui configurations) can be pure HTML, pure JS or the combination of both. It depends on ui framework and the standard usage pattern nd can be easy changed (custom ui configurations)
+
+One example with input, datepicker and checkbox:
 
 ```html
-<!-- prettier-ignore -->
 <section class="fd-section">
-    <!-- prettier-ignore -->
     <ui-input value.bind="DATA_GENERAL.DISTR_CHAN" shlp.bind='{"type":"SH", "id":"CSH_TVTW"}'
         data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"2", "mid":"VTW"}'
         label="Distribution Channel">
     </ui-input>
 
-    <!-- prettier-ignore -->
     <ui-checkbox value.bind="DATA_SPECIFIC.READ_CUREF" label="Referenced Configuration"></ui-checkbox>
 
-    <!-- prettier-ignore -->
     <ui-date date.bind="DATA_FLEET.EXPIRY_DATE" label="Validity end date"></ui-date>
 </section>
 ```
