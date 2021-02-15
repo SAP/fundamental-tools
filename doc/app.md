@@ -9,7 +9,7 @@ Apps comprise of four levels (JavaScript or JS stands for TypeScript or EcmaScri
 - JS View Model, consuming server routes (browser)
 - HTML or JS View, rendering the View Model
 
-Let build one such app from scratch:
+Let have a look into technical landscape and build these four layers, with the little help of `abap` cli tool:
 
 - [Technical Landscape](#technical-landscape)
 - [ABAP API](#abap-api)
