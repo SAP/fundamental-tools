@@ -30,7 +30,6 @@ Let build one such app from scratch:
   - [PyRFC](https://github.com/SAP/PyRFC)
   - [node-rfc](https://github.com/SAP/node-rfc)
 
-
 ## ABAP API
 
 - Localize the ABAP business logic for app functional requirements
@@ -62,6 +61,7 @@ The example below shows Python Flask server, exposing ABAP API for Equipment mai
 The NodeJS or Java code is identical and data mappings work the same way:
 
 <style>table td:nth-child(4) {font-size: smaller}</style>
+
 | ABAP      | Node                      | Python                | Example                                                                                                                                                                |
 | --------- | ------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Variable  | Variable                  | Variable              |                                                                                                                                                                        |
