@@ -35,7 +35,7 @@ npm install -g abap-api-tools
 abap
 ```
 
-:bulb: [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html) binaries shall be installed on your notebook, for CLI connectivity to ABAP systems. Check [where to download](https://launchpad.support.sap.com/#/notes/2573790) and [how to install](https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation).
+[SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html) binaries shall be installed on your notebook, for CLI connectivity to ABAP systems. Check [where to download](https://launchpad.support.sap.com/#/notes/2573790) and [how to install](https://github.com/SAP/node-rfc/blob/master/doc/installation.md#sap-nwrfc-sdk-installation).
 
 Without [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html), the `make` command and [custom ui configurations](#custom-ui-configurations) can be tested with [ABAP  annotations sample](https://github.com/SAP/fundamental-tools/tree/sample):
 
@@ -46,6 +46,7 @@ gh repo clone SAP/fundamental-tools sample -- --branch sample --single-branch
 cd sample
 
 abap make fundamental-ngx -c config/equipment
+# check results in api/equipment folder
 ```
 
 Using CLI from [docker container](https://github.com/SAP/fundamental-tools/tree/main/docker#abap-api-tools), only docker is required on your notebook:
