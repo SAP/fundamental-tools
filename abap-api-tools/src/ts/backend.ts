@@ -895,6 +895,8 @@ export function annotations_read(
     ? path.join(argv.output, api_name, "yaml")
     : path.join(argv.output, "yaml");
 
+  //if (runningInDocker) folder_yaml = path.join(DockerVolume, folder_yaml);
+
   log.debug(`reading annotations for: ${api_name} from ${folder_yaml}`);
 
   return {

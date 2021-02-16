@@ -112,9 +112,7 @@ export class Frontend {
       } catch (ex) {
         log.info(ex);
         throw new Error(
-          `AnnotationsType not found for ${
-            api_name ? api_name : argv.apilist[0]
-          }, run: ${argv.command} ${Command.get} ...\n`
+          `Annotations not found for ${this.api_name}, run: abap ${argv.cmd} ${Command.get} <destination> ${this.api_name}\n`
         );
       }
     }

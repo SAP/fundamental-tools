@@ -13,6 +13,8 @@ import {
   UIFrameworksLocal,
   Languages,
   DefaultFolder,
+  runningInDocker,
+  DockerVolume,
 } from "./constants";
 import { AnnotationsType, Backend } from "./backend";
 import { Frontend } from "./frontend";
@@ -50,6 +52,9 @@ export interface Arguments {
 class CliHandler {
   private argv: Arguments;
   constructor(argv: Arguments) {
+    log.debug(argv);
+    log.debug(DefaultFolder);
+
     if (argv.c || (argv.rfm && argv.rfm.length)) {
       const apilist: ApiListType = {};
 
@@ -59,7 +64,10 @@ class CliHandler {
           typeof argv.c === "string" ? [argv.c] : argv.c;
         for (let fn of apilist_list) {
           if (!fn.toLowerCase().includes(".yaml")) fn += ".yaml";
-          Object.assign(apilist, yamlLoad(fn));
+          Object.assign(
+            apilist,
+            yamlLoad(runningInDocker ? path.join(DockerVolume, fn) : fn)
+          );
         }
       }
 
@@ -75,8 +83,6 @@ class CliHandler {
     }
 
     this.argv = argv;
-    log.debug(argv);
-    log.debug(DefaultFolder);
   }
 
   async run() {
