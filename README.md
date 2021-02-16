@@ -1,9 +1,14 @@
 # Fundamental Library for ABAP <!-- omit in toc -->
 
-![License](https://img.shields.io/npm/l/abap-api-tools) ![npm](https://img.shields.io/npm/v/abap-api-tools) [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM) [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools) ![npm](https://img.shields.io/npm/dm/abap-api-tools) [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
+![License](https://img.shields.io/npm/l/abap-api-tools)
+[![npm](https://img.shields.io/npm/v/abap-api-tools)](https://www.npmjs.com/package/abap-api-tools)
+[![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
+[![npm](https://img.shields.io/npm/dm/abap-api-tools)](https://www.npmjs.com/package/abap-api-tools)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-Command line tool for pattern based web applications with ABAP/HANA systems.
+[npm command line tool](https://www.npmjs.com/package/abap-api-tools) for pattern based web applications with ABAP/HANA systems.
 
 - Any new or old SAP system
 - Front-end frameworks:

@@ -345,6 +345,13 @@ export const argv = yargs(process.argv.slice(2))
     },
   })
   .check((argv) => {
+    // critical error, docker volume not mounted
+    if (runningInDocker && !fs.existsSync(DockerVolume)) {
+      throw new Error(
+        `Docker volume ${DockerVolume} not mounted. Re-build the container: https://github.com/SAP/fundamental-tools/tree/main/docker#abap-api-tools`
+      );
+    }
+
     // set command
     argv.cmd = argv._[0];
 

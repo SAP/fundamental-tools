@@ -536,7 +536,7 @@ export class Frontend {
     };
 
     htmlWriter.write();
-    if (Object.keys(element_template).length === 0) {
+    if (isEmpty(element_template)) {
       htmlWriter.write(
         `<!-- Table structure not defined in: ${this.configPath.ui} -->`
       );

@@ -11,6 +11,10 @@ ENV container docker
 ARG nwrfc_source=/nwrfcsdk
 ARG nwrfc_target=/usr/local/sap
 
+# dev tools
+RUN apt-get update && apt-get install -y vim
+RUN printf "\n# dev aliases\nalias ll='ls $LS_OPTIONS -l'\nalias l='ls $LS_OPTIONS -lA'\nalias e=exit\nalias dist='rm -rf dist && cp -r /work/dist . && chmod +x dist/abap.js'\n" >> ~/.bashrc
+
 # sap nwrfc sdk
 RUN printf "\n# nwrfc sdk \n" >> ~/.bashrc && \
     printf "export SAPNWRFC_HOME=${nwrfc_target}/nwrfcsdk\n" >> ~/.bashrc
@@ -24,5 +28,8 @@ RUN chmod -R a+r ${nwrfc_target}/nwrfcsdk && \
 
 # abap tools
 RUN npm install -g abap-api-tools
+
+# cleanup
+RUN rm -rf /tmp/*
 
 CMD ["/bin/bash"]
