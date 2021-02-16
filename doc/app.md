@@ -2,7 +2,7 @@
 
 Pattern based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
 
-The design is very low-code, by factors less than anything similar. There are no frameworks in between you and your application. What remains are problem-solving code-patterns and basic programming skills, you can start with. First applying patterns of others, then modifying them and finally building your own. With some knowledge of ABAP, or JavaScript or both. ABAP developers describe the approach as "ABAP driven", Web developers as "Web driven". Easy to try, no matter of background.
+The design is very low-code, by factors less than anything similar, without frameworks in between you and your application. What remains are problem-solving code-patterns and basic programming skills, you can start with. First applying patterns of others, then modifying them and finally building your own. With some knowledge of ABAP, or JavaScript or both. ABAP developers describe the approach as *ABAP driven*, Web developers as *Web driven*, in other words easy to try, no matter of background.
 
 Apps comprise of four levels (JavaScript or JS stands for TypeScript or EcmaScript):
 
