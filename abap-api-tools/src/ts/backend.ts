@@ -297,7 +297,10 @@ export class Backend {
       shlp_title = "",
       shlp_values: RfcTable = [];
 
-    if (this.getSearchHelps) {
+    if (
+      this.getSearchHelps &&
+      !["DATS", "TIMS"].includes(dfies.DATATYPE as string)
+    ) {
       // F4 Help
       if (dfies.F4AVAILABL) {
         const shlp_descriptor = await this.client.call(
@@ -317,6 +320,7 @@ export class Backend {
         // Domain Field Values
         if (shlp["SHLPTYPE"] == "FV") {
           if (!this.Helps[shlp_key]) {
+            log.debug(`shelp: ${shlp_key}`);
             shlp_values = (
               await this.client.call(
                 this.search_help_api.dom_values as string,
@@ -373,6 +377,7 @@ export class Backend {
         result.input["SHLP"] &&
         !this.Helps[shlp_key]
       ) {
+        log.debug(`shelp: ${shlp_key}`);
         if (["CH", "CT"].includes(shlp["SHLPTYPE"])) {
           result.format.valueInputType = ValueInput.list;
           const tab_fields = (
@@ -833,8 +838,11 @@ export class Backend {
       this.api_name
     );
     const folder_yaml: string = path.join(folder_root, "yaml");
-    log.debug(
-      `AnnotationsType save ${folder_yaml} ${textOnly ? "only texts" : ""}`
+    log.info(
+      (textOnly ? "\nAnnotations' texts" : "\nAnnotations") +
+        ` saved to: ${
+          runningInDocker ? folder_yaml.replace(DockerVolume, "") : folder_yaml
+        }`
     );
 
     if (!fs.existsSync(folder_root)) {
@@ -894,8 +902,6 @@ export function annotations_read(
   const folder_yaml = api_name
     ? path.join(argv.output, api_name, "yaml")
     : path.join(argv.output, "yaml");
-
-  //if (runningInDocker) folder_yaml = path.join(DockerVolume, folder_yaml);
 
   log.debug(`reading annotations for: ${api_name} from ${folder_yaml}`);
 

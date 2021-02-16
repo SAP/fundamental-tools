@@ -296,9 +296,9 @@ export class Frontend {
     log.info(
       `\nfrontend: ${this.argv.ui || ""} using ${
         this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
-      } ${
+      }${
         this.argv.ui
-          ? "and " +
+          ? " and " +
             (this.configPath.uiLocal ? this.configPath.ui : "default ui.yaml")
           : ""
       }; field names sorted: ${this.argv["sort-fields"] ? "yes" : "no"}\n`
