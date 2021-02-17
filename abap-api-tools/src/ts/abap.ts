@@ -120,6 +120,7 @@ class CliHandler {
         ) {
           const frontend = new Frontend(api_name, annotations, this.argv);
           log.debug(`frontend run ${api_name}`);
+          if (!result[api_name]) result[api_name] = {};
           result[api_name]["frontend"] = frontend.parse();
         }
       }

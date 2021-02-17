@@ -11,6 +11,7 @@
 Node [CLI tool](./abap-api-tools) for pattern based web applications with ABAP/HANA systems.
 
 - Any new or old SAP system
+- By factors less code and efforts
 - Front-end frameworks:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
@@ -35,7 +36,7 @@ Node [CLI tool](./abap-api-tools) for pattern based web applications with ABAP/H
   - [ui elements](./abap-api-tools/README.md#ui-elements)
 - [Custom ui configurations](./abap-api-tools/README.md#custom-ui-configurations)
 - [i18n](./abap-api-tools/README.md#i18n)
-- [CLI API](./abap-api-tools/README.md#cli-api)
+- [Integration](./abap-api-tools/README.md#integration)
 - [Building a pattern based app](./doc/app.md)
 - NodeJS and Python [docker images](./docker)
 
