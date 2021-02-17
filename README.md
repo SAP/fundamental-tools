@@ -35,6 +35,7 @@ Node [CLI tool](./abap-api-tools) for pattern based web applications with ABAP/H
   - [ui elements](./abap-api-tools/README.md#ui-elements)
 - [Custom ui configurations](./abap-api-tools/README.md#custom-ui-configurations)
 - [i18n](./abap-api-tools/README.md#i18n)
+- [CLI API](./abap-api-tools/README.md#cli-api)
 - [Building a pattern based app](./doc/app.md)
 - NodeJS and Python [docker images](./docker)
 
