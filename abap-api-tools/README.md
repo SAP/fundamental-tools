@@ -22,6 +22,7 @@ Command line tool for pattern based applications with ABAP/HANA systems.
   - [ui elements](#ui-elements)
 - [Custom ui configurations](#custom-ui-configurations)
 - [i18n](#i18n)
+- [CLI API](#cli-api)
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
@@ -361,6 +362,38 @@ short:
     SCRTEXT_L: Postal Code
     SCRTEXT_M: Postal Code
     SCRTEXT_S: Postl Code
+```
+
+## CLI API
+
+Your tools and applications can use CLI API `call` and `get` methods, to access ABAP annotations and call templates.
+
+Either the destination id or connection parameters can be provided, together with one single RFM name or array of RFM names.
+
+Check [unit tests](https://github.com/SAP/fundamental-tools/tree/main/abap-api-tools/tests) for data structures.
+
+```ts
+import { CliApi, CliResult, RfcConnectionParameters } from "abap-api-tools";
+
+const cp: RfcConnectionParameters = {
+  user: "demo",
+  passwd: "welcome",
+  ashost: "11.12.13.14",
+  sysnr: "01",
+  client: "321",
+  lang: "de",
+};
+
+(async () => {
+  let R:CliResult;
+
+  const api = new CliApi();
+
+  R = await a.get(cp, ["stfc_connection", "stfc_structure"]); // annotations only
+
+  R = await a.call("MME", "stfc_connection");                 // annotations and call templates
+
+})();
 ```
 
 ## Known Issues

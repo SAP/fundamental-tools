@@ -85,6 +85,8 @@ export const Languages = Object.freeze({
   vi: { spras: "쁩", text: "Vietnamese" },
 });
 
+export const DefaultLanguage = "en";
+
 // Parameter types
 export const ParamType = Object.freeze({
   var: "var",

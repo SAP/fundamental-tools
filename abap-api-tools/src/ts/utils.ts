@@ -111,8 +111,8 @@ export class Writer {
     this.output.push(this.NEWLINE);
   }
 
-  save(): void {
-    const ms = this.output.join(this.NEWLINE);
+  save(): string {
+    const ms: string = this.output.join(this.NEWLINE);
     if (this.saveToFile) {
       const stream = fs.createWriteStream(this.fileName);
       stream.once("open", () => {
@@ -122,5 +122,6 @@ export class Writer {
     } else {
       log.info(ms);
     }
+    return ms;
   }
 }

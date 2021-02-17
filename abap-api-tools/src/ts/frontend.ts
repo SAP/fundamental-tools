@@ -86,8 +86,10 @@ type UiConfigTableType = {
 
 type UiConfigType = Record<string, string | UiConfigTableType>;
 
+export type FrontendResult = Record<string, { js: string; html?: string }>;
 export class Frontend {
   private api_name: string;
+  private apilist: string[];
   private abap: AnnotationsType;
   private argv: Arguments;
 
@@ -101,9 +103,10 @@ export class Frontend {
   private abapConfig: AbapConfigType = {};
 
   constructor(api_name: string, abap: AnnotationsType, argv: Arguments) {
-    this.api_name = api_name;
     this.abap = abap;
     this.argv = argv;
+    this.api_name = api_name;
+    this.apilist = argv.apilist ? argv.apilist[api_name] : [];
 
     // abap
     if (!this.abap || isEmpty(this.abap.parameters)) {
@@ -292,7 +295,7 @@ export class Frontend {
     return result;
   }
 
-  parse(): void {
+  parse(): FrontendResult {
     log.info(
       `\nfrontend: ${this.argv.ui || ""} using ${
         this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
@@ -304,7 +307,9 @@ export class Frontend {
       }; field names sorted: ${this.argv["sort-fields"] ? "yes" : "no"}\n`
     );
 
-    for (const rfm_name of this.argv.apilist[this.api_name]) {
+    const result: FrontendResult = {};
+
+    for (const rfm_name of this.apilist) {
       // check local annotations
       if (!this.abap.parameters[rfm_name]) {
         log.info(chalk.red(`${rfm_name} annotations not found`));
@@ -343,7 +348,7 @@ export class Frontend {
         rfm_name.replace(/\//g, "_").toLowerCase()
       );
 
-      const jsWriter = new Writer(`${fileName}.js`, this.argv.save);
+      const jsWriter = new Writer(`${fileName}.js`, this.argv.save as boolean);
 
       let htmlWriter: Writer | undefined;
 
@@ -361,7 +366,7 @@ export class Frontend {
       jsWriter.write(`const parameters = {`);
 
       if (this.argv.ui) {
-        htmlWriter = new Writer(`${fileName}.html`, this.argv.save);
+        htmlWriter = new Writer(`${fileName}.html`, this.argv.save as boolean);
         //
         // html header
         //
@@ -516,9 +521,10 @@ export class Frontend {
         }
       }
 
-      jsWriter.save();
-      if (htmlWriter) htmlWriter.save();
+      result[rfm_name] = { js: jsWriter.save() };
+      if (htmlWriter) result[rfm_name].html = htmlWriter.save();
     }
+    return result;
   }
 
   table_init(

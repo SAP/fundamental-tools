@@ -8,7 +8,13 @@ import chalk from "chalk";
 import fs from "fs";
 import path from "path";
 import { sprintf } from "sprintf-js";
-import { Client, RfcParameterValue, RfcTable, RfcStructure } from "node-rfc";
+import {
+  Client,
+  RfcParameterValue,
+  RfcTable,
+  RfcStructure,
+  RfcConnectionParameters,
+} from "node-rfc";
 import { Command, Arguments } from "./abap";
 import {
   Languages,
@@ -142,37 +148,59 @@ export class Backend {
   private Texts = {} as yamlTextsType;
 
   private client = {} as Client;
+  private clientConnectionParameters: RfcConnectionParameters;
+  private systemId = "";
 
   constructor(api_name: string, argv: Arguments) {
     this.argv = argv;
     this.api_name = api_name;
-    this.apilist = this.argv.apilist[api_name];
+    this.apilist = argv.apilist ? argv.apilist[api_name] : [];
 
     this.alpha = new Alpha();
     this.SPRAS = Languages[this.argv.lang].spras;
     this.Helps = {};
     this.Stat = {};
 
+    this.clientConnectionParameters = {};
+
     log.debug(
-      `backend: ${this.api_name} dest: ${this.argv.dest} lang: ${argv.lang} : ${this.SPRAS} api: ${this.apilist}`
+      `backend: ${this.api_name} systemId: ${this.systemId} lang: ${argv.lang} : ${this.SPRAS} api: ${this.apilist}`
     );
 
+    if (this.argv.dest) {
+      if (typeof this.argv.dest === "string") {
+        this.clientConnectionParameters = { dest: this.argv.dest };
+        this.systemId = this.argv.dest;
+      } else {
+        this.clientConnectionParameters = this.argv.dest;
+        this.systemId =
+          this.clientConnectionParameters.ashost ||
+          this.clientConnectionParameters.msserv ||
+          this.clientConnectionParameters.gwserv ||
+          this.clientConnectionParameters.snc_partnername ||
+          "";
+      }
+    }
+
     // check if search help api configured
-    if (this.argv.dest && this.argv.cmd === Command.get) {
+    if (this.argv.cmd === Command.get) {
       try {
         const systemYamlPath = path.join(
           DefaultFolder.userConfig,
           "systems.yaml"
         );
         const systems = yamlLoad(systemYamlPath) as SystemsYamlType;
+
         if (!systems) {
           log.info(`systems.yaml not found: ${systemYamlPath}`);
-        } else if (!systems[this.argv.dest]) {
-          log.info(`system ${this.argv.dest} not found in systems.yaml`);
-        } else if (!systems[this.argv.dest].search_help_api) {
-          log.info(`search help api not configured for ${this.argv.dest}`);
+        } else if (!this.systemId) {
+          log.info("System key not found in connection parameters");
+        } else if (!systems[this.systemId]) {
+          log.info(`system ${this.systemId} not found in systems.yaml`);
+        } else if (!systems[this.systemId].search_help_api) {
+          log.info(`search help api not configured for ${this.systemId}`);
         } else {
-          this.search_help_api = systems[this.argv.dest].search_help_api;
+          this.search_help_api = systems[this.systemId].search_help_api;
 
           for (const [apiKey, apiName] of Object.entries(
             this.search_help_api
@@ -545,7 +573,7 @@ export class Backend {
       if (runningInDocker) {
         addon.setIniFileDirectory(DockerVolume);
       }
-      this.client = new addon.Client({ dest: this.argv.dest });
+      this.client = new addon.Client(this.clientConnectionParameters);
     } catch (ex) {
       throw new Error(
         [
@@ -577,7 +605,7 @@ export class Backend {
     }
 
     log.info(
-      `\n${chalk.bold(this.api_name)} ${this.argv.dest} (${this.argv.lang}) ${
+      `\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
         this.argv.textOnly ? "only texts" : ""
       } ${this.getSearchHelps ? "search helps" : ""}\n`.replace(/  +/g, " ")
     );
@@ -821,7 +849,7 @@ export class Backend {
       usage: usage,
     };
 
-    if (this.argv.cmd === Command.get) {
+    if (!this.argv.runInBg && this.argv.cmd === Command.get) {
       this.annotations_write(abap, this.Texts, Boolean(this.argv.textOnly));
     }
 
