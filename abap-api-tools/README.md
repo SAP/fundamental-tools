@@ -366,14 +366,20 @@ short:
 
 ## Integration
 
-Your tools and applications can use integration API `call` and `get` methods, to access ABAP annotations and call templates.
+Integration api provides ABAP annotations, call templates and pre-fabricated ui components, for consumption by other tools, applications or SDKs:
 
-Either the destination id or connection parameters can be provided, with one or more RFM names.
+| Method | Output                           | Backend connection |
+| ------ | -------------------------------- | ------------------ |
+| `call` | Call templates                   | required           |
+| `get`  | Call templates, ABAP annotations | required           |
+| `make` | Call templates, ui components    | not required       |
 
-Check [unit tests](https://github.com/SAP/fundamental-tools/tree/main/abap-api-tools/tests) for usage details and result data structure.
+Either the destination id or connection parameters can be used, with one or more RFM names.
+
+Check usage examples in [unit tests](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/tests/cliapi.spec.js) and [reference results](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/tests/results.js) for data structures' details.
 
 ```ts
-import { CliApi, CliResult, RfcConnectionParameters } from "abap-api-tools";
+import { AbapCliApi, AbapCliResult, RfcConnectionParameters, AnnotationsType } from "abap-api-tools";
 
 const cp: RfcConnectionParameters = {
   user: "demo",
@@ -385,13 +391,18 @@ const cp: RfcConnectionParameters = {
 };
 
 (async () => {
-  let R:CliResult;
+  let R:AbapCliResult;
 
-  const api = new CliApi();
+  const api = new AbapCliApi();
 
-  R = await a.get(cp, ["stfc_connection", "stfc_structure"]); // annotations only
+  // Call templates
+  R = await a.call("MME", "stfc_connection");
 
-  R = await a.call("MME", "stfc_connection");                 // annotations and call templates
+  // Call templates and annotations
+  R = await a.get(cp, ["stfc_connection", "stfc_structure"]);
+
+  // Call templates and ui components
+  R = await a.make(R.annotations as AnnotationsType, "fudamental-ngx");
 
 })();
 ```

@@ -36,7 +36,7 @@ export const Command = Object.freeze({
 export type ApiListType = Record<string, string[]>;
 
 export type Destination = string | RfcConnectionParameters;
-export { RfcConnectionParameters };
+export { RfcConnectionParameters, AnnotationsType };
 
 export type Arguments = {
   //[argName: string]: unknown;
@@ -53,13 +53,15 @@ export type Arguments = {
   save?: boolean;
   textOnly?: string;
   ui?: string;
+  "sort-fields"?: boolean;
   runInBg?: boolean;
 };
 
-export type CliResult = {
+export type AbapCliResult = {
   annotations?: AnnotationsType;
   frontend?: FrontendResult;
 };
+
 class CliHandler {
   private argv: Arguments;
 
@@ -98,20 +100,20 @@ class CliHandler {
     log.debug(argv);
   }
 
-  async run(): Promise<CliResult> {
-    const result: CliResult = {};
+  async run(): Promise<AbapCliResult> {
+    const result: AbapCliResult = {};
     if (this.argv.apilist) {
       for (const api_name of Object.keys(this.argv.apilist)) {
-        let annotations: AnnotationsType = {
-          parameters: {},
-          fields: {},
-          stat: {},
-        };
+        let annotations = {} as AnnotationsType;
         if ([Command.call, Command.get].includes(this.argv.cmd)) {
           log.debug(`backend run ${api_name}`);
           const backend = new Backend(api_name, this.argv);
           annotations = await backend.parse();
-          result[api_name] = { annotations: annotations };
+          if (this.argv.cmd === Command.get) {
+            // call method annotations are w/o search helps
+            // only get annotations are complete
+            result[api_name] = { annotations: annotations };
+          }
         }
 
         if (
@@ -155,14 +157,18 @@ class CliHandler {
   }
 }
 
-export class CliApi {
-  private options = { lang: DefaultLanguage, debug: false };
+export class AbapCliApi {
+  private options = {
+    lang: DefaultLanguage,
+    "sort-fields": false,
+    debug: false,
+  };
 
   async call(
     dest: Destination,
     rfm_names: string | string[],
     options?: { lang?: string; debug?: boolean }
-  ): Promise<CliResult> {
+  ): Promise<AbapCliResult> {
     if (options) {
       Object.assign(this.options, options);
     }
@@ -194,7 +200,7 @@ export class CliApi {
     dest: Destination,
     rfm_names: string | string[],
     options?: { lang?: string; debug?: boolean }
-  ): Promise<CliResult> {
+  ): Promise<AbapCliResult> {
     if (options) {
       Object.assign(this.options, options);
     }
@@ -220,6 +226,37 @@ export class CliApi {
     const result = await cli.run();
 
     return result[""];
+  }
+
+  make(
+    annotations: AnnotationsType,
+    ui: string,
+    options?: { "sort-fields"?: boolean; debug?: boolean }
+  ): AbapCliResult {
+    if (options) {
+      Object.assign(this.options, options);
+    }
+
+    log.setDefaultLevel(
+      this.options.debug ? log.levels.DEBUG : log.levels.SILENT
+    );
+
+    const args: Arguments = {
+      _: [Command.make],
+      $0: "abap",
+      cmd: Command.make,
+      output: "",
+      apilist: { "": Object.keys(annotations.parameters) },
+      ui: ui,
+      "sort-fields": this.options["sort-fields"],
+      lang: this.options.lang,
+      debug: this.options.debug,
+      runInBg: true,
+    };
+
+    const frontend = new Frontend("", annotations, args);
+    const result: AbapCliResult = { frontend: frontend.parse() };
+    return result;
   }
 }
 
