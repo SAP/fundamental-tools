@@ -8,10 +8,10 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-Node [CLI tool](./abap-api-tools) for pattern based web applications with ABAP/HANA systems.
+Node [CLI tool](./abap-api-tools) for pattern based web applications with ABAP/HANA systems:
 
+- Minimalistic but powerful
 - Any new or old SAP system
-- By factors less code and efforts
 - Front-end frameworks:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
