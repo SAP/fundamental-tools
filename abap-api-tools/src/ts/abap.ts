@@ -109,11 +109,8 @@ class CliHandler {
           log.debug(`backend run ${api_name}`);
           const backend = new Backend(api_name, this.argv);
           annotations = await backend.parse();
-          if (this.argv.cmd === Command.get) {
-            // call method annotations are w/o search helps
-            // only get annotations are complete
-            result[api_name] = { annotations: annotations };
-          }
+          // call method annotations are w/o search helps
+          result[api_name] = { annotations: annotations };
         }
 
         if (

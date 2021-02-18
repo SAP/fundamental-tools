@@ -2,15 +2,15 @@
 
 ![NPM](https://img.shields.io/npm/l/abap-api-tools)
 
-Command line tool for pattern based applications with ABAP/HANA systems.
+Command line tool for [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) with ABAP/HANA systems.
 
 - BAPI/RFM call templates ([What is BAPI/RFM?](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/))
-- ui components'with ABAP data annotations:
+- Ui components with ABAP data annotations:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
-- [Building a pattern based app](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md)
+- On-premise and cloud applications, with new and old ABAP systems
 
 ## Content<!-- omit in toc -->
 
@@ -368,11 +368,11 @@ short:
 
 Integration api provides ABAP annotations, call templates and pre-fabricated ui components, for consumption by other tools, applications or SDKs:
 
-| Method | Output                           | Backend connection |
-| ------ | -------------------------------- | ------------------ |
-| `call` | Call templates                   | required           |
-| `get`  | Call templates, ABAP annotations | required           |
-| `make` | Call templates, ui components    | not required       |
+| Method | Output                            | Backend connection |
+| ------ | --------------------------------- | ------------------ |
+| `call` | Call templates, basic annotations | required           |
+| `get`  | Call templates, full annotations  | required           |
+| `make` | Call templates, ui components     | not required       |
 
 Either the destination id or connection parameters can be used, with one or more RFM names.
 
@@ -395,13 +395,13 @@ const cp: RfcConnectionParameters = {
 
   const api = new AbapCliApi();
 
-  // Call templates
+  // Call templates and basic annotations (w/o Value Input Helps)
   R = await a.call("MME", "stfc_connection");
 
   // Call templates and annotations
   R = await a.get(cp, ["stfc_connection", "stfc_structure"]);
 
-  // Call templates and ui components
+  // Call templates and ui components (based on "full" annotations)
   R = await a.make(R.annotations as AnnotationsType, "fudamental-ngx");
 
 })();

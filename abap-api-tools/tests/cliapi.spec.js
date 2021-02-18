@@ -25,7 +25,7 @@ describe("Integration API", () => {
 
     const result = await api.call(cp, "stfc_connection");
 
-    expect(Object.keys(result)).toEqual(["frontend"]);
+    expect(Object.keys(result)).toEqual(["annotations", "frontend"]);
     expect(result.frontend).toMatchObject(Result.Call1.frontend);
   });
 
@@ -34,7 +34,7 @@ describe("Integration API", () => {
 
     const result = await api.call("MME", ["stfc_connection", "stfc_structure"]);
 
-    expect(Object.keys(result)).toEqual(["frontend"]);
+    expect(Object.keys(result)).toEqual(["annotations", "frontend"]);
     expect(result.frontend).toMatchObject(Result.Call2.frontend);
   });
 
