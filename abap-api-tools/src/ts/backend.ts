@@ -27,7 +27,7 @@ import {
   runningInDocker,
 } from "./constants";
 import { Alpha } from "./alpha";
-import { deleteFile, isEmpty, log, yamlLoad, yamlSave } from "./utils";
+import { deleteFile, isEmpty, log, fileLoad, fileSave } from "./utils";
 
 // Parameter and Field typings
 
@@ -189,7 +189,7 @@ export class Backend {
           DefaultFolder.userConfig,
           "systems.yaml"
         );
-        const systems = yamlLoad(systemYamlPath) as SystemsYamlType;
+        const systems = fileLoad(systemYamlPath) as SystemsYamlType;
 
         if (!systems) {
           log.info(`systems.yaml not found: ${systemYamlPath}`);
@@ -592,7 +592,7 @@ export class Backend {
           ? path.join(this.argv.output, this.api_name, "yaml")
           : path.join(this.argv.output, "yaml");
         try {
-          this.Texts = yamlLoad(
+          this.Texts = fileLoad(
             path.join(folder_yaml, "texts.yaml")
           ) as yamlTextsType;
         } catch (ex) {
@@ -880,21 +880,21 @@ export class Backend {
       fs.mkdirSync(folder_yaml);
     }
     if (!textOnly) {
-      yamlSave(path.join(folder_yaml, "alpha.yaml"), abap.alpha, {
+      fileSave(path.join(folder_yaml, "alpha.yaml"), abap.alpha, {
         sortKeys: true,
       });
-      yamlSave(path.join(folder_yaml, "parameters.yaml"), abap.parameters);
-      yamlSave(path.join(folder_yaml, "fields.yaml"), abap.fields);
+      fileSave(path.join(folder_yaml, "parameters.yaml"), abap.parameters);
+      fileSave(path.join(folder_yaml, "fields.yaml"), abap.fields);
       if (abap.helps) {
-        yamlSave(path.join(folder_yaml, "helps.yaml"), abap.helps, {
+        fileSave(path.join(folder_yaml, "helps.yaml"), abap.helps, {
           sortKeys: true,
         });
       }
-      yamlSave(path.join(folder_yaml, "stat.yaml"), abap.stat);
-      yamlSave(path.join(folder_yaml, "usage.yaml"), abap.usage);
+      fileSave(path.join(folder_yaml, "stat.yaml"), abap.stat);
+      fileSave(path.join(folder_yaml, "usage.yaml"), abap.usage);
     }
     if (!isEmpty(texts)) {
-      yamlSave(path.join(folder_yaml, "texts.yaml"), texts, {
+      fileSave(path.join(folder_yaml, "texts.yaml"), texts, {
         sortKeys: true,
       });
     }
@@ -934,10 +934,10 @@ export function annotations_read(
   log.debug(`reading annotations for: ${api_name} from ${folder_yaml}`);
 
   return {
-    parameters: yamlLoad(
+    parameters: fileLoad(
       path.join(folder_yaml, "parameters.yaml")
     ) as yamlParametersType,
-    fields: yamlLoad(path.join(folder_yaml, "fields.yaml")) as yamlFieldsType,
-    stat: yamlLoad(path.join(folder_yaml, "stat.yaml")) as StatType,
+    fields: fileLoad(path.join(folder_yaml, "fields.yaml")) as yamlFieldsType,
+    stat: fileLoad(path.join(folder_yaml, "stat.yaml")) as StatType,
   };
 }

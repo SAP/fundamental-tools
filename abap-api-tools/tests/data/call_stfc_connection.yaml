@@ -1,0 +1,89 @@
+annotations:
+  alpha:
+    all: []
+    rfm: {}
+  parameters:
+    STFC_CONNECTION:
+      REQUTEXT:
+        PARAMCLASS: I
+        TABNAME: SYST
+        FIELDNAME: LISEL
+        PARAMTEXT: ''
+        functionName: STFC_CONNECTION
+        paramName: REQUTEXT
+        required: true
+        paramType: var
+      ECHOTEXT:
+        PARAMCLASS: E
+        TABNAME: SYST
+        FIELDNAME: LISEL
+        PARAMTEXT: ''
+        functionName: STFC_CONNECTION
+        paramName: ECHOTEXT
+        required: true
+        paramType: var
+      RESPTEXT:
+        PARAMCLASS: E
+        TABNAME: SYST
+        FIELDNAME: LISEL
+        PARAMTEXT: ''
+        functionName: STFC_CONNECTION
+        paramName: RESPTEXT
+        required: true
+        paramType: var
+  fields:
+    SYST:
+      LISEL:
+        format:
+          DATATYPE: CHAR
+          INTTYPE: C
+          LENG: 255
+          DOMNAME: SYCHAR255
+          ROLLNAME: SYST_LISEL
+          OUTPUTLEN: 255
+        text:
+          FIELDTEXT: 'ABAP System Field: Content of Selected List Line'
+          REPTEXT: Line Content
+          SCRTEXT_S: Line
+          SCRTEXT_M: Line Content
+          SCRTEXT_L: Line Content
+  helps: {}
+  stat:
+    STFC_CONNECTION:
+      var: 3
+      struct: 0
+      table: 0
+      exception: 0
+  usage: {}
+frontend:
+  STFC_CONNECTION:
+    js: |
+      //
+      // STFC_CONNECTION var: 3  struct: 0  table: 0  exception: 0
+      //
+      // abap api
+      //
+
+      // prettier-ignore
+      const parameters = {
+
+      // IMPORT PARAMETERS
+
+      REQUTEXT    :           "", // CHAR (255) no text (en)
+
+      // EXPORT PARAMETERS
+
+      // ECHOTEXT :           "", // CHAR (255) no text (en)
+      // RESPTEXT :           "", // CHAR (255) no text (en)
+      };
+
+      const result = await client.call("STFC_CONNECTION", parameters);
+
+      //
+      // IMPORT PARAMETERS
+      //
+
+
+      //
+      // EXPORT PARAMETERS
+      //

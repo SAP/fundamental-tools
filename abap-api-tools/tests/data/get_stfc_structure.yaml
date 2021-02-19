@@ -1,0 +1,335 @@
+annotations:
+  alpha:
+    all: []
+    rfm: {}
+  parameters:
+    STFC_STRUCTURE:
+      IMPORTSTRUCT:
+        PARAMCLASS: I
+        TABNAME: RFCTEST
+        PARAMTEXT: Importing structure
+        functionName: STFC_STRUCTURE
+        paramName: IMPORTSTRUCT
+        required: true
+        paramType: struct
+      RFCTABLE:
+        PARAMCLASS: T
+        TABNAME: RFCTEST
+        PARAMTEXT: Importing/exporting table
+        functionName: STFC_STRUCTURE
+        paramName: RFCTABLE
+        required: true
+        paramType: table
+      RESPTEXT:
+        PARAMCLASS: E
+        TABNAME: SYST
+        FIELDNAME: LISEL
+        PARAMTEXT: Exporting response message
+        functionName: STFC_STRUCTURE
+        paramName: RESPTEXT
+        required: true
+        paramType: var
+      ECHOSTRUCT:
+        PARAMCLASS: E
+        TABNAME: RFCTEST
+        PARAMTEXT: Exporting structure
+        functionName: STFC_STRUCTURE
+        paramName: ECHOSTRUCT
+        required: true
+        paramType: struct
+  fields:
+    RFCTEST:
+      RFCFLOAT:
+        format:
+          DATATYPE: FLTP
+          INTTYPE: F
+          LENG: 16
+          DOMNAME: RFCFLOAT
+          ROLLNAME: RFCFLOAT
+          OUTPUTLEN: 22
+          DECIMALS: 16
+        text:
+          FIELDTEXT: Float field
+          REPTEXT: Float
+          SCRTEXT_S: Float
+          SCRTEXT_M: Float
+          SCRTEXT_L: Float
+      RFCCHAR1:
+        format:
+          DATATYPE: CHAR
+          INTTYPE: C
+          LENG: 1
+          DOMNAME: RFCCHAR1
+          ROLLNAME: RFCCHAR1
+          OUTPUTLEN: 1
+          LOWERCASE: X
+        text:
+          FIELDTEXT: Character field of length 1
+          REPTEXT: char1
+          SCRTEXT_S: char1
+          SCRTEXT_M: char1
+          SCRTEXT_L: char1
+      RFCINT2:
+        format:
+          DATATYPE: INT2
+          INTTYPE: s
+          LENG: 5
+          DOMNAME: RFCINT2
+          ROLLNAME: RFCINT2
+          OUTPUTLEN: 5
+        text:
+          FIELDTEXT: INT2 field
+          REPTEXT: INT2
+          SCRTEXT_S: INT2
+          SCRTEXT_M: INT2
+          SCRTEXT_L: INT2
+      RFCINT1:
+        format:
+          DATATYPE: INT1
+          INTTYPE: b
+          LENG: 3
+          DOMNAME: RFCINT1
+          ROLLNAME: RFCINT1
+          OUTPUTLEN: 3
+        text:
+          FIELDTEXT: INT1 field
+          REPTEXT: INT1
+          SCRTEXT_S: INT1
+          SCRTEXT_M: INT1
+          SCRTEXT_L: INT1
+      RFCCHAR4:
+        format:
+          DATATYPE: CHAR
+          INTTYPE: C
+          LENG: 4
+          DOMNAME: RFCCHAR4
+          ROLLNAME: RFCCHAR4
+          OUTPUTLEN: 4
+          LOWERCASE: X
+        text:
+          FIELDTEXT: Character field of length 4
+          REPTEXT: char4
+          SCRTEXT_S: char4
+          SCRTEXT_M: char4
+          SCRTEXT_L: char4
+      RFCINT4:
+        format:
+          DATATYPE: INT4
+          INTTYPE: I
+          LENG: 10
+          DOMNAME: RFCINT4
+          ROLLNAME: RFCINT4
+          OUTPUTLEN: 10
+        text:
+          FIELDTEXT: INT4 field
+          REPTEXT: INT4
+          SCRTEXT_S: INT4
+          SCRTEXT_M: INT4
+          SCRTEXT_L: INT4
+      RFCHEX3:
+        format:
+          DATATYPE: RAW
+          INTTYPE: X
+          LENG: 3
+          DOMNAME: RFCHEX3
+          ROLLNAME: RFCHEX3
+          OUTPUTLEN: 6
+        text:
+          FIELDTEXT: HEX field of length 3
+          REPTEXT: hex3
+          SCRTEXT_S: hex3
+          SCRTEXT_M: hex3
+          SCRTEXT_L: hex3
+      RFCCHAR2:
+        format:
+          DATATYPE: CHAR
+          INTTYPE: C
+          LENG: 2
+          DOMNAME: RFCCHAR2
+          ROLLNAME: RFCCHAR2
+          OUTPUTLEN: 2
+        text:
+          FIELDTEXT: Character field of length 2
+          REPTEXT: char2
+          SCRTEXT_S: char2
+          SCRTEXT_M: char2
+          SCRTEXT_L: char2
+      RFCTIME:
+        format:
+          DATATYPE: TIMS
+          INTTYPE: T
+          LENG: 6
+          DOMNAME: RFCTIME
+          ROLLNAME: RFCTIME
+          OUTPUTLEN: 8
+        text:
+          FIELDTEXT: Validity Period
+          REPTEXT: Validity Period
+          SCRTEXT_S: Duration
+          SCRTEXT_M: Validity Period
+          SCRTEXT_L: Validity Period
+      RFCDATE:
+        format:
+          DATATYPE: DATS
+          INTTYPE: D
+          LENG: 8
+          DOMNAME: RFCDATE
+          ROLLNAME: RFCDATE
+          OUTPUTLEN: 10
+        text:
+          FIELDTEXT: Date field
+          REPTEXT: Date
+          SCRTEXT_S: Date
+          SCRTEXT_M: Date
+          SCRTEXT_L: Date
+      RFCDATA1:
+        format:
+          DATATYPE: CHAR
+          INTTYPE: C
+          LENG: 50
+          DOMNAME: TEXT50
+          ROLLNAME: CHAR50
+          OUTPUTLEN: 50
+          LOWERCASE: X
+        text:
+          FIELDTEXT: Comment
+          REPTEXT: c
+          SCRTEXT_S: c
+          SCRTEXT_M: c
+          SCRTEXT_L: c
+      RFCDATA2:
+        format:
+          DATATYPE: CHAR
+          INTTYPE: C
+          LENG: 50
+          DOMNAME: TEXT50
+          ROLLNAME: CHAR50
+          OUTPUTLEN: 50
+          LOWERCASE: X
+        text:
+          FIELDTEXT: Comment
+          REPTEXT: c
+          SCRTEXT_S: c
+          SCRTEXT_M: c
+          SCRTEXT_L: c
+    SYST:
+      LISEL:
+        format:
+          DATATYPE: CHAR
+          INTTYPE: C
+          LENG: 255
+          DOMNAME: SYCHAR255
+          ROLLNAME: SYST_LISEL
+          OUTPUTLEN: 255
+        text:
+          FIELDTEXT: 'ABAP System Field: Content of Selected List Line'
+          REPTEXT: Line Content
+          SCRTEXT_S: Line
+          SCRTEXT_M: Line Content
+          SCRTEXT_L: Line Content
+  helps: {}
+  stat:
+    STFC_STRUCTURE:
+      var: 1
+      struct: 2
+      table: 1
+      exception: 0
+  usage:
+    RFCTEST:
+      - STFC_STRUCTURE
+frontend:
+  STFC_STRUCTURE:
+    js: |
+      //
+      // STFC_STRUCTURE var: 1  struct: 2  table: 1  exception: 0
+      //
+      // abap api
+      //
+
+      // prettier-ignore
+      const parameters = {
+
+      // IMPORT PARAMETERS
+
+      IMPORTSTRUCT    :           {}, // RFCTEST Importing structure
+
+      // TABLE PARAMETERS
+
+      RFCTABLE        :           [], // RFCTEST Importing/exporting table
+
+      // EXPORT PARAMETERS
+
+      // RESPTEXT     :           "", // CHAR (255) Exporting response message
+      // ECHOSTRUCT   :           {}, // RFCTEST Exporting structure
+      };
+
+      const result = await client.call("STFC_STRUCTURE", parameters);
+
+      //
+      // IMPORT PARAMETERS
+      //
+
+      // RFCTEST  Importing structure
+
+      // prettier-ignore
+      const IMPORTSTRUCT= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+
+
+      //
+      // TABLE PARAMETERS
+      //
+
+      // RFCTEST  Importing/exporting table
+      const RFCTABLE= [];
+
+      // prettier-ignore
+      const RFCTABLE= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+
+
+      //
+      // EXPORT PARAMETERS
+      //
+
+      // RFCTEST  Exporting structure
+
+      // prettier-ignore
+      const ECHOSTRUCT= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };

@@ -20,14 +20,31 @@ export function getTimestamp(): string {
   return `${dt.getFullYear()}-${mm}-${dd} ${dt.toTimeString().substring(0, 8)}`;
 }
 
-export function yamlLoad(fileName: string): unknown {
-  log.debug(`yaml load ${fileName}`);
-  return yaml.load(fs.readFileSync(fileName, { encoding: "utf-8", flag: "r" }));
+export function fileLoad(fileName: string): unknown {
+  log.debug(`file load ${fileName}`);
+
+  const content = fs.readFileSync(fileName, {
+    encoding: "utf-8",
+    flag: "r",
+  });
+  return fileName.match(/\.(yaml|yml)$/)
+    ? yaml.load(content, { schema: yaml.JSON_SCHEMA })
+    : content;
 }
 
-export function yamlSave(fileName: string, obj: unknown, options = {}): void {
-  fs.writeFileSync(fileName, yaml.dump(obj, options));
-  log.debug(`yaml save ${fileName}`);
+export function fileSave(
+  fileName: string,
+  content: unknown,
+  options: yaml.DumpOptions = {}
+): void {
+  log.debug(`file save ${fileName}`);
+
+  if (typeof content !== "string") {
+    options.schema = yaml.JSON_SCHEMA;
+    content = yaml.dump(content, options);
+    if (!fileName.match(/\.(yaml|yml)$/)) fileName += ".yaml";
+  }
+  fs.writeFileSync(fileName, content as string);
 }
 
 export function deleteFile(fileName: string): void {

@@ -368,15 +368,15 @@ short:
 
 Integration api provides ABAP annotations, call templates and pre-fabricated ui components, for consumption by other tools, applications or SDKs:
 
-| Method | Output                            | Backend connection |
-| ------ | --------------------------------- | ------------------ |
-| `call` | Call templates, basic annotations | required           |
-| `get`  | Call templates, full annotations  | required           |
-| `make` | Call templates, ui components     | not required       |
+| Method | Output                                            | Backend connection |
+| ------ | ------------------------------------------------- | ------------------ |
+| `call` | Call templates, annotations w/o Value Input Helps | required           |
+| `get`  | Call templates, annotations                       | required           |
+| `make` | Call templates, ui components                     | not required       |
 
 Either the destination id or connection parameters can be used, with one or more RFM names.
 
-Check usage examples in [unit tests](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/tests/cliapi.spec.js) and [reference results](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/tests/results.js) for data structures' details.
+Check usage examples in [unit tests](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/tests/cliapi.spec.js) and [reference results](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/tests/data) for data structures' details.
 
 ```ts
 import { AbapCliApi, AbapCliResult, RfcConnectionParameters, AnnotationsType } from "abap-api-tools";
@@ -395,7 +395,7 @@ const cp: RfcConnectionParameters = {
 
   const api = new AbapCliApi();
 
-  // Call templates and basic annotations (w/o Value Input Helps)
+  // Call templates, annotations w/o Value Input Helps
   R = await a.call("MME", "stfc_connection");
 
   // Call templates and annotations

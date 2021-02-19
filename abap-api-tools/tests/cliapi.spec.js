@@ -4,7 +4,8 @@
 
 const AbapCliApi = require("../dist/abap").AbapCliApi;
 
-const Result = require("./results");
+const loadFromFile = require("./utils").loadFromFile;
+const saveToFile = require("./utils").saveToFile;
 
 ("use strict");
 
@@ -23,58 +24,75 @@ describe("Integration API", () => {
   test("call: stfc_connection, connection parameters", async () => {
     expect.assertions(2);
 
+    const expectedFn = "call_stfc_connection.yaml";
     const result = await api.call(cp, "stfc_connection");
+    //saveToFile(expectedFn, result);
 
+    const expectedResult = loadFromFile(expectedFn);
     expect(Object.keys(result)).toEqual(["annotations", "frontend"]);
-    expect(result.frontend).toMatchObject(Result.Call1.frontend);
+    expect(result.frontend).toMatchObject(expectedResult.frontend);
   });
 
   test("call: array rfm, destination", async () => {
     expect.assertions(2);
 
+    const expectedFn = "call_stfc_connection_stfc_structure.yaml";
     const result = await api.call("MME", ["stfc_connection", "stfc_structure"]);
+    //saveToFile(expectedFn, result);
 
+    const expectedResult = loadFromFile(expectedFn);
     expect(Object.keys(result)).toEqual(["annotations", "frontend"]);
-    expect(result.frontend).toMatchObject(Result.Call2.frontend);
+    expect(result.frontend).toMatchObject(expectedResult.frontend);
   });
 
   test("get : stfc_connection destination", async () => {
     expect.assertions(2);
 
+    const expectedFn = "get_stfc_connection.yaml";
     const result = await api.get("MME", "stfc_connection");
+    //saveToFile(expectedFn, result);
 
-    expect(result.annotations).toMatchObject(Result.GetStfcConn.annotations);
-    expect(result.frontend).toMatchObject(Result.GetStfcConn.frontend);
+    const expectedResult = loadFromFile(expectedFn);
+    expect(result.annotations).toMatchObject(expectedResult.annotations);
+    expect(result.frontend).toMatchObject(expectedResult.frontend);
   });
 
   test("get : stfc_structure, connection parameters", async () => {
     expect.assertions(2);
 
+    const expectedFn = "get_stfc_structure.yaml";
     const result = await api.get(cp, "stfc_structure");
+    //saveToFile(expectedFn, result);
 
-    expect(result.annotations).toEqual(Result.GetStfcStruct.annotations);
-    expect(result.frontend).toMatchObject(Result.GetStfcStruct.frontend);
+    const expectedResult = loadFromFile(expectedFn);
+    expect(result.annotations).toEqual(expectedResult.annotations);
+    expect(result.frontend).toMatchObject(expectedResult.frontend);
   });
 
   test("get : array rfm, destination", async () => {
     expect.assertions(2);
 
+    const expectedFn = "get_stfc_connection_stfc_structure.yaml";
     const result = await api.get("MME", ["stfc_connection", "stfc_structure"]);
+    //saveToFile(expectedFn, result);
 
-    expect(result.annotations).toMatchObject(Result.Get2.annotations);
-    expect(result.frontend).toMatchObject(Result.Get2.frontend);
+    const expectedResult = loadFromFile(expectedFn);
+    expect(result.annotations).toMatchObject(expectedResult.annotations);
+    expect(result.frontend).toMatchObject(expectedResult.frontend);
   });
 
   test("make: stfc_structure", async () => {
     expect.assertions(1);
 
-    const result = api.make(
-      Result.GetStfcStruct.annotations,
-      "fundamental-ngx"
-    );
+    const expectedFn = "make_stfc_stfc_structure.yaml";
 
+    const annotations = loadFromFile("get_stfc_structure.yaml").annotations;
+    const result = api.make(annotations, "fundamental-ngx");
+    //saveToFile(expectedFn, result);
+
+    const expectedResult = loadFromFile(expectedFn);
     expect(result.frontend.STFC_STRUCTURE.html).toEqual(
-      Result.MakeStfcStruct.frontend.STFC_STRUCTURE.html
+      expectedResult.frontend.STFC_STRUCTURE.html
     );
   });
 });

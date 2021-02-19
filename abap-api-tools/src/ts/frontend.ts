@@ -6,7 +6,7 @@ import chalk from "chalk";
 import path from "path";
 import { sprintf } from "sprintf-js";
 
-import { EmptyObject, Writer, isEmpty, log, yamlLoad } from "./utils";
+import { EmptyObject, Writer, isEmpty, log, fileLoad } from "./utils";
 
 import {
   ParamClass,
@@ -145,7 +145,7 @@ export class Frontend {
           DefaultFolder.userConfig,
           `${argv.ui}.yaml`
         );
-        this.uiConfig = yamlLoad(this.configPath.ui) as UiConfigType;
+        this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
         this.configPath.uiLocal = true;
         log.debug(`local ui configuration ${argv.ui}`);
       } catch (ex) {
@@ -159,7 +159,7 @@ export class Frontend {
           "ui",
           `${argv.ui}.yaml`
         );
-        this.uiConfig = yamlLoad(this.configPath.ui) as UiConfigType;
+        this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
         log.debug(`default ui configuration ${argv.ui}`);
       }
 
@@ -169,7 +169,7 @@ export class Frontend {
           DefaultFolder.userConfig,
           `${argv.ui}-abap.yaml`
         );
-        this.abapConfig = yamlLoad(this.configPath.abap) as AbapConfigType;
+        this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
         this.configPath.abapLocal = true;
         log.debug(`local abap configuration ${argv.ui}`);
       } catch (ex) {
@@ -183,7 +183,7 @@ export class Frontend {
           "ui",
           `${argv.ui}-abap.yaml`
         );
-        this.abapConfig = yamlLoad(this.configPath.abap) as AbapConfigType;
+        this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
         log.debug(`default abap configuration ${argv.ui}`);
       }
     } else {
@@ -192,7 +192,7 @@ export class Frontend {
         DefaultFolder.configuration,
         "abap.yaml"
       );
-      this.abapConfig = yamlLoad(this.configPath.abap) as AbapConfigType;
+      this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
       log.debug(`default abap.yaml`);
     }
 

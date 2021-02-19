@@ -20,7 +20,7 @@ import {
 } from "./constants";
 import { AnnotationsType, Backend } from "./backend";
 import { Frontend, FrontendResult } from "./frontend";
-import { yamlLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
+import { fileLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
 
 export let Signature = `abap api`;
 
@@ -80,7 +80,7 @@ class CliHandler {
           if (!fn.toLowerCase().includes(".yaml")) fn += ".yaml";
           Object.assign(
             apilist,
-            yamlLoad(runningInDocker ? path.join(DockerVolume, fn) : fn)
+            fileLoad(runningInDocker ? path.join(DockerVolume, fn) : fn)
           );
         }
       }

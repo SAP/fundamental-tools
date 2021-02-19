@@ -1,0 +1,438 @@
+frontend:
+  STFC_STRUCTURE:
+    js: |
+      //
+      // STFC_STRUCTURE var: 1  struct: 2  table: 1  exception: 0
+      //
+      // abap api
+      //
+
+      // prettier-ignore
+      const parameters = {
+
+      // IMPORT PARAMETERS
+
+      IMPORTSTRUCT    :           {}, // RFCTEST Importing structure
+
+      // TABLE PARAMETERS
+
+      RFCTABLE        :           [], // RFCTEST Importing/exporting table
+
+      // EXPORT PARAMETERS
+
+      // RESPTEXT     :           "", // CHAR (255) Exporting response message
+      // ECHOSTRUCT   :           {}, // RFCTEST Exporting structure
+      };
+
+      const result = await client.call("STFC_STRUCTURE", parameters);
+
+      //
+      // IMPORT PARAMETERS
+      //
+
+      // RFCTEST  Importing structure
+
+      // prettier-ignore
+      const IMPORTSTRUCT= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+
+
+      //
+      // TABLE PARAMETERS
+      //
+
+      // RFCTEST  Importing/exporting table
+      const RFCTABLE= [];
+
+      // prettier-ignore
+      const RFCTABLE= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+
+
+      //
+      // EXPORT PARAMETERS
+      //
+
+      // RFCTEST  Exporting structure
+
+      // prettier-ignore
+      const ECHOSTRUCT= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+    html: |
+      <!--
+      STFC_STRUCTURE var: 1  struct: 2  table: 1  exception: 0
+
+      abap api
+      -->
+
+      <!--
+      IMPORT PARAMETERS
+      -->
+
+      <!-- Parameter: IMPORTSTRUCT structure: RFCTEST  Importing structure -->
+
+      <div fd-form-item>
+          <label fd-form-label>Float field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCFLOAT"
+                  data-abap="{type:'FLTP', length:'1.15'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 1</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCCHAR1"
+                  data-abap="{type:'CHAR', length:'1'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT2 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCINT2"
+                  data-abap="{type:'INT2', length:'5'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT1 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCINT1"
+                  data-abap="{type:'INT1', length:'3'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 4</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCCHAR4"
+                  data-abap="{type:'CHAR', length:'4'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT4 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCINT4"
+                  data-abap="{type:'INT4', length:'10'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>HEX field of length 3</label>
+          <textarea fd-form-control
+              [(ngModel)]="IMPORTSTRUCT.RFCHEX3"
+              data-abap="{type:'RAW', length:'3'}"
+              aria-required="true"
+          ></textarea>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 2</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCCHAR2"
+                  data-abap="{type:'CHAR', length:'2'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Validity Period</label>
+          <fd-time-picker [(ngModel)]="IMPORTSTRUCT.RFCTIME"></fd-time-picker>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Date field</label>
+          <fd-date-picker [type]="single" [(ngModel)]="IMPORTSTRUCT.RFCDATE"></fd-date-picker>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Comment</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCDATA1"
+                  data-abap="{type:'CHAR', length:'50'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Comment</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="IMPORTSTRUCT.RFCDATA2"
+                  data-abap="{type:'CHAR', length:'50'}"
+              />
+      </div>
+
+
+      <!--
+      TABLE PARAMETERS
+      -->
+
+      <!-- Parameter: RFCTABLE structure: RFCTEST  Importing/exporting table -->
+
+      <table fd-table>
+        <thead fd-table-header>
+          <tr fd-table-row>
+            <th fd-table-cell>Float field</th>
+            <th fd-table-cell>Character field of length 1</th>
+            <th fd-table-cell>INT2 field</th>
+            <th fd-table-cell>INT1 field</th>
+            <th fd-table-cell>Character field of length 4</th>
+            <th fd-table-cell>INT4 field</th>
+            <th fd-table-cell>HEX field of length 3</th>
+            <th fd-table-cell>Character field of length 2</th>
+            <th fd-table-cell>Validity Period</th>
+            <th fd-table-cell>Date field</th>
+            <th fd-table-cell>Comment</th>
+            <th fd-table-cell>Comment</th>
+          </tr>
+        </thead>
+        <tbody fd-table-body>
+          <tr *ngFor="let row of RFCTABLE" fd-table-row>
+             <td fd-table-cell>{{ RFCFLOAT }}</td>
+             <td fd-table-cell>{{ RFCCHAR1 }}</td>
+             <td fd-table-cell>{{ RFCINT2 }}</td>
+             <td fd-table-cell>{{ RFCINT1 }}</td>
+             <td fd-table-cell>{{ RFCCHAR4 }}</td>
+             <td fd-table-cell>{{ RFCINT4 }}</td>
+             <td fd-table-cell>{{ RFCHEX3 }}</td>
+             <td fd-table-cell>{{ RFCCHAR2 }}</td>
+             <td fd-table-cell>{{ RFCTIME }}</td>
+             <td fd-table-cell>{{ RFCDATE }}</td>
+             <td fd-table-cell>{{ RFCDATA1 }}</td>
+             <td fd-table-cell>{{ RFCDATA2 }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div fd-form-item>
+          <label fd-form-label>Float field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCFLOAT"
+                  data-abap="{type:'FLTP', length:'1.15'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 1</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCCHAR1"
+                  data-abap="{type:'CHAR', length:'1'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT2 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCINT2"
+                  data-abap="{type:'INT2', length:'5'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT1 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCINT1"
+                  data-abap="{type:'INT1', length:'3'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 4</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCCHAR4"
+                  data-abap="{type:'CHAR', length:'4'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT4 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCINT4"
+                  data-abap="{type:'INT4', length:'10'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>HEX field of length 3</label>
+          <textarea fd-form-control
+              [(ngModel)]="RFCTABLE.RFCHEX3"
+              data-abap="{type:'RAW', length:'3'}"
+              aria-required="true"
+          ></textarea>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 2</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCCHAR2"
+                  data-abap="{type:'CHAR', length:'2'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Validity Period</label>
+          <fd-time-picker [(ngModel)]="RFCTABLE.RFCTIME"></fd-time-picker>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Date field</label>
+          <fd-date-picker [type]="single" [(ngModel)]="RFCTABLE.RFCDATE"></fd-date-picker>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Comment</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCDATA1"
+                  data-abap="{type:'CHAR', length:'50'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Comment</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RFCTABLE.RFCDATA2"
+                  data-abap="{type:'CHAR', length:'50'}"
+              />
+      </div>
+
+
+      <!--
+      EXPORT PARAMETERS
+      -->
+
+      <div fd-form-item>
+          <label fd-form-label>Exporting response message</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="RESPTEXT"
+                  data-abap="{type:'CHAR', length:'255'}"
+              />
+      </div>
+
+      <!-- Parameter: ECHOSTRUCT structure: RFCTEST  Exporting structure -->
+
+      <div fd-form-item>
+          <label fd-form-label>Float field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCFLOAT"
+                  data-abap="{type:'FLTP', length:'1.15'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 1</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCCHAR1"
+                  data-abap="{type:'CHAR', length:'1'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT2 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCINT2"
+                  data-abap="{type:'INT2', length:'5'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT1 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCINT1"
+                  data-abap="{type:'INT1', length:'3'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 4</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCCHAR4"
+                  data-abap="{type:'CHAR', length:'4'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>INT4 field</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCINT4"
+                  data-abap="{type:'INT4', length:'10'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>HEX field of length 3</label>
+          <textarea fd-form-control
+              [(ngModel)]="ECHOSTRUCT.RFCHEX3"
+              data-abap="{type:'RAW', length:'3'}"
+              aria-required="true"
+          ></textarea>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Character field of length 2</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCCHAR2"
+                  data-abap="{type:'CHAR', length:'2'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Validity Period</label>
+          <fd-time-picker [(ngModel)]="ECHOSTRUCT.RFCTIME"></fd-time-picker>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Date field</label>
+          <fd-date-picker [type]="single" [(ngModel)]="ECHOSTRUCT.RFCDATE"></fd-date-picker>
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Comment</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCDATA1"
+                  data-abap="{type:'CHAR', length:'50'}"
+              />
+      </div>
+
+      <div fd-form-item>
+          <label fd-form-label>Comment</label>
+              <input fd-input fd-form-control
+                  [(ngModel)]="ECHOSTRUCT.RFCDATA2"
+                  data-abap="{type:'CHAR', length:'50'}"
+              />
+      </div>
