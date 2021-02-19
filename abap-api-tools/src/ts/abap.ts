@@ -19,7 +19,13 @@ import {
   DockerVolume,
 } from "./constants";
 import { AnnotationsType, Backend } from "./backend";
-import { Frontend, FrontendResult } from "./frontend";
+import {
+  Frontend,
+  FrontendResult,
+  UiConfigType,
+  UiConfigTableType,
+  AbapConfigType,
+} from "./frontend";
 import { fileLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
 
 export let Signature = `abap api`;
@@ -35,8 +41,19 @@ export const Command = Object.freeze({
 
 export type ApiListType = Record<string, string[]>;
 
+export type AbapCliUiConfig = {
+  ui: UiConfigType;
+  abap?: AbapConfigType;
+};
+
 export type Destination = string | RfcConnectionParameters;
-export { RfcConnectionParameters, AnnotationsType };
+export {
+  RfcConnectionParameters,
+  AnnotationsType,
+  UiConfigType,
+  UiConfigTableType,
+  AbapConfigType,
+};
 
 export type Arguments = {
   //[argName: string]: unknown;
@@ -52,7 +69,7 @@ export type Arguments = {
   dest?: Destination;
   save?: boolean;
   textOnly?: string;
-  ui?: string;
+  ui?: string | AbapCliUiConfig;
   "sort-fields"?: boolean;
   runInBg?: boolean;
 };
@@ -227,7 +244,7 @@ export class AbapCliApi {
 
   make(
     annotations: AnnotationsType,
-    ui: string,
+    ui: string | AbapCliUiConfig,
     options?: { "sort-fields"?: boolean; debug?: boolean }
   ): AbapCliResult {
     if (options) {

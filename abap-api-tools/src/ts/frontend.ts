@@ -65,7 +65,7 @@ type ElementHTML = {
 
 // yaml config files
 
-type AbapConfigType = Record<
+export type AbapConfigType = Record<
   string,
   {
     type: string;
@@ -76,7 +76,7 @@ type AbapConfigType = Record<
   }
 >;
 
-type UiConfigTableType = {
+export type UiConfigTableType = {
   header?: string;
   header_row?: string;
   body?: string;
@@ -84,7 +84,7 @@ type UiConfigTableType = {
   footer?: string;
 };
 
-type UiConfigType = Record<string, string | UiConfigTableType>;
+export type UiConfigType = Record<string, string | UiConfigTableType>;
 
 export type FrontendResult = Record<string, { js: string; html?: string }>;
 export class Frontend {
@@ -138,55 +138,65 @@ export class Frontend {
     }
 
     if (argv.ui) {
-      // ui configuration
-      try {
-        // local ui first
-        this.configPath.ui = path.join(
-          DefaultFolder.userConfig,
-          `${argv.ui}.yaml`
-        );
-        this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
-        this.configPath.uiLocal = true;
-        log.debug(`local ui configuration ${argv.ui}`);
-      } catch (ex) {
-        if (ex.code !== "ENOENT") throw ex; // ignore file not found error
-      }
+      if (typeof argv.ui === "string") {
+        // ui configuration
+        try {
+          // local ui first
+          this.configPath.ui = path.join(
+            DefaultFolder.userConfig,
+            `${argv.ui}.yaml`
+          );
+          this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
+          this.configPath.uiLocal = true;
+          log.debug(`local ui configuration ${argv.ui}`);
+        } catch (ex) {
+          if (ex.code !== "ENOENT") throw ex; // ignore file not found error
+        }
 
-      // default ui 2nd
-      if (isEmpty(this.uiConfig)) {
-        this.configPath.ui = path.join(
-          DefaultFolder.configuration,
-          "ui",
-          `${argv.ui}.yaml`
-        );
-        this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
-        log.debug(`default ui configuration ${argv.ui}`);
-      }
+        // default ui 2nd
+        if (isEmpty(this.uiConfig)) {
+          this.configPath.ui = path.join(
+            DefaultFolder.configuration,
+            "ui",
+            `${argv.ui}.yaml`
+          );
+          this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
+          log.debug(`default ui configuration ${argv.ui}`);
+        }
 
-      try {
-        // local abap first
-        this.configPath.abap = path.join(
-          DefaultFolder.userConfig,
-          `${argv.ui}-abap.yaml`
-        );
-        this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
-        this.configPath.abapLocal = true;
-        log.debug(`local abap configuration ${argv.ui}`);
-      } catch (ex) {
-        if (ex.code !== "ENOENT") throw ex; // ignore file not found error
-      }
+        try {
+          // local abap first
+          this.configPath.abap = path.join(
+            DefaultFolder.userConfig,
+            `${argv.ui}-abap.yaml`
+          );
+          this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
+          this.configPath.abapLocal = true;
+          log.debug(`local abap configuration ${argv.ui}`);
+        } catch (ex) {
+          if (ex.code !== "ENOENT") throw ex; // ignore file not found error
+        }
 
-      // default abap 2nd
-      if (isEmpty(this.abapConfig)) {
-        this.configPath.abap = path.join(
-          DefaultFolder.configuration,
-          "ui",
-          `${argv.ui}-abap.yaml`
-        );
-        this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
-        log.debug(`default abap configuration ${argv.ui}`);
+        // default abap 2nd
+        if (isEmpty(this.abapConfig)) {
+          this.configPath.abap = path.join(
+            DefaultFolder.configuration,
+            "ui",
+            `${argv.ui}-abap.yaml`
+          );
+          this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
+          log.debug(`default abap configuration ${argv.ui}`);
+        }
+      } else {
+        // ui configuration passed by CLI api
+        this.uiConfig = argv.ui.ui;
+        if (argv.ui.abap) {
+          this.abapConfig = argv.ui.abap;
+        }
       }
-    } else {
+    }
+
+    if (isEmpty(this.abapConfig)) {
       // default abap
       this.configPath.abap = path.join(
         DefaultFolder.configuration,

@@ -1,0 +1,426 @@
+frontend:
+  STFC_STRUCTURE:
+    js: |
+      //
+      // STFC_STRUCTURE var: 1  struct: 2  table: 1  exception: 0
+      //
+      // abap api
+      //
+
+      // prettier-ignore
+      const parameters = {
+
+      // IMPORT PARAMETERS
+
+      IMPORTSTRUCT    :           {}, // RFCTEST Importing structure
+
+      // TABLE PARAMETERS
+
+      RFCTABLE        :           [], // RFCTEST Importing/exporting table
+
+      // EXPORT PARAMETERS
+
+      // RESPTEXT     :           "", // CHAR (255) Exporting response message
+      // ECHOSTRUCT   :           {}, // RFCTEST Exporting structure
+      };
+
+      const result = await client.call("STFC_STRUCTURE", parameters);
+
+      //
+      // IMPORT PARAMETERS
+      //
+
+      // RFCTEST  Importing structure
+
+      // prettier-ignore
+      const IMPORTSTRUCT= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+
+
+      //
+      // TABLE PARAMETERS
+      //
+
+      // RFCTEST  Importing/exporting table
+      const RFCTABLE= [];
+
+      // prettier-ignore
+      const RFCTABLE= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+
+
+      //
+      // EXPORT PARAMETERS
+      //
+
+      // RFCTEST  Exporting structure
+
+      // prettier-ignore
+      const ECHOSTRUCT= {
+        RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
+        RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
+        RFCINT2                          :    0, // INT2 (5) INT2 field
+        RFCINT1                          :    0, // INT1 (3) INT1 field
+        RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
+        RFCINT4                          :    0, // INT4 (10) INT4 field
+        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
+        RFCTIME                          :   "", // TIMS (6) Validity Period
+        RFCDATE                          :   "", // DATS (8) Date field
+        RFCDATA1                         :   "", // CHAR (50) Comment
+        RFCDATA2                         :   "", // CHAR (50) Comment
+      };
+    html: >
+      <!--
+
+      STFC_STRUCTURE var: 1  struct: 2  table: 1  exception: 0
+
+
+      abap api
+
+      -->
+
+
+      <!--
+
+      IMPORT PARAMETERS
+
+      -->
+
+
+      <!-- Parameter: IMPORTSTRUCT structure: RFCTEST  Importing structure -->
+
+
+      <CustomFormItem label="Float field">
+          <Input value={this.IMPORTSTRUCT.RFCFLOAT}
+                data-abap="{type:'FLTP', length:'1.15'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 1">
+          <Input value={this.IMPORTSTRUCT.RFCCHAR1}
+                data-abap="{type:'CHAR', length:'1'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT2 field">
+          <Input value={this.IMPORTSTRUCT.RFCINT2}
+                data-abap="{type:'INT2', length:'5'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT1 field">
+          <Input value={this.IMPORTSTRUCT.RFCINT1}
+                data-abap="{type:'INT1', length:'3'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 4">
+          <Input value={this.IMPORTSTRUCT.RFCCHAR4}
+                data-abap="{type:'CHAR', length:'4'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT4 field">
+          <Input value={this.IMPORTSTRUCT.RFCINT4}
+                data-abap="{type:'INT4', length:'10'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="HEX field of length 3">
+          <TextArea value={this.IMPORTSTRUCT.RFCHEX3}
+                data-abap="{type:'RAW', length:'3'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 2">
+          <Input value={this.IMPORTSTRUCT.RFCCHAR2}
+                data-abap="{type:'CHAR', length:'2'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Validity Period">
+          <TimePicker value={this.IMPORTSTRUCT.RFCTIME}/>
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Date field">
+          <DatePicker value={this.IMPORTSTRUCT.RFCDATE}/>
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Comment">
+          <Input value={this.IMPORTSTRUCT.RFCDATA1}
+                data-abap="{type:'CHAR', length:'50'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Comment">
+          <Input value={this.IMPORTSTRUCT.RFCDATA2}
+                data-abap="{type:'CHAR', length:'50'}"
+          />
+      </CustomFormItem>
+
+
+
+      <!--
+
+      TABLE PARAMETERS
+
+      -->
+
+
+      <!-- Parameter: RFCTABLE structure: RFCTEST  Importing/exporting table -->
+
+
+      <ui-datagrid data.bind="RFCTABLE" title="Importing/exporting table"
+                   data-summary="false" default-sort=""
+                   selectable rowselect.trigger="object.selectObject($event.detail)">
+      <ui-dg-column sortable field="RFCFLOAT" data-abap.bind="{type:'FLTP',
+      length:'1.15'}" label="Float field"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCCHAR1" data-abap.bind="{type:'CHAR',
+      length:'1'}" label="Character field of length 1"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCINT2" data-abap.bind="{type:'INT2',
+      length:'5'}" label="INT2 field"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCINT1" data-abap.bind="{type:'INT1',
+      length:'3'}" label="INT1 field"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCCHAR4" data-abap.bind="{type:'CHAR',
+      length:'4'}" label="Character field of length 4"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCINT4" data-abap.bind="{type:'INT4',
+      length:'10'}" label="INT4 field"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCHEX3" data-abap.bind="{type:'RAW',
+      length:'3'}" label="HEX field of length 3"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCCHAR2" data-abap.bind="{type:'CHAR',
+      length:'2'}" label="Character field of length 2"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCTIME" data-abap.bind="{type:'TIMS'}"
+      label="Validity Period"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCDATE" data-abap.bind="{type:'DATS'}"
+      label="Date field"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCDATA1" data-abap.bind="{type:'CHAR',
+      length:'50'}" label="Comment"></ui-dg-column>
+
+      <ui-dg-column sortable field="RFCDATA2" data-abap.bind="{type:'CHAR',
+      length:'50'}" label="Comment"></ui-dg-column>
+
+      </ui-datagrid>
+
+
+      <CustomFormItem label="Float field">
+          <Input value={this.RFCTABLE.RFCFLOAT}
+                data-abap="{type:'FLTP', length:'1.15'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 1">
+          <Input value={this.RFCTABLE.RFCCHAR1}
+                data-abap="{type:'CHAR', length:'1'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT2 field">
+          <Input value={this.RFCTABLE.RFCINT2}
+                data-abap="{type:'INT2', length:'5'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT1 field">
+          <Input value={this.RFCTABLE.RFCINT1}
+                data-abap="{type:'INT1', length:'3'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 4">
+          <Input value={this.RFCTABLE.RFCCHAR4}
+                data-abap="{type:'CHAR', length:'4'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT4 field">
+          <Input value={this.RFCTABLE.RFCINT4}
+                data-abap="{type:'INT4', length:'10'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="HEX field of length 3">
+          <TextArea value={this.RFCTABLE.RFCHEX3}
+                data-abap="{type:'RAW', length:'3'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 2">
+          <Input value={this.RFCTABLE.RFCCHAR2}
+                data-abap="{type:'CHAR', length:'2'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Validity Period">
+          <TimePicker value={this.RFCTABLE.RFCTIME}/>
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Date field">
+          <DatePicker value={this.RFCTABLE.RFCDATE}/>
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Comment">
+          <Input value={this.RFCTABLE.RFCDATA1}
+                data-abap="{type:'CHAR', length:'50'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Comment">
+          <Input value={this.RFCTABLE.RFCDATA2}
+                data-abap="{type:'CHAR', length:'50'}"
+          />
+      </CustomFormItem>
+
+
+
+      <!--
+
+      EXPORT PARAMETERS
+
+      -->
+
+
+      <CustomFormItem label="Exporting response message">
+          <Input value={this.RESPTEXT}
+                data-abap="{type:'CHAR', length:'255'}"
+          />
+      </CustomFormItem>
+
+
+      <!-- Parameter: ECHOSTRUCT structure: RFCTEST  Exporting structure -->
+
+
+      <CustomFormItem label="Float field">
+          <Input value={this.ECHOSTRUCT.RFCFLOAT}
+                data-abap="{type:'FLTP', length:'1.15'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 1">
+          <Input value={this.ECHOSTRUCT.RFCCHAR1}
+                data-abap="{type:'CHAR', length:'1'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT2 field">
+          <Input value={this.ECHOSTRUCT.RFCINT2}
+                data-abap="{type:'INT2', length:'5'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT1 field">
+          <Input value={this.ECHOSTRUCT.RFCINT1}
+                data-abap="{type:'INT1', length:'3'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 4">
+          <Input value={this.ECHOSTRUCT.RFCCHAR4}
+                data-abap="{type:'CHAR', length:'4'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="INT4 field">
+          <Input value={this.ECHOSTRUCT.RFCINT4}
+                data-abap="{type:'INT4', length:'10'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="HEX field of length 3">
+          <TextArea value={this.ECHOSTRUCT.RFCHEX3}
+                data-abap="{type:'RAW', length:'3'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Character field of length 2">
+          <Input value={this.ECHOSTRUCT.RFCCHAR2}
+                data-abap="{type:'CHAR', length:'2'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Validity Period">
+          <TimePicker value={this.ECHOSTRUCT.RFCTIME}/>
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Date field">
+          <DatePicker value={this.ECHOSTRUCT.RFCDATE}/>
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Comment">
+          <Input value={this.ECHOSTRUCT.RFCDATA1}
+                data-abap="{type:'CHAR', length:'50'}"
+          />
+      </CustomFormItem>
+
+
+      <CustomFormItem label="Comment">
+          <Input value={this.ECHOSTRUCT.RFCDATA2}
+                data-abap="{type:'CHAR', length:'50'}"
+          />
+      </CustomFormItem>

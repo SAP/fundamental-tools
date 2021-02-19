@@ -1,0 +1,83 @@
+# SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# SAP ui5-react
+
+# ABAP data element placeholders:
+# ~bind  Binding: <parameter>[.field]
+# ~label Label
+# ~shlp  Value input help: Search Help, Check Table ...
+# ~abap  Annotations: field type, length, su3 mid, currency or uom field
+# ~title Table header title: parameter text
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-checkbox--default-story
+checkbox: >-
+  <CustomFormItem label="~label">
+      <CheckBox value={this.~bind}/>
+  </CustomFormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-combobox--default-story
+combo: >-
+  <CustomFormItem label="~label">
+      <ComboBox value={this.~bind}
+          items="~shlp"
+          data-abap="~abap">
+      </ComboBox>
+  </CustomFormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-datepicker--default-story
+datepicker: >-
+  <CustomFormItem label="~label">
+      <DatePicker value={this.~bind}/>
+  </CustomFormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/ui5-web-components-timepicker--default-story
+timepicker: >-
+  <CustomFormItem label="~label">
+      <TimePicker value={this.~bind}/>
+  </CustomFormItem>
+
+# https://sap.github.io/ui5-webcomponents-react/?path=/docs/components-form--default-story
+input: >-
+  <CustomFormItem label="~label">
+      <Input value={this.~bind}
+            data-abap="~abap"
+            data-shlp="~shlp"
+      />
+  </CustomFormItem>
+
+number: >-
+  <CustomFormItem label="~label">
+      <Input value={this.~bind}
+            data-abap="~abap"
+            data-shlp="~shlp"
+      />
+  </CustomFormItem>
+
+# https://sap.github.io/fundamental-ngx/#/core/textarea
+textarea: >-
+  <CustomFormItem label="~label">
+      <TextArea value={this.~bind}
+            data-abap="~abap"
+      />
+  </CustomFormItem>
+
+# same as input
+lang: >-
+  <CustomFormItem label="~label">
+      <Input value={this.~bind}
+            data-abap="~abap"
+            data-shlp="~shlp"
+      />
+  </CustomFormItem>
+
+# table
+table:
+  header: >-
+    <ui-datagrid data.bind="~bind" title="~title"
+                 data-summary="false" default-sort=""
+                 selectable rowselect.trigger="object.selectObject($event.detail)">
+  row: >-
+    <ui-dg-column sortable field="~bind" data-abap.bind="~abap" shlp.bind="~shlp" label="~label"></ui-dg-column>
+  footer: </ui-datagrid>

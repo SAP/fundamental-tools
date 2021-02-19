@@ -401,8 +401,16 @@ const cp: RfcConnectionParameters = {
   // Call templates and annotations
   R = await a.get(cp, ["stfc_connection", "stfc_structure"]);
 
-  // Call templates and ui components (based on "full" annotations)
+  // Call templates and ui components, using standard ui configuration
   R = await a.make(R.annotations as AnnotationsType, "fudamental-ngx");
+
+  // Call templates and ui components, using custom ui configuration
+  const customUi = loadFromFile("ui5-custom.yaml");
+  const customAbap = loadFromFile("ui5-custom-abap.yaml");
+  R = await a..make(annotations, {
+      ui: customUi,
+      abap: customAbap, // optional
+    });
 
 })();
 ```
