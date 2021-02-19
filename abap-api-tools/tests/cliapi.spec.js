@@ -84,10 +84,30 @@ describe("Integration API", () => {
   test("make: stfc_structure", async () => {
     expect.assertions(1);
 
-    const expectedFn = "make_stfc_stfc_structure.yaml";
+    const expectedFn = "make_stfc_structure.yaml";
 
     const annotations = loadFromFile("get_stfc_structure.yaml").annotations;
     const result = api.make(annotations, "fundamental-ngx");
+    //saveToFile(expectedFn, result);
+
+    const expectedResult = loadFromFile(expectedFn);
+    expect(result.frontend.STFC_STRUCTURE.html).toEqual(
+      expectedResult.frontend.STFC_STRUCTURE.html
+    );
+  });
+
+  test("make: stfc_structure with custom ui configuration", async () => {
+    expect.assertions(1);
+
+    const expectedFn = "make_stfc_structure_custom.yaml";
+
+    const annotations = loadFromFile("get_stfc_structure.yaml").annotations;
+    const customUi = loadFromFile("ui5-custom.yaml");
+    const customAbap = loadFromFile("ui5-custom-abap.yaml");
+    const result = api.make(annotations, {
+      ui: customUi,
+      abap: customAbap,
+    });
     //saveToFile(expectedFn, result);
 
     const expectedResult = loadFromFile(expectedFn);
