@@ -10,7 +10,7 @@ Command line tool for [pattern based applications](https://github.com/SAP/fundam
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
-- On-premise and cloud applications, with new and old ABAP systems
+- Custom configuration, open for integration
 
 ## Content<!-- omit in toc -->
 
@@ -403,8 +403,7 @@ const cp: RfcConnectionParameters = {
 
   // Call templates and ui components, using standard ui configuration
   R = await a.make(R.annotations as AnnotationsType, "fudamental-ngx");
-
-  // Call templates and ui components, using custom ui configuration
+  // and the same, using custom ui configuration
   const customUi = loadFromFile("ui5-custom.yaml");
   const customAbap = loadFromFile("ui5-custom-abap.yaml");
   R = await a..make(annotations, {

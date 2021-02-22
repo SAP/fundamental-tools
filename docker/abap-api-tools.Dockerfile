@@ -15,8 +15,12 @@ ARG nwrfc_target=/usr/local/sap
 RUN apt-get update && apt-get install -y vim
 RUN printf "\n# dev aliases\nalias ll='ls $LS_OPTIONS -l'\nalias l='ls $LS_OPTIONS -lA'\nalias e=exit\nalias dist='rm -rf dist && cp -r /work/dist . && chmod +x dist/abap.js'\n" >> ~/.bashrc
 
+# node_modules path
+RUN printf "\n# node modules\n" >> ~/.bashrc && \
+    printf "export PATH=node_modules/.bin:$PATH\n" >> ~/.bashrc
+
 # sap nwrfc sdk
-RUN printf "\n# nwrfc sdk \n" >> ~/.bashrc && \
+RUN printf "\n# nwrfc sdk\n" >> ~/.bashrc && \
     printf "export SAPNWRFC_HOME=${nwrfc_target}/nwrfcsdk\n" >> ~/.bashrc
 USER root
 RUN mkdir -p ${nwrfc_target}
