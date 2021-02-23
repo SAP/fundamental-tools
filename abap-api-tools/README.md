@@ -400,7 +400,7 @@ const cp: RfcConnectionParameters = {
   R = await a.call("MME", "stfc_connection");
 
   // Call templates and annotations
-  R = await a.get(cp, ["stfc_connection", "stfc_structure"]);
+  R = await a.get({connectionParameters: cp}, ["stfc_connection", "stfc_structure"]);
 
   // Call templates and ui components, using standard ui configuration
   R = await a.make(R.annotations as AnnotationsType, "fudamental-ngx");
