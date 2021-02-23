@@ -2,7 +2,7 @@
 
 ![NPM](https://img.shields.io/npm/l/abap-api-tools)
 
-Command line tool for [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) with ABAP/HANA systems.
+Command line tool for building [pattern based applications'](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) elements:
 
 - BAPI/RFM call templates ([What is BAPI/RFM?](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/))
 - Ui components with ABAP data annotations:
@@ -10,7 +10,8 @@ Command line tool for [pattern based applications](https://github.com/SAP/fundam
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
-- Custom configuration, open for integration
+- Custom configurations, open for integration
+- Minimalistic, unobtrusive, powerful
 
 ## Content<!-- omit in toc -->
 
@@ -403,7 +404,8 @@ const cp: RfcConnectionParameters = {
 
   // Call templates and ui components, using standard ui configuration
   R = await a.make(R.annotations as AnnotationsType, "fudamental-ngx");
-  // and the same, using custom ui configuration
+
+  // the same, using custom ui configuration
   const customUi = loadFromFile("ui5-custom.yaml");
   const customAbap = loadFromFile("ui5-custom-abap.yaml");
   R = await a..make(annotations, {

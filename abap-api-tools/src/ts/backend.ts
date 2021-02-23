@@ -172,7 +172,10 @@ export class Backend {
         this.clientConnectionParameters = { dest: this.argv.dest };
         this.systemId = this.argv.dest;
       } else {
-        this.clientConnectionParameters = this.argv.dest;
+        this.clientConnectionParameters = this.argv.dest.connectionParameters;
+        if (this.argv.dest.searchHelpApi) {
+          this.search_help_api = this.argv.dest.searchHelpApi;
+        }
         this.systemId =
           this.clientConnectionParameters.ashost ||
           this.clientConnectionParameters.msserv ||
@@ -183,7 +186,7 @@ export class Backend {
     }
 
     // check if search help api configured
-    if (this.argv.cmd === Command.get) {
+    if (this.argv.cmd === Command.get && !this.search_help_api) {
       try {
         const systemYamlPath = path.join(
           DefaultFolder.userConfig,
@@ -201,24 +204,21 @@ export class Backend {
           log.info(`search help api not configured for ${this.systemId}`);
         } else {
           this.search_help_api = systems[this.systemId].search_help_api;
-
-          for (const [apiKey, apiName] of Object.entries(
-            this.search_help_api
-          )) {
-            if (!["determine", "dom_values"].includes(apiKey)) {
-              throw new Error(
-                `Invalid key "${apiKey}" found in ${systemYamlPath}`
-              );
-            }
-            if (apiName.length > 30) {
-              throw new Error(
-                `Too long API name "${apiName}" found in ${systemYamlPath}`
-              );
-            }
-          }
         }
       } catch (ex) {
         if (ex.code !== "ENOENT") throw ex; // ignore file not found error
+      }
+    }
+
+    // search help api plausibility check
+    if (!isEmpty(this.search_help_api)) {
+      for (const [apiKey, apiName] of Object.entries(this.search_help_api)) {
+        if (!["determine", "dom_values"].includes(apiKey)) {
+          throw new Error(`Search Help API key not supported: "${apiKey}"`);
+        }
+        if (apiName.length > 30) {
+          throw new Error(`Search help API name too long: "${apiName}"`);
+        }
       }
     }
 

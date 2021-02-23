@@ -21,11 +21,19 @@ describe("Integration API", () => {
     lang: "EN",
   };
 
+  const shlpApi_MME = {
+    determine: "/COE/RBP_FE_SHLP_DETERM_SEARCH",
+    dom_values: "/COE/RBP_FE_SHLP_DOMVALUES_GET",
+  };
+
   test("call: stfc_connection, connection parameters", async () => {
     expect.assertions(2);
 
     const expectedFn = "call_stfc_connection.yaml";
-    const result = await api.call(cp, "stfc_connection");
+    const result = await api.call(
+      { connectionParameters: cp },
+      "stfc_connection"
+    );
     //saveToFile(expectedFn, result);
 
     const expectedResult = loadFromFile(expectedFn);
@@ -61,7 +69,10 @@ describe("Integration API", () => {
     expect.assertions(2);
 
     const expectedFn = "get_stfc_structure.yaml";
-    const result = await api.get(cp, "stfc_structure");
+    const result = await api.get(
+      { connectionParameters: cp, searchHelpApi: shlpApi_MME },
+      "stfc_structure"
+    );
     //saveToFile(expectedFn, result);
 
     const expectedResult = loadFromFile(expectedFn);
@@ -73,7 +84,10 @@ describe("Integration API", () => {
     expect.assertions(2);
 
     const expectedFn = "get_stfc_connection_stfc_structure.yaml";
-    const result = await api.get("MME", ["stfc_connection", "stfc_structure"]);
+    const result = await api.get({ connectionParameters: cp }, [
+      "stfc_connection",
+      "stfc_structure",
+    ]);
     //saveToFile(expectedFn, result);
 
     const expectedResult = loadFromFile(expectedFn);

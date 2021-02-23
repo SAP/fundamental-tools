@@ -46,7 +46,13 @@ export type AbapCliUiConfig = {
   abap?: AbapConfigType;
 };
 
-export type Destination = string | RfcConnectionParameters;
+export type Destination =
+  | string
+  | {
+      connectionParameters: RfcConnectionParameters;
+      searchHelpApi?: { determine: string; dom_values: string };
+    };
+
 export {
   RfcConnectionParameters,
   AnnotationsType,
