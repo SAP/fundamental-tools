@@ -13,6 +13,8 @@ Command line tool for building [pattern based applications'](https://github.com/
 - Custom configurations, open for integration
 - Minimalistic, unobtrusive, powerful
 
+Bonus: generic Value Input Helps server runtime component: [`abap-value-input-help`](https://www.npmjs.com/package/abap-value-input-help).
+
 ## Content<!-- omit in toc -->
 
 - [Installation](#installation)

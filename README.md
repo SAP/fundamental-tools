@@ -1,6 +1,6 @@
 # Fundamental Library for ABAP <!-- omit in toc -->
 
-![License](https://img.shields.io/npm/l/abap-api-tools)
+![NPM](https://img.shields.io/npm/l/abap-api-tools)
 [![npm](https://img.shields.io/npm/v/abap-api-tools)](https://www.npmjs.com/package/abap-api-tools)
 [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM)
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
@@ -23,7 +23,7 @@ Node [CLI tool](./abap-api-tools) for [pattern based web applications](./doc/app
 - Application frameworks: electron, NW.js ...
 - Building a [pattern based app](./doc/app.md)
 
-Including generic server runtime component: [ABAP Value Input Help](./abap-value-input-help/README.md).
+Bonus: generic Value Input Helps server runtime component: [`abap-value-input-help`](./abap-value-input-help/README.md).
 
 :star: Your star is appreciated, it helps!
 
