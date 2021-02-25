@@ -60,7 +60,7 @@ Add custom attribute `shlp` to input component, like:
 
 Custom attribute will add Search Help icon input addon and run the Search Help dialog using abovementioned exposed routes. Input ui component is updated with the Search Help dialog result:
 
-![](https://raw.githubusercontent.com/SAP/fundamental-tools/main/doc/assets/ValueInputHelpsDialog.jpg)
+![](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-input-help/doc/assets/ValueInputHelpsDialog.jpg)
 
 ## Known Issues
 

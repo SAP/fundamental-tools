@@ -23,7 +23,7 @@ Node [CLI tool](./abap-api-tools) for [pattern based web applications](./doc/app
 - Application frameworks: electron, NW.js ...
 - Building a [pattern based app](./doc/app.md)
 
-Including generic server runtime component: [ABAP Value Input Help](./abap-value-input-help/abap-api/README.md).
+Including generic server runtime component: [ABAP Value Input Help](./abap-value-input-help/README.md).
 
 :star: Your star is appreciated, it helps!
 
