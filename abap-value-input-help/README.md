@@ -31,7 +31,7 @@ Add server routes for generic [ABAP Search Helps API](./abap-api/README.md)
 | Fixed domain values (FV)                 | `/fieldvalues/<path>`       | `SHLP_DOMVALUES_GET`                      |
 | Elementary and Complex Search Helps (SH) | `/helpselect`<br/>`/search` | `SHLP_METADATA_GET`<br/>`SHLP_VALUES_GET` |
 | Check Tables (CT)                        | `/tabselect`                | CT/CH tables' query                       |
-| Custom input helps                       | `/valuelist/`               | any ABP RFM                               |
+| Custom input helps                       | `/valuelist/`               | any ABAP RFC enabled Function Module      |
 
 More API details: [unit tests](https://github.com/SAP/fundamental-tools/tree/main/abap-value-input-help/tests)
 
