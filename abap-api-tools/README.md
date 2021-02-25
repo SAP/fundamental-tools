@@ -13,7 +13,7 @@ Command line tool for building [pattern based applications'](https://github.com/
 - Custom configurations, open for integration
 - Minimalistic, unobtrusive, powerful
 
-Bonus: generic Value Input Helps server runtime component: [`abap-value-input-help`](https://www.npmjs.com/package/abap-value-input-help).
+Bonus: generic Value Helps server runtime component: [`abap-value-help`](https://github.com/SAP/fundamental-tools/tree/main/abap-value-input-help).
 
 ## Content<!-- omit in toc -->
 
@@ -91,7 +91,7 @@ SYSNR=20
 CLIENT=71
 ```
 
-ABAP API for Value Input Help annotations, if exposed in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be defined in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
+ABAP API for Value Help annotations, if exposed in backend system (see [ABAP helpers](https://github.com/SAP/fundamental-tools/tree/master/abap-helpers)), shall be defined in `config/system.yaml` file. Use the same destination name like in `sapnwrfc.ini`:
 
 ```yaml
 MME:
@@ -237,7 +237,7 @@ Annoted with:
 - Data type, length
 - Texts (label, caption)
 - Currency or quantity reference fields (unit of measure, currency)
-- Value Input Help: field domain values, check table, elementary or complex search help
+- Value Help: field domain values, check table, elementary or complex search help
 - SU3 parameters (User SET/GET parameters)
 
 Aurelia example:
@@ -371,11 +371,11 @@ short:
 
 Integration api provides ABAP annotations, call templates and pre-fabricated ui components, for consumption by other tools, applications or SDKs:
 
-| Method | Output                                            | Backend connection |
-| ------ | ------------------------------------------------- | ------------------ |
-| `call` | Call templates, annotations w/o Value Input Helps | required           |
-| `get`  | Call templates, annotations                       | required           |
-| `make` | Call templates, ui components                     | not required       |
+| Method | Output                                      | Backend connection |
+| ------ | ------------------------------------------- | ------------------ |
+| `call` | Call templates, annotations w/o Value Helps | required           |
+| `get`  | Call templates, annotations                 | required           |
+| `make` | Call templates, ui components               | not required       |
 
 Either the destination id or connection parameters can be used, with one or more RFM names.
 
@@ -398,7 +398,7 @@ const cp: RfcConnectionParameters = {
 
   const api = new AbapCliApi();
 
-  // Call templates, annotations w/o Value Input Helps
+  // Call templates, annotations w/o Value Helps
   R = await a.call("MME", "stfc_connection");
 
   // Call templates and annotations

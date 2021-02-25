@@ -1,13 +1,15 @@
-# Value Input Helps <!-- omit in toc -->
+# ABAP Value Help <!-- omit in toc -->
 
-![License](https://img.shields.io/npm/l/abap-value-input-help)
-[![npm](https://img.shields.io/npm/v/abap-value-input-help)](https://www.npmjs.com/package/abap-value-input-help)
+![License](https://img.shields.io/npm/l/abap-value-help)
+[![npm](https://img.shields.io/npm/v/abap-value-help)](https://www.npmjs.com/package/abap-value-help)
 [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM)
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-Server component exposing generic Value Input Helps for [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) and ui frameworks supported by [Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools). ABAP developers already know how it works (like in SAPGUI):
+Server component exposing generic Value Helps for [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) and ui frameworks supported by [Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools).
+
+ABAP developers already know how it works - like in SAPGUI:
 
 - ABAP Fixed Domain Values (FV)
 - ABAP Elementary and complex Search Helps (SH)
@@ -19,21 +21,21 @@ Server component exposing generic Value Input Helps for [pattern based applicati
 Server runtime component:
 
 ```shell
-npm install abap-value-input-help
+npm install abap-value-help
 ```
 
 ## Usage
 
-Add server routes for generic [ABAP Search Helps API](./abap-api/README.md)
+Add server routes for generic [ABAP Value Helps API](https://github.com/SAP/fundamental-tools/blob/main/abap-value-input-help/abap-api/README.md)
 
-| Search Help Type                         | route                       | ABAP API                                  |
-| ---------------------------------------- | --------------------------- | ----------------------------------------- |
-| Fixed domain values (FV)                 | `/fieldvalues/<path>`       | `SHLP_DOMVALUES_GET`                      |
-| Elementary and Complex Search Helps (SH) | `/helpselect`<br/>`/search` | `SHLP_METADATA_GET`<br/>`SHLP_VALUES_GET` |
-| Check Tables (CT)                        | `/tabselect`                | CT/CH tables' query                       |
-| Custom input helps                       | `/valuelist/`               | any ABP RFM                               |
+| Search Help Type                     | Route                       | ABAP Value Help API                                  | ABAP API (internal)                       |
+| ------------------------------------ | --------------------------- | ---------------------------------------------------- | ----------------------------------------- |
+| Fixed domain values (FV)             | `/fieldvalues/<path>`       | getDomainValues()                                    | `SHLP_DOMVALUES_GET`                      |
+| Elementary/complex Search Helps (SH) | `/helpselect`<br/>`/search` | getShlpDescriptor()<br>search()                      | `SHLP_METADATA_GET`<br/>`SHLP_VALUES_GET` |
+| Check Tables (CT, CH)                | `/tabselect`                | Generic on HANA systems<br>Custom BAPI/RFM otherwise | CT/CH tables' query                       |
+| Custom input helps                   | `/valuelist/`               | pass-through                                         | any ABP RFM                               |
 
-More API details: [unit tests](https://github.com/SAP/fundamental-tools/tree/main/abap-value-input-help/tests)
+More API details: [unit tests](https://github.com/SAP/fundamental-tools/tree/main/abap-value-help/tests)
 
 Add custom attribute `shlp` to input component, like:
 
@@ -57,9 +59,9 @@ Add custom attribute `shlp` to input component, like:
 ></ui-input>
 ```
 
-Custom attribute will add Search Help icon input addon and run the Search Help dialog using abovementioned exposed routes. Input ui component is updated with the Search Help dialog result:
+Custom attribute will add Search Help icon input addon and run the Search Help dialog using abovementioned routes. Input ui component is updated with the Search Help dialog result:
 
-![](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-input-help/doc/assets/ValueInputHelpsDialog.jpg)
+![](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/ValueInputHelpsDialog.jpg)
 
 ## Known Issues
 

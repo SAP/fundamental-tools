@@ -1,6 +1,6 @@
 # ABAP API
 
-Value Input Helps annotations require remote-enablement of two ABAP Function Modules. Their names can be maintained in `system.yaml` of abap-ui-tools configuration or passed via API. Without these two function modules, parsing Value Input Helps annotations will be skipped.
+Value Helps annotations require remote-enablement of two ABAP Function Modules. Their names can be maintained in `system.yaml` of abap-api-tools configuration or passed via API. Without these two function modules, parsing Value Helps annotations will be skipped.
 
 :exclamation: The implementation given here just as example, neither maintained, nor supported here
 
