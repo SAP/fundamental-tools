@@ -63,7 +63,7 @@ export function makeDir(dir: string): void {
   log.debug(`mkdir ${dir}`);
 }
 
-export function isEmpty(obj: Record<string, unknown>): boolean {
+export function isEmpty(obj?: any[] | Record<string, unknown>): boolean {
   if (obj === undefined) return true;
   if (Array.isArray(obj)) return obj.length === 0;
   return Object.keys(obj).length === 0;

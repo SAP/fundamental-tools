@@ -23,6 +23,8 @@ Node [CLI tool](./abap-api-tools) for [pattern based web applications](./doc/app
 - Application frameworks: electron, NW.js ...
 - Building a [pattern based app](./doc/app.md)
 
+Including generic server runtime component: [ABAP Value Input Help](./abap-value-input-help/abap-api/README.md).
+
 :star: Your star is appreciated, it helps!
 
 ## Content <!-- omit in toc -->
@@ -43,7 +45,6 @@ Node [CLI tool](./abap-api-tools) for [pattern based web applications](./doc/app
 ## Prerequisites
 
 - ABAP backend: from latest releases, down to 4.6C
-- Optional: [ABAP helpers](/abap-helpers)
 - SAP Cloud Platform or on-premise Windows, Linux, Darwin system/notebook
 - Runtimes
   - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)

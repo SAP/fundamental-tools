@@ -2,7 +2,7 @@
 
 Pattern based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
 
-Without frameworks in between you and your application, what remains are code-patterns and basic programming skills, you can start with. First applying patterns of similar applications, then modifying them or building your own, for new kinds of applications. Some knowledge of ABAP or JavaScript are enough to give it a try.
+Without frameworks in between you and your application, what remains are code-patterns and basic programming skills, you can start with. Applying patterns of similar applications, modifying them or making your own, for new kinds of applications. Some knowledge of ABAP or JavaScript are enough to give it a try.
 
 Apps comprise of four levels (JavaScript or JS stands for TypeScript or EcmaScript):
 

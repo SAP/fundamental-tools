@@ -51,7 +51,7 @@ abap make fundamental-ngx -c config/equipment
 # check results in api/equipment folder
 ```
 
-Using CLI from [docker container](https://github.com/SAP/fundamental-tools/tree/main/docker#abap-api-tools), only docker is required on your notebook:
+Using SAP-internal [docker container](https://github.com/SAP/fundamental-tools/tree/main/docker#abap-api-tools) with pre-installed SAP NWRFC SDK, only docker is required on your notebook:
 
 ```shell
 gh repo clone SAP/fundamental-tools sample -- --branch sample --single-branch

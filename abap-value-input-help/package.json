@@ -1,0 +1,56 @@
+{
+  "name": "abap-value-input-help",
+  "description": "ABAP Value Input Helps",
+  "version": "0.9.0",
+  "homepage": "https://github.com/sap/fundamental-tools",
+  "author": "SAP",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "~10 >=10.23 || ~12 >=12.17 || >= 14.0"
+  },
+  "cpu": [
+    "!arm"
+  ],
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "package.json",
+    "dist"
+  ],
+  "type": "commonjs",
+  "scripts": {
+    "ts": "tsc -p src/ts",
+    "lint": "eslint src/ts",
+    "dependencies": "npm i --save loglevel node-rfc",
+    "devDependencies": "npm i --save-dev @types/node  @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
+    "build": "reuse lint && rm -rf dist && npm run ts && npm run lint",
+    "lock": "npm install --package-lock-only",
+    "test": "jest tests --detectOpenHandles"
+  },
+  "keywords": [
+    "sap",
+    "sapcloudplatform",
+    "abap",
+    "rfc",
+    "sapnwrfc",
+    "nwrfcsdk",
+    "node",
+    "nodejs"
+  ],
+  "dependencies": {
+    "loglevel": "^1.7.1",
+    "node-rfc": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
+    "jest": "^26.6.3",
+    "typescript": "^4.2.2"
+  }
+}
