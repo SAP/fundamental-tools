@@ -13,7 +13,7 @@ Command line tool for building [pattern based applications'](https://github.com/
 - Custom configurations, open for integration
 - Minimalistic, unobtrusive, powerful
 
-Bonus: generic Value Helps server runtime component: [`abap-value-help`](https://github.com/SAP/fundamental-tools/tree/main/abap-value-input-help).
+Combined with generic Value Helps [`abap-value-help`](./abap-value-help/README.md) results in one different and exciting delivery experience.
 
 ## Content<!-- omit in toc -->
 

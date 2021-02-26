@@ -189,7 +189,9 @@ abap make aurelia -c my-app # from the first ABAP API step above
 
 - ABAP developers can build also this layer, by reusing (copy/paste) standard patterns for components positioning and grouping. Learning a bit more about HTML/JS, developers can start modifying standard patterns and buil their own.
 
-- Standard ui components' templates (default ui configurations) can be pure HTML, pure JS or the combination of both. It depends on ui framework and the standard usage pattern nd can be easy changed (custom ui configurations)
+- Standard ui components' templates (default ui configurations) can be pure HTML, pure JS or the combination of both. It depends on ui framework and standard usage pattern can be easy changed (custom ui configurations).
+
+- Generic and custom Value Helps are supported by `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
 
 One example with input, datepicker and checkbox:
 

@@ -23,7 +23,7 @@ Node [CLI tool](./abap-api-tools) for [pattern based web applications](./doc/app
 - Application frameworks: electron, NW.js ...
 - Building a [pattern based app](./doc/app.md)
 
-Bonus: generic Value Help server runtime component: [`abap-value-help`](./abap-value-help/README.md).
+Combined with generic Value Helps [`abap-value-help`](./abap-value-help/README.md) results in one different and exciting delivery experience.
 
 :star: Your star is appreciated, it helps!
 
