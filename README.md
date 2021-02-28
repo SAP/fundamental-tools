@@ -19,13 +19,13 @@
   - SAP Cloud Platform
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
-- Building [pattern based apps](./doc/app.md)
+- Building [pattern based application](./doc/app.md)
 
-Components
+Pattern based apps components
 
-- Node CLI tool for pattern based applications: [**abap-api-tools**](./abap-api-tools/README.md)
+- [**abap-api-tools**](./abap-api-tools/README.md) node CLI tool for pattern based applications
 
-- Generic Value Help runtime component: [**abap-value-help**](./abap-value-help/README.md)
+- [**abap-value-help**](./abap-value-help/README.md) generic Value Help runtime component
 
 :star: Your star is appreciated, it helps!
 
