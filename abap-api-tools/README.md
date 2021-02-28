@@ -2,7 +2,7 @@
 
 ![NPM](https://img.shields.io/npm/l/abap-api-tools)
 
-Command line tool for building [pattern based applications'](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) elements:
+Command line tool for building [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md):
 
 - BAPI/RFM call templates ([What is BAPI/RFM?](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/))
 - Ui components with ABAP data annotations:
@@ -13,7 +13,7 @@ Command line tool for building [pattern based applications'](https://github.com/
 - Custom configurations, open for integration
 - Minimalistic, unobtrusive, powerful
 
-Combined with generic Value Helps [`abap-value-help`](./abap-value-help/README.md) results in one different and exciting delivery experience.
+:gift: Generic Value Help runtime component: [**abap-value-help**](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/README.md)
 
 ## Content<!-- omit in toc -->
 

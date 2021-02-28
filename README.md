@@ -8,10 +8,8 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-Node [CLI tool](./abap-api-tools) for [pattern based web applications](./doc/app.md) with ABAP/HANA systems:
-
 - Minimalistic, unobtrusive, powerful
-- Any new or old SAP system
+- Web standards based applications with ABAP programming model
 - Front-end frameworks:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
@@ -21,9 +19,13 @@ Node [CLI tool](./abap-api-tools) for [pattern based web applications](./doc/app
   - SAP Cloud Platform
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Application frameworks: electron, NW.js ...
-- Building a [pattern based app](./doc/app.md)
+- Building [pattern based apps](./doc/app.md)
 
-Combined with generic Value Helps [`abap-value-help`](./abap-value-help/README.md) results in one different and exciting delivery experience.
+Components
+
+- Node CLI tool for pattern based applications: [**abap-api-tools**](./abap-api-tools/README.md)
+
+- Generic Value Help runtime component: [**abap-value-help**](./abap-value-help/README.md)
 
 :star: Your star is appreciated, it helps!
 
@@ -39,7 +41,7 @@ Combined with generic Value Helps [`abap-value-help`](./abap-value-help/README.m
 - [Custom ui configurations](./abap-api-tools/README.md#custom-ui-configurations)
 - [i18n](./abap-api-tools/README.md#i18n)
 - [Integration](./abap-api-tools/README.md#integration)
-- [Building a pattern based app](./doc/app.md)
+- [Pattern based apps](./doc/app.md)
 - NodeJS and Python [docker images](./docker)
 
 ## Prerequisites

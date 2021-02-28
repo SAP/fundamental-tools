@@ -5,7 +5,7 @@
 const AbapCliApi = require("../dist/abap").AbapCliApi;
 
 const loadFromFile = require("./utils").loadFromFile;
-const saveToFile = require("./utils").saveToFile;
+//const saveToFile = require("./utils").saveToFile;
 
 ("use strict");
 

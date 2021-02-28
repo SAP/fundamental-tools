@@ -9,35 +9,30 @@
 
 Server component exposing generic Value Helps for [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) and ui frameworks supported by [Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools).
 
-ABAP developers already know how it works - like in SAPGUI:
+- ABAP API works the way ABAP developers are familiar with: like in SAPGUI:
 
-- ABAP Fixed Domain Values (FV)
-- ABAP Elementary and complex Search Helps (SH)
-- ABAP Check Tables (CT, CH)
-- Custom input helps
+  - ABAP Fixed Domain Values (FV)
+  - ABAP Elementary and complex Search Helps (SH)
+  - ABAP Check Tables (CT, CH)
+  - Custom input helps
+
+- [Documentation](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/README.md)
 
 ## Installation
-
-Server runtime component:
 
 ```shell
 npm install abap-value-help
 ```
 
+ABAP API: [doc/abap](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/abap/README.md)
+
 ## Usage
 
-Add server routes for generic [ABAP Value Helps API](https://github.com/SAP/fundamental-tools/blob/main/abap-value-input-help/abap-api/README.md)
+- Expose generic Value Help routes: [doc/server](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/README.md#server)
 
-| Search Help Type                     | Route                       | ABAP Value Help API                                  | ABAP API (internal)                       |
-| ------------------------------------ | --------------------------- | ---------------------------------------------------- | ----------------------------------------- |
-| Fixed domain values (FV)             | `/fieldvalues/<path>`       | getDomainValues()                                    | `SHLP_DOMVALUES_GET`                      |
-| Elementary/complex Search Helps (SH) | `/helpselect`<br/>`/search` | getShlpDescriptor()<br>search()                      | `SHLP_METADATA_GET`<br/>`SHLP_VALUES_GET` |
-| Check Tables (CT, CH)                | `/tabselect`                | Generic on HANA systems<br>Custom BAPI/RFM otherwise | CT/CH tables' query                       |
-| Custom input helps                   | `/valuelist/`               | pass-through                                         | any ABP RFM                               |
+- Register generic Value Help dialog in your application: [doc/dialog](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/abap/README.md#view-model-and-view)
 
-More API details: [unit tests](https://github.com/SAP/fundamental-tools/tree/main/abap-value-help/tests)
-
-Add custom attribute `shlp` to input component, like:
+- Add custom attribute `shlp` to input component, like:
 
 ```html
 <!-- Fixed Domain Values -->

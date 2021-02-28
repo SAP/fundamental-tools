@@ -5,6 +5,9 @@
 const ValueInputHelp = require("../dist").ValueInputHelp;
 const setup = require("./setup");
 
+const loadFromFile = require("./utils").loadFromFile;
+//const saveToFile = require("./utils").saveToFile
+
 ("use strict");
 
 let VI;
@@ -34,52 +37,13 @@ describe("CH Helps", () => {
 
     let R = await VI.search(shlpId, sel);
 
-    expect(R.headers).toEqual([
-      {
-        field: "EBELN",
-        len: 10,
-        abaptype: "CHAR",
-        title: "Purch.doc.",
-        text_align: "left",
-        position: "",
-      },
-      {
-        field: "EBELP",
-        len: 5,
-        abaptype: "NUMC",
-        title: "Item",
-        text_align: "left",
-        position: "",
-      },
-    ]);
-
-    // full
-    expect(R.search_result).toEqual([
-      { EBELN: "4500000070", EBELP: "00010" },
-      { EBELN: "4500000071", EBELP: "00010" },
-      { EBELN: "4500000072", EBELP: "00010" },
-      { EBELN: "4500000073", EBELP: "00010" },
-      { EBELN: "4500000074", EBELP: "00010" },
-      { EBELN: "4500000075", EBELP: "00010" },
-      { EBELN: "4500000076", EBELP: "00010" },
-      { EBELN: "4500000077", EBELP: "00010" },
-      { EBELN: "4500000078", EBELP: "00010" },
-      { EBELN: "4500000079", EBELP: "00010" },
-    ]);
+    expect(R.headers).toEqual(loadFromFile("headers.CH_EKKO.yaml"));
+    expect(R.search_result).toEqual(loadFromFile("searchResult.CH_EKKO.yaml"));
 
     // compact
     R = await VI.search(shlpId, sel, { compact: true });
-    expect(R.search_result).toEqual([
-      ["4500000070", "00010"],
-      ["4500000071", "00010"],
-      ["4500000072", "00010"],
-      ["4500000073", "00010"],
-      ["4500000074", "00010"],
-      ["4500000075", "00010"],
-      ["4500000076", "00010"],
-      ["4500000077", "00010"],
-      ["4500000078", "00010"],
-      ["4500000079", "00010"],
-    ]);
+    expect(R.search_result).toEqual(
+      loadFromFile("searchResult.CH_EKKO.compact.yaml")
+    );
   });
 });

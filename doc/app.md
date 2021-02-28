@@ -2,24 +2,26 @@
 
 Pattern based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
 
-Without frameworks in between you and your application, what remains are code-patterns and basic programming skills, you can start with. Applying patterns of similar applications, modifying them or making your own, for new kinds of applications. Some knowledge of ABAP or JavaScript are enough to give it a try.
+Without frameworks in between you and your application, what remains are re-usable code-patterns and basic programming skills of JavaScript or ABAP, you can start with.
 
-Apps comprise of four levels (JavaScript or JS stands for TypeScript or EcmaScript):
-
-- ABAP API exposed as a set of remote-enabled Function Modules (RFMs)
-- Java/NodeJS/Python app server, like express, Flask, Jetty etc., mapping ABAP API to server routes
-- JS View Model, consuming server routes (browser)
-- HTML or JS View, rendering the View Model
-
-Let have a look into technical landscape and build these four layers, with the little help of [`abap` CLI tool](https://www.npmjs.com/package/abap-api-tools):
-
+- [Why Patterns?](#why-patterns)
 - [Technical Landscape](#technical-landscape)
-- [ABAP API](#abap-api)
-- [App Server (Java, Node, Python)](#app-server-java-node-python)
-- [View Model (JS)](#view-model-js)
-- [View (HTML or JS)](#view-html-or-js)
+- [Components](#components)
+  - [ABAP API](#abap-api)
+  - [App Server (Java, Node, Python)](#app-server-java-node-python)
+  - [View Model (JS)](#view-model-js)
+  - [View (HTML or JS)](#view-html-or-js)
 - [App = ABAP API + Server Model + View Model + View](#app--abap-api--server-model--view-model--view)
 - [Deployment options](#deployment-options)
+
+## Why Patterns?
+
+- Pattern based model results in so little code, that pattern copy & adapt appears more handy than learning, configuring and modifying a "wizzard" or generator like "master/detail", doing the same.
+- Diversity requirements is hard to cover by generic framework, wizzard, generator ...
+- The model works the same way with any ui framework. Mostly used with standards-based [Aurelia](https://aurelia.io/), which is
+  - Based on simple conventions, easy to learn
+  - Practically invisible in applications, developers can entirely focus on application, not the framework
+  - Support other ui frameworks' templating systems
 
 ## Technical Landscape
 
@@ -32,7 +34,19 @@ Let have a look into technical landscape and build these four layers, with the l
   - [PyRFC](https://github.com/SAP/PyRFC)
   - [node-rfc](https://github.com/SAP/node-rfc)
 
-## ABAP API
+
+## Components
+
+Apps comprise of four main components or levels:
+
+- ABAP API exposed as a set of remote-enabled Function Modules (RFMs)
+- Java/NodeJS/Python app server, like express, Flask, Jetty etc., mapping ABAP API to server routes
+- JS View Model, consuming server routes (browser)
+- HTML or JS View, rendering the View Model
+
+Let build these four layers, with the little help of [`abap` CLI tool](https://www.npmjs.com/package/abap-api-tools):
+
+### ABAP API
 
 - Localize the ABAP business logic for app functional requirements
 - Expose it via remote-enabled Function Modules
@@ -56,7 +70,7 @@ Cloud/web knowledge and skills are not required here.
 
 Just a regular ABAP development, like the ui will be implemented in ABAP.
 
-## App Server (Java, Node, Python)
+### App Server (Java, Node, Python)
 
 The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app.
 
@@ -104,7 +118,7 @@ def equipment(path):
 
 - The server logic sometimes need access to ABAP data stuctures at field level. `abap` CLI [call templates](../abap-api-tools/README.md#abap-function-module-call-template) can help here.
 
-## View Model (JS)
+### View Model (JS)
 
 Via server routes, ABAP data structures reach the View-Model. The programming language is now JavaScript and the business logic processing can be also here done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
 
@@ -172,7 +186,7 @@ export class Equipment {
 // get ...
 ```
 
-## View (HTML or JS)
+### View (HTML or JS)
 
 HTML or JS Views comprise of generic ui components, grouped together into frontend layout elements.
 
