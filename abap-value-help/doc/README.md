@@ -20,17 +20,17 @@ Value Help is enabled for the ui component by binding custom attribute `shlp` to
 
 It turns the ui component:
 
-![](../doc/assets/input.png)
+<img src="https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/input.png" width="440px">
 
 into Value Help enabled ui component:
 
-![](../doc/assets/input-help.png)
+<img src="https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/input-help.png" width="440px">
 
 On Value Help user request (keyboard or click on icon), the Value Help dialog is presented, to capture the selection criteria (user input). The selection criteria is then passed to Value Help generic search service and the search result returned back to the dialog. User can cancel or confirm one search result value, to be captured as ui component input.
 
 Combo box is the default ui representation of data elements with Fixed Domain Values or Check Table (CT) Value Input type. Instead of the dialog, value list coming from the same generic ABAP API is shown in a drop-down:
 
-<img src="./assets/combo.png" width="240px"/>
+<img src="https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/combo.png" width="440px"/>
 
 ## ABAP API
 
@@ -39,7 +39,7 @@ Generic ABAP API exposes:
 - Value Help descriptors, used for dynamic selection forms' creation
 - Search service, returning the search result based on selection criteria (user input)
 
-[API example](../abap-api/README.md)
+[API example](./abap/README.md)
 
 ## Server
 
@@ -70,6 +70,6 @@ Value Input dialog is dynamically created, based on so called Value Help descrip
 
 Aurelia View and View-Model implementation require ca 300 lines of code in total and is portable to other ui frameworks:
 
-[view-model](./view/ui-search-help.js)
+[view-model](./dialog/ui-search-help.js)
 
-[view](./view/ui-search-help.html)
+[view](./dialog/ui-search-help.html)
