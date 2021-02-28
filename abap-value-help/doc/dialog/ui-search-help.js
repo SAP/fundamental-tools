@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+//
+// SPDX-License-Identifier: Apache-2.0
+
 import { DialogController } from 'aurelia-dialog';
 import { UIApplication } from '../../utils/ui-application';
 import { UIHttpService } from '../../utils/ui-http-service';

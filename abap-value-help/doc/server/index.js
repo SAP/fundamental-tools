@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const express = require("express");
 const ValueHelp = require("abap-value-help").ValueInputHelp;
 const Client = require("abap-value-help").Client;
