@@ -38,9 +38,9 @@ ABAP API: [doc/abap](https://github.com/SAP/fundamental-tools/blob/main/abap-val
 
 ## Usage
 
-- Expose generic Value Help routes: [doc/server](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/README.md#server)
+- Expose generic Value Help routes: [#server](#server)
 
-- Register generic Value Help dialog in your application: [doc/dialog](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/README.md#view-model-and-view)
+- Register generic Value Help dialog in your application: [#view-model-and-view](#view-model-and-view)
 
 - Add custom attribute `shlp` to input component, like:
 
