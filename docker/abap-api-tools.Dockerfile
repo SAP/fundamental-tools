@@ -30,8 +30,8 @@ RUN chmod -R a+r ${nwrfc_target}/nwrfcsdk && \
     printf "# include nwrfcsdk\n${nwrfc_target}/nwrfcsdk/lib\n" | tee /etc/ld.so.conf.d/nwrfcsdk.conf && \
     ldconfig && ldconfig -p | grep sap
 
-# abap tools
-RUN npm install -g abap-api-tools
+# abap api tools and value helps
+RUN npm install -g abap-api-tools abap-value-help
 
 # cleanup
 RUN rm -rf /tmp/*

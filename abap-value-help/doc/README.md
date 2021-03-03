@@ -62,8 +62,6 @@ http://localhost:3000/search
 http://localhost:3000/logout
 ```
 
-![](../doc/assets/shflow.png)
-
 ## View-Model and View
 
 Value Input dialog is dynamically created, based on so called Value Help descriptors. One descriptor describes one "elementary" Value Help and array of descriptors describes a "composite" Value Help. The dialog is identical for both, except the composite Value Help has one dropdown ui element at the top (combo box) to select one particular elementary Value Help, for selection and search.
@@ -73,3 +71,7 @@ Aurelia View and View-Model implementation require ca 300 lines of code in total
 [view-model](./dialog/ui-search-help.js)
 
 [view](./dialog/ui-search-help.html)
+
+and the flow:
+
+![](../doc/assets/shflow.png)

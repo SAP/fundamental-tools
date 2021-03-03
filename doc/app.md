@@ -1,8 +1,8 @@
 # Building an app<!-- omit in toc -->
 
-Pattern based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
+Conventions' based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
 
-Without frameworks in between you and your application, what remains are re-usable code-patterns and basic programming skills of JavaScript or ABAP, you can start with.
+Without frameworks in between you and your application, what remains are re-usable solution-patterns and basic programming skills of JavaScript or ABAP, you can start with.
 
 - [Why Patterns?](#why-patterns)
 - [Technical Landscape](#technical-landscape)
@@ -16,7 +16,7 @@ Without frameworks in between you and your application, what remains are re-usab
 
 ## Why Patterns?
 
-- Pattern based model results in so little code, that pattern copy & adapt appears more handy than learning, configuring and modifying a "wizzard" or generator like "master/detail", doing the same.
+- Conventions' based model results in so little code, that pattern copy & adapt appears more handy than learning, configuring and modifying a "wizzard" or generator like "master/detail", doing the same.
 - Diversity requirements is hard to cover by generic framework, wizzard, generator ...
 - The model works the same way with any ui framework. Mostly used with standards-based [Aurelia](https://aurelia.io/), which is
   - Based on simple conventions, easy to learn
