@@ -93,6 +93,8 @@ Combo box is the default ui representation of data elements with Fixed Domain Va
 
 <img src="https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/combo.png" width="440px"/>
 
+Generic ABAP Value Helps are implemented by four common layers of [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md)
+
 ### ABAP API
 
 Generic ABAP API exposes:
