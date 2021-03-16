@@ -186,7 +186,7 @@ export class Backend {
     }
 
     // check if search help api configured
-    if (this.argv.cmd === Command.get && !this.search_help_api) {
+    if (this.argv.cmd === Command.get && isEmpty(this.search_help_api)) {
       try {
         const systemYamlPath = path.join(
           DefaultFolder.userConfig,
@@ -203,6 +203,7 @@ export class Backend {
         } else if (!systems[this.systemId].search_help_api) {
           log.info(`search help api not configured for ${this.systemId}`);
         } else {
+          log.debug("Search Help API", this.search_help_api);
           this.search_help_api = systems[this.systemId].search_help_api;
         }
       } catch (ex) {
