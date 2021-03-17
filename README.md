@@ -8,9 +8,8 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-- Minimalistic, unobtrusive, powerful
 - Web standards based applications with ABAP programming model
-- Front-end frameworks:
+- Standard front-ends:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
@@ -18,16 +17,16 @@
 - Servers
   - SAP Cloud Platform
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
-- Application frameworks: electron, NW.js ...
-- Building [pattern based application](./doc/app.md)
+- Frameworks: electron, NW.js ...
+- [Conventions based application](./doc/app.md)
 
-Pattern based apps components
+Components
 
-- [**abap-api-tools**](./abap-api-tools/README.md) node CLI tool for pattern based applications
+- [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
 
-- [**abap-value-help**](./abap-value-help/README.md) generic Value Help runtime component
+- [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
 
-:star: Your star is appreciated, it helps!
+:star: Your star helps!
 
 ## Content <!-- omit in toc -->
 

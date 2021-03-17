@@ -4,7 +4,7 @@ Conventions' based apps solve complex problems by re-usable patterns, rather tha
 
 Without frameworks in between you and your application, what remains are re-usable solution-patterns and basic programming skills of JavaScript or ABAP, you can start with.
 
-- [Why Patterns?](#why-patterns)
+- [Why Conventions?](#why-conventions)
 - [Technical Landscape](#technical-landscape)
 - [Components](#components)
   - [ABAP API](#abap-api)
@@ -14,14 +14,16 @@ Without frameworks in between you and your application, what remains are re-usab
 - [App = ABAP API + Server Model + View Model + View](#app--abap-api--server-model--view-model--view)
 - [Deployment options](#deployment-options)
 
-## Why Patterns?
+## Why Conventions?
 
-- Conventions' based model results in so little code, that pattern copy & adapt appears more handy than learning, configuring and modifying a "wizzard" or generator like "master/detail", doing the same.
-- Diversity requirements is hard to cover by generic framework, wizzard, generator ...
+- By factors less code
+- Convention copy & adapt is a way more effective then learning, configuring and modifying any "wizzard" or generator output like "master/detail", doing the same.
+- Diverse functional/visual requirements are hard to cover by generic framework, wizzard, generator ...
 - The model works the same way with any ui framework. Mostly used with standards-based [Aurelia](https://aurelia.io/), which is
-  - Based on simple conventions, easy to learn
-  - Practically invisible in applications, developers can entirely focus on application, not the framework
+  - Also conventions based, easy to learn
+  - Practically invisible in applications so that developers can focus on application, not the framework
   - Support other ui frameworks' templating systems
+- Don't like conventions? Frame your conventions into your owm framework, always staying in full control.
 
 ## Technical Landscape
 
@@ -205,7 +207,7 @@ abap make aurelia -c my-app # from the first ABAP API step above
 
 - Standard ui components' templates (default ui configurations) can be pure HTML, pure JS or the combination of both. It depends on ui framework and standard usage pattern can be easy changed (custom ui configurations).
 
-- Generic and custom Value Helps are supported by `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
+- Generic and custom Value Helps can be generated and adapted in design time, or dynamically generated in run-time. Can be attched to any ui component by `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
 
 One example with input, datepicker and checkbox:
 

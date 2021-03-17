@@ -1,7 +1,7 @@
 {
   "name": "abap-api-tools",
   "description": "ABAP api tools",
-  "version": "1.9.3",
+  "version": "2.0.0",
   "homepage": "https://github.com/sap/fundamental-tools",
   "author": "SAP",
   "license": "Apache-2.0",
@@ -28,7 +28,7 @@
   "scripts": {
     "ts": "tsc -p src/ts && cp -r src/configuration dist/.",
     "lint": "eslint src/ts",
-    "dependencies": "npm i --save chalk js-yaml loglevel sprintf-js yargs node-rfc",
+    "dependencies": "npm i --save chalk js-yaml loglevel sprintf-js yargs node-rfc abap-value-help",
     "devDependencies": "npm i --save-dev @types/node @types/js-yaml @types/sprintf-js @types/yargs @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
     "build": "reuse lint && rm -rf dist && npm run ts && npm run lint",
     "lock": "npm install --package-lock-only",
@@ -45,6 +45,7 @@
     "nodejs"
   ],
   "dependencies": {
+    "abap-value-help": "^0.9.6",
     "chalk": "^4.1.0",
     "js-yaml": "^4.0.0",
     "loglevel": "^1.7.1",

@@ -4,6 +4,7 @@
 
 // check search_help_api
 
+import { ValueInputHelp, ElementaryHelpType } from "abap-value-help";
 import chalk from "chalk";
 import fs from "fs";
 import path from "path";
@@ -93,20 +94,15 @@ type FieldValuesHelpType = {
   type: string;
   count: number;
   values: Record<string, string>;
+  descriptor?: RfcTable;
 };
 
-type HelpsType = Record<
-  string,
-  | {
-      // search helps
-      title: string;
-      valueProperty?: string[];
-      displayProperty?: string[];
-      selection?: Record<string, string>[];
-      requestedFields?: string[];
-    }
-  | FieldValuesHelpType // field values
->;
+type ElementaryHelpsList = Record<string, string>[];
+type StandardHelpType = {
+  title: string;
+  elementaryHelps?: ElementaryHelpsList;
+};
+type HelpsType = Record<string, StandardHelpType | FieldValuesHelpType>;
 
 type StatType = Record<
   string,
@@ -120,6 +116,17 @@ type StatType = Record<
 
 type UsageType = Record<string, string[]>;
 
+type ValueHelpError = Record<string, unknown>;
+
+type ValueHelpElementary = {
+  blacklist?: "selection" | "search";
+  selectionDescriptor?: ElementaryHelpType | ValueHelpError;
+  resultDescriptor?: RfcTable | ValueHelpError;
+  resultLine?: RfcTable;
+};
+
+type DescriptorsType = Record<string, ValueHelpElementary>;
+
 export type AnnotationsType = {
   alpha?: { all: string[]; rfm: Record<string, RfcStructure> };
   parameters: yamlParametersType;
@@ -127,11 +134,17 @@ export type AnnotationsType = {
   stat: StatType;
   helps?: HelpsType;
   usage?: UsageType;
+  descriptors?: DescriptorsType;
 };
 
 // search help typings
 
-type SearchHelpApiType = { determine: string; dom_values: string };
+type SearchHelpApiType = {
+  determine: string;
+  dom_values: string;
+  metadata?: string;
+  search?: string;
+};
 type SystemsYamlType = Record<string, { search_help_api: SearchHelpApiType }>;
 export class Backend {
   private argv: Arguments;
@@ -144,6 +157,7 @@ export class Backend {
   private getSearchHelps = false;
   private SPRAS: string;
   private Helps: HelpsType;
+  private Descriptors: DescriptorsType;
   private Stat: StatType;
   private Texts = {} as yamlTextsType;
 
@@ -159,6 +173,7 @@ export class Backend {
     this.alpha = new Alpha();
     this.SPRAS = Languages[this.argv.lang].spras;
     this.Helps = {};
+    this.Descriptors = {};
     this.Stat = {};
 
     this.clientConnectionParameters = {};
@@ -174,7 +189,7 @@ export class Backend {
       } else {
         this.clientConnectionParameters = this.argv.dest.connectionParameters;
         if (this.argv.dest.searchHelpApi) {
-          this.search_help_api = this.argv.dest.searchHelpApi;
+          Object.assign(this.search_help_api, this.argv.dest.searchHelpApi);
         }
         this.systemId =
           this.clientConnectionParameters.ashost ||
@@ -214,12 +229,20 @@ export class Backend {
     // search help api plausibility check
     if (!isEmpty(this.search_help_api)) {
       for (const [apiKey, apiName] of Object.entries(this.search_help_api)) {
-        if (!["determine", "dom_values"].includes(apiKey)) {
+        if (
+          !["determine", "dom_values", "metadata", "search"].includes(apiKey)
+        ) {
           throw new Error(`Search Help API key not supported: "${apiKey}"`);
         }
-        if (apiName.length > 30) {
+        if ((apiName as string).length > 30) {
           throw new Error(`Search help API name too long: "${apiName}"`);
         }
+      }
+    }
+    for (const apiName of ["metadata", "search"]) {
+      if (!this.search_help_api[apiName]) {
+        log.info(`Search help API not maintained: ${apiName}`);
+        this.argv.helps = false;
       }
     }
 
@@ -318,7 +341,7 @@ export class Backend {
     }
 
     //
-    // value input help
+    // Value Helps
     //
 
     let shlp: RfcParameterValue = "",
@@ -433,10 +456,10 @@ export class Backend {
               sh_val_fields.push(tf["FIELDNAME"] as string);
           }
           this.Helps[shlp_key] = {
-            valueProperty: sh_val_fields,
-            displayProperty: [],
-            selection: [],
-            requestedFields: [],
+            //valueProperty: sh_val_fields,
+            //displayProperty: [],
+            //selection: [],
+            //requestedFields: [],
             title: tab_text,
           };
         }
@@ -470,7 +493,106 @@ export class Backend {
       delete result.input;
     }
 
+    // Value Help descriptors
+    if (shlp_key && this.argv.helps && !this.Descriptors[shlp_key]) {
+      this.valueHelps(shlp_key);
+    }
+
     return result as FieldType;
+  }
+
+  async valueHelps(shlp_key: string): Promise<void> {
+    if (shlp_key && this.argv.helps && !this.Descriptors[shlp_key]) {
+      const [stype, sname] = shlp_key.split(" ");
+      //
+      // selection
+      //
+      log.debug(`Value Help selection: ${shlp_key}`);
+      const elementary_helps: ElementaryHelpsList = [];
+      try {
+        const descriptors = await this.client.call(
+          this.search_help_api.metadata as string,
+          {
+            IV_SHLPTYPE: stype,
+            IV_SHLPNAME: sname,
+          }
+        );
+        // parse elementary helps
+        for (const desc of descriptors.ET_SHLP as RfcTable) {
+          const skey = `${desc.SHLPTYPE} ${desc.SHLPNAME}`;
+          elementary_helps.push({
+            [skey]: (desc.INTDESCR as RfcStructure).DDTEXT as string,
+          });
+          if (!this.Descriptors[skey]) {
+            this.Descriptors[skey] = {
+              selectionDescriptor: ValueInputHelp.elementary(desc),
+            };
+          }
+        }
+        if (elementary_helps.length > 1) {
+          if (!(this.Helps[shlp_key] as StandardHelpType).elementaryHelps) {
+            (this.Helps[
+              shlp_key
+            ] as StandardHelpType).elementaryHelps = elementary_helps;
+          }
+        }
+      } catch (ex) {
+        log.debug(`Value Help metadata error: ${shlp_key}`, ex);
+        this.Descriptors[shlp_key] = {
+          blacklist: "selection",
+          selectionDescriptor: ex,
+        };
+      }
+
+      //
+      // search result
+      //
+      for (const eh of elementary_helps) {
+        const skey = Object.keys(eh)[0];
+        const [stype, sname] = shlp_key.split(" ");
+        if (!this.Descriptors[skey].blacklist) {
+          try {
+            const searchResult = await this.client.call(
+              this.search_help_api.search as string,
+              {
+                IV_SHLPTYPE: stype,
+                IV_SHLPNAME: sname,
+              }
+            );
+            // value descriptor
+            this.Descriptors[
+              skey
+            ].resultDescriptor = searchResult.ET_VALUE_DESC as RfcTable;
+
+            const value_list = searchResult.ET_VALUE_LIST as RfcTable;
+            if (value_list.length > 0) {
+              const record_pos = value_list[0].RECORDPOS;
+              let count = 0;
+              for (const value_line of value_list) {
+                if (record_pos !== value_line.RECORDPOS) {
+                  break;
+                } else {
+                  count++;
+                  //delete value_line.SHLPNAME;
+                  //delete value_line.RECORDPOS;
+                }
+              }
+              // search result "descriptor"
+              this.Descriptors[
+                skey
+              ].resultLine = (searchResult.ET_VALUE_LIST as RfcTable).slice(
+                0,
+                count
+              );
+            }
+          } catch (ex) {
+            this.Descriptors[skey].blacklist = "search";
+            this.Descriptors[skey].resultDescriptor = ex;
+            log.debug(`Value Help search error: ${skey} `, ex);
+          }
+        }
+      }
+    }
   }
 
   async annotations(
@@ -608,7 +730,9 @@ export class Backend {
     log.info(
       `\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
         this.argv.textOnly ? "only texts" : ""
-      } ${this.getSearchHelps ? "search helps" : ""}\n`.replace(/  +/g, " ")
+      } ${this.getSearchHelps ? "search helps" : ""}${
+        this.argv.helps ? " w. descriptors" : ""
+      }\n`.replace(/  +/g, " ")
     );
 
     await this.client.open();
@@ -848,6 +972,7 @@ export class Backend {
       helps: this.Helps,
       stat: this.Stat,
       usage: usage,
+      descriptors: this.Descriptors,
     };
 
     if (!this.argv.runInBg && this.argv.cmd === Command.get) {
@@ -893,6 +1018,8 @@ export class Backend {
       }
       fileSave(path.join(folder_yaml, "stat.yaml"), abap.stat);
       fileSave(path.join(folder_yaml, "usage.yaml"), abap.usage);
+      if (!isEmpty(abap.descriptors))
+        fileSave(path.join(folder_yaml, "descriptors.yaml"), abap.descriptors);
     }
     if (!isEmpty(texts)) {
       fileSave(path.join(folder_yaml, "texts.yaml"), texts, {
@@ -918,6 +1045,7 @@ export class Backend {
       "alpha",
       "usage",
       "texts",
+      "descriptors",
     ]) {
       deleteFile(path.join(folder_yaml, `${fileName}.yaml`));
     }

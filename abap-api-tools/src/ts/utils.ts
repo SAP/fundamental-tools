@@ -28,7 +28,7 @@ export function fileLoad(fileName: string): unknown {
     flag: "r",
   });
   return fileName.match(/\.(yaml|yml)$/)
-    ? yaml.load(content, { schema: yaml.JSON_SCHEMA })
+    ? yaml.load(content) //, { schema: yaml.JSON_SCHEMA })
     : content;
 }
 
@@ -40,7 +40,7 @@ export function fileSave(
   log.debug(`file save ${fileName}`);
 
   if (typeof content !== "string") {
-    options.schema = yaml.JSON_SCHEMA;
+    //options.schema = yaml.JSON_SCHEMA;
     content = yaml.dump(content, options);
     if (!fileName.match(/\.(yaml|yml)$/)) fileName += ".yaml";
   }
@@ -63,7 +63,7 @@ export function makeDir(dir: string): void {
   log.debug(`mkdir ${dir}`);
 }
 
-export function isEmpty(obj?: any[] | Record<string, unknown>): boolean {
+export function isEmpty(obj?: unknown[] | Record<string, unknown>): boolean {
   if (obj === undefined) return true;
   if (Array.isArray(obj)) return obj.length === 0;
   return Object.keys(obj).length === 0;

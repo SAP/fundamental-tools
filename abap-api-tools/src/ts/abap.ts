@@ -50,7 +50,12 @@ export type Destination =
   | string
   | {
       connectionParameters: RfcConnectionParameters;
-      searchHelpApi?: { determine: string; dom_values: string };
+      searchHelpApi?: {
+        determine: string;
+        dom_values: string;
+        metadata?: string;
+        search?: string;
+      };
     };
 
 export {
@@ -78,6 +83,7 @@ export type Arguments = {
   ui?: string | AbapCliUiConfig;
   "sort-fields"?: boolean;
   runInBg?: boolean;
+  helps?: boolean;
 };
 
 export type AbapCliResult = {
@@ -182,6 +188,7 @@ export class AbapCliApi {
     lang: DefaultLanguage,
     "sort-fields": false,
     debug: false,
+    helps: false,
   };
 
   async call(
@@ -219,7 +226,7 @@ export class AbapCliApi {
   async get(
     dest: Destination,
     rfm_names: string | string[],
-    options?: { lang?: string; debug?: boolean }
+    options?: { lang?: string; debug?: boolean; helps?: boolean }
   ): Promise<AbapCliResult> {
     if (options) {
       Object.assign(this.options, options);
@@ -239,6 +246,7 @@ export class AbapCliApi {
       lang: this.options.lang,
       debug: this.options.debug,
       runInBg: true,
+      helps: this.options.helps,
     };
 
     const cli = new CliHandler(args);
@@ -379,6 +387,13 @@ if (require.main === module)
           .option("d", {
             alias: "debug",
             describe: "Detailed logging",
+            type: "boolean",
+            default: false,
+            nargs: 0,
+          })
+          .option("h", {
+            alias: "helps",
+            describe: "Value Helps descriptors",
             type: "boolean",
             default: false,
             nargs: 0,

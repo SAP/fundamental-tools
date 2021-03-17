@@ -1,19 +1,20 @@
 # abap api tools<!-- omit in toc -->
 
-![NPM](https://img.shields.io/npm/l/abap-api-tools)
+![License](https://img.shields.io/npm/l/abap-api-tools)
 
-Command line tool for building [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md):
+CLI tool for [conventions' based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md)
 
 - BAPI/RFM call templates ([What is BAPI/RFM?](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/))
-- Ui components with ABAP data annotations:
+- Ui components with ABAP annotations:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
 - Custom configurations, open for integration
 - Minimalistic, unobtrusive, powerful
+- [Conventions' based app](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md)
 
-:gift: Generic Value Help runtime component: [**abap-value-help**](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/README.md)
+:gift: Generic Value Helps: [abap-value-help](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/README.md)
 
 ## Content<!-- omit in toc -->
 
