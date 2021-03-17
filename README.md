@@ -8,8 +8,9 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-- Web standards based applications with ABAP programming model
-- Standard front-ends:
+- Standards based web applications with ABAP programming model
+- By factors less code, unique qualities
+- Works with:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
@@ -18,7 +19,7 @@
   - SAP Cloud Platform
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Frameworks: electron, NW.js ...
-- [Conventions based application](./doc/app.md)
+- [Conventions based applications](./doc/app.md)
 
 Components
 
