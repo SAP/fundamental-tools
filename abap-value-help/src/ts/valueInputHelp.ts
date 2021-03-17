@@ -171,7 +171,10 @@ export class ValueInputHelp {
         for (const elem_shlp of this.Descriptors[shlpName]) {
           const elem_shlpname = `${elem_shlp.SHLPTYPE} ${elem_shlp.SHLPNAME}`;
           if (!this.Elementary[elem_shlpname]) {
-            this.Elementary[elem_shlpname] = this.elementary(elem_shlp);
+            this.Elementary[elem_shlpname] = ValueInputHelp.elementary(
+              elem_shlp,
+              this._userParameters
+            );
           }
         }
       }
@@ -189,7 +192,10 @@ export class ValueInputHelp {
     }
   }
 
-  private elementary(shlp: RfcStructure): ElementaryHelpType {
+  public static elementary(
+    shlp: RfcStructure,
+    userParameters: RfcTable = []
+  ): ElementaryHelpType {
     const newhelp: ElementaryHelpType = {
       INTDESCR: shlp.INTDESCR as RfcStructure,
       SCRLENMAX: 0,
@@ -239,7 +245,7 @@ export class ValueInputHelp {
       // user param defaults maintained in SU01/SU3 are taken over,
       // thus more input fields defaulted than in SAPGUI. __todo: check this ...
       if (fd.DEFAULTVAL && (fd.DEFAULTVAL as string).length > 0) {
-        for (const p of this._userParameters) {
+        for (const p of userParameters) {
           if (p.PARID === fd.MEMORYID) {
             fd.PARVA = p.PARVA;
             // fd['PARTXT'] = p['PARTXT']

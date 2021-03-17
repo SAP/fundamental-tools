@@ -7,15 +7,13 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-Server component exposing generic Value Helps for [pattern based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) and ui frameworks supported by [Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools).
+Generic Value Helps for [conventions' based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) and front-ends supported by [Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools)
 
-- ABAP API works the way ABAP developers are familiar with: like in SAPGUI:
-
+- ABAP API, well-known to SAPGUI developers:
   - ABAP Fixed Domain Values (FV)
   - ABAP Elementary and complex Search Helps (SH)
   - ABAP Check Tables (CT, CH)
   - Custom value helps
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Components](#components)
@@ -26,7 +24,6 @@ Server component exposing generic Value Helps for [pattern based applications](h
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
 - [License](#license)
-
 
 ## Installation
 
@@ -106,9 +103,9 @@ Generic ABAP API exposes:
 
 ### Server
 
-- [index.js](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/server/index.js)
+- [client.js](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/server/client.js) or [pool.js](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/server/pool.js)
 
-- Check unit tests for [data structures'](https://github.com/SAP/fundamental-tools/tree/main/abap-value-help/tests/data) details
+- Check unit-tests for [data structures'](https://github.com/SAP/fundamental-tools/tree/main/abap-value-help/tests/data) details
 
 Server routes can be tested by REST client JSON payloads, or from any web browser, in which case hardcoded requests are sent to ABAP system:
 

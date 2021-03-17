@@ -2,9 +2,8 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-import { Client } from "node-rfc";
-import {
-  ValueInputHelp,
+export {
+  ElementaryHelpType,
   ShlpApiType,
   ShlpDefaultsType,
   ShlpDescriptorType,
@@ -13,18 +12,6 @@ import {
   SearchResultHeaderType,
   SearchResultLineType,
   SearchResultType,
+  ValueInputHelp,
   log,
 } from "./valueInputHelp";
-
-export {
-  ValueInputHelp,
-  ShlpApiType,
-  ShlpDefaultsType,
-  ShlpDescriptorType,
-  ShlpSelectOptions,
-  ShlpSearchOptions,
-  SearchResultHeaderType,
-  SearchResultLineType,
-  SearchResultType,
-  log,
-};
