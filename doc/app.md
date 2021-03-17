@@ -11,6 +11,7 @@ Without frameworks in between you and your application, what remains are re-usab
   - [App Server (Java, Node, Python)](#app-server-java-node-python)
   - [View Model (JS)](#view-model-js)
   - [View (HTML or JS)](#view-html-or-js)
+    - [Value Helps](#value-helps)
 - [App = ABAP API + Server Model + View Model + View](#app--abap-api--server-model--view-model--view)
 - [Deployment options](#deployment-options)
 
@@ -223,9 +224,12 @@ One example with input, datepicker and checkbox:
 </section>
 ```
 
-- Generic and custom Value Helps can be attched to any ui component by `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
-  - Generated, adapted or built from scratch in design time
-  - Dynamically generated in run-time
+#### Value Helps
+
+Generic and custom Value Helps can be attched to any ui component by `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
+
+- Generated, adapted or built from scratch in design time
+- Dynamically generated in run-time
 
 ```html
 <!-- Fixed Domain Values -->
