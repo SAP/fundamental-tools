@@ -26,6 +26,5 @@ export {
   SearchResultHeaderType,
   SearchResultLineType,
   SearchResultType,
-  Client,
   log,
 };

@@ -14,7 +14,7 @@ Server component exposing generic Value Helps for [pattern based applications](h
   - ABAP Fixed Domain Values (FV)
   - ABAP Elementary and complex Search Helps (SH)
   - ABAP Check Tables (CT, CH)
-  - Custom input helps
+  - Custom value helps
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -66,7 +66,7 @@ ABAP API: [doc/abap](https://github.com/SAP/fundamental-tools/blob/main/abap-val
 
 Custom attribute will add Search Help icon input addon and run the Search Help dialog using abovementioned routes. Input ui component is updated with the Search Help dialog result:
 
-![](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/ValueInputHelpsDialog.jpg)
+![dialog](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/ValueInputHelpsDialog.jpg)
 
 ## Components
 
@@ -115,9 +115,9 @@ Server routes can be tested by REST client JSON payloads, or from any web browse
 ```shell
 cd server
 npm install
-node index
+node pool # or node client
 
-ABAP Value Help server ready:
+Value Helps server ready:
 http://localhost:3000/login
 http://localhost:3000/fieldvalues
 http://localhost:3000/helpselect
@@ -137,7 +137,7 @@ Aurelia View and View-Model implementation require ca 300 lines of code in total
 
 and the flow:
 
-![](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/shflow.png)
+![Choreography](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/shflow.png)
 
 ## Known Issues
 
