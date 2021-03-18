@@ -495,13 +495,13 @@ export class Backend {
 
     // Value Help descriptors
     if (shlp_key && this.argv.helps && !this.Descriptors[shlp_key]) {
-      this.valueHelps(shlp_key);
+      this.valueHelpsDescriptors(shlp_key);
     }
 
     return result as FieldType;
   }
 
-  async valueHelps(shlp_key: string): Promise<void> {
+  async valueHelpsDescriptors(shlp_key: string): Promise<void> {
     if (shlp_key && this.argv.helps && !this.Descriptors[shlp_key]) {
       const [stype, sname] = shlp_key.split(" ");
       //
@@ -637,33 +637,38 @@ export class Backend {
         const result = {};
         for (const field of dfies) {
           // skip meta elements like .INCLUDE ...
-          if ((field.INTTYPE as string).trim() && !field[".INCLUDE"]) {
-            this.alpha.field(field.FIELDNAME as string);
-            result[field.FIELDNAME as string] = await this.getField(field);
+          if (
+            (field.INTTYPE as string).trim().length === 0 ||
+            field[".INCLUDE"]
+          ) {
+            continue;
+          }
 
-            // Field texts -> Texts
-            const tkey = JSON.stringify({
-              t: param.TABNAME as string,
-              f: field.FIELDNAME as string,
-            }).replace(/"/g, "");
-            const texts = result[field.FIELDNAME as string].text;
-            if (this.argv.textOnly) {
-              for (const [k, v] of Object.entries(this.Texts)) {
-                if (v._id === tkey) {
-                  this.Texts[k][this.argv.lang] = texts.FIELDTEXT as string;
-                  this.Texts[k].short[this.argv.lang] = texts;
-                  break;
-                }
+          this.alpha.field(field.FIELDNAME as string);
+          result[field.FIELDNAME as string] = await this.getField(field);
+
+          // Field texts -> Texts
+          const tkey = JSON.stringify({
+            t: param.TABNAME as string,
+            f: field.FIELDNAME as string,
+          }).replace(/"/g, "");
+          const texts = result[field.FIELDNAME as string].text;
+          if (this.argv.textOnly) {
+            for (const [k, v] of Object.entries(this.Texts)) {
+              if (v._id === tkey) {
+                this.Texts[k][this.argv.lang] = texts.FIELDTEXT as string;
+                this.Texts[k].short[this.argv.lang] = texts;
+                break;
               }
-              // if not found, the same text already added by another field
-            } else {
-              if (!this.Texts[texts.FIELDTEXT as string]) {
-                this.Texts[texts.FIELDTEXT as string] = {
-                  _id: tkey,
-                  [this.argv.lang]: texts.FIELDTEXT as string,
-                  short: { [this.argv.lang]: texts },
-                };
-              }
+            }
+            // if not found, the same text already added by another field
+          } else {
+            if (!this.Texts[texts.FIELDTEXT as string]) {
+              this.Texts[texts.FIELDTEXT as string] = {
+                _id: tkey,
+                [this.argv.lang]: texts.FIELDTEXT as string,
+                short: { [this.argv.lang]: texts },
+              };
             }
           }
         }
@@ -672,7 +677,7 @@ export class Backend {
         // variable
         if ("FIELDNAME" in dfies) {
           // ddic type
-          this.alpha.field("");
+          this.alpha.field(dfies.FIELDNAME as string);
           return await this.getField(dfies);
         }
         // native ABAP type
@@ -767,7 +772,7 @@ export class Backend {
       p.functionName = (p["FUNCNAME"] as string).trim();
       p.paramName = (p["PARAMETER"] as string).trim();
 
-      // Trim, jusr for any case
+      // Trim, for any case
       p.FIELDNAME.trim();
 
       // 'I' parameter type is INT4 internally
