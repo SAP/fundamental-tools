@@ -1,5 +1,10 @@
 import { RfcStructure } from "node-rfc";
 
+export type AlphaCatalogType = {
+  size: number;
+  all: string[];
+  rfm: Record<string, RfcStructure>;
+};
 export class Alpha {
   private all: Set<string> = new Set();
   private found: Record<string, RfcStructure> = {};
@@ -21,8 +26,12 @@ export class Alpha {
     this.field_name = field_name;
   }
 
-  get(): { all: string[]; rfm: Record<string, RfcStructure> } {
-    return { all: Array.from(this.all).sort(), rfm: this.found };
+  get(): AlphaCatalogType {
+    return {
+      size: this.all.size,
+      all: Array.from(this.all).sort(),
+      rfm: this.found,
+    };
   }
 
   add(alpha_name: string): void {

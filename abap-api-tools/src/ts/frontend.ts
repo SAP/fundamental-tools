@@ -20,13 +20,27 @@ import {
 import {
   ParameterType,
   FieldType,
-  yamlFieldsType,
+  HelpsCatalogType,
+  DescriptorsCatalogType,
+  FieldsCatalogType,
   AnnotationsType,
   annotations_read,
   StructureType,
 } from "./backend";
 
+import { ElementaryHelpType, EHDescriptorType } from "abap-value-help";
+
+import { RfcStructure } from "node-rfc";
+
 import { Command, Arguments, Signature } from "./abap";
+
+interface IElementaryHelp {
+  id: string;
+  title: string;
+  selectionFields: FieldType[];
+  selectionParameters: string[];
+  blacklisted: boolean;
+}
 
 type ParamInializer = {
   text: string;
@@ -86,7 +100,7 @@ export type UiConfigTableType = {
 
 export type UiConfigType = Record<string, string | UiConfigTableType>;
 
-export type FrontendResult = Record<string, { js: string; html?: string }>;
+export type FrontendResultType = Record<string, { js: string; html?: string }>;
 export class Frontend {
   private api_name: string;
   private apilist: string[];
@@ -305,7 +319,7 @@ export class Frontend {
     return result;
   }
 
-  parse(): FrontendResult {
+  parse(): FrontendResultType {
     log.info(
       `\nfrontend: ${this.argv.ui || ""} using ${
         this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
@@ -317,7 +331,7 @@ export class Frontend {
       }; field names sorted: ${this.argv["sort-fields"] ? "yes" : "no"}\n`
     );
 
-    const result: FrontendResult = {};
+    const result: FrontendResultType = {};
 
     for (const rfm_name of this.apilist) {
       // check local annotations
@@ -534,6 +548,154 @@ export class Frontend {
       result[rfm_name] = { js: jsWriter.save() };
       if (htmlWriter) result[rfm_name].html = htmlWriter.save();
     }
+
+    if (this.argv.ui && this.argv.helps) {
+      if (!this.abap.helps || !this.abap.descriptors) {
+        log.error("\nHelps or Descriptors annotations missing");
+      } else {
+        log.info(`\nValue Helps\n`);
+        result.valueHelps = this.valueHelps();
+      }
+    }
+
+    return result;
+  }
+
+  valueHelps(): { js: string; html?: string } {
+    const fileName = path.join(
+      this.argv.output || "",
+      this.api_name,
+      "valueHelps"
+    );
+
+    const htmlWriter = new Writer(
+      `${fileName}.html`,
+      this.argv.save as boolean
+    );
+
+    //
+    // html header
+    //
+
+    htmlWriter.write(`<!--\nValue Helps \n\n${Signature}\n-->`);
+
+    for (const [shlp_key, shelp] of Object.entries(
+      this.abap.helps as HelpsCatalogType
+    )) {
+      const stype = shlp_key.split(" ")[0];
+      if (stype !== "SH") {
+        continue;
+      }
+
+      log.info(shlp_key, shelp.title);
+      if (shelp.elementaryHelps) {
+        for (const eh of shelp.elementaryHelps) {
+          const skey = Object.keys(eh)[0];
+          const title = eh[skey];
+          log.info("  ", skey, title);
+          this.elementaryHelp(skey);
+        }
+      } else {
+        this.elementaryHelp(shlp_key);
+      }
+    }
+
+    return { js: "", html: "" }; // htmlWriter.save() };
+  }
+
+  elementaryHelp(shlp_key: string): IElementaryHelp {
+    const D = this.abap.descriptors as DescriptorsCatalogType;
+    if (!D[shlp_key]) {
+      throw new Error(`Value Help Descriptor not found: ${shlp_key}`);
+    }
+    const VH = D[shlp_key] as EHDescriptorType;
+
+    const selection = VH.selectionDescriptor as ElementaryHelpType;
+
+    const result: IElementaryHelp = {
+      id: shlp_key,
+      title: selection.INTDESCR.DDTEXT as string,
+      selectionFields: [] as FieldType[],
+      selectionParameters: [] as string[],
+      blacklisted: false,
+    };
+
+    if (VH.blacklist) {
+      result.blacklisted = true;
+      log.error(`Value Help black-listed: ${shlp_key}`);
+      return result;
+    }
+
+    for (const field of selection.FIELDDESCR) {
+      const selField = Frontend.dfiesFieldToABAP(field);
+
+      const Parameter: ParameterType = {
+        paramType: ParamType.struct,
+        PARAMCLASS: "paramClass",
+        TABNAME: field.TABNAME as string,
+        FIELDNAME: field.FIELDNAME as string,
+        PARAMTEXT: selField.text.FIELDTEXT as string,
+        functionName: `valueHelp`,
+        paramName: `selection`,
+        required: "",
+        //default?: string;
+        // nativeKey?: string;
+      };
+
+      const html_field = this.html_field(
+        Parameter,
+        selField,
+        field.FIELDNAME as string
+      );
+
+      result.selectionFields.push(selField);
+      result.selectionParameters.push(html_field.html);
+    }
+
+    return result;
+  }
+
+  static dfiesFieldToABAP(field: RfcStructure): FieldType {
+    const result: FieldType = {
+      format: {
+        DATATYPE: field.DATATYPE as string,
+        INTTYPE: field.INTTYPE as string,
+        DOMNAME: field.DOMNAME as string,
+        ROLLNAME: field.ROLLNAME as string,
+        LENG: field.LENG as number,
+        DECIMALS: field.DECIMALS as number,
+        SIGN: field.SIGN as string,
+        MASK: field.MASK as string,
+        LTRFLDDIS: field.LTRFLDDIS as string,
+        LOWERCASE: field.LOWERCASE as string,
+        REFTABLE: field.REFTABLE as string,
+        REFFIELD: field.REFFIELD as string,
+        OUTPUTLEN: field.OUTPUTLEN as number,
+      },
+      input: {
+        //CONVEXIT: field.CONEVEXIT as string,
+        //MEMORYID: field.MEMORYID as string,
+        //shlpId: field.shlpId as string,
+      },
+      text: {
+        FIELDTEXT: field.FIELDTEXT as string,
+        REPTEXT: field.REPTEXT as string,
+        SCRTEXT_S: field.SCRTEXT_S as string,
+        SCRTEXT_M: field.SCRTEXT_M as string,
+        SCRTEXT_L: field.SCRTEXT_L as string,
+      },
+    };
+
+    result.input = {};
+    if (field.CONVEXIT) result.input.CONVEXIT = field.CONVEXIT as string;
+    if (field.MEMORYID) result.input.MEMORYID = field.MEMORYID as string;
+    if (field.shlpId) result.input.shlpId = field.shlpId as string;
+    if (isEmpty(result.input)) delete result.input;
+
+    if (field.valueInputType) {
+      result.format.valueInputType = field.valueInputType as string;
+    }
+
     return result;
   }
 
@@ -745,14 +907,18 @@ export class Frontend {
       result.required = true;
     }
 
-    // currency or quantity should reference the UoM or currency key
+    // currency or quantity need the UoM or currency key reference
     if (!isEmpty(Field) && ["CURR", "QUAN"].includes(Field.format.DATATYPE)) {
       if (Field.format.REFFIELD) {
         result.abap.unit = Field.format.REFFIELD;
       } else {
-        let error = `${Field["format"]["DATATYPE"]} unit not found for rfm: ${Param.functionName} parameter: ${Param.paramName}`;
-        if (field_name) error += ` field: ${field_name}`;
-        throw new Error(error);
+        result.abap.unit = "!notfound";
+        log.error(
+          `${Field["format"]["DATATYPE"]} unit not found for rfm: ${Param.functionName} parameter: ${Param.paramName}` +
+            field_name
+            ? ` field: ${field_name}`
+            : ""
+        );
       }
     }
 
@@ -775,12 +941,9 @@ export class Frontend {
             result.tag === ValueInput.binary
           )
         ) {
-          if (Field.input.SHLP) {
-            // todo: empty SHLP happen sometimes
-            if (Field.input.SHLP.trim()) {
-              const [stype, sid] = Field.input.SHLP.split(" ");
-              result.shlp = { type: stype, id: sid };
-            }
+          if (Field.input.shlpId) {
+            const [stype, sid] = Field.input.shlpId.split(" ");
+            result.shlp = { type: stype, id: sid };
           }
         }
       }
@@ -874,12 +1037,12 @@ export class Frontend {
 
     const element = this.element_html(element_js);
 
-    return { markup: element.markup, html: element.html };
+    return element;
   }
 
   getField(
     param: ParameterType,
-    fields: yamlFieldsType
+    fields: FieldsCatalogType
   ): FieldType | EmptyObject {
     if (param.nativeKey) return {};
     if (param.FIELDNAME) return fields[param.TABNAME][param.FIELDNAME];

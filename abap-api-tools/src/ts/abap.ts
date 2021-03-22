@@ -21,7 +21,7 @@ import {
 import { AnnotationsType, Backend } from "./backend";
 import {
   Frontend,
-  FrontendResult,
+  FrontendResultType,
   UiConfigType,
   UiConfigTableType,
   AbapConfigType,
@@ -88,7 +88,7 @@ export type Arguments = {
 
 export type AbapCliResult = {
   annotations?: AnnotationsType;
-  frontend?: FrontendResult;
+  frontend?: FrontendResultType;
 };
 
 class CliHandler {
@@ -111,6 +111,11 @@ class CliHandler {
             apilist,
             fileLoad(runningInDocker ? path.join(DockerVolume, fn) : fn)
           );
+          for (const [k, L] of Object.entries(apilist)) {
+            apilist[k] = L.map((x) => {
+              return x.toUpperCase();
+            });
+          }
         }
       }
 
@@ -440,6 +445,13 @@ if (require.main === module)
             type: "boolean",
             default: false,
             nargs: 0,
+          })
+          .option("h", {
+            alias: "helps",
+            describe: "Value Help Dialogs",
+            type: "boolean",
+            default: false,
+            nargs: 0,
           });
       },
       handler: (argv) => {
@@ -549,6 +561,11 @@ if (require.main === module)
       // check language
       if (argv.lang && !Object.keys(Languages).includes(argv.lang as string)) {
         throw new Error(`Language not supported: ${argv.lang}`);
+      }
+
+      // make helps requires ui
+      if (argv.cmd === Command.make && argv.helps && !argv.ui) {
+        throw new Error("-h|--helps option requires ui option");
       }
 
       // output folder

@@ -18,6 +18,7 @@ IN  Internal Table
 */
 
 import { Client, RfcStructure, RfcTable } from "node-rfc";
+
 import loglevel from "loglevel";
 
 const log = loglevel;
@@ -25,9 +26,11 @@ log.setDefaultLevel(log.levels.INFO);
 export { log };
 
 export type ShlpApiType = {
-  rfm_domvalues_get: string;
-  rfm_metadata_get: string;
-  rfm_search: string;
+  determine: string;
+  FV_descriptor_get: string;
+  CT_descriptor_get: string;
+  SH_descriptor_get: string;
+  search: string;
 };
 
 export type ShlpIdentType = {
@@ -90,18 +93,71 @@ export function isEmpty(obj?: unknown[] | Record<string, unknown>): boolean {
   return Object.keys(obj).length === 0;
 }
 
+export type ValueHelpError = Record<string, unknown>;
+
+export type FVDescriptorType = {
+  type: string;
+  count: number;
+  values: Record<string, string>;
+  customCheckbox?: boolean;
+};
+
+export type CTDescriptorType = {
+  valueFields: Record<string, string>[];
+  displayFields: string[];
+};
+
+export type EHDescriptorType = {
+  blacklist?: "selection" | "search";
+  selectionDescriptor?: ElementaryHelpType | ValueHelpError;
+  resultDescriptor?: RfcTable | ValueHelpError;
+  resultLine?: RfcTable;
+};
+
+export type DescriptorType =
+  | FVDescriptorType
+  | CTDescriptorType
+  | EHDescriptorType;
+
+export interface IValueHelpFound {
+  id: string;
+  SHLPTYPE: string;
+  SHLPNAME: string;
+  title: string;
+  //descriptor: DescriptorType;
+}
+
+export type ElementaryHelpsList = Record<string, string>[];
+
+export type ValueHelpType = {
+  title: string;
+  elementaryHelps?: ElementaryHelpsList;
+};
+
+// export interface IValueHelpDetermine {
+//   DATATYPE: string;
+//   DOMNAME: string;
+//   TABNAME: string;
+//   FIELDNAME: string;
+//   F4AVAILABL: string;
+//   CHECKTABLE: string;
+// }
+
 export class ValueInputHelp {
   private client = {} as Client;
   private shlpApi: ShlpApiType = {
-    rfm_domvalues_get: "/COE/RBP_FE_SHLP_DOMVALUES_GET",
-    rfm_metadata_get: "/COE/RBP_FE_SHLP_METADATA_GET",
-    rfm_search: "/COE/RBP_FE_SHLP_GET",
+    determine: "/COE/RBP_FE_SHLP_DETERM_SEARCH",
+    FV_descriptor_get: "/COE/RBP_FE_SHLP_DOMVALUES_GET",
+    CT_descriptor_get: "FDT_GET_DDIC_METADATA",
+    SH_descriptor_get: "/COE/RBP_FE_SHLP_METADATA_GET",
+    search: "/COE/RBP_FE_SHLP_GET",
   };
   private _userParameters: RfcTable = [];
 
   private FixedValues: Record<string, RfcTable> = {};
   private Descriptors: Record<string, RfcTable> = {};
   private Elementary: Record<string, ElementaryHelpType> = {};
+  private VHFieldCache: Record<string, IValueHelpFound> = {};
 
   constructor(
     client: Client,
@@ -134,12 +190,292 @@ export class ValueInputHelp {
   async getDomainValues(shlpName: string): Promise<RfcTable> {
     if (!this.FixedValues[shlpName]) {
       this.FixedValues[shlpName] = (
-        await this.client.call(this.shlpApi.rfm_domvalues_get, {
+        await this.client.call(this.shlpApi.FV_descriptor_get, {
           IV_DOMNAME: shlpName,
         })
       ).ET_VALUES as RfcTable;
     }
     return this.FixedValues[shlpName];
+  }
+
+  async getDescriptors(
+    helpFound: IValueHelpFound,
+    Helps: Record<string, ValueHelpType>,
+    Descriptors: Record<string, DescriptorType>,
+    SelectionFields?: Record<string, RfcStructure>
+  ): Promise<void> {
+    if (helpFound.id in Descriptors) {
+      return;
+    }
+
+    switch (helpFound.SHLPTYPE) {
+      //
+      // FV
+      //
+      case "FV": {
+        const shlp_values = (
+          await this.client.call(this.shlpApi.FV_descriptor_get as string, {
+            IV_DOMNAME: helpFound.SHLPNAME,
+          })
+        )["ET_VALUES"] as RfcTable;
+        const domainValues: Record<string, string> = {};
+        for (const line of shlp_values) {
+          domainValues[line["DOMVALUE_L"] as string] = line["DDTEXT"] as string;
+        }
+
+        Descriptors[helpFound.id] = {
+          type: shlp_values.length > 2 ? "list" : "binary",
+          count: Object.keys(domainValues).length,
+          values: domainValues,
+        };
+        if (
+          shlp_values.length === 2 &&
+          !("" in domainValues && "X" in domainValues)
+        ) {
+          (Descriptors[helpFound.id] as FVDescriptorType).customCheckbox = true;
+        }
+        break;
+      }
+
+      //
+      // CH, CT
+      //
+      case "CH":
+      case "CT": {
+        const metadata = (
+          await this.client.call(this.shlpApi.CT_descriptor_get, {
+            IV_TYPENAME: helpFound.SHLPNAME,
+          })
+        )["ES_METADATA"] as RfcStructure;
+        if (!helpFound.title) helpFound.title = metadata.TEXT as string;
+        if (!helpFound.title) helpFound.title = metadata.SHORT_TEXT as string;
+        if (!helpFound.title) helpFound.title = helpFound.id;
+        const tab_fields = (
+          await this.client.call("BDL_DDIF_TABL_GET", {
+            NAME: helpFound.SHLPNAME,
+          })
+        ).DD03P_TAB as RfcTable;
+        const valueFields: Record<string, string>[] = [];
+        const displayFields = [];
+        for (const tf of tab_fields) {
+          if (
+            tf["KEYFLAG"] &&
+            tf["FIELDNAME"] !== ".INCLUDE" &&
+            tf["ROLLNAME"] != "MANDT"
+          )
+            valueFields.push(tf as Record<string, string>);
+        }
+        Descriptors[helpFound.id] = {
+          valueFields: valueFields,
+          displayFields: displayFields,
+        };
+        break;
+      }
+
+      //
+      // SH
+      //
+      case "SH": {
+        const ET_SHLP = (
+          await this.client.call(this.shlpApi.SH_descriptor_get, {
+            IV_SHLPTYPE: helpFound.SHLPTYPE,
+            IV_SHLPNAME: helpFound.SHLPNAME,
+          })
+        ).ET_SHLP as RfcTable;
+
+        // elementary helps
+        const elementaryList: ElementaryHelpsList = [];
+
+        for (const desc of ET_SHLP) {
+          // elementary id may differ
+          const shlp_key =
+            ET_SHLP.length === 1
+              ? helpFound.id
+              : `${desc.SHLPTYPE} ${desc.SHLPNAME}`;
+
+          const title = (desc.INTDESCR as RfcStructure).DDTEXT as string;
+          elementaryList.push({ [shlp_key]: title });
+
+          // elementary help
+          if (!Helps[shlp_key]) {
+            Helps[shlp_key] = { title: title };
+          }
+
+          // elementary descriptor selection
+          if (!(shlp_key in Descriptors)) {
+            const D: EHDescriptorType = {
+              selectionDescriptor: ValueInputHelp.elementary(desc),
+            };
+            Descriptors[shlp_key] = D;
+
+            // elementary descriptor search result
+            if (!D.blacklist) {
+              try {
+                const searchResult = await this.client.call(
+                  this.shlpApi.search as string,
+                  {
+                    IV_SHLPTYPE: desc.SHLPTYPE,
+                    IV_SHLPNAME: desc.SHLPNAME,
+                  }
+                );
+                // value descriptor
+                D.resultDescriptor = searchResult.ET_VALUE_DESC as RfcTable;
+
+                const value_list = searchResult.ET_VALUE_LIST as RfcTable;
+                if (value_list.length > 0) {
+                  const record_pos = value_list[0].RECORDPOS;
+                  let count = 0;
+                  for (const value_line of value_list) {
+                    if (record_pos !== value_line.RECORDPOS) {
+                      break;
+                    } else {
+                      count++;
+                      //delete value_line.SHLPNAME;
+                      //delete value_line.RECORDPOS;
+                    }
+                  }
+                  // search result "descriptor"
+                  D.resultLine = (searchResult.ET_VALUE_LIST as RfcTable).slice(
+                    0,
+                    count
+                  );
+                }
+              } catch (ex) {
+                D.blacklist = "search";
+                D.resultDescriptor = ex;
+                log.debug(`Value Help search error: ${shlp_key} `, ex);
+              }
+            }
+          }
+
+          // consistency check
+          if (ET_SHLP.length > 1) {
+            if (!Helps[helpFound.id]["elementaryHelps"]) {
+              Helps[helpFound.id]["elementaryHelps"] = elementaryList;
+            }
+          } else {
+            if (helpFound.id && !Descriptors[helpFound.id]) {
+              log.error("Descriptor not saved for", helpFound.id);
+            }
+          }
+        }
+
+        if (SelectionFields) {
+          ET_SHLP.map((desc) => {
+            (desc.FIELDDESCR as RfcTable).map((field) => {
+              // Collect selection fields
+              if (field.TABNAME && field.FIELDNAME) {
+                SelectionFields[`${field.TABNAME} ${field.FIELDNAME}`] = field; // as IValueHelpDetermine
+              }
+            });
+          });
+        }
+        // log.info(
+        //   helpFound.id,
+        //   helpFound.title,
+        //   `:`,
+        //   Object.keys(SelectionFields).length
+        // );
+
+        break;
+      }
+
+      default: {
+        throw new Error(
+          `Value Help type not supported: ${helpFound.SHLPTYPE} ${helpFound.SHLPNAME}`
+        );
+      }
+    }
+  }
+
+  async valueHelpForField(
+    dfies: RfcStructure,
+    Helps: Record<string, ValueHelpType>,
+    Descriptors: Record<string, DescriptorType>,
+    getSHdesc: boolean,
+    SelectionFields?: Record<string, RfcStructure>
+  ): Promise<IValueHelpFound> {
+    const helpFound = {} as IValueHelpFound;
+
+    const ddicId = `${dfies.TABNAME}:${dfies.FIELDNAME}`;
+
+    if (this.VHFieldCache[ddicId]) {
+      return this.VHFieldCache[ddicId];
+    }
+
+    if (
+      dfies.F4AVAILABL &&
+      !["DATS", "TIMS"].includes(dfies.DATATYPE as string)
+    ) {
+      // F4 Help
+      const R = await this.client.call(this.shlpApi.determine, {
+        IV_TABNAME: dfies.TABNAME,
+        IV_FIELDNAME: dfies.FIELDNAME,
+      });
+      const ES_SHLP = R.ES_SHLP as RfcStructure;
+      helpFound.SHLPTYPE = ES_SHLP.SHLPTYPE as string;
+      helpFound.SHLPNAME = ES_SHLP.SHLPNAME as string;
+      helpFound.title = ES_SHLP.INTDESCR["TITLE"] as string;
+      if (!helpFound.title) helpFound.title = R.EV_SHLP_TITLE as string;
+      if (!helpFound.title) helpFound.title = helpFound.id;
+    }
+
+    // add domain CT if no other shelp found
+    if (dfies["DOMNAME"] && !helpFound.SHLPTYPE) {
+      const domain_ct = ((
+        await this.client.call("DD_DOMA_GET", {
+          DOMAIN_NAME: dfies.DOMNAME,
+        })
+      ).DD01V_WA_A as RfcStructure).ENTITYTAB as string;
+      if (domain_ct) {
+        helpFound.SHLPTYPE = "CT";
+        helpFound.SHLPNAME = domain_ct;
+      }
+    }
+
+    // add search help if not maintained for quantity, currency, language
+    if (!helpFound.SHLPTYPE) {
+      if (dfies.DATATYPE === "CUKY") {
+        helpFound.SHLPTYPE = "CT";
+        helpFound.SHLPNAME = "TCURC";
+        helpFound.title = "Currency help (added)";
+      } else if (dfies.DATATYPE === "UNIT") {
+        helpFound.SHLPTYPE = "SH";
+        helpFound.SHLPNAME = "H_T006";
+        helpFound.title = "Quantity help (added)";
+      } else if (dfies.DATATYPE === "LANG") {
+        helpFound.SHLPTYPE = "SH";
+        helpFound.SHLPNAME = "H_T002";
+        helpFound.title = "Language help (added)";
+      }
+    }
+
+    if (helpFound.SHLPTYPE) {
+      // make the id
+      helpFound.id = `${helpFound.SHLPTYPE} ${helpFound.SHLPNAME}`;
+
+      this.VHFieldCache[ddicId] = helpFound;
+
+      // Update Helps
+      if (!Helps[helpFound.id]) {
+        Helps[helpFound.id] = { title: helpFound.title };
+      }
+
+      // Update Descriptors
+      if (
+        helpFound.SHLPTYPE !== "SH" ||
+        (helpFound.SHLPTYPE === "SH" && getSHdesc)
+      ) {
+        await this.getDescriptors(
+          helpFound,
+          Helps,
+          Descriptors,
+          SelectionFields
+        );
+      }
+    }
+
+    return helpFound;
   }
 
   async getShlpDescriptor(
@@ -161,7 +497,7 @@ export class ValueInputHelp {
     if (["SH", "CT", "CH"].includes(shlpId.type)) {
       if (_options.defaultName || !this.Descriptors[shlpName]) {
         this.Descriptors[shlpName] = (
-          await this.client.call(this.shlpApi.rfm_metadata_get, {
+          await this.client.call(this.shlpApi.SH_descriptor_get, {
             IV_SHLPTYPE: shlpId.type,
             IV_SHLPNAME: shlpId.name,
             IV_DEFAULT_SHLPNAME: _options.defaultName,
@@ -408,7 +744,7 @@ export class ValueInputHelp {
       so_record.HIGH = s[4].toUpperCase();
       so.push(so_record);
     }
-    const R = await this.client.call(this.shlpApi.rfm_search, {
+    const R = await this.client.call(this.shlpApi.search, {
       IV_SHLPTYPE: shlpIdent.type,
       IV_SHLPNAME: shlpIdent.name,
       IT_SELOPT: so,

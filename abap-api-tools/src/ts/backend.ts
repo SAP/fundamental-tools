@@ -4,14 +4,12 @@
 
 // check search_help_api
 
-import { ValueInputHelp, ElementaryHelpType } from "abap-value-help";
 import chalk from "chalk";
 import fs from "fs";
 import path from "path";
 import { sprintf } from "sprintf-js";
 import {
   Client,
-  RfcParameterValue,
   RfcTable,
   RfcStructure,
   RfcConnectionParameters,
@@ -22,13 +20,29 @@ import {
   ParamType,
   ParamClass,
   ParamClassDesc,
-  ValueInput,
   DefaultFolder,
   DockerVolume,
   runningInDocker,
+  ValueInput,
 } from "./constants";
-import { Alpha } from "./alpha";
-import { deleteFile, isEmpty, log, fileLoad, fileSave } from "./utils";
+
+import { Alpha, AlphaCatalogType } from "./alpha";
+
+import {
+  deleteFile,
+  isEmpty,
+  log,
+  fileLoad,
+  fileSave,
+  fileExists,
+} from "./utils";
+
+import {
+  ShlpApiType,
+  ValueInputHelp,
+  DescriptorType,
+  ValueHelpType,
+} from "abap-value-help";
 
 // Parameter and Field typings
 
@@ -44,7 +58,8 @@ export type ParameterType = {
   default?: string;
   nativeKey?: string;
 };
-type yamlParametersType = Record<string, Record<string, ParameterType>>;
+
+type ParametersCatalogType = Record<string, Record<string, ParameterType>>;
 
 export type FieldTextType = {
   FIELDTEXT?: string;
@@ -74,78 +89,51 @@ export type FieldType = {
   input?: {
     CONVEXIT?: string;
     MEMORYID?: string;
-    SHLP?: string;
+    shlpId?: string;
   };
   text: FieldTextType;
 };
 
 export type StructureType = Record<string, FieldType>;
 
-export type yamlFieldsType = Record<string, FieldType | StructureType>;
+export type FieldsCatalogType = Record<string, FieldType | StructureType>;
 
 // AnnotationsType typings
 
-export type yamlTextsType = Record<
+export type TextsCatalogType = Record<
   string,
   Record<string, string | FieldTextType>
 >;
 
-type FieldValuesHelpType = {
-  type: string;
-  count: number;
-  values: Record<string, string>;
-  descriptor?: RfcTable;
-};
+export type HelpsCatalogType = Record<string, ValueHelpType>;
 
-type ElementaryHelpsList = Record<string, string>[];
-type StandardHelpType = {
-  title: string;
-  elementaryHelps?: ElementaryHelpsList;
-};
-type HelpsType = Record<string, StandardHelpType | FieldValuesHelpType>;
+export type DescriptorsCatalogType = Record<string, DescriptorType>;
 
-type StatType = Record<
+type StatCatalogType = Record<
   string,
-  {
-    var?: number;
-    struct?: number;
-    table?: number;
-    exception?: number;
-  }
+  | Record<string, number>
+  | {
+      var?: number;
+      struct?: number;
+      table?: number;
+      exception?: number;
+    }
 >;
 
-type UsageType = Record<string, string[]>;
-
-type ValueHelpError = Record<string, unknown>;
-
-type ValueHelpElementary = {
-  blacklist?: "selection" | "search";
-  selectionDescriptor?: ElementaryHelpType | ValueHelpError;
-  resultDescriptor?: RfcTable | ValueHelpError;
-  resultLine?: RfcTable;
-};
-
-type DescriptorsType = Record<string, ValueHelpElementary>;
+type UsageCatalogType = Record<string, string[]>;
 
 export type AnnotationsType = {
-  alpha?: { all: string[]; rfm: Record<string, RfcStructure> };
-  parameters: yamlParametersType;
-  fields: yamlFieldsType;
-  stat: StatType;
-  helps?: HelpsType;
-  usage?: UsageType;
-  descriptors?: DescriptorsType;
+  alpha?: AlphaCatalogType;
+  parameters: ParametersCatalogType;
+  fields: FieldsCatalogType;
+  stat: StatCatalogType;
+  helps?: HelpsCatalogType;
+  usage?: UsageCatalogType;
+  descriptors?: DescriptorsCatalogType;
 };
 
-// search help typings
+type SystemsYamlType = Record<string, { search_help_api: ShlpApiType }>;
 
-type SearchHelpApiType = {
-  determine: string;
-  dom_values: string;
-  metadata?: string;
-  search?: string;
-};
-type SystemsYamlType = Record<string, { search_help_api: SearchHelpApiType }>;
 export class Backend {
   private argv: Arguments;
 
@@ -153,17 +141,19 @@ export class Backend {
   private apilist: string[];
   private alpha: Alpha;
 
-  private search_help_api = {} as SearchHelpApiType;
+  private search_help_api = {} as ShlpApiType;
   private getSearchHelps = false;
   private SPRAS: string;
-  private Helps: HelpsType;
-  private Descriptors: DescriptorsType;
-  private Stat: StatType;
-  private Texts = {} as yamlTextsType;
+  private Helps: HelpsCatalogType;
+  private Descriptors: DescriptorsCatalogType;
+  private Stat: StatCatalogType;
+  private Texts = {} as TextsCatalogType;
 
   private client = {} as Client;
   private clientConnectionParameters: RfcConnectionParameters;
   private systemId = "";
+
+  private avh = {} as ValueInputHelp;
 
   constructor(api_name: string, argv: Arguments) {
     this.argv = argv;
@@ -200,7 +190,7 @@ export class Backend {
       }
     }
 
-    // check if search help api configured
+    // check if Value Help api configured
     if (this.argv.cmd === Command.get && isEmpty(this.search_help_api)) {
       try {
         const systemYamlPath = path.join(
@@ -216,9 +206,9 @@ export class Backend {
         } else if (!systems[this.systemId]) {
           log.info(`system ${this.systemId} not found in systems.yaml`);
         } else if (!systems[this.systemId].search_help_api) {
-          log.info(`search help api not configured for ${this.systemId}`);
+          log.info(`Value Help api not configured for ${this.systemId}`);
         } else {
-          log.debug("Search Help API", this.search_help_api);
+          log.debug("Value Help API", this.search_help_api);
           this.search_help_api = systems[this.systemId].search_help_api;
         }
       } catch (ex) {
@@ -226,29 +216,33 @@ export class Backend {
       }
     }
 
-    // search help api plausibility check
+    // Value Help api plausibility check
     if (!isEmpty(this.search_help_api)) {
       for (const [apiKey, apiName] of Object.entries(this.search_help_api)) {
         if (
-          !["determine", "dom_values", "metadata", "search"].includes(apiKey)
+          ![
+            "determine",
+            "FV_descriptor_get",
+            "CT_descriptor_get",
+            "SH_descriptor_get",
+            "search",
+          ].includes(apiKey)
         ) {
-          throw new Error(`Search Help API key not supported: "${apiKey}"`);
+          throw new Error(`Value Help API key not supported: "${apiKey}"`);
         }
         if ((apiName as string).length > 30) {
-          throw new Error(`Search help API name too long: "${apiName}"`);
+          throw new Error(`Value Help API name too long: "${apiName}"`);
         }
       }
-    }
-    for (const apiName of ["metadata", "search"]) {
-      if (!this.search_help_api[apiName]) {
-        log.info(`Search help API not maintained: ${apiName}`);
+      if (Object.keys(this.search_help_api).length < 4) {
+        log.info("Value Help API not maintained:", this.search_help_api);
         this.argv.helps = false;
       }
     }
 
-    // search helps processing
+    // Vearch Helps processing
     this.getSearchHelps =
-      this.argv.cmd === Command.get && // search helps are required for get command
+      this.argv.cmd === Command.get && // Value Helps are required for get command
       !isEmpty(this.search_help_api) && // when search help api is configured
       !this.argv.textOnly; // not in text-only mode
 
@@ -340,259 +334,65 @@ export class Backend {
       result.format["LFIELDNAME"] = dfies.LFIELDNAME;
     }
 
-    //
     // Value Helps
-    //
+    if (this.getSearchHelps) {
+      const SelectionFields: Record<string, RfcStructure> = {};
 
-    let shlp: RfcParameterValue = "",
-      shlp_key = "",
-      shlp_title = "",
-      shlp_values: RfcTable = [];
+      const helpFound = await this.avh.valueHelpForField(
+        dfies, // as IValueHelpDetermine,
+        this.Helps,
+        this.Descriptors,
+        this.argv.helps as boolean,
+        SelectionFields
+      );
 
-    if (
-      this.getSearchHelps &&
-      !["DATS", "TIMS"].includes(dfies.DATATYPE as string)
-    ) {
-      // F4 Help
-      if (dfies.F4AVAILABL) {
-        const shlp_descriptor = await this.client.call(
-          this.search_help_api.determine,
-          {
-            IV_TABNAME: dfies["TABNAME"],
-            IV_FIELDNAME: dfies["FIELDNAME"],
-          }
-        );
-        shlp = shlp_descriptor["ES_SHLP"];
-        shlp_title = shlp_descriptor["EV_SHLP_TITLE"] as string;
-        shlp_key = `${shlp["SHLPTYPE"]} ${shlp["SHLPNAME"]}`;
+      // update parameter field
+      if (helpFound.id) {
         if (!result.input) result.input = {};
+        result.input.shlpId = helpFound.id;
 
-        result.input.SHLP = shlp_key;
+        // default value input type
+        result.format.valueInputType = ValueInput.list;
 
-        // Domain Field Values
-        if (shlp["SHLPTYPE"] == "FV") {
-          if (!this.Helps[shlp_key]) {
-            log.debug(`shelp: ${shlp_key}`);
-            shlp_values = (
-              await this.client.call(
-                this.search_help_api.dom_values as string,
-                {
-                  IV_DOMNAME: shlp["SHLPNAME"],
-                }
-              )
-            )["ET_VALUES"] as RfcTable;
-            const domainValues: Record<string, string> = {};
-            for (const line of shlp_values) {
-              domainValues[line["DOMVALUE_L"] as string] = line[
-                "DDTEXT"
-              ] as string;
-            }
-            this.Helps[shlp_key] = {
-              type:
-                shlp_values.length > 2 ? ValueInput.list : ValueInput.binary,
-              count: Object.keys(domainValues).length,
-              values: domainValues,
-            };
+        // Binary / List type
+        const descriptor = this.Descriptors[helpFound.id];
+        if (descriptor) {
+          if (descriptor["valueInputType"]) {
+            result.format.valueInputType = descriptor["valueInputType"];
           }
-          result.format.valueInputType = (this.Helps[
-            shlp_key
-          ] as FieldValuesHelpType).type;
-          if (result.format.valueInputType === ValueInput.binary) {
-            // checkbox does not use SHLP
-            delete result.input.SHLP;
+
+          // Checkbox uses SHLP only when values differ from "X" and "";
+          if (
+            result.format.valueInputType === ValueInput.binary &&
+            !descriptor["customCheckbox"]
+          ) {
+            delete result.input.shlpId;
           }
         }
       }
 
-      // add domain CT if no other shelp found
-      if (
-        result["format"]["DOMNAME"] &&
-        !(result.input && result.input["SHLP"])
-      ) {
-        const domain_ct = (
-          await this.client.call("DD_DOMA_GET", {
-            DOMAIN_NAME: result["format"]["DOMNAME"],
-          })
-        )["DD01V_WA_A"]["ENTITYTAB"];
-        if (domain_ct) {
-          shlp = { SHLPTYPE: "CT", SHLPNAME: domain_ct };
-          shlp_key = `${shlp["SHLPTYPE"]} ${shlp["SHLPNAME"]}`;
-          if (!result["input"]) result["input"] = {};
-          result["input"]["SHLP"] = shlp_key;
-        }
-      }
+      // selection fields' descriptors
+      for (const [, field] of Object.entries(SelectionFields)) {
+        const selectionHelpFound = await this.avh.valueHelpForField(
+          field, // as IValueHelpDetermine,
+          this.Helps,
+          this.Descriptors,
+          this.argv.helps as boolean
+          //SelectionFields not needed
+        );
 
-      if (
-        shlp &&
-        shlp_key &&
-        result.input &&
-        result.input["SHLP"] &&
-        !this.Helps[shlp_key]
-      ) {
-        log.debug(`shelp: ${shlp_key}`);
-        if (["CH", "CT"].includes(shlp["SHLPTYPE"])) {
-          result.format.valueInputType = ValueInput.list;
-          const tab_fields = (
-            await this.client.call("BDL_DDIF_TABL_GET", {
-              NAME: shlp["SHLPNAME"],
-            })
-          )["DD03P_TAB"];
-          const tab_metadata = (
-            await this.client.call("FDT_GET_DDIC_METADATA", {
-              IV_TYPENAME: shlp["SHLPNAME"],
-            })
-          )["ES_METADATA"];
-          let tab_text = tab_metadata["TEXT"];
-          if (!tab_text) tab_text = tab_metadata["SHORT_TEXT"];
-          if (!tab_text) tab_text = shlp_key;
-          const sh_val_fields: string[] = [];
-          //# sh_disp_fields = []
-          for (const tf of tab_fields as RfcTable) {
-            if (
-              tf["KEYFLAG"] &&
-              tf["FIELDNAME"] !== ".INCLUDE" &&
-              tf["ROLLNAME"] != "MANDT"
-            )
-              sh_val_fields.push(tf["FIELDNAME"] as string);
-          }
-          this.Helps[shlp_key] = {
-            //valueProperty: sh_val_fields,
-            //displayProperty: [],
-            //selection: [],
-            //requestedFields: [],
-            title: tab_text,
-          };
-        }
-        if (shlp["SHLPTYPE"] === "SH") {
-          this.Helps[shlp_key] = { title: shlp_title };
+        // write search help id into selection field descriptor
+        if (selectionHelpFound.id) {
+          field.shlpId = selectionHelpFound.id;
         }
       }
     }
 
-    // add search help if not maintained for quantity, currency, language
-    if (!shlp) {
-      if (result.format["DATATYPE"] === "CUKY") {
-        shlp_key = "CT TCURC";
-        shlp_title = "Currency help (added)";
-      } else if (result.format["DATATYPE"] === "UNIT") {
-        shlp_key = "SH H_T006";
-        shlp_title = "Quantity help (added)";
-      } else if (result.format["DATATYPE"] === "LANG") {
-        shlp_key = "SH H_T002";
-        shlp_title = "Language help (added)";
-      }
-      if (result.input && shlp_key) {
-        result.input["SHLPKEY"] = shlp_key;
-        if (!this.Helps[shlp_key]) {
-          this.Helps[shlp_key] = { title: shlp_title };
-        }
-      }
-    }
-
-    if (result.input && isEmpty(result.input)) {
+    if (isEmpty(result.input)) {
       delete result.input;
     }
 
-    // Value Help descriptors
-    if (shlp_key && this.argv.helps && !this.Descriptors[shlp_key]) {
-      this.valueHelpsDescriptors(shlp_key);
-    }
-
     return result as FieldType;
-  }
-
-  async valueHelpsDescriptors(shlp_key: string): Promise<void> {
-    if (shlp_key && this.argv.helps && !this.Descriptors[shlp_key]) {
-      const [stype, sname] = shlp_key.split(" ");
-      //
-      // selection
-      //
-      log.debug(`Value Help selection: ${shlp_key}`);
-      const elementary_helps: ElementaryHelpsList = [];
-      try {
-        const descriptors = await this.client.call(
-          this.search_help_api.metadata as string,
-          {
-            IV_SHLPTYPE: stype,
-            IV_SHLPNAME: sname,
-          }
-        );
-        // parse elementary helps
-        for (const desc of descriptors.ET_SHLP as RfcTable) {
-          const skey = `${desc.SHLPTYPE} ${desc.SHLPNAME}`;
-          elementary_helps.push({
-            [skey]: (desc.INTDESCR as RfcStructure).DDTEXT as string,
-          });
-          if (!this.Descriptors[skey]) {
-            this.Descriptors[skey] = {
-              selectionDescriptor: ValueInputHelp.elementary(desc),
-            };
-          }
-        }
-        if (elementary_helps.length > 1) {
-          if (!(this.Helps[shlp_key] as StandardHelpType).elementaryHelps) {
-            (this.Helps[
-              shlp_key
-            ] as StandardHelpType).elementaryHelps = elementary_helps;
-          }
-        }
-      } catch (ex) {
-        log.debug(`Value Help metadata error: ${shlp_key}`, ex);
-        this.Descriptors[shlp_key] = {
-          blacklist: "selection",
-          selectionDescriptor: ex,
-        };
-      }
-
-      //
-      // search result
-      //
-      for (const eh of elementary_helps) {
-        const skey = Object.keys(eh)[0];
-        const [stype, sname] = shlp_key.split(" ");
-        if (!this.Descriptors[skey].blacklist) {
-          try {
-            const searchResult = await this.client.call(
-              this.search_help_api.search as string,
-              {
-                IV_SHLPTYPE: stype,
-                IV_SHLPNAME: sname,
-              }
-            );
-            // value descriptor
-            this.Descriptors[
-              skey
-            ].resultDescriptor = searchResult.ET_VALUE_DESC as RfcTable;
-
-            const value_list = searchResult.ET_VALUE_LIST as RfcTable;
-            if (value_list.length > 0) {
-              const record_pos = value_list[0].RECORDPOS;
-              let count = 0;
-              for (const value_line of value_list) {
-                if (record_pos !== value_line.RECORDPOS) {
-                  break;
-                } else {
-                  count++;
-                  //delete value_line.SHLPNAME;
-                  //delete value_line.RECORDPOS;
-                }
-              }
-              // search result "descriptor"
-              this.Descriptors[
-                skey
-              ].resultLine = (searchResult.ET_VALUE_LIST as RfcTable).slice(
-                0,
-                count
-              );
-            }
-          } catch (ex) {
-            this.Descriptors[skey].blacklist = "search";
-            this.Descriptors[skey].resultDescriptor = ex;
-            log.debug(`Value Help search error: ${skey} `, ex);
-          }
-        }
-      }
-    }
   }
 
   async annotations(
@@ -722,7 +522,7 @@ export class Backend {
         try {
           this.Texts = fileLoad(
             path.join(folder_yaml, "texts.yaml")
-          ) as yamlTextsType;
+          ) as TextsCatalogType;
         } catch (ex) {
           if (ex.code !== "ENOENT") throw ex; // throw if other than file not found
           throw Error(
@@ -735,12 +535,16 @@ export class Backend {
     log.info(
       `\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
         this.argv.textOnly ? "only texts" : ""
-      } ${this.getSearchHelps ? "search helps" : ""}${
+      } ${this.getSearchHelps ? "value helps" : ""}${
         this.argv.helps ? " w. descriptors" : ""
       }\n`.replace(/  +/g, " ")
     );
 
     await this.client.open();
+
+    if (this.getSearchHelps) {
+      this.avh = new ValueInputHelp(this.client, this.search_help_api);
+    }
 
     const R = await this.client.call("RFC_METADATA_GET", {
       EVALUATE_LINKS: "X",
@@ -835,7 +639,7 @@ export class Backend {
     // Parse
     //
 
-    const Parameters: yamlParametersType = {};
+    const Parameters: ParametersCatalogType = {};
     const Fields = {};
 
     let functionName = "";
@@ -963,12 +767,6 @@ export class Backend {
 
     await this.client.close();
 
-    // usage
-    const usage = {};
-    for (const tabname of Object.keys(Usage).sort()) {
-      usage[tabname] = Array.from(Usage[tabname]).sort();
-    }
-
     // final result, todo: field names could be sorted, eventually
     const abap: AnnotationsType = {
       alpha: this.alpha.get(),
@@ -976,7 +774,12 @@ export class Backend {
       fields: Fields,
       helps: this.Helps,
       stat: this.Stat,
-      usage: usage,
+      usage: Object.keys(Usage)
+        .sort()
+        .reduce((usage, k) => {
+          usage[k] = Array.from(Usage[k]).sort();
+          return usage;
+        }, {}),
       descriptors: this.Descriptors,
     };
 
@@ -989,7 +792,7 @@ export class Backend {
 
   annotations_write(
     abap: AnnotationsType,
-    texts: yamlTextsType,
+    texts: TextsCatalogType,
     textOnly: boolean
   ): void {
     const folder_root: string = path.join(
@@ -1003,33 +806,61 @@ export class Backend {
           runningInDocker ? folder_yaml.replace(DockerVolume, "") : folder_yaml
         }`
     );
-
-    if (!fs.existsSync(folder_root)) {
-      fs.mkdirSync(folder_root);
-    }
-    if (!fs.existsSync(folder_yaml)) {
-      fs.mkdirSync(folder_yaml);
-    }
-    if (!textOnly) {
-      fileSave(path.join(folder_yaml, "alpha.yaml"), abap.alpha, {
-        sortKeys: true,
-      });
-      fileSave(path.join(folder_yaml, "parameters.yaml"), abap.parameters);
-      fileSave(path.join(folder_yaml, "fields.yaml"), abap.fields);
-      if (abap.helps) {
-        fileSave(path.join(folder_yaml, "helps.yaml"), abap.helps, {
+    try {
+      const total = {
+        alpha: abap.alpha ? abap.alpha.size : 0,
+        rfms: Object.keys(abap.stat).length,
+        parameters: Object.keys(abap.parameters).reduce((count, rfm) => {
+          return (count += Object.keys(abap.parameters[rfm]).length);
+        }, 0),
+        fields: Object.keys(abap.fields).length,
+        helps: abap.helps ? Object.keys(abap.helps).length : 0,
+        descriptors: abap.descriptors
+          ? Object.keys(abap.descriptors).length
+          : 0,
+        texts: texts ? Object.keys(texts).length : 0,
+      };
+      abap.stat.total = total;
+      if (!fs.existsSync(folder_root)) {
+        fs.mkdirSync(folder_root);
+      }
+      if (!fs.existsSync(folder_yaml)) {
+        fs.mkdirSync(folder_yaml);
+      }
+      if (!textOnly) {
+        fileSave(path.join(folder_yaml, "alpha.yaml"), abap.alpha, {
+          sortKeys: true,
+        });
+        fileSave(path.join(folder_yaml, "parameters.yaml"), abap.parameters);
+        fileSave(path.join(folder_yaml, "fields.yaml"), abap.fields);
+        if (abap.helps) {
+          fileSave(path.join(folder_yaml, "helps.yaml"), abap.helps, {
+            sortKeys: true,
+          });
+        }
+        if (!isEmpty(abap.descriptors)) {
+          fileSave(
+            path.join(folder_yaml, "descriptors.yaml"),
+            abap.descriptors,
+            {
+              sortKeys: true,
+            }
+          );
+        }
+        fileSave(path.join(folder_yaml, "stat.yaml"), abap.stat, {
+          sortKeys: true,
+        });
+        fileSave(path.join(folder_yaml, "usage.yaml"), abap.usage, {
           sortKeys: true,
         });
       }
-      fileSave(path.join(folder_yaml, "stat.yaml"), abap.stat);
-      fileSave(path.join(folder_yaml, "usage.yaml"), abap.usage);
-      if (!isEmpty(abap.descriptors))
-        fileSave(path.join(folder_yaml, "descriptors.yaml"), abap.descriptors);
-    }
-    if (!isEmpty(texts)) {
-      fileSave(path.join(folder_yaml, "texts.yaml"), texts, {
-        sortKeys: true,
-      });
+      if (!isEmpty(texts)) {
+        fileSave(path.join(folder_yaml, "texts.yaml"), texts, {
+          sortKeys: true,
+        });
+      }
+    } catch (ex) {
+      log.error(`Error writing annotations: `, ex);
     }
   }
 
@@ -1067,11 +898,22 @@ export function annotations_read(
 
   log.debug(`reading annotations for: ${api_name} from ${folder_yaml}`);
 
-  return {
+  const result: AnnotationsType = {
     parameters: fileLoad(
       path.join(folder_yaml, "parameters.yaml")
-    ) as yamlParametersType,
-    fields: fileLoad(path.join(folder_yaml, "fields.yaml")) as yamlFieldsType,
-    stat: fileLoad(path.join(folder_yaml, "stat.yaml")) as StatType,
+    ) as ParametersCatalogType,
+    fields: fileLoad(
+      path.join(folder_yaml, "fields.yaml")
+    ) as FieldsCatalogType,
+    stat: fileLoad(path.join(folder_yaml, "stat.yaml")) as StatCatalogType,
   };
+  if (fileExists(path.join(folder_yaml, "descriptors.yaml"))) {
+    result.helps = fileLoad(
+      path.join(folder_yaml, "helps.yaml")
+    ) as HelpsCatalogType;
+    result.descriptors = fileLoad(
+      path.join(folder_yaml, "descriptors.yaml")
+    ) as DescriptorsCatalogType;
+  }
+  return result;
 }

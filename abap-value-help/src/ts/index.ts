@@ -2,16 +2,4 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-export {
-  ElementaryHelpType,
-  ShlpApiType,
-  ShlpDefaultsType,
-  ShlpDescriptorType,
-  ShlpSelectOptions,
-  ShlpSearchOptions,
-  SearchResultHeaderType,
-  SearchResultLineType,
-  SearchResultType,
-  ValueInputHelp,
-  log,
-} from "./valueInputHelp";
+export * from "./valueInputHelp";

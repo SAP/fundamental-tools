@@ -27,9 +27,7 @@ export function fileLoad(fileName: string): unknown {
     encoding: "utf-8",
     flag: "r",
   });
-  return fileName.match(/\.(yaml|yml)$/)
-    ? yaml.load(content) //, { schema: yaml.JSON_SCHEMA })
-    : content;
+  return fileName.match(/\.(yaml|yml)$/) ? yaml.load(content) : content;
 }
 
 export function fileSave(
@@ -37,14 +35,17 @@ export function fileSave(
   content: unknown,
   options: yaml.DumpOptions = {}
 ): void {
-  log.debug(`file save ${fileName}`);
-
-  if (typeof content !== "string") {
-    //options.schema = yaml.JSON_SCHEMA;
-    content = yaml.dump(content, options);
-    if (!fileName.match(/\.(yaml|yml)$/)) fileName += ".yaml";
+  log.debug(`file save ${fileName}`, options);
+  try {
+    if (typeof content !== "string") {
+      content = yaml.dump(content, options);
+      if (!fileName.match(/\.(yaml|yml)$/)) fileName += ".yaml";
+    }
+    fs.writeFileSync(fileName, content as string);
+  } catch (ex) {
+    log.error(`write error`, ex);
+    log.error("content", content);
   }
-  fs.writeFileSync(fileName, content as string);
 }
 
 export function deleteFile(fileName: string): void {
@@ -54,6 +55,10 @@ export function deleteFile(fileName: string): void {
     if (ex.code !== "ENOENT") throw ex; // ignore file not found error
   }
   log.debug(`deleted ${fileName}`);
+}
+
+export function fileExists(fileName: string): boolean {
+  return fs.existsSync(fileName);
 }
 
 export function makeDir(dir: string): void {
