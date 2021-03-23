@@ -68,6 +68,11 @@ export function makeDir(dir: string): void {
   log.debug(`mkdir ${dir}`);
 }
 
+export function rmDir(dir: string): void {
+  fs.rmSync(dir, { recursive: true, force: true });
+  log.debug(`rmdir ${dir}`);
+}
+
 export function isEmpty(obj?: unknown[] | Record<string, unknown>): boolean {
   if (obj === undefined) return true;
   if (Array.isArray(obj)) return obj.length === 0;
@@ -127,7 +132,8 @@ export class Writer {
     this.indent = this.SPACE.repeat(this.indent_count);
   }
 
-  write(line = ""): void {
+  write(line: string | string[] = ""): void {
+    if (Array.isArray(line)) line = line.join("");
     this.output.push(line.length > 0 ? this.indent + line : line);
   }
 

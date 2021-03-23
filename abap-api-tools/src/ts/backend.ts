@@ -28,19 +28,13 @@ import {
 
 import { Alpha, AlphaCatalogType } from "./alpha";
 
-import {
-  deleteFile,
-  isEmpty,
-  log,
-  fileLoad,
-  fileSave,
-  fileExists,
-} from "./utils";
+import { isEmpty, log, fileLoad, fileSave, fileExists, rmDir } from "./utils";
 
 import {
   ShlpApiType,
   ValueInputHelp,
   DescriptorType,
+  FVDescriptorType,
   ValueHelpType,
 } from "abap-value-help";
 
@@ -355,18 +349,17 @@ export class Backend {
         result.format.valueInputType = ValueInput.list;
 
         // Binary / List type
-        const descriptor = this.Descriptors[helpFound.id];
+        const descriptor = this.Descriptors[helpFound.id] as FVDescriptorType;
         if (descriptor) {
-          if (descriptor["valueInputType"]) {
-            result.format.valueInputType = descriptor["valueInputType"];
-          }
+          if (descriptor.valueInputType === ValueInput.binary) {
+            result.format.valueInputType = ValueInput.binary;
 
-          // Checkbox uses SHLP only when values differ from "X" and "";
-          if (
-            result.format.valueInputType === ValueInput.binary &&
-            !descriptor["customCheckbox"]
-          ) {
-            delete result.input.shlpId;
+            // Checkbox SHLP used only when values differ from "X" and ""
+            if (descriptor.customCheckbox) {
+              //result.input.customCheckbox = "X";
+            } else {
+              delete result.input.shlpId;
+            }
           }
         }
       }
@@ -384,6 +377,24 @@ export class Backend {
         // write search help id into selection field descriptor
         if (selectionHelpFound.id) {
           field.shlpId = selectionHelpFound.id;
+          field.valueInputType = ValueInput.list;
+
+          // Binary / List type
+          const descriptor = this.Descriptors[
+            selectionHelpFound.id
+          ] as FVDescriptorType;
+          if (descriptor) {
+            if (descriptor.valueInputType === ValueInput.binary) {
+              field.valueInputType = ValueInput.binary;
+
+              // Checkbox SHLP used only when values differ from "X" and ""
+              if (descriptor.customCheckbox) {
+                field.customCheckbox = "X";
+                // } else {
+                //   delete field.shlpId;
+              }
+            }
+          }
         }
       }
     }
@@ -865,26 +876,9 @@ export class Backend {
   }
 
   annotations_clean(): void {
-    const folder_yaml = path.join(
-      this.argv.output as string,
-      this.api_name,
-      "yaml"
-    );
-
-    log.debug(`AnnotationsType clean ${folder_yaml}`);
-
-    for (const fileName of [
-      "parameters",
-      "fields",
-      "helps",
-      "stat",
-      "alpha",
-      "usage",
-      "texts",
-      "descriptors",
-    ]) {
-      deleteFile(path.join(folder_yaml, `${fileName}.yaml`));
-    }
+    const rootdir = path.join(this.argv.output as string, this.api_name);
+    log.debug("Clean annotations", rootdir);
+    rmDir(rootdir);
   }
 }
 

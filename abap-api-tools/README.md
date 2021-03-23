@@ -97,8 +97,11 @@ ABAP API for Value Help annotations, if exposed in backend system (see [ABAP hel
 ```yaml
 MME:
   search_help_api:
-    determine: YWS_SHLP_DETERMINE
-    dom_values: YWS_SHLP_DOMVALUES_GET
+    determine: /COE/RBP_FE_SHLP_DETERM_SEARCH
+    FV_descriptor_get: /COE/RBP_FE_SHLP_DOMVALUES_GET
+    CT_descriptor_get: FDT_GET_DDIC_METADATA
+    SH_descriptor_get: /COE/RBP_FE_SHLP_METADATA_GET
+    search: /COE/RBP_FE_SHLP_GET
 ```
 
 Run `abap` command, to show help:
