@@ -96,7 +96,7 @@ export function isEmpty(obj?: unknown[] | Record<string, unknown>): boolean {
 export type ValueHelpError = Record<string, unknown>;
 
 export type FVDescriptorType = {
-  type: string;
+  valueInputType: string;
   count: number;
   values: Record<string, string>;
   customCheckbox?: boolean;
@@ -127,11 +127,14 @@ export interface IValueHelpFound {
   //descriptor: DescriptorType;
 }
 
-export type ElementaryHelpsList = Record<string, string>[];
+export type ElementaryHelpsList = Record<
+  string,
+  { title: string; blacklist?: { selection: string } | { search: string } }
+>;
 
 export type ValueHelpType = {
   title: string;
-  elementaryHelps?: ElementaryHelpsList;
+  elementaryHelps?: ElementaryHelpsList[];
 };
 
 // export interface IValueHelpDetermine {
@@ -224,7 +227,7 @@ export class ValueInputHelp {
         }
 
         Descriptors[helpFound.id] = {
-          type: shlp_values.length > 2 ? "list" : "binary",
+          valueInputType: shlp_values.length > 2 ? "list" : "binary",
           count: Object.keys(domainValues).length,
           values: domainValues,
         };
@@ -276,15 +279,27 @@ export class ValueInputHelp {
       // SH
       //
       case "SH": {
-        const ET_SHLP = (
-          await this.client.call(this.shlpApi.SH_descriptor_get, {
-            IV_SHLPTYPE: helpFound.SHLPTYPE,
-            IV_SHLPNAME: helpFound.SHLPNAME,
-          })
-        ).ET_SHLP as RfcTable;
+        let ET_SHLP: RfcTable = [];
+
+        try {
+          ET_SHLP = (
+            await this.client.call(this.shlpApi.SH_descriptor_get, {
+              IV_SHLPTYPE: helpFound.SHLPTYPE,
+              IV_SHLPNAME: helpFound.SHLPNAME,
+            })
+          ).ET_SHLP as RfcTable;
+        } catch (ex) {
+          if (!Descriptors[helpFound.id]) {
+            Descriptors[helpFound.id] = {
+              blacklist: "selection",
+              selectionDescriptor: ex,
+            };
+          }
+          log.debug(`Descriptor selection error`, helpFound.id, ex.message);
+        }
 
         // elementary helps
-        const elementaryList: ElementaryHelpsList = [];
+        const elementaryList: ElementaryHelpsList[] = [];
 
         for (const desc of ET_SHLP) {
           // elementary id may differ
@@ -294,7 +309,6 @@ export class ValueInputHelp {
               : `${desc.SHLPTYPE} ${desc.SHLPNAME}`;
 
           const title = (desc.INTDESCR as RfcStructure).DDTEXT as string;
-          elementaryList.push({ [shlp_key]: title });
 
           // elementary help
           if (!Helps[shlp_key]) {
@@ -344,19 +358,32 @@ export class ValueInputHelp {
                 D.blacklist = "search";
                 D.resultDescriptor = ex;
                 log.debug(`Value Help search error: ${shlp_key} `, ex);
+              } finally {
+                const el: ElementaryHelpsList = {
+                  [shlp_key]: { title: title },
+                };
+                if (D.blacklist) {
+                  el[shlp_key].blacklist = {
+                    [D.blacklist]: (D.resultDescriptor as ValueHelpError)
+                      .message as string,
+                  };
+                }
+                elementaryList.push(el);
               }
             }
-          }
-
-          // consistency check
-          if (ET_SHLP.length > 1) {
-            if (!Helps[helpFound.id]["elementaryHelps"]) {
-              Helps[helpFound.id]["elementaryHelps"] = elementaryList;
-            }
           } else {
-            if (helpFound.id && !Descriptors[helpFound.id]) {
-              log.error("Descriptor not saved for", helpFound.id);
-            }
+            elementaryList.push({ [shlp_key]: { title: title } });
+          }
+        }
+
+        // consistency check
+        if (ET_SHLP.length > 1) {
+          if (!Helps[helpFound.id]["elementaryHelps"]) {
+            Helps[helpFound.id]["elementaryHelps"] = elementaryList;
+          }
+        } else {
+          if (helpFound.id && !Descriptors[helpFound.id]) {
+            log.error("Descriptor not saved for", helpFound.id);
           }
         }
 
@@ -422,14 +449,15 @@ export class ValueInputHelp {
 
     // add domain CT if no other shelp found
     if (dfies["DOMNAME"] && !helpFound.SHLPTYPE) {
-      const domain_ct = ((
+      const DD01V_WA_A = (
         await this.client.call("DD_DOMA_GET", {
           DOMAIN_NAME: dfies.DOMNAME,
         })
-      ).DD01V_WA_A as RfcStructure).ENTITYTAB as string;
-      if (domain_ct) {
+      ).DD01V_WA_A as RfcStructure;
+      if (DD01V_WA_A.ENTITYTAB as string) {
         helpFound.SHLPTYPE = "CT";
-        helpFound.SHLPNAME = domain_ct;
+        helpFound.SHLPNAME = DD01V_WA_A.ENTITYTAB as string;
+        helpFound.title = DD01V_WA_A.DDTEXT as string;
       }
     }
 

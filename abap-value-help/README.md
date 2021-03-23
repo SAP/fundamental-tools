@@ -7,15 +7,18 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-Generic Value Helps for [conventions' based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md) and front-ends supported by [Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools)
+Generic Value Helps for [conventions' based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md), supported by [Fundamental Library for ABAP](https://github.com/SAP/fundamental-tools)
 
 - ABAP API, well-known to SAPGUI developers:
   - ABAP Fixed Domain Values (FV)
   - ABAP Elementary and complex Search Helps (SH)
   - ABAP Check Tables (CT, CH)
   - Custom value helps
+
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Dynamic Value Help dialog](#dynamic-value-help-dialog)
+  - [Static Value Help dialog](#static-value-help-dialog)
 - [Components](#components)
   - [ABAP API](#abap-api)
   - [Server](#server)
@@ -34,6 +37,9 @@ npm install abap-value-help
 ABAP API: [doc/abap](https://github.com/SAP/fundamental-tools/blob/main/abap-value-help/doc/abap)
 
 ## Usage
+
+- SCN blog: [Generic ABAP Value Helps using Fundamental Library for ABAP and Web Components](https://blogs.sap.com/2021/03/02/generic-abap-value-helps-powered-by-fundamental-library-for-abap-and-web-components/)
+
 
 - Expose generic Value Help routes: [#server](#server)
 
@@ -61,9 +67,35 @@ ABAP API: [doc/abap](https://github.com/SAP/fundamental-tools/blob/main/abap-val
 ></ui-input>
 ```
 
-Custom attribute will add Search Help icon input addon and run the Search Help dialog using abovementioned routes. Input ui component is updated with the Search Help dialog result:
+### Dynamic Value Help dialog
+
+Custom attribute will add Search Help icon input addon and create and open the Search Help dialog on user request. Input ui component is updated with the Search Help dialog result:
 
 ![dialog](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/ValueInputHelpsDialog.jpg)
+
+Dynamically created dialog requires no development efforts but has restrictions:
+
+- Some elementary Value Helps return search errors they return, like "Dynpro sent in background ...".
+  Array of their id-s should be passed via `shlp.blacklist`, as shown above, to prevent their usage.
+  Low effort to add the id but each Value Help search should be tested upfront.
+
+- Value Help selection parameters lack Value Helps for themselves
+
+### Static Value Help dialog
+
+Static Value Help dialogs come to the rescue. Automatically generated in design-time, they do not have above mentioned limitations and can be manually fine-tuned. Activated the same way via custom attribute.
+
+Use the [abap-api-tools](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/README.md) `-h` option to parse Value Help descriptors (`get` command) and generate static Value Help dialogs (`make` command).
+
+All Value Helps are automatically tested and in case of search errors, black-listed with the error message.
+
+```shell
+abap get MME -c config/equipment -h
+
+abap make aurelia -c config/all -h
+```
+
+One `html` and one `js` file is generated for each elementary Value Help and written into `valueHelps` folder.
 
 ## Components
 
