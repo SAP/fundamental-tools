@@ -8,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-- Standards based web applications with ABAP programming model
+- [Standards based web applications with ABAP programming model](./doc/app.md)
 - By factors less code, unique qualities
 - Works with:
   - [Aurelia](http://aurelia.io/)
@@ -19,13 +19,9 @@
   - SAP Cloud Platform
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Frameworks: electron, NW.js ...
-- [Conventions based applications](./doc/app.md)
-
-Components
-
-- [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
-
-- [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
+- Components
+  - [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
+  - [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
 
 :star: Your star helps!
 
