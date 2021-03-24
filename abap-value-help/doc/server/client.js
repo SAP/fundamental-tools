@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 const express = require("express");
+//const ValueHelp = require("../../dist").ValueInputHelp;
 const ValueHelp = require("abap-value-help").ValueInputHelp;
 const Client = require("node-rfc").Client;
 

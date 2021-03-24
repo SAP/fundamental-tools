@@ -5,16 +5,8 @@
 import chalk from "chalk";
 import path from "path";
 import { sprintf } from "sprintf-js";
-
-import {
-  EmptyObject,
-  Writer,
-  isEmpty,
-  log,
-  fileLoad,
-  makeDir,
-  rmDir,
-} from "./utils";
+import { EmptyObject, Writer, isEmpty, log, fileLoad } from "./utils";
+import { ValueHelpFrontend } from "./valuehelp";
 
 import {
   ParamClass,
@@ -36,19 +28,7 @@ import {
   StructureType,
 } from "./backend";
 
-import { ElementaryHelpType, EHDescriptorType } from "abap-value-help";
-
-import { RfcStructure, RfcTable } from "node-rfc";
-
 import { Command, Arguments, Signature } from "./abap";
-
-interface IElementaryHelp {
-  id: string;
-  title: string;
-  selectionFields: RfcStructure[]; // FieldType[];
-  selectionParameters: string[];
-  blacklisted: boolean;
-}
 
 type ParamInializer = {
   text: string;
@@ -109,6 +89,7 @@ export type UiConfigTableType = {
 export type UiConfigType = Record<string, string | UiConfigTableType>;
 
 export type FrontendResultType = Record<string, { js: string; html?: string }>;
+
 export class Frontend {
   private api_name: string;
   private apilist: string[];
@@ -562,278 +543,16 @@ export class Frontend {
         log.error("\nHelps or Descriptors annotations missing");
       } else {
         log.info(`\nValue Helps\n`);
-        result.valueHelps = this.valueHelps();
+        const valueHelps = new ValueHelpFrontend({
+          output: this.argv.output,
+          api_name: this.api_name,
+          save: this.argv.save as boolean,
+          Helps: this.abap.helps as HelpsCatalogType,
+          Descriptors: this.abap.descriptors as DescriptorsCatalogType,
+          frontend: this,
+        });
+        result.valueHelps = valueHelps.parse();
       }
-    }
-
-    return result;
-  }
-
-  valueHelps(): { js: string; html?: string } {
-    const outDir = path.join(
-      this.argv.output || "",
-      this.api_name,
-      "valueHelps"
-    );
-
-    if (this.argv.save) {
-      rmDir(outDir);
-      makeDir(outDir);
-    }
-
-    function newWriter(suffix: "js" | "html", shlpId, title, save: boolean) {
-      const writer = new Writer(
-        path.join(
-          outDir,
-          `${shlpId
-            .toLowerCase()
-            .replace(/\//g, "_")
-            .replace(" ", "_")}.${suffix}`
-        ),
-        save
-      );
-      writer.write(
-        suffix === "js"
-          ? `// ${shlpId} ${title} : ${Signature}\n`
-          : `<!-- ${shlpId} ${title} : ${Signature} -->}\n`
-      );
-
-      if (suffix === "html") return writer;
-      writer.write(
-        `const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
-const helpOption = [
-  { id: 'EQ', name: 'is' },
-  { id: 'NE', name: 'is not' },
-  { id: 'GT', name: 'greater than' },
-  { id: 'LT', name: 'less than' },
-  { id: 'GE', name: 'not less' },
-  { id: 'LE', name: 'not greater' },
-  { id: 'BT', name: 'between' },
-  { id: 'NB', name: 'not between' },
-  { id: 'CP', name: 'with pattern' },
-  { id: 'NP', name: 'w/o pattern' }
-];\n`
-      );
-      return writer;
-    }
-
-    function selectionParams(jsWriter, FIELDDESCR: RfcTable): void {
-      jsWriter.write(`const selectParams = [`);
-      jsWriter.addindent();
-      for (const field of FIELDDESCR) {
-        jsWriter.write(`{`);
-        jsWriter.addindent();
-        for (const k of ["FIELDNAME", "DATATYPE", "LENG", "DECIMALS"]) {
-          jsWriter.write(
-            `${k}: ${
-              typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
-            },`
-          );
-        }
-        for (const k of ["MEMORYID", "PARVA"]) {
-          if (k in field && field[k])
-            jsWriter.write(
-              `${k}: ${
-                typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
-              }`
-            );
-        }
-
-        jsWriter.deindent();
-        jsWriter.write(`},`);
-      }
-      jsWriter.deindent();
-      jsWriter.write(`];`);
-    }
-
-    let JS = "",
-      HTML = "";
-
-    //
-    // html header
-    //
-
-    for (const [shlp_key, shlp] of Object.entries(
-      this.abap.helps as HelpsCatalogType
-    )) {
-      if (shlp_key.substr(0, 2) !== "SH") {
-        continue;
-      }
-
-      if (shlp.elementaryHelps) {
-        // html
-        const htmlWriter = newWriter(
-          "html",
-          shlp_key,
-          `${shlp.title} (${shlp.elementaryHelps.length})`,
-          this.argv.save as boolean
-        );
-        htmlWriter.write(
-          `<ui-combo label=${shlp.title} option.bind="helpSelector"></ui-combo>`
-        );
-        HTML += htmlWriter.save();
-
-        // js
-        const jsWriter = newWriter(
-          "js",
-          shlp_key,
-          `${shlp.title} (${shlp.elementaryHelps.length})`,
-          this.argv.save as boolean
-        );
-        jsWriter.write("const helpSelector = [");
-        jsWriter.addindent();
-        shlp.elementaryHelps.map((eh) =>
-          jsWriter.write(JSON.stringify(eh) + ",")
-        );
-        jsWriter.deindent();
-        jsWriter.write("];");
-        JS += jsWriter.save();
-
-        for (const elem of shlp.elementaryHelps) {
-          const shlpId = Object.keys(elem)[0];
-          const EH = this.elementaryHelp(shlpId);
-
-          // html
-          const htmlWriter = newWriter(
-            "html",
-            shlpId,
-            elem[shlpId].title,
-            this.argv.save as boolean
-          );
-          EH.selectionParameters.map((sp) => htmlWriter.write(sp));
-          HTML += htmlWriter.save();
-          // js
-          const jsWriter = newWriter(
-            "js",
-            shlpId,
-            elem[shlpId].title,
-            this.argv.save as boolean
-          );
-          selectionParams(jsWriter, EH.selectionFields);
-
-          JS += jsWriter.save();
-        }
-      } else {
-        const htmlWriter = newWriter(
-          "html",
-          shlp_key,
-          shlp.title,
-          this.argv.save as boolean
-        );
-        const jsWriter = newWriter(
-          "js",
-          shlp_key,
-          shlp.title,
-          this.argv.save as boolean
-        );
-        const EH = this.elementaryHelp(shlp_key);
-        EH.selectionParameters.map((sp) => htmlWriter.write(sp));
-        HTML += htmlWriter.save();
-        selectionParams(jsWriter, EH.selectionFields);
-        JS += jsWriter.save();
-      }
-    }
-
-    return { js: JS, html: HTML };
-  }
-
-  elementaryHelp(shlp_key: string): IElementaryHelp {
-    const D = this.abap.descriptors as DescriptorsCatalogType;
-    if (!D[shlp_key]) {
-      throw new Error(`Value Help Descriptor not found: ${shlp_key}`);
-    }
-    const VH = D[shlp_key] as EHDescriptorType;
-
-    const selection = VH.selectionDescriptor as ElementaryHelpType;
-
-    const result: IElementaryHelp = {
-      id: shlp_key,
-      title: selection.INTDESCR.DDTEXT as string,
-      selectionFields: [] as RfcStructure[], // FieldType[],
-      selectionParameters: [] as string[],
-      blacklisted: false,
-    };
-
-    if (VH.blacklist) {
-      result.blacklisted = true;
-      log.debug(`Value Help black-listed: ${shlp_key}`);
-      return result;
-    }
-
-    for (const field of selection.FIELDDESCR) {
-      const Parameter: ParameterType = {
-        paramType: ParamType.struct,
-        PARAMCLASS: "paramClass",
-        TABNAME: field.TABNAME as string,
-        FIELDNAME: field.FIELDNAME as string,
-        PARAMTEXT: field.FIELDTEXT as string,
-        functionName: `valueHelp`,
-        paramName: `searchParamLow`,
-        required: "",
-        //default?: string;
-        // nativeKey?: string;
-      };
-
-      const html_field = this.html_field(
-        Parameter,
-        Frontend.dfiesFieldToABAP(field),
-        field.FIELDNAME as string
-      );
-
-      result.selectionFields.push(field);
-      result.selectionParameters.push(html_field.html);
-    }
-
-    return result;
-  }
-
-  static dfiesFieldToABAP(field: RfcStructure): FieldType {
-    const result: FieldType = {
-      format: {
-        DATATYPE: field.DATATYPE as string,
-        INTTYPE: field.INTTYPE as string,
-        DOMNAME: field.DOMNAME as string,
-        ROLLNAME: field.ROLLNAME as string,
-        LENG: field.LENG as number,
-        DECIMALS: field.DECIMALS as number,
-        SIGN: field.SIGN as string,
-        MASK: field.MASK as string,
-        LTRFLDDIS: field.LTRFLDDIS as string,
-        LOWERCASE: field.LOWERCASE as string,
-        REFTABLE: field.REFTABLE as string,
-        REFFIELD: field.REFFIELD as string,
-        OUTPUTLEN: field.OUTPUTLEN as number,
-      },
-      input: {
-        //CONVEXIT: field.CONEVEXIT as string,
-        //MEMORYID: field.MEMORYID as string,
-        //shlpId: field.shlpId as string,
-      },
-      text: {
-        FIELDTEXT: field.FIELDTEXT as string,
-        REPTEXT: field.REPTEXT as string,
-        SCRTEXT_S: field.SCRTEXT_S as string,
-        SCRTEXT_M: field.SCRTEXT_M as string,
-        SCRTEXT_L: field.SCRTEXT_L as string,
-      },
-    };
-
-    result.input = {};
-    if (field.CONVEXIT) result.input.CONVEXIT = field.CONVEXIT as string;
-    if (field.MEMORYID) result.input.MEMORYID = field.MEMORYID as string;
-    if (field.shlpId) result.input.shlpId = field.shlpId as string;
-    if (field.valueInputType) {
-      result.format.valueInputType = field.valueInputType as string;
-      if (field.valueInputType === ValueInput.binary) {
-        if (!field.customCheckbox) {
-          delete result.input.shlpId;
-        }
-      }
-    }
-    if (isEmpty(result.input)) delete result.input;
-
-    if (field.valueInputType) {
-      result.format.valueInputType = field.valueInputType as string;
     }
 
     return result;
@@ -842,9 +561,12 @@ const helpOption = [
   table_init(
     Param: ParameterType,
     _Field: StructureType,
-    jsWriter: Writer,
+    jsWriter?: Writer,
     htmlWriter?: Writer
-  ): void {
+  ): { js: string; html: string } | void {
+    if (!jsWriter) jsWriter = new Writer(undefined, undefined, true);
+    if (!htmlWriter) htmlWriter = new Writer(undefined, undefined, true);
+
     jsWriter.write(`const ${Param.paramName}= [];`);
 
     if (!htmlWriter || !this.uiConfig.table) return;
@@ -917,6 +639,8 @@ const helpOption = [
     if (element_template.footer) {
       htmlWriter.write(element_template.footer);
     }
+
+    return { js: jsWriter.save(), html: htmlWriter.save() };
   }
 
   structure_init(

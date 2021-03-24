@@ -92,15 +92,17 @@ export class Writer {
 
   private fileName: string;
   private saveToFile: boolean;
+  private silent: boolean;
   private indent_step: number;
   private indent_count: number;
   private indent = "";
   private output: Array<string>;
 
-  constructor(fileName: string, saveToFile: boolean) {
+  constructor(fileName?: string, saveToFile?: boolean, silent?: boolean) {
     log.debug(`Writer ${fileName}`);
-    this.fileName = fileName;
-    this.saveToFile = saveToFile;
+    this.fileName = fileName || "";
+    this.saveToFile = saveToFile || false;
+    this.silent = silent || false;
     this.indent_step = FileType.js === this.fileName.slice(-2) ? 2 : 4;
     this.indent_step = 2;
     this.indent_count = 0;
@@ -150,7 +152,7 @@ export class Writer {
         stream.end();
       });
     } else {
-      log.info(ms);
+      if (!this.silent) log.info(ms);
     }
     return ms;
   }
