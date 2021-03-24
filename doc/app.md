@@ -11,7 +11,7 @@ Without frameworks in between you and your application, what remains are re-usab
   - [App Server (Java, Node, Python)](#app-server-java-node-python)
   - [View Model (JS)](#view-model-js)
   - [View (HTML or JS)](#view-html-or-js)
-    - [Value Helps](#value-helps)
+- [Value Helps](#value-helps)
 - [App = ABAP API + Server Model + View Model + View](#app--abap-api--server-model--view-model--view)
 - [Deployment options](#deployment-options)
 
@@ -189,6 +189,29 @@ export class Equipment {
 // get ...
 ```
 
+JS files with View Model initializers of ABAP data structures can be used in app server or View Model logic, for fields' level processing.
+
+```JavaScript
+//
+// INPUT PARAMETERS
+//
+
+// DATA_FLEET BAPI_FLEET Vehicle-Specific Data
+
+/* eslint-disable key-spacing */
+// prettier-ignore
+DATA_FLEET = {
+  CARD_NUM                      : '',  // Fuel card number
+  CHASSIS_NUM                   : '',  // Chassis number
+  DIM_UNIT_ISO                  : '',  // ISO code for unit of measurement
+  ENGINE_CAP                    : 0,  // Engine capacity
+  ENGINE_CYL                    : '',  // Number of cylinders
+  ENGINE_POWER                  : 0,  // Power at specific number of revolutions per minute
+  ENGINE_SNR                    : '',  // Engine serial number of manufacturer
+  FLEET_LEN                     : 0,  // Maximum fleet object length
+```
+
+
 ### View (HTML or JS)
 
 HTML or JS Views comprise of generic ui components, grouped together into frontend layout elements.
@@ -224,11 +247,12 @@ One example with input, datepicker and checkbox:
 </section>
 ```
 
-#### Value Helps
+## Value Helps
 
 Generic and custom Value Helps can be attched to any ui component by `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
 
 - Generated, adapted or built from scratch in design time
+
 - Dynamically generated in run-time
 
 ```html
@@ -250,35 +274,6 @@ Generic and custom Value Helps can be attched to any ui component by `shlp` cust
   shlp.bind="{type: 'SH', id: 'EQUI', blacklist: 'SH EQUIR', autoselect: 'SH EQUIT'}"
 ></ui-input>
 ```
-
-JS files with View Model initializers of ABAP data structures can be used in app server or View Model logic, for fields' level processing.
-
-```JavaScript
-//
-// INPUT PARAMETERS
-//
-
-// DATA_FLEET BAPI_FLEET Vehicle-Specific Data
-
-/* eslint-disable key-spacing */
-// prettier-ignore
-DATA_FLEET = {
-  CARD_NUM                      : '',  // Fuel card number
-  CHASSIS_NUM                   : '',  // Chassis number
-  CONSUMP_MOVE                  : '',  // Indicator Consumption Recording: Material Movement
-  CONSUMP_TOL                   : '',  // Indicator Consumption Recording: Permitted Tolerances
-  DIM_UNIT                      : '',  // Unit of length
-  DIM_UNIT_ISO                  : '',  // ISO code for unit of measurement
-  ENGINE_CAP                    : 0,  // Engine capacity
-  ENGINE_CYL                    : '',  // Number of cylinders
-  ENGINE_POWER                  : 0,  // Power at specific number of revolutions per minute
-  ENGINE_SNR                    : '',  // Engine serial number of manufacturer
-  ENGINE_TYPE                   : '',  // Engine type
-  EXPIRY_DATE                   : '',  // Validity end date
-  FLEET_HGT                     : 0,  // Maximum fleet object height
-  FLEET_LEN                     : 0,  // Maximum fleet object length
-```
-
 
 ## App = ABAP API + Server Model + View Model + View
 
