@@ -38,14 +38,15 @@ ABAP API: [doc/abap](https://github.com/SAP/fundamental-tools/blob/main/abap-val
 
 ## Usage
 
-- SCN blog: [Generic ABAP Value Helps using Fundamental Library for ABAP and Web Components](https://blogs.sap.com/2021/03/02/generic-abap-value-helps-powered-by-fundamental-library-for-abap-and-web-components/)
+As a server runtime component, exposing routes for Value Helps generic customn attribute `shlp`. More info in SCN blog: [Generic ABAP Value Helps using Fundamental Library for ABAP and Web Components](https://blogs.sap.com/2021/03/02/generic-abap-value-helps-powered-by-fundamental-library-for-abap-and-web-components/)
+
 
 
 - Expose generic Value Help routes: [#server](#server)
 
 - Register generic Value Help dialog in your application: [#view-model-and-view](#view-model-and-view)
 
-- Add custom attribute `shlp` to input component, like:
+- Custom attribute `shlp` is already added to ui elements pre-fabricated by [abap-api-tools](https://github.com/SAP/fundamental-tools/tree/main/abap-api-tools). The attribute can be removed, changed or added to any other input, radio or combo ui element, like:
 
 ```html
 <!-- Fixed Domain Values -->
@@ -63,7 +64,7 @@ ABAP API: [doc/abap](https://github.com/SAP/fundamental-tools/blob/main/abap-val
 <!-- Complex/Elementary Helps Search Helps -->
 <ui-input ddic-length="18" ddic-type="CHAR" label="Equipment #"
   value.bind="installDetail.equiId"
-  shlp.bind="{type: 'SH', id: 'EQUI', blacklist: 'SH EQUIR', autoselect: 'SH EQUIT'}"
+  shlp.bind="{type: 'SH', id: 'EQUI', blocklist: 'SH EQUIR', autoselect: 'SH EQUIT'}"
 ></ui-input>
 ```
 
@@ -73,21 +74,22 @@ Custom attribute will add Search Help icon input addon and create and open the S
 
 ![dialog](https://raw.githubusercontent.com/SAP/fundamental-tools/main/abap-value-help/doc/assets/ValueInputHelpsDialog.jpg)
 
-Dynamically created dialog requires no development efforts but has restrictions:
+Dynamically created dialog has two restrictions:
 
-- Some elementary Value Helps return search errors they return, like "Dynpro sent in background ...".
-  Array of their id-s should be passed via `shlp.blacklist`, as shown above, to prevent their usage.
-  Low effort to add the id but each Value Help search should be tested upfront.
+- Some elementary Value Helps return search errors, like "Dynpro sent in background ...".
+  Array of their id-s should be passed via `shlp.blocklist`, as shown above, to prevent their usage.
+  The "discovery" of these non-working Value Helps, requires manual or automatic test.
 
 - Value Help selection parameters lack Value Helps for themselves
 
 ### Static Value Help dialog
 
-Static Value Help dialogs come to the rescue. Automatically generated in design-time, they do not have above mentioned limitations and can be manually fine-tuned. Activated the same way via custom attribute.
+Static Value Help dialogs come to the rescue. Automatically generated in design-time, they are activated using the same custom attribute and do not have above mentioned restrictions. They do have two more advantages:
 
-Use the [abap-api-tools](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/README.md) `-h` option to parse Value Help descriptors (`get` command) and generate static Value Help dialogs (`make` command).
+- Can be manually fine-tuned, functionally and visually
+- All Value Helps are automatically tested by [abap-api-tools](https://github.com/SAP/fundamental-tools/tree/main/abap-api-tools) generator. In case of search errors, the block-list attribute is attached to non-working Helps
 
-All Value Helps are automatically tested and in case of search errors, black-listed with the error message.
+Static Value Help dialogs are generated using [abap-api-tools](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/README.md) with `-h` option.
 
 ```shell
 abap get MME -c config/equipment -h
@@ -95,7 +97,7 @@ abap get MME -c config/equipment -h
 abap make aurelia -c config/all -h
 ```
 
-One `html` and one `js` file is generated for each elementary Value Help and written into `valueHelps` folder.
+The `get` command will create Value Help descriptors [helps.yaml and descriptors.yaml](https://github.com/SAP/fundamental-tools/tree/main/abap-api-tools/api/equipment/yaml) and `make` command will generate static Value Help dialogs: [api/equipment/valueHelps](https://github.com/SAP/fundamental-tools/tree/main/abap-api-tools/api/equipment/valueHelps)
 
 ## Components
 

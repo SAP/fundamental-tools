@@ -62,16 +62,15 @@ export class ValueHelpFrontend {
   }
 
   newWriter(suffix: "js" | "html", shlpId: string, shlpTitle: string): Writer {
-    const writer = new Writer(
-      path.join(
+    const writer = new Writer({
+      fileName: path.join(
         this.outDir,
         `${shlpId
           .toLowerCase()
           .replace(/\//g, "_")
           .replace(" ", "_")}.${suffix}`
       ),
-      this.save
-    );
+    });
     writer.write(
       suffix === "js"
         ? `// ${shlpId} ${shlpTitle} : ${Signature}\n`

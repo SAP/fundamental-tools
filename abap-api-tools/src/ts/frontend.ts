@@ -95,6 +95,7 @@ export class Frontend {
   private apilist: string[];
   private abap: AnnotationsType;
   private argv: Arguments;
+  private flowEcho: boolean;
 
   private configPath: {
     ui: string;
@@ -105,26 +106,33 @@ export class Frontend {
   private uiConfig: UiConfigType = {};
   private abapConfig: AbapConfigType = {};
 
-  constructor(api_name: string, abap: AnnotationsType, argv: Arguments) {
-    this.abap = abap;
-    this.argv = argv;
-    this.api_name = api_name;
-    this.apilist = argv.apilist ? argv.apilist[api_name] : [];
+  constructor(context: {
+    apiName?: string;
+    abap: AnnotationsType;
+    argv: Arguments;
+  }) {
+    this.api_name = context.apiName || "";
+    this.abap = context.abap;
+    this.argv = context.argv;
+    this.flowEcho =
+      this.argv.cmd !== Command.call ||
+      (this.argv.cmd === Command.call && (this.argv.save || false));
+    this.apilist = this.argv.apilist ? this.argv.apilist[this.api_name] : [];
 
     // abap
     if (!this.abap || isEmpty(this.abap.parameters)) {
       try {
-        this.abap = annotations_read(this.api_name, argv);
+        this.abap = annotations_read(this.api_name, this.argv);
       } catch (ex) {
         log.info(ex);
         throw new Error(
-          `Annotations not found for ${this.api_name}, run: abap ${argv.cmd} ${Command.get} <destination> ${this.api_name}\n`
+          `Annotations not found for ${this.api_name}, run: abap ${this.argv.cmd} ${Command.get} <destination> ${this.api_name}\n`
         );
       }
     }
 
     // field names sort
-    if (argv["sort-fields"]) {
+    if (this.argv["sort-fields"]) {
       for (const struct_name of Object.keys(this.abap.fields)) {
         const Structure = this.abap.fields[struct_name];
         if (Structure.format) continue;
@@ -140,18 +148,18 @@ export class Frontend {
       }
     }
 
-    if (argv.ui) {
-      if (typeof argv.ui === "string") {
+    if (this.argv.ui) {
+      if (typeof this.argv.ui === "string") {
         // ui configuration
         try {
           // local ui first
           this.configPath.ui = path.join(
             DefaultFolder.userConfig,
-            `${argv.ui}.yaml`
+            `${this.argv.ui}.yaml`
           );
           this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
           this.configPath.uiLocal = true;
-          log.debug(`local ui configuration ${argv.ui}`);
+          log.debug(`local ui configuration ${this.argv.ui}`);
         } catch (ex) {
           if (ex.code !== "ENOENT") throw ex; // ignore file not found error
         }
@@ -161,21 +169,21 @@ export class Frontend {
           this.configPath.ui = path.join(
             DefaultFolder.configuration,
             "ui",
-            `${argv.ui}.yaml`
+            `${this.argv.ui}.yaml`
           );
           this.uiConfig = fileLoad(this.configPath.ui) as UiConfigType;
-          log.debug(`default ui configuration ${argv.ui}`);
+          log.debug(`default ui configuration ${this.argv.ui}`);
         }
 
         try {
           // local abap first
           this.configPath.abap = path.join(
             DefaultFolder.userConfig,
-            `${argv.ui}-abap.yaml`
+            `${this.argv.ui}-abap.yaml`
           );
           this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
           this.configPath.abapLocal = true;
-          log.debug(`local abap configuration ${argv.ui}`);
+          log.debug(`local abap configuration ${this.argv.ui}`);
         } catch (ex) {
           if (ex.code !== "ENOENT") throw ex; // ignore file not found error
         }
@@ -185,16 +193,16 @@ export class Frontend {
           this.configPath.abap = path.join(
             DefaultFolder.configuration,
             "ui",
-            `${argv.ui}-abap.yaml`
+            `${this.argv.ui}-abap.yaml`
           );
           this.abapConfig = fileLoad(this.configPath.abap) as AbapConfigType;
-          log.debug(`default abap configuration ${argv.ui}`);
+          log.debug(`default abap configuration ${this.argv.ui}`);
         }
       } else {
         // ui configuration passed by CLI api
-        this.uiConfig = argv.ui.ui;
-        if (argv.ui.abap) {
-          this.abapConfig = argv.ui.abap;
+        this.uiConfig = this.argv.ui.ui;
+        if (this.argv.ui.abap) {
+          this.abapConfig = this.argv.ui.abap;
         }
       }
     }
@@ -309,16 +317,17 @@ export class Frontend {
   }
 
   parse(): FrontendResultType {
-    log.info(
-      `\nfrontend: ${this.argv.ui || ""} using ${
-        this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
-      }${
-        this.argv.ui
-          ? " and " +
-            (this.configPath.uiLocal ? this.configPath.ui : "default ui.yaml")
-          : ""
-      }; field names sorted: ${this.argv["sort-fields"] ? "yes" : "no"}\n`
-    );
+    if (this.flowEcho)
+      log.info(
+        `\nfrontend: ${this.argv.ui || ""} using ${
+          this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
+        }${
+          this.argv.ui
+            ? " and " +
+              (this.configPath.uiLocal ? this.configPath.ui : "default ui.yaml")
+            : ""
+        }; field names sorted: ${this.argv["sort-fields"] ? "yes" : "no"}\n`
+      );
 
     const result: FrontendResultType = {};
 
@@ -361,9 +370,15 @@ export class Frontend {
         rfm_name.replace(/\//g, "_").toLowerCase()
       );
 
-      const jsWriter = new Writer(`${fileName}.js`, this.argv.save as boolean);
+      const jsWriter = new Writer({
+        fileName:
+          this.argv.cmd === Command.call && !this.argv.save
+            ? ""
+            : `${fileName}.js`,
+        echoOnSave: this.argv.cmd === Command.call && !this.argv.save,
+      });
 
-      let htmlWriter: Writer | undefined;
+      let htmlWriter: Writer = {} as Writer;
 
       //
       // javascript header
@@ -379,7 +394,7 @@ export class Frontend {
       jsWriter.write(`const parameters = {`);
 
       if (this.argv.ui) {
-        htmlWriter = new Writer(`${fileName}.html`, this.argv.save as boolean);
+        htmlWriter = new Writer({ fileName: `${fileName}.html` }); // , this.argv.save as boolean);
         //
         // html header
         //
@@ -467,7 +482,7 @@ export class Frontend {
           jsWriter.write(`// ${ParamClassDesc[paramClass]} PARAMETERS`);
           jsWriter.write("//\n");
 
-          if (htmlWriter) {
+          if (htmlWriter instanceof Writer) {
             htmlWriter.write("\n<!--");
             htmlWriter.write(`${ParamClassDesc[paramClass]} PARAMETERS`);
             htmlWriter.write("-->\n");
@@ -486,7 +501,7 @@ export class Frontend {
 
         // html fields only for variables
         if (Param.paramType === ParamType.var) {
-          if (htmlWriter) {
+          if (htmlWriter instanceof Writer) {
             const field = this.html_field(Param, Field);
             if (field) {
               // htmlWriter.write(`${param_name} ${field.html}`);
@@ -501,7 +516,7 @@ export class Frontend {
             `// ${Param.TABNAME} ${Param.FIELDNAME || ""} ${Param["PARAMTEXT"]}`
           );
 
-          if (htmlWriter) {
+          if (htmlWriter instanceof Writer) {
             htmlWriter.write(
               `<!-- Parameter: ${param_name} structure: ${Param.TABNAME} ${
                 Param.FIELDNAME || ""
@@ -535,7 +550,8 @@ export class Frontend {
       }
 
       result[rfm_name] = { js: jsWriter.save() };
-      if (htmlWriter) result[rfm_name].html = htmlWriter.save();
+      if (htmlWriter instanceof Writer)
+        result[rfm_name].html = htmlWriter.save();
     }
 
     if (this.argv.ui && this.argv.helps) {
@@ -564,8 +580,8 @@ export class Frontend {
     jsWriter?: Writer,
     htmlWriter?: Writer
   ): { js: string; html: string } | void {
-    if (!jsWriter) jsWriter = new Writer(undefined, undefined, true);
-    if (!htmlWriter) htmlWriter = new Writer(undefined, undefined, true);
+    if (!jsWriter) jsWriter = new Writer();
+    if (!htmlWriter) htmlWriter = new Writer();
 
     jsWriter.write(`const ${Param.paramName}= [];`);
 
@@ -679,7 +695,7 @@ export class Frontend {
           field_text
         )
       );
-      if (htmlWriter) {
+      if (htmlWriter instanceof Writer) {
         const field = this.html_field(Param, Field, field_name);
         if (field) {
           htmlWriter.write(`\n${field.html}`);
@@ -689,7 +705,7 @@ export class Frontend {
     jsWriter.deindent();
     jsWriter.write("};");
     jsWriter.write();
-    if (htmlWriter) htmlWriter.write();
+    if (htmlWriter instanceof Writer) htmlWriter.write();
   }
 
   field_length(Field: FieldType): string {
@@ -700,33 +716,103 @@ export class Frontend {
         lange = "1.15";
       else {
         let decrement: number;
-        if (["DEC", "CURR"].includes(Field.format.DATATYPE)) {
-          // abap int part = field lange - decimal point
-          decrement = 1;
-        } else if (Field.format.DATATYPE === "QUAN") {
-          // abap int part = field lange - decimal places
-          decrement = Field.format.DECIMALS;
-        } else {
-          decrement = 0;
+        switch (Field.format.DATATYPE) {
+          case "DEC":
+          case "CURR":
+            // abap int part = field lange - decimal point
+            decrement = 1;
+            break;
+          case "QUAN":
+            // abap int part = field lange - decimal places
+            decrement = Field.format.DECIMALS;
+            break;
+          default:
+            decrement = 0;
         }
         lange = `${Field.format.LENG - decrement}.${Field.format.DECIMALS}`;
       }
     } else {
-      // no decimals
-      if (Field.format.LENG) lange = `${Field.format.LENG}`;
-      else lange = `-1`; // indicate string element, has no fixed lange
+      // no decimals. -1 stands for string element, w/o fixed length
+      lange = Field.format.LENG ? `${Field.format.LENG}` : "-1";
     }
     // sign
     if (Field.format.SIGN) lange = "+" + lange;
     return lange;
   }
 
-  element_js(
+  element_html(m: ElementJS): ElementHTML {
+    // tag
+    // bind
+    // label
+    // type
+    // (shlp)
+    // (format)
+
+    // abap:
+    // type
+    // (length)
+    // (mid)
+    // (shlp)
+    // (alpha)
+
+    if (!(m.tag in this.uiConfig)) {
+      throw new Error(
+        `html element ${m.tag} of ${this.configPath.abap} not found in ${this.configPath.ui}`
+      );
+    }
+
+    let e = this.uiConfig[m.tag] as string;
+
+    const shlp = m.shlp
+      ? JSON.stringify(m.shlp)
+          .replace(/"type":/, "type: ")
+          .replace(/,"id":/, ", id: ")
+          .replace(/"/g, "'")
+      : "";
+
+    const abap = JSON.stringify(m.abap)
+      .replace(/"(\w+)":/g, "$1:")
+      .replace(/"/g, "'")
+      .replace(/,/g, ", ");
+
+    e = e
+      .replace(/~bind/g, m.bind)
+      .replace(/~label/g, m.label)
+      .replace(/~abap/g, abap);
+
+    if (shlp) {
+      e = e.replace("~shlp", shlp);
+    } else {
+      // remove shlp
+      e = e.replace(/\s+\S*"~shlp"/, "");
+    }
+    // remove empty lines
+    e = e.replace(/^\s*[\r\n]/gm, "");
+    // and double spaces
+    e = e.replace(/\w[ ]{2,}\w/g, " ");
+    return { markup: { label: m.label, abap: abap, shlp: shlp }, html: e };
+  }
+
+  html_field(
     Param: ParameterType,
     Field: FieldType | EmptyObject,
     field_name = "",
     tag = ""
-  ): ElementJS {
+  ): { markup: ElementMarkup; html: string } {
+    // tag
+    // bind
+    // label
+    // type
+    // (shlp)
+    // (format)
+
+    // abap:
+    // type
+    // (length)
+    // (mid)
+    // (shlp)
+    // (alpha)
+
     const abapType: string = Param.nativeKey
       ? Param.nativeKey
       : Field.format.DATATYPE;
@@ -827,86 +913,7 @@ export class Frontend {
         result.abap.length = this.field_length(Field as FieldType);
     }
 
-    return result;
-  }
-
-  element_html(m: ElementJS): ElementHTML {
-    // tag
-    // bind
-    // label
-    // type
-    // (shlp)
-    // (format)
-
-    // abap:
-    // type
-    // (length)
-    // (mid)
-    // (shlp)
-    // (alpha)
-
-    if (!(m.tag in this.uiConfig)) {
-      throw new Error(
-        `html element ${m.tag} of ${this.configPath.abap} not found in ${this.configPath.ui}`
-      );
-    }
-
-    let e = this.uiConfig[m.tag] as string;
-
-    const shlp = m.shlp
-      ? JSON.stringify(m.shlp)
-          .replace(/"type":/, "type: ")
-          .replace(/,"id":/, ", id: ")
-          .replace(/"/g, "'")
-      : "";
-
-    const abap = JSON.stringify(m.abap)
-      .replace(/"(\w+)":/g, "$1:")
-      .replace(/"/g, "'")
-      .replace(/,/g, ", ");
-
-    e = e
-      .replace(/~bind/g, m.bind)
-      .replace(/~label/g, m.label)
-      .replace(/~abap/g, abap);
-
-    if (shlp) {
-      e = e.replace("~shlp", shlp);
-    } else {
-      // remove shlp
-      e = e.replace(/\s+\S*"~shlp"/, "");
-    }
-    // remove empty lines
-    e = e.replace(/^\s*[\r\n]/gm, "");
-    // and double spaces
-    e = e.replace(/\w[ ]{2,}\w/g, " ");
-    return { markup: { label: m.label, abap: abap, shlp: shlp }, html: e };
-  }
-
-  html_field(
-    Param: ParameterType,
-    Field: FieldType | EmptyObject,
-    field_name = ""
-  ): { markup: ElementMarkup; html: string } {
-    // tag
-    // bind
-    // label
-    // type
-    // (shlp)
-    // (format)
-
-    // abap:
-    // type
-    // (length)
-    // (mid)
-    // (shlp)
-    // (alpha)
-
-    const element_js = this.element_js(Param, Field, field_name);
-
-    const element = this.element_html(element_js);
-
-    return element;
+    return this.element_html(result);
   }
 
   getField(

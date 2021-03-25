@@ -86,23 +86,29 @@ const FileType = {
   html: "html",
   py: "py",
 };
+
+export interface IWriter {
+  fileName?: string;
+  echoOnSave?: boolean;
+  indent?: number;
+}
 export class Writer {
   private SPACE = " ";
   private NEWLINE = "\n";
 
   private fileName: string;
-  private saveToFile: boolean;
-  private silent: boolean;
+  private echoOnSave: boolean;
   private indent_step: number;
   private indent_count: number;
   private indent = "";
   private output: Array<string>;
 
-  constructor(fileName?: string, saveToFile?: boolean, silent?: boolean) {
-    log.debug(`Writer ${fileName}`);
-    this.fileName = fileName || "";
-    this.saveToFile = saveToFile || false;
-    this.silent = silent || false;
+  constructor(context?: IWriter) {
+    if (!context) context = {} as IWriter;
+    this.fileName = context.fileName || "";
+    this.echoOnSave = context.echoOnSave || false;
+    this.indent_step = context.indent || 2;
+
     this.indent_step = FileType.js === this.fileName.slice(-2) ? 2 : 4;
     this.indent_step = 2;
     this.indent_count = 0;
@@ -145,14 +151,14 @@ export class Writer {
 
   save(): string {
     const ms: string = this.output.join(this.NEWLINE);
-    if (this.saveToFile) {
+    if (this.fileName) {
       const stream = fs.createWriteStream(this.fileName);
       stream.once("open", () => {
         stream.write(ms);
         stream.end();
       });
     } else {
-      if (!this.silent) log.info(ms);
+      if (this.echoOnSave) log.info(ms);
     }
     return ms;
   }
