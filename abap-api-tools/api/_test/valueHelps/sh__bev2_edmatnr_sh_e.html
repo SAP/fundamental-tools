@@ -1,0 +1,16 @@
+<!-- SH /BEV2/EDMATNR_SH_E Excise Duty Material for Description : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-combo bind="searchParamLow.MATNR" shlp.bind="{type: 'SH', id: 'S_MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-combo>
+<ui-combo bind="searchParamLow.YHVBART" shlp.bind="{type: 'CT', id: '/BEV2/ED901'}" data-abap.bind="{type:'CHAR', mid:'/BEV2/ED_TAXTYPE', length:'3'}"
+          label="Excise Duty Type"></ui-combo>
+<ui-input bind="searchParamLow.MAKTG" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Material Description in Uppercase for Matchcodes"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" label="Material Number"></ui-dg-column>
+   <ui-dg-column sortable field="YHVBART" data-abap.bind="{type:'CHAR', mid:'/BEV2/ED_TAXTYPE', length:'3'}" label="Excise Duty Type"></ui-dg-column>
+   <ui-dg-column sortable field="MAKTG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Description in Uppercase for Matchcodes"></ui-dg-column>
+</ui-datagrid>

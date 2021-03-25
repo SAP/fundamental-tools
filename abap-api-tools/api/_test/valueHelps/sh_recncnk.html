@@ -1,0 +1,46 @@
+<!-- SH RECNCNK Contracts by Adjustment Rules : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.TERMNO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'4'}"
+          label="Term Number"></ui-input>
+<ui-input bind="searchParamLow.ADJMRULE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'REAJADJMRULE', length:'10'}"
+          label="Adjustment Rule"></ui-input>
+<ui-date date.bind="searchParamLow.VALIDFROM"  label="Valid-From Date of Term"></ui-date>
+<ui-date date.bind="searchParamLow.VALIDTO"  label="Valid-To Date of Term"></ui-date>
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.RECNTYPE" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}"
+          label="Contract Type"></ui-input>
+<ui-input bind="searchParamLow.RECNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}"
+          label="Contract Number"></ui-input>
+<ui-date date.bind="searchParamLow.RECNBEG"  label="Date of contract start"></ui-date>
+<ui-date date.bind="searchParamLow.RECNENDABS"  label="Term End Date"></ui-date>
+<ui-input bind="searchParamLow.RECNTXT" data-abap.bind="{type:'CHAR', length:'80'}"
+          label="Contract name"></ui-input>
+<ui-input bind="searchParamLow.RESPONSIBLE" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Person Responsible"></ui-input>
+<ui-input bind="searchParamLow.AUTHGRP" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Authorization Group"></ui-input>
+<ui-input bind="searchParamLow.BENOCN" data-abap.bind="{type:'CHAR', alpha:'SWENR', length:'8'}"
+          label="Business Entity That Belongs to Contract"></ui-input>
+<ui-input bind="searchParamLow.OBJNR" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}"
+          label="Object Number"></ui-input>
+<ui-input bind="searchParamLow.IMKEY" data-abap.bind="{type:'CHAR', alpha:'IMKEY', length:'8'}"
+          label="Internal Key of Real Estate Object (FI)"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="RECNTYPE" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}" label="Contract Type"></ui-dg-column>
+   <ui-dg-column sortable field="RECNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}" label="Contract Number"></ui-dg-column>
+   <ui-dg-column sortable field="RECNBEG" data-abap.bind="{type:'DATS'}" label="Date of contract start"></ui-dg-column>
+   <ui-dg-column sortable field="RECNENDABS" data-abap.bind="{type:'DATS', alpha:'REDAT'}" label="Term End Date"></ui-dg-column>
+   <ui-dg-column sortable field="BENOCN" data-abap.bind="{type:'CHAR', alpha:'SWENR', length:'8'}" label="Business Entity That Belongs to Contract"></ui-dg-column>
+   <ui-dg-column sortable field="RECNTXT" data-abap.bind="{type:'CHAR', length:'80'}" label="Contract name"></ui-dg-column>
+   <ui-dg-column sortable field="RESPONSIBLE" data-abap.bind="{type:'CHAR', length:'12'}" label="Person Responsible"></ui-dg-column>
+   <ui-dg-column sortable field="AUTHGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Authorization Group"></ui-dg-column>
+   <ui-dg-column sortable field="ADJMRULE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'REAJADJMRULE', length:'10'}" label="Adjustment Rule"></ui-dg-column>
+   <ui-dg-column sortable field="TERMNO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'4'}" label="Term Number"></ui-dg-column>
+   <ui-dg-column sortable field="VALIDFROM" data-abap.bind="{type:'DATS'}" label="Valid-From Date of Term"></ui-dg-column>
+   <ui-dg-column sortable field="VALIDTO" data-abap.bind="{type:'DATS', alpha:'REDAT'}" label="Valid-To Date of Term"></ui-dg-column>
+</ui-datagrid>

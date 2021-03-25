@@ -1,0 +1,46 @@
+<!-- SH DEBIM Customers With Lease-Out : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-combo bind="searchParamLow.ROLETYP" shlp.bind="{type: 'SH', id: 'H_TPZ3'}" data-abap.bind="{type:'CHAR', mid:'BPR', length:'4'}"
+          label="Business Partner Role Category"></ui-combo>
+<ui-combo bind="searchParamLow.KUNNR" shlp.bind="{type: 'SH', id: 'DEBI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+          label="Customer Number"></ui-combo>
+<ui-input bind="searchParamLow.NAME1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name 1 (surname for persons, else company name)"></ui-input>
+<ui-input bind="searchParamLow.NAME2" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name 2 (Continuation of NAME 1)"></ui-input>
+<ui-combo bind="searchParamLow.BUKRS" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-combo>
+<ui-combo bind="searchParamLow.SMIVE" shlp.bind="{type: 'SH', id: 'MRTA'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MIV', length:'13'}"
+          label="Lease-Out Number"></ui-combo>
+<ui-combo bind="searchParamLow.SWENR" shlp.bind="{type: 'SH', id: 'MCWE'}" data-abap.bind="{type:'CHAR', alpha:'SWENR', mid:'WEH', length:'8'}"
+          label="Business Entity Number"></ui-combo>
+<ui-combo bind="searchParamLow.SMENR" shlp.bind="{type: 'SH', id: 'MCME'}" data-abap.bind="{type:'CHAR', alpha:'SMENR', mid:'MEH', length:'8'}"
+          label="Number of Rental Unit"></ui-combo>
+<ui-date date.bind="searchParamLow.DMIBEG"  label="Rental start date"></ui-date>
+<ui-date date.bind="searchParamLow.DMIEND"  label="Rental end date"></ui-date>
+<ui-combo bind="searchParamLow.SMVART" shlp.bind="{type: 'SH', id: 'RECNTYPE'}" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}"
+          label="External Real Estate contract type"></ui-combo>
+<ui-date date.bind="searchParamLow.DKUEZU"  label="Contract Notice Per"></ui-date>
+<ui-combo bind="searchParamLow.E_SMIVE" shlp.bind="{type: 'SH', id: 'MRAE'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MVE', length:'13'}"
+          label="Contract No. of Collective Lease-Outs"></ui-combo>
+<ui-input bind="searchParamLow.KONTOBV" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Bank procedure account number"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MIV', length:'13'}" label="Lease-Out Number"></ui-dg-column>
+   <ui-dg-column sortable field="KONTOBV" data-abap.bind="{type:'CHAR', length:'10'}" label="Bank procedure account number"></ui-dg-column>
+   <ui-dg-column sortable field="E_SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MVE', length:'13'}" label="Contract No. of Collective Lease-Outs"></ui-dg-column>
+   <ui-dg-column sortable field="SWENR" data-abap.bind="{type:'CHAR', alpha:'SWENR', mid:'WEH', length:'8'}" label="Business Entity Number"></ui-dg-column>
+   <ui-dg-column sortable field="SMENR" data-abap.bind="{type:'CHAR', alpha:'SMENR', mid:'MEH', length:'8'}" label="Number of Rental Unit"></ui-dg-column>
+   <ui-dg-column sortable field="SMVART" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}" label="External Real Estate contract type"></ui-dg-column>
+   <ui-dg-column sortable field="DMIBEG" data-abap.bind="{type:'DATS'}" label="Rental start date"></ui-dg-column>
+   <ui-dg-column sortable field="DMIEND" data-abap.bind="{type:'DATS'}" label="Rental end date"></ui-dg-column>
+   <ui-dg-column sortable field="DKUEZU" data-abap.bind="{type:'DATS'}" label="Contract Notice Per"></ui-dg-column>
+   <ui-dg-column sortable field="KUNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" label="Customer Number"></ui-dg-column>
+   <ui-dg-column sortable field="ROLETYP" data-abap.bind="{type:'CHAR', mid:'BPR', length:'4'}" label="Business Partner Role Category"></ui-dg-column>
+   <ui-dg-column sortable field="NAME1" data-abap.bind="{type:'CHAR', length:'40'}" label="Name 1 (surname for persons, else company name)"></ui-dg-column>
+   <ui-dg-column sortable field="NAME2" data-abap.bind="{type:'CHAR', length:'40'}" label="Name 2 (Continuation of NAME 1)"></ui-dg-column>
+</ui-datagrid>

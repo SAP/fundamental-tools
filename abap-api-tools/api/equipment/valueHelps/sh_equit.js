@@ -1,4 +1,4 @@
-// SH EQUIT Equipment by short text : abap 2.2.0 at: 2021-03-24 15:30:18
+// SH EQUIT Equipment by short text : abap 2.2.0 at: 2021-03-25 14:41:49
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
   const helpOption = [

@@ -1,0 +1,22 @@
+<!-- SH MAT1I Material by vendor's material number : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.IDNLF" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="Material Number Used by Vendor"></ui-input>
+<ui-combo bind="searchParamLow.LIFNR" shlp.bind="{type: 'SH', id: 'KRED'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
+          label="Vendor's account number"></ui-combo>
+<ui-combo bind="searchParamLow.MATNR" shlp.bind="{type: 'SH', id: 'MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-combo>
+<ui-input bind="searchParamLow.MAKTG" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Material Description in Uppercase for Matchcodes"></ui-input>
+<ui-combo bind="searchParamLow.SPRAS" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="IDNLF" data-abap.bind="{type:'CHAR', length:'35'}" label="Material Number Used by Vendor"></ui-dg-column>
+   <ui-dg-column sortable field="LIFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" label="Vendor's account number"></ui-dg-column>
+   <ui-dg-column sortable field="MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" label="Material Number"></ui-dg-column>
+   <ui-dg-column sortable field="MAKTG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Description in Uppercase for Matchcodes"></ui-dg-column>
+   <ui-dg-column sortable field="SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" label="Language Key"></ui-dg-column>
+</ui-datagrid>

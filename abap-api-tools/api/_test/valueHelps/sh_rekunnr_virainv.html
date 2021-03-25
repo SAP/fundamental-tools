@@ -1,0 +1,34 @@
+<!-- SH REKUNNR_VIRAINV Customer for Invoice Number (Real Estate) : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-combo bind="searchParamLow.BUKRS" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-combo>
+<ui-combo bind="searchParamLow.INVNO" shlp.bind="{type: 'SH', id: 'RERAINVNO'}" data-abap.bind="{type:'NUMC', length:'10'}"
+          label="Invoice Number"></ui-combo>
+<ui-input bind="searchParamLow.FISC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'GJR', length:'4'}"
+          label="Fiscal Year"></ui-input>
+<ui-combo bind="searchParamLow.PARTNER" shlp.bind="{type: 'SH', id: 'BUPA'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}"
+          label="Business Partner Number"></ui-combo>
+<ui-combo bind="searchParamLow.CUSTOMER" shlp.bind="{type: 'SH', id: 'C_KUNNR'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+          label="Customer Number"></ui-combo>
+<ui-input bind="searchParamLow.NAME1" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="Name 1"></ui-input>
+<ui-input bind="searchParamLow.NAME2" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="Name 2"></ui-input>
+<ui-input bind="searchParamLow.ORT01" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="City"></ui-input>
+<ui-input bind="searchParamLow.PSTLZ" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Postal Code"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="INVNO" data-abap.bind="{type:'NUMC', length:'10'}" label="Invoice Number"></ui-dg-column>
+   <ui-dg-column sortable field="FISC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'GJR', length:'4'}" label="Fiscal Year"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="CUSTOMER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" label="Customer Number"></ui-dg-column>
+   <ui-dg-column sortable field="NAME1" data-abap.bind="{type:'CHAR', length:'35'}" label="Name 1"></ui-dg-column>
+   <ui-dg-column sortable field="NAME2" data-abap.bind="{type:'CHAR', length:'35'}" label="Name 2"></ui-dg-column>
+   <ui-dg-column sortable field="PSTLZ" data-abap.bind="{type:'CHAR', length:'10'}" label="Postal Code"></ui-dg-column>
+   <ui-dg-column sortable field="ORT01" data-abap.bind="{type:'CHAR', length:'35'}" label="City"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}" label="Business Partner Number"></ui-dg-column>
+</ui-datagrid>

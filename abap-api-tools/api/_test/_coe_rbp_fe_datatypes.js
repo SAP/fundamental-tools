@@ -1,7 +1,7 @@
 //
-// /COE/RBP_FE_DATATYPES var: 15  struct: 3  table: 3  exception: 1
+// /COE/RBP_FE_DATATYPES exception: 1  struct: 3  table: 3  var: 15
 //
-// abap 2.2.0 at: 2021-03-25 12:31:53
+// abap 2.2.0 at: 2021-03-25 14:41:38
 //
 
 // prettier-ignore
@@ -9,40 +9,40 @@ const parameters = {
 
 // IMPORT PARAMETERS
 
-IS_INPUT           :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (en)
-// IV_COUNT        :          100, // INT4 (10) no text (en)
-// IV_DECF16       :        "0.0", // DECFLOAT16 no text (en)
-// IV_GENERATE     :          'X', // CHAR (1) no text (en)
-// IV_LANGU        :          'E', // LANG (1) ALPHA=ISOLA no text (en)
-// IV_LANGU_D      :          'E', // LANG (1) ALPHA=ISOLA no text (en)
-// IV_STRING       : '0123456789', // STRING no text (en)
-// IV_STRING_SIZE  :            1, // INT8 no text (en)
-// IV_UNAME        :           '', // CHAR (12) no text (en)
-// IV_UNAME_DOM    :           '', // CHAR (12) no text (en)
-// IV_XSTRING      :      bytes(), // XSTRING no text (en)
-// IV_XSTRING_SIZE :            1, // INT8 no text (en)
+IS_INPUT           :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (undefined)
+// IV_COUNT        :          100, // INT4 (10) no text (undefined)
+// IV_DECF16       :        "0.0", // DECFLOAT16 no text (undefined)
+// IV_GENERATE     :          'X', // CHAR (1) no text (undefined)
+// IV_LANGU        :          'E', // LANG (1) ALPHA=ISOLA no text (undefined)
+// IV_LANGU_D      :          'E', // LANG (1) ALPHA=ISOLA no text (undefined)
+// IV_STRING       : '0123456789', // STRING no text (undefined)
+// IV_STRING_SIZE  :            1, // INT8 no text (undefined)
+// IV_UNAME        :           '', // CHAR (12) no text (undefined)
+// IV_UNAME_DOM    :           '', // CHAR (12) no text (undefined)
+// IV_XSTRING      :      bytes(), // XSTRING no text (undefined)
+// IV_XSTRING_SIZE :            1, // INT8 no text (undefined)
 
 // CHANGING PARAMETERS
 
-// CV_CKEY         :           "", // CUKY (5) no text (en) SU3=FWS
-// CV_INT          :            0, // INT4 (10) no text (en)
-// CS_STRUCT       :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (en)
-// CT_TABLE        :           [], // /COE/RBP_T_FE_RFM_TABLE_TYPE no text (en)
+// CV_CKEY         :           "", // CUKY (5) no text (undefined) SU3=FWS
+// CV_INT          :            0, // INT4 (10) no text (undefined)
+// CS_STRUCT       :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (undefined)
+// CT_TABLE        :           [], // /COE/RBP_T_FE_RFM_TABLE_TYPE no text (undefined)
 
 // TABLE PARAMETERS
 
-ET_OUTPUT          :           [], // /COE/RBP_T_FE_RFM_TABLE_TYPE no text (en)
-ET_RAW             :           [], // SDOKCNTBINS no text (en)
+ET_OUTPUT          :           [], // /COE/RBP_T_FE_RFM_TABLE_TYPE no text (undefined)
+ET_RAW             :           [], // SDOKCNTBINS no text (undefined)
 
 // EXPORT PARAMETERS
 
-// EV_STRING       :           "", // STRING no text (en)
-// EV_XSTRING      :      bytes(), // XSTRING no text (en)
-// ES_OUTPUT       :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (en)
+// EV_STRING       :           "", // STRING no text (undefined)
+// EV_XSTRING      :      bytes(), // XSTRING no text (undefined)
+// ES_OUTPUT       :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (undefined)
 
 // EXCEPTION PARAMETERS
 
-// EX_EXCEPTION1                   // no text (en)
+// EX_EXCEPTION1                   // no text (undefined)
 };
 
 const result = await client.call("/COE/RBP_FE_DATATYPES", parameters);

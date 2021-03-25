@@ -1,0 +1,33 @@
+<!-- SH RECNCNINV Contracts for Invoice Numbers : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.INVNO" data-abap.bind="{type:'NUMC', length:'10'}"
+          label="Invoice Number"></ui-input>
+<ui-input bind="searchParamLow.FISC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'GJR', length:'4'}"
+          label="Fiscal Year"></ui-input>
+<ui-input bind="searchParamLow.RECNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}"
+          label="Contract Number"></ui-input>
+<ui-input bind="searchParamLow.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}"
+          label="Business Partner Number"></ui-input>
+<ui-input bind="searchParamLow.NAME1" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="Name 1"></ui-input>
+<ui-input bind="searchParamLow.ORT01" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="City"></ui-input>
+<ui-input bind="searchParamLow.CUSTOMER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+          label="Customer Number"></ui-input>
+<ui-input bind="searchParamLow.OBJNR" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}"
+          label="Object Number"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="INVNO" data-abap.bind="{type:'NUMC', length:'10'}" label="Invoice Number"></ui-dg-column>
+   <ui-dg-column sortable field="FISC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'GJR', length:'4'}" label="Fiscal Year"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="RECNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}" label="Contract Number"></ui-dg-column>
+   <ui-dg-column sortable field="NAME1" data-abap.bind="{type:'CHAR', length:'35'}" label="Name 1"></ui-dg-column>
+   <ui-dg-column sortable field="ORT01" data-abap.bind="{type:'CHAR', length:'35'}" label="City"></ui-dg-column>
+   <ui-dg-column sortable field="CUSTOMER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" label="Customer Number"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}" label="Business Partner Number"></ui-dg-column>
+</ui-datagrid>

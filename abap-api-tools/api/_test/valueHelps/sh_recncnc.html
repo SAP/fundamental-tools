@@ -1,0 +1,56 @@
+<!-- SH RECNCNC Non-Active Contracts : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.RECNTYPE" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}"
+          label="Contract Type"></ui-input>
+<ui-input bind="searchParamLow.RECNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}"
+          label="Contract Number"></ui-input>
+<ui-date date.bind="searchParamLow.RECNBEG"  label="Date of contract start"></ui-date>
+<ui-date date.bind="searchParamLow.RECNENDABS"  label="Term End Date"></ui-date>
+<ui-input bind="searchParamLow.RECNTXT" data-abap.bind="{type:'CHAR', length:'80'}"
+          label="Contract name"></ui-input>
+<ui-input bind="searchParamLow.INDUSTRY" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Industry"></ui-input>
+<ui-input bind="searchParamLow.SRRELEVANT" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Relevant to Sales"></ui-input>
+<ui-date date.bind="searchParamLow.RECNNOTPER"  label="Contract Notice Per"></ui-date>
+<ui-input bind="searchParamLow.RECNNOTREASON" data-abap.bind="{type:'NUMC', length:'2'}"
+          label="Reason for Notice"></ui-input>
+<ui-input bind="searchParamLow.RESPONSIBLE" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Person Responsible"></ui-input>
+<ui-input bind="searchParamLow.AUTHGRP" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Authorization Group"></ui-input>
+<ui-input bind="searchParamLow.RECNBUKRSCOLLECT" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Company code of main contract"></ui-input>
+<ui-input bind="searchParamLow.RECNNRCOLLECT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}"
+          label="Number of Real Estate Main Contract"></ui-input>
+<ui-input bind="searchParamLow.RECNTXTOLD" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'20'}"
+          label="Number of old contract"></ui-input>
+<ui-input bind="searchParamLow.BENOCN" data-abap.bind="{type:'CHAR', alpha:'SWENR', length:'8'}"
+          label="Business Entity That Belongs to Contract"></ui-input>
+<ui-input bind="searchParamLow.OBJNR" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}"
+          label="Object Number"></ui-input>
+<ui-input bind="searchParamLow.IMKEY" data-abap.bind="{type:'CHAR', alpha:'IMKEY', length:'8'}"
+          label="Internal Key of Real Estate Object (FI)"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="RECNTYPE" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}" label="Contract Type"></ui-dg-column>
+   <ui-dg-column sortable field="RECNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}" label="Contract Number"></ui-dg-column>
+   <ui-dg-column sortable field="RECNBEG" data-abap.bind="{type:'DATS'}" label="Date of contract start"></ui-dg-column>
+   <ui-dg-column sortable field="RECNENDABS" data-abap.bind="{type:'DATS', alpha:'REDAT'}" label="Term End Date"></ui-dg-column>
+   <ui-dg-column sortable field="BENOCN" data-abap.bind="{type:'CHAR', alpha:'SWENR', length:'8'}" label="Business Entity That Belongs to Contract"></ui-dg-column>
+   <ui-dg-column sortable field="RECNTXT" data-abap.bind="{type:'CHAR', length:'80'}" label="Contract name"></ui-dg-column>
+   <ui-dg-column sortable field="INDUSTRY" data-abap.bind="{type:'CHAR', length:'10'}" label="Industry"></ui-dg-column>
+   <ui-dg-column sortable field="SRRELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Relevant to Sales"></ui-dg-column>
+   <ui-dg-column sortable field="RECNNOTPER" data-abap.bind="{type:'DATS'}" label="Contract Notice Per"></ui-dg-column>
+   <ui-dg-column sortable field="RECNNOTREASON" data-abap.bind="{type:'NUMC', length:'2'}" label="Reason for Notice"></ui-dg-column>
+   <ui-dg-column sortable field="RESPONSIBLE" data-abap.bind="{type:'CHAR', length:'12'}" label="Person Responsible"></ui-dg-column>
+   <ui-dg-column sortable field="AUTHGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Authorization Group"></ui-dg-column>
+   <ui-dg-column sortable field="RECNBUKRSCOLLECT" data-abap.bind="{type:'CHAR', length:'4'}" label="Company code of main contract"></ui-dg-column>
+   <ui-dg-column sortable field="RECNNRCOLLECT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'RECNNR', length:'13'}" label="Number of Real Estate Main Contract"></ui-dg-column>
+   <ui-dg-column sortable field="RECNTXTOLD" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'20'}" label="Number of old contract"></ui-dg-column>
+</ui-datagrid>

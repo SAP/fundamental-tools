@@ -1,0 +1,21 @@
+<!-- SH PLKSA Task list selection : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.PLNTY" data-abap.bind="{type:'CHAR', mid:'PTY', length:'1'}"
+          label="Task List Type"></ui-input>
+<ui-input bind="searchParamLow.PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}"
+          label="Key for Task List Group"></ui-input>
+<ui-input bind="searchParamLow.PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}"
+          label="Group Counter"></ui-input>
+<ui-date date.bind="searchParamLow.DATUV"  label="Valid-From Date"></ui-date>
+<ui-input bind="searchParamLow.KTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Task list description"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PLNTY" data-abap.bind="{type:'CHAR', mid:'PTY', length:'1'}" label="Task List Type"></ui-dg-column>
+   <ui-dg-column sortable field="PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}" label="Key for Task List Group"></ui-dg-column>
+   <ui-dg-column sortable field="PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}" label="Group Counter"></ui-dg-column>
+   <ui-dg-column sortable field="DATUV" data-abap.bind="{type:'DATS'}" label="Valid-From Date"></ui-dg-column>
+   <ui-dg-column sortable field="KTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Task list description"></ui-dg-column>
+</ui-datagrid>

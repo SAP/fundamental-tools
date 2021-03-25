@@ -1,0 +1,32 @@
+<!-- SH RERAINVNO Invoice Number : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.INVNO" data-abap.bind="{type:'NUMC', length:'10'}"
+          label="Invoice Number"></ui-input>
+<ui-input bind="searchParamLow.FISC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'GJR', length:'4'}"
+          label="Fiscal Year"></ui-input>
+<ui-input bind="searchParamLow.PROCESSID" data-abap.bind="{type:'CHAR', length:'16'}"
+          label="Invoicing Run ID"></ui-input>
+<ui-input bind="searchParamLow.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}"
+          label="Business Partner Number"></ui-input>
+<ui-input bind="searchParamLow.FLG_REVERSAL" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Invoice Reversed?"></ui-input>
+<ui-input bind="searchParamLow.RERF" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Entered by"></ui-input>
+<ui-date date.bind="searchParamLow.DERF"  label="First Entered on"></ui-date>
+<ui-time time.bind="searchParamLow.TERF"  label="Time of Initial Entry"></ui-time>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="INVNO" data-abap.bind="{type:'NUMC', length:'10'}" label="Invoice Number"></ui-dg-column>
+   <ui-dg-column sortable field="FISC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'GJR', length:'4'}" label="Fiscal Year"></ui-dg-column>
+   <ui-dg-column sortable field="PROCESSID" data-abap.bind="{type:'CHAR', length:'16'}" label="Invoicing Run ID"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}" label="Business Partner Number"></ui-dg-column>
+   <ui-dg-column sortable field="FLG_REVERSAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Invoice Reversed?"></ui-dg-column>
+   <ui-dg-column sortable field="RERF" data-abap.bind="{type:'CHAR', length:'12'}" label="Entered by"></ui-dg-column>
+   <ui-dg-column sortable field="DERF" data-abap.bind="{type:'DATS'}" label="First Entered on"></ui-dg-column>
+   <ui-dg-column sortable field="TERF" data-abap.bind="{type:'TIMS'}" label="Time of Initial Entry"></ui-dg-column>
+</ui-datagrid>

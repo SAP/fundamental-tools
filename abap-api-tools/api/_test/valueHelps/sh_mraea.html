@@ -1,0 +1,32 @@
+<!-- SH MRAEA All collective lease-outs : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.E_SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MVE', length:'13'}"
+          label="Contract No. of Collective Lease-Outs"></ui-input>
+<ui-input bind="searchParamLow.SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MIV', length:'13'}"
+          label="Lease-Out Number"></ui-input>
+<ui-input bind="searchParamLow.SWENR" data-abap.bind="{type:'CHAR', alpha:'SWENR', mid:'WEH', length:'8'}"
+          label="Business Entity Number"></ui-input>
+<ui-input bind="searchParamLow.SMENR" data-abap.bind="{type:'CHAR', alpha:'SMENR', mid:'MEH', length:'8'}"
+          label="Number of Rental Unit"></ui-input>
+<ui-date date.bind="searchParamLow.DMIBEG"  label="Rental start date"></ui-date>
+<ui-date date.bind="searchParamLow.DMIEND"  label="Rental end date"></ui-date>
+<ui-input bind="searchParamLow.SMVART" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}"
+          label="External Real Estate contract type"></ui-input>
+<ui-input bind="searchParamLow.SMVANART" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Lease-Out Adjustment Type"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="E_SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MVE', length:'13'}" label="Contract No. of Collective Lease-Outs"></ui-dg-column>
+   <ui-dg-column sortable field="SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MIV', length:'13'}" label="Lease-Out Number"></ui-dg-column>
+   <ui-dg-column sortable field="SWENR" data-abap.bind="{type:'CHAR', alpha:'SWENR', mid:'WEH', length:'8'}" label="Business Entity Number"></ui-dg-column>
+   <ui-dg-column sortable field="SMENR" data-abap.bind="{type:'CHAR', alpha:'SMENR', mid:'MEH', length:'8'}" label="Number of Rental Unit"></ui-dg-column>
+   <ui-dg-column sortable field="DMIBEG" data-abap.bind="{type:'DATS'}" label="Rental start date"></ui-dg-column>
+   <ui-dg-column sortable field="DMIEND" data-abap.bind="{type:'DATS'}" label="Rental end date"></ui-dg-column>
+   <ui-dg-column sortable field="SMVART" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}" label="External Real Estate contract type"></ui-dg-column>
+   <ui-dg-column sortable field="SMVANART" data-abap.bind="{type:'CHAR', length:'1'}" label="Lease-Out Adjustment Type"></ui-dg-column>
+</ui-datagrid>

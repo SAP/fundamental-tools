@@ -1,0 +1,31 @@
+<!-- SH H_T416 BOM Usage : abap 2.2.0 at: 2021-03-25 14:41:38 -->}
+
+<ui-input bind="searchParamLow.STLAN" data-abap.bind="{type:'CHAR', mid:'CSV', length:'1'}"
+          label="BOM Usage"></ui-input>
+<ui-input bind="searchParamLow.PMPFE" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: item relevant to production"></ui-input>
+<ui-input bind="searchParamLow.PMPKO" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: item relevant to engineering"></ui-input>
+<ui-input bind="searchParamLow.ANTXT" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="BOM usage text"></ui-input>
+<ui-input bind="searchParamLow.PMPKA" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: item relevant to costing"></ui-input>
+<ui-input bind="searchParamLow.PMPRV" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: item relevant to sales & distribution (SD)"></ui-input>
+<ui-input bind="searchParamLow.PMPIN" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: item relevant to plant maintenance"></ui-input>
+<ui-input bind="searchParamLow.PMPER" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: spare part"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="STLAN" data-abap.bind="{type:'CHAR', mid:'CSV', length:'1'}" label="BOM Usage"></ui-dg-column>
+   <ui-dg-column sortable field="PMPFE" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: item relevant to production"></ui-dg-column>
+   <ui-dg-column sortable field="PMPKO" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: item relevant to engineering"></ui-dg-column>
+   <ui-dg-column sortable field="PMPIN" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: item relevant to plant maintenance"></ui-dg-column>
+   <ui-dg-column sortable field="PMPER" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: spare part"></ui-dg-column>
+   <ui-dg-column sortable field="PMPRV" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: item relevant to sales & distribution (SD)"></ui-dg-column>
+   <ui-dg-column sortable field="PMPKA" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: item relevant to costing"></ui-dg-column>
+   <ui-dg-column sortable field="ANTXT" data-abap.bind="{type:'CHAR', length:'30'}" label="BOM usage text"></ui-dg-column>
+</ui-datagrid>
