@@ -1,0 +1,19 @@
+<!-- SH DEBIP Customers by personnel number : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.PERNR" data-abap.bind="{type:'NUMC', mid:'PER', length:'8'}"
+          label="Personnel Number"></ui-input>
+<ui-input bind="searchParamLow.MCOD1" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Search term for matchcode search"></ui-input>
+<ui-input bind="searchParamLow.KUNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+          label="Customer Number"></ui-input>
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PERNR" data-abap.bind="{type:'NUMC', mid:'PER', length:'8'}" label="Personnel Number"></ui-dg-column>
+   <ui-dg-column sortable field="MCOD1" data-abap.bind="{type:'CHAR', length:'25'}" label="Search term for matchcode search"></ui-dg-column>
+   <ui-dg-column sortable field="KUNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" label="Customer Number"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+</ui-datagrid>

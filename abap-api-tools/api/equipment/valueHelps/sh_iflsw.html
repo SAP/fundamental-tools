@@ -1,0 +1,23 @@
+<!-- SH IFLSW Historical labels : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-input>
+<ui-input bind="searchParamLow.ALKEY" data-abap.bind="{type:'CHAR', mid:'ILOM_ALKEY', length:'1'}"
+          label="Labeling system for functional locations"></ui-input>
+<ui-input bind="searchParamLow.ACTVS" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Active version"></ui-input>
+<ui-input bind="searchParamLow.STRNO" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Historical label of the functional location"></ui-input>
+<ui-input bind="searchParamLow.KZMLA" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Primary language indicator for text segment"></ui-input>
+<ui-input bind="searchParamLow.PLTXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of functional location"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="STRNO" data-abap.bind="{type:'CHAR', length:'40'}" label="Historical label of the functional location"></ui-dg-column>
+   <ui-dg-column sortable field="ALKEY" data-abap.bind="{type:'CHAR', mid:'ILOM_ALKEY', length:'1'}" label="Labeling system for functional locations"></ui-dg-column>
+   <ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" label="Functional Location"></ui-dg-column>
+   <ui-dg-column sortable field="PLTXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of functional location"></ui-dg-column>
+</ui-datagrid>

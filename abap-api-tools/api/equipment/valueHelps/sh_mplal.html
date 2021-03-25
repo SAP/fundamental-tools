@@ -1,0 +1,12 @@
+<!-- SH MPLAL Maintenance Plan : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.WARPL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MPL', length:'12'}"
+          label="Maintenance Plan"></ui-input>
+<ui-input bind="searchParamLow.FUNCNAME" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Selection Function Triggered by Matchcode"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="WARPL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MPL', length:'12'}" label="Maintenance Plan"></ui-dg-column>
+</ui-datagrid>

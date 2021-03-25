@@ -249,7 +249,7 @@ One example with input, datepicker and checkbox:
 
 ## Value Helps
 
-Generic and custom Value Helps can be attched to any ui component by `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
+Generic and custom Value Helps can be attched to any ui component using `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
 
 - Generated, adapted or built from scratch in design time
 

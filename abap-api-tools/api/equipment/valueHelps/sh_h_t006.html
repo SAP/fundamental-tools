@@ -1,0 +1,19 @@
+<!-- SH H_T006 Unit for the Distance from Marker : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.MSEH3" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="External Unit of Measurement in Commercial Format (3-Char.)"></ui-input>
+<ui-combo bind="searchParamLow.MSEHI" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement"></ui-combo>
+<ui-input bind="searchParamLow.MSEHL" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Unit of Measurement Text (Maximum 30 Characters)"></ui-input>
+<ui-input bind="searchParamLow.TXDIM" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Dimension text"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MSEH3" data-abap.bind="{type:'CHAR', length:'3'}" label="External Unit of Measurement in Commercial Format (3-Char.)"></ui-dg-column>
+   <ui-dg-column sortable field="MSEHI" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" label="Unit of Measurement"></ui-dg-column>
+   <ui-dg-column sortable field="MSEHL" data-abap.bind="{type:'CHAR', length:'30'}" label="Unit of Measurement Text (Maximum 30 Characters)"></ui-dg-column>
+   <ui-dg-column sortable field="TXDIM" data-abap.bind="{type:'CHAR', length:'20'}" label="Dimension text"></ui-dg-column>
+</ui-datagrid>

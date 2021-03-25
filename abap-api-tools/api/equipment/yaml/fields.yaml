@@ -1,0 +1,7323 @@
+BAPI_ITOB_PARMS:
+  EQUIPMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EQUNR
+      ROLLNAME: EQUNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: EQN
+      CONVEXIT: ALPHA
+      shlpId: SH EQUI
+    text:
+      FIELDTEXT: Equipment Number
+      REPTEXT: Equipment
+      SCRTEXT_S: Equipment
+      SCRTEXT_M: Equipment
+      SCRTEXT_L: Equipment
+  INST_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: INSTALLDAT
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Date on which installation location of equipment was changed
+      REPTEXT: EqInstDisD
+      SCRTEXT_S: EqInstDisD
+      SCRTEXT_M: EqInstDism Date
+      SCRTEXT_L: Equip Inst/Dism Date
+  INST_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: ZEITBI
+      ROLLNAME: INSTALLTIM
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Time at which the InstallLoc of the equipment was changed
+      REPTEXT: EqInDiTime
+      SCRTEXT_S: EqInDiTime
+      SCRTEXT_M: EqInstDism Time
+      SCRTEXT_L: Eqmt Inst/Dism Time
+  FUNCLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: ILOM_STRNO
+      ROLLNAME: ILOM_STRNO
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Functional Location Label
+      REPTEXT: Functional Location
+      SCRTEXT_S: Func. Loc.
+      SCRTEXT_M: Functional Loc.
+      SCRTEXT_L: Functional Location
+  LANGU:
+    format:
+      DATATYPE: LANG
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SPRAS
+      ROLLNAME: SPRAS
+      OUTPUTLEN: 2
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      MEMORYID: SPR
+      CONVEXIT: ISOLA
+      shlpId: SH H_T002
+    text:
+      FIELDTEXT: Language Key
+      REPTEXT: Language
+      SCRTEXT_S: Language
+      SCRTEXT_M: Language
+      SCRTEXT_L: Language Key
+  LANGU_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: LAISO
+      ROLLNAME: LAISO
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: 2-Character SAP Language Code
+      REPTEXT: Lng ISO
+      SCRTEXT_S: Lang.(ISO)
+      SCRTEXT_M: Lang. (ISO)
+      SCRTEXT_L: Lang. (ISO 639)
+BAPI_ITOB:
+  AUTHGRP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: IAUTG
+      ROLLNAME: IAUTG
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      shlpId: SH H_T370B
+    text:
+      FIELDTEXT: Technical object authorization group
+      REPTEXT: AGrp
+      SCRTEXT_S: AuthGrp
+      SCRTEXT_M: AuthorizGroup
+      SCRTEXT_L: AuthorizGroup
+  OBJECTTYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EQART
+      ROLLNAME: EQART
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      shlpId: CT T370K
+    text:
+      FIELDTEXT: Type of Technical Object
+      REPTEXT: ObjectType
+      SCRTEXT_S: ObjectType
+      SCRTEXT_M: Object type
+      SCRTEXT_L: Technical obj. type
+  INVENTORY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: INVNR_ANLA
+      ROLLNAME: INVNR
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Inventory number
+      REPTEXT: Inventory number
+      SCRTEXT_S: InvNo.
+      SCRTEXT_M: Inventory no.
+      SCRTEXT_L: Inventory number
+  OBJ_SIZE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: GROES
+      ROLLNAME: GROSS
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Size/dimension
+      REPTEXT: Size/dimension
+      SCRTEXT_S: Size
+      SCRTEXT_M: Size/dimens.
+      SCRTEXT_L: Size/dimension
+  OBJ_WEIGHT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: OBJ_WEIGHT
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_ITOB
+      REFFIELD: UNIT_OF_WT
+    text:
+      FIELDTEXT: Weight of object
+      REPTEXT: Weight
+      SCRTEXT_S: Weight
+      SCRTEXT_M: Weight
+      SCRTEXT_L: Weight of object
+  UNIT_OF_WT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: WEIGHT_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Unit of weight
+      REPTEXT: Un.
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Unit of weight
+      SCRTEXT_L: Unit of weight
+  UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  ACQDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: ANDTI
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Acquisition date
+      REPTEXT: Date
+      SCRTEXT_S: AcqDate
+      SCRTEXT_M: Acquistion date
+      SCRTEXT_L: Acquisition date
+  ACQUISVAL:
+    format:
+      DATATYPE: CURR
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: WERT
+      ROLLNAME: ANSWT
+      OUTPUTLEN: 17
+      DECIMALS: 2
+      REFTABLE: BAPI_ITOB
+      REFFIELD: CURRENCY
+      SIGN: X
+    text:
+      FIELDTEXT: Acquisition Value
+      REPTEXT: Acquisition Value
+      SCRTEXT_S: Acq.value
+      SCRTEXT_M: AcquistnValue
+      SCRTEXT_L: Acquisition Value
+  CURRENCY:
+    format:
+      DATATYPE: CUKY
+      INTTYPE: C
+      LENG: 5
+      DOMNAME: WAERS
+      ROLLNAME: WAERS
+      OUTPUTLEN: 5
+      valueInputType: list
+    input:
+      MEMORYID: FWS
+      shlpId: CT TCURC
+    text:
+      FIELDTEXT: Currency Key
+      REPTEXT: Crcy
+      SCRTEXT_S: Currency
+      SCRTEXT_M: Currency
+      SCRTEXT_L: Currency
+  CURR_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD
+      ROLLNAME: ISOCD
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: ISO currency code
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  MANFACTURE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: TEXT30
+      ROLLNAME: HERST
+      OUTPUTLEN: 30
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Manufacturer of asset
+      REPTEXT: Manufacturer of asset
+      SCRTEXT_S: Mfr
+      SCRTEXT_M: Manufacturer
+      SCRTEXT_L: Manufacturer
+  MANCOUNTRY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: LAND1
+      ROLLNAME: HERLD
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T005
+    text:
+      FIELDTEXT: Country of manufacture
+      REPTEXT: MCtry
+      SCRTEXT_S: ManCtry
+      SCRTEXT_M: ManufCountry
+      SCRTEXT_L: Country of manufact.
+  COUNTR_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: INTCA
+      ROLLNAME: INTCA
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      shlpId: SH F4_INTCA
+    text:
+      FIELDTEXT: Country ISO code
+      REPTEXT: ISO code
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  MANSERNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: SERGE
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Manufacturer serial number
+      REPTEXT: ManufactSerialNumber
+      SCRTEXT_S: SerNo.
+      SCRTEXT_M: ManufSerialNo.
+      SCRTEXT_L: ManufSerialNumber
+  MANMODEL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: TYPBZ
+      ROLLNAME: TYPBZ
+      OUTPUTLEN: 20
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Manufacturer model number
+      REPTEXT: Model number
+      SCRTEXT_S: Model no.
+      SCRTEXT_M: Model number
+      SCRTEXT_L: Model number
+  CONSTYEAR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CJAHR
+      ROLLNAME: BAUJJ
+      OUTPUTLEN: 4
+    input:
+      CONVEXIT: GJAHR
+    text:
+      FIELDTEXT: Year of construction
+      REPTEXT: ConY
+      SCRTEXT_S: ConstYr
+      SCRTEXT_M: ConstructYear
+      SCRTEXT_L: Construction year
+  CONSTMONTH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAUMM
+      ROLLNAME: BAUMM
+      OUTPUTLEN: 2
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV BAUMM
+    text:
+      FIELDTEXT: Month of construction
+      REPTEXT: CM
+      SCRTEXT_S: ConstMth
+      SCRTEXT_M: ConstructMth
+      SCRTEXT_L: Construction month
+  START_FROM:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: ILOM_DATAB
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Start-up Date of the Technical Object
+      REPTEXT: Start from
+      SCRTEXT_S: Start from
+      SCRTEXT_M: Start-up date
+      SCRTEXT_L: Start-up date
+  PLANPLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: IWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: IWK
+      shlpId: SH H_T399I
+    text:
+      FIELDTEXT: Maintenance Planning Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plng plant
+      SCRTEXT_M: Planning plant
+      SCRTEXT_L: Planning plant
+  CONSTTYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: SUBMT
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      shlpId: CT MARA
+    text:
+      FIELDTEXT: Construction type material of the object
+      REPTEXT: Construction type
+      SCRTEXT_S: ConstType
+      SCRTEXT_M: ConstType
+      SCRTEXT_L: Construction type
+  MANPARNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: MAPAR
+      ROLLNAME: MAPAR
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Manufacturer part number
+      REPTEXT: Manufacturer part number
+      SCRTEXT_S: ManParNo
+      SCRTEXT_M: ManufPartNo.
+      SCRTEXT_L: ManufactPartNo.
+  PLANGROUP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: INGRP
+      ROLLNAME: INGRP
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: IHG
+      shlpId: SH H_T024I
+    text:
+      FIELDTEXT: Planner Group for Customer Service and Plant Maintenance
+      REPTEXT: PG
+      SCRTEXT_S: PlannerGrp
+      SCRTEXT_M: Planner group
+      SCRTEXT_L: Planner group
+  CATPROFILE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 9
+      DOMNAME: RBNR
+      ROLLNAME: RBNR
+      OUTPUTLEN: 9
+      valueInputType: list
+    input:
+      shlpId: CT T352B
+    text:
+      FIELDTEXT: Catalog Profile
+      REPTEXT: Cat.Prof.
+      SCRTEXT_S: Cat. Prof.
+      SCRTEXT_M: Catalog profile
+      SCRTEXT_L: Catalog profile
+  WORK_CTR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: CR_OBJID
+      ROLLNAME: LGWID
+      OUTPUTLEN: 8
+      valueInputType: list
+    input:
+      shlpId: CT CRID
+    text:
+      FIELDTEXT: Object ID of the Work Center
+      REPTEXT: WorkCtr
+      SCRTEXT_S: WorkCtr
+      SCRTEXT_M: Work Center
+      SCRTEXT_L: Work Center
+  DESCRIPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: KTX01
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Description of Technical Object
+      REPTEXT: Description of Technical Object
+      SCRTEXT_S: Descript.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Object Description
+  ABCINDIC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: ABCKZ
+      ROLLNAME: ABCKZ
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      shlpId: CT T370C
+    text:
+      FIELDTEXT: ABC indicator for technical object
+      REPTEXT: A
+      SCRTEXT_S: ABC ind.
+      SCRTEXT_M: ABC indic.
+      SCRTEXT_L: ABC indicator
+  SORTFIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: EQFNR
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Sort field
+      REPTEXT: Sort field
+      SCRTEXT_S: Sort fld
+      SCRTEXT_M: Sort field
+      SCRTEXT_L: Sort field
+  MAINTPLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: SWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: SWK
+      shlpId: SH H_T001W
+    text:
+      FIELDTEXT: Maintenance plant
+      REPTEXT: Plnt
+      SCRTEXT_S: MntPlant
+      SCRTEXT_M: MaintPlant
+      SCRTEXT_L: Maintenance plant
+  MAINTLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: AP_STAND
+      ROLLNAME: STORT
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      shlpId: SH H_T499S
+    text:
+      FIELDTEXT: Asset location
+      REPTEXT: Location
+      SCRTEXT_S: Location
+      SCRTEXT_M: Location
+      SCRTEXT_L: Location
+  MAINTROOM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 8
+      DOMNAME: CHAR8
+      ROLLNAME: RAUMNR
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Room
+      REPTEXT: Room
+      SCRTEXT_S: Room
+      SCRTEXT_M: Room
+      SCRTEXT_L: Room
+  PLSECTN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: BEBER
+      ROLLNAME: BEBER
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: BBE
+      shlpId: SH H_T357
+    text:
+      FIELDTEXT: Plant section
+      REPTEXT: PlS
+      SCRTEXT_S: PlSectn
+      SCRTEXT_M: Plant section
+      SCRTEXT_L: Plant section
+  PP_WKCTR:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: CR_OBJID
+      ROLLNAME: PPSID
+      OUTPUTLEN: 8
+      valueInputType: list
+    input:
+      shlpId: CT CRID
+    text:
+      FIELDTEXT: Object ID of PP work center
+      REPTEXT: PP WkCtr
+      SCRTEXT_S: PP WkCtr
+      SCRTEXT_M: PP work ctr
+      SCRTEXT_L: PP work center
+  BUS_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: GSBER
+      ROLLNAME: GSBER
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: GSB
+      shlpId: SH H_TGSB
+    text:
+      FIELDTEXT: Business Area
+      REPTEXT: BusA
+      SCRTEXT_S: Bus. Area
+      SCRTEXT_M: Business Area
+      SCRTEXT_L: Business Area
+  COSTCENTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: KOSTL
+      ROLLNAME: KOSTL
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: KOS
+      CONVEXIT: ALPHA
+      shlpId: CT CSKS
+    text:
+      FIELDTEXT: Cost Center
+      REPTEXT: Cost Ctr
+      SCRTEXT_S: Cost Ctr
+      SCRTEXT_M: Cost Center
+      SCRTEXT_L: Cost Center
+  WBS_ELEM:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 8
+      DOMNAME: PS_POSNR
+      ROLLNAME: PS_PSP_PNR
+      OUTPUTLEN: 24
+      valueInputType: list
+    input:
+      CONVEXIT: ABPSP
+      shlpId: CT PRPS
+    text:
+      FIELDTEXT: Work Breakdown Structure Element (WBS Element)
+      REPTEXT: WBS Element
+      SCRTEXT_S: WBS Elem.
+      SCRTEXT_M: WBS Element
+      SCRTEXT_L: WBS Element
+  COMP_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: BUKRS
+      ROLLNAME: BUKRS
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: BUK
+      shlpId: SH C_T001
+    text:
+      FIELDTEXT: Company Code
+      REPTEXT: CoCd
+      SCRTEXT_S: CoCode
+      SCRTEXT_M: Company Code
+      SCRTEXT_L: Company Code
+  ASSET_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: ANLN1
+      ROLLNAME: ANLN1
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: AN1
+      CONVEXIT: ALPHA
+      shlpId: CT ANLH
+    text:
+      FIELDTEXT: Main Asset Number
+      REPTEXT: Asset
+      SCRTEXT_S: Asset
+      SCRTEXT_M: Asset
+      SCRTEXT_L: Asset
+  SUB_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: ANLN2
+      ROLLNAME: ANLN2
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: AN2
+      CONVEXIT: ALPHA
+      shlpId: CT ANLA
+    text:
+      FIELDTEXT: Asset Subnumber
+      REPTEXT: SNo.
+      SCRTEXT_S: Sub-number
+      SCRTEXT_M: Sub-number
+      SCRTEXT_L: Sub-number
+  STANDORDER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: DAUFN
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      shlpId: SH ORDP
+    text:
+      FIELDTEXT: Standing order number
+      REPTEXT: StandingOrd.
+      SCRTEXT_S: StdgOrd.
+      SCRTEXT_M: StandgOrder
+      SCRTEXT_L: Standing order
+  SETTLORDER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: AUFNR
+      ROLLNAME: ILOM_ORDST
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      shlpId: SH ORDE
+    text:
+      FIELDTEXT: Settlement order
+      SCRTEXT_S: StlmtOrder
+      SCRTEXT_M: SettlementOrder
+      SCRTEXT_L: Settlement order
+  SALES_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VKORG
+      ROLLNAME: VKORG
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: VKO
+      shlpId: SH H_TVKO
+    text:
+      FIELDTEXT: Sales Organization
+      REPTEXT: SOrg.
+      SCRTEXT_S: Sales org.
+      SCRTEXT_M: Sales Org.
+      SCRTEXT_L: Sales Organization
+  DISTR_CHAN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: VTWEG
+      ROLLNAME: VTWEG
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      MEMORYID: VTW
+      shlpId: SH CSH_TVTW
+    text:
+      FIELDTEXT: Distribution Channel
+      REPTEXT: DChl
+      SCRTEXT_S: Distr. Chl
+      SCRTEXT_M: Distr. Channel
+      SCRTEXT_L: Distribution Channel
+  DIVISION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: SPART
+      ROLLNAME: SPART
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      MEMORYID: SPA
+      shlpId: SH CSH_TSPA
+    text:
+      FIELDTEXT: Division
+      REPTEXT: Dv
+      SCRTEXT_S: Division
+      SCRTEXT_M: Division
+      SCRTEXT_L: Division
+  SALES_OFF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: VKBUR
+      ROLLNAME: VKBUR
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: VKB
+      shlpId: SH H_TVBUR
+    text:
+      FIELDTEXT: Sales office
+      REPTEXT: SOff.
+      SCRTEXT_S: Sales off.
+      SCRTEXT_M: Sales office
+      SCRTEXT_L: Sales office
+  SALES_GRP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: VKGRP
+      ROLLNAME: VKGRP
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: VKG
+      shlpId: SH H_TVKGR
+    text:
+      FIELDTEXT: Sales group
+      REPTEXT: SGrp
+      SCRTEXT_S: Sales grp
+      SCRTEXT_M: Sales group
+      SCRTEXT_L: Sales group
+  READ_CRDAT:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: ERDAT
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Date on Which Record Was Created
+      REPTEXT: Created On
+      SCRTEXT_S: 'On'
+      SCRTEXT_M: Created On
+      SCRTEXT_L: Created On
+  READ_CRNAM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: USNAM
+      ROLLNAME: ERNAM
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Name of Person who Created the Object
+      REPTEXT: Created by
+      SCRTEXT_S: Created
+      SCRTEXT_M: Created by
+      SCRTEXT_L: Created by
+  READ_CHDAT:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: AEDAT
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Date of Last Change
+      REPTEXT: Chngd On
+      SCRTEXT_S: Chngd
+      SCRTEXT_M: Changed On
+      SCRTEXT_L: Changed On
+  READ_CHNAM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: USNAM
+      ROLLNAME: AENAM
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Name of person who changed object
+      REPTEXT: Changed by
+      SCRTEXT_S: Change
+      SCRTEXT_M: Changed by
+      SCRTEXT_L: Changed by
+  READ_ADRNR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: AD_ADDRNUM
+      ROLLNAME: AD_ADDRNUM
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: ADR
+      CONVEXIT: ALPHA
+      shlpId: CT ADRC
+    text:
+      FIELDTEXT: Address number
+      REPTEXT: Addr. no.
+      SCRTEXT_S: Addr. no.
+      SCRTEXT_M: Address number
+      SCRTEXT_L: Address number
+  CONSTTYPE_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_CONSTTYPE_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for CONSTTYPE Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  CONSTTYPE_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_CONSTTYPE_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for CONSTTYPE Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  CONSTTYPE_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_CONSTTYPE_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for CONSTTYPE Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  READ_OBJNR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: J_OBJNR
+      ROLLNAME: J_OBJNR
+      OUTPUTLEN: 22
+      valueInputType: list
+    input:
+      MEMORYID: ONR
+      shlpId: CT ONR00
+    text:
+      FIELDTEXT: Object number
+      REPTEXT: Object number
+      SCRTEXT_S: Obj. no.
+      SCRTEXT_M: Object number
+      SCRTEXT_L: Object number
+  SHIFT_REPORT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      ROLLNAME: ILOM_SR_SRTYPE
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Shift Report Type for Object
+      REPTEXT: Shift Report Type
+      SCRTEXT_S: Type
+      SCRTEXT_M: Report Type
+      SCRTEXT_L: Shift Report Type
+  SHIFT_NOTE_NOTIFICATION_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: QMART
+      ROLLNAME: ILOM_SN_SNTYPE
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      shlpId: CT TQ80
+    text:
+      FIELDTEXT: Notification Type for Shift Note for Object
+      REPTEXT: Notif. Type of Shift Note
+      SCRTEXT_S: Note Type
+      SCRTEXT_M: Shift Note Type
+      SCRTEXT_L: Shift Note Type
+  START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_START_POINT
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      shlpId: SH EAML_SH_LINEAR_POINT
+    text:
+      FIELDTEXT: Start Point
+      REPTEXT: Start Point
+      SCRTEXT_S: St Pt
+      SCRTEXT_M: Start Point
+      SCRTEXT_L: Start Point
+  END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_END_POINT
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      shlpId: SH EAML_SH_LINEAR_POINT
+    text:
+      FIELDTEXT: End Point
+      REPTEXT: End Point
+      SCRTEXT_S: End Pt
+      SCRTEXT_M: End Point
+      SCRTEXT_L: End Point
+  LINEAR_LENGTH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_LINEAR_LENGTH
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Length
+      REPTEXT: Length
+      SCRTEXT_S: Length
+      SCRTEXT_M: Length
+      SCRTEXT_L: Length
+  LINEAR_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_LINEAR_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: SH EAML_H_T006
+    text:
+      FIELDTEXT: Unit of Measurement for Linear Data
+      REPTEXT: UoM
+      SCRTEXT_S: UoM
+      SCRTEXT_M: UoM
+      SCRTEXT_L: Unit of Measure
+  FIRST_OFFSET_TYPE_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: EAML_OFFSET_TYPE_CODE
+      ROLLNAME: EAML_OFFSET1_TYPE_CODE
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      shlpId: CT EAML_D_OFFSET_TC
+    text:
+      FIELDTEXT: Type of First Offset
+      REPTEXT: Type of First Offset
+      SCRTEXT_S: Type Off.1
+      SCRTEXT_M: Type Offset 1
+      SCRTEXT_L: Type of First Offset
+  FIRST_OFFSET_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_OFFSET1_VALUE
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Value of Offset 1
+      REPTEXT: Value of Offset 1
+      SCRTEXT_S: Offs 1
+      SCRTEXT_M: Offset 1
+      SCRTEXT_L: Value of Offset 1
+  FIRST_OFFSET_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_OFFSET1_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: SH EAML_H_T006_OFFSET
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 1
+      REPTEXT: UoM
+      SCRTEXT_S: UoM Off.1
+      SCRTEXT_M: UoM Offset 1
+      SCRTEXT_L: UoM for Offset 1
+  SECOND_OFFSET_TYPE_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: EAML_OFFSET_TYPE_CODE
+      ROLLNAME: EAML_OFFSET2_TYPE_CODE
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      shlpId: CT EAML_D_OFFSET_TC
+    text:
+      FIELDTEXT: Type of Second Offset
+      REPTEXT: Type of Second Offset
+      SCRTEXT_S: Type Off.2
+      SCRTEXT_M: Type Offset 2
+      SCRTEXT_L: Type of Second Offset
+  SECOND_OFFSET_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_OFFSET2_VALUE
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Value of Offset 2
+      REPTEXT: Value of Offset 2
+      SCRTEXT_S: Offs 2
+      SCRTEXT_M: Offset 2
+      SCRTEXT_L: Value of Offset 2
+  SECOND_OFFSET_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_OFFSET2_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: SH EAML_H_T006_OFFSET
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 2
+      REPTEXT: UoM
+      SCRTEXT_S: UoM Off.2
+      SCRTEXT_M: UoM Offset 2
+      SCRTEXT_L: UoM for Offset 2
+  SECOND_OFFSET_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_OFFSET2_UNIT_ISO
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 2 in ISO Code
+      REPTEXT: UoM Offset2 ISO
+      SCRTEXT_S: UoM O2 ISO
+      SCRTEXT_M: UoM Offset2 ISO
+      SCRTEXT_L: UoM for Offset2 ISO
+  LINEAR_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_LINEAR_UNIT_ISO
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: Unit of Measurement for Linear Data in ISO Code
+      REPTEXT: UoM ISO
+      SCRTEXT_S: UoM ISO
+      SCRTEXT_M: UoM ISO
+      SCRTEXT_L: UoM ISO
+  FIRST_OFFSET_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_OFFSET1_UNIT_ISO
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: Unit of Measurement for Offset 1 in ISO Code
+      REPTEXT: UoM Offset1 ISO
+      SCRTEXT_S: UoM O1 ISO
+      SCRTEXT_M: UoM Offset1 ISO
+      SCRTEXT_L: UoM for Offset1 ISO
+  LINEAR_REFERENCE_PATTERN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EAML_LRPID
+      ROLLNAME: EAML_LRPID
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: LRP
+      shlpId: SH EAML_SHLP_LRPID
+    text:
+      FIELDTEXT: Linear Reference Pattern
+      SCRTEXT_S: LRP
+      SCRTEXT_M: Lin.Ref.Pattern
+      SCRTEXT_L: Linear Reference Pattern
+  MARKER_START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_MARKER
+      ROLLNAME: EAML_MARKER_START_POINT
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      shlpId: SH EAML_SH_MARKER
+    text:
+      FIELDTEXT: Marker for Start Point
+      REPTEXT: St. Marker
+      SCRTEXT_S: S.Mark
+      SCRTEXT_M: St.Marker
+      SCRTEXT_L: Start Marker
+  MARKER_DISTANCE_START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_MARKER_DISTANCE_START
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Distance between Marker and Start Point
+      REPTEXT: Dist.S.Mkr
+      SCRTEXT_S: Dist.
+      SCRTEXT_M: Dist.St.M.
+      SCRTEXT_L: Dist.Start Mkr
+  MARKER_END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_MARKER
+      ROLLNAME: EAML_MARKER_END_POINT
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      shlpId: SH EAML_SH_MARKER
+    text:
+      FIELDTEXT: Marker for End Point
+      REPTEXT: End Marker
+      SCRTEXT_S: E.Mark
+      SCRTEXT_M: End Marker
+      SCRTEXT_L: End Marker
+  MARKER_DISTANCE_END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EAML_POINT
+      ROLLNAME: EAML_MARKER_DISTANCE_END
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Length Spec for Distance between Marker and End Point
+      REPTEXT: Dist.End M
+      SCRTEXT_S: Dist.
+      SCRTEXT_M: Dist.E.Mkr
+      SCRTEXT_L: Dist End Marker
+  MARKER_DISTANCE_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: EAML_MARKER_DISTANCE_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: SH H_T006
+    text:
+      FIELDTEXT: Unit for the Distance from Marker
+      REPTEXT: UoM
+      SCRTEXT_S: UoM
+      SCRTEXT_M: UoM
+      SCRTEXT_L: Marker Distance Unit
+  MARKER_DISTANCE_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: EAML_MARKER_DISTANCE_UNIT_ISO
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: Unit for the Distance from Marker in ISO Code
+      REPTEXT: UoM ISO
+      SCRTEXT_S: UoM ISO
+      SCRTEXT_M: UoM ISO
+      SCRTEXT_L: UoM ISO
+  CONSTTYPE_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: SUBMT40
+      OUTPUTLEN: 40
+    input:
+      MEMORYID: MAT
+    text:
+      FIELDTEXT: Construction type material of the object
+      REPTEXT: Construction type
+      SCRTEXT_S: ConstType
+      SCRTEXT_M: ConstType
+      SCRTEXT_L: Construction type
+BAPI_ITOBX:
+  AUTHGRP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  OBJECTTYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  INVENTORY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  OBJ_SIZE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  OBJ_WEIGHT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UNIT_OF_WT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ACQDATE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ACQUISVAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CURRENCY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CURR_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MANFACTURE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MANCOUNTRY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  COUNTR_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MANSERNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MANMODEL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSTYEAR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSTMONTH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  START_FROM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PLANPLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSTTYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MANPARNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PLANGROUP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CATPROFILE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  WORK_CTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DESCRIPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ABCINDIC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SORTFIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MAINTPLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MAINTLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MAINTROOM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PLSECTN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PP_WKCTR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  BUS_AREA:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  COSTCENTER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  WBS_ELEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  COMP_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ASSET_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SUB_NUMBER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  STANDORDER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SETTLORDER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SALES_ORG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DISTR_CHAN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DIVISION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SALES_OFF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SALES_GRP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_CRDAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_CRNAM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_CHDAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_CHNAM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_ADRNR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSTTYPE_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSTTYPE_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSTTYPE_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_OBJNR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SHIFT_REPORT_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SHIFT_NOTE_NOTIFICATION_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LINEAR_LENGTH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LINEAR_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FIRST_OFFSET_TYPE_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FIRST_OFFSET_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FIRST_OFFSET_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SECOND_OFFSET_TYPE_CODE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SECOND_OFFSET_VALUE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SECOND_OFFSET_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SECOND_OFFSET_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LINEAR_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FIRST_OFFSET_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LINEAR_REFERENCE_PATTERN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MARKER_START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MARKER_DISTANCE_START_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MARKER_END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MARKER_DISTANCE_END_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MARKER_DISTANCE_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MARKER_DISTANCE_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSTTYPE_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+BAPI_ITOB_EQ_ONLY:
+  CONFIGMAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: KMATN
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      CONVEXIT: MATN1
+      shlpId: SH MAT1
+    text:
+      FIELDTEXT: Configurable Material
+      REPTEXT: Config. material
+      SCRTEXT_S: ConfigMat
+      SCRTEXT_M: Config.material
+      SCRTEXT_L: Configurable material
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: MATNR
+      ROLLNAME: MATNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: MAT
+      CONVEXIT: MATN1
+      shlpId: SH S_MAT1
+    text:
+      FIELDTEXT: Material Number
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+  SERIALNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: GERNR
+      ROLLNAME: GERNR
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: SER
+      CONVEXIT: GERNR
+    text:
+      FIELDTEXT: Serial Number
+      REPTEXT: Serial Number
+      SCRTEXT_S: Serial No.
+      SCRTEXT_M: Serial Number
+      SCRTEXT_L: Serial Number
+  EQUICATGRY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: EQTYP
+      ROLLNAME: EQTYP
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      MEMORYID: EQT
+      shlpId: CT T370T
+    text:
+      FIELDTEXT: Equipment category
+      REPTEXT: C
+      SCRTEXT_S: Category
+      SCRTEXT_M: EquipCategory
+      SCRTEXT_L: Equipment category
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHARG
+      ROLLNAME: CHARG_D
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      MEMORYID: CHA
+      shlpId: CT MCH1
+    text:
+      FIELDTEXT: Batch Number
+      REPTEXT: Batch
+      SCRTEXT_S: Batch
+      SCRTEXT_M: Batch
+      SCRTEXT_L: Batch
+  MANDRAWNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: HZEIN
+      ROLLNAME: HZEIN
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Manufacturer drawing number
+      REPTEXT: Manufacturer drawing number
+      SCRTEXT_S: Drawing
+      SCRTEXT_M: Drawing no.
+      SCRTEXT_L: ManufDrawingNumber
+  DELIVDATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: AULDT
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: First delivery date of the equipment
+      REPTEXT: DelDate
+      SCRTEXT_S: DelDate
+      SCRTEXT_M: Delivery date
+      SCRTEXT_L: Delivery date
+  FREE_DATE1:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: EQDAT
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Date, intended for SAP internal use
+      REPTEXT: Date
+      SCRTEXT_S: Date
+      SCRTEXT_M: Date
+      SCRTEXT_L: Date
+  FREE_NOTE1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: EQBER
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Technical information, intended for SAP internal use
+      REPTEXT: Note
+      SCRTEXT_S: Note
+      SCRTEXT_M: Note
+      SCRTEXT_L: Note
+  FREE_NUM1:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 9
+      DOMNAME: NUM9
+      ROLLNAME: EQNUM
+      OUTPUTLEN: 9
+    text:
+      FIELDTEXT: Numerical field, intended for SAP internal use
+      REPTEXT: Field
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field
+      SCRTEXT_L: Field
+  TECHID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: TIDNR
+      ROLLNAME: TIDNR
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Technical identification number
+      REPTEXT: Technical identification no.
+      SCRTEXT_S: TechID
+      SCRTEXT_M: TechIdentNo.
+      SCRTEXT_L: Technical IdentNo.
+  LICENSE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: CHAR20
+      ROLLNAME: LIZNR
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Equipment license number
+      REPTEXT: License number
+      SCRTEXT_S: License
+      SCRTEXT_M: License no.
+      SCRTEXT_L: License number
+  FREE_DATE2:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: EQDAT
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Date, intended for SAP internal use
+      REPTEXT: Date
+      SCRTEXT_S: Date
+      SCRTEXT_M: Date
+      SCRTEXT_L: Date
+  FREE_NOTE2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: EQBER
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Technical information, intended for SAP internal use
+      REPTEXT: Note
+      SCRTEXT_S: Note
+      SCRTEXT_M: Note
+      SCRTEXT_L: Note
+  FREE_NUM2:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 9
+      DOMNAME: NUM9
+      ROLLNAME: EQNUM
+      OUTPUTLEN: 9
+    text:
+      FIELDTEXT: Numerical field, intended for SAP internal use
+      REPTEXT: Field
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field
+      SCRTEXT_L: Field
+  READ_CUOBJ:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 18
+      DOMNAME: CUOBJ
+      ROLLNAME: CUOBJ
+      OUTPUTLEN: 18
+    input:
+      MEMORYID: CUX
+    text:
+      FIELDTEXT: Configuration (internal object number)
+      REPTEXT: Object no.
+      SCRTEXT_S: Int.obj.no
+      SCRTEXT_M: Int. object no.
+      SCRTEXT_L: Internal object no.
+  READ_CUREF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: KRFKZ
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Referenced Configuration
+      REPTEXT: R
+      SCRTEXT_S: Reference
+      SCRTEXT_M: Referenced
+      SCRTEXT_L: Referenced config.
+  READ_SUPEQ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EQUNR
+      ROLLNAME: HEQUI
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      shlpId: CT EQUI
+    text:
+      FIELDTEXT: Superordinate Equipment
+      REPTEXT: Superord.Equipment
+      SCRTEXT_S: SuperEq.
+      SCRTEXT_M: Superord.Equip.
+      SCRTEXT_L: Superord. Equipment
+  READ_FLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: ILOM_STRNO
+      ROLLNAME: ILOM_STRNO
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Functional Location Label
+      REPTEXT: Functional Location
+      SCRTEXT_S: Func. Loc.
+      SCRTEXT_M: Functional Loc.
+      SCRTEXT_L: Functional Location
+  INST_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: INSTALLPOS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Equipment position at InstallLoc (Superior Equip./FunctLoc)
+      REPTEXT: Pos.
+      SCRTEXT_S: Position
+      SCRTEXT_M: Position
+      SCRTEXT_L: Position
+  CONFIGMAT_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_CONFIGMAT_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for CONFIGMAT Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  CONFIGMAT_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_CONFIGMAT_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for CONFIGMAT Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  CONFIGMAT_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_CONFIGMAT_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for CONFIGMAT Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR_EXT
+      ROLLNAME: MGV_MATERIAL_EXTERNAL
+      OUTPUTLEN: 40
+    input:
+      CONVEXIT: MATNL
+    text:
+      FIELDTEXT: Long Material Number for MATERIAL Field
+      REPTEXT: Material Number
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material Number
+      SCRTEXT_L: Material Number
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: MATNR_EGUID
+      ROLLNAME: MGV_MATERIAL_GUID
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: External GUID for MATERIAL Field
+      REPTEXT: GUID (External)
+      SCRTEXT_S: GUID (Ext)
+      SCRTEXT_M: GUID (External)
+      SCRTEXT_L: GUID (External)
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: MATNR_VERS
+      ROLLNAME: MGV_MATERIAL_VERSION
+      OUTPUTLEN: 10
+    input:
+      CONVEXIT: MATNW
+    text:
+      FIELDTEXT: Version Number for MATERIAL Field
+      REPTEXT: Version Number
+      SCRTEXT_S: Version
+      SCRTEXT_M: Version Number
+      SCRTEXT_L: Version Number
+  CONFIG_CONTROL_IND:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: BAPIFLAG1
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: General Indicator (Single Character)
+      REPTEXT: I
+      SCRTEXT_S: ID
+      SCRTEXT_M: ID
+      SCRTEXT_L: Indicator
+  IPPE_GUID:
+    format:
+      DATATYPE: RAW
+      INTTYPE: X
+      LENG: 16
+      DOMNAME: SYSUUID
+      ROLLNAME: PVS_GUID_CCC
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Internal Identification for PVS Objects
+      REPTEXT: GUID
+      SCRTEXT_S: GUID
+      SCRTEXT_M: GUID
+      SCRTEXT_L: GUID
+  TECHS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: TECHS
+      ROLLNAME: TECHS
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Parameter Variant/Standard Variant
+      REPTEXT: Std Variant
+      SCRTEXT_S: StdVariant
+      SCRTEXT_M: StandardVariant
+      SCRTEXT_L: Standard Variant
+  FUNC_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: CHAR40
+      ROLLNAME: CCC_FUNCID
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Function Identifier
+      REPTEXT: Function Identifier
+      SCRTEXT_S: FID
+      SCRTEXT_M: Function ID
+      SCRTEXT_L: Function Identifier
+  UII:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 72
+      DOMNAME: UII_CHAR72
+      ROLLNAME: UII_CHAR72
+      OUTPUTLEN: 72
+      valueInputType: list
+    input:
+      MEMORYID: UII
+      shlpId: SH H_UII
+    text:
+      FIELDTEXT: Unique Item Identifier
+      REPTEXT: Unique Item Identifier
+      SCRTEXT_S: UII
+      SCRTEXT_M: UII
+      SCRTEXT_L: Unique Item Identifier
+  IUID_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: IUID_TYPE
+      ROLLNAME: IUID_TYPE
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      shlpId: SH H_IUID_TYPE
+    text:
+      FIELDTEXT: Structure Type of UII
+      REPTEXT: IUID Type
+      SCRTEXT_S: IUID Type
+      SCRTEXT_M: IUID Type
+      SCRTEXT_L: IUID Type
+  UII_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: UII_PLANT
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: WRK
+      shlpId: SH H_T001W_C
+    text:
+      FIELDTEXT: Plant Responsible for UII
+      REPTEXT: Plant Responsible for UII
+      SCRTEXT_S: Plant UII
+      SCRTEXT_M: Resp. Plant UII
+      SCRTEXT_L: Plant Responsible for UII
+  READ_MAINTENANCE_PLAN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: WARPL
+      ROLLNAME: WARPL
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: MPL
+      CONVEXIT: ALPHA
+      shlpId: SH MPLAL
+    text:
+      FIELDTEXT: Maintenance Plan
+      REPTEXT: MntPlan
+      SCRTEXT_S: MntPlan
+      SCRTEXT_M: MaintenancePlan
+      SCRTEXT_L: Maintenance Plan
+  READ_MEASURING_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: IMRC_POINT
+      ROLLNAME: IMRC_POINT
+      OUTPUTLEN: 12
+      valueInputType: list
+    input:
+      MEMORYID: IPT
+      CONVEXIT: ALPHA
+      shlpId: SH IMPM
+    text:
+      FIELDTEXT: Measuring Point
+      REPTEXT: MeasPoint
+      SCRTEXT_S: MeasPoint
+      SCRTEXT_M: Measuring point
+      SCRTEXT_L: Measuring point
+  READ_VALID_FROM:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: DATAB
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Valid-From Date
+      REPTEXT: Valid From
+      SCRTEXT_S: Valid From
+      SCRTEXT_M: Valid From
+      SCRTEXT_L: Valid From
+  CONFIGMAT_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: KMATN40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Configurable Material
+      REPTEXT: Config. material
+      SCRTEXT_S: ConfigMat
+      SCRTEXT_M: Config.material
+      SCRTEXT_L: Configurable material
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: MATNR40
+      ROLLNAME: MATNR40
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Material Number (40 Characters, needed f. technical reasons)
+      REPTEXT: Material
+      SCRTEXT_S: Material
+      SCRTEXT_M: Material
+      SCRTEXT_L: Material
+BAPI_ITOB_EQ_ONLYX:
+  EQUIPMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONFIGMAT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MATERIAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SERIALNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  EQUICATGRY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  BATCH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MANDRAWNO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DELIVDATE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FREE_DATE1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FREE_NOTE1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FREE_NUM1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  TECHID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LICENSE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FREE_DATE2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FREE_NOTE2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FREE_NUM2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_CUOBJ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_CUREF:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_SUPEQ:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_FLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  INST_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONFIGMAT_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONFIGMAT_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONFIGMAT_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MATERIAL_EXTERNAL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MATERIAL_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MATERIAL_VERSION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  IPPE_GUID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  TECHS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FUNC_ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UII:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  IUID_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UII_PLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_MAINTENANCE_PLAN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_MEASURING_POINT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  READ_VALID_FROM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONFIGMAT_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MATERIAL_LONG:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+BAPI_FLEET:
+  FLEET_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: FLEET_NUM
+      ROLLNAME: FLEET_NUM
+      OUTPUTLEN: 18
+    text:
+      FIELDTEXT: Identification number for fleet object
+      REPTEXT: Fleet no.
+      SCRTEXT_S: Fleet no.
+      SCRTEXT_M: Fleet objectNo.
+      SCRTEXT_L: Fleet object number
+  FLEET_VIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FLEET_VIN
+      ROLLNAME: FLEET_VIN
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Manufacturer Vehicle Identification Number for Fleet Object
+      REPTEXT: VIN
+      SCRTEXT_S: VIN
+      SCRTEXT_M: VIN
+      SCRTEXT_L: Manufacturer VIN
+  CHASSIS_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHASSIS_NUM
+      ROLLNAME: CHASSIS_NUM
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Chassis number
+      REPTEXT: ChassisNo.
+      SCRTEXT_S: ChassisNo.
+      SCRTEXT_M: Chassis no.
+      SCRTEXT_L: Chassis number
+  LICENSE_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 15
+      DOMNAME: LICENSE_NUM
+      ROLLNAME: LICENSE_NUM
+      OUTPUTLEN: 15
+    text:
+      FIELDTEXT: License plate number
+      REPTEXT: Plate no.
+      SCRTEXT_S: Plate no.
+      SCRTEXT_M: License plate
+      SCRTEXT_L: License plate number
+  EXPIRY_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: EXPIRY_DATE
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Validity end date
+      REPTEXT: ExpiryDate
+      SCRTEXT_S: ExpiryDate
+      SCRTEXT_M: ValidityEndDate
+      SCRTEXT_L: Validity end date
+  FLEET_HGT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: FLEET_HGT
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: DIM_UNIT
+    text:
+      FIELDTEXT: Maximum fleet object height
+      REPTEXT: Obj.Height
+      SCRTEXT_S: Obj.Height
+      SCRTEXT_M: FleetObj.Height
+      SCRTEXT_L: Fleet object height
+  FLEET_WID:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: FLEET_WID
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: DIM_UNIT
+    text:
+      FIELDTEXT: Width of fleet object
+      REPTEXT: Obj. width
+      SCRTEXT_S: Obj. width
+      SCRTEXT_M: FleetObj. width
+      SCRTEXT_L: Fleet object width
+  FLEET_LEN:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: FLEET_LEN
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: DIM_UNIT
+    text:
+      FIELDTEXT: Maximum fleet object length
+      REPTEXT: Obj.length
+      SCRTEXT_S: Obj.length
+      SCRTEXT_M: Object length
+      SCRTEXT_L: Object length
+  DIM_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: DIM_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Unit of length
+      REPTEXT: Dim. unit
+      SCRTEXT_S: Dim. unit
+      SCRTEXT_M: Unit of length
+      SCRTEXT_L: Unit of length
+  DIM_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  PRI_CALC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: PRI_CALC
+      ROLLNAME: PRI_CALC
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Indicator to determine the calculation method f. consumption
+      REPTEXT: CalcMethod
+      SCRTEXT_S: CalcMethod
+      SCRTEXT_M: CalculMethod
+      SCRTEXT_L: CalcMethodConsumptn
+  REPLA_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: REPLA_DATE
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Date on which the object should be replaced
+      REPTEXT: Repl. date
+      SCRTEXT_S: Repl. date
+      SCRTEXT_M: Replacemnt date
+      SCRTEXT_L: Replacement date
+  REPLA_ODOM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: FLTP_INOUT
+      ROLLNAME: REPLA_ODOM
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Odometer reading at replacement
+      REPTEXT: OdometerReadingRepl.
+      SCRTEXT_S: OdomRepl.
+      SCRTEXT_M: OdomRdgReplment
+      SCRTEXT_L: OdometerReadingRepl.
+  REPLA_OPH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 22
+      DOMNAME: FLTP_INOUT
+      ROLLNAME: REPLA_OPH
+      OUTPUTLEN: 22
+    text:
+      FIELDTEXT: Hour meter reading at replacement
+      REPTEXT: HourReplmt
+      SCRTEXT_S: HourReplmt
+      SCRTEXT_M: HourReplacement
+      SCRTEXT_L: HourMeterRdgReplment
+  NUM_AXLE:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: NUM2
+      ROLLNAME: NUM_AXLE
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Number of Axles in Fleet Object
+      REPTEXT: Axles
+      SCRTEXT_S: Axles
+      SCRTEXT_M: Number of Axles
+      SCRTEXT_L: Number of Axles
+  MAX_OCCUPANTS:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 4
+      DOMNAME: NUM4
+      ROLLNAME: MAX_OCCUPANTS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Maximum number of occupants
+      REPTEXT: Persons
+      SCRTEXT_S: Persons
+      SCRTEXT_M: Max. occupants
+      SCRTEXT_L: Max. no. occupants
+  CARD_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: CARD_NUM
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Fuel card number
+      REPTEXT: Fuel card
+      SCRTEXT_S: Fuel card
+      SCRTEXT_M: Fuel card no.
+      SCRTEXT_L: Fuel card number
+  KEY_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: CHAR20
+      ROLLNAME: KEY_NUM
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Key number of vehicle
+      REPTEXT: Key
+      SCRTEXT_S: Key
+      SCRTEXT_M: Key number
+      SCRTEXT_L: Key no. of vehicle
+  FLEET_USE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: FLEET_USE
+      ROLLNAME: FLEET_USE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: Usage indicator
+      REPTEXT: Usage
+      SCRTEXT_S: Usage
+      SCRTEXT_M: Usage indicator
+      SCRTEXT_L: Usage indicator
+  ENGINE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: ENGINE_TYPE
+      ROLLNAME: ENGINE_TYPE
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Engine type
+      REPTEXT: Engine
+      SCRTEXT_S: Engine
+      SCRTEXT_M: Engine type
+      SCRTEXT_L: Engine type
+  ENGINE_POWER:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ENGINE_POWER
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: UNIT_POWER
+    text:
+      FIELDTEXT: Power at specific number of revolutions per minute
+      REPTEXT: Power
+      SCRTEXT_S: Power
+      SCRTEXT_M: Engine power
+      SCRTEXT_L: Engine power
+  UNIT_POWER:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: UNIT_POWER
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Power unit
+      REPTEXT: Power unit
+      SCRTEXT_S: Power unit
+      SCRTEXT_M: Power unit
+      SCRTEXT_L: Power unit
+  UNIT_POWER_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  REVOLUTIONS:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 7
+      DOMNAME: NUM7
+      ROLLNAME: REVOLUTIONS
+      OUTPUTLEN: 7
+    text:
+      FIELDTEXT: Revolutions per minute
+      REPTEXT: Revs/min.
+      SCRTEXT_S: Revs/min.
+      SCRTEXT_M: Revs per min.
+      SCRTEXT_L: Revolutions / min.
+  ENGINE_CYL:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: NUM2
+      ROLLNAME: ENGINE_CYL
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: Number of cylinders
+      REPTEXT: Cylinder
+      SCRTEXT_S: Cylinder
+      SCRTEXT_M: No. cylinders
+      SCRTEXT_L: Number of cylinders
+  ENGINE_CAP:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: ENGINE_CAP
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: UNIT_CAP
+    text:
+      FIELDTEXT: Engine capacity
+      REPTEXT: EngineCap.
+      SCRTEXT_S: EngineCap.
+      SCRTEXT_M: Engine capacity
+      SCRTEXT_L: Engine capacity
+  UNIT_CAP:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: UNIT_CAP
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Unit for engine capacity measurement
+      REPTEXT: Unit cap.
+      SCRTEXT_S: Unit cap.
+      SCRTEXT_M: Unit capacity
+      SCRTEXT_L: Unit capacity
+  UNIT_CAP_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  ENGINE_SNR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: ENGINE_SNR
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Engine serial number of manufacturer
+      REPTEXT: Engine no.
+      SCRTEXT_S: Engine no.
+      SCRTEXT_M: EngineSerialNo.
+      SCRTEXT_L: Engine serial number
+  FUEL_PRI:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: FLUID_TYPE
+      ROLLNAME: FUEL_PRI
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Consumable Type of Primary Fuel
+      REPTEXT: PryFuel
+      SCRTEXT_S: PryFuel
+      SCRTEXT_M: Primary fuel
+      SCRTEXT_L: Primary fuel
+  FUEL_SEC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: FLUID_TYPE
+      ROLLNAME: FUEL_SEC
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Consumable type of secondary fuel
+      REPTEXT: Sec. fuel
+      SCRTEXT_S: Sec. fuel
+      SCRTEXT_M: Secondary fuel
+      SCRTEXT_L: Secondary fuel
+  OIL_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: FLUID_TYPE
+      ROLLNAME: FLTOIL_TYPE
+      OUTPUTLEN: 12
+    text:
+      FIELDTEXT: Consumable type of oil
+      REPTEXT: Oil type
+      SCRTEXT_S: Oil type
+      SCRTEXT_M: Oil type
+      SCRTEXT_L: Oil type
+  GROSS_WGT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: GROSS_WGT
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: WGT_UNIT
+    text:
+      FIELDTEXT: Total Weight Allowed
+      REPTEXT: Total Wgt
+      SCRTEXT_S: Total Wgt
+      SCRTEXT_M: Total Weight
+      SCRTEXT_L: Total Weight Allowed
+  LOAD_WGT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LOAD_WGT
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: WGT_UNIT
+    text:
+      FIELDTEXT: Maximum load weight
+      REPTEXT: LoadWeight
+      SCRTEXT_S: LoadWeight
+      SCRTEXT_M: Max.Load weight
+      SCRTEXT_L: Maximum load weight
+  WGT_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: WEIGHT_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Unit of weight
+      REPTEXT: Un.
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Unit of weight
+      SCRTEXT_L: Unit of weight
+  WGT_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  LOAD_HGT:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LOAD_HGT
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: LOAD_DIM_UNIT
+    text:
+      FIELDTEXT: Load height
+      REPTEXT: LoadHeight
+      SCRTEXT_S: LoadHeight
+      SCRTEXT_M: Load height
+      SCRTEXT_L: Load height
+  LOAD_WID:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LOAD_WID
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: LOAD_DIM_UNIT
+    text:
+      FIELDTEXT: Load width
+      REPTEXT: Load width
+      SCRTEXT_S: Load width
+      SCRTEXT_M: Load width
+      SCRTEXT_L: Load width
+  LOAD_LEN:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LOAD_LEN
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: LOAD_DIM_UNIT
+    text:
+      FIELDTEXT: Load length
+      REPTEXT: LoadLength
+      SCRTEXT_S: LoadLength
+      SCRTEXT_M: Load length
+      SCRTEXT_L: Load length
+  LOAD_DIM_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: LOAD_DIM_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Unit for freight dimensions
+      REPTEXT: Dim. unit
+      SCRTEXT_S: Dim. unit
+      SCRTEXT_M: Unit of length
+      SCRTEXT_L: 'Dimension unit: Load'
+  LOAD_DIM_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  LOAD_VOL:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 13
+      DOMNAME: MENG13
+      ROLLNAME: LOAD_VOL
+      OUTPUTLEN: 17
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: VOL_UNIT
+    text:
+      FIELDTEXT: Load volume
+      REPTEXT: LoadVolume
+      SCRTEXT_S: LoadVolume
+      SCRTEXT_M: Load volume
+      SCRTEXT_L: Load volume
+  VOL_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: VOL_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Volume unit
+      REPTEXT: VolumeUnit
+      SCRTEXT_S: VolumeUnit
+      SCRTEXT_M: Volume unit
+      SCRTEXT_L: Volume unit
+  VOL_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  NO_COMPART:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 2
+      DOMNAME: NUM2
+      ROLLNAME: NO_COMPART
+      OUTPUTLEN: 2
+    text:
+      FIELDTEXT: NUmber of compartments
+      REPTEXT: Compartmts
+      SCRTEXT_S: Compartmts
+      SCRTEXT_M: No.Compartments
+      SCRTEXT_L: No. of compartments
+  SPEED_MAX:
+    format:
+      DATATYPE: QUAN
+      INTTYPE: P
+      LENG: 9
+      DOMNAME: MENG9
+      ROLLNAME: SPEED_MAX
+      OUTPUTLEN: 11
+      DECIMALS: 3
+      REFTABLE: BAPI_FLEET
+      REFFIELD: SPEED_UNIT
+    text:
+      FIELDTEXT: Maximum Fleet Object Speed
+      REPTEXT: Speed
+      SCRTEXT_S: Speed
+      SCRTEXT_M: Maximum speed
+      SCRTEXT_L: Maximum speed
+  SPEED_UNIT:
+    format:
+      DATATYPE: UNIT
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: MEINS
+      ROLLNAME: SPEED_UNIT
+      OUTPUTLEN: 3
+      LOWERCASE: X
+      valueInputType: list
+    input:
+      CONVEXIT: CUNIT
+      shlpId: CT T006
+    text:
+      FIELDTEXT: Speed Unit
+      REPTEXT: Un.
+      SCRTEXT_S: Unit
+      SCRTEXT_M: Speed unit
+      SCRTEXT_L: Speed unit
+  SPEED_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: ISOCD_UNIT
+      ROLLNAME: ISOCD_UNIT
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      shlpId: CT T006I
+    text:
+      FIELDTEXT: ISO code for unit of measurement
+      REPTEXT: ISO
+      SCRTEXT_S: ISO code
+      SCRTEXT_M: ISO code
+      SCRTEXT_L: ISO code
+  CONSUMP_TOL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: CONSUMP_TOL
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Indicator Consumption Recording: Permitted Tolerances'
+      REPTEXT: Tol.
+      SCRTEXT_S: Tolerance
+      SCRTEXT_M: Consumpt.Toler.
+      SCRTEXT_L: ConsumptionTolerance
+  CONSUMP_MOVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: CHAR1
+      ROLLNAME: CONSUMP_MOVE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Indicator Consumption Recording: Material Movement'
+      REPTEXT: MatCon
+      SCRTEXT_S: MatConsump
+      SCRTEXT_M: Mat.Consumption
+      SCRTEXT_L: Material Consumption
+BAPI_FLEETX:
+  FLEET_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FLEET_VIN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CHASSIS_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LICENSE_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  EXPIRY_DATE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FLEET_HGT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FLEET_WID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FLEET_LEN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DIM_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  DIM_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  PRI_CALC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  REPLA_DATE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  REPLA_ODOM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  REPLA_OPH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  NUM_AXLE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  MAX_OCCUPANTS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CARD_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  KEY_NUM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FLEET_USE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ENGINE_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ENGINE_POWER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UNIT_POWER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UNIT_POWER_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  REVOLUTIONS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ENGINE_CYL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ENGINE_CAP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UNIT_CAP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  UNIT_CAP_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  ENGINE_SNR:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FUEL_PRI:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  FUEL_SEC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  OIL_TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  GROSS_WGT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LOAD_WGT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  WGT_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  WGT_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LOAD_HGT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LOAD_WID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LOAD_LEN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LOAD_DIM_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LOAD_DIM_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  LOAD_VOL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  VOL_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  VOL_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  NO_COMPART:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SPEED_MAX:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SPEED_UNIT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  SPEED_UNIT_ISO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSUMP_TOL:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+  CONSUMP_MOVE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPIUPDATE
+      ROLLNAME: BAPIUPDATE
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: Updated information in related user data field
+      REPTEXT: Updated information
+      SCRTEXT_S: Update
+      SCRTEXT_M: Updated Info
+      SCRTEXT_L: Updated info. user data field
+BAPIPAREX:
+  STRUCTURE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: AS4TAB
+      ROLLNAME: TE_STRUC
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      shlpId: CT DD02L
+    text:
+      FIELDTEXT: Structure name of  BAPI table extension
+      SCRTEXT_S: Structure
+      SCRTEXT_M: Table ext.struct.
+      SCRTEXT_L: BAPI table extension struct.
+  VALUEPART1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+  VALUEPART4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 240
+      DOMNAME: CHAR240
+      ROLLNAME: VALUEPART
+      OUTPUTLEN: 240
+    text:
+      FIELDTEXT: Data part of BAPI extension parameter
+      SCRTEXT_S: Data
+      SCRTEXT_M: Data
+      SCRTEXT_L: Data
+BAPIRET2:
+  TYPE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: SYCHAR01
+      ROLLNAME: BAPI_MTYPE
+      OUTPUTLEN: 1
+    text:
+      FIELDTEXT: 'Message type: S Success, E Error, W Warning, I Info, A Abort'
+      REPTEXT: MsgType
+      SCRTEXT_S: Msg type
+      SCRTEXT_M: Message type
+      SCRTEXT_L: Message type
+  ID:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: ARBGB
+      ROLLNAME: SYMSGID
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      shlpId: CT T100A
+    text:
+      FIELDTEXT: Message Class
+      REPTEXT: Message ID
+      SCRTEXT_S: Message ID
+      SCRTEXT_M: Message Class
+      SCRTEXT_L: Message Class
+  NUMBER:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 3
+      DOMNAME: SYMSGNO
+      ROLLNAME: SYMSGNO
+      OUTPUTLEN: 3
+    text:
+      FIELDTEXT: Message Number
+      REPTEXT: Msg.no.
+      SCRTEXT_S: Message no
+      SCRTEXT_M: Message number
+      SCRTEXT_L: Message number
+  MESSAGE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 220
+      DOMNAME: TEXT220
+      ROLLNAME: BAPI_MSG
+      OUTPUTLEN: 220
+    text:
+      FIELDTEXT: Message Text
+      SCRTEXT_S: Message
+      SCRTEXT_M: Message text
+      SCRTEXT_L: Message text
+  LOG_NO:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: BALOGNR
+      ROLLNAME: BALOGNR
+      OUTPUTLEN: 20
+      valueInputType: list
+    input:
+      shlpId: CH BALHDR
+    text:
+      FIELDTEXT: 'Application log: log number'
+      REPTEXT: Log number
+      SCRTEXT_S: Log no.
+      SCRTEXT_M: Log number
+      SCRTEXT_L: Log number
+  LOG_MSG_NO:
+    format:
+      DATATYPE: NUMC
+      INTTYPE: 'N'
+      LENG: 6
+      DOMNAME: BALMNR
+      ROLLNAME: BALMNR
+      OUTPUTLEN: 6
+      valueInputType: list
+    input:
+      shlpId: CH BALM
+    text:
+      FIELDTEXT: 'Application log: Internal message serial number'
+      REPTEXT: Msg.no
+      SCRTEXT_S: Msg. no.
+      SCRTEXT_M: Message no.
+      SCRTEXT_L: Message serial no.
+  MESSAGE_V1:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V2:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V3:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  MESSAGE_V4:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 50
+      DOMNAME: SYCHAR50
+      ROLLNAME: SYMSGV
+      OUTPUTLEN: 50
+    text:
+      FIELDTEXT: Message Variable
+      REPTEXT: Message Variable
+      SCRTEXT_S: Msg. Var.
+      SCRTEXT_M: Message Variable
+      SCRTEXT_L: Message Variable
+  PARAMETER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 32
+      DOMNAME: SWC_ELEM
+      ROLLNAME: BAPI_PARAM
+      OUTPUTLEN: 32
+    text:
+      FIELDTEXT: Parameter Name
+      REPTEXT: Param. Name
+      SCRTEXT_S: Parameters
+      SCRTEXT_M: Parameter Name
+      SCRTEXT_L: Parameter Name
+  ROW:
+    format:
+      DATATYPE: INT4
+      INTTYPE: I
+      LENG: 10
+      DOMNAME: INT4
+      ROLLNAME: BAPI_LINE
+      OUTPUTLEN: 10
+      SIGN: X
+    text:
+      FIELDTEXT: Lines in parameter
+      REPTEXT: Lines in parameter
+      SCRTEXT_S: Line
+      SCRTEXT_M: Parameter line
+      SCRTEXT_L: Lines in parameter
+  FIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: FDNAME
+      ROLLNAME: BAPI_FLD
+      OUTPUTLEN: 30
+      valueInputType: list
+    input:
+      shlpId: CT DD03L
+    text:
+      FIELDTEXT: Field in parameter
+      REPTEXT: Fld.
+      SCRTEXT_S: Field
+      SCRTEXT_M: Field name
+      SCRTEXT_L: Field name
+  SYSTEM:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: LOGSYS
+      ROLLNAME: BAPILOGSYS
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      shlpId: CT TBDLS
+    text:
+      FIELDTEXT: Logical system from which message originates
+      REPTEXT: System from which message comes
+      SCRTEXT_S: System
+      SCRTEXT_M: Logical system
+      SCRTEXT_L: Logical system (source of message)
+BAPI_ITOB_EQ_INSTALL:
+  FUNCLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: ILOM_STRNO
+      ROLLNAME: ILOM_STRNO
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Functional Location Label
+      REPTEXT: Functional Location
+      SCRTEXT_S: Func. Loc.
+      SCRTEXT_M: Functional Loc.
+      SCRTEXT_L: Functional Location
+  SUPEQUI:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EQUNR
+      ROLLNAME: HEQUI
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      shlpId: CT EQUI
+    text:
+      FIELDTEXT: Superordinate Equipment
+      REPTEXT: Superord.Equipment
+      SCRTEXT_S: SuperEq.
+      SCRTEXT_M: Superord.Equip.
+      SCRTEXT_L: Superord. Equipment
+  INST_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: INSTALLPOS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Equipment position at InstallLoc (Superior Equip./FunctLoc)
+      REPTEXT: Pos.
+      SCRTEXT_S: Position
+      SCRTEXT_M: Position
+      SCRTEXT_L: Position
+BAPI_ITOB_EQ_COPY_FLAGS:
+  CP_DOCUMT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPDOC
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy document assignments'
+      REPTEXT: D
+      SCRTEXT_S: Documents
+      SCRTEXT_M: DocAssignments
+      SCRTEXT_L: Document assignments
+  CP_PARTNER:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPPRT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy partner allocation'
+      REPTEXT: P
+      SCRTEXT_S: Partner
+      SCRTEXT_M: PartnerAllocat.
+      SCRTEXT_L: Partner allocations
+  CP_MEASPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPMPT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy measuring points and counters'
+      REPTEXT: M
+      SCRTEXT_S: MeasPoints
+      SCRTEXT_M: MeasPoints
+      SCRTEXT_L: MeasPoints/Counters
+  CP_MPT_TXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPMPX
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy measuring points with long text'
+      REPTEXT: L
+      SCRTEXT_S: w/ LText
+      SCRTEXT_M: w/ Long text
+      SCRTEXT_L: w/ Long text
+  CP_MPT_DOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPMPD
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy measuring points with document allocations'
+      REPTEXT: C
+      SCRTEXT_S: w/ Docum.
+      SCRTEXT_M: w/ Documents
+      SCRTEXT_L: w/ Document allocations
+  CP_INSTLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPINS
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy installation location'
+      REPTEXT: I
+      SCRTEXT_S: InstLoc
+      SCRTEXT_M: InstallLocation
+      SCRTEXT_L: InstallLocation
+  CP_LONGTXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPTXT
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy long text in logon language'
+      REPTEXT: L
+      SCRTEXT_S: Long text
+      SCRTEXT_M: Long text
+      SCRTEXT_L: Long text
+  CP_INTNOTE:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: X
+      ROLLNAME: ILOM_CPTXI
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+    text:
+      FIELDTEXT: 'Checkbox: Copy internal note'
+      REPTEXT: I
+      SCRTEXT_S: Int. note
+      SCRTEXT_M: Internal note
+      SCRTEXT_L: Internal note
+BAPIIHPA:
+  PAR_FUNCT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: PARVW
+      ROLLNAME: PARVW
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      MEMORYID: PAR
+      CONVEXIT: PARVW
+      shlpId: SH H_TPAR
+    text:
+      FIELDTEXT: Partner Function
+      REPTEXT: Funct
+      SCRTEXT_S: Function
+      SCRTEXT_M: Partner Functn
+      SCRTEXT_L: Partner Function
+BAPI_ITOB_EQ_SEL_RESULT:
+  EQUIPMENT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EQUNR
+      ROLLNAME: EQUNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: EQN
+      CONVEXIT: ALPHA
+      shlpId: SH EQUI
+    text:
+      FIELDTEXT: Equipment Number
+      REPTEXT: Equipment
+      SCRTEXT_S: Equipment
+      SCRTEXT_M: Equipment
+      SCRTEXT_L: Equipment
+  DESCRIPT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: KTX01
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Description of Technical Object
+      REPTEXT: Description of Technical Object
+      SCRTEXT_S: Descript.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Object Description
+  EQUICATGRY:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: EQTYP
+      ROLLNAME: EQTYP
+      OUTPUTLEN: 1
+      valueInputType: list
+    input:
+      MEMORYID: EQT
+      shlpId: CT T370T
+    text:
+      FIELDTEXT: Equipment category
+      REPTEXT: C
+      SCRTEXT_S: Category
+      SCRTEXT_M: EquipCategory
+      SCRTEXT_L: Equipment category
+  PLANPLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: IWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: IWK
+      shlpId: CT T001W
+    text:
+      FIELDTEXT: Maintenance Planning Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plng plant
+      SCRTEXT_M: Planning plant
+      SCRTEXT_L: Planning plant
+  MAINTPLANT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: SWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: SWK
+      shlpId: CT T001W
+    text:
+      FIELDTEXT: Maintenance plant
+      REPTEXT: Plnt
+      SCRTEXT_S: MntPlant
+      SCRTEXT_M: MaintPlant
+      SCRTEXT_L: Maintenance plant
+  PLANGROUP:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: INGRP
+      ROLLNAME: INGRP
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: IHG
+      shlpId: CT T024I
+    text:
+      FIELDTEXT: Planner Group for Customer Service and Plant Maintenance
+      REPTEXT: PG
+      SCRTEXT_S: PlannerGrp
+      SCRTEXT_M: Planner group
+      SCRTEXT_L: Planner group
+  SORTFIELD:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: EQFNR
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Sort field
+      REPTEXT: Sort field
+      SCRTEXT_S: Sort fld
+      SCRTEXT_M: Sort field
+      SCRTEXT_L: Sort field
+BAPI_ITOB_SEL_ADDR_CITY:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: AD_MC_CITY
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: City name in Uppercase for Search Help
+      REPTEXT: City
+      SCRTEXT_S: City
+      SCRTEXT_M: City
+      SCRTEXT_L: City
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: AD_MC_CITY
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: City name in Uppercase for Search Help
+      REPTEXT: City
+      SCRTEXT_S: City
+      SCRTEXT_M: City
+      SCRTEXT_L: City
+BAPI_ITOB_SEL_ADDR_NAME:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: AD_MC_NAME
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Name (Field NAME1) in Uppercase for Search Help
+      REPTEXT: Name
+      SCRTEXT_S: Name
+      SCRTEXT_M: Name
+      SCRTEXT_L: Company name
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: AD_MC_NAME
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Name (Field NAME1) in Uppercase for Search Help
+      REPTEXT: Name
+      SCRTEXT_S: Name
+      SCRTEXT_M: Name
+      SCRTEXT_L: Company name
+BAPI_ITOB_SEL_ADDR_POST_CODE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHAR10
+      ROLLNAME: AD_PSTCD1
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: City postal code
+      REPTEXT: Postl Code
+      SCRTEXT_S: Postl Code
+      SCRTEXT_M: Postal Code
+      SCRTEXT_L: Postal Code
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: CHAR10
+      ROLLNAME: AD_PSTCD1
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: City postal code
+      REPTEXT: Postl Code
+      SCRTEXT_S: Postl Code
+      SCRTEXT_M: Postal Code
+      SCRTEXT_L: Postal Code
+BAPI_ITOB_SEL_ADDR_SORT1:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: CHAR20
+      ROLLNAME: AD_SORT1
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Search Term 1
+      REPTEXT: Search Term 1
+      SCRTEXT_S: '1'
+      SCRTEXT_M: Search Term 1
+      SCRTEXT_L: Search Term 1
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: CHAR20
+      ROLLNAME: AD_SORT1
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Search Term 1
+      REPTEXT: Search Term 1
+      SCRTEXT_S: '1'
+      SCRTEXT_M: Search Term 1
+      SCRTEXT_L: Search Term 1
+BAPI_ITOB_SEL_ADDR_SORT2:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: CHAR20
+      ROLLNAME: AD_SORT2
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Search Term 2
+      REPTEXT: Search Term 2
+      SCRTEXT_S: '2'
+      SCRTEXT_M: Search Term 2
+      SCRTEXT_L: Search Term 2
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 20
+      DOMNAME: CHAR20
+      ROLLNAME: AD_SORT2
+      OUTPUTLEN: 20
+    text:
+      FIELDTEXT: Search Term 2
+      REPTEXT: Search Term 2
+      SCRTEXT_S: '2'
+      SCRTEXT_M: Search Term 2
+      SCRTEXT_L: Search Term 2
+BAPI_ITOB_SEL_ADDR_STREET:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: AD_MC_STRT
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Street Name in Uppercase for Search Help
+      REPTEXT: Street
+      SCRTEXT_S: Street
+      SCRTEXT_M: Street
+      SCRTEXT_L: Street
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 25
+      DOMNAME: CHAR25
+      ROLLNAME: AD_MC_STRT
+      OUTPUTLEN: 25
+    text:
+      FIELDTEXT: Street Name in Uppercase for Search Help
+      REPTEXT: Street
+      SCRTEXT_S: Street
+      SCRTEXT_M: Street
+      SCRTEXT_L: Street
+BAPI_ITOB_SEL_DESCRIPT:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV BAPISIGN
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: KTX01
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Description of Technical Object
+      REPTEXT: Description of Technical Object
+      SCRTEXT_S: Descript.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Object Description
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: TEXT40
+      ROLLNAME: KTX01
+      OUTPUTLEN: 40
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Description of Technical Object
+      REPTEXT: Description of Technical Object
+      SCRTEXT_S: Descript.
+      SCRTEXT_M: Description
+      SCRTEXT_L: Object Description
+BAPI_ITOB_SEL_EQUIPMENT:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV BAPISIGN
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EQUNR
+      ROLLNAME: EQUNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: EQN
+      CONVEXIT: ALPHA
+      shlpId: SH EQUI
+    text:
+      FIELDTEXT: Equipment Number
+      REPTEXT: Equipment
+      SCRTEXT_S: Equipment
+      SCRTEXT_M: Equipment
+      SCRTEXT_L: Equipment
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EQUNR
+      ROLLNAME: EQUNR
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      MEMORYID: EQN
+      CONVEXIT: ALPHA
+      shlpId: SH EQUI
+    text:
+      FIELDTEXT: Equipment Number
+      REPTEXT: Equipment
+      SCRTEXT_S: Equipment
+      SCRTEXT_M: Equipment
+      SCRTEXT_L: Equipment
+BAPI_ITOB_SEL_MAINTPLANT:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV BAPISIGN
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: SWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: SWK
+      shlpId: CT T001W
+    text:
+      FIELDTEXT: Maintenance plant
+      REPTEXT: Plnt
+      SCRTEXT_S: MntPlant
+      SCRTEXT_M: MaintPlant
+      SCRTEXT_L: Maintenance plant
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: SWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: SWK
+      shlpId: CT T001W
+    text:
+      FIELDTEXT: Maintenance plant
+      REPTEXT: Plnt
+      SCRTEXT_S: MntPlant
+      SCRTEXT_M: MaintPlant
+      SCRTEXT_L: Maintenance plant
+BAPI_ITOB_SEL_OBJECTTYPE:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EQART
+      ROLLNAME: EQART
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      shlpId: CT T370K
+    text:
+      FIELDTEXT: Type of Technical Object
+      REPTEXT: ObjectType
+      SCRTEXT_S: ObjectType
+      SCRTEXT_M: Object type
+      SCRTEXT_L: Technical obj. type
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 10
+      DOMNAME: EQART
+      ROLLNAME: EQART
+      OUTPUTLEN: 10
+      valueInputType: list
+    input:
+      shlpId: CT T370K
+    text:
+      FIELDTEXT: Type of Technical Object
+      REPTEXT: ObjectType
+      SCRTEXT_S: ObjectType
+      SCRTEXT_M: Object type
+      SCRTEXT_L: Technical obj. type
+BAPI_ITOB_SEL_PARTNER:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: I_PARNR
+      ROLLNAME: I_PARNR
+      OUTPUTLEN: 12
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Partner
+      REPTEXT: Partner
+      SCRTEXT_S: Partner
+      SCRTEXT_M: Partner
+      SCRTEXT_L: Partner
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 12
+      DOMNAME: I_PARNR
+      ROLLNAME: I_PARNR
+      OUTPUTLEN: 12
+    input:
+      CONVEXIT: ALPHA
+    text:
+      FIELDTEXT: Partner
+      REPTEXT: Partner
+      SCRTEXT_S: Partner
+      SCRTEXT_M: Partner
+      SCRTEXT_L: Partner
+BAPI_ITOB_SEL_PLANGROUP:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV BAPISIGN
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: INGRP
+      ROLLNAME: INGRP
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: IHG
+      shlpId: CT T024I
+    text:
+      FIELDTEXT: Planner Group for Customer Service and Plant Maintenance
+      REPTEXT: PG
+      SCRTEXT_S: PlannerGrp
+      SCRTEXT_M: Planner group
+      SCRTEXT_L: Planner group
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 3
+      DOMNAME: INGRP
+      ROLLNAME: INGRP
+      OUTPUTLEN: 3
+      valueInputType: list
+    input:
+      MEMORYID: IHG
+      shlpId: CT T024I
+    text:
+      FIELDTEXT: Planner Group for Customer Service and Plant Maintenance
+      REPTEXT: PG
+      SCRTEXT_S: PlannerGrp
+      SCRTEXT_M: Planner group
+      SCRTEXT_L: Planner group
+BAPI_ITOB_SEL_PLANPLANT:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV BAPISIGN
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: IWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: IWK
+      shlpId: CT T001W
+    text:
+      FIELDTEXT: Maintenance Planning Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plng plant
+      SCRTEXT_M: Planning plant
+      SCRTEXT_L: Planning plant
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: WERKS
+      ROLLNAME: IWERK
+      OUTPUTLEN: 4
+      valueInputType: list
+    input:
+      MEMORYID: IWK
+      shlpId: CT T001W
+    text:
+      FIELDTEXT: Maintenance Planning Plant
+      REPTEXT: Plnt
+      SCRTEXT_S: Plng plant
+      SCRTEXT_M: Planning plant
+      SCRTEXT_L: Planning plant
+BAPI_ITOB_SEL_SORTFIELD:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: BAPISIGN
+      ROLLNAME: BAPISIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV BAPISIGN
+    text:
+      FIELDTEXT: Inclusion/exclusion criterion SIGN for range tables
+      REPTEXT: Inclusion/exclusion criterion SIGN for range tables
+      SCRTEXT_S: Incl/excl
+      SCRTEXT_M: Inclusive/exclusive
+      SCRTEXT_L: Inclusive/exclusive
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: BAPIOPTION
+      ROLLNAME: BAPIOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV BAPIOPTION
+    text:
+      FIELDTEXT: Selection operator OPTION for range tables
+      REPTEXT: Selection operator OPTION for range tables
+      SCRTEXT_S: Option
+      SCRTEXT_M: Selection op. OPTION
+      SCRTEXT_L: Selection operator OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: EQFNR
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Sort field
+      REPTEXT: Sort field
+      SCRTEXT_S: Sort fld
+      SCRTEXT_M: Sort field
+      SCRTEXT_L: Sort field
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: CHAR30
+      ROLLNAME: EQFNR
+      OUTPUTLEN: 30
+    text:
+      FIELDTEXT: Sort field
+      REPTEXT: Sort field
+      SCRTEXT_S: Sort fld
+      SCRTEXT_M: Sort field
+      SCRTEXT_L: Sort field
+BAPI_ITOB_SEL_STATUS:
+  SIGN:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 1
+      DOMNAME: DDSIGN
+      ROLLNAME: DDSIGN
+      OUTPUTLEN: 1
+      valueInputType: binary
+    input:
+      VALEXI: X
+      shlpId: FV DDSIGN
+    text:
+      FIELDTEXT: Type of SIGN component in row type of a Ranges type
+      REPTEXT: SIGN
+  OPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 2
+      DOMNAME: DDOPTION
+      ROLLNAME: DDOPTION
+      OUTPUTLEN: 2
+      valueInputType: list
+    input:
+      VALEXI: X
+      shlpId: FV DDOPTION
+    text:
+      FIELDTEXT: Type of OPTION component in row type of a Ranges type
+      REPTEXT: OPTION
+  LOW:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: TEXT4
+      ROLLNAME: J_TXT04
+      OUTPUTLEN: 4
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Individual status of an object (short form)
+      REPTEXT: Stat
+      SCRTEXT_S: Status
+      SCRTEXT_M: Status
+      SCRTEXT_L: Status
+  HIGH:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: TEXT4
+      ROLLNAME: J_TXT04
+      OUTPUTLEN: 4
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Individual status of an object (short form)
+      REPTEXT: Stat
+      SCRTEXT_S: Status
+      SCRTEXT_M: Status
+      SCRTEXT_L: Status
+BAPI_ITOB_STATUS:
+  STATUS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 5
+      DOMNAME: J_STATUS
+      ROLLNAME: J_STATUS
+      OUTPUTLEN: 5
+    text:
+      FIELDTEXT: Object status
+      REPTEXT: Stat.
+      SCRTEXT_S: Status
+      SCRTEXT_M: Status
+      SCRTEXT_L: Status
+  TEXT:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: TEXT4
+      ROLLNAME: J_TXT04
+      OUTPUTLEN: 4
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Individual status of an object (short form)
+      REPTEXT: Stat
+      SCRTEXT_S: Status
+      SCRTEXT_M: Status
+      SCRTEXT_L: Status
+  DESCRIPTION:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 30
+      DOMNAME: TEXT30
+      ROLLNAME: J_TXT30
+      OUTPUTLEN: 30
+      LOWERCASE: X
+    text:
+      FIELDTEXT: Object status
+      REPTEXT: Status
+      SCRTEXT_S: Status
+      SCRTEXT_M: Status
+      SCRTEXT_L: Status
+J_STEXT:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 40
+    DOMNAME: TEXT40
+    ROLLNAME: J_STEXT
+    OUTPUTLEN: 40
+    LOWERCASE: X
+  text:
+    FIELDTEXT: System status line
+    REPTEXT: System status
+    SCRTEXT_S: SysStatus
+    SCRTEXT_M: System status
+    SCRTEXT_L: System status
+ASTTX:
+  format:
+    DATATYPE: CHAR
+    INTTYPE: C
+    LENG: 40
+    DOMNAME: TEXT40
+    ROLLNAME: ASTTX
+    OUTPUTLEN: 40
+    LOWERCASE: X
+  text:
+    FIELDTEXT: User Status
+    SCRTEXT_S: User stat.
+    SCRTEXT_M: User Status
+    SCRTEXT_L: User Status
+BAPI_ITOB_EQ_INSTALL_EXT:
+  FUNCLOC:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 40
+      DOMNAME: ILOM_STRNO
+      ROLLNAME: ILOM_STRNO
+      OUTPUTLEN: 40
+    text:
+      FIELDTEXT: Functional Location Label
+      REPTEXT: Functional Location
+      SCRTEXT_S: Func. Loc.
+      SCRTEXT_M: Functional Loc.
+      SCRTEXT_L: Functional Location
+  SUPEQUI:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 18
+      DOMNAME: EQUNR
+      ROLLNAME: HEQUI
+      OUTPUTLEN: 18
+      valueInputType: list
+    input:
+      CONVEXIT: ALPHA
+      shlpId: CT EQUI
+    text:
+      FIELDTEXT: Superordinate Equipment
+      REPTEXT: Superord.Equipment
+      SCRTEXT_S: SuperEq.
+      SCRTEXT_M: Superord.Equip.
+      SCRTEXT_L: Superord. Equipment
+  INST_POS:
+    format:
+      DATATYPE: CHAR
+      INTTYPE: C
+      LENG: 4
+      DOMNAME: CHAR4
+      ROLLNAME: INSTALLPOS
+      OUTPUTLEN: 4
+    text:
+      FIELDTEXT: Equipment position at InstallLoc (Superior Equip./FunctLoc)
+      REPTEXT: Pos.
+      SCRTEXT_S: Position
+      SCRTEXT_M: Position
+      SCRTEXT_L: Position
+  INST_DATE:
+    format:
+      DATATYPE: DATS
+      INTTYPE: D
+      LENG: 8
+      DOMNAME: DATUM
+      ROLLNAME: INSTALLDAT
+      OUTPUTLEN: 10
+    text:
+      FIELDTEXT: Date on which installation location of equipment was changed
+      REPTEXT: EqInstDisD
+      SCRTEXT_S: EqInstDisD
+      SCRTEXT_M: EqInstDism Date
+      SCRTEXT_L: Equip Inst/Dism Date
+  INST_TIME:
+    format:
+      DATATYPE: TIMS
+      INTTYPE: T
+      LENG: 6
+      DOMNAME: ZEITBI
+      ROLLNAME: INSTALLTIM
+      OUTPUTLEN: 8
+    text:
+      FIELDTEXT: Time at which the InstallLoc of the equipment was changed
+      REPTEXT: EqInDiTime
+      SCRTEXT_S: EqInDiTime
+      SCRTEXT_M: EqInstDism Time
+      SCRTEXT_L: Eqmt Inst/Dism Time

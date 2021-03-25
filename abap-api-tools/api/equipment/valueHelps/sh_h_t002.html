@@ -1,0 +1,13 @@
+<!-- SH H_T002 Language Key : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-input>
+<ui-input bind="searchParamLow.SPTXT" data-abap.bind="{type:'CHAR', mid:'DSB', length:'16'}"
+          label="Name of Language"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" label="Language Key"></ui-dg-column>
+   <ui-dg-column sortable field="SPTXT" data-abap.bind="{type:'CHAR', mid:'DSB', length:'16'}" label="Name of Language"></ui-dg-column>
+</ui-datagrid>

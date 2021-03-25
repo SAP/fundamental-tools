@@ -1,0 +1,43 @@
+<!-- SH IFLSR Address : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-input>
+<ui-input bind="searchParamLow.ALKEY" data-abap.bind="{type:'CHAR', mid:'ILOM_ALKEY', length:'1'}"
+          label="Labeling system for functional locations"></ui-input>
+<ui-input bind="searchParamLow.ACTVS" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Active version"></ui-input>
+<ui-input bind="searchParamLow.STRNO" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Functional Location Label"></ui-input>
+<ui-input bind="searchParamLow.SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-input>
+<ui-input bind="searchParamLow.SORT1" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search Term 1"></ui-input>
+<ui-input bind="searchParamLow.SORT2" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search Term 2"></ui-input>
+<ui-input bind="searchParamLow.MC_NAME1" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Name (Field NAME1) in Uppercase for Search Help"></ui-input>
+<ui-input bind="searchParamLow.MC_CITY1" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="City name in Uppercase for Search Help"></ui-input>
+<ui-input bind="searchParamLow.MC_STREET" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Street Name in Uppercase for Search Help"></ui-input>
+<ui-input bind="searchParamLow.NAME1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name 1"></ui-input>
+<ui-input bind="searchParamLow.POST_CODE1" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="City postal code"></ui-input>
+<ui-input bind="searchParamLow.CITY1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="City"></ui-input>
+<ui-input bind="searchParamLow.STREET" data-abap.bind="{type:'CHAR', length:'60'}"
+          label="Street"></ui-input>
+<ui-input bind="searchParamLow.HOUSE_NUM1" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="House Number"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="STRNO" data-abap.bind="{type:'CHAR', length:'40'}" label="Functional Location Label"></ui-dg-column>
+   <ui-dg-column sortable field="NAME1" data-abap.bind="{type:'CHAR', length:'40'}" label="Name 1"></ui-dg-column>
+   <ui-dg-column sortable field="POST_CODE1" data-abap.bind="{type:'CHAR', length:'10'}" label="City postal code"></ui-dg-column>
+   <ui-dg-column sortable field="CITY1" data-abap.bind="{type:'CHAR', length:'40'}" label="City"></ui-dg-column>
+   <ui-dg-column sortable field="STREET" data-abap.bind="{type:'CHAR', length:'60'}" label="Street"></ui-dg-column>
+   <ui-dg-column sortable field="HOUSE_NUM1" data-abap.bind="{type:'CHAR', length:'10'}" label="House Number"></ui-dg-column>
+</ui-datagrid>

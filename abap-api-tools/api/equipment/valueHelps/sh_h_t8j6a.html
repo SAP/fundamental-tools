@@ -1,0 +1,16 @@
+<!-- SH H_T8J6A JIB/JIBE Class : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.CLASS" data-abap.bind="{type:'CHAR', mid:'JIB', length:'3'}"
+          label="JIB/JIBE Class"></ui-input>
+<ui-input bind="searchParamLow.CTEXT" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="JIB/JIBE Text"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="CLASS" data-abap.bind="{type:'CHAR', mid:'JIB', length:'3'}" label="JIB/JIBE Class"></ui-dg-column>
+   <ui-dg-column sortable field="CTEXT" data-abap.bind="{type:'CHAR', length:'35'}" label="JIB/JIBE Text"></ui-dg-column>
+</ui-datagrid>

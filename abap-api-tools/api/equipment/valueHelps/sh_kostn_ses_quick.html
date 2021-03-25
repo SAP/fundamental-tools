@@ -1,0 +1,50 @@
+<!-- SH KOSTN_SES_QUICK Simple Search for Cost Centers : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}"
+          label="Input Field for Full Text Search"></ui-input>
+<ui-input bind="searchParamLow.S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Option Fuzzy Mode"></ui-input>
+<ui-input bind="searchParamLow.BUSINESS_OBJECT" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Business Object for Search Engine Service (SES)"></ui-input>
+<ui-input bind="searchParamLow.OBJECT_TYPE" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Type of Business Object"></ui-input>
+<ui-input bind="searchParamLow.EXTERNAL_KEY" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
+          label="Cost Center"></ui-input>
+<ui-input bind="searchParamLow.KOKRS" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}"
+          label="Controlling Area"></ui-input>
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.KOSAR" data-abap.bind="{type:'CHAR', mid:'PCA_KOSAR', length:'1'}"
+          label="Cost Center Category"></ui-input>
+<ui-input bind="searchParamLow.VERAK" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Person Responsible"></ui-input>
+<ui-input bind="searchParamLow.VERAK_USER" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}"
+          label="User Responsible"></ui-input>
+<ui-input bind="searchParamLow.DESCRIPTION" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="General Name"></ui-input>
+<ui-input bind="searchParamLow.PRCTR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}"
+          label="Profit Center"></ui-input>
+<ui-input bind="searchParamLow.FKBER" data-abap.bind="{type:'CHAR', mid:'FBE', length:'16'}"
+          label="Functional Area"></ui-input>
+<ui-date date.bind="searchParamLow.DATAB"  label="Valid-From Date"></ui-date>
+<ui-date date.bind="searchParamLow.DATBI"  label="Valid To Date"></ui-date>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}" label="Input Field for Full Text Search"></ui-dg-column>
+   <ui-dg-column sortable field="S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}" label="Option Fuzzy Mode"></ui-dg-column>
+   <ui-dg-column sortable field="BUSINESS_OBJECT" data-abap.bind="{type:'CHAR', length:'10'}" label="Business Object for Search Engine Service (SES)"></ui-dg-column>
+   <ui-dg-column sortable field="OBJECT_TYPE" data-abap.bind="{type:'CHAR', length:'10'}" label="Type of Business Object"></ui-dg-column>
+   <ui-dg-column sortable field="EXTERNAL_KEY" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}" label="Cost Center"></ui-dg-column>
+   <ui-dg-column sortable field="KOKRS" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}" label="Controlling Area"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="KOSAR" data-abap.bind="{type:'CHAR', mid:'PCA_KOSAR', length:'1'}" label="Cost Center Category"></ui-dg-column>
+   <ui-dg-column sortable field="VERAK" data-abap.bind="{type:'CHAR', length:'20'}" label="Person Responsible"></ui-dg-column>
+   <ui-dg-column sortable field="VERAK_USER" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}" label="User Responsible"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'20'}" label="General Name"></ui-dg-column>
+   <ui-dg-column sortable field="PRCTR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}" label="Profit Center"></ui-dg-column>
+   <ui-dg-column sortable field="FKBER" data-abap.bind="{type:'CHAR', mid:'FBE', length:'16'}" label="Functional Area"></ui-dg-column>
+   <ui-dg-column sortable field="DATAB" data-abap.bind="{type:'DATS'}" label="Valid-From Date"></ui-dg-column>
+   <ui-dg-column sortable field="DATBI" data-abap.bind="{type:'DATS'}" label="Valid To Date"></ui-dg-column>
+</ui-datagrid>

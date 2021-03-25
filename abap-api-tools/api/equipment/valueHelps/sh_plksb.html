@@ -1,0 +1,30 @@
+<!-- SH PLKSB Master Recipe : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}"
+          label="Recipe group key"></ui-input>
+<ui-input bind="searchParamLow.PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}"
+          label="Recipe"></ui-input>
+<ui-input bind="searchParamLow.WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-input>
+<ui-date date.bind="searchParamLow.DATUV"  label="Valid-From Date"></ui-date>
+<ui-input bind="searchParamLow.KTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Recipe description"></ui-input>
+<ui-input bind="searchParamLow.VERWE" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Recipe usage"></ui-input>
+<ui-input bind="searchParamLow.VAGRP" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Responsible planner group/department"></ui-input>
+<ui-input bind="searchParamLow.STATU" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Recipe status"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}" label="Recipe group key"></ui-dg-column>
+   <ui-dg-column sortable field="PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}" label="Recipe"></ui-dg-column>
+   <ui-dg-column sortable field="WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="DATUV" data-abap.bind="{type:'DATS'}" label="Valid-From Date"></ui-dg-column>
+   <ui-dg-column sortable field="KTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Recipe description"></ui-dg-column>
+   <ui-dg-column sortable field="VERWE" data-abap.bind="{type:'CHAR', length:'3'}" label="Recipe usage"></ui-dg-column>
+   <ui-dg-column sortable field="VAGRP" data-abap.bind="{type:'CHAR', length:'3'}" label="Responsible planner group/department"></ui-dg-column>
+   <ui-dg-column sortable field="STATU" data-abap.bind="{type:'CHAR', length:'3'}" label="Recipe status"></ui-dg-column>
+</ui-datagrid>

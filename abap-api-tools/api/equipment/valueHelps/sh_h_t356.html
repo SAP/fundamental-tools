@@ -1,0 +1,16 @@
+<!-- SH H_T356 Priority : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-input bind="searchParamLow.ARTPR" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Priority Type"></ui-input>
+<ui-input bind="searchParamLow.PRIOK" data-abap.bind="{type:'CHAR', mid:'PRIOK', length:'1'}"
+          label="Priority"></ui-input>
+<ui-input bind="searchParamLow.PRIOKX" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Priority Text"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="ARTPR" data-abap.bind="{type:'CHAR', length:'2'}" label="Priority Type"></ui-dg-column>
+   <ui-dg-column sortable field="PRIOK" data-abap.bind="{type:'CHAR', mid:'PRIOK', length:'1'}" label="Priority"></ui-dg-column>
+   <ui-dg-column sortable field="PRIOKX" data-abap.bind="{type:'CHAR', length:'20'}" label="Priority Text"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,26 @@
+<!-- SH F4_MPME Rental Units (Detailed Selection) : abap 2.2.0 at: 2021-03-24 15:30:18 -->}
+
+<ui-combo bind="searchParamLow.POINT" shlp.bind="{type: 'SH', id: 'IMPM'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IPT', length:'12'}"
+          label="Measuring Point"></ui-combo>
+<ui-input bind="searchParamLow.PTTXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of Measuring Point"></ui-input>
+<ui-combo bind="searchParamLow.BUKRS" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-combo>
+<ui-combo bind="searchParamLow.SWENR" shlp.bind="{type: 'SH', id: 'MCWE'}" data-abap.bind="{type:'CHAR', alpha:'SWENR', mid:'WEH', length:'8'}"
+          label="Business Entity Number"></ui-combo>
+<ui-combo bind="searchParamLow.SGRNR" shlp.bind="{type: 'SH', id: 'MCGR'}" data-abap.bind="{type:'CHAR', alpha:'SGRNR', mid:'GRS', length:'8'}"
+          label="Land Number for BE"></ui-combo>
+<ui-combo bind="searchParamLow.SGENR" shlp.bind="{type: 'SH', id: 'MCGE'}" data-abap.bind="{type:'CHAR', alpha:'SGENR', mid:'GEB', length:'8'}"
+          label="Building Number"></ui-combo>
+<ui-combo bind="searchParamLow.SMENR" shlp.bind="{type: 'SH', id: 'MCME'}" data-abap.bind="{type:'CHAR', alpha:'SMENR', mid:'MEH', length:'8'}"
+          label="Number of Rental Unit"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="POINT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IPT', length:'12'}" label="Measuring Point"></ui-dg-column>
+   <ui-dg-column sortable field="PTTXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Measuring Point"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="SWENR" data-abap.bind="{type:'CHAR', alpha:'SWENR', mid:'WEH', length:'8'}" label="Business Entity Number"></ui-dg-column>
+   <ui-dg-column sortable field="SMENR" data-abap.bind="{type:'CHAR', alpha:'SMENR', mid:'MEH', length:'8'}" label="Number of Rental Unit"></ui-dg-column>
+</ui-datagrid>
