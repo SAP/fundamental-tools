@@ -130,6 +130,7 @@ type SystemsYamlType = Record<string, { search_help_api: ShlpApiType }>;
 
 export class Backend {
   private argv: Arguments;
+  private flowEcho: boolean;
 
   private api_name: string;
   private apilist: string[];
@@ -149,10 +150,13 @@ export class Backend {
 
   private avh = {} as ValueInputHelp;
 
-  constructor(api_name: string, argv: Arguments) {
-    this.argv = argv;
-    this.api_name = api_name;
-    this.apilist = argv.apilist ? argv.apilist[api_name] : [];
+  constructor(context: { apiName: string; argv: Arguments }) {
+    this.api_name = context.apiName;
+    this.argv = context.argv;
+    this.flowEcho =
+      this.argv.cmd !== Command.call ||
+      (this.argv.cmd === Command.call && (this.argv.save || false));
+    this.apilist = this.argv.apilist ? this.argv.apilist[this.api_name] : [];
 
     this.alpha = new Alpha();
     this.SPRAS = Languages[this.argv.lang].spras;
@@ -163,7 +167,7 @@ export class Backend {
     this.clientConnectionParameters = {};
 
     log.debug(
-      `backend: ${this.api_name} systemId: ${this.systemId} lang: ${argv.lang} : ${this.SPRAS} api: ${this.apilist}`
+      `backend: ${this.api_name} systemId: ${this.systemId} lang: ${this.argv.lang} : ${this.SPRAS} api: ${this.apilist}`
     );
 
     if (this.argv.dest) {
@@ -544,11 +548,13 @@ export class Backend {
     }
 
     log.info(
-      `\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
+      `\n\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
         this.argv.textOnly ? "only texts" : ""
       } ${this.getSearchHelps ? "value helps" : ""}${
         this.argv.helps ? " w. descriptors" : ""
-      }\n`.replace(/  +/g, " ")
+      }\n`
+        .replace(/  +/g, " ")
+        .replace(/^\s+/g, "")
     );
 
     await this.client.open();
@@ -660,10 +666,12 @@ export class Backend {
       }
 
       if (p.functionName !== functionName) {
-        if (functionName) {
-          log.info(`\n${p.functionName}`);
-        } else {
-          log.info(p.functionName);
+        if (this.flowEcho) {
+          if (functionName) {
+            log.info(`\n${p.functionName}`);
+          } else {
+            log.info(p.functionName);
+          }
         }
         functionName = p.functionName as string;
         // stat
@@ -750,30 +758,31 @@ export class Backend {
       }
 
       // parameter class
-      if (p.PARAMCLASS === ParamClass.exception) {
-        log.info(
-          sprintf("%-15s", `${ParamClassDesc[p.PARAMCLASS].toLowerCase()}`),
-          sprintf(`%-${param_name_len}s`, p.paramName),
-          p.PARAMTEXT
-        );
-      } else {
-        log.info(
-          sprintf(
-            "%-15s",
-            `${ParamClassDesc[p.PARAMCLASS as string].toLowerCase()} ${
-              p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
-            }`
-          ),
-          sprintf(`%-${param_name_len}s`, p.paramName),
-          (p.nativeKey ? chalk.red : chalk)(
-            // native ABAP datatype printed in red
-            p.nativeKey
-              ? "Native ABAP datatype. no annotations " + p.PARAMTEXT ||
-                  `No text in language: ${this.argv.lang}`
-              : p.PARAMTEXT || `No text in language: ${this.argv.lang}`
-          )
-        );
-      }
+      if (this.flowEcho)
+        if (p.PARAMCLASS === ParamClass.exception) {
+          log.info(
+            sprintf("%-15s", `${ParamClassDesc[p.PARAMCLASS].toLowerCase()}`),
+            sprintf(`%-${param_name_len}s`, p.paramName),
+            p.PARAMTEXT
+          );
+        } else {
+          log.info(
+            sprintf(
+              "%-15s",
+              `${ParamClassDesc[p.PARAMCLASS as string].toLowerCase()} ${
+                p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
+              }`
+            ),
+            sprintf(`%-${param_name_len}s`, p.paramName),
+            (p.nativeKey ? chalk.red : chalk)(
+              // native ABAP datatype printed in red
+              p.nativeKey
+                ? "Native ABAP datatype. no annotations " + p.PARAMTEXT ||
+                    `No text in language: ${this.argv.lang}`
+                : p.PARAMTEXT || `No text in language: ${this.argv.lang}`
+            )
+          );
+        }
     }
 
     await this.client.close();

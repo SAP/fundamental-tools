@@ -1,4 +1,4 @@
-// SH WRF_MATNR_CHAR2 Characteristic Value for Main Sizes of Variants : abap 2.2.0 at: 2021-03-25 14:41:38
+// SH WRF_MATNR_CHAR2 Characteristic Value for Main Sizes of Variants : abap 2.2.0 at: 2021-03-29 15:40:08
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
   const helpOption = [

@@ -266,6 +266,7 @@ Aurelia example:
 </ui-combo>
 ```
 
+
 ## Custom ui configurations
 
 Using two configuration files, ABAP data types can be mapped to custom ui components, of practically any ui framework.

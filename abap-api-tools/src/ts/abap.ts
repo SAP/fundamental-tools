@@ -141,7 +141,7 @@ class CliHandler {
         let annotations = {} as AnnotationsType;
         if ([Command.call, Command.get].includes(this.argv.cmd)) {
           log.debug(`backend run ${api_name}`);
-          const backend = new Backend(api_name, this.argv);
+          const backend = new Backend({ apiName: api_name, argv: this.argv });
           annotations = await backend.parse();
           // call method annotations are w/o search helps
           result[api_name] = { annotations: annotations };
@@ -151,7 +151,11 @@ class CliHandler {
           (this.argv.cmd === Command.get && !this.argv.textOnly) ||
           [Command.call, Command.make].includes(this.argv.cmd)
         ) {
-          const frontend = new Frontend(api_name, annotations, this.argv);
+          const frontend = new Frontend({
+            apiName: api_name,
+            abap: annotations,
+            argv: this.argv,
+          });
           log.debug(`frontend run ${api_name}`);
           if (!result[api_name]) result[api_name] = {};
           result[api_name]["frontend"] = frontend.parse();
@@ -287,7 +291,7 @@ export class AbapCliApi {
       runInBg: true,
     };
 
-    const frontend = new Frontend("", annotations, args);
+    const frontend = new Frontend({ abap: annotations, argv: args });
     const result: AbapCliResult = { frontend: frontend.parse() };
     return result;
   }

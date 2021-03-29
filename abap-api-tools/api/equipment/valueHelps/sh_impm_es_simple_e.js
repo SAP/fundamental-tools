@@ -1,4 +1,4 @@
-// SH IMPM_ES_SIMPLE_E Basic Search Help for Measuring Points: Enterprise Search : abap 2.2.0 at: 2021-03-25 14:41:49
+// SH IMPM_ES_SIMPLE_E Basic Search Help for Measuring Points: Enterprise Search : abap 2.2.0 at: 2021-03-29 15:40:08
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
   const helpOption = [

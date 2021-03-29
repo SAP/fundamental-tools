@@ -1,4 +1,4 @@
-// SH FSBP_BP_IDNUM Search for Partner Using Other ID Numbers : abap 2.2.0 at: 2021-03-25 14:41:38
+// SH FSBP_BP_IDNUM Search for Partner Using Other ID Numbers : abap 2.2.0 at: 2021-03-29 15:40:08
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
   const helpOption = [
