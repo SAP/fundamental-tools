@@ -112,9 +112,13 @@ class CliHandler {
             fileLoad(runningInDocker ? path.join(DockerVolume, fn) : fn)
           );
           for (const [k, L] of Object.entries(apilist)) {
-            apilist[k] = L.map((x) => {
-              return x.toUpperCase();
-            });
+            try {
+              apilist[k] = L.map((x) => {
+                return x.toUpperCase();
+              });
+            } catch (ex) {
+              throw new Error(`Error parsing ${k} of ${fn}`);
+            }
           }
         }
       }
