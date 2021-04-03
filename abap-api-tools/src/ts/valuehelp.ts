@@ -80,7 +80,7 @@ export class ValueHelpFrontend {
     if (suffix === "html") return writer;
     writer.write(
       `const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
-  const helpOption = [
+const helpOption = [
   { id: 'EQ', name: 'is' },
   { id: 'NE', name: 'is not' },
   { id: 'GT', name: 'greater than' },
@@ -91,7 +91,7 @@ export class ValueHelpFrontend {
   { id: 'NB', name: 'not between' },
   { id: 'CP', name: 'with pattern' },
   { id: 'NP', name: 'w/o pattern' }
-  ];\n`
+];\n`
     );
     return writer;
   }
@@ -228,9 +228,10 @@ export class ValueHelpFrontend {
     const EH = this.elementaryHelp(shlpId);
     EH.selectionParameters.map((sp) => htmlWriter.write(sp));
     // js
+    jsWriter.write(`const title = "${shlpTitle}";\n`);
     jsWriter.write(`const selectParams = [`);
     jsWriter.addindent();
-    for (const field of EH.selectionFields) {
+    for (const [ndx, field] of Object.entries(EH.selectionFields)) {
       jsWriter.write(`{`);
       jsWriter.addindent();
       for (const k of ["FIELDNAME", "DATATYPE", "LENG", "DECIMALS"]) {
@@ -248,9 +249,8 @@ export class ValueHelpFrontend {
             }`
           );
       }
-
       jsWriter.deindent();
-      jsWriter.write(`},`);
+      jsWriter.write(`}${+ndx === EH.selectionFields.length - 1 ? "" : ","}`);
     }
     jsWriter.deindent();
     jsWriter.write(`];`);
