@@ -374,7 +374,7 @@ export class Frontend {
         fileName:
           this.argv.cmd === Command.call && !this.argv.save
             ? ""
-            : `${fileName}.js`,
+            : `${fileName}.${this.argv.ts ? "ts" : "js"}`,
         echoOnSave: this.argv.cmd === Command.call && !this.argv.save,
       });
 
@@ -469,7 +469,7 @@ export class Frontend {
 
       paramClass = "";
       for (const [param_name, Param] of Object.entries(rfm)) {
-        if (Param["paramType"] === ParamType.exception) {
+        if (Param.paramType === ParamType.exception) {
           continue;
         }
 
@@ -529,23 +529,29 @@ export class Frontend {
           );
         }
 
-        if (Param["paramType"] === ParamType.struct) {
-          this.structure_init(
-            Param,
-            Field as StructureType,
-            jsWriter,
-            htmlWriter
-          );
+        if (Param.paramType === ParamType.struct) {
+          this.structure_init({
+            Param: Param,
+            Field: Field as StructureType,
+            jsWriter: jsWriter,
+            htmlWriter: htmlWriter,
+          });
         }
 
-        if (Param["paramType"] === ParamType.table) {
-          this.table_init(Param, Field as StructureType, jsWriter, htmlWriter);
-          this.structure_init(
-            Param,
-            Field as StructureType,
-            jsWriter,
-            htmlWriter
-          );
+        if (Param.paramType === ParamType.table) {
+          this.table_init({
+            Param: Param,
+            Field: Field as StructureType,
+            jsWriter: jsWriter,
+            htmlWriter: htmlWriter,
+          });
+          this.structure_init({
+            Param: Param,
+            Field: Field as StructureType,
+            jsWriter: jsWriter,
+            htmlWriter: htmlWriter,
+            altParamName: `${Param.paramName}_line`,
+          });
         }
       }
 
@@ -574,16 +580,16 @@ export class Frontend {
     return result;
   }
 
-  table_init(
-    Param: ParameterType,
-    _Field: StructureType,
-    jsWriter?: Writer,
-    htmlWriter?: Writer
-  ): { js: string; html: string } | void {
-    if (!jsWriter) jsWriter = new Writer();
-    if (!htmlWriter) htmlWriter = new Writer();
+  table_init(arg: {
+    Param: ParameterType;
+    Field: StructureType;
+    jsWriter?: Writer;
+    htmlWriter?: Writer;
+  }): { js: string; html: string } | void {
+    const jsWriter = arg.jsWriter ? arg.jsWriter : new Writer(),
+      htmlWriter = arg.htmlWriter ? arg.htmlWriter : new Writer();
 
-    jsWriter.write(`const ${Param.paramName}= [];`);
+    jsWriter.write(`const ${arg.Param.paramName} = [];`);
 
     if (!htmlWriter || !this.uiConfig.table) return;
 
@@ -602,15 +608,15 @@ export class Frontend {
     // header
     if (element_template.header) {
       element_template.header = element_template.header
-        .replace(/~bind/, Param.paramName)
-        .replace(/~title/, Param.PARAMTEXT);
+        .replace(/~bind/, arg.Param.paramName)
+        .replace(/~title/, arg.Param.PARAMTEXT);
 
       htmlWriter.write(element_template.header);
     }
     // header row
     if (element_template.header_row) {
-      for (const [field_name, Field] of Object.entries(_Field)) {
-        const field = this.html_field(Param, Field, field_name);
+      for (const [field_name, Field] of Object.entries(arg.Field)) {
+        const field = this.html_field(arg.Param, Field, field_name);
         if (!field) continue; // curr, uom
         let column = element_template.header_row
           .replace("~bind", field_name)
@@ -629,14 +635,14 @@ export class Frontend {
     // body
     if (element_template.body) {
       element_template.body = element_template.body
-        .replace(/~bind/, Param.paramName)
-        .replace(/~title/, Param.PARAMTEXT);
+        .replace(/~bind/, arg.Param.paramName)
+        .replace(/~title/, arg.Param.PARAMTEXT);
       htmlWriter.write(element_template.body);
     }
 
     // row
-    for (const [field_name, Field] of Object.entries(_Field)) {
-      const field = this.html_field(Param, Field, field_name);
+    for (const [field_name, Field] of Object.entries(arg.Field)) {
+      const field = this.html_field(arg.Param, Field, field_name);
       if (!field) continue; // curr, uom
       let column = element_template.row
         .replace("~bind", field_name)
@@ -659,16 +665,20 @@ export class Frontend {
     return { js: jsWriter.save(), html: htmlWriter.save() };
   }
 
-  structure_init(
-    Param: ParameterType,
-    _Field: StructureType,
-    jsWriter: Writer,
-    htmlWriter?: Writer
-  ): void {
+  structure_init(arg: {
+    Param: ParameterType;
+    Field: StructureType;
+    jsWriter: Writer;
+    htmlWriter?: Writer;
+    altParamName?: string;
+  }): void {
+    const jsWriter = arg.jsWriter,
+      htmlWriter = arg.htmlWriter,
+      paramName = arg.altParamName ? arg.altParamName : arg.Param.paramName;
     jsWriter.write("\n// prettier-ignore");
-    jsWriter.write(`const ${Param["paramName"]}= {`);
+    jsWriter.write(`const ${paramName} = {`);
     jsWriter.addindent();
-    for (const [field_name, Field] of Object.entries(_Field)) {
+    for (const [field_name, Field] of Object.entries(arg.Field)) {
       const right = this.get_field_initializer(Field);
       let field_text: string;
       if (Field.text.FIELDTEXT) {
@@ -696,7 +706,7 @@ export class Frontend {
         )
       );
       if (htmlWriter instanceof Writer) {
-        const field = this.html_field(Param, Field, field_name);
+        const field = this.html_field(arg.Param, Field, field_name);
         if (field) {
           htmlWriter.write(`\n${field.html}`);
         }

@@ -165,7 +165,7 @@ const helpOption = [
         field
       );
     }
-    const table = this.frontend.table_init(Parameter, Field);
+    const table = this.frontend.table_init({ Param: Parameter, Field: Field });
     if (table) {
       result.resultTable = table.html;
     }

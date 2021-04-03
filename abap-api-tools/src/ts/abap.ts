@@ -84,6 +84,7 @@ export type Arguments = {
   "sort-fields"?: boolean;
   runInBg?: boolean;
   helps?: boolean;
+  ts?: boolean;
 };
 
 export type AbapCliResult = {
@@ -202,12 +203,13 @@ export class AbapCliApi {
     "sort-fields": false,
     debug: false,
     helps: false,
+    ts: false,
   };
 
   async call(
     dest: Destination,
     rfm_names: string | string[],
-    options?: { lang?: string; debug?: boolean }
+    options?: { lang?: string; debug?: boolean; ts?: boolean }
   ): Promise<AbapCliResult> {
     if (options) {
       Object.assign(this.options, options);
@@ -227,6 +229,7 @@ export class AbapCliApi {
       lang: this.options.lang,
       debug: this.options.debug,
       runInBg: true,
+      ts: this.options.ts,
     };
 
     const cli = new CliHandler(args);
@@ -239,7 +242,7 @@ export class AbapCliApi {
   async get(
     dest: Destination,
     rfm_names: string | string[],
-    options?: { lang?: string; debug?: boolean; helps?: boolean }
+    options?: { lang?: string; debug?: boolean; helps?: boolean; ts?: boolean }
   ): Promise<AbapCliResult> {
     if (options) {
       Object.assign(this.options, options);
@@ -260,6 +263,7 @@ export class AbapCliApi {
       debug: this.options.debug,
       runInBg: true,
       helps: this.options.helps,
+      ts: this.options.ts,
     };
 
     const cli = new CliHandler(args);
@@ -272,7 +276,11 @@ export class AbapCliApi {
   make(
     annotations: AnnotationsType,
     ui: string | AbapCliUiConfig,
-    options?: { "sort-fields"?: boolean; debug?: boolean }
+    options?: {
+      "sort-fields"?: boolean;
+      debug?: boolean;
+      ts?: boolean;
+    }
   ): AbapCliResult {
     if (options) {
       Object.assign(this.options, options);
@@ -293,6 +301,7 @@ export class AbapCliApi {
       lang: this.options.lang,
       debug: this.options.debug,
       runInBg: true,
+      ts: this.options.ts,
     };
 
     const frontend = new Frontend({ abap: annotations, argv: args });
@@ -346,6 +355,13 @@ if (require.main === module)
             default: "",
             nargs: 1,
           })
+          .option("t", {
+            alias: "ts",
+            describe: "TypeScript output",
+            type: "boolean",
+            default: false,
+            nargs: 0,
+          })
           .option("d", {
             alias: "debug",
             describe: "Detailed logging",
@@ -383,7 +399,7 @@ if (require.main === module)
             type: "string",
             nargs: 1,
           })
-          .option("t", {
+          .option("x", {
             alias: "text-only",
             describe: "Get only texts in a given language",
             type: "string",
@@ -396,6 +412,13 @@ if (require.main === module)
             type: "string",
             default: DefaultFolder.output,
             nargs: 1,
+          })
+          .option("t", {
+            alias: "ts",
+            describe: "TypeScript output",
+            type: "boolean",
+            default: false,
+            nargs: 0,
           })
           .option("d", {
             alias: "debug",
@@ -446,6 +469,13 @@ if (require.main === module)
             type: "string",
             default: DefaultFolder.output,
             nargs: 1,
+          })
+          .option("t", {
+            alias: "ts",
+            describe: "TypeScript output",
+            type: "boolean",
+            default: false,
+            nargs: 0,
           })
           .option("d", {
             alias: "debug",

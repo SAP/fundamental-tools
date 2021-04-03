@@ -22,15 +22,10 @@ export function getTimestamp(): string {
 
 export function fileLoad(fileName: string): unknown {
   log.debug(`file load ${fileName}`);
-  let content;
-  try {
-    content = fs.readFileSync(fileName, {
-      encoding: "utf-8",
-      flag: "r",
-    });
-  } catch (ex) {
-    throw ex.code === "ENOENT" ? new Error(`File not found ${fileName}`) : ex;
-  }
+  const content = fs.readFileSync(fileName, {
+    encoding: "utf-8",
+    flag: "r",
+  });
   try {
     return fileName.match(/\.(yaml|yml)$/) ? yaml.load(content) : content;
   } catch (ex) {
