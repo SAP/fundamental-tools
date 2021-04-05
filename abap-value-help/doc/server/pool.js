@@ -29,7 +29,7 @@ app.use(express.json());
 app.route("/login").all(async (req, res) => {
   try {
     pool = new Pool(
-      Object.keys(req.body) > 0
+      Object.keys(req.body).length > 0
         ? req.body
         : { connectionParameters: { dest: "MME" } }
     );
@@ -52,7 +52,7 @@ app.route("/fieldvalues").all(async (req, res) => {
     return res.json("Do the login first");
   }
   const result = await valueHelp.getDomainValues(
-    Object.keys(req.body) > 0 ? req.body : "RET_TYPE"
+    Object.keys(req.body).length > 0 ? req.body : "RET_TYPE"
   );
   //res.json(result);
   res.header("Content-Type", "application/json");
@@ -66,7 +66,9 @@ app.route("/helpselect").all(async (req, res) => {
     return res.json("Do the login first");
   }
   const descriptor = await valueHelp.getShlpDescriptor(
-    Object.keys(req.body) > 0 ? req.body : { type: "SH", name: "CC_VBELN" }
+    Object.keys(req.body).length > 0
+      ? req.body
+      : { type: "SH", name: "CC_VBELN" }
   );
   //res.json(descriptor);
   res.header("Content-Type", "application/json");

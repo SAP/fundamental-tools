@@ -27,7 +27,7 @@ app.use(express.json());
 // Closed in /logout or automatically
 app.route("/login").all(async (req, res) => {
   try {
-    client = new Client(Object.keys(req.body) > 0 ? req.body : { dest: "MME" });
+    client = new Client(Object.keys(req.body).length > 0 ? req.body : { dest: "MME" });
     await client.open();
     const user = await client.call("BAPI_USER_GET_DETAIL", {
       USERNAME: req.body.username || "DEMO",
@@ -47,7 +47,7 @@ app.route("/fieldvalues").all(async (req, res) => {
     return res.json("Do the login first");
   }
   const result = await valueHelp.getDomainValues(
-    Object.keys(req.body) > 0 ? req.body : "RET_TYPE"
+    Object.keys(req.body).length > 0 ? req.body : "RET_TYPE"
   );
   //res.json(result);
   res.header("Content-Type", "application/json");
@@ -61,7 +61,7 @@ app.route("/helpselect").all(async (req, res) => {
     return res.json("Do the login first");
   }
   const descriptor = await valueHelp.getShlpDescriptor(
-    Object.keys(req.body) > 0 ? req.body : { type: "SH", name: "CC_VBELN" }
+    Object.keys(req.body).length > 0 ? req.body : { type: "SH", name: "CC_VBELN" }
   );
   //res.json(descriptor);
   res.header("Content-Type", "application/json");
