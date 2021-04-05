@@ -245,7 +245,7 @@ export class Frontend {
     if (result.abaptype in this.abapConfig) {
       result.init = this.abapConfig[result.abaptype].initial;
       if (typeof result.init === "string") {
-        result.init = result.init.replace(/~size/, `${leng}`);
+        result.init = result.init.replace(/~size/, `${leng || "0"}`);
       }
       if (Field.input) {
         if (Field.input.CONVEXIT) result.alpha = Field.input.CONVEXIT;
@@ -492,7 +492,8 @@ export class Frontend {
             const field = this.html_field(Param, Field);
             if (field) {
               // htmlWriter.write(`${param_name} ${field.html}`);
-              htmlWriter.write(`${field.html}\n`);
+              htmlWriter.write(field.html);
+              htmlWriter.write();
             }
           }
           continue;
@@ -714,10 +715,10 @@ export class Frontend {
   field_length(Field: FieldType): string {
     let lange: string;
     if (Field.format.DECIMALS) {
-      if (Field.format.DATATYPE === "FLTP")
+      if (Field.format.DATATYPE === "FLTP") {
         // abap len 16.16, is actually 1.15
         lange = "1.15";
-      else {
+      } else {
         let decrement: number;
         switch (Field.format.DATATYPE) {
           case "DEC":
