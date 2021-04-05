@@ -185,7 +185,7 @@ LCHR:
 RSTR:
   type: string
   tag: textarea
-  initial: bytes()
+  initial: Buffer.alloc(~size)
 # Short Character String of Variable Lengt
 SSTR:
   type: string
@@ -202,18 +202,18 @@ STRG:
 RAW:
   type: string
   tag: textarea
-  initial: bytes()
+  initial: Buffer.alloc(~size)
   comment: Binary string
 XSTRING:
   type: string
   tag: textarea
-  initial: bytes()
+  initial: Buffer.alloc(~size)
   comment: Binary string
 # Long byte string, requires preceding INT2 field
 LRAW:
   type: string
   tag: textarea
-  initial: bytes()
+  initial: Buffer.alloc(~size)
 # String of variable length
 STRING:
   type: string

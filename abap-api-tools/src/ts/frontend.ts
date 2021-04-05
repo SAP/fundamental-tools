@@ -244,6 +244,9 @@ export class Frontend {
     }
     if (result.abaptype in this.abapConfig) {
       result.init = this.abapConfig[result.abaptype].initial;
+      if (typeof result.init === "string") {
+        result.init = result.init.replace(/~size/, `${leng}`);
+      }
       if (Field.input) {
         if (Field.input.CONVEXIT) result.alpha = Field.input.CONVEXIT;
         if (Field.input.MEMORYID) result.mid = Field.input.MEMORYID;
