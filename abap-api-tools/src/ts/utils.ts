@@ -110,10 +110,11 @@ export class Writer {
     if (!context) context = {} as IWriter;
     this.fileName = context.fileName || "";
     this.echoOnSave = context.echoOnSave || false;
-    this.indent_step = context.indent || 2;
-
-    this.indent_step = FileType.js === this.fileName.slice(-2) ? 2 : 4;
-    this.indent_step = 2;
+    if (context.indent) {
+      this.indent_step = context.indent;
+    } else {
+      this.indent_step = FileType.html === this.fileName.slice(-2) ? 4 : 2;
+    }
     this.indent_count = 0;
     this.indent = "";
     this.output = [];
@@ -152,10 +153,11 @@ export class Writer {
     this.output.push(this.NEWLINE);
   }
 
-  save(): string {
+  save(fileName?: string): string {
     const ms: string = this.output.join(this.NEWLINE);
-    if (this.fileName) {
-      const stream = fs.createWriteStream(this.fileName);
+    fileName = fileName || this.fileName;
+    if (fileName) {
+      const stream = fs.createWriteStream(fileName);
       stream.once("open", () => {
         stream.write(ms);
         stream.end();

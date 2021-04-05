@@ -88,7 +88,9 @@ export type UiConfigTableType = {
 
 export type UiConfigType = Record<string, string | UiConfigTableType>;
 
-export type FrontendResultType = Record<string, { js: string; html?: string }>;
+export type JsHtmlType = { js: string; html?: string };
+
+export type FrontendResultType = Record<string, JsHtmlType>;
 
 export class Frontend {
   private api_name: string;
@@ -332,6 +334,11 @@ export class Frontend {
     const result: FrontendResultType = {};
 
     for (const rfm_name of this.apilist) {
+      //
+      // flow: rfm
+      //
+      log.info(chalk(rfm_name));
+
       // check local annotations
       if (!this.abap.parameters[rfm_name]) {
         log.info(chalk.red(`${rfm_name} annotations not found`));
@@ -345,31 +352,22 @@ export class Frontend {
         if (Param.paramName.length > paramNameLen)
           paramNameLen = Param.paramName.length;
       }
-      paramNameLen += 4; // for leading comment of optional parameters
-
-      //
-      // rfm header
-      //
-
-      log.info(chalk(rfm_name));
-
-      // writers
+      paramNameLen += 4; // "buffer" for leading comment of optional parameters
 
       log.debug(
-        "output:",
-        this.argv.output,
-        "api:",
-        this.api_name,
-        "rfm:",
-        rfm_name
+        `output: ${this.argv.output} api: ${this.api_name} rfm: ${rfm_name}`
       );
 
+      // writers
       const fileName = path.join(
         this.argv.output || "",
         this.api_name,
         rfm_name.replace(/\//g, "_").toLowerCase()
       );
 
+      //
+      // javascript header
+      //
       const jsWriter = new Writer({
         fileName:
           this.argv.cmd === Command.call && !this.argv.save
@@ -377,12 +375,6 @@ export class Frontend {
             : `${fileName}.${this.argv.ts ? "ts" : "js"}`,
         echoOnSave: this.argv.cmd === Command.call && !this.argv.save,
       });
-
-      let htmlWriter: Writer = {} as Writer;
-
-      //
-      // javascript header
-      //
 
       jsWriter.write(
         `//\n// ${rfm_name} ${JSON.stringify(this.abap.stat[rfm_name])
@@ -393,39 +385,32 @@ export class Frontend {
       jsWriter.write("// prettier-ignore");
       jsWriter.write(`const parameters = {`);
 
+      let htmlWriter = {} as Writer;
       if (this.argv.ui) {
         htmlWriter = new Writer({ fileName: `${fileName}.html` }); // , this.argv.save as boolean);
         //
         // html header
         //
-
         htmlWriter.write(
-          `<!--\n${rfm_name} ${JSON.stringify(this.abap.stat[rfm_name])
+          `<!-- ${rfm_name} ${JSON.stringify(this.abap.stat[rfm_name])
             .replace(/"|{|}/g, "")
             .replace(/,/g, "  ")
-            .replace(/:/g, ": ")}\n\n${Signature}\n-->`
+            .replace(/:/g, ": ")}\n\n${Signature} -->\n`
         );
       }
 
       //
-      // parameters
+      // flow: parameters
       //
-
       let paramClass = "";
       for (const [, Param] of Object.entries(rfm)) {
-        //
         // param class header
-        //
-
         if (paramClass !== Param.PARAMCLASS) {
           paramClass = Param.PARAMCLASS;
           jsWriter.write(`\n// ${ParamClassDesc[paramClass]} PARAMETERS\n`);
         }
 
-        //
-        // parameter init
-        //
-
+        // parameter init, rfm call
         let paramText = Param.PARAMTEXT
           ? Param.PARAMTEXT
           : `no text (${this.argv.lang})`;
@@ -472,7 +457,6 @@ export class Frontend {
         if (Param.paramType === ParamType.exception) {
           continue;
         }
-
         //
         // param class header
         //
@@ -483,9 +467,9 @@ export class Frontend {
           jsWriter.write("//\n");
 
           if (htmlWriter instanceof Writer) {
-            htmlWriter.write("\n<!--");
-            htmlWriter.write(`${ParamClassDesc[paramClass]} PARAMETERS`);
-            htmlWriter.write("-->\n");
+            htmlWriter.write(
+              `<!-- ${ParamClassDesc[paramClass]} PARAMETERS -->\n`
+            );
           }
         }
 
@@ -530,28 +514,29 @@ export class Frontend {
         }
 
         if (Param.paramType === ParamType.struct) {
-          this.structure_init({
+          const struct = this.structure_init({
             Param: Param,
             Field: Field as StructureType,
-            jsWriter: jsWriter,
-            htmlWriter: htmlWriter,
           });
+          jsWriter.write(struct.js);
+          if (htmlWriter instanceof Writer) htmlWriter.write(struct.html);
         }
 
         if (Param.paramType === ParamType.table) {
-          this.table_init({
+          const table = this.table_init({
             Param: Param,
             Field: Field as StructureType,
-            jsWriter: jsWriter,
-            htmlWriter: htmlWriter,
           });
-          this.structure_init({
+          jsWriter.write(table.js);
+          if (htmlWriter instanceof Writer) htmlWriter.write(table.html);
+
+          const struct = this.structure_init({
             Param: Param,
             Field: Field as StructureType,
-            jsWriter: jsWriter,
-            htmlWriter: htmlWriter,
             altParamName: `${Param.paramName}_line`,
           });
+          jsWriter.write(struct.js);
+          if (htmlWriter instanceof Writer) htmlWriter.write(struct.html);
         }
       }
 
@@ -560,6 +545,9 @@ export class Frontend {
         result[rfm_name].html = htmlWriter.save();
     }
 
+    //
+    // flow: Value Helps
+    //
     if (this.argv.ui && this.argv.helps) {
       if (!this.abap.helps || !this.abap.descriptors) {
         log.error("\nHelps or Descriptors annotations missing");
@@ -580,18 +568,15 @@ export class Frontend {
     return result;
   }
 
-  table_init(arg: {
-    Param: ParameterType;
-    Field: StructureType;
-    jsWriter?: Writer;
-    htmlWriter?: Writer;
-  }): { js: string; html: string } | void {
-    const jsWriter = arg.jsWriter ? arg.jsWriter : new Writer(),
-      htmlWriter = arg.htmlWriter ? arg.htmlWriter : new Writer();
-
+  table_init(arg: { Param: ParameterType; Field: StructureType }): JsHtmlType {
+    // js
+    const jsWriter = new Writer({ indent: 2 });
     jsWriter.write(`const ${arg.Param.paramName} = [];`);
+    const result: JsHtmlType = { js: jsWriter.text };
+    if (!this.argv.ui || !this.uiConfig.table) return result;
 
-    if (!htmlWriter || !this.uiConfig.table) return;
+    // html
+    const htmlWriter = new Writer({ indent: 4 });
 
     const element_template = {
       ...(this.uiConfig.table as UiConfigTableType),
@@ -602,7 +587,8 @@ export class Frontend {
       htmlWriter.write(
         `<!-- Table structure not defined in: ${this.configPath.ui} -->`
       );
-      return;
+      result.html = htmlWriter.text;
+      return result;
     }
 
     // header
@@ -662,18 +648,17 @@ export class Frontend {
       htmlWriter.write(element_template.footer);
     }
 
-    return { js: jsWriter.save(), html: htmlWriter.save() };
+    result.html = htmlWriter.text;
+    return result;
   }
 
   structure_init(arg: {
     Param: ParameterType;
     Field: StructureType;
-    jsWriter: Writer;
-    htmlWriter?: Writer;
     altParamName?: string;
-  }): void {
-    const jsWriter = arg.jsWriter,
-      htmlWriter = arg.htmlWriter,
+  }): JsHtmlType {
+    const jsWriter = new Writer({ indent: 2 }),
+      htmlWriter = this.argv.ui ? new Writer({ indent: 4 }) : undefined,
       paramName = arg.altParamName ? arg.altParamName : arg.Param.paramName;
     jsWriter.write("\n// prettier-ignore");
     jsWriter.write(`const ${paramName} = {`);
@@ -716,6 +701,11 @@ export class Frontend {
     jsWriter.write("};");
     jsWriter.write();
     if (htmlWriter instanceof Writer) htmlWriter.write();
+
+    // result
+    const result: JsHtmlType = { js: jsWriter.text };
+    if (htmlWriter) result.html = htmlWriter.text;
+    return result;
   }
 
   field_length(Field: FieldType): string {
