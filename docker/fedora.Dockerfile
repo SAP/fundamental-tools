@@ -11,7 +11,7 @@
 FROM fedora
 
 LABEL maintainer="srdjan.boskovic@sap.com"
-LABEL version="1.0"
+LABEL version="2.0"
 LABEL description="Centos 7 QAS"
 
 # https://github.com/docker-library/docs/tree/master/centos#systemd-integration
@@ -24,7 +24,7 @@ ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
 ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
 
-ARG nwrfcsdk=nwrfcsdk-pl7
+ARG nwrfcsdk=nwrfcsdk-pl8
 ARG nwrfc_source=/sap
 ARG nwrfc_target=/usr/local/sap
 

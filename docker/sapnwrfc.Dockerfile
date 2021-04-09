@@ -12,7 +12,7 @@
 FROM local/c7-systemd
 
 LABEL maintainer="srdjan.boskovic@sap.com"
-LABEL version="1.0"
+LABEL version="2.0"
 LABEL description="Python and NodeJS RFC Connectivity"
 
 # admin user
@@ -23,7 +23,8 @@ USER ${adminuser}
 # node
 #
 
-ARG nvm_version=0.37.2
+# ARG NVM_VERSION=0.38.0
+# ARG CMAKE_VERSION=3.20.1
 
 # cmake
 RUN cd /var/tmp && \
@@ -38,7 +39,8 @@ RUN cd /var/tmp && \
 # nvm
 USER ${adminuser}
 RUN printf "\n# nvm" >> ~/.bashrc && \
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v${nvm_version}/install.sh | bash && \
+  NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/') && \
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
   bash -ic "nvm install node && npm -g i node-rfc && nvm alias default node && nvm install lts/dubnium && npm -g i node-rfc && nvm install lts/erbium && npm -g i node-rfc && nvm install lts/fermium && npm -g i node-rfc " && \
   printf "export PATH=node_modules/.bin:\$PATH\nnvm use default\n\n" >> ~/.bashrc
 
@@ -47,13 +49,13 @@ RUN printf "\n# nvm" >> ~/.bashrc && \
 #
 
 ARG venv_base=/home/${adminuser}/.virtualenvs
-ARG py36=3.6.12
+ARG py36=3.6.13
+ARG py37=3.7.10
+ARG py38=3.8.9
+ARG py39=3.9.4
 ARG py36venv=py36
-ARG py37=3.7.9
 ARG py37venv=py37
-ARG py38=3.8.6
 ARG py38venv=py38
-ARG py39=3.9.1
 ARG py39venv=py39
 ARG dev_python="pip wheel pytest cython ipython pynwrfc"
 
@@ -65,10 +67,10 @@ RUN git clone https://github.com/pyenv/pyenv.git .pyenv && \
   printf 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi\n' >> .bashrc
 ENV PYENV_ROOT /home/${adminuser}/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
-RUN pyenv install ${py36} && \
-  pyenv install ${py37} && \
+RUN pyenv install ${py39} && \
   pyenv install ${py38} && \
-  pyenv install ${py39}
+  pyenv install ${py37} && \
+  pyenv install ${py36}
 
 # pyenv-virtualenv
 USER ${adminuser}

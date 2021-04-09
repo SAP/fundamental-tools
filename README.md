@@ -8,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-- [Standards based web applications with ABAP programming model](./doc/app.md)
+- [Building standards based app with ABAP programming model](./doc/app.md)
 - By factors less code, unique qualities
 - Works with:
   - [Aurelia](http://aurelia.io/)

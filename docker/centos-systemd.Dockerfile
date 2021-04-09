@@ -11,7 +11,7 @@
 FROM centos:7
 
 LABEL maintainer="srdjan.boskovic@sap.com"
-LABEL version="1.0"
+LABEL version="2.0"
 LABEL description="Centos 7 QAS"
 
 # https://github.com/docker-library/docs/tree/master/centos#systemd-integration
@@ -24,12 +24,12 @@ ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
 ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
 
-ARG nwrfcsdk=nwrfcsdk-pl7
+ARG nwrfcsdk=nwrfcsdk-pl8
 ARG nwrfc_source=/sap
 ARG nwrfc_target=/usr/local/sap
 
 # Add sudo user
-RUN yum -y install sudo && \
+RUN yum -y install jq sudo && \
     useradd -G wheel --create-home --shell /bin/bash ${adminuser}
 RUN echo "%wheel       ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER ${adminuser}
@@ -49,6 +49,9 @@ RUN yum -y update && \
     yum -y install ${dev_tools} && \
     yum -y install ${dev_libs} && \
     yum clean all
+
+# https://stackoverflow.com/questions/44044449/facing-issue-while-installing-jq-in-centos
+# RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq && chmod +x jq && mv jq /usr/local/bin
 
 # devtoolset-8
 RUN yum -y install centos-release-scl && \

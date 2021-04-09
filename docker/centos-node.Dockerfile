@@ -19,8 +19,8 @@ LABEL version="1.0"
 LABEL description="NodeJS RFC Connector"
 
 ARG adminuser=www-admin
-ARG nvm_version=0.37.2
-# ARG CMAKE_VERSION=3.19.1
+# ARG NVM_VERSION=0.38.0
+# ARG CMAKE_VERSION=3.20.1
 
 # cmake
 USER ${adminuser}
@@ -36,7 +36,8 @@ RUN cd /var/tmp && \
 # nvm
 USER ${adminuser}
 RUN printf "\n# nvm" >> ~/.bashrc && \
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v${nvm_version}/install.sh | bash && \
+    NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/') && \
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     bash -ic "nvm install node && nvm alias default node && nvm install lts/dubnium && nvm install lts/erbium && nvm install lts/fermium" && \
     printf "export PATH=node_modules/.bin:\$PATH\nnvm use default\n\n" >> ~/.bashrc
 
