@@ -330,6 +330,7 @@ export class ValueInputHelp {
                   {
                     IV_SHLPTYPE: desc.SHLPTYPE,
                     IV_SHLPNAME: desc.SHLPNAME,
+                    IV_MAXROWS: 10,
                   }
                 );
                 // value descriptor
