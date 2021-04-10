@@ -1,0 +1,31 @@
+<!-- SH ORDP_ES_SIMPLE Simple search for Service Orders using Search Engine : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}"
+          label="Generic Search Term"></ui-input>
+<ui-input bind="searchParamLow.S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Fuzzy Mode"></ui-input>
+<ui-input bind="searchParamLow.OBJECT_TYPE_ID" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Object Type"></ui-input>
+<ui-input bind="searchParamLow.REQUEST" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="Request Type ID"></ui-input>
+<ui-input bind="searchParamLow.AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label="Order Number"></ui-input>
+<ui-input bind="searchParamLow.KTEXT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="General Name"></ui-input>
+<ui-input bind="searchParamLow.TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-input>
+<ui-input bind="searchParamLow.EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}" label="Generic Search Term"></ui-dg-column>
+   <ui-dg-column sortable field="S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}" label="Fuzzy Mode"></ui-dg-column>
+   <ui-dg-column sortable field="OBJECT_TYPE_ID" data-abap.bind="{type:'CHAR', length:'20'}" label="Object Type"></ui-dg-column>
+   <ui-dg-column sortable field="REQUEST" data-abap.bind="{type:'CHAR', length:'32'}" label="Request Type ID"></ui-dg-column>
+   <ui-dg-column sortable field="AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}" label="Order Number"></ui-dg-column>
+   <ui-dg-column sortable field="KTEXT" data-abap.bind="{type:'CHAR', length:'20'}" label="General Name"></ui-dg-column>
+   <ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" label="Functional Location"></ui-dg-column>
+   <ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" label="Equipment Number"></ui-dg-column>
+</ui-datagrid>

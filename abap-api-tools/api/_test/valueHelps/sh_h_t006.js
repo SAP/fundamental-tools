@@ -1,7 +1,7 @@
-// SH H_T006 Condition unit : abap 2.2.0 at: 2021-03-29 15:40:08
+// SH H_T006 Condition unit : abap 2.2.0 at: 2021-04-10 21:53:58
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
-  const helpOption = [
+const helpOption = [
   { id: 'EQ', name: 'is' },
   { id: 'NE', name: 'is not' },
   { id: 'GT', name: 'greater than' },
@@ -12,7 +12,9 @@ const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
   { id: 'NB', name: 'not between' },
   { id: 'CP', name: 'with pattern' },
   { id: 'NP', name: 'w/o pattern' }
-  ];
+];
+
+const title = "Condition unit";
 
 const selectParams = [
   {
@@ -38,5 +40,5 @@ const selectParams = [
     DATATYPE: "CHAR",
     LENG: 20,
     DECIMALS: 0,
-  },
+  }
 ];

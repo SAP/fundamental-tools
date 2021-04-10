@@ -1,0 +1,26 @@
+<!-- SH IFLSI Uppermost locations by category : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-input>
+<ui-combo bind="searchParamLow.FLTYP" shlp.bind="{type: 'SH', id: 'H_T370F'}" data-abap.bind="{type:'CHAR', mid:'IFT', length:'1'}"
+          label="Functional location category"></ui-combo>
+<ui-input bind="searchParamLow.TPLMA" data-abap.bind="{type:'CHAR', alpha:'TPLNR', length:'30'}"
+          label="Superior functional location"></ui-input>
+<ui-input bind="searchParamLow.ALKEY" data-abap.bind="{type:'CHAR', mid:'ILOM_ALKEY', length:'1'}"
+          label="Labeling system for functional locations"></ui-input>
+<ui-input bind="searchParamLow.ACTVS" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Active version"></ui-input>
+<ui-input bind="searchParamLow.STRNO" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Functional Location Label"></ui-input>
+<ui-input bind="searchParamLow.KZMLA" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Primary language indicator for text segment"></ui-input>
+<ui-input bind="searchParamLow.PLTXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of functional location"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="STRNO" data-abap.bind="{type:'CHAR', length:'40'}" label="Functional Location Label"></ui-dg-column>
+   <ui-dg-column sortable field="PLTXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of functional location"></ui-dg-column>
+   <ui-dg-column sortable field="FLTYP" data-abap.bind="{type:'CHAR', mid:'IFT', length:'1'}" label="Functional location category"></ui-dg-column>
+</ui-datagrid>

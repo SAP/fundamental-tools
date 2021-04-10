@@ -1,0 +1,18 @@
+<!-- SH GL_ACCT_CA_NO G/L account no. in chart of accounts : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.KTOPL" data-abap.bind="{type:'CHAR', mid:'KPL', length:'4'}"
+          label="Chart of Accounts"></ui-input>
+<ui-input bind="searchParamLow.SAKNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}"
+          label="G/L Account Number"></ui-input>
+<ui-input bind="searchParamLow.SAKAN" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="G/L account number, significant length"></ui-input>
+<ui-input bind="searchParamLow.TXT50" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="G/L Account Long Text"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="SAKNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}" label="G/L Account Number"></ui-dg-column>
+   <ui-dg-column sortable field="KTOPL" data-abap.bind="{type:'CHAR', mid:'KPL', length:'4'}" label="Chart of Accounts"></ui-dg-column>
+   <ui-dg-column sortable field="TXT50" data-abap.bind="{type:'CHAR', length:'50'}" label="G/L Account Long Text"></ui-dg-column>
+</ui-datagrid>

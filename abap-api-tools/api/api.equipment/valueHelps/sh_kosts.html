@@ -1,0 +1,29 @@
+<!-- SH KOSTS Cost center name : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.MCTXT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search term for matchcode use"></ui-input>
+<ui-input bind="searchParamLow.SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-input>
+<ui-input bind="searchParamLow.KOKRS" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}"
+          label="Controlling Area"></ui-input>
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.KOSAR" data-abap.bind="{type:'CHAR', mid:'PCA_KOSAR', length:'1'}"
+          label="Cost Center Category"></ui-input>
+<ui-input bind="searchParamLow.KOSTL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
+          label="Cost Center"></ui-input>
+<ui-date date.bind="searchParamLow.DATAB"  label="Valid-From Date"></ui-date>
+<ui-date date.bind="searchParamLow.DATBI"  label="Valid To Date"></ui-date>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MCTXT" data-abap.bind="{type:'CHAR', length:'20'}" label="Search term for matchcode use"></ui-dg-column>
+   <ui-dg-column sortable field="SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" label="Language Key"></ui-dg-column>
+   <ui-dg-column sortable field="KOKRS" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}" label="Controlling Area"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="KOSAR" data-abap.bind="{type:'CHAR', mid:'PCA_KOSAR', length:'1'}" label="Cost Center Category"></ui-dg-column>
+   <ui-dg-column sortable field="KOSTL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}" label="Cost Center"></ui-dg-column>
+   <ui-dg-column sortable field="DATAB" data-abap.bind="{type:'DATS'}" label="Valid-From Date"></ui-dg-column>
+   <ui-dg-column sortable field="DATBI" data-abap.bind="{type:'DATS'}" label="Valid To Date"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,28 @@
+<!-- SH H_UII Unique Item Identifier : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.EQUNR" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-combo>
+<ui-input bind="searchParamLow.EQKTU" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Equipment description in capital letters"></ui-input>
+<ui-combo bind="searchParamLow.MATNR" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-combo>
+<ui-input bind="searchParamLow.SERNR" data-abap.bind="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
+          label="Serial Number"></ui-input>
+<ui-combo bind="searchParamLow.UII" shlp.bind="{type: 'SH', id: 'H_UII'}" data-abap.bind="{type:'CHAR', mid:'UII', length:'72'}"
+          label="Unique Item Identifier"></ui-combo>
+<ui-combo bind="searchParamLow.IUID_TYPE" shlp.bind="{type: 'CT', id: 'TIUID_TYPE'}" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Structure Type of UII"></ui-combo>
+<ui-combo bind="searchParamLow.UII_PLANT" shlp.bind="{type: 'SH', id: 'H_T001W_C'}" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant Responsible for UII"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="UII" data-abap.bind="{type:'CHAR', mid:'UII', length:'72'}" label="Unique Item Identifier"></ui-dg-column>
+   <ui-dg-column sortable field="MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" label="Material Number"></ui-dg-column>
+   <ui-dg-column sortable field="SERNR" data-abap.bind="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}" label="Serial Number"></ui-dg-column>
+   <ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" label="Equipment Number"></ui-dg-column>
+   <ui-dg-column sortable field="EQKTU" data-abap.bind="{type:'CHAR', length:'40'}" label="Equipment description in capital letters"></ui-dg-column>
+   <ui-dg-column sortable field="IUID_TYPE" data-abap.bind="{type:'CHAR', length:'10'}" label="Structure Type of UII"></ui-dg-column>
+   <ui-dg-column sortable field="UII_PLANT" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant Responsible for UII"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,11 @@
+<!-- SH ORDPL PM orders using order list : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label="Order Number"></ui-input>
+<ui-input bind="searchParamLow.FUNCNAME" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Selection Function Triggered by Matchcode"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+</ui-datagrid>

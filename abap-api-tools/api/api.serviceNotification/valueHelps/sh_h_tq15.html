@@ -1,0 +1,16 @@
+<!-- SH H_TQ15 Catalog Type - Activities : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.KATALOGART" shlp.bind="{type: 'CT', id: 'TQ15'}" data-abap.bind="{type:'CHAR', mid:'QKT', length:'1'}"
+          label="Catalog"></ui-combo>
+<ui-input bind="searchParamLow.KATALOGTXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Short Text for the Catalog"></ui-input>
+<ui-input bind="searchParamLow.SCHLAGWORT" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Keyword for Catalog Type"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="KATALOGART" data-abap.bind="{type:'CHAR', mid:'QKT', length:'1'}" label="Catalog"></ui-dg-column>
+   <ui-dg-column sortable field="KATALOGTXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Text for the Catalog"></ui-dg-column>
+   <ui-dg-column sortable field="SCHLAGWORT" data-abap.bind="{type:'CHAR', length:'12'}" label="Keyword for Catalog Type"></ui-dg-column>
+</ui-datagrid>

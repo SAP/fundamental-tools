@@ -1,0 +1,747 @@
+<!-- /COE/RBP_PAM_NOTIF_CHANGE exception: 0  struct: 3  table: 15  var: 2
+
+abap 2.2.0 at: 2021-04-10 21:53:58 -->
+
+<!-- IMPORT PARAMETERS -->
+
+<ui-combo bind="IV_NOTIFNO" shlp.bind="{type: 'CT', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+          label=""></ui-combo>
+
+<!-- Parameter: IS_NOTIF_HEADER structure: BAPI2080_NOTHDRI   -->
+
+<ui-input bind="IS_NOTIF_HEADER.PM_WKCTR_C" data-abap.bind="{type:'CHAR', mid:'AGR', length:'8'}"
+          label="Work center"></ui-input>
+
+<ui-input bind="IS_NOTIF_HEADER.USERSTATUS_INT" data-abap.bind="{type:'CHAR', length:'5'}"
+          label="Object status"></ui-input>
+
+<ui-text bind="IV_NEW_NOTICE" data-abap.bind="{type:'STRING'}"
+         label=""></ui-text>
+
+<!-- Parameter: IS_NOTIF_HEADER_X structure: BAPI2080_NOTHDRI_X   -->
+
+<ui-checkbox value.bind="IS_NOTIF_HEADER_X.USERSTATUS_INT" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- CHANGING PARAMETERS -->
+
+<!-- Parameter: CT_EXTENSIONIN structure: BAPIPAREX_T   -->
+
+<ui-datagrid data.bind="CT_EXTENSIONIN" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="STRUCTURE" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD02L'}" label="Structure name of  BAPI table extension"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART1" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART2" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART3" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART4" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="CT_EXTENSIONIN.STRUCTURE" shlp.bind="{type: 'CT', id: 'DD02L'}" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Structure name o API table extension"></ui-combo>
+
+<ui-input bind="CT_EXTENSIONIN.VALUEPART1" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input bind="CT_EXTENSIONIN.VALUEPART2" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input bind="CT_EXTENSIONIN.VALUEPART3" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input bind="CT_EXTENSIONIN.VALUEPART4" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<!-- Parameter: CT_EXTENSIONOUT structure: BAPIPAREX_T   -->
+
+<ui-datagrid data.bind="CT_EXTENSIONOUT" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="STRUCTURE" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD02L'}" label="Structure name of  BAPI table extension"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART1" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART2" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART3" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+   <ui-dg-column sortable field="VALUEPART4" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="CT_EXTENSIONOUT.STRUCTURE" shlp.bind="{type: 'CT', id: 'DD02L'}" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Structure name o API table extension"></ui-combo>
+
+<ui-input bind="CT_EXTENSIONOUT.VALUEPART1" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input bind="CT_EXTENSIONOUT.VALUEPART2" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input bind="CT_EXTENSIONOUT.VALUEPART3" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<ui-input bind="CT_EXTENSIONOUT.VALUEPART4" data-abap.bind="{type:'CHAR', length:'240'}"
+          label="Data part of BAPI extension parameter"></ui-input>
+
+<!-- Parameter: CT_NOTIFACTV structure: ALM_ME_BAPI2080_NOTACTVI_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFACTV" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}" label="Object key"></ui-dg-column>
+   <ui-dg-column sortable field="ACT_KEY" data-abap.bind="{type:'NUMC', length:'4'}" label="Consecutive Number of Activity"></ui-dg-column>
+   <ui-dg-column sortable field="ACT_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Activity"></ui-dg-column>
+   <ui-dg-column sortable field="ACTTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Activity Text"></ui-dg-column>
+   <ui-dg-column sortable field="ACT_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Activities"></ui-dg-column>
+   <ui-dg-column sortable field="ACT_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Activity Code"></ui-dg-column>
+   <ui-dg-column sortable field="START_DATE" data-abap.bind="{type:'DATS'}" label="Start Date"></ui-dg-column>
+   <ui-dg-column sortable field="START_TIME" data-abap.bind="{type:'TIMS'}" label="Start Time of Activity"></ui-dg-column>
+   <ui-dg-column sortable field="END_DATE" data-abap.bind="{type:'DATS'}" label="End Date"></ui-dg-column>
+   <ui-dg-column sortable field="END_TIME" data-abap.bind="{type:'TIMS'}" label="End Time of Activity"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Item"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTIFACTV.REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}"
+          label="Object key"></ui-input>
+
+<ui-input bind="CT_NOTIFACTV.ACT_KEY" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Consecutive Number of Activity"></ui-input>
+
+<ui-input bind="CT_NOTIFACTV.ACT_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sort Number for Activity"></ui-input>
+
+<ui-input bind="CT_NOTIFACTV.ACTTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Activity Text"></ui-input>
+
+<ui-combo bind="CT_NOTIFACTV.ACT_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Code Group - Activities"></ui-combo>
+
+<ui-combo bind="CT_NOTIFACTV.ACT_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Activity Code"></ui-combo>
+
+<ui-date date.bind="CT_NOTIFACTV.START_DATE"  label="Start Date"></ui-date>
+
+<ui-time time.bind="CT_NOTIFACTV.START_TIME"  label="Start Time of Activity"></ui-time>
+
+<ui-date date.bind="CT_NOTIFACTV.END_DATE"  label="End Date"></ui-date>
+
+<ui-time time.bind="CT_NOTIFACTV.END_TIME"  label="End Time of Activity"></ui-time>
+
+<ui-input bind="CT_NOTIFACTV.ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sort Number for Item"></ui-input>
+
+<!-- Parameter: CT_NOTIFACTV_X structure: ALM_ME_BAPI2080_NOTACTVI_X_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFACTV_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="ACT_KEY" data-abap.bind="{type:'NUMC', length:'4'}" label="Consecutive Number of Activity"></ui-dg-column>
+   <ui-dg-column sortable field="ACT_SORT_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ACTTEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ACT_CODEGRP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ACT_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="START_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="START_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="END_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="END_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTIFACTV_X.ACT_KEY" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Consecutive Number of Activity"></ui-input>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.ACT_SORT_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.ACTTEXT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.ACT_CODEGRP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.ACT_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.START_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.START_TIME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.END_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.END_TIME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFACTV_X.ITEM_SORT_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- Parameter: CT_NOTIFCAUS structure: ALM_ME_BAPI2080_NOTCAUSI_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFCAUS" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}" label="Object key"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSE_KEY" data-abap.bind="{type:'NUMC', length:'4'}" label="Sequential Number for Cause"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSE_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Cause"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CT', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSETEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Cause Text"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSE_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Causes"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSE_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Cause Code"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Item"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTIFCAUS.REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}"
+          label="Object key"></ui-input>
+
+<ui-input bind="CT_NOTIFCAUS.CAUSE_KEY" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sequential Number for Cause"></ui-input>
+
+<ui-input bind="CT_NOTIFCAUS.CAUSE_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sort Number for Cause"></ui-input>
+
+<ui-combo bind="CT_NOTIFCAUS.ITEM_KEY" shlp.bind="{type: 'CT', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Item Number in Item Record"></ui-combo>
+
+<ui-input bind="CT_NOTIFCAUS.CAUSETEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Cause Text"></ui-input>
+
+<ui-combo bind="CT_NOTIFCAUS.CAUSE_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Code Group - Causes"></ui-combo>
+
+<ui-combo bind="CT_NOTIFCAUS.CAUSE_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Cause Code"></ui-combo>
+
+<ui-input bind="CT_NOTIFCAUS.ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sort Number for Item"></ui-input>
+
+<!-- Parameter: CT_NOTIFCAUS_X structure: ALM_ME_BAPI2080_NOTCAUSI_X_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFCAUS_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="CAUSE_KEY" data-abap.bind="{type:'NUMC', length:'4'}" label="Sequential Number for Cause"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CT', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSE_SORT_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSETEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSE_CODEGRP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CAUSE_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTIFCAUS_X.CAUSE_KEY" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sequential Number for Cause"></ui-input>
+
+<ui-combo bind="CT_NOTIFCAUS_X.ITEM_KEY" shlp.bind="{type: 'CT', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Item Number in Item Record"></ui-combo>
+
+<ui-checkbox value.bind="CT_NOTIFCAUS_X.CAUSE_SORT_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFCAUS_X.CAUSETEXT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFCAUS_X.CAUSE_CODEGRP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFCAUS_X.CAUSE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFCAUS_X.ITEM_SORT_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- Parameter: CT_NOTIFPARTNR structure: ALM_ME_BAPI2080_NOTPARTNRI_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFPARTNR" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}" label="Object key"></ui-dg-column>
+   <ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'SH', id: 'H_TPAR'}" label="Partner Function"></ui-dg-column>
+   <ui-dg-column sortable field="PARTN_ROLE_OLD" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'SH', id: 'H_TPAR'}" label="Partner Function"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Partner"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER_OLD" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Partner"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTIFPARTNR.REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}"
+          label="Object key"></ui-input>
+
+<ui-combo bind="CT_NOTIFPARTNR.PARTN_ROLE" shlp.bind="{type: 'SH', id: 'H_TPAR'}" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
+          label="Partner Function"></ui-combo>
+
+<ui-combo bind="CT_NOTIFPARTNR.PARTN_ROLE_OLD" shlp.bind="{type: 'SH', id: 'H_TPAR'}" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
+          label="Partner Function"></ui-combo>
+
+<ui-input bind="CT_NOTIFPARTNR.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+          label="Partner"></ui-input>
+
+<ui-input bind="CT_NOTIFPARTNR.PARTNER_OLD" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+          label="Partner"></ui-input>
+
+<!-- Parameter: CT_NOTIFPARTNR_X structure: ALM_ME_BAPI2080_NOTPARTNRI_X_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFPARTNR_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PARTN_ROLE_OLD" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'CT', id: 'TPAR'}" label="Partner Function"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER_OLD" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Partner"></ui-dg-column>
+</ui-datagrid>
+
+<ui-checkbox value.bind="CT_NOTIFPARTNR_X.PARTN_ROLE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-combo bind="CT_NOTIFPARTNR_X.PARTN_ROLE_OLD" shlp.bind="{type: 'CT', id: 'TPAR'}" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
+          label="Partner Function"></ui-combo>
+
+<ui-checkbox value.bind="CT_NOTIFPARTNR_X.PARTNER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-input bind="CT_NOTIFPARTNR_X.PARTNER_OLD" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+          label="Partner"></ui-input>
+
+<!-- Parameter: CT_NOTIFTASK structure: ALM_ME_BAPI2080_NOTTASKI_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFTASK" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}" label="Object key"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_KEY" data-abap.bind="{type:'NUMC', mid:'IMA', length:'4'}" label="Sequential Task Number"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Task"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_TEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Text for Task"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Tasks"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Task Code"></ui-dg-column>
+   <ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'SH', id: 'H_TPAR'}" label="Function of Person Responsible for Task"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Person Responsible for Task (Partner Number)"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_START_DATE" data-abap.bind="{type:'DATS'}" label="Planned Start Date"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_START_TIME" data-abap.bind="{type:'TIMS'}" label="Planned Start Time for Task"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_END_DATE" data-abap.bind="{type:'DATS'}" label="Planned finish date"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_END_TIME" data-abap.bind="{type:'TIMS'}" label="Planned Finish Time for Task"></ui-dg-column>
+   <ui-dg-column sortable field="CARRIED_OUT_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Person Who Completed the Task"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Item"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTIFTASK.REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}"
+          label="Object key"></ui-input>
+
+<ui-input bind="CT_NOTIFTASK.TASK_KEY" data-abap.bind="{type:'NUMC', mid:'IMA', length:'4'}"
+          label="Sequential Task Number"></ui-input>
+
+<ui-input bind="CT_NOTIFTASK.TASK_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sort Number for Task"></ui-input>
+
+<ui-input bind="CT_NOTIFTASK.TASK_TEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Short Text for Task"></ui-input>
+
+<ui-combo bind="CT_NOTIFTASK.TASK_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Code Group - Tasks"></ui-combo>
+
+<ui-combo bind="CT_NOTIFTASK.TASK_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Task Code"></ui-combo>
+
+<ui-combo bind="CT_NOTIFTASK.PARTN_ROLE" shlp.bind="{type: 'SH', id: 'H_TPAR'}" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
+          label="Function of Person Responsible for Task"></ui-combo>
+
+<ui-input bind="CT_NOTIFTASK.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+          label="Person Responsible for Task (Partner Number)"></ui-input>
+
+<ui-date date.bind="CT_NOTIFTASK.PLND_START_DATE"  label="Planned Start Date"></ui-date>
+
+<ui-time time.bind="CT_NOTIFTASK.PLND_START_TIME"  label="Planned Start Time for Task"></ui-time>
+
+<ui-date date.bind="CT_NOTIFTASK.PLND_END_DATE"  label="Planned finish date"></ui-date>
+
+<ui-time time.bind="CT_NOTIFTASK.PLND_END_TIME"  label="Planned Finish Time for Task"></ui-time>
+
+<ui-input bind="CT_NOTIFTASK.CARRIED_OUT_BY" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Person Who Completed the Task"></ui-input>
+
+<ui-input bind="CT_NOTIFTASK.ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sort Number for Item"></ui-input>
+
+<!-- Parameter: CT_NOTIFTASK_X structure: ALM_ME_BAPI2080_NOTTASKI_X_T   -->
+
+<ui-datagrid data.bind="CT_NOTIFTASK_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TASK_KEY" data-abap.bind="{type:'NUMC', mid:'IMA', length:'4'}" label="Sequential Task Number"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_SORT_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_CODEGRP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="TASK_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_START_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_START_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_END_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_END_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CARRIED_OUT_BY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTIFTASK_X.TASK_KEY" data-abap.bind="{type:'NUMC', mid:'IMA', length:'4'}"
+          label="Sequential Task Number"></ui-input>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.TASK_SORT_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.TASK_TEXT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.TASK_CODEGRP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.TASK_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.PARTN_ROLE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.PARTNER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.PLND_START_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.PLND_START_TIME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.PLND_END_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.PLND_END_TIME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.CARRIED_OUT_BY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTIFTASK_X.ITEM_SORT_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- Parameter: CT_NOTITEM structure: ALM_ME_BAPI2080_NOTITEMI_T   -->
+
+<ui-datagrid data.bind="CT_NOTITEM" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}" label="Object key"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CT', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Item"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}" label="Notification Item Short Text"></ui-dg-column>
+   <ui-dg-column sortable field="D_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Problem"></ui-dg-column>
+   <ui-dg-column sortable field="D_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Problem or Damage Code"></ui-dg-column>
+   <ui-dg-column sortable field="DL_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Object Parts"></ui-dg-column>
+   <ui-dg-column sortable field="DL_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Part of Object"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Assembly"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for Field ASSEMBLY"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for ASSEMBLY Field"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for ASSEMBLY Field"></ui-dg-column>
+   <ui-dg-column sortable field="START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="Start Point"></ui-dg-column>
+   <ui-dg-column sortable field="END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="End Point"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}" label="Length"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" label="Unit of Measurement for Linear Data"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Linear Data in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of First Offset"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 1"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 1"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 1 in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of Second Offset"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 2"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 2"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 2 in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="EQUIPMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+   <ui-dg-column sortable field="FUNCT_LOC" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for Start Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Distance between Marker and Start Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for End Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Length Spec for Distance between Marker and End Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit for the Distance from Marker"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit for the Distance from Marker in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}" label="Assembly"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="CT_NOTITEM.REFOBJECTKEY" data-abap.bind="{type:'CHAR', length:'70'}"
+          label="Object key"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.ITEM_KEY" shlp.bind="{type: 'CT', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Item Number in Item Record"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Sort Number for Item"></ui-input>
+
+<ui-input bind="CT_NOTITEM.DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Notification Item Short Text"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.D_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Code Group - Problem"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.D_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Problem or Damage Code"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.DL_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Code Group - Object Parts"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.DL_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Part of Object"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.ASSEMBLY" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Assembly"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
+          label="Long Material Number for Field ASSEMBLY"></ui-input>
+
+<ui-input bind="CT_NOTITEM.ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="External GUID for ASSEMBLY Field"></ui-input>
+
+<ui-input bind="CT_NOTITEM.ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
+          label="Version Number for ASSEMBLY Field"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Start Point"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="End Point"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Length"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.LINEAR_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Linear Data"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.LINEAR_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Linear Data in ISO Code"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.FIRST_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Type of First Offset"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Value of Offset 1"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.FIRST_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Offset 1"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.FIRST_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Offset 1 in ISO Code"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.SECOND_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Type of Second Offset"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Value of Offset 2"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.SECOND_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Offset 2"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.SECOND_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Offset 2 in ISO Code"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.EQUIPMENT" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.FUNCT_LOC" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.MARKER_START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Marker for Start Point"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Distance between Marker and Start Point"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.MARKER_END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Marker for End Point"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Length Spec for Distance between Marker and End Point"></ui-input>
+
+<ui-combo bind="CT_NOTITEM.MARKER_DISTANCE_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for the Distance from Marker"></ui-combo>
+
+<ui-combo bind="CT_NOTITEM.MARKER_DISTANCE_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit for the Distance from Marker in ISO Code"></ui-combo>
+
+<ui-input bind="CT_NOTITEM.ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}"
+          label="Assembly"></ui-input>
+
+<!-- Parameter: CT_NOTITEM_X structure: EAML_BAPI2080_NOTITEMI_X_T   -->
+
+<ui-datagrid data.bind="CT_NOTITEM_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CT', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="D_CODEGRP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="D_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DL_CODEGRP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DL_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="START_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="END_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="EQUIPMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FUNCT_LOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_START_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_END_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="CT_NOTITEM_X.ITEM_KEY" shlp.bind="{type: 'CT', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
+          label="Item Number in Item Record"></ui-combo>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.ITEM_SORT_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.DESCRIPT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.D_CODEGRP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.D_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.DL_CODEGRP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.DL_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.ASSEMBLY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.LINEAR_LENGTH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.LINEAR_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.LINEAR_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.FIRST_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.FIRST_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.FIRST_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.FIRST_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.SECOND_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.SECOND_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.SECOND_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.SECOND_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.EQUIPMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.FUNCT_LOC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.MARKER_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.MARKER_DISTANCE_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.MARKER_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.MARKER_DISTANCE_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.MARKER_DISTANCE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.MARKER_DISTANCE_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="CT_NOTITEM_X.ASSEMBLY_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- EXPORT PARAMETERS -->
+
+<!-- Parameter: ES_NOTIF_HEADER structure: BAPI2080_NOTHDRE   -->
+
+<ui-input bind="ES_NOTIF_HEADER.PM_WKCTR_C" data-abap.bind="{type:'CHAR', mid:'AGR', length:'8'}"
+          label="Work center"></ui-input>
+
+<ui-input bind="ES_NOTIF_HEADER.USERSTATUS_INT" data-abap.bind="{type:'CHAR', length:'5'}"
+          label="Object status"></ui-input>
+
+<!-- Parameter: ET_NOTICE structure: /COE/RBP_T_PAM_NOTICE_LOG   -->
+
+<ui-datagrid data.bind="ET_NOTICE" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="DATETIME" data-abap.bind="{type:'DEC', length:'15'}" label="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"></ui-dg-column>
+   <ui-dg-column sortable field="TZONE" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'CT', id: 'TTZZ'}" label="Time Zone"></ui-dg-column>
+   <ui-dg-column sortable field="USERID" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}" shlp.bind="{type: 'CT', id: 'USR02'}" label="User Name in User Master Record"></ui-dg-column>
+   <ui-dg-column sortable field="HISTORY_LINE" data-abap.bind="{type:'CHAR', length:'132'}" label="Text Line"></ui-dg-column>
+   <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'STRG', length:'-1'}" label="Text for Note"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="ET_NOTICE.DATETIME" data-abap.bind="{type:'DEC', length:'15'}"
+          label="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"></ui-input>
+
+<ui-combo bind="ET_NOTICE.TZONE" shlp.bind="{type: 'CT', id: 'TTZZ'}" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="Time Zone"></ui-combo>
+
+<ui-combo bind="ET_NOTICE.USERID" shlp.bind="{type: 'CT', id: 'USR02'}" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}"
+          label="User Name in User Master Record"></ui-combo>
+
+<ui-input bind="ET_NOTICE.HISTORY_LINE" data-abap.bind="{type:'CHAR', length:'132'}"
+          label="Text Line"></ui-input>
+
+<ui-text bind="ET_NOTICE.NOTICE" data-abap.bind="{type:'STRG', length:'-1'}"
+         label="Text for Note"></ui-text>
+
+<!-- Parameter: ET_RETURN structure: BAPIRETTAB   -->
+
+<ui-datagrid data.bind="ET_RETURN" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+   <ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
+   <ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
+   <ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
+   <ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
+   <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="ET_RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+<ui-combo bind="ET_RETURN.ID" shlp.bind="{type: 'CT', id: 'T100A'}" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Message Class"></ui-combo>
+
+<ui-input bind="ET_RETURN.NUMBER" data-abap.bind="{type:'NUMC', length:'3'}"
+          label="Message Number"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
+          label="Message Text"></ui-input>
+
+<ui-combo bind="ET_RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Application log: log number"></ui-combo>
+
+<ui-combo bind="ET_RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-input bind="ET_RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="Parameter Name"></ui-input>
+
+<ui-input bind="ET_RETURN.ROW" data-abap.bind="{type:'INT4', length:'+10'}"
+          label="Lines in parameter"></ui-input>
+
+<ui-combo bind="ET_RETURN.FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Field in parameter"></ui-combo>
+
+<ui-combo bind="ET_RETURN.SYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Logical system from which message originates"></ui-combo>
+
+<!-- Parameter: ET_SYSSTATUS structure: /COE/RBP_T_PAM_SYSSTATUS   -->
+
+<ui-datagrid data.bind="ET_SYSSTATUS" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="SYSSTAUS_INT" data-abap.bind="{type:'CHAR', length:'5'}" shlp.bind="{type: 'CT', id: 'TJ02'}" label="System status"></ui-dg-column>
+   <ui-dg-column sortable field="SYSSTATUS_EXT" data-abap.bind="{type:'CHAR', length:'4'}" label="Individual status of an object (short form)"></ui-dg-column>
+   <ui-dg-column sortable field="SYSSTATUS_TXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Object status"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="ET_SYSSTATUS.SYSSTAUS_INT" shlp.bind="{type: 'CT', id: 'TJ02'}" data-abap.bind="{type:'CHAR', length:'5'}"
+          label="System status"></ui-combo>
+
+<ui-input bind="ET_SYSSTATUS.SYSSTATUS_EXT" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Individual status of an object (short form)"></ui-input>
+
+<ui-input bind="ET_SYSSTATUS.SYSSTATUS_TXT" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Object status"></ui-input>

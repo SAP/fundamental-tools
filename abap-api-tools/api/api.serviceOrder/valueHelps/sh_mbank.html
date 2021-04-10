@@ -1,0 +1,22 @@
+<!-- SH MBANK Purchase Requisitions per Cost Center : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.KOSTL" shlp.bind="{type: 'CT', id: 'CSKS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
+          label="Cost Center"></ui-combo>
+<ui-combo bind="searchParamLow.KOKRS" shlp.bind="{type: 'SH', id: 'CSH_TKA01'}" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}"
+          label="Controlling Area"></ui-combo>
+<ui-combo bind="searchParamLow.BANFN" shlp.bind="{type: 'SH', id: 'MBAN_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BAN', length:'10'}"
+          label="Purchase requisition number"></ui-combo>
+<ui-combo bind="searchParamLow.BNFPO" shlp.bind="{type: 'CT', id: 'EBAN'}" data-abap.bind="{type:'NUMC', mid:'BAP', length:'5'}"
+          label="Item number of purchase requisition"></ui-combo>
+<ui-input bind="searchParamLow.ZEBKN" data-abap.bind="{type:'NUMC', length:'2'}"
+          label="Serial number for PReq account assignment segment"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="KOSTL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}" label="Cost Center"></ui-dg-column>
+   <ui-dg-column sortable field="KOKRS" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}" label="Controlling Area"></ui-dg-column>
+   <ui-dg-column sortable field="BANFN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BAN', length:'10'}" label="Purchase requisition number"></ui-dg-column>
+   <ui-dg-column sortable field="BNFPO" data-abap.bind="{type:'NUMC', mid:'BAP', length:'5'}" label="Item number of purchase requisition"></ui-dg-column>
+   <ui-dg-column sortable field="ZEBKN" data-abap.bind="{type:'NUMC', length:'2'}" label="Serial number for PReq account assignment segment"></ui-dg-column>
+</ui-datagrid>

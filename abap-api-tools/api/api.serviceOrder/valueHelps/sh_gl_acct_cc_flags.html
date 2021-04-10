@@ -1,0 +1,31 @@
+<!-- SH GL_ACCT_CC_FLAGS G/L account with delete/lock flag in company code : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.SAKAN" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="G/L account number, significant length"></ui-input>
+<ui-input bind="searchParamLow.SAKNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}"
+          label="G/L Account Number"></ui-input>
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.XLOEV_KTP" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: Account marked for deletion?"></ui-input>
+<ui-input bind="searchParamLow.XLOEV" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: Account marked for deletion?"></ui-input>
+<ui-input bind="searchParamLow.XSPEB_KTP" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: Is account blocked for posting?"></ui-input>
+<ui-input bind="searchParamLow.XSPEB" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: Is account blocked for posting?"></ui-input>
+<ui-input bind="searchParamLow.TXT50" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="G/L Account Long Text"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="SAKAN" data-abap.bind="{type:'CHAR', length:'10'}" label="G/L account number, significant length"></ui-dg-column>
+   <ui-dg-column sortable field="SAKNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}" label="G/L Account Number"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="XLOEV_KTP" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Account marked for deletion?"></ui-dg-column>
+   <ui-dg-column sortable field="XLOEV" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Account marked for deletion?"></ui-dg-column>
+   <ui-dg-column sortable field="XSPEB_KTP" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Is account blocked for posting?"></ui-dg-column>
+   <ui-dg-column sortable field="XSPEB" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Is account blocked for posting?"></ui-dg-column>
+   <ui-dg-column sortable field="TXT50" data-abap.bind="{type:'CHAR', length:'50'}" label="G/L Account Long Text"></ui-dg-column>
+</ui-datagrid>

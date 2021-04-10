@@ -1,0 +1,22 @@
+<!-- SH GL_ACCT_CC_TEXT G/L account description in company code : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.MCODF" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Search Term for Matchcode Search"></ui-input>
+<ui-combo bind="searchParamLow.SPRAS" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-combo>
+<ui-combo bind="searchParamLow.BUKRS" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-combo>
+<ui-combo bind="searchParamLow.SAKNR" shlp.bind="{type: 'SH', id: 'C_SAKNR'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}"
+          label="G/L Account Number"></ui-combo>
+<ui-input bind="searchParamLow.SAKAN" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="G/L account number, significant length"></ui-input>
+<ui-input bind="searchParamLow.TXT50" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="G/L Account Long Text"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TXT50" data-abap.bind="{type:'CHAR', length:'50'}" label="G/L Account Long Text"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="SAKNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}" label="G/L Account Number"></ui-dg-column>
+</ui-datagrid>

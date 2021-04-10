@@ -1,0 +1,13 @@
+<!-- SH IAOM_ITEM_TYPE Item Category : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.ITM_TYPE" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Item Category"></ui-input>
+<ui-input bind="searchParamLow.I_DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="ITM_TYPE" data-abap.bind="{type:'CHAR', length:'4'}" label="Item Category"></ui-dg-column>
+   <ui-dg-column sortable field="I_DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}" label="Name"></ui-dg-column>
+</ui-datagrid>

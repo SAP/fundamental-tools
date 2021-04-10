@@ -1,0 +1,21 @@
+<!-- SH PRCTS Profit center name : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.MCTXT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search term for matchcode search"></ui-input>
+<ui-combo bind="searchParamLow.SPRAS" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-combo>
+<ui-combo bind="searchParamLow.KOKRS" shlp.bind="{type: 'SH', id: 'CSH_TKA01'}" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}"
+          label="Controlling Area"></ui-combo>
+<ui-combo bind="searchParamLow.PRCTR" shlp.bind="{type: 'SH', id: 'PRCTR_EMPTY'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}"
+          label="Profit Center"></ui-combo>
+<ui-date date.bind="searchParamLow.DATBI"  label="Valid To Date"></ui-date>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MCTXT" data-abap.bind="{type:'CHAR', length:'20'}" label="Search term for matchcode search"></ui-dg-column>
+   <ui-dg-column sortable field="SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" label="Language Key"></ui-dg-column>
+   <ui-dg-column sortable field="KOKRS" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}" label="Controlling Area"></ui-dg-column>
+   <ui-dg-column sortable field="PRCTR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}" label="Profit Center"></ui-dg-column>
+   <ui-dg-column sortable field="DATBI" data-abap.bind="{type:'DATS'}" label="Valid To Date"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,20 @@
+<!-- SH USER_CUA_ROLE Users by System-Specific Roles : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.BNAME" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}"
+          label="User Name in User Master Record"></ui-input>
+<ui-input bind="searchParamLow.SUBSYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Receiving system for central user administration"></ui-input>
+<ui-input bind="searchParamLow.AGR_NAME" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Name of role in distribution model"></ui-input>
+<ui-date date.bind="searchParamLow.FROM_DAT"  label="Date of validity"></ui-date>
+<ui-date date.bind="searchParamLow.TO_DAT"  label="Date of validity"></ui-date>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="AGR_NAME" data-abap.bind="{type:'CHAR', length:'30'}" label="Name of role in distribution model"></ui-dg-column>
+   <ui-dg-column sortable field="BNAME" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}" label="User Name in User Master Record"></ui-dg-column>
+   <ui-dg-column sortable field="FROM_DAT" data-abap.bind="{type:'DATS'}" label="Date of validity"></ui-dg-column>
+   <ui-dg-column sortable field="SUBSYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" label="Receiving system for central user administration"></ui-dg-column>
+   <ui-dg-column sortable field="TO_DAT" data-abap.bind="{type:'DATS'}" label="Date of validity"></ui-dg-column>
+</ui-datagrid>

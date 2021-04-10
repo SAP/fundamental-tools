@@ -1,0 +1,46 @@
+<!-- SH IAOM_CRM Internal Orders Created from CRM Service : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.AUFNR" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label="Order Number"></ui-combo>
+<ui-combo bind="searchParamLow.AUART" shlp.bind="{type: 'SH', id: 'H_T003O'}" data-abap.bind="{type:'CHAR', mid:'AAT', length:'4'}"
+          label="Order Type"></ui-combo>
+<ui-input bind="searchParamLow.OBJECT_ID" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Transaction"></ui-input>
+<ui-input bind="searchParamLow.PROCESS_DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Business Transaction Description"></ui-input>
+<ui-combo bind="searchParamLow.PROCESS_TYPE" shlp.bind="{type: 'SH', id: 'IAOM_PROCESS_TYPE'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Business Transaction Type"></ui-combo>
+<ui-combo bind="searchParamLow.SERVICE_ORG_RESP" shlp.bind="{type: 'SH', id: 'IAOM_SERVICE_ORG_RESP_CO'}" data-abap.bind="{type:'CHAR', alpha:'RSORG', length:'14'}"
+          label="Responsible Organizational Unit (Service)"></ui-combo>
+<ui-combo bind="searchParamLow.SERVICE_ORG" shlp.bind="{type: 'SH', id: 'IAOM_SERVICE_ORG_CO'}" data-abap.bind="{type:'CHAR', alpha:'SORG', length:'14'}"
+          label="Service Organization"></ui-combo>
+<ui-input bind="searchParamLow.NUMBER_INT" data-abap.bind="{type:'NUMC', alpha:'ALPHA', length:'10'}"
+          label="Item"></ui-input>
+<ui-input bind="searchParamLow.ITEM_DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of an Item"></ui-input>
+<ui-combo bind="searchParamLow.ITM_TYPE" shlp.bind="{type: 'SH', id: 'IAOM_ITEM_TYPE'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Item Category"></ui-combo>
+<ui-combo bind="searchParamLow.SERVICE_TECH_ORG" shlp.bind="{type: 'SH', id: 'IAOM_SERVICE_TECH_ORG_CO'}" data-abap.bind="{type:'CHAR', alpha:'TSORG', length:'14'}"
+          label="Service Technician Organization / Team"></ui-combo>
+<ui-combo bind="searchParamLow.CATEGORY_ID" shlp.bind="{type: 'SH', id: 'IAOM_CATEGORY_ID'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Produkt Category ID"></ui-combo>
+<ui-combo bind="searchParamLow.KUNNR" shlp.bind="{type: 'CT', id: 'KNA1'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'VAG', length:'10'}"
+          label="Sold-to party"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}" label="Order Number"></ui-dg-column>
+   <ui-dg-column sortable field="OBJECT_ID" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" label="Transaction"></ui-dg-column>
+   <ui-dg-column sortable field="PROCESS_DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}" label="Business Transaction Description"></ui-dg-column>
+   <ui-dg-column sortable field="PROCESS_TYPE" data-abap.bind="{type:'CHAR', length:'4'}" label="Business Transaction Type"></ui-dg-column>
+   <ui-dg-column sortable field="SERVICE_ORG_RESP" data-abap.bind="{type:'CHAR', alpha:'RSORG', length:'14'}" label="Responsible Organizational Unit (Service)"></ui-dg-column>
+   <ui-dg-column sortable field="SERVICE_ORG" data-abap.bind="{type:'CHAR', alpha:'SORG', length:'14'}" label="Service Organization"></ui-dg-column>
+   <ui-dg-column sortable field="NUMBER_INT" data-abap.bind="{type:'NUMC', alpha:'ALPHA', length:'10'}" label="Item"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of an Item"></ui-dg-column>
+   <ui-dg-column sortable field="ITM_TYPE" data-abap.bind="{type:'CHAR', length:'4'}" label="Item Category"></ui-dg-column>
+   <ui-dg-column sortable field="SERVICE_TECH_ORG" data-abap.bind="{type:'CHAR', alpha:'TSORG', length:'14'}" label="Service Technician Organization / Team"></ui-dg-column>
+   <ui-dg-column sortable field="CATEGORY_ID" data-abap.bind="{type:'CHAR', length:'18'}" label="Produkt Category ID"></ui-dg-column>
+   <ui-dg-column sortable field="KUNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'VAG', length:'10'}" label="Sold-to party"></ui-dg-column>
+   <ui-dg-column sortable field="AUART" data-abap.bind="{type:'CHAR', mid:'AAT', length:'4'}" label="Order Type"></ui-dg-column>
+</ui-datagrid>

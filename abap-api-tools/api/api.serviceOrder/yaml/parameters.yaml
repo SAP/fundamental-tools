@@ -1,0 +1,557 @@
+/COE/RBP_PAM_SERV_ORD_CREAT_N:
+  IV_NOTIFNO:
+    PARAMCLASS: I
+    TABNAME: QMNUM
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERV_ORD_CREAT_N
+    paramName: IV_NOTIFNO
+    required: true
+    paramType: var
+  IV_ORDER_TYPE:
+    PARAMCLASS: I
+    TABNAME: AUFART
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERV_ORD_CREAT_N
+    paramName: IV_ORDER_TYPE
+    required: true
+    paramType: var
+  EV_ORDERID:
+    PARAMCLASS: E
+    TABNAME: AUFNR
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERV_ORD_CREAT_N
+    paramName: EV_ORDERID
+    required: true
+    paramType: var
+  ET_RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETTAB
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERV_ORD_CREAT_N
+    paramName: ET_RETURN
+    required: true
+    paramType: table
+/COE/RBP_PAM_SERVICE_ORD_CC:
+  IV_ORDERID:
+    PARAMCLASS: I
+    TABNAME: AUFNR
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CC
+    paramName: IV_ORDERID
+    required: false
+    default: ''
+    paramType: var
+  ET_COSTS_DETAILS:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_ORDER_COSTS
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CC
+    paramName: ET_COSTS_DETAILS
+    required: true
+    paramType: table
+  ET_COSTS_SUM:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_COSTS_SUM_ET
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CC
+    paramName: ET_COSTS_SUM
+    required: true
+    paramType: table
+  ET_RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETTAB
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CC
+    paramName: ET_RETURN
+    required: true
+    paramType: table
+/COE/RBP_PAM_SERVICE_ORD_CHANG:
+  IV_NOTICE:
+    PARAMCLASS: I
+    TABNAME: STRING
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IV_NOTICE
+    required: false
+    default: ''
+    paramType: var
+    nativeKey: STRING
+  IV_ORDERID:
+    PARAMCLASS: I
+    TABNAME: AUFNR
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IV_ORDERID
+    required: false
+    default: ''
+    paramType: var
+  IV_USER_STATUS:
+    PARAMCLASS: I
+    TABNAME: J_TXT04
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IV_USER_STATUS
+    required: false
+    default: ''
+    paramType: var
+  IS_HEADER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_HEADERS_I
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IS_HEADER
+    required: false
+    default: ''
+    paramType: struct
+  IS_HEADER_X:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_HEADERS_UP
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IS_HEADER_X
+    required: false
+    default: ''
+    paramType: struct
+  IS_REJECT_REASON:
+    PARAMCLASS: I
+    TABNAME: /COE/RBP_S_PAM_REJECT_REASON
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IS_REJECT_REASON
+    required: false
+    default: ''
+    paramType: struct
+  IT_COMPONENTS:
+    PARAMCLASS: I
+    TABNAME: /COE/RBP_T_PAM_ORDER_COMP
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_COMPONENTS
+    required: false
+    default: ''
+    paramType: table
+  IT_COMPONENTS_X:
+    PARAMCLASS: I
+    TABNAME: /COE/RBP_T_PAM_ORDER_COMPX
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_COMPONENTS_X
+    required: false
+    default: ''
+    paramType: table
+  IT_NOTICE_NOTIFICATION:
+    PARAMCLASS: I
+    TABNAME: RE_T_TEXTLINE
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_NOTICE_NOTIFICATION
+    required: false
+    default: ''
+    paramType: table
+  IT_OPERATIONS:
+    PARAMCLASS: I
+    TABNAME: /COE/RBP_T_PAM_ORDER_OPER
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_OPERATIONS
+    required: false
+    default: ''
+    paramType: table
+  IT_OPERATIONS_X:
+    PARAMCLASS: I
+    TABNAME: /COE/RBP_T_PAM_ORDER_OPERX
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_OPERATIONS_X
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_PERMIT_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_PERMIT
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT_ISSUE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_PERMITISSUE_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_PERMIT_ISSUE
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT_X:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_PERMIT_UP_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: IT_PERMIT_X
+    required: false
+    default: ''
+    paramType: table
+  ET_RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETTAB
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CHANG
+    paramName: ET_RETURN
+    required: true
+    paramType: table
+/COE/RBP_PAM_SERVICE_ORD_CREAT:
+  IV_NOTICE:
+    PARAMCLASS: I
+    TABNAME: STRING
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IV_NOTICE
+    required: false
+    default: ''
+    paramType: var
+    nativeKey: STRING
+  IV_USER_STATUS:
+    PARAMCLASS: I
+    TABNAME: J_TXT04
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IV_USER_STATUS
+    required: false
+    default: ''
+    paramType: var
+  IS_HEADER:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_HEADERS_I
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IS_HEADER
+    required: false
+    default: ''
+    paramType: struct
+  IT_COMPONENTS:
+    PARAMCLASS: I
+    TABNAME: /COE/RBP_T_PAM_ORDER_COMP
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IT_COMPONENTS
+    required: false
+    default: ''
+    paramType: table
+  IT_NOTICE_NOTIFICATION:
+    PARAMCLASS: I
+    TABNAME: RE_T_TEXTLINE
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IT_NOTICE_NOTIFICATION
+    required: false
+    default: ''
+    paramType: table
+  IT_OPERATIONS:
+    PARAMCLASS: I
+    TABNAME: /COE/RBP_T_PAM_ORDER_OPER
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IT_OPERATIONS
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_PERMIT_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IT_PERMIT
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT_ISSUE:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_PERMITISSUE_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IT_PERMIT_ISSUE
+    required: false
+    default: ''
+    paramType: table
+  IT_PERMIT_X:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_ORDER_PERMIT_UP_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: IT_PERMIT_X
+    required: false
+    default: ''
+    paramType: table
+  EV_NOTIF_NO:
+    PARAMCLASS: E
+    TABNAME: QMNUM
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: EV_NOTIF_NO
+    required: true
+    paramType: var
+  EV_ORDERID:
+    PARAMCLASS: E
+    TABNAME: AUFNR
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: EV_ORDERID
+    required: true
+    paramType: var
+  ET_RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETTAB
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_CREAT
+    paramName: ET_RETURN
+    required: true
+    paramType: table
+/COE/RBP_PAM_SERVICE_ORD_GET:
+  IV_GET_DOCUMENT:
+    PARAMCLASS: I
+    TABNAME: FLAG
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: IV_GET_DOCUMENT
+    required: false
+    default: ''
+    paramType: var
+  IV_GET_NOTIFICATION:
+    PARAMCLASS: I
+    TABNAME: FLAG
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: IV_GET_NOTIFICATION
+    required: false
+    default: ''
+    paramType: var
+  IV_GET_TASKLIST:
+    PARAMCLASS: I
+    TABNAME: FLAG
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: IV_GET_TASKLIST
+    required: false
+    default: ''
+    paramType: var
+  IV_ORDERID:
+    PARAMCLASS: I
+    TABNAME: AUFNR
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: IV_ORDERID
+    required: false
+    default: ''
+    paramType: var
+  EV_COST_SUM:
+    PARAMCLASS: E
+    TABNAME: DGPLERTRAG
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: EV_COST_SUM
+    required: true
+    paramType: var
+  EV_NOTICE:
+    PARAMCLASS: E
+    TABNAME: STRING
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: EV_NOTICE
+    required: true
+    paramType: var
+    nativeKey: STRING
+  ES_HEADER:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_HEADER_E
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ES_HEADER
+    required: true
+    paramType: struct
+  ES_HEADER_NOTIFICATION:
+    PARAMCLASS: E
+    TABNAME: BAPI2080_NOTHDRE
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ES_HEADER_NOTIFICATION
+    required: true
+    paramType: struct
+  ET_COMPONENTS:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_ORDER_COMP_GET
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_COMPONENTS
+    required: true
+    paramType: table
+  ET_COSTS_DETAILS:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_ORDER_COSTS
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_COSTS_DETAILS
+    required: true
+    paramType: table
+  ET_DOCUMENT:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_DOCUMENT
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_DOCUMENT
+    required: true
+    paramType: table
+  ET_NOTICE_NOTIFICATION:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_NOTICE_LOG
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_NOTICE_NOTIFICATION
+    required: true
+    paramType: table
+  ET_OPERATIONS:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_ORDER_OPER_GET
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_OPERATIONS
+    required: true
+    paramType: table
+  ET_PARTNER:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_ORDER_PARTNER
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_PARTNER
+    required: true
+    paramType: table
+  ET_PERMIT:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_PERMIT_READ_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_PERMIT
+    required: true
+    paramType: table
+  ET_PERMIT_ISSUE:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_PER_ISSUE_R_T
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_PERMIT_ISSUE
+    required: true
+    paramType: table
+  ET_PERMIT_ISSUE_COMBINED:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_PERM_ISSUE_COMB
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_PERMIT_ISSUE_COMBINED
+    required: true
+    paramType: table
+  ET_RELATIONS:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_ORDER_RELATION_ET
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_RELATIONS
+    required: true
+    paramType: table
+  ET_RETURN:
+    PARAMCLASS: E
+    TABNAME: BAPIRETTAB
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_RETURN
+    required: true
+    paramType: table
+  ET_TASKLIST:
+    PARAMCLASS: E
+    TABNAME: /COE/RBP_T_PAM_PMPLAN
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GET
+    paramName: ET_TASKLIST
+    required: true
+    paramType: table
+/COE/RBP_PAM_SERVICE_ORD_GETL:
+  IV_TOTALS:
+    PARAMCLASS: I
+    TABNAME: FLAG
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: IV_TOTALS
+    required: false
+    default: ''
+    paramType: var
+  IS_DISPLAY_PARAMETERS:
+    PARAMCLASS: I
+    TABNAME: BAPI_ALM_LIST_NAVIGATION_IN
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: IS_DISPLAY_PARAMETERS
+    required: false
+    default: ''
+    paramType: struct
+  IT_SORTORDER:
+    PARAMCLASS: I
+    TABNAME: ABAP_SORTORDER_TAB
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: IT_SORTORDER
+    required: false
+    default: ''
+    paramType: table
+  ET_RESULT:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTHEAD_RESULT
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: ET_RESULT
+    required: false
+    default: ''
+    paramType: table
+  ET_RETURN:
+    PARAMCLASS: T
+    TABNAME: BAPIRET2
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: ET_RETURN
+    required: false
+    default: ''
+    paramType: table
+  ET_TEMPLATE:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTHEAD_RANGES
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: ET_TEMPLATE
+    required: false
+    default: ''
+    paramType: table
+  ET_TOTALS:
+    PARAMCLASS: T
+    TABNAME: /COE/RBP_S_PAM_ORDER_LIST_TTLS
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: ET_TOTALS
+    required: false
+    default: ''
+    paramType: table
+  IT_RANGES:
+    PARAMCLASS: T
+    TABNAME: BAPI_ALM_ORDER_LISTHEAD_RANGES
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: IT_RANGES
+    required: false
+    default: ''
+    paramType: table
+  ES_NAVIGATION_DATA:
+    PARAMCLASS: E
+    TABNAME: BAPI_ALM_LIST_NAVIGATION_RET
+    PARAMTEXT: ''
+    functionName: /COE/RBP_PAM_SERVICE_ORD_GETL
+    paramName: ES_NAVIGATION_DATA
+    required: true
+    paramType: struct

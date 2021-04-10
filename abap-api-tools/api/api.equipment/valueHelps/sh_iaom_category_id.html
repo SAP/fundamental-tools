@@ -1,0 +1,13 @@
+<!-- SH IAOM_CATEGORY_ID Produkt Category ID : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.CATEGORY_ID" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Produkt Category ID"></ui-input>
+<ui-input bind="searchParamLow.CATEGORY_TEXT" data-abap.bind="{type:'CHAR', length:'80'}"
+          label="Short Text for Category"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="CATEGORY_ID" data-abap.bind="{type:'CHAR', length:'18'}" label="Produkt Category ID"></ui-dg-column>
+   <ui-dg-column sortable field="CATEGORY_TEXT" data-abap.bind="{type:'CHAR', length:'80'}" label="Short Text for Category"></ui-dg-column>
+</ui-datagrid>

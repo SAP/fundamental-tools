@@ -1,0 +1,55 @@
+<!-- SH IFL_ES_ADVANCED Advanced Search for Functional Locations (Enterprise Search) : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}"
+          label="Generic Search Term"></ui-input>
+<ui-input bind="searchParamLow.S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Fuzzy Mode"></ui-input>
+<ui-input bind="searchParamLow.OBJECT_TYPE_ID" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Object Type"></ui-input>
+<ui-input bind="searchParamLow.REQUEST" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="Request Type ID"></ui-input>
+<ui-input bind="searchParamLow.TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-input>
+<ui-input bind="searchParamLow.PLTXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of functional location"></ui-input>
+<ui-input bind="searchParamLow.TPLMA" data-abap.bind="{type:'CHAR', alpha:'TPLNR', length:'30'}"
+          label="Superior functional location"></ui-input>
+<ui-input bind="searchParamLow.FLTYP" data-abap.bind="{type:'CHAR', mid:'IFT', length:'1'}"
+          label="Functional location category"></ui-input>
+<ui-input bind="searchParamLow.HERST" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Manufacturer of asset"></ui-input>
+<ui-input bind="searchParamLow.SERGE" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Manufacturer serial number"></ui-input>
+<ui-input bind="searchParamLow.SWERK" data-abap.bind="{type:'CHAR', mid:'SWK', length:'4'}"
+          label="Maintenance plant"></ui-input>
+<ui-input bind="searchParamLow.STORT" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Asset location"></ui-input>
+<ui-input bind="searchParamLow.EQFNR" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Sort field"></ui-input>
+<ui-input bind="searchParamLow.LGWID" data-abap.bind="{type:'NUMC', length:'8'}"
+          label="Object ID of the Work Center"></ui-input>
+<ui-input bind="searchParamLow.INGRP" data-abap.bind="{type:'CHAR', mid:'IHG', length:'3'}"
+          label="Planner Group for Customer Service and Plant Maintenance"></ui-input>
+<ui-input bind="searchParamLow.IWERK" data-abap.bind="{type:'CHAR', mid:'IWK', length:'4'}"
+          label="Maintenance Planning Plant"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}" label="Generic Search Term"></ui-dg-column>
+   <ui-dg-column sortable field="S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}" label="Fuzzy Mode"></ui-dg-column>
+   <ui-dg-column sortable field="OBJECT_TYPE_ID" data-abap.bind="{type:'CHAR', length:'20'}" label="Object Type"></ui-dg-column>
+   <ui-dg-column sortable field="REQUEST" data-abap.bind="{type:'CHAR', length:'32'}" label="Request Type ID"></ui-dg-column>
+   <ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" label="Functional Location"></ui-dg-column>
+   <ui-dg-column sortable field="PLTXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of functional location"></ui-dg-column>
+   <ui-dg-column sortable field="TPLMA" data-abap.bind="{type:'CHAR', alpha:'TPLNR', length:'30'}" label="Superior functional location"></ui-dg-column>
+   <ui-dg-column sortable field="FLTYP" data-abap.bind="{type:'CHAR', mid:'IFT', length:'1'}" label="Functional location category"></ui-dg-column>
+   <ui-dg-column sortable field="HERST" data-abap.bind="{type:'CHAR', length:'30'}" label="Manufacturer of asset"></ui-dg-column>
+   <ui-dg-column sortable field="SERGE" data-abap.bind="{type:'CHAR', length:'30'}" label="Manufacturer serial number"></ui-dg-column>
+   <ui-dg-column sortable field="SWERK" data-abap.bind="{type:'CHAR', mid:'SWK', length:'4'}" label="Maintenance plant"></ui-dg-column>
+   <ui-dg-column sortable field="STORT" data-abap.bind="{type:'CHAR', length:'10'}" label="Asset location"></ui-dg-column>
+   <ui-dg-column sortable field="EQFNR" data-abap.bind="{type:'CHAR', length:'30'}" label="Sort field"></ui-dg-column>
+   <ui-dg-column sortable field="LGWID" data-abap.bind="{type:'NUMC', length:'8'}" label="Object ID of the Work Center"></ui-dg-column>
+   <ui-dg-column sortable field="INGRP" data-abap.bind="{type:'CHAR', mid:'IHG', length:'3'}" label="Planner Group for Customer Service and Plant Maintenance"></ui-dg-column>
+   <ui-dg-column sortable field="IWERK" data-abap.bind="{type:'CHAR', mid:'IWK', length:'4'}" label="Maintenance Planning Plant"></ui-dg-column>
+</ui-datagrid>

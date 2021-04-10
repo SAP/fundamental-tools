@@ -1,0 +1,13 @@
+<!-- SH C_VKORG Sales Organization : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.VKORG" shlp.bind="{type: 'SH', id: 'C_VKORG'}" data-abap.bind="{type:'CHAR', mid:'VKO', length:'4'}"
+          label="Sales Organization"></ui-combo>
+<ui-input bind="searchParamLow.VTEXT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Name"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="VKORG" data-abap.bind="{type:'CHAR', mid:'VKO', length:'4'}" label="Sales Organization"></ui-dg-column>
+   <ui-dg-column sortable field="VTEXT" data-abap.bind="{type:'CHAR', length:'20'}" label="Name"></ui-dg-column>
+</ui-datagrid>

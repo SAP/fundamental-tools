@@ -1,0 +1,16 @@
+<!-- SH AUKOC Networks for Project Definitions : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.PSPID" data-abap.bind="{type:'CHAR', alpha:'ABPSN', mid:'PSP', length:'24'}"
+          label="Project definition"></ui-input>
+<ui-input bind="searchParamLow.AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label="Network number"></ui-input>
+<ui-input bind="searchParamLow.KTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PSPID" data-abap.bind="{type:'CHAR', alpha:'ABPSN', mid:'PSP', length:'24'}" label="Project definition"></ui-dg-column>
+   <ui-dg-column sortable field="AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}" label="Network number"></ui-dg-column>
+   <ui-dg-column sortable field="KTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description"></ui-dg-column>
+</ui-datagrid>

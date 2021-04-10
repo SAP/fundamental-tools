@@ -1,0 +1,13 @@
+<!-- SH H_IUID_TYPE Structure Type of UII : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.IUID_TYPE" shlp.bind="{type: 'SH', id: 'H_IUID_TYPE'}" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Structure Type of UII"></ui-combo>
+<ui-input bind="searchParamLow.TEXT" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Text Field for UID"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="IUID_TYPE" data-abap.bind="{type:'CHAR', length:'10'}" label="Structure Type of UII"></ui-dg-column>
+   <ui-dg-column sortable field="TEXT" data-abap.bind="{type:'CHAR', length:'50'}" label="Text Field for UID"></ui-dg-column>
+</ui-datagrid>

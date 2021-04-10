@@ -1,0 +1,1998 @@
+<!-- /COE/RBP_PAM_SERVICE_ORD_CHANG exception: 0  struct: 3  table: 9  var: 3
+
+abap 2.2.0 at: 2021-04-10 21:53:58 -->
+
+<!-- IMPORT PARAMETERS -->
+
+<ui-text bind="IV_NOTICE" data-abap.bind="{type:'STRING'}"
+         label=""></ui-text>
+
+<ui-combo bind="IV_ORDERID" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label=""></ui-combo>
+
+<ui-input bind="IV_USER_STATUS" data-abap.bind="{type:'CHAR', length:'4'}"
+          label=""></ui-input>
+
+<!-- Parameter: IS_HEADER structure: BAPI_ALM_ORDER_HEADERS_I   -->
+
+<ui-combo bind="IS_HEADER.ORDERID" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label="Order Number"></ui-combo>
+
+<ui-combo bind="IS_HEADER.ORDER_TYPE" shlp.bind="{type: 'CT', id: 'T003O'}" data-abap.bind="{type:'CHAR', mid:'AAT', length:'4'}"
+          label="Order Type"></ui-combo>
+
+<ui-combo bind="IS_HEADER.PLANPLANT" shlp.bind="{type: 'CT', id: 'T001W'}" data-abap.bind="{type:'CHAR', mid:'IWK', length:'4'}"
+          label="Maintenance Planning Plant"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SCENARIO" shlp.bind="{type: 'CT', id: 'TQBT'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Scenario or Subscreen Category"></ui-combo>
+
+<ui-combo bind="IS_HEADER.BUS_AREA" shlp.bind="{type: 'CT', id: 'TGSB'}" data-abap.bind="{type:'CHAR', mid:'GSB', length:'4'}"
+          label="Business Area"></ui-combo>
+
+<ui-input bind="IS_HEADER.MN_WK_CTR" data-abap.bind="{type:'CHAR', mid:'VAP', length:'8'}"
+          label="Main work center for maintenance tasks"></ui-input>
+
+<ui-combo bind="IS_HEADER.PLANT" shlp.bind="{type: 'CT', id: 'T001W'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Plant associated with main work center"></ui-combo>
+
+<ui-combo bind="IS_HEADER.PMACTTYPE" shlp.bind="{type: 'SH', id: 'H_T350I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Maintenance activity type"></ui-combo>
+
+<ui-combo bind="IS_HEADER.PLANGROUP" shlp.bind="{type: 'CT', id: 'T024I'}" data-abap.bind="{type:'CHAR', mid:'IHG', length:'3'}"
+          label="Planner Group for Customer Service and Plant Maintenance"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SYSTCOND" shlp.bind="{type: 'CT', id: 'T357M'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Syst.Condition"></ui-combo>
+
+<ui-combo bind="IS_HEADER.FUNCT_LOC" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-combo>
+
+<ui-combo bind="IS_HEADER.EQUIPMENT" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-combo>
+
+<ui-input bind="IS_HEADER.SERIALNO" data-abap.bind="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
+          label="Serial Number"></ui-input>
+
+<ui-combo bind="IS_HEADER.MATERIAL" shlp.bind="{type: 'SH', id: 'S_MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-combo>
+
+<ui-combo bind="IS_HEADER.ASSEMBLY" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Assembly"></ui-combo>
+
+<ui-input bind="IS_HEADER.DEVICEDATA" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Additional Device Data"></ui-input>
+
+<ui-combo bind="IS_HEADER.MAINTPLANT" shlp.bind="{type: 'CT', id: 'T001W'}" data-abap.bind="{type:'CHAR', mid:'SWK', length:'4'}"
+          label="Maintenance plant"></ui-combo>
+
+<ui-combo bind="IS_HEADER.LOCATION" shlp.bind="{type: 'CT', id: 'T499S'}" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Asset location"></ui-combo>
+
+<ui-input bind="IS_HEADER.MAINTROOM" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Room"></ui-input>
+
+<ui-combo bind="IS_HEADER.PLSECTN" shlp.bind="{type: 'CT', id: 'T357'}" data-abap.bind="{type:'CHAR', mid:'BBE', length:'3'}"
+          label="Plant section"></ui-combo>
+
+<ui-input bind="IS_HEADER.LOC_WK_CTR" data-abap.bind="{type:'CHAR', mid:'AGR', length:'8'}"
+          label="Work center"></ui-input>
+
+<ui-combo bind="IS_HEADER.ABCINDIC" shlp.bind="{type: 'CT', id: 'T370C'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="ABC indicator for technical object"></ui-combo>
+
+<ui-input bind="IS_HEADER.SORTFIELD" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Sort field"></ui-input>
+
+<ui-combo bind="IS_HEADER.PROFIT_CTR" shlp.bind="{type: 'SH', id: 'PRCTR_EMPTY'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}"
+          label="Profit Center"></ui-combo>
+
+<ui-combo bind="IS_HEADER.RESPCCTR" shlp.bind="{type: 'CT', id: 'CSKS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Responsible cost center"></ui-combo>
+
+<ui-combo bind="IS_HEADER.FUNC_AREA" shlp.bind="{type: 'CT', id: 'TFKB'}" data-abap.bind="{type:'CHAR', mid:'FBE', length:'16'}"
+          label="Functional Area"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SUPERIOR_NETWORK" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+          label="Number of superior network"></ui-combo>
+
+<ui-input bind="IS_HEADER.SUPERIOR_ACTIVITY" data-abap.bind="{type:'CHAR', alpha:'NUMCV', length:'4'}"
+          label="Activity number in network and standard network"></ui-input>
+
+<ui-combo bind="IS_HEADER.WBS_ELEM" shlp.bind="{type: 'CT', id: 'PRPS'}" data-abap.bind="{type:'NUMC', alpha:'ABPSP', length:'8'}"
+          label="Work Breakdown Structure Element (WBS Element)"></ui-combo>
+
+<ui-combo bind="IS_HEADER.PROCESSING_GROUP" shlp.bind="{type: 'CT', id: 'TKO08'}" data-abap.bind="{type:'NUMC', mid:'AKR', length:'2'}"
+          label="Processing group"></ui-combo>
+
+<ui-combo bind="IS_HEADER.TAXJURCODE" shlp.bind="{type: 'CT', id: 'TTXJ'}" data-abap.bind="{type:'CHAR', mid:'TXJ', length:'15'}"
+          label="Tax Jurisdiction"></ui-combo>
+
+<ui-combo bind="IS_HEADER.LOC_COMP_CODE" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-combo>
+
+<ui-combo bind="IS_HEADER.ASSET_NO" shlp.bind="{type: 'CT', id: 'ANLH'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AN1', length:'12'}"
+          label="Main Asset Number"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SUB_NUMBER" shlp.bind="{type: 'CT', id: 'ANLA'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AN2', length:'4'}"
+          label="Asset Subnumber"></ui-combo>
+
+<ui-combo bind="IS_HEADER.LOC_BUS_AREA" shlp.bind="{type: 'CT', id: 'TGSB'}" data-abap.bind="{type:'CHAR', mid:'GSB', length:'4'}"
+          label="Business Area"></ui-combo>
+
+<ui-combo bind="IS_HEADER.COSTCENTER" shlp.bind="{type: 'CT', id: 'CSKS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
+          label="Cost Center"></ui-combo>
+
+<ui-combo bind="IS_HEADER.LOC_WBS_ELEM" shlp.bind="{type: 'CT', id: 'PRPS'}" data-abap.bind="{type:'NUMC', alpha:'ABPSP', length:'8'}"
+          label="Work Breakdown Structure Element (WBS Element)"></ui-combo>
+
+<ui-combo bind="IS_HEADER.STANDORDER" shlp.bind="{type: 'SH', id: 'ORDP'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+          label="Standing order number"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SETTLORDER" shlp.bind="{type: 'SH', id: 'ORDE'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+          label="Settlement order"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SALESORG" shlp.bind="{type: 'SH', id: 'C_VKORG'}" data-abap.bind="{type:'CHAR', mid:'VKO', length:'4'}"
+          label="Sales Organization"></ui-combo>
+
+<ui-combo bind="IS_HEADER.DISTR_CHAN" shlp.bind="{type: 'SH', id: 'C_VTWEG'}" data-abap.bind="{type:'CHAR', mid:'VTW', length:'2'}"
+          label="Distribution Channel"></ui-combo>
+
+<ui-combo bind="IS_HEADER.DIVISION" shlp.bind="{type: 'SH', id: 'C_SPART'}" data-abap.bind="{type:'CHAR', mid:'SPA', length:'2'}"
+          label="Division"></ui-combo>
+
+<ui-combo bind="IS_HEADER.ORDPLANID" shlp.bind="{type: 'FV', id: 'AUF_PLKNZ'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Maintenance order planning indicator"></ui-combo>
+
+<ui-date date.bind="IS_HEADER.START_DATE"  label="Basic start date"></ui-date>
+
+<ui-date date.bind="IS_HEADER.FINISH_DATE"  label="Basic finish date"></ui-date>
+
+<ui-time time.bind="IS_HEADER.BASICSTART"  label="Basic Start (Time)"></ui-time>
+
+<ui-time time.bind="IS_HEADER.BASIC_FIN"  label="Basic finish (time)"></ui-time>
+
+<ui-combo bind="IS_HEADER.PRIORITY" shlp.bind="{type: 'CT', id: 'T356'}" data-abap.bind="{type:'CHAR', mid:'PRIOK', length:'1'}"
+          label="Priority"></ui-combo>
+
+<ui-combo bind="IS_HEADER.REVISION" shlp.bind="{type: 'CT', id: 'T352R'}" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Revision for Plant Maintenance and Customer Service"></ui-combo>
+
+<ui-combo bind="IS_HEADER.VERSION" shlp.bind="{type: 'CT', id: 'TC36'}" data-abap.bind="{type:'NUMC', length:'2'}"
+          label="Version of Available Capacity"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SCHED_TYPE" shlp.bind="{type: 'CT', id: 'T482'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Scheduling type"></ui-combo>
+
+<ui-checkbox value.bind="IS_HEADER.AUTOSCHED" label="Indicator: Schedule automatically"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER.CAP_REQMTS" label="Indicator: Calculate capacity requirements"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER.SCHEDULING_EXACT_BREAK_TIMES" label="Indicator:  Scheduling allowing for breaks"></ui-checkbox>
+
+<ui-combo bind="IS_HEADER.MRP_RELEVANT" shlp.bind="{type: 'FV', id: 'AUDISP'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Reservation Relevance/Generation of Purchase Requisition"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SALES_ORD" shlp.bind="{type: 'CT', id: 'VBUK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}"
+          label="Sales Order Number"></ui-combo>
+
+<ui-input bind="IS_HEADER.S_ORD_ITEM" data-abap.bind="{type:'NUMC', mid:'KPO', length:'6'}"
+          label="Item number in Sales Order"></ui-input>
+
+<ui-combo bind="IS_HEADER.CALC_MOTIVE" shlp.bind="{type: 'CT', id: 'TBMOT'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Accounting Indicator"></ui-combo>
+
+<ui-combo bind="IS_HEADER.INVEST_PROFILE" shlp.bind="{type: 'CT', id: 'TAPRF'}" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="Investment measure profile"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SCALE" shlp.bind="{type: 'CT', id: 'TAIF5'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'2'}"
+          label="Scale of investment objects"></ui-combo>
+
+<ui-combo bind="IS_HEADER.INV_REASON" shlp.bind="{type: 'CT', id: 'T087I'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Reason for investment"></ui-combo>
+
+<ui-combo bind="IS_HEADER.ENVIR_INVEST" shlp.bind="{type: 'CT', id: 'T087K'}" data-abap.bind="{type:'CHAR', length:'5'}"
+          label="Reason for environmental investment"></ui-combo>
+
+<ui-input bind="IS_HEADER.ESTIMATED_COSTS" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
+          label="Estimated total costs of order"></ui-input>
+
+<ui-combo bind="IS_HEADER.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', length:'5'}"
+          label="Order Currency"></ui-combo>
+
+<ui-input bind="IS_HEADER.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO currency code"></ui-input>
+
+<ui-combo bind="IS_HEADER.CSTG_SHEET" shlp.bind="{type: 'CT', id: 'T683'}" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="Costing Sheet"></ui-combo>
+
+<ui-input bind="IS_HEADER.OVERHEAD_KEY" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="Overhead key"></ui-input>
+
+<ui-combo bind="IS_HEADER.RES_ANAL_KEY" shlp.bind="{type: 'CT', id: 'TKKAA'}" data-abap.bind="{type:'CHAR', mid:'ACS', length:'6'}"
+          label="Results Analysis Key"></ui-combo>
+
+<ui-input bind="IS_HEADER.SHORT_TEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description"></ui-input>
+
+<ui-input bind="IS_HEADER.ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
+          label="Long Material Number for Field ASSEMBLY"></ui-input>
+
+<ui-input bind="IS_HEADER.ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="External GUID for ASSEMBLY Field"></ui-input>
+
+<ui-input bind="IS_HEADER.ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
+          label="Version Number for ASSEMBLY Field"></ui-input>
+
+<ui-input bind="IS_HEADER.MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
+          label="Long Material Number for MATERIAL Field"></ui-input>
+
+<ui-input bind="IS_HEADER.MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="External GUID for MATERIAL Field"></ui-input>
+
+<ui-input bind="IS_HEADER.MATERIAL_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
+          label="Version Number for MATERIAL Field"></ui-input>
+
+<ui-combo bind="IS_HEADER.NOTIF_NO" shlp.bind="{type: 'CT', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+          label="Notification No"></ui-combo>
+
+<ui-date date.bind="IS_HEADER.TECO_REF_DATE"  label="PM Order: Reference Date"></ui-date>
+
+<ui-time time.bind="IS_HEADER.TECO_REF_TIME"  label="Time of Reference Date"></ui-time>
+
+<ui-combo bind="IS_HEADER.CALID" shlp.bind="{type: 'CT', id: 'TFACD'}" data-abap.bind="{type:'CHAR', mid:'FCI', length:'2'}"
+          label="Factory Calendar"></ui-combo>
+
+<ui-combo bind="IS_HEADER.KALSN" shlp.bind="{type: 'FV', id: 'KALSN'}" data-abap.bind="{type:'NUMC', length:'2'}"
+          label="Calendar Selection for Order"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SUPERIOR_ORDERID" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'UAF', length:'12'}"
+          label="Number of Superior Order"></ui-combo>
+
+<ui-combo bind="IS_HEADER.NOTIF_TYPE" shlp.bind="{type: 'CT', id: 'TQ80'}" data-abap.bind="{type:'CHAR', mid:'QMR', length:'2'}"
+          label="Notification Type"></ui-combo>
+
+<ui-combo bind="IS_HEADER.START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Start Point"></ui-combo>
+
+<ui-combo bind="IS_HEADER.END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="End Point"></ui-combo>
+
+<ui-input bind="IS_HEADER.LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Length"></ui-input>
+
+<ui-combo bind="IS_HEADER.LINEAR_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Linear Data"></ui-combo>
+
+<ui-combo bind="IS_HEADER.LINEAR_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Linear Data in ISO Code"></ui-combo>
+
+<ui-combo bind="IS_HEADER.FIRST_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Type of First Offset"></ui-combo>
+
+<ui-input bind="IS_HEADER.FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Value of Offset 1"></ui-input>
+
+<ui-combo bind="IS_HEADER.FIRST_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Offset 1"></ui-combo>
+
+<ui-combo bind="IS_HEADER.FIRST_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Offset 1 in ISO Code"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SECOND_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Type of Second Offset"></ui-combo>
+
+<ui-input bind="IS_HEADER.SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Value of Offset 2"></ui-input>
+
+<ui-combo bind="IS_HEADER.SECOND_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Offset 2"></ui-combo>
+
+<ui-combo bind="IS_HEADER.SECOND_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Offset 2 in ISO Code"></ui-combo>
+
+<ui-combo bind="IS_HEADER.MARKER_START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Marker for Start Point"></ui-combo>
+
+<ui-input bind="IS_HEADER.MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Distance between Marker and Start Point"></ui-input>
+
+<ui-combo bind="IS_HEADER.MARKER_END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Marker for End Point"></ui-combo>
+
+<ui-input bind="IS_HEADER.MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Length Spec for Distance between Marker and End Point"></ui-input>
+
+<ui-combo bind="IS_HEADER.MARKER_DISTANCE_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for the Distance from Marker"></ui-combo>
+
+<ui-combo bind="IS_HEADER.MARKER_DISTANCE_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit for the Distance from Marker in ISO Code"></ui-combo>
+
+<ui-combo bind="IS_HEADER.REFERENCE_ORDER" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANV', length:'12'}"
+          label="Reference order number"></ui-combo>
+
+<ui-input bind="IS_HEADER.MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Material Number (40 Characters, needed f. technical reasons)"></ui-input>
+
+<ui-input bind="IS_HEADER.ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}"
+          label="Assembly"></ui-input>
+
+<!-- Parameter: IS_HEADER_X structure: BAPI_ALM_ORDER_HEADERS_UP   -->
+
+<ui-combo bind="IS_HEADER_X.ORDERID" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label="Order Number"></ui-combo>
+
+<ui-checkbox value.bind="IS_HEADER_X.BUS_AREA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MN_WK_CTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PLANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PMACTTYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PLANGROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SYSTCOND" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FUNCT_LOC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.EQUIPMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SERIALNO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MATERIAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ASSEMBLY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.DEVICEDATA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MAINTPLANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LOCATION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MAINTROOM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PLSECTN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LOC_WK_CTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ABCINDIC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SORTFIELD" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PROFIT_CTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.RESPCCTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FUNC_AREA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SUPERIOR_NETWORK" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SUPERIOR_ACTIVITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.WBS_ELEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PROCESSING_GROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.TAXJURCODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LOC_COMP_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ASSET_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SUB_NUMBER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LOC_BUS_AREA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.COSTCENTER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LOC_WBS_ELEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.STANDORDER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SETTLORDER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SALESORG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.DISTR_CHAN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.DIVISION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ORDPLANID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.START_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FINISH_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.BASICSTART" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.BASIC_FIN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.PRIORITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.REVISION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.VERSION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SCHED_TYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.AUTOSCHED" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CAP_REQMTS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SCHEDULING_EXACT_BREAK_TIMES" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MRP_RELEVANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SALES_ORD" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.S_ORD_ITEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CALC_MOTIVE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.INVEST_PROFILE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SCALE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.INV_REASON" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ENVIR_INVEST" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ESTIMATED_COSTS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CURRENCY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CSTG_SHEET" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.OVERHEAD_KEY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.RES_ANAL_KEY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SHORT_TEXT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.NOTIF_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.CALID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.KALSN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SUPERIOR_ORDERID" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.NOTIF_TYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LINEAR_LENGTH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LINEAR_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.LINEAR_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.FIRST_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.SECOND_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MARKER_DISTANCE_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.MATERIAL_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IS_HEADER_X.ASSEMBLY_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- Parameter: IS_REJECT_REASON structure: /COE/RBP_S_PAM_REJECT_REASON   -->
+
+<ui-input bind="IS_REJECT_REASON.TEXT" data-abap.bind="{type:'CHAR', length:'132'}"
+          label="Text (length 132)"></ui-input>
+
+<!-- Parameter: IT_COMPONENTS structure: /COE/RBP_T_PAM_ORDER_COMP   -->
+
+<ui-datagrid data.bind="IT_COMPONENTS" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="RESERV_NO" data-abap.bind="{type:'NUMC', mid:'RES', length:'10'}" shlp.bind="{type: 'CT', id: 'RESB'}" label="Number of reservation/dependent requirements"></ui-dg-column>
+   <ui-dg-column sortable field="RES_ITEM" data-abap.bind="{type:'NUMC', mid:'RPO', length:'4'}" label="Item Number of Reservation / Dependent Requirements"></ui-dg-column>
+   <ui-dg-column sortable field="RES_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Record type"></ui-dg-column>
+   <ui-dg-column sortable field="MOVEMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Goods movement for reservation allowed"></ui-dg-column>
+   <ui-dg-column sortable field="WITHDRAWN" data-abap.bind="{type:'CHAR', length:'1'}" label="Final issue for this reservation"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Material Number"></ui-dg-column>
+   <ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T001W'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="STGE_LOC" data-abap.bind="{type:'CHAR', mid:'LAG', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T001L'}" label="Storage location"></ui-dg-column>
+   <ui-dg-column sortable field="BATCH" data-abap.bind="{type:'CHAR', mid:'CHA', length:'10'}" shlp.bind="{type: 'SH', id: 'H_MCHA'}" label="Batch Number"></ui-dg-column>
+   <ui-dg-column sortable field="FIXED_QUAN" data-abap.bind="{type:'CHAR', length:'1'}" label="Quantity is fixed"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
+   <ui-dg-column sortable field="SALES_ORD" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}" shlp.bind="{type: 'CH', id: 'VBUK'}" label="Sales Order Number"></ui-dg-column>
+   <ui-dg-column sortable field="S_ORD_ITEM" data-abap.bind="{type:'NUMC', mid:'KPO', length:'6'}" label="Item number in Sales Order"></ui-dg-column>
+   <ui-dg-column sortable field="GL_ACCOUNT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}" shlp.bind="{type: 'SH', id: 'C_SAKNR'}" label="G/L Account Number"></ui-dg-column>
+   <ui-dg-column sortable field="ORIGINAL_QUANTITY" data-abap.bind="{type:'QUAN', unit:'MEINS', length:'10.3'}" label="Required quantity"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_CAT" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T418'}" label="Item category (bill of material)"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_NUMBER" data-abap.bind="{type:'CHAR', alpha:'NUMCV', length:'4'}" label="BOM item number"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_TEXT1" data-abap.bind="{type:'CHAR', length:'40'}" label="BOM Item Text (Line 1)"></ui-dg-column>
+   <ui-dg-column sortable field="COST_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'CT', id: 'TCK08'}" label="Indicator for Relevancy to Costing"></ui-dg-column>
+   <ui-dg-column sortable field="USAGE_PROB" data-abap.bind="{type:'DEC', length:'3'}" label="Usage probability in % (alternative item)"></ui-dg-column>
+   <ui-dg-column sortable field="SORT_STRING" data-abap.bind="{type:'CHAR', length:'10'}" label="Sort String"></ui-dg-column>
+   <ui-dg-column sortable field="BULK_MAT" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: bulk material"></ui-dg-column>
+   <ui-dg-column sortable field="MAT_PROVISION" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T417'}" label="Material Provision Indicator"></ui-dg-column>
+   <ui-dg-column sortable field="WBS_ELEM" data-abap.bind="{type:'NUMC', alpha:'ABPSP', length:'8'}" shlp.bind="{type: 'CT', id: 'PRPS'}" label="WBS Element"></ui-dg-column>
+   <ui-dg-column sortable field="ACTIVITY" data-abap.bind="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}" label="Activity Number"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Price in component currency"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE_UNIT" data-abap.bind="{type:'DEC', length:'5'}" label="Price unit"></ui-dg-column>
+   <ui-dg-column sortable field="BACKFLUSH" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Backflush"></ui-dg-column>
+   <ui-dg-column sortable field="PUR_GROUP" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T024'}" label="Purchasing group"></ui-dg-column>
+   <ui-dg-column sortable field="DELIVERY_DAYS" data-abap.bind="{type:'DEC', length:'3'}" label="Delivery time in days"></ui-dg-column>
+   <ui-dg-column sortable field="GR_RCPT" data-abap.bind="{type:'CHAR', length:'12'}" label="Goods recipient"></ui-dg-column>
+   <ui-dg-column sortable field="UNLOAD_PT" data-abap.bind="{type:'CHAR', length:'25'}" label="Unloading Point"></ui-dg-column>
+   <ui-dg-column sortable field="MATL_GROUP" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}" shlp.bind="{type: 'SH', id: 'H_T023'}" label="Material Group"></ui-dg-column>
+   <ui-dg-column sortable field="GR_PR_TIME" data-abap.bind="{type:'DEC', length:'3'}" label="Goods receipt processing time in days"></ui-dg-column>
+   <ui-dg-column sortable field="VENDOR_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Account Number of Vendor or Creditor"></ui-dg-column>
+   <ui-dg-column sortable field="INFO_REC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}" shlp.bind="{type: 'CH', id: 'EINA'}" label="Number of purchasing info record"></ui-dg-column>
+   <ui-dg-column sortable field="LEAD_TIME_OFFSET_OPR" data-abap.bind="{type:'DEC', length:'+3'}" label="Lead-time offset for operation"></ui-dg-column>
+   <ui-dg-column sortable field="LEAD_TIME_OFFSET_OPR_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit for lead-time offset for operation"></ui-dg-column>
+   <ui-dg-column sortable field="LEAD_TIME_OFFSET_OPR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of requisitioner/requester"></ui-dg-column>
+   <ui-dg-column sortable field="TRACKINGNO" data-abap.bind="{type:'CHAR', length:'10'}" label="Requirement Tracking Number"></ui-dg-column>
+   <ui-dg-column sortable field="PURCH_ORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T024E'}" label="Purchasing organization"></ui-dg-column>
+   <ui-dg-column sortable field="MATL_DESC" data-abap.bind="{type:'CHAR', length:'40'}" label="Material description"></ui-dg-column>
+   <ui-dg-column sortable field="REQUIREMENT_QUANTITY" data-abap.bind="{type:'QUAN', unit:'REQUIREMENT_QUANTITY_UNIT', length:'+10.3'}" label="Requirement Quantity of Component"></ui-dg-column>
+   <ui-dg-column sortable field="REQUIREMENT_QUANTITY_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Base Unit of Measure"></ui-dg-column>
+   <ui-dg-column sortable field="REQUIREMENT_QUANTITY_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="AGREEMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Number of principal purchase agreement"></ui-dg-column>
+   <ui-dg-column sortable field="AGMT_ITEM" data-abap.bind="{type:'NUMC', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item number of principal purchase agreement"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_TYPE" data-abap.bind="{type:'CHAR', alpha:'AOBAR', length:'2'}" label="Type of relationship"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit for the time interval between relationships"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_INTERVAL" data-abap.bind="{type:'QUAN', unit:'RELATIONSHIP_UNIT', length:'+4.1'}" label="Time Interval Between Relationships"></ui-dg-column>
+   <ui-dg-column sortable field="MRP_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'AUDISP'}" label="Reservation Relevance/Generation of Purchase Requisition"></ui-dg-column>
+   <ui-dg-column sortable field="DIR_PROCUR" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'CO_DBSKZ_D'}" label="Direct procurement indicator for dialog display"></ui-dg-column>
+   <ui-dg-column sortable field="SPECIAL_STOCK" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'CO_SOBKZ_D'}" label="Special stock indicator for dialog display"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE1" data-abap.bind="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}" label="Size 1"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit of measure for sizes 1 to 3"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_FORMULA" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T418F'}" label="Formula key"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE2" data-abap.bind="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}" label="Size 2"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_NO" data-abap.bind="{type:'QUAN', unit:'ROAME', length:'10.3'}" label="Number of variable-size items"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE3" data-abap.bind="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}" label="Size 3"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_QTY" data-abap.bind="{type:'QUAN', unit:'VAR_SIZE_COMP_MEASURE_UNIT', length:'10.3'}" label="Quantity of variable-size item"></ui-dg-column>
+   <ui-dg-column sortable field="VAR_SIZE_COMP_MEASURE_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit of measure for variable-size component"></ui-dg-column>
+   <ui-dg-column sortable field="VAR_SIZE_COMP_MEASURE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for MATERIAL Field"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for MATERIAL Field"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for MATERIAL Field"></ui-dg-column>
+   <ui-dg-column sortable field="REQ_DATE" data-abap.bind="{type:'DATS'}" label="Requirements date for the component"></ui-dg-column>
+   <ui-dg-column sortable field="REQ_TIME" data-abap.bind="{type:'TIMS'}" label="Time that reservation quantity required"></ui-dg-column>
+   <ui-dg-column sortable field="MANUAL_REQUIREMENTS_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Manual Maintenance of Requirement Date"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Number (40 Characters, needed f. technical reasons)"></ui-dg-column>
+   <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'STRG', length:'-1'}" label="Text for Note"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="IT_COMPONENTS.RESERV_NO" shlp.bind="{type: 'CT', id: 'RESB'}" data-abap.bind="{type:'NUMC', mid:'RES', length:'10'}"
+          label="Number of reservation/dependent requirements"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.RES_ITEM" data-abap.bind="{type:'NUMC', mid:'RPO', length:'4'}"
+          label="Item Number of Reservation / Dependent Requirements"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.RES_TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Record type"></ui-input>
+
+<ui-checkbox value.bind="IT_COMPONENTS.MOVEMENT" label="Goods movement for reservation allowed"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS.WITHDRAWN" label="Final issue for this reservation"></ui-checkbox>
+
+<ui-combo bind="IT_COMPONENTS.MATERIAL" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.PLANT" shlp.bind="{type: 'SH', id: 'H_T001W'}" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.STGE_LOC" shlp.bind="{type: 'SH', id: 'H_T001L'}" data-abap.bind="{type:'CHAR', mid:'LAG', length:'4'}"
+          label="Storage location"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.BATCH" shlp.bind="{type: 'SH', id: 'H_MCHA'}" data-abap.bind="{type:'CHAR', mid:'CHA', length:'10'}"
+          label="Batch Number"></ui-combo>
+
+<ui-checkbox value.bind="IT_COMPONENTS.FIXED_QUAN" label="Quantity is fixed"></ui-checkbox>
+
+<ui-combo bind="IT_COMPONENTS.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
+          label="Currency Key"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO currency code"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.SALES_ORD" shlp.bind="{type: 'CH', id: 'VBUK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}"
+          label="Sales Order Number"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.S_ORD_ITEM" data-abap.bind="{type:'NUMC', mid:'KPO', length:'6'}"
+          label="Item number in Sales Order"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.GL_ACCOUNT" shlp.bind="{type: 'SH', id: 'C_SAKNR'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}"
+          label="G/L Account Number"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.ORIGINAL_QUANTITY" data-abap.bind="{type:'QUAN', unit:'MEINS', length:'10.3'}"
+          label="Required quantity"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.ITEM_CAT" shlp.bind="{type: 'SH', id: 'H_T418'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Item category (bill of material)"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.ITEM_NUMBER" data-abap.bind="{type:'CHAR', alpha:'NUMCV', length:'4'}"
+          label="BOM item number"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.ITEM_TEXT1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="BOM Item Text (Line 1)"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.COST_RELEVANT" shlp.bind="{type: 'CT', id: 'TCK08'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator for Relevancy to Costing"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.USAGE_PROB" data-abap.bind="{type:'DEC', length:'3'}"
+          label="Usage probability in % (alternative item)"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.SORT_STRING" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Sort String"></ui-input>
+
+<ui-checkbox value.bind="IT_COMPONENTS.BULK_MAT" label="Indicator: bulk material"></ui-checkbox>
+
+<ui-combo bind="IT_COMPONENTS.MAT_PROVISION" shlp.bind="{type: 'SH', id: 'H_T417'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Material Provision Indicator"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.WBS_ELEM" shlp.bind="{type: 'CT', id: 'PRPS'}" data-abap.bind="{type:'NUMC', alpha:'ABPSP', length:'8'}"
+          label="WBS Element"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.ACTIVITY" data-abap.bind="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}"
+          label="Activity Number"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.PRICE" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+          label="Price in component currency"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.PRICE_UNIT" data-abap.bind="{type:'DEC', length:'5'}"
+          label="Price unit"></ui-input>
+
+<ui-checkbox value.bind="IT_COMPONENTS.BACKFLUSH" label="Indicator: Backflush"></ui-checkbox>
+
+<ui-combo bind="IT_COMPONENTS.PUR_GROUP" shlp.bind="{type: 'SH', id: 'H_T024'}" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}"
+          label="Purchasing group"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.DELIVERY_DAYS" data-abap.bind="{type:'DEC', length:'3'}"
+          label="Delivery time in days"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.GR_RCPT" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Goods recipient"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.UNLOAD_PT" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Unloading Point"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.MATL_GROUP" shlp.bind="{type: 'SH', id: 'H_T023'}" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}"
+          label="Material Group"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.GR_PR_TIME" data-abap.bind="{type:'DEC', length:'3'}"
+          label="Goods receipt processing time in days"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.VENDOR_NO" shlp.bind="{type: 'SH', id: 'KRED'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
+          label="Account Number of Vendor or Creditor"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.INFO_REC" shlp.bind="{type: 'CH', id: 'EINA'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}"
+          label="Number of purchasing info record"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.LEAD_TIME_OFFSET_OPR" data-abap.bind="{type:'DEC', length:'+3'}"
+          label="Lead-time offset for operation"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.LEAD_TIME_OFFSET_OPR_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for lead-time offset for operation"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.LEAD_TIME_OFFSET_OPR_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Name of requisitioner/requester"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.TRACKINGNO" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Requirement Tracking Number"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.PURCH_ORG" shlp.bind="{type: 'SH', id: 'H_T024E'}" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}"
+          label="Purchasing organization"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.MATL_DESC" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Material description"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.REQUIREMENT_QUANTITY" data-abap.bind="{type:'QUAN', unit:'REQUIREMENT_QUANTITY_UNIT', length:'+10.3'}"
+          label="Requirement Quantity of Component"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.REQUIREMENT_QUANTITY_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Base Unit of Measure"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.REQUIREMENT_QUANTITY_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.AGREEMENT" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}"
+          label="Number of principal purchase agreement"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.AGMT_ITEM" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', length:'5'}"
+          label="Item number of principal purchase agreement"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.RELATIONSHIP_TYPE" data-abap.bind="{type:'CHAR', alpha:'AOBAR', length:'2'}"
+          label="Type of relationship"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.RELATIONSHIP_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for the time interval between relationships"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.RELATIONSHIP_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.RELATIONSHIP_INTERVAL" data-abap.bind="{type:'QUAN', unit:'RELATIONSHIP_UNIT', length:'+4.1'}"
+          label="Time Interval Between Relationships"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.MRP_RELEVANT" shlp.bind="{type: 'FV', id: 'AUDISP'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Reservation Relevance/Generation of Purchase Requisition"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.DIR_PROCUR" shlp.bind="{type: 'FV', id: 'CO_DBSKZ_D'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Direct procurement indicator for dialog display"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.SPECIAL_STOCK" shlp.bind="{type: 'FV', id: 'CO_SOBKZ_D'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Special stock indicator for dialog display"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.VSI_SIZE1" data-abap.bind="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
+          label="Size 1"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.VSI_SIZE_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of measure for sizes 1 to 3"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.VSI_SIZE_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.VSI_FORMULA" shlp.bind="{type: 'CT', id: 'T418F'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Formula key"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.VSI_SIZE2" data-abap.bind="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
+          label="Size 2"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.VSI_NO" data-abap.bind="{type:'QUAN', unit:'ROAME', length:'10.3'}"
+          label="Number of variable-size items"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.VSI_SIZE3" data-abap.bind="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
+          label="Size 3"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.VSI_QTY" data-abap.bind="{type:'QUAN', unit:'VAR_SIZE_COMP_MEASURE_UNIT', length:'10.3'}"
+          label="Quantity of variable-size item"></ui-input>
+
+<ui-combo bind="IT_COMPONENTS.VAR_SIZE_COMP_MEASURE_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of measure for variable-size component"></ui-combo>
+
+<ui-combo bind="IT_COMPONENTS.VAR_SIZE_COMP_MEASURE_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_COMPONENTS.MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
+          label="Long Material Number for MATERIAL Field"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="External GUID for MATERIAL Field"></ui-input>
+
+<ui-input bind="IT_COMPONENTS.MATERIAL_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
+          label="Version Number for MATERIAL Field"></ui-input>
+
+<ui-date date.bind="IT_COMPONENTS.REQ_DATE"  label="Requirements date for the component"></ui-date>
+
+<ui-time time.bind="IT_COMPONENTS.REQ_TIME"  label="Time that reservation quantity required"></ui-time>
+
+<ui-checkbox value.bind="IT_COMPONENTS.MANUAL_REQUIREMENTS_DATE" label="Manual Maintenance of Requirement Date"></ui-checkbox>
+
+<ui-input bind="IT_COMPONENTS.MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Material Number (40 Characters, needed f. technical reasons)"></ui-input>
+
+<ui-text bind="IT_COMPONENTS.NOTICE" data-abap.bind="{type:'STRG', length:'-1'}"
+         label="Text for Note"></ui-text>
+
+<!-- Parameter: IT_COMPONENTS_X structure: /COE/RBP_T_PAM_ORDER_COMPX   -->
+
+<ui-datagrid data.bind="IT_COMPONENTS_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MOVEMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="WITHDRAWN" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="STGE_LOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="BATCH" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIXED_QUAN" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SALES_ORD" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="S_ORD_ITEM" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="GL_ACCOUNT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ORIGINAL_QUANTITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_CAT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_NUMBER" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ITEM_TEXT1" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="COST_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USAGE_PROB" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SORT_STRING" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="BULK_MAT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MAT_PROVISION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="WBS_ELEM" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ACTIVITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="BACKFLUSH" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PUR_GROUP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DELIVERY_DAYS" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="GR_RCPT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="UNLOAD_PT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MATL_GROUP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="GR_PR_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VENDOR_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="INFO_REC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LEAD_TIME_OFFSET_OPR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LEAD_TIME_OFFSET_OPR_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LEAD_TIME_OFFSET_OPR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PREQ_NAME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="TRACKINGNO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PURCH_ORG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MATL_DESC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="REQUIREMENT_QUANTITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="REQUIREMENT_QUANTITY_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="REQUIREMENT_QUANTITY_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="AGREEMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="AGMT_ITEM" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="RELATIONSHIP_INTERVAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MRP_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DIR_PROCUR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SPECIAL_STOCK" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE1" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_FORMULA" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE2" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_SIZE3" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VSI_QTY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VAR_SIZE_COMP_MEASURE_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VAR_SIZE_COMP_MEASURE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="REQ_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="REQ_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MANUAL_REQUIREMENTS_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+</ui-datagrid>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MOVEMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.WITHDRAWN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MATERIAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.PLANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.STGE_LOC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.BATCH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.FIXED_QUAN" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.CURRENCY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.CURRENCY_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.SALES_ORD" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.S_ORD_ITEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.GL_ACCOUNT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.ORIGINAL_QUANTITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.ITEM_CAT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.ITEM_NUMBER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.ITEM_TEXT1" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.COST_RELEVANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.USAGE_PROB" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.SORT_STRING" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.BULK_MAT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MAT_PROVISION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.WBS_ELEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.ACTIVITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.PRICE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.PRICE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.BACKFLUSH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.PUR_GROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.DELIVERY_DAYS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.GR_RCPT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.UNLOAD_PT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MATL_GROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.GR_PR_TIME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VENDOR_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.INFO_REC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.LEAD_TIME_OFFSET_OPR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.LEAD_TIME_OFFSET_OPR_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.LEAD_TIME_OFFSET_OPR_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.PREQ_NAME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.TRACKINGNO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.PURCH_ORG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MATL_DESC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.REQUIREMENT_QUANTITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.REQUIREMENT_QUANTITY_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.REQUIREMENT_QUANTITY_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.AGREEMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.AGMT_ITEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.RELATIONSHIP_TYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.RELATIONSHIP_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.RELATIONSHIP_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.RELATIONSHIP_INTERVAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MRP_RELEVANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.DIR_PROCUR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.SPECIAL_STOCK" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_SIZE1" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_SIZE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_SIZE_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_FORMULA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_SIZE2" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_SIZE3" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VSI_QTY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VAR_SIZE_COMP_MEASURE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.VAR_SIZE_COMP_MEASURE_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.REQ_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.REQ_TIME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MANUAL_REQUIREMENTS_DATE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.MATERIAL_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_COMPONENTS_X.NOTICE" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- Parameter: IT_NOTICE_NOTIFICATION structure: RE_T_TEXTLINE   -->
+
+<ui-datagrid data.bind="IT_NOTICE_NOTIFICATION" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="" data-abap.bind="{type:'CHAR', length:'132'}" label=""></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="IT_NOTICE_NOTIFICATION" data-abap.bind="{type:'CHAR', length:'132'}"
+          label=""></ui-input>
+
+<!-- Parameter: IT_OPERATIONS structure: /COE/RBP_T_PAM_ORDER_OPER   -->
+
+<ui-datagrid data.bind="IT_OPERATIONS" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="ACTIVITY" data-abap.bind="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}" label="Activity Number"></ui-dg-column>
+   <ui-dg-column sortable field="SUB_ACTIVITY" data-abap.bind="{type:'CHAR', alpha:'NUMCV', length:'4'}" label="Suboperation"></ui-dg-column>
+   <ui-dg-column sortable field="CONTROL_KEY" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'T430'}" label="Control key"></ui-dg-column>
+   <ui-dg-column sortable field="WORK_CNTR" data-abap.bind="{type:'CHAR', mid:'AGR', length:'8'}" label="Work center"></ui-dg-column>
+   <ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T001W_C'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="STANDARD_TEXT_KEY" data-abap.bind="{type:'CHAR', length:'7'}" shlp.bind="{type: 'CT', id: 'T435'}" label="Standard text key"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}" label="Operation short text"></ui-dg-column>
+   <ui-dg-column sortable field="LANGU" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T002'}" label="Language Key"></ui-dg-column>
+   <ui-dg-column sortable field="LANGU_ISO" data-abap.bind="{type:'CHAR', length:'2'}" label="2-Character SAP Language Code"></ui-dg-column>
+   <ui-dg-column sortable field="NO_OF_TIME_TICKETS" data-abap.bind="{type:'DEC', length:'3'}" label="Number of Time Tickets"></ui-dg-column>
+   <ui-dg-column sortable field="WAGETYPE" data-abap.bind="{type:'CHAR', length:'4'}" label="Wage type"></ui-dg-column>
+   <ui-dg-column sortable field="SUITABILITY" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T423'}" label="Suitability"></ui-dg-column>
+   <ui-dg-column sortable field="WAGEGROUP" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T421'}" label="Wage Group"></ui-dg-column>
+   <ui-dg-column sortable field="SORT_FLD" data-abap.bind="{type:'CHAR', length:'10'}" label="Sort field"></ui-dg-column>
+   <ui-dg-column sortable field="VENDOR_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED_C'}" label="Account Number of Vendor or Creditor"></ui-dg-column>
+   <ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}" label="Operation quantity in order unit of measure"></ui-dg-column>
+   <ui-dg-column sortable field="BASE_UOM" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Base Unit of Measure"></ui-dg-column>
+   <ui-dg-column sortable field="BASE_UOM_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'10.2'}" label="Price"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE_UNIT" data-abap.bind="{type:'DEC', length:'5'}" label="Price unit"></ui-dg-column>
+   <ui-dg-column sortable field="COST_ELEMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KAT', length:'10'}" shlp.bind="{type: 'CT', id: 'CSKA'}" label="Cost Element"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
+   <ui-dg-column sortable field="INFO_REC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}" shlp.bind="{type: 'SH', id: 'MEIN_C'}" label="Number of purchasing info record"></ui-dg-column>
+   <ui-dg-column sortable field="PURCH_ORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" shlp.bind="{type: 'CT', id: 'T024E'}" label="Purchasing organization"></ui-dg-column>
+   <ui-dg-column sortable field="PUR_GROUP" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T024'}" label="Purchasing Group for External Processing Activity"></ui-dg-column>
+   <ui-dg-column sortable field="MATL_GROUP" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}" shlp.bind="{type: 'SH', id: 'S_WBWG'}" label="Material Group"></ui-dg-column>
+   <ui-dg-column sortable field="AGREEMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}" shlp.bind="{type: 'CT', id: 'EKKO'}" label="Number of principal purchase agreement"></ui-dg-column>
+   <ui-dg-column sortable field="AGMT_ITEM" data-abap.bind="{type:'NUMC', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item number of principal purchase agreement"></ui-dg-column>
+   <ui-dg-column sortable field="PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of requisitioner/requester"></ui-dg-column>
+   <ui-dg-column sortable field="TRACKINGNO" data-abap.bind="{type:'CHAR', length:'10'}" label="Requirement Tracking Number"></ui-dg-column>
+   <ui-dg-column sortable field="NUMBER_OF_CAPACITIES" data-abap.bind="{type:'INT1', length:'3'}" label="Number of capacities required"></ui-dg-column>
+   <ui-dg-column sortable field="PERCENT_OF_WORK" data-abap.bind="{type:'INT1', length:'3'}" label="Work percentage"></ui-dg-column>
+   <ui-dg-column sortable field="CALC_KEY" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'INDET'}" label="Key for calculation"></ui-dg-column>
+   <ui-dg-column sortable field="ACTTYPE" data-abap.bind="{type:'CHAR', mid:'LAR', length:'6'}" shlp.bind="{type: 'SH', id: 'LART_EMPTY'}" label="Activity Type"></ui-dg-column>
+   <ui-dg-column sortable field="SYSTCOND" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'CT', id: 'T357M'}" label="Syst.Condition"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY" data-abap.bind="{type:'CHAR', alpha:'MATN1', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Assembly"></ui-dg-column>
+   <ui-dg-column sortable field="INT_DISTR" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'TC29'}" label="Distr.cap.reqmts (plant maint.,process order, network)"></ui-dg-column>
+   <ui-dg-column sortable field="GR_RCPT" data-abap.bind="{type:'CHAR', length:'12'}" label="Goods recipient"></ui-dg-column>
+   <ui-dg-column sortable field="UNLOAD_PT" data-abap.bind="{type:'CHAR', length:'25'}" label="Unloading Point"></ui-dg-column>
+   <ui-dg-column sortable field="PERS_NO" data-abap.bind="{type:'NUMC', mid:'PER', length:'8'}" label="Personnel number"></ui-dg-column>
+   <ui-dg-column sortable field="FW_ORDER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'EKKO'}" label="Framework Order"></ui-dg-column>
+   <ui-dg-column sortable field="ORDER_ITEM" data-abap.bind="{type:'NUMC', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item of framework order"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_DELRY" data-abap.bind="{type:'DEC', length:'3'}" label="Planned delivery time in days"></ui-dg-column>
+   <ui-dg-column sortable field="DURATION_NORMAL" data-abap.bind="{type:'QUAN', unit:'DURATION_NORMAL_UNIT', length:'4.1'}" label="Normal duration of the activity"></ui-dg-column>
+   <ui-dg-column sortable field="DURATION_NORMAL_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Normal duration/unit"></ui-dg-column>
+   <ui-dg-column sortable field="DURATION_NORMAL_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="CONSTRAINT_TYPE_START" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'RESTRIKSTR'}" label="Constraint on the basic start date for the activity"></ui-dg-column>
+   <ui-dg-column sortable field="CONSTRAINT_TYPE_FINISH" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'RESTRIKEND'}" label="Constraint on the finish date of the activity"></ui-dg-column>
+   <ui-dg-column sortable field="WORK_ACTIVITY" data-abap.bind="{type:'QUAN', unit:'UN_WORK', length:'6.1'}" label="Work involved in the activity"></ui-dg-column>
+   <ui-dg-column sortable field="UN_WORK" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit for work"></ui-dg-column>
+   <ui-dg-column sortable field="UN_WORK_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="START_CONS" data-abap.bind="{type:'DATS'}" label="Constraint for activity start (Basic)"></ui-dg-column>
+   <ui-dg-column sortable field="STRTTIMCON" data-abap.bind="{type:'TIMS'}" label="Constraint for activity start time (Basic)"></ui-dg-column>
+   <ui-dg-column sortable field="FIN_CONSTR" data-abap.bind="{type:'DATS'}" label="Constraint for finish of activity (Basic)"></ui-dg-column>
+   <ui-dg-column sortable field="FINTIMCONS" data-abap.bind="{type:'TIMS'}" label="Basic finish time of the activity"></ui-dg-column>
+   <ui-dg-column sortable field="EXECFACTOR" data-abap.bind="{type:'DEC', length:'3'}" label="Execution Factor"></ui-dg-column>
+   <ui-dg-column sortable field="MRP_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'AUDISP'}" label="Reservation Relevance/Generation of Purchase Requisition"></ui-dg-column>
+   <ui-dg-column sortable field="FIELD_KEY" data-abap.bind="{type:'CHAR', length:'7'}" shlp.bind="{type: 'CT', id: 'TCN00'}" label="Key word ID for user-defined fields"></ui-dg-column>
+   <ui-dg-column sortable field="USR00" data-abap.bind="{type:'CHAR', length:'20'}" label="User field with 20 characters"></ui-dg-column>
+   <ui-dg-column sortable field="USR01" data-abap.bind="{type:'CHAR', length:'20'}" label="User field with 20 characters"></ui-dg-column>
+   <ui-dg-column sortable field="USR02" data-abap.bind="{type:'CHAR', length:'10'}" label="User field with 10 characters"></ui-dg-column>
+   <ui-dg-column sortable field="USR03" data-abap.bind="{type:'CHAR', length:'10'}" label="User field with 10 characters"></ui-dg-column>
+   <ui-dg-column sortable field="USR04" data-abap.bind="{type:'QUAN', unit:'USE04', length:'+10.3'}" label="User field for quantity (length 10.3)"></ui-dg-column>
+   <ui-dg-column sortable field="USE04" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="User field: Unit for quantity fields"></ui-dg-column>
+   <ui-dg-column sortable field="USE04_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="USR05" data-abap.bind="{type:'QUAN', unit:'USE05', length:'+10.3'}" label="User field for quantity (length 10.3)"></ui-dg-column>
+   <ui-dg-column sortable field="USE05" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="User field: Unit for quantity fields"></ui-dg-column>
+   <ui-dg-column sortable field="USE05_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="USR06" data-abap.bind="{type:'CURR', unit:'USE06', length:'+12.3'}" label="User-defined field for values (length 10,3)"></ui-dg-column>
+   <ui-dg-column sortable field="USE06" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="User field: Unit for value fields"></ui-dg-column>
+   <ui-dg-column sortable field="USE06_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
+   <ui-dg-column sortable field="USR07" data-abap.bind="{type:'CURR', unit:'USE07', length:'+12.3'}" label="User-defined field for values (length 10,3)"></ui-dg-column>
+   <ui-dg-column sortable field="USE07" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="User field: Unit for value fields"></ui-dg-column>
+   <ui-dg-column sortable field="USE07_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
+   <ui-dg-column sortable field="USR08" data-abap.bind="{type:'DATS'}" label="User field for date"></ui-dg-column>
+   <ui-dg-column sortable field="USR09" data-abap.bind="{type:'DATS'}" label="User field for date"></ui-dg-column>
+   <ui-dg-column sortable field="USR10" data-abap.bind="{type:'CHAR', length:'1'}" label="User-defined field: Indicator for reports"></ui-dg-column>
+   <ui-dg-column sortable field="USR11" data-abap.bind="{type:'CHAR', length:'1'}" label="User-defined field: Indicator for reports"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for Field ASSEMBLY"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for ASSEMBLY Field"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for ASSEMBLY Field"></ui-dg-column>
+   <ui-dg-column sortable field="EQUIPMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+   <ui-dg-column sortable field="FUNCT_LOC" data-abap.bind="{type:'CHAR', length:'40'}" label="Functional Location Label"></ui-dg-column>
+   <ui-dg-column sortable field="SUBCONTRACTING" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: External Processing Operation with Subcontracting"></ui-dg-column>
+   <ui-dg-column sortable field="START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="Start Point"></ui-dg-column>
+   <ui-dg-column sortable field="END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="End Point"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}" label="Length"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" label="Unit of Measurement for Linear Data"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Linear Data in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of First Offset"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 1"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 1"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 1 in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of Second Offset"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 2"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 2"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 2 in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for Start Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Distance between Marker and Start Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for End Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Length Spec for Distance between Marker and End Point"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit for the Distance from Marker"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit for the Distance from Marker in ISO Code"></ui-dg-column>
+   <ui-dg-column sortable field="MAINTENANCE_ACTIVITY_TYPE" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T350I'}" label="Maintenance activity type"></ui-dg-column>
+   <ui-dg-column sortable field="BUS_AREA" data-abap.bind="{type:'CHAR', mid:'GSB', length:'4'}" shlp.bind="{type: 'CT', id: 'TGSB'}" label="Business Area"></ui-dg-column>
+   <ui-dg-column sortable field="WBS_ELEM" data-abap.bind="{type:'NUMC', alpha:'ABPSP', length:'8'}" shlp.bind="{type: 'CT', id: 'PRPS'}" label="Work breakdown structure element (WBS element)"></ui-dg-column>
+   <ui-dg-column sortable field="PROFIT_CTR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}" shlp.bind="{type: 'SH', id: 'PRCTR_EMPTY'}" label="Profit Center"></ui-dg-column>
+   <ui-dg-column sortable field="CSTG_SHEET" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'CT', id: 'T683'}" label="Costing Sheet"></ui-dg-column>
+   <ui-dg-column sortable field="OVERHEAD_KEY" data-abap.bind="{type:'CHAR', length:'6'}" label="Overhead key"></ui-dg-column>
+   <ui-dg-column sortable field="TAXJURCODE" data-abap.bind="{type:'CHAR', mid:'TXJ', length:'15'}" shlp.bind="{type: 'CT', id: 'TTXJ'}" label="Tax Jurisdiction"></ui-dg-column>
+   <ui-dg-column sortable field="OBJECTCLASS" data-abap.bind="{type:'CHAR', alpha:'SCOPE', mid:'PCO', length:'2'}" shlp.bind="{type: 'FV', id: 'SCOPE_CV'}" label="Object Class"></ui-dg-column>
+   <ui-dg-column sortable field="FUNC_AREA" data-abap.bind="{type:'CHAR', mid:'FBE', length:'16'}" shlp.bind="{type: 'CT', id: 'TFKB'}" label="Functional Area"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_START" data-abap.bind="{type:'QUAN', unit:'OFFSET_START_UNIT', length:'+5'}" label="Offset to sub-operation start"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_START_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit for offset to start"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_START_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_END" data-abap.bind="{type:'QUAN', unit:'OFFSET_END_UNIT', length:'+5'}" label="Offset to sub-operation finish"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_END_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit for offset to finish"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_END_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="ISO code for unit of measurement"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', length:'40'}" label="Assembly"></ui-dg-column>
+   <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'STRG', length:'-1'}" label="Text for Note"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="IT_OPERATIONS.ACTIVITY" data-abap.bind="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}"
+          label="Activity Number"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.SUB_ACTIVITY" data-abap.bind="{type:'CHAR', alpha:'NUMCV', length:'4'}"
+          label="Suboperation"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.CONTROL_KEY" shlp.bind="{type: 'CT', id: 'T430'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Control key"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.WORK_CNTR" data-abap.bind="{type:'CHAR', mid:'AGR', length:'8'}"
+          label="Work center"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.PLANT" shlp.bind="{type: 'SH', id: 'H_T001W_C'}" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.STANDARD_TEXT_KEY" shlp.bind="{type: 'CT', id: 'T435'}" data-abap.bind="{type:'CHAR', length:'7'}"
+          label="Standard text key"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Operation short text"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.LANGU" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.LANGU_ISO" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="2-Character SAP Language Code"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.NO_OF_TIME_TICKETS" data-abap.bind="{type:'DEC', length:'3'}"
+          label="Number of Time Tickets"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.WAGETYPE" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Wage type"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.SUITABILITY" shlp.bind="{type: 'CT', id: 'T423'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Suitability"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.WAGEGROUP" shlp.bind="{type: 'CT', id: 'T421'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Wage Group"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.SORT_FLD" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Sort field"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.VENDOR_NO" shlp.bind="{type: 'SH', id: 'KRED_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
+          label="Account Number of Vendor or Creditor"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.QUANTITY" data-abap.bind="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}"
+          label="Operation quantity in order unit of measure"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.BASE_UOM" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Base Unit of Measure"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.BASE_UOM_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.PRICE" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
+          label="Price"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.PRICE_UNIT" data-abap.bind="{type:'DEC', length:'5'}"
+          label="Price unit"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.COST_ELEMENT" shlp.bind="{type: 'CT', id: 'CSKA'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KAT', length:'10'}"
+          label="Cost Element"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
+          label="Currency Key"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO currency code"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.INFO_REC" shlp.bind="{type: 'SH', id: 'MEIN_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}"
+          label="Number of purchasing info record"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.PURCH_ORG" shlp.bind="{type: 'CT', id: 'T024E'}" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}"
+          label="Purchasing organization"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.PUR_GROUP" shlp.bind="{type: 'CT', id: 'T024'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Purchasing Group for External Processing Activity"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.MATL_GROUP" shlp.bind="{type: 'SH', id: 'S_WBWG'}" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}"
+          label="Material Group"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.AGREEMENT" shlp.bind="{type: 'CT', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}"
+          label="Number of principal purchase agreement"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.AGMT_ITEM" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', length:'5'}"
+          label="Item number of principal purchase agreement"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Name of requisitioner/requester"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.TRACKINGNO" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Requirement Tracking Number"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.NUMBER_OF_CAPACITIES" data-abap.bind="{type:'INT1', length:'3'}"
+          label="Number of capacities required"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.PERCENT_OF_WORK" data-abap.bind="{type:'INT1', length:'3'}"
+          label="Work percentage"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.CALC_KEY" shlp.bind="{type: 'FV', id: 'INDET'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Key for calculation"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.ACTTYPE" shlp.bind="{type: 'SH', id: 'LART_EMPTY'}" data-abap.bind="{type:'CHAR', mid:'LAR', length:'6'}"
+          label="Activity Type"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.SYSTCOND" shlp.bind="{type: 'CT', id: 'T357M'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Syst.Condition"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.ASSEMBLY" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', length:'18'}"
+          label="Assembly"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.INT_DISTR" shlp.bind="{type: 'CT', id: 'TC29'}" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Distr.cap.reqmts (plant maint.,process order, network)"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.GR_RCPT" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Goods recipient"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.UNLOAD_PT" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Unloading Point"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.PERS_NO" data-abap.bind="{type:'NUMC', mid:'PER', length:'8'}"
+          label="Personnel number"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.FW_ORDER" shlp.bind="{type: 'CT', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Framework Order"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.ORDER_ITEM" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', length:'5'}"
+          label="Item of framework order"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.PLND_DELRY" data-abap.bind="{type:'DEC', length:'3'}"
+          label="Planned delivery time in days"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.DURATION_NORMAL" data-abap.bind="{type:'QUAN', unit:'DURATION_NORMAL_UNIT', length:'4.1'}"
+          label="Normal duration of the activity"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.DURATION_NORMAL_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Normal duration/unit"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.DURATION_NORMAL_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.CONSTRAINT_TYPE_START" shlp.bind="{type: 'FV', id: 'RESTRIKSTR'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Constraint on the basic start date for the activity"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.CONSTRAINT_TYPE_FINISH" shlp.bind="{type: 'FV', id: 'RESTRIKEND'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Constraint on the finish date of the activity"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.WORK_ACTIVITY" data-abap.bind="{type:'QUAN', unit:'UN_WORK', length:'6.1'}"
+          label="Work involved in the activity"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.UN_WORK" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for work"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.UN_WORK_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-date date.bind="IT_OPERATIONS.START_CONS"  label="Constraint for activity start (Basic)"></ui-date>
+
+<ui-time time.bind="IT_OPERATIONS.STRTTIMCON"  label="Constraint for activity start time (Basic)"></ui-time>
+
+<ui-date date.bind="IT_OPERATIONS.FIN_CONSTR"  label="Constraint for finish of activity (Basic)"></ui-date>
+
+<ui-time time.bind="IT_OPERATIONS.FINTIMCONS"  label="Basic finish time of the activity"></ui-time>
+
+<ui-input bind="IT_OPERATIONS.EXECFACTOR" data-abap.bind="{type:'DEC', length:'3'}"
+          label="Execution Factor"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.MRP_RELEVANT" shlp.bind="{type: 'FV', id: 'AUDISP'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Reservation Relevance/Generation of Purchase Requisition"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.FIELD_KEY" shlp.bind="{type: 'CT', id: 'TCN00'}" data-abap.bind="{type:'CHAR', length:'7'}"
+          label="Key word ID for user-defined fields"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.USR00" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="User field with 20 characters"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.USR01" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="User field with 20 characters"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.USR02" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="User field with 10 characters"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.USR03" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="User field with 10 characters"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.USR04" data-abap.bind="{type:'QUAN', unit:'USE04', length:'+10.3'}"
+          label="User field for quantity (length 10.3)"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.USE04" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="User field: Unit for quantity fields"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.USE04_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.USR05" data-abap.bind="{type:'QUAN', unit:'USE05', length:'+10.3'}"
+          label="User field for quantity (length 10.3)"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.USE05" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="User field: Unit for quantity fields"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.USE05_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.USR06" data-abap.bind="{type:'CURR', unit:'USE06', length:'+12.3'}"
+          label="User-defined field for values (length 10,3)"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.USE06" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', length:'5'}"
+          label="User field: Unit for value fields"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.USE06_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO currency code"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.USR07" data-abap.bind="{type:'CURR', unit:'USE07', length:'+12.3'}"
+          label="User-defined field for values (length 10,3)"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.USE07" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', length:'5'}"
+          label="User field: Unit for value fields"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.USE07_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO currency code"></ui-input>
+
+<ui-date date.bind="IT_OPERATIONS.USR08"  label="User field for date"></ui-date>
+
+<ui-date date.bind="IT_OPERATIONS.USR09"  label="User field for date"></ui-date>
+
+<ui-checkbox value.bind="IT_OPERATIONS.USR10" label="User-defined field: Indicator for reports"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS.USR11" label="User-defined field: Indicator for reports"></ui-checkbox>
+
+<ui-input bind="IT_OPERATIONS.ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
+          label="Long Material Number for Field ASSEMBLY"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="External GUID for ASSEMBLY Field"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
+          label="Version Number for ASSEMBLY Field"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.EQUIPMENT" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.FUNCT_LOC" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Functional Location Label"></ui-input>
+
+<ui-input bind="IT_OPERATIONS.SUBCONTRACTING" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: External Processing Operation with Subcontracting"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Start Point"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="End Point"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Length"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.LINEAR_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Linear Data"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.LINEAR_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Linear Data in ISO Code"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.FIRST_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Type of First Offset"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Value of Offset 1"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.FIRST_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Offset 1"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.FIRST_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Offset 1 in ISO Code"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.SECOND_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Type of Second Offset"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Value of Offset 2"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.SECOND_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of Measurement for Offset 2"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.SECOND_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit of Measurement for Offset 2 in ISO Code"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.MARKER_START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Marker for Start Point"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Distance between Marker and Start Point"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.MARKER_END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Marker for End Point"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Length Spec for Distance between Marker and End Point"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.MARKER_DISTANCE_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for the Distance from Marker"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.MARKER_DISTANCE_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Unit for the Distance from Marker in ISO Code"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.MAINTENANCE_ACTIVITY_TYPE" shlp.bind="{type: 'SH', id: 'H_T350I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Maintenance activity type"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.BUS_AREA" shlp.bind="{type: 'CT', id: 'TGSB'}" data-abap.bind="{type:'CHAR', mid:'GSB', length:'4'}"
+          label="Business Area"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.WBS_ELEM" shlp.bind="{type: 'CT', id: 'PRPS'}" data-abap.bind="{type:'NUMC', alpha:'ABPSP', length:'8'}"
+          label="Work breakdown structure element (WBS element)"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.PROFIT_CTR" shlp.bind="{type: 'SH', id: 'PRCTR_EMPTY'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}"
+          label="Profit Center"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.CSTG_SHEET" shlp.bind="{type: 'CT', id: 'T683'}" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="Costing Sheet"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.OVERHEAD_KEY" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="Overhead key"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.TAXJURCODE" shlp.bind="{type: 'CT', id: 'TTXJ'}" data-abap.bind="{type:'CHAR', mid:'TXJ', length:'15'}"
+          label="Tax Jurisdiction"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.OBJECTCLASS" shlp.bind="{type: 'FV', id: 'SCOPE_CV'}" data-abap.bind="{type:'CHAR', alpha:'SCOPE', mid:'PCO', length:'2'}"
+          label="Object Class"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.FUNC_AREA" shlp.bind="{type: 'CT', id: 'TFKB'}" data-abap.bind="{type:'CHAR', mid:'FBE', length:'16'}"
+          label="Functional Area"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.OFFSET_START" data-abap.bind="{type:'QUAN', unit:'OFFSET_START_UNIT', length:'+5'}"
+          label="Offset to sub-operation start"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.OFFSET_START_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for offset to start"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.OFFSET_START_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.OFFSET_END" data-abap.bind="{type:'QUAN', unit:'OFFSET_END_UNIT', length:'+5'}"
+          label="Offset to sub-operation finish"></ui-input>
+
+<ui-combo bind="IT_OPERATIONS.OFFSET_END_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit for offset to finish"></ui-combo>
+
+<ui-combo bind="IT_OPERATIONS.OFFSET_END_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="ISO code for unit of measurement"></ui-combo>
+
+<ui-input bind="IT_OPERATIONS.ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Assembly"></ui-input>
+
+<ui-text bind="IT_OPERATIONS.NOTICE" data-abap.bind="{type:'STRG', length:'-1'}"
+         label="Text for Note"></ui-text>
+
+<!-- Parameter: IT_OPERATIONS_X structure: /COE/RBP_T_PAM_ORDER_OPERX   -->
+
+<ui-datagrid data.bind="IT_OPERATIONS_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="ACTIVITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SUB_ACTIVITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CONTROL_KEY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="WORK_CNTR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="STANDARD_TEXT_KEY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LANGU" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LANGU_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="NO_OF_TIME_TICKETS" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="WAGETYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SUITABILITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="WAGEGROUP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SORT_FLD" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="VENDOR_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="BASE_UOM" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="BASE_UOM_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PRICE_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="COST_ELEMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="INFO_REC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PURCH_ORG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PUR_GROUP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MATL_GROUP" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="AGREEMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="AGMT_ITEM" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PREQ_NAME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="TRACKINGNO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="NUMBER_OF_CAPACITIES" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PERCENT_OF_WORK" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CALC_KEY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ACTTYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SYSTCOND" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="INT_DISTR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="GR_RCPT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="UNLOAD_PT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PERS_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FW_ORDER" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ORDER_ITEM" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PLND_DELRY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DURATION_NORMAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DURATION_NORMAL_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="DURATION_NORMAL_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CONSTRAINT_TYPE_START" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CONSTRAINT_TYPE_FINISH" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="WORK_ACTIVITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="UN_WORK" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="UN_WORK_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="START_CONS" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="STRTTIMCON" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIN_CONSTR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FINTIMCONS" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="EXECFACTOR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MRP_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIELD_KEY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR00" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR01" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR02" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR03" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR04" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE04" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE04_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR05" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE05" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE05_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR06" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE06" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE06_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR07" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE07" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USE07_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR08" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR09" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR10" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="USR11" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="EQUIPMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FUNCT_LOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SUBCONTRACTING" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="START_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="END_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="LINEAR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FIRST_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="SECOND_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_START_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_END_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="MAINTENANCE_ACTIVITY_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="BUS_AREA" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="WBS_ELEM" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PROFIT_CTR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="CSTG_SHEET" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OVERHEAD_KEY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="TAXJURCODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OBJECTCLASS" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="FUNC_AREA" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_START" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_START_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_START_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_END" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_END_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="OFFSET_END_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+</ui-datagrid>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.ACTIVITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SUB_ACTIVITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.CONTROL_KEY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.WORK_CNTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PLANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.STANDARD_TEXT_KEY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.DESCRIPTION" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.LANGU" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.LANGU_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.NO_OF_TIME_TICKETS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.WAGETYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SUITABILITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.WAGEGROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SORT_FLD" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.VENDOR_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.QUANTITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.BASE_UOM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.BASE_UOM_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PRICE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PRICE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.COST_ELEMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.CURRENCY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.CURRENCY_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.INFO_REC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PURCH_ORG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PUR_GROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MATL_GROUP" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.AGREEMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.AGMT_ITEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PREQ_NAME" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.TRACKINGNO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.NUMBER_OF_CAPACITIES" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PERCENT_OF_WORK" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.CALC_KEY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.ACTTYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SYSTCOND" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.ASSEMBLY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.INT_DISTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.GR_RCPT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.UNLOAD_PT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PERS_NO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FW_ORDER" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.ORDER_ITEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PLND_DELRY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.DURATION_NORMAL" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.DURATION_NORMAL_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.DURATION_NORMAL_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.CONSTRAINT_TYPE_START" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.CONSTRAINT_TYPE_FINISH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.WORK_ACTIVITY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.UN_WORK" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.UN_WORK_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.START_CONS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.STRTTIMCON" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FIN_CONSTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FINTIMCONS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.EXECFACTOR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MRP_RELEVANT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FIELD_KEY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR00" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR01" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR02" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR03" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR04" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE04" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE04_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR05" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE05" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE05_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR06" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE06" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE06_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR07" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE07" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USE07_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR08" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR09" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR10" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.USR11" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.EQUIPMENT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FUNCT_LOC" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SUBCONTRACTING" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.LINEAR_LENGTH" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.LINEAR_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.LINEAR_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FIRST_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FIRST_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FIRST_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FIRST_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SECOND_OFFSET_TYPE_CODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SECOND_OFFSET_VALUE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SECOND_OFFSET_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.SECOND_OFFSET_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MARKER_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MARKER_DISTANCE_START_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MARKER_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MARKER_DISTANCE_END_POINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MARKER_DISTANCE_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MARKER_DISTANCE_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.MAINTENANCE_ACTIVITY_TYPE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.BUS_AREA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.WBS_ELEM" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.PROFIT_CTR" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.CSTG_SHEET" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OVERHEAD_KEY" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.TAXJURCODE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OBJECTCLASS" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.FUNC_AREA" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OFFSET_START" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OFFSET_START_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OFFSET_START_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OFFSET_END" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OFFSET_END_UNIT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.OFFSET_END_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.ASSEMBLY_LONG" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_OPERATIONS_X.NOTICE" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- Parameter: IT_PERMIT structure: BAPI_ALM_ORDER_PERMIT_T   -->
+
+<ui-datagrid data.bind="IT_PERMIT" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PERMIT" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'T357G'}" label="Permit Key"></ui-dg-column>
+   <ui-dg-column sortable field="RELEASE" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'G_ERROR'}" label="Indicator: Valid for Order Release"></ui-dg-column>
+   <ui-dg-column sortable field="COMPLETE" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'G_ERROR'}" label="Indicator: Valid for Order Completion"></ui-dg-column>
+   <ui-dg-column sortable field="PRINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Printout of Permit Papers"></ui-dg-column>
+   <ui-dg-column sortable field="NOT_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Relevance of Permit"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="IT_PERMIT.PERMIT" shlp.bind="{type: 'CT', id: 'T357G'}" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Permit Key"></ui-combo>
+
+<ui-combo bind="IT_PERMIT.RELEASE" shlp.bind="{type: 'FV', id: 'G_ERROR'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: Valid for Order Release"></ui-combo>
+
+<ui-combo bind="IT_PERMIT.COMPLETE" shlp.bind="{type: 'FV', id: 'G_ERROR'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: Valid for Order Completion"></ui-combo>
+
+<ui-checkbox value.bind="IT_PERMIT.PRINT" label="Printout of Permit Papers"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_PERMIT.NOT_RELEVANT" label="Relevance of Permit"></ui-checkbox>
+
+<!-- Parameter: IT_PERMIT_ISSUE structure: BAPI_ALM_ORDER_PERMITISSUE_T   -->
+
+<ui-datagrid data.bind="IT_PERMIT_ISSUE" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PERMIT" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'T357G'}" label="Permit Key"></ui-dg-column>
+   <ui-dg-column sortable field="ISSUED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Permit Issued By"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="IT_PERMIT_ISSUE.PERMIT" shlp.bind="{type: 'CT', id: 'T357G'}" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Permit Key"></ui-combo>
+
+<ui-input bind="IT_PERMIT_ISSUE.ISSUED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
+          label="Permit Issued By"></ui-input>
+
+<!-- Parameter: IT_PERMIT_X structure: BAPI_ALM_ORDER_PERMIT_UP_T   -->
+
+<ui-datagrid data.bind="IT_PERMIT_X" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PERMIT" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'T357G'}" label="Permit Key"></ui-dg-column>
+   <ui-dg-column sortable field="RELEASE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="COMPLETE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="PRINT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+   <ui-dg-column sortable field="NOT_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="IT_PERMIT_X.PERMIT" shlp.bind="{type: 'CT', id: 'T357G'}" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Permit Key"></ui-combo>
+
+<ui-checkbox value.bind="IT_PERMIT_X.RELEASE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_PERMIT_X.COMPLETE" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_PERMIT_X.PRINT" label="Updated information in related user data field"></ui-checkbox>
+
+<ui-checkbox value.bind="IT_PERMIT_X.NOT_RELEVANT" label="Updated information in related user data field"></ui-checkbox>
+
+<!-- EXPORT PARAMETERS -->
+
+<!-- Parameter: ET_RETURN structure: BAPIRETTAB   -->
+
+<ui-datagrid data.bind="ET_RETURN" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+   <ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
+   <ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
+   <ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
+   <ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
+   <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="ET_RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+<ui-combo bind="ET_RETURN.ID" shlp.bind="{type: 'CT', id: 'T100A'}" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Message Class"></ui-combo>
+
+<ui-input bind="ET_RETURN.NUMBER" data-abap.bind="{type:'NUMC', length:'3'}"
+          label="Message Number"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
+          label="Message Text"></ui-input>
+
+<ui-combo bind="ET_RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Application log: log number"></ui-combo>
+
+<ui-combo bind="ET_RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-input bind="ET_RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="Parameter Name"></ui-input>
+
+<ui-input bind="ET_RETURN.ROW" data-abap.bind="{type:'INT4', length:'+10'}"
+          label="Lines in parameter"></ui-input>
+
+<ui-combo bind="ET_RETURN.FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Field in parameter"></ui-combo>
+
+<ui-combo bind="ET_RETURN.SYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Logical system from which message originates"></ui-combo>

@@ -1,0 +1,35 @@
+<!-- SH H_T001W_C Plant Responsible for UII : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.SORT2" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search Term 2"></ui-input>
+<ui-input bind="searchParamLow.SORT1" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search Term 1"></ui-input>
+<ui-input bind="searchParamLow.POST_CODE1" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="City postal code"></ui-input>
+<ui-input bind="searchParamLow.CITY1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="City"></ui-input>
+<ui-input bind="searchParamLow.MC_CITY1" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="City name in Uppercase for Search Help"></ui-input>
+<ui-input bind="searchParamLow.NAME2" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name 2"></ui-input>
+<ui-input bind="searchParamLow.NAME1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name 1"></ui-input>
+<ui-input bind="searchParamLow.MC_NAME1" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Name (Field NAME1) in Uppercase for Search Help"></ui-input>
+<ui-input bind="searchParamLow.NATION" data-abap.bind="{type:'CHAR', mid:'ADDRESS_NATION', length:'1'}"
+          label="Version ID for International Addresses"></ui-input>
+<ui-input bind="searchParamLow.WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="SORT2" data-abap.bind="{type:'CHAR', length:'20'}" label="Search Term 2"></ui-dg-column>
+   <ui-dg-column sortable field="SORT1" data-abap.bind="{type:'CHAR', length:'20'}" label="Search Term 1"></ui-dg-column>
+   <ui-dg-column sortable field="POST_CODE1" data-abap.bind="{type:'CHAR', length:'10'}" label="City postal code"></ui-dg-column>
+   <ui-dg-column sortable field="CITY1" data-abap.bind="{type:'CHAR', length:'40'}" label="City"></ui-dg-column>
+   <ui-dg-column sortable field="NAME2" data-abap.bind="{type:'CHAR', length:'40'}" label="Name 2"></ui-dg-column>
+   <ui-dg-column sortable field="NAME1" data-abap.bind="{type:'CHAR', length:'40'}" label="Name 1"></ui-dg-column>
+   <ui-dg-column sortable field="NATION" data-abap.bind="{type:'CHAR', mid:'ADDRESS_NATION', length:'1'}" label="Version ID for International Addresses"></ui-dg-column>
+</ui-datagrid>

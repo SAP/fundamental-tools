@@ -1,0 +1,18 @@
+<!-- SH PRPMK WBS element: short identification : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.POSKI" data-abap.bind="{type:'CHAR', length:'16'}"
+          label="WBS element short identification"></ui-input>
+<ui-input bind="searchParamLow.POSID" data-abap.bind="{type:'CHAR', alpha:'ABPSN', mid:'PRO', length:'24'}"
+          label="Work Breakdown Structure Element (WBS Element)"></ui-input>
+<ui-input bind="searchParamLow.POSTU" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="PS: Short description (1st text line) in all caps"></ui-input>
+<ui-input bind="searchParamLow.POST1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="PS: Short description (1st text line)"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="POSKI" data-abap.bind="{type:'CHAR', length:'16'}" label="WBS element short identification"></ui-dg-column>
+   <ui-dg-column sortable field="POSID" data-abap.bind="{type:'CHAR', alpha:'ABPSN', mid:'PRO', length:'24'}" label="Work Breakdown Structure Element (WBS Element)"></ui-dg-column>
+   <ui-dg-column sortable field="POST1" data-abap.bind="{type:'CHAR', length:'40'}" label="PS: Short description (1st text line)"></ui-dg-column>
+</ui-datagrid>

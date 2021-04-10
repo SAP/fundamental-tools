@@ -1,0 +1,182 @@
+<!-- /COE/RBP_PAM_EQUIP_HIER_GET exception: 0  struct: 0  table: 4  var: 3
+
+abap 2.2.0 at: 2021-04-10 21:53:58 -->
+
+<!-- IMPORT PARAMETERS -->
+
+<ui-combo bind="IV_LOCATION" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label=""></ui-combo>
+
+<ui-combo bind="IV_DEF_VAL" shlp.bind="{type: 'FV', id: 'BOOLEAN'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label=""></ui-combo>
+
+<ui-combo bind="IV_EQUIP_TYPE" shlp.bind="{type: 'SH', id: 'S_WBWG'}" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}"
+          label=""></ui-combo>
+
+<!-- TABLE PARAMETERS -->
+
+<!-- Parameter: ET_DEF_VAL structure: /COE/RBP_T_PAM_DEF_VALS_EQ   -->
+
+<ui-datagrid data.bind="ET_DEF_VAL" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+   <ui-dg-column sortable field="FIELDNAME" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: '/COE/PAM_FLD_VAL'}" label="No field text"></ui-dg-column>
+   <ui-dg-column sortable field="DEF_VALUE" data-abap.bind="{type:'CHAR', length:'40'}" label="No field text"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="ET_DEF_VAL.EQUNR" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-combo>
+
+<ui-combo bind="ET_DEF_VAL.FIELDNAME" shlp.bind="{type: 'CT', id: '/COE/PAM_FLD_VAL'}" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="No field text"></ui-combo>
+
+<ui-input bind="ET_DEF_VAL.DEF_VALUE" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="No field text"></ui-input>
+
+<!-- Parameter: ET_EQUIP_LIST structure: /COE/RBP_T_PAM_EQUI_DAT_HIER_L   -->
+
+<ui-datagrid data.bind="ET_EQUIP_LIST" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="LOCATION" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+   <ui-dg-column sortable field="EQUIPMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+   <ui-dg-column sortable field="EQUIPMENT_DESCR" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Technical Object"></ui-dg-column>
+   <ui-dg-column sortable field="EQUIP_TYPE" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}" shlp.bind="{type: 'SH', id: 'S_WBWG'}" label="Material Group"></ui-dg-column>
+   <ui-dg-column sortable field="H_EQUIPMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+   <ui-dg-column sortable field="INVENT_NO" data-abap.bind="{type:'CHAR', length:'25'}" label="Inventory number"></ui-dg-column>
+   <ui-dg-column sortable field="SERIAL_NO" data-abap.bind="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}" label="Serial Number"></ui-dg-column>
+   <ui-dg-column sortable field="VALID_FROM" data-abap.bind="{type:'DATS'}" label="Valid-From Date"></ui-dg-column>
+   <ui-dg-column sortable field="VALID_TO" data-abap.bind="{type:'DATS'}" label="Valid To Date"></ui-dg-column>
+   <ui-dg-column sortable field="WEIGHT" data-abap.bind="{type:'QUAN', unit:'UOM', length:'10.3'}" label="Weight of object"></ui-dg-column>
+   <ui-dg-column sortable field="UOM" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit of weight"></ui-dg-column>
+   <ui-dg-column sortable field="YEAR_OF_CONSTRUCT" data-abap.bind="{type:'CHAR', alpha:'GJAHR', length:'4'}" label="Year of construction"></ui-dg-column>
+   <ui-dg-column sortable field="MATERIAL" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'SH', id: 'S_MAT1'}" label="Material Number"></ui-dg-column>
+   <ui-dg-column sortable field="STATUS" data-abap.bind="{type:'CHAR', length:'4'}" label="Individual status of an object (short form)"></ui-dg-column>
+   <ui-dg-column sortable field="STATUS_DESCR" data-abap.bind="{type:'CHAR', length:'30'}" label="Object status"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="ET_EQUIP_LIST.LOCATION" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-combo>
+
+<ui-combo bind="ET_EQUIP_LIST.EQUIPMENT" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-combo>
+
+<ui-input bind="ET_EQUIP_LIST.EQUIPMENT_DESCR" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of Technical Object"></ui-input>
+
+<ui-combo bind="ET_EQUIP_LIST.EQUIP_TYPE" shlp.bind="{type: 'SH', id: 'S_WBWG'}" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}"
+          label="Material Group"></ui-combo>
+
+<ui-combo bind="ET_EQUIP_LIST.H_EQUIPMENT" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+          label="Equipment Number"></ui-combo>
+
+<ui-input bind="ET_EQUIP_LIST.INVENT_NO" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Inventory number"></ui-input>
+
+<ui-input bind="ET_EQUIP_LIST.SERIAL_NO" data-abap.bind="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
+          label="Serial Number"></ui-input>
+
+<ui-date date.bind="ET_EQUIP_LIST.VALID_FROM"  label="Valid-From Date"></ui-date>
+
+<ui-date date.bind="ET_EQUIP_LIST.VALID_TO"  label="Valid To Date"></ui-date>
+
+<ui-input bind="ET_EQUIP_LIST.WEIGHT" data-abap.bind="{type:'QUAN', unit:'UOM', length:'10.3'}"
+          label="Weight of object"></ui-input>
+
+<ui-combo bind="ET_EQUIP_LIST.UOM" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+          label="Unit of weight"></ui-combo>
+
+<ui-input bind="ET_EQUIP_LIST.YEAR_OF_CONSTRUCT" data-abap.bind="{type:'CHAR', alpha:'GJAHR', length:'4'}"
+          label="Year of construction"></ui-input>
+
+<ui-combo bind="ET_EQUIP_LIST.MATERIAL" shlp.bind="{type: 'SH', id: 'S_MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-combo>
+
+<ui-input bind="ET_EQUIP_LIST.STATUS" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Individual status of an object (short form)"></ui-input>
+
+<ui-input bind="ET_EQUIP_LIST.STATUS_DESCR" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Object status"></ui-input>
+
+<!-- Parameter: ET_FUNC_LOC_LIST structure: /COE/RBP_T_PAM_FUNC_LOC_EQUI_L   -->
+
+<ui-datagrid data.bind="ET_FUNC_LOC_LIST" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="FUNCTLOCATION" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Technical Object"></ui-dg-column>
+   <ui-dg-column sortable field="FUNC_LOC_CAT" data-abap.bind="{type:'CHAR', length:'15'}" shlp.bind="{type: 'FV', id: '/COE/PAM_DOM_FUNC_LOC_CAT'}" label="No field text"></ui-dg-column>
+</ui-datagrid>
+
+<ui-combo bind="ET_FUNC_LOC_LIST.FUNCTLOCATION" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-combo>
+
+<ui-input bind="ET_FUNC_LOC_LIST.DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of Technical Object"></ui-input>
+
+<ui-combo bind="ET_FUNC_LOC_LIST.FUNC_LOC_CAT" shlp.bind="{type: 'FV', id: '/COE/PAM_DOM_FUNC_LOC_CAT'}" data-abap.bind="{type:'CHAR', length:'15'}"
+          label="No field text"></ui-combo>
+
+<!-- Parameter: ET_RETURN structure: BAPIRET2_TAB   -->
+
+<ui-datagrid data.bind="ET_RETURN" title=""
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+   <ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
+   <ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
+   <ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
+   <ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
+   <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="ET_RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+<ui-combo bind="ET_RETURN.ID" shlp.bind="{type: 'CT', id: 'T100A'}" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Message Class"></ui-combo>
+
+<ui-input bind="ET_RETURN.NUMBER" data-abap.bind="{type:'NUMC', length:'3'}"
+          label="Message Number"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
+          label="Message Text"></ui-input>
+
+<ui-combo bind="ET_RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Application log: log number"></ui-combo>
+
+<ui-combo bind="ET_RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-input bind="ET_RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="ET_RETURN.PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}"
+          label="Parameter Name"></ui-input>
+
+<ui-input bind="ET_RETURN.ROW" data-abap.bind="{type:'INT4', length:'+10'}"
+          label="Lines in parameter"></ui-input>
+
+<ui-combo bind="ET_RETURN.FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Field in parameter"></ui-combo>
+
+<ui-combo bind="ET_RETURN.SYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Logical system from which message originates"></ui-combo>

@@ -1,0 +1,21 @@
+<!-- SH CN_LDST_PS_NP_SHLP Network, Shorttext : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.LANGUAGE" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-input>
+<ui-input bind="searchParamLow.SHORTTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Language-Dependent Short Text"></ui-input>
+<ui-input bind="searchParamLow.SHORTTEXTU" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Short Text in Uppercase Letters"></ui-input>
+<ui-input bind="searchParamLow.OBJNR" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}"
+          label="Object number"></ui-input>
+<ui-input bind="searchParamLow.AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+          label="Order Number"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="AUFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}" label="Order Number"></ui-dg-column>
+   <ui-dg-column sortable field="OBJNR" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}" label="Object number"></ui-dg-column>
+   <ui-dg-column sortable field="SHORTTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Language-Dependent Short Text"></ui-dg-column>
+   <ui-dg-column sortable field="LANGUAGE" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" label="Language Key"></ui-dg-column>
+</ui-datagrid>

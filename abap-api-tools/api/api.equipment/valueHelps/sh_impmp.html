@@ -1,0 +1,22 @@
+<!-- SH IMPMP Measurement Position : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.POINT" shlp.bind="{type: 'SH', id: 'IMPM'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IPT', length:'12'}"
+          label="Measuring Point"></ui-combo>
+<ui-input bind="searchParamLow.PSORT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Position Number of the Object Measuring Point (Sort Field)"></ui-input>
+<ui-input bind="searchParamLow.PTTXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of Measuring Point"></ui-input>
+<ui-combo bind="searchParamLow.MPTYP" shlp.bind="{type: 'CT', id: 'T370P'}" data-abap.bind="{type:'CHAR', mid:'IP1', length:'1'}"
+          label="Measuring Point Category"></ui-combo>
+<ui-checkbox value.bind="searchParamLow.IRFMP" label="Indicator: MeasPoint Is a Reference Measuring Point"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.INDCT" label="Indicator to Show that Measuring Point Is a Counter"></ui-checkbox>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="POINT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IPT', length:'12'}" label="Measuring Point"></ui-dg-column>
+   <ui-dg-column sortable field="PSORT" data-abap.bind="{type:'CHAR', length:'20'}" label="Position Number of the Object Measuring Point (Sort Field)"></ui-dg-column>
+   <ui-dg-column sortable field="PTTXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Measuring Point"></ui-dg-column>
+   <ui-dg-column sortable field="MPTYP" data-abap.bind="{type:'CHAR', mid:'IP1', length:'1'}" label="Measuring Point Category"></ui-dg-column>
+   <ui-dg-column sortable field="INDCT" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator to Show that Measuring Point Is a Counter"></ui-dg-column>
+</ui-datagrid>

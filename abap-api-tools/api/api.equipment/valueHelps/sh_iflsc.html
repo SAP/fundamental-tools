@@ -1,0 +1,29 @@
+<!-- SH IFLSC Cost center : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+          label="Functional Location"></ui-input>
+<ui-input bind="searchParamLow.ALKEY" data-abap.bind="{type:'CHAR', mid:'ILOM_ALKEY', length:'1'}"
+          label="Labeling system for functional locations"></ui-input>
+<ui-input bind="searchParamLow.ACTVS" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Active version"></ui-input>
+<ui-input bind="searchParamLow.STRNO" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Functional Location Label"></ui-input>
+<ui-input bind="searchParamLow.SWERK" data-abap.bind="{type:'CHAR', mid:'SWK', length:'4'}"
+          label="Maintenance plant"></ui-input>
+<ui-combo bind="searchParamLow.KOSTL" shlp.bind="{type: 'SH', id: 'KOST'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
+          label="Cost Center"></ui-combo>
+<ui-input bind="searchParamLow.OWNER" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Object reference indicator"></ui-input>
+<ui-input bind="searchParamLow.KZMLA" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Primary language indicator for text segment"></ui-input>
+<ui-input bind="searchParamLow.PLTXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of functional location"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="STRNO" data-abap.bind="{type:'CHAR', length:'40'}" label="Functional Location Label"></ui-dg-column>
+   <ui-dg-column sortable field="PLTXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of functional location"></ui-dg-column>
+   <ui-dg-column sortable field="SWERK" data-abap.bind="{type:'CHAR', mid:'SWK', length:'4'}" label="Maintenance plant"></ui-dg-column>
+   <ui-dg-column sortable field="KOSTL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}" label="Cost Center"></ui-dg-column>
+</ui-datagrid>

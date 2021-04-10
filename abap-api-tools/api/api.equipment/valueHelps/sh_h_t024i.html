@@ -1,0 +1,16 @@
+<!-- SH H_T024I Planner Group for Customer Service and Plant Maintenance : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.IWERK" shlp.bind="{type: 'SH', id: 'H_T399I'}" data-abap.bind="{type:'CHAR', mid:'IWK', length:'4'}"
+          label="Maintenance Planning Plant"></ui-combo>
+<ui-combo bind="searchParamLow.INGRP" shlp.bind="{type: 'CT', id: 'T024I'}" data-abap.bind="{type:'CHAR', mid:'IHG', length:'3'}"
+          label="Planner Group for Customer Service and Plant Maintenance"></ui-combo>
+<ui-input bind="searchParamLow.INNAM" data-abap.bind="{type:'CHAR', length:'18'}"
+          label="Name of the Maintenance Planner Group"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="IWERK" data-abap.bind="{type:'CHAR', mid:'IWK', length:'4'}" label="Maintenance Planning Plant"></ui-dg-column>
+   <ui-dg-column sortable field="INGRP" data-abap.bind="{type:'CHAR', mid:'IHG', length:'3'}" label="Planner Group for Customer Service and Plant Maintenance"></ui-dg-column>
+   <ui-dg-column sortable field="INNAM" data-abap.bind="{type:'CHAR', length:'18'}" label="Name of the Maintenance Planner Group"></ui-dg-column>
+</ui-datagrid>

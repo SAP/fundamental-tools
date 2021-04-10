@@ -1,0 +1,16 @@
+<!-- SH H_T370S Functional location structure indicator : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.TPLKZ" data-abap.bind="{type:'CHAR', mid:'ISR', length:'5'}"
+          label="Functional location structure indicator"></ui-input>
+<ui-input bind="searchParamLow.EDITM" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Functional location edit mask"></ui-input>
+<ui-input bind="searchParamLow.TPLXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Structure indicator text for functional locations"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TPLKZ" data-abap.bind="{type:'CHAR', mid:'ISR', length:'5'}" label="Functional location structure indicator"></ui-dg-column>
+   <ui-dg-column sortable field="TPLXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Structure indicator text for functional locations"></ui-dg-column>
+   <ui-dg-column sortable field="EDITM" data-abap.bind="{type:'CHAR', length:'40'}" label="Functional location edit mask"></ui-dg-column>
+</ui-datagrid>

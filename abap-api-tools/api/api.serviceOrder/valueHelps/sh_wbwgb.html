@@ -1,0 +1,16 @@
+<!-- SH WBWGB Find by department : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.MATKL" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}"
+          label="Material Group"></ui-input>
+<ui-input bind="searchParamLow.WGBEZ" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Material Group Description"></ui-input>
+<ui-combo bind="searchParamLow.ABTNR" shlp.bind="{type: 'SH', id: 'H_TSAB'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Department number"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MATKL" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}" label="Material Group"></ui-dg-column>
+   <ui-dg-column sortable field="WGBEZ" data-abap.bind="{type:'CHAR', length:'20'}" label="Material Group Description"></ui-dg-column>
+   <ui-dg-column sortable field="ABTNR" data-abap.bind="{type:'CHAR', length:'4'}" label="Department number"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,16 @@
+<!-- SH H_T001L Storage location : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-combo bind="searchParamLow.WERKS" shlp.bind="{type: 'SH', id: 'H_T001W'}" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-combo>
+<ui-combo bind="searchParamLow.LGORT" shlp.bind="{type: 'SH', id: 'H_T001L'}" data-abap.bind="{type:'CHAR', mid:'LAG', length:'4'}"
+          label="Storage location"></ui-combo>
+<ui-input bind="searchParamLow.LGOBE" data-abap.bind="{type:'CHAR', length:'16'}"
+          label="Description of Storage Location"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="LGORT" data-abap.bind="{type:'CHAR', mid:'LAG', length:'4'}" label="Storage location"></ui-dg-column>
+   <ui-dg-column sortable field="LGOBE" data-abap.bind="{type:'CHAR', length:'16'}" label="Description of Storage Location"></ui-dg-column>
+</ui-datagrid>

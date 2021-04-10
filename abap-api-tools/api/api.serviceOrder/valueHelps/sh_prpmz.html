@@ -1,0 +1,16 @@
+<!-- SH PRPMZ WBS element: persons responsible : abap 2.2.0 at: 2021-04-10 21:53:58 -->}
+
+<ui-input bind="searchParamLow.VERNA" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Name of responsible person (Project manager)"></ui-input>
+<ui-input bind="searchParamLow.VERNR" data-abap.bind="{type:'NUMC', length:'8'}"
+          label="Number of the responsible person (project manager)"></ui-input>
+<ui-input bind="searchParamLow.POSID" data-abap.bind="{type:'CHAR', alpha:'ABPSN', mid:'PRO', length:'24'}"
+          label="Work Breakdown Structure Element (WBS Element)"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="VERNA" data-abap.bind="{type:'CHAR', length:'25'}" label="Name of responsible person (Project manager)"></ui-dg-column>
+   <ui-dg-column sortable field="VERNR" data-abap.bind="{type:'NUMC', length:'8'}" label="Number of the responsible person (project manager)"></ui-dg-column>
+   <ui-dg-column sortable field="POSID" data-abap.bind="{type:'CHAR', alpha:'ABPSN', mid:'PRO', length:'24'}" label="Work Breakdown Structure Element (WBS Element)"></ui-dg-column>
+</ui-datagrid>

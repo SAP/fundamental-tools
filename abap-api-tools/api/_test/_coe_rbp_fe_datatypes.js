@@ -1,7 +1,7 @@
 //
 // /COE/RBP_FE_DATATYPES exception: 1  struct: 3  table: 3  var: 15
 //
-// abap 2.2.0 at: 2021-03-29 15:40:08
+// abap 2.2.0 at: 2021-04-10 21:53:58
 //
 
 // prettier-ignore
@@ -19,7 +19,7 @@ IS_INPUT           :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (undef
 // IV_STRING_SIZE  :            1, // INT8 no text (undefined)
 // IV_UNAME        :           '', // CHAR (12) no text (undefined)
 // IV_UNAME_DOM    :           '', // CHAR (12) no text (undefined)
-// IV_XSTRING      :      bytes(), // XSTRING no text (undefined)
+// IV_XSTRING      : Buffer.alloc(~size), // XSTRING no text (undefined)
 // IV_XSTRING_SIZE :            1, // INT8 no text (undefined)
 
 // CHANGING PARAMETERS
@@ -37,7 +37,7 @@ ET_RAW             :           [], // SDOKCNTBINS no text (undefined)
 // EXPORT PARAMETERS
 
 // EV_STRING       :           "", // STRING no text (undefined)
-// EV_XSTRING      :      bytes(), // XSTRING no text (undefined)
+// EV_XSTRING      : Buffer.alloc(~size), // XSTRING no text (undefined)
 // ES_OUTPUT       :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (undefined)
 
 // EXCEPTION PARAMETERS
@@ -54,7 +54,7 @@ const result = await client.call("/COE/RBP_FE_DATATYPES", parameters);
 // /COE/RBP_S_FE_RFM_STRUCTURE  
 
 // prettier-ignore
-const IS_INPUT= {
+const IS_INPUT = {
   ZACCP                            :   "", // ACCP (6) No field text
   ZCHAR                            :   "", // CHAR (10) No field text
   ZCLNT                            :   "", // CLNT (3) Client
@@ -67,12 +67,12 @@ const IS_INPUT= {
   ZINT4                            :    0, // INT4 (10) No field text
   ZLANG                            :   "", // LANG (1) ALPHA=ISOLA Language Key SU3=SPR
   ZLCHR                            :   "", // LCHR (257) No field text
-  ZLRAW                            : bytes(), // LRAW (257) No field text
+  ZLRAW                            : Buffer.alloc(257), // LRAW (257) No field text
   ZNUMC                            :   "", // NUMC (6) No field text
   ZPREC                            :    0, // PREC (2) No field text
   ZQUAN                            : "0.0", // QUAN (8.4) No field text
-  ZRAW                             : bytes(), // RAW (17) No field text
-  ZRAWSTRING                       : bytes(), // RSTR No field text
+  ZRAW                             : Buffer.alloc(17), // RAW (17) No field text
+  ZRAWSTRING                       : Buffer.alloc(0), // RSTR No field text
   ZSTRING                          :   "", // STRG No field text
   ZSSTRING                         :   "", // SSTR (15) No field text
   ZTIMS                            :   "", // TIMS (6) No field text
@@ -101,7 +101,7 @@ const IS_INPUT= {
 // /COE/RBP_S_FE_RFM_STRUCTURE  
 
 // prettier-ignore
-const CS_STRUCT= {
+const CS_STRUCT = {
   ZACCP                            :   "", // ACCP (6) No field text
   ZCHAR                            :   "", // CHAR (10) No field text
   ZCLNT                            :   "", // CLNT (3) Client
@@ -114,12 +114,12 @@ const CS_STRUCT= {
   ZINT4                            :    0, // INT4 (10) No field text
   ZLANG                            :   "", // LANG (1) ALPHA=ISOLA Language Key SU3=SPR
   ZLCHR                            :   "", // LCHR (257) No field text
-  ZLRAW                            : bytes(), // LRAW (257) No field text
+  ZLRAW                            : Buffer.alloc(257), // LRAW (257) No field text
   ZNUMC                            :   "", // NUMC (6) No field text
   ZPREC                            :    0, // PREC (2) No field text
   ZQUAN                            : "0.0", // QUAN (8.4) No field text
-  ZRAW                             : bytes(), // RAW (17) No field text
-  ZRAWSTRING                       : bytes(), // RSTR No field text
+  ZRAW                             : Buffer.alloc(17), // RAW (17) No field text
+  ZRAWSTRING                       : Buffer.alloc(0), // RSTR No field text
   ZSTRING                          :   "", // STRG No field text
   ZSSTRING                         :   "", // SSTR (15) No field text
   ZTIMS                            :   "", // TIMS (6) No field text
@@ -141,10 +141,10 @@ const CS_STRUCT= {
 };
 
 // /COE/RBP_T_FE_RFM_TABLE_TYPE  
-const CT_TABLE= [];
+const CT_TABLE = [];
 
 // prettier-ignore
-const CT_TABLE= {
+const CT_TABLE_line = {
   COUNTER                          :    0, // INT4 (10) Natural number
   ZACCP                            :   "", // ACCP (6) No field text
   ZCHAR                            :   "", // CHAR (10) No field text
@@ -160,7 +160,7 @@ const CT_TABLE= {
   ZNUMC                            :   "", // NUMC (6) No field text
   ZPREC                            :    0, // PREC (2) No field text
   ZQUAN                            : "0.0", // QUAN (8.4) No field text
-  ZRAW                             : bytes(), // RAW (17) No field text
+  ZRAW                             : Buffer.alloc(17), // RAW (17) No field text
   ZTIMS                            :   "", // TIMS (6) No field text
   ZUNIT_DTEL                       :   "", // UNIT (3) ALPHA=CUNIT Condition unit
   ZCUKY_DTEL                       :   "", // CUKY (5) Currency Key SU3=FWS
@@ -184,10 +184,10 @@ const CT_TABLE= {
 //
 
 // /COE/RBP_T_FE_RFM_TABLE_TYPE  
-const ET_OUTPUT= [];
+const ET_OUTPUT = [];
 
 // prettier-ignore
-const ET_OUTPUT= {
+const ET_OUTPUT_line = {
   COUNTER                          :    0, // INT4 (10) Natural number
   ZACCP                            :   "", // ACCP (6) No field text
   ZCHAR                            :   "", // CHAR (10) No field text
@@ -203,7 +203,7 @@ const ET_OUTPUT= {
   ZNUMC                            :   "", // NUMC (6) No field text
   ZPREC                            :    0, // PREC (2) No field text
   ZQUAN                            : "0.0", // QUAN (8.4) No field text
-  ZRAW                             : bytes(), // RAW (17) No field text
+  ZRAW                             : Buffer.alloc(17), // RAW (17) No field text
   ZTIMS                            :   "", // TIMS (6) No field text
   ZUNIT_DTEL                       :   "", // UNIT (3) ALPHA=CUNIT Condition unit
   ZCUKY_DTEL                       :   "", // CUKY (5) Currency Key SU3=FWS
@@ -222,11 +222,11 @@ const ET_OUTPUT= {
 };
 
 // SDOKCNTBINS  
-const ET_RAW= [];
+const ET_RAW = [];
 
 // prettier-ignore
-const ET_RAW= {
-  LINE                             : bytes(), // RAW (1022) Line for binary document contents, length for upload
+const ET_RAW_line = {
+  LINE                             : Buffer.alloc(1022), // RAW (1022) Line for binary document contents, length for upload
 };
 
 
@@ -237,7 +237,7 @@ const ET_RAW= {
 // /COE/RBP_S_FE_RFM_STRUCTURE  
 
 // prettier-ignore
-const ES_OUTPUT= {
+const ES_OUTPUT = {
   ZACCP                            :   "", // ACCP (6) No field text
   ZCHAR                            :   "", // CHAR (10) No field text
   ZCLNT                            :   "", // CLNT (3) Client
@@ -250,12 +250,12 @@ const ES_OUTPUT= {
   ZINT4                            :    0, // INT4 (10) No field text
   ZLANG                            :   "", // LANG (1) ALPHA=ISOLA Language Key SU3=SPR
   ZLCHR                            :   "", // LCHR (257) No field text
-  ZLRAW                            : bytes(), // LRAW (257) No field text
+  ZLRAW                            : Buffer.alloc(257), // LRAW (257) No field text
   ZNUMC                            :   "", // NUMC (6) No field text
   ZPREC                            :    0, // PREC (2) No field text
   ZQUAN                            : "0.0", // QUAN (8.4) No field text
-  ZRAW                             : bytes(), // RAW (17) No field text
-  ZRAWSTRING                       : bytes(), // RSTR No field text
+  ZRAW                             : Buffer.alloc(17), // RAW (17) No field text
+  ZRAWSTRING                       : Buffer.alloc(0), // RSTR No field text
   ZSTRING                          :   "", // STRG No field text
   ZSSTRING                         :   "", // SSTR (15) No field text
   ZTIMS                            :   "", // TIMS (6) No field text
