@@ -1,3 +1,5 @@
+# syntax = edrevo/dockerfile-plus
+
 # SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -24,9 +26,6 @@ ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
 ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
 
-ARG nwrfcsdk=nwrfcsdk-pl8
-ARG nwrfc_source=/sap
-ARG nwrfc_target=/usr/local/sap
 
 # Add sudo user
 RUN dnf -y install sudo && \
@@ -54,17 +53,7 @@ RUN dnf -y update && \
 
 USER ${adminuser}
 
-# sap nwrfc sdk
-RUN printf "\n# nwrfc sdk \n" >> ~/.bashrc && \
-    printf "export SAPNWRFC_HOME=${nwrfc_target}/${nwrfcsdk}\n" >> ~/.bashrc
-USER root
-RUN mkdir -p ${nwrfc_target}
-COPY ${nwrfc_source} ${nwrfc_target}
-RUN chmod -R a+r ${nwrfc_target}/${nwrfcsdk} && \
-    chmod -R a+x ${nwrfc_target}/${nwrfcsdk}/bin && \
-    chmod -R a+x ${nwrfc_target}/${nwrfcsdk}/lib && \
-    printf "# include nwrfcsdk\n${nwrfc_target}/${nwrfcsdk}/lib\n" | tee /etc/ld.so.conf.d/nwrfcsdk.conf && \
-    ldconfig && ldconfig -p | grep sap
+INCLUDE+ common/sapnwrfcsdk.Dockerfile
 
 # cleanup
 RUN rm -rf /tmp/*

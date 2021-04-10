@@ -1,3 +1,5 @@
+# syntax = edrevo/dockerfile-plus
+
 # SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -58,16 +60,8 @@ RUN printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias 
 # essentials
 RUN sudo apt install -y ${dev_libs}
 
-# sap nw rfc lib
-RUN printf "\n# nwrfc sdk \n" >> ~/.bashrc && \
-  printf "export SAPNWRFC_HOME=${nwrfc_target}/${nwrfcsdk}\n" >> ~/.bashrc
-USER root
-RUN mkdir -p ${nwrfc_target}
-COPY ${nwrfc_source} ${nwrfc_target}
-RUN chmod -R a+r ${nwrfc_target}/${nwrfcsdk} && \
-  chmod -R a+x ${nwrfc_target}/${nwrfcsdk}/bin && \
-  printf "# include nwrfcsdk\n${nwrfc_target}/${nwrfcsdk}/lib\n" | tee /etc/ld.so.conf.d/nwrfcsdk.conf && \
-  ldconfig && ldconfig -p | grep sap
+# sap nwrfcsdk
+INCLUDE+ common/sapnwrfcsdk.Dockerfile
 
 # cleanup
 USER root

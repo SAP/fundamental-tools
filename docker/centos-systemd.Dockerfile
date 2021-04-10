@@ -1,3 +1,5 @@
+# syntax = edrevo/dockerfile-plus
+
 # SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -24,9 +26,6 @@ ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
 ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
 
-ARG nwrfcsdk=nwrfcsdk-pl8
-ARG nwrfc_source=/sap
-ARG nwrfc_target=/usr/local/sap
 
 # Add sudo user
 RUN yum -y install jq sudo && \
@@ -50,9 +49,6 @@ RUN yum -y update && \
     yum -y install ${dev_libs} && \
     yum clean all
 
-# https://stackoverflow.com/questions/44044449/facing-issue-while-installing-jq-in-centos
-# RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O jq && chmod +x jq && mv jq /usr/local/bin
-
 # devtoolset-8
 RUN yum -y install centos-release-scl && \
     yum -y install devtoolset-8 && yum clean all && \
@@ -74,17 +70,8 @@ USER ${adminuser}
 # devtools-8 enable
 RUN printf "\n# devtools-8\nsource /opt/rh/devtoolset-8/enable\n" >> ~/.bashrc
 
-# sap nwrfc sdk
-RUN printf "\n# nwrfc sdk \n" >> ~/.bashrc && \
-    printf "export SAPNWRFC_HOME=${nwrfc_target}/${nwrfcsdk}\n" >> ~/.bashrc
-USER root
-RUN mkdir -p ${nwrfc_target}
-COPY ${nwrfc_source} ${nwrfc_target}
-RUN chmod -R a+r ${nwrfc_target}/${nwrfcsdk} && \
-    chmod -R a+x ${nwrfc_target}/${nwrfcsdk}/bin && \
-    chmod -R a+x ${nwrfc_target}/${nwrfcsdk}/lib && \
-    printf "# include nwrfcsdk\n${nwrfc_target}/${nwrfcsdk}/lib\n" | tee /etc/ld.so.conf.d/nwrfcsdk.conf && \
-    ldconfig && ldconfig -p | grep sap
+# nwrfcsdk
+INCLUDE+ common/sapnwrfcsdk.Dockerfile
 
 RUN rm -rf /tmp/* && \
     systemctl mask systemd-machine-id-commit && systemctl enable multi-user.target && systemctl set-default multi-user.target
