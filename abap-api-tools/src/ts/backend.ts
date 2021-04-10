@@ -417,7 +417,11 @@ export class Backend {
     let dfies: RfcStructure | RfcTable = {};
     try {
       if (param.paramType === ParamType.exception) return undefined;
-
+      log.debug(
+        `    dfies: ${param.paramName}`,
+        param.TABNAME,
+        param.FIELDNAME
+      );
       const ddif = await this.client.call("DDIF_FIELDINFO_GET", {
         TABNAME: param.TABNAME,
         FIELDNAME: param.FIELDNAME,
@@ -548,13 +552,15 @@ export class Backend {
     }
 
     log.info(
-      `\n\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
+      "\n",
+      `${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
         this.argv.textOnly ? "only texts" : ""
       } ${this.getSearchHelps ? "value helps" : ""}${
         this.argv.helps ? " w. descriptors" : ""
-      }\n`
+      }`
         .replace(/  +/g, " ")
-        .replace(/^\s+/g, "")
+        .replace(/^\s+/g, ""),
+      "\n"
     );
 
     await this.client.open();
