@@ -78,6 +78,7 @@ export type FieldType = {
     REFTABLE?: string;
     REFFIELD?: string;
     OUTPUTLEN?: number;
+    LFIELDNAME?: string;
     valueInputType?: string;
   };
   input?: {
@@ -325,11 +326,11 @@ export class Backend {
         }
       }
     }
-    if (!result.format["DOMNAME"]) delete result.format["DOMNAME"];
-    if (!result.format["ROLLNAME"]) delete result.format["ROLLNAME"];
+    if (!result.format.DOMNAME) delete result.format.DOMNAME;
+    if (!result.format.ROLLNAME) delete result.format.ROLLNAME;
 
     if (dfies.LFIELDNAME !== dfies.FIELDNAME) {
-      result.format["LFIELDNAME"] = dfies.LFIELDNAME;
+      result.format.LFIELDNAME = dfies.LFIELDNAME as string;
     }
 
     // Value Helps
@@ -440,10 +441,10 @@ export class Backend {
         }
       } else {
         // structure or table
-        if ((ddif["LINES_DESCR"] as RfcTable).length > 0) {
+        if ((ddif.LINES_DESCR as RfcTable).length > 0) {
           // try LINES_DESCR first, seem to be more "reliable" than DFIES_TAB (no .INCLUDEs)
           dfies = ddif.LINES_DESCR[0].FIELDS;
-        } else if ((ddif["DFIES_TAB"] as RfcTable).length > 0) {
+        } else if ((ddif.DFIES_TAB as RfcTable).length > 0) {
           dfies = ddif.DFIES_TAB as RfcTable;
         } else {
           // single field row
@@ -552,21 +553,23 @@ export class Backend {
     }
 
     log.info(
-      "\n",
-      `${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
+      `\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
         this.argv.textOnly ? "only texts" : ""
       } ${this.getSearchHelps ? "value helps" : ""}${
         this.argv.helps ? " w. descriptors" : ""
-      }`
+      }\n`
         .replace(/  +/g, " ")
-        .replace(/^\s+/g, ""),
-      "\n"
+        .replace(/^ +/g, "")
     );
 
     await this.client.open();
 
     if (this.getSearchHelps) {
-      this.avh = new ValueInputHelp(this.client, this.search_help_api);
+      this.avh = new ValueInputHelp({
+        client: this.client,
+        shlpApi: this.search_help_api,
+        logLevel: log.getLevel(),
+      });
     }
 
     const R = await this.client.call("RFC_METADATA_GET", {
@@ -579,7 +582,7 @@ export class Backend {
       (R.FUNC_ERRORS as RfcTable).length > 0 &&
       R.FUNC_ERRORS[0].EXCEPTION == "FU_NOT_FOUND"
     ) {
-      throw `RFM not found: ${R.FUNC_ERRORS[0]["FUNCNAME"]}`;
+      throw `RFM not found: ${R.FUNC_ERRORS[0].FUNCNAME}`;
     }
 
     // Clean-up && usage
@@ -596,8 +599,8 @@ export class Backend {
         continue;
       }
       // more intuitive names
-      p.functionName = (p["FUNCNAME"] as string).trim();
-      p.paramName = (p["PARAMETER"] as string).trim();
+      p.functionName = (p.FUNCNAME as string).trim();
+      p.paramName = (p.PARAMETER as string).trim();
 
       // Trim, for any case
       p.FIELDNAME.trim();
@@ -638,7 +641,7 @@ export class Backend {
     }
 
     // Sort by rfm / parameter class / required/optional / parameter type and name
-    (R["PARAMETERS"] as RfcTable).sort((a: RfcStructure, b: RfcStructure) => {
+    (R.PARAMETERS as RfcTable).sort((a: RfcStructure, b: RfcStructure) => {
       const PClass = ["I", "C", "T", "E", "X"];
       const PType = [
         ParamType.var,
@@ -656,7 +659,7 @@ export class Backend {
         (a.paramName as string).localeCompare(b.paramName as string)
       );
     });
-    R["PARAMETERS"] = (R["PARAMETERS"] as RfcTable).sort();
+    R.PARAMETERS = (R.PARAMETERS as RfcTable).sort();
 
     //
     // Parse
@@ -666,9 +669,9 @@ export class Backend {
     const Fields = {};
 
     let functionName = "";
-    for (const p of R["PARAMETERS"] as RfcTable) {
-      if (!((p["FUNCNAME"] as string) in Parameters)) {
-        Parameters[p["FUNCNAME"] as string] = {};
+    for (const p of R.PARAMETERS as RfcTable) {
+      if (!((p.FUNCNAME as string) in Parameters)) {
+        Parameters[p.FUNCNAME as string] = {};
       }
 
       if (p.functionName !== functionName) {

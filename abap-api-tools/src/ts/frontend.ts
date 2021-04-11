@@ -252,10 +252,10 @@ export class Frontend {
         if (Field.input.MEMORYID) result.mid = Field.input.MEMORYID;
       }
     } else {
-      result["init"] = '"native ABAP type"';
+      result.init = '"native ABAP type"';
     }
     if (leng) {
-      result["abaptype"] += ` (${leng})`;
+      result.abaptype += ` (${leng})`;
     }
     return result;
   }
@@ -479,10 +479,7 @@ export class Frontend {
         const Field = this.getField(Param, this.abap.fields);
 
         // currency or quantity keys are referenced by respective currency and quantity fields
-        if (
-          Field.format &&
-          ["CUKY", "UNIT"].includes(Field.format["DATATYPE"])
-        ) {
+        if (Field.format && ["CUKY", "UNIT"].includes(Field.format.DATATYPE)) {
           continue;
         }
 
@@ -501,7 +498,7 @@ export class Frontend {
 
         if (!isEmpty(Field)) {
           jsWriter.write(
-            `// ${Param.TABNAME} ${Param.FIELDNAME || ""} ${Param["PARAMTEXT"]}`
+            `// ${Param.TABNAME} ${Param.FIELDNAME || ""} ${Param.PARAMTEXT}`
           );
 
           if (htmlWriter instanceof Writer) {
@@ -612,8 +609,8 @@ export class Frontend {
           .replace("~bind", field_name)
           .replace(/~label/, field.markup.label as string)
           .replace(/~abap/, field.markup.abap as string);
-        if (field.markup["shlp"]) {
-          column = column.replace(/~shlp/, field.markup["shlp"]);
+        if (field.markup.shlp) {
+          column = column.replace(/~shlp/, field.markup.shlp);
         } else {
           // remove shlp
           column = column.replace(/\s+\S*"~shlp"/, "");
@@ -638,8 +635,8 @@ export class Frontend {
         .replace("~bind", field_name)
         .replace(/~label/, field.markup.label as string)
         .replace(/~abap/, field.markup.abap as string);
-      if (field.markup["shlp"]) {
-        column = column.replace(/~shlp/, field.markup["shlp"]);
+      if (field.markup.shlp) {
+        column = column.replace(/~shlp/, field.markup.shlp);
       } else {
         // remove shlp
         column = column.replace(/\s+\S*"~shlp"/, "");

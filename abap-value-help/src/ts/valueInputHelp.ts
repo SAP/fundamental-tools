@@ -22,7 +22,7 @@ import { Client, RfcStructure, RfcTable } from "node-rfc";
 import loglevel from "loglevel";
 
 const log = loglevel;
-log.setDefaultLevel(log.levels.INFO);
+
 export { log };
 
 export type ShlpApiType = {
@@ -146,6 +146,13 @@ export type ValueHelpType = {
 //   CHECKTABLE: string;
 // }
 
+export type IValueHelp = {
+  client: Client;
+  shlpApi: ShlpApiType;
+  userParameters?: RfcTable;
+  logLevel?: loglevel.LogLevelDesc;
+};
+
 export class ValueInputHelp {
   private client = {} as Client;
   private shlpApi: ShlpApiType = {
@@ -162,32 +169,25 @@ export class ValueInputHelp {
   private Elementary: Record<string, ElementaryHelpType> = {};
   private VHFieldCache: Record<string, IValueHelpFound> = {};
 
-  constructor(
-    client: Client,
-    shlpApi: ShlpApiType,
-    userParameters: RfcTable = []
-  ) {
-    this.client = client;
-    this.shlpApi = shlpApi;
-    this._userParameters = userParameters;
+  constructor(local: IValueHelp) {
+    this.client = local.client;
+    this.shlpApi = local.shlpApi;
+    this._userParameters = local.userParameters || [];
+    log.setDefaultLevel(local.logLevel || log.levels.INFO);
   }
 
-  static async new(
-    client: Client,
-    shlpApi: ShlpApiType,
-    userParameters?: RfcTable
-  ): Promise<ValueInputHelp> {
-    if (!client.alive) {
-      await client.open();
+  static async new(local: IValueHelp): Promise<ValueInputHelp> {
+    if (!local.client.alive) {
+      await local.client.open();
     }
-    if (!userParameters) {
-      userParameters = (
-        await client.call("BAPI_USER_GET_DETAIL", {
-          USERNAME: client.connectionInfo.user,
+    if (!local.userParameters) {
+      local.userParameters = (
+        await local.client.call("BAPI_USER_GET_DETAIL", {
+          USERNAME: local.client.connectionInfo.user,
         })
       ).PARAMETER as RfcTable;
     }
-    return new ValueInputHelp(client, shlpApi, userParameters);
+    return new ValueInputHelp(local);
   }
 
   async getDomainValues(shlpName: string): Promise<RfcTable> {
@@ -216,14 +216,15 @@ export class ValueInputHelp {
       // FV
       //
       case "FV": {
+        log.debug(`  FV: ${helpFound.SHLPNAME}`);
         const shlp_values = (
           await this.client.call(this.shlpApi.FV_descriptor_get as string, {
             IV_DOMNAME: helpFound.SHLPNAME,
           })
-        )["ET_VALUES"] as RfcTable;
+        ).ET_VALUES as RfcTable;
         const domainValues: Record<string, string> = {};
         for (const line of shlp_values) {
-          domainValues[line["DOMVALUE_L"] as string] = line["DDTEXT"] as string;
+          domainValues[line.DOMVALUE_L as string] = line.DDTEXT as string;
         }
 
         Descriptors[helpFound.id] = {
@@ -245,11 +246,12 @@ export class ValueInputHelp {
       //
       case "CH":
       case "CT": {
+        log.debug(`  CT: ${helpFound.SHLPNAME}`);
         const metadata = (
           await this.client.call(this.shlpApi.CT_descriptor_get, {
             IV_TYPENAME: helpFound.SHLPNAME,
           })
-        )["ES_METADATA"] as RfcStructure;
+        ).ES_METADATA as RfcStructure;
         if (!helpFound.title) helpFound.title = metadata.TEXT as string;
         if (!helpFound.title) helpFound.title = metadata.SHORT_TEXT as string;
         if (!helpFound.title) helpFound.title = helpFound.id;
@@ -262,9 +264,9 @@ export class ValueInputHelp {
         const displayFields = [];
         for (const tf of tab_fields) {
           if (
-            tf["KEYFLAG"] &&
-            tf["FIELDNAME"] !== ".INCLUDE" &&
-            tf["ROLLNAME"] != "MANDT"
+            tf.KEYFLAG &&
+            tf.FIELDNAME !== ".INCLUDE" &&
+            tf.ROLLNAME != "MANDT"
           )
             valueFields.push(tf as Record<string, string>);
         }
@@ -280,7 +282,7 @@ export class ValueInputHelp {
       //
       case "SH": {
         let ET_SHLP: RfcTable = [];
-
+        log.debug(`  SH: ${helpFound.SHLPNAME}`);
         try {
           ET_SHLP = (
             await this.client.call(this.shlpApi.SH_descriptor_get, {
@@ -379,8 +381,8 @@ export class ValueInputHelp {
 
         // consistency check
         if (ET_SHLP.length > 1) {
-          if (!Helps[helpFound.id]["elementaryHelps"]) {
-            Helps[helpFound.id]["elementaryHelps"] = elementaryList;
+          if (!Helps[helpFound.id].elementaryHelps) {
+            Helps[helpFound.id].elementaryHelps = elementaryList;
           }
         } else {
           if (helpFound.id && !Descriptors[helpFound.id]) {
@@ -449,7 +451,7 @@ export class ValueInputHelp {
     }
 
     // add domain CT if no other shelp found
-    if (dfies["DOMNAME"] && !helpFound.SHLPTYPE) {
+    if (dfies.DOMNAME && !helpFound.SHLPTYPE) {
       const DD01V_WA_A = (
         await this.client.call("DD_DOMA_GET", {
           DOMAIN_NAME: dfies.DOMNAME,
@@ -801,11 +803,7 @@ export class ValueInputHelp {
         }); // _todo: check unicode here
         // sort headers per field position - todo: check if SHLPISPOS always filled, there is also a POSITION field ...
         headers = headers.sort((a, b) => {
-          return a["position"] < b["position"]
-            ? -1
-            : a["position"] < b["position"]
-            ? 1
-            : 0;
+          return a.position < b.position ? -1 : a.position < b.position ? 1 : 0;
         });
       }
     } else {
@@ -856,8 +854,8 @@ export class ValueInputHelp {
             return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
           })
         : result.sort((a, b) => {
-            const va = a[headers[0]["field"]];
-            const vb = b[headers[0]["field"]];
+            const va = a[headers[0].field];
+            const vb = b[headers[0].field];
             return va[0] < vb[0] ? -1 : va[0] > vb[0] ? 1 : 0;
           });
     }

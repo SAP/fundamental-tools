@@ -12,7 +12,7 @@ const loadFromFile = require("./utils").loadFromFile;
 
 let VI;
 beforeAll(async () => {
-  const vi = await ValueInputHelp.new(setup.client, setup.shlpApi);
+  const vi = await ValueInputHelp.new(setup);
   return (VI = vi);
 });
 

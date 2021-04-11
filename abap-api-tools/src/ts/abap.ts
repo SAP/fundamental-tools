@@ -163,7 +163,7 @@ class CliHandler {
           });
           log.debug(`frontend run ${api_name}`);
           if (!result[api_name]) result[api_name] = {};
-          result[api_name]["frontend"] = frontend.parse();
+          result[api_name].frontend = frontend.parse();
         }
       }
     }
