@@ -12,20 +12,9 @@
 # docker start -ai fedora-python
 #
 
-# https://github.com/nodejs/node/blob/master/BUILDING.md#supported-toolchains
 FROM local/fedora
 
-LABEL maintainer="srdjan.boskovic@sap.com"
-LABEL version="2.0"
-LABEL description="Python RFC Connector"
-
-ARG adminuser=www-admin
-
+# python
 INCLUDE+ common/python.Dockerfile
 
-# cleanup
-USER root
-RUN rm -rf /tmp/*
-
-USER ${adminuser}
 CMD ["/bin/bash"]

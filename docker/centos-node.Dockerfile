@@ -13,16 +13,9 @@
 # docker start -ai centos-node
 #
 
-# https://github.com/nodejs/node/blob/master/BUILDING.md#supported-toolchains
 FROM local/c7-systemd
 
-LABEL maintainer="srdjan.boskovic@sap.com"
-LABEL version="1.0"
-LABEL description="NodeJS RFC Connector"
-
-ARG adminuser=www-admin
-
+# nvm
 INCLUDE+ common/nodejs.Dockerfile
 
-USER ${adminuser}
 CMD ["/bin/bash"]

@@ -12,16 +12,9 @@
 # docker start -ai fedora-node
 #
 
-# https://github.com/nodejs/node/blob/master/BUILDING.md#supported-toolchains
 FROM local/fedora
 
-LABEL maintainer="srdjan.boskovic@sap.com"
-LABEL version="2.0"
-LABEL description="NodeJS RFC Connector"
+# nodejs
+INCLUDE+ common/nodejs.dockerfile
 
-ARG adminuser=www-admin
-
-INCLUDE+ common/nodejs.Dockerfile
-
-USER ${adminuser}
 CMD ["/bin/bash"]

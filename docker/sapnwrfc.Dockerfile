@@ -11,23 +11,13 @@
 # Run:
 # docker start -ai sapnwrfc
 #
+
 FROM local/c7-systemd
 
-LABEL maintainer="srdjan.boskovic@sap.com"
-LABEL version="2.0"
-LABEL description="Python and NodeJS RFC Connectivity"
-
-# admin user
-ARG adminuser=www-admin
-USER ${adminuser}
-
+# nvm
 INCLUDE+ common/nodejs.Dockerfile
 
+# python
 INCLUDE+ common/python.Dockerfile
 
-# cleanup
-USER root
-RUN rm -rf /tmp/*
-
-USER ${adminuser}
 CMD ["/bin/bash"]

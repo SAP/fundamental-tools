@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build -t python-39-nwrfcsdk -f python-39-nwrfcsdk.Dockerfile .
-# docker run --name python-39-nwrfcsdk -v /Users/d037732/src:/home/www-admin/src -it python-39-nwrfcsdk /bin/bash
+# docker run --name python-39-nwrfcsdk -v /Users/d037732/src:/home/www-admin/src -it python-39-nwrfcsdk
 #
 # Run:
 # docker start -ai python-39-nwrfcsdk
@@ -31,22 +31,27 @@ ENV container docker
 USER root
 RUN \
   sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-  apt update && apt install -y locales ${dev_tools}
+  apt update && DEBIAN_FRONTEND=noninteractive apt install -y locales ${dev_tools} ${dev_libs} && rm -rf /var/lib/apt/lists/*
 
 # timezone # https://serverfault.com/questions/683605/docker-container-time-timezone-will-not-reflect-changes
 ENV TZ=Europe/Berlin
 RUN locale-gen de_DE && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # https://daten-und-bass.io/blog/fixing-missing-locale-setting-in-ubuntu-docker-image/
-RUN apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
-  && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
-  && dpkg-reconfigure --frontend=noninteractive locales \
-  && update-locale LANG=en_US.UTF-8
+RUN \
+  sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+  dpkg-reconfigure --frontend=noninteractive locales && \
+  update-locale LANG=en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-# Add admin user
+# nwrfcsdk
+INCLUDE+ common/sapnwrfcsdk.Dockerfile
+
+# cleanup
+RUN rm -rf /tmp/*
+
+# admin user
 RUN \
   adduser --disabled-password --gecos "" ${adminuser} && \
   usermod -aG www-data,sudo ${adminuser} && \
@@ -54,18 +59,6 @@ RUN \
 USER ${adminuser}
 WORKDIR /home/${adminuser}
 RUN printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias la='ls -la'\nalias distro='cat /etc/*-release'\n" > .bash_aliases && \
-  printf "\n# colors\nexport TERM=xterm-256color\n" >> ~/.bashrc && \
-  printf "\nexport PATH=/home/${adminuser}/.local/bin:$PATH\n" >> ~/.bashrc
+  printf "\n# colors\nexport TERM=xterm-256color\n" >> .bashrc && \
+  printf "\nexport PATH=/home/${adminuser}/.local/bin:$PATH\n" >> .bashrc
 
-# essentials
-RUN sudo apt install -y ${dev_libs}
-
-# sap nwrfcsdk
-INCLUDE+ common/sapnwrfcsdk.Dockerfile
-
-# cleanup
-USER root
-RUN rm -rf /tmp/*
-
-# standard user
-USER ${adminuser}
