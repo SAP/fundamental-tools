@@ -1,0 +1,19 @@
+<!-- SH JVH_VPTNR JV partner in coding block : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.BUKRS" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-combo>
+<ui-combo bind="searchParamLow.VNAME" shlp.bind="{type: 'SH', id: 'H_T8JV'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'JVV', length:'6'}"
+          label="Joint venture"></ui-combo>
+<ui-combo bind="searchParamLow.EGRUP" shlp.bind="{type: 'SH', id: 'H_T8JF'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'GJE', length:'3'}"
+          label="Equity group"></ui-combo>
+<ui-combo bind="searchParamLow.PARTN" shlp.bind="{type: 'SH', id: 'H_T8JO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+          label="JV partner"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PARTN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" label="JV partner"></ui-dg-column>
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="VNAME" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'JVV', length:'6'}" label="Joint venture"></ui-dg-column>
+   <ui-dg-column sortable field="EGRUP" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'GJE', length:'3'}" label="Equity group"></ui-dg-column>
+</ui-datagrid>

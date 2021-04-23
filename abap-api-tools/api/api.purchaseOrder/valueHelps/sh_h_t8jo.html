@@ -1,0 +1,19 @@
+<!-- SH H_T8JO JV partner : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.PARTN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+          label="JV partner"></ui-input>
+<ui-input bind="searchParamLow.INTCOCD" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Intercompany code"></ui-input>
+<ui-input bind="searchParamLow.PERSON" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Name of employee responsible"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="PARTN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" label="JV partner"></ui-dg-column>
+   <ui-dg-column sortable field="INTCOCD" data-abap.bind="{type:'CHAR', length:'4'}" label="Intercompany code"></ui-dg-column>
+   <ui-dg-column sortable field="PERSON" data-abap.bind="{type:'CHAR', length:'30'}" label="Name of employee responsible"></ui-dg-column>
+</ui-datagrid>

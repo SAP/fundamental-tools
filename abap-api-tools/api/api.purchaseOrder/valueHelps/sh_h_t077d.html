@@ -1,0 +1,19 @@
+<!-- SH H_T077D Customer Account Group : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.KTOKD" data-abap.bind="{type:'CHAR', mid:'KGD', length:'4'}"
+          label="Customer Account Group"></ui-input>
+<ui-input bind="searchParamLow.TXT30" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Account Group Name"></ui-input>
+<ui-input bind="searchParamLow.NUMKR" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Number range"></ui-input>
+<ui-input bind="searchParamLow.XCPDS" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Indicator: Account group for one-time accounts?"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="KTOKD" data-abap.bind="{type:'CHAR', mid:'KGD', length:'4'}" label="Customer Account Group"></ui-dg-column>
+   <ui-dg-column sortable field="NUMKR" data-abap.bind="{type:'CHAR', length:'2'}" label="Number range"></ui-dg-column>
+   <ui-dg-column sortable field="XCPDS" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Account group for one-time accounts?"></ui-dg-column>
+   <ui-dg-column sortable field="TXT30" data-abap.bind="{type:'CHAR', length:'30'}" label="Account Group Name"></ui-dg-column>
+</ui-datagrid>

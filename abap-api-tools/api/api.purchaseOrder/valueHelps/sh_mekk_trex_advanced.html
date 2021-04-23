@@ -1,0 +1,54 @@
+<!-- SH MEKK_TREX_ADVANCED Advanced Search for Purchasing Documents via Search Engine : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}"
+          label="Input Field for Full Text Search"></ui-input>
+<ui-input bind="searchParamLow.S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Option Fuzzy Mode"></ui-input>
+<ui-input bind="searchParamLow.BUSINESS_OBJECT" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Business Object for Search Engine Service (SES)"></ui-input>
+<ui-input bind="searchParamLow.OBJECT_TYPE" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Type of Business Object"></ui-input>
+<ui-input bind="searchParamLow.EXTERNAL_KEY" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+          label="Purchasing Document Number"></ui-input>
+<ui-input bind="searchParamLow.BSTYP" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Purchasing Document Category"></ui-input>
+<ui-input bind="searchParamLow.BSART" data-abap.bind="{type:'CHAR', mid:'BSA', length:'4'}"
+          label="Purchasing Document Type"></ui-input>
+<ui-input bind="searchParamLow.EKORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}"
+          label="Purchasing organization"></ui-input>
+<ui-input bind="searchParamLow.LIFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
+          label="Vendor's account number"></ui-input>
+<ui-date date.bind="searchParamLow.BEDAT"  label="Purchasing Document Date"></ui-date>
+<ui-input bind="searchParamLow.EKGRP" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}"
+          label="Purchasing Group"></ui-input>
+<ui-input bind="searchParamLow.WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-input>
+<ui-input bind="searchParamLow.MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-input>
+<ui-input bind="searchParamLow.MATKL" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}"
+          label="Material Group"></ui-input>
+<ui-input bind="searchParamLow.TXZ01" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Short Text"></ui-input>
+<ui-input bind="searchParamLow.KNTTP" data-abap.bind="{type:'CHAR', mid:'KNT', length:'1'}"
+          label="Account assignment category"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="S/RP/SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'45'}" label="Input Field for Full Text Search"></ui-dg-column>
+   <ui-dg-column sortable field="S/RP/MODE_FUZZY" data-abap.bind="{type:'CHAR', length:'1'}" label="Option Fuzzy Mode"></ui-dg-column>
+   <ui-dg-column sortable field="BUSINESS_OBJECT" data-abap.bind="{type:'CHAR', length:'10'}" label="Business Object for Search Engine Service (SES)"></ui-dg-column>
+   <ui-dg-column sortable field="OBJECT_TYPE" data-abap.bind="{type:'CHAR', length:'10'}" label="Type of Business Object"></ui-dg-column>
+   <ui-dg-column sortable field="EXTERNAL_KEY" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" label="Purchasing Document Number"></ui-dg-column>
+   <ui-dg-column sortable field="BSTYP" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchasing Document Category"></ui-dg-column>
+   <ui-dg-column sortable field="BSART" data-abap.bind="{type:'CHAR', mid:'BSA', length:'4'}" label="Purchasing Document Type"></ui-dg-column>
+   <ui-dg-column sortable field="EKORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" label="Purchasing organization"></ui-dg-column>
+   <ui-dg-column sortable field="LIFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" label="Vendor's account number"></ui-dg-column>
+   <ui-dg-column sortable field="BEDAT" data-abap.bind="{type:'DATS'}" label="Purchasing Document Date"></ui-dg-column>
+   <ui-dg-column sortable field="EKGRP" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}" label="Purchasing Group"></ui-dg-column>
+   <ui-dg-column sortable field="WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" label="Material Number"></ui-dg-column>
+   <ui-dg-column sortable field="MATKL" data-abap.bind="{type:'CHAR', mid:'MKL', length:'9'}" label="Material Group"></ui-dg-column>
+   <ui-dg-column sortable field="TXZ01" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Text"></ui-dg-column>
+   <ui-dg-column sortable field="KNTTP" data-abap.bind="{type:'CHAR', mid:'KNT', length:'1'}" label="Account assignment category"></ui-dg-column>
+</ui-datagrid>

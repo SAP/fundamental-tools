@@ -1,0 +1,13 @@
+<!-- SH RECNCONTRACTTYPE Contract Type : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.RECNTYPE" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}"
+          label="Contract Type"></ui-input>
+<ui-input bind="searchParamLow.RECNTYPETXT" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Description of type of RE contract type"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="RECNTYPE" data-abap.bind="{type:'CHAR', mid:'RECNTYPE', length:'4'}" label="Contract Type"></ui-dg-column>
+   <ui-dg-column sortable field="RECNTYPETXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Description of type of RE contract type"></ui-dg-column>
+</ui-datagrid>

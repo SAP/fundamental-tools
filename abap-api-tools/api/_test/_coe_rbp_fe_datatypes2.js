@@ -1,7 +1,7 @@
 //
 // /COE/RBP_FE_DATATYPES2 exception: 1  struct: 0  table: 1  var: 13
 //
-// abap 2.2.0 at: 2021-04-10 21:53:58
+// abap 2.3.0 at: 2021-04-23 11:59:34
 //
 
 // prettier-ignore

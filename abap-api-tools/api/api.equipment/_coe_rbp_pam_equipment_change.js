@@ -1,7 +1,7 @@
 //
 // /COE/RBP_PAM_EQUIPMENT_CHANGE exception: 0  struct: 4  table: 2  var: 1
 //
-// abap 2.2.0 at: 2021-04-10 21:53:58
+// abap 2.3.0 at: 2021-04-23 11:59:34
 //
 
 // prettier-ignore

@@ -1,0 +1,13 @@
+<!-- SH H_T024E Purchasing organization : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.EKORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}"
+          label="Purchasing organization"></ui-input>
+<ui-input bind="searchParamLow.EKOTX" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Description of purchasing organization"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="EKORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" label="Purchasing organization"></ui-dg-column>
+   <ui-dg-column sortable field="EKOTX" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of purchasing organization"></ui-dg-column>
+</ui-datagrid>

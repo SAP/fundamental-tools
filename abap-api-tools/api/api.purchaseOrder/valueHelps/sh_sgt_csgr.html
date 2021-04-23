@@ -1,0 +1,15 @@
+<!-- SH SGT_CSGR Segmentation Structure : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.SGT_CSGR" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Segmentation Structure"></ui-input>
+<ui-input bind="searchParamLow.SGT_EXPL" data-abap.bind="{type:'CHAR', length:'60'}"
+          label="Segmentation Short Text"></ui-input>
+<ui-input bind="searchParamLow.SGT_PLANT" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Identifier: Plant Independent"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="SGT_CSGR" data-abap.bind="{type:'CHAR', length:'4'}" label="Segmentation Structure"></ui-dg-column>
+   <ui-dg-column sortable field="SGT_EXPL" data-abap.bind="{type:'CHAR', length:'60'}" label="Segmentation Short Text"></ui-dg-column>
+</ui-datagrid>

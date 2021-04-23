@@ -1,0 +1,13 @@
+<!-- SH H_TQ05 Certificate Type : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.ZGTYP" shlp.bind="{type: 'CT', id: 'TQ05'}" data-abap.bind="{type:'CHAR', mid:'QCT', length:'4'}"
+          label="Certificate Type"></ui-combo>
+<ui-input bind="searchParamLow.KURZTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Short Text"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="ZGTYP" data-abap.bind="{type:'CHAR', mid:'QCT', length:'4'}" label="Certificate Type"></ui-dg-column>
+   <ui-dg-column sortable field="KURZTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Text"></ui-dg-column>
+</ui-datagrid>

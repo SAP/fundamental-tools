@@ -1,0 +1,22 @@
+<!-- SH CITYA City Code for City/Street File : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.LANGU" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}"
+          label="Language Key"></ui-input>
+<ui-input bind="searchParamLow.COUNTRY" data-abap.bind="{type:'CHAR', mid:'LND', length:'3'}"
+          label="Country Key"></ui-input>
+<ui-input bind="searchParamLow.CITY_CODE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ORT', length:'12'}"
+          label="City Code for City/Street File"></ui-input>
+<ui-input bind="searchParamLow.REGION" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Region (State, Province, County)"></ui-input>
+<ui-input bind="searchParamLow.MC_CITY" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="City name in Uppercase for Search Help"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MC_CITY" data-abap.bind="{type:'CHAR', length:'25'}" label="City name in Uppercase for Search Help"></ui-dg-column>
+   <ui-dg-column sortable field="REGION" data-abap.bind="{type:'CHAR', length:'3'}" label="Region (State, Province, County)"></ui-dg-column>
+   <ui-dg-column sortable field="CITY_CODE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ORT', length:'12'}" label="City Code for City/Street File"></ui-dg-column>
+   <ui-dg-column sortable field="COUNTRY" data-abap.bind="{type:'CHAR', mid:'LND', length:'3'}" label="Country Key"></ui-dg-column>
+   <ui-dg-column sortable field="LANGU" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}" label="Language Key"></ui-dg-column>
+</ui-datagrid>

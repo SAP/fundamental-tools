@@ -1,0 +1,13 @@
+<!-- SH MRTAE Collective Lease-Out Selection : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MIV', length:'13'}"
+          label="Lease-Out Number"></ui-input>
+<ui-input bind="searchParamLow.FUNCNAME" data-abap.bind="{type:'CHAR', mid:'LIB', length:'30'}"
+          label="Function name"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+</ui-datagrid>

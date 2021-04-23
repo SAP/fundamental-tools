@@ -1,0 +1,30 @@
+<!-- SH MRTAM Selection via master tenant : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-input>
+<ui-input bind="searchParamLow.SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MIV', length:'13'}"
+          label="Lease-Out Number"></ui-input>
+<ui-input bind="searchParamLow.OBJNR" data-abap.bind="{type:'CHAR', length:'22'}"
+          label="Service Charge Collector Number"></ui-input>
+<ui-input bind="searchParamLow.NAME1" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name 1 (surname for persons, else company name)"></ui-input>
+<ui-input bind="searchParamLow.NAME2" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Name 2 (Continuation of NAME 1)"></ui-input>
+<ui-input bind="searchParamLow.MC_NAME1" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Field NAME1 in Upper Case"></ui-input>
+<ui-input bind="searchParamLow.MC_NAME2" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Field NAME2 in Upper Case"></ui-input>
+<ui-date date.bind="searchParamLow.BIRTH_DATE"  label="Date of Birth of Business Partner"></ui-date>
+<ui-input bind="searchParamLow.KUNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+          label="Customer number main contract partner"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BUKRS" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+   <ui-dg-column sortable field="SMIVE" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MIV', length:'13'}" label="Lease-Out Number"></ui-dg-column>
+   <ui-dg-column sortable field="NAME1" data-abap.bind="{type:'CHAR', length:'40'}" label="Name 1 (surname for persons, else company name)"></ui-dg-column>
+   <ui-dg-column sortable field="NAME2" data-abap.bind="{type:'CHAR', length:'40'}" label="Name 2 (Continuation of NAME 1)"></ui-dg-column>
+   <ui-dg-column sortable field="BIRTH_DATE" data-abap.bind="{type:'DATS'}" label="Date of Birth of Business Partner"></ui-dg-column>
+   <ui-dg-column sortable field="KUNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" label="Customer number main contract partner"></ui-dg-column>
+</ui-datagrid>

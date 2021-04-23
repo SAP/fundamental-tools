@@ -1,0 +1,13 @@
+<!-- SH H_TINC Incoterms (Part 1) : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.INCO1" shlp.bind="{type: 'CT', id: 'TINC'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Incoterms (Part 1)"></ui-combo>
+<ui-input bind="searchParamLow.BEZEI" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Description"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="INCO1" data-abap.bind="{type:'CHAR', length:'3'}" label="Incoterms (Part 1)"></ui-dg-column>
+   <ui-dg-column sortable field="BEZEI" data-abap.bind="{type:'CHAR', length:'30'}" label="Description"></ui-dg-column>
+</ui-datagrid>

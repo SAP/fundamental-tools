@@ -1,0 +1,13 @@
+<!-- SH H_T148 Special Stock Indicator : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.SOBKZ" shlp.bind="{type: 'CT', id: 'T148'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Special Stock Indicator"></ui-combo>
+<ui-input bind="searchParamLow.SOTXT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Description of special stock"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="SOBKZ" data-abap.bind="{type:'CHAR', length:'1'}" label="Special Stock Indicator"></ui-dg-column>
+   <ui-dg-column sortable field="SOTXT" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of special stock"></ui-dg-column>
+</ui-datagrid>

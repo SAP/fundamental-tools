@@ -20,8 +20,7 @@ RUN \
     #
     # nvm
     #
-    printf "\n# nvm" >> ~/.bashrc && \
     NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/') && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     bash -ic "nvm install node && nvm alias default node && nvm install lts/dubnium && nvm install lts/erbium && nvm install lts/fermium" && \
-    printf "export PATH=node_modules/.bin:\$PATH\nnvm use default\n\n" >> ~/.bashrc
+    printf "\n# nvm\nexport PATH=node_modules/.bin:\$PATH\nnvm use default\n\n" >> ~/.bashrc

@@ -1,0 +1,25 @@
+<!-- SH MBANN Purchase Requisitions per Network : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.NPLNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'NET', length:'12'}"
+          label="Network Number for Account Assignment"></ui-input>
+<ui-input bind="searchParamLow.AUFPL" data-abap.bind="{type:'NUMC', length:'10'}"
+          label="Routing number of operations in the order"></ui-input>
+<ui-input bind="searchParamLow.APLZL" data-abap.bind="{type:'NUMC', length:'8'}"
+          label="Internal counter"></ui-input>
+<ui-input bind="searchParamLow.BANFN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BAN', length:'10'}"
+          label="Purchase requisition number"></ui-input>
+<ui-input bind="searchParamLow.BNFPO" data-abap.bind="{type:'NUMC', mid:'BAP', length:'5'}"
+          label="Item number of purchase requisition"></ui-input>
+<ui-input bind="searchParamLow.ZEBKN" data-abap.bind="{type:'NUMC', length:'2'}"
+          label="Serial number for PReq account assignment segment"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="NPLNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'NET', length:'12'}" label="Network Number for Account Assignment"></ui-dg-column>
+   <ui-dg-column sortable field="AUFPL" data-abap.bind="{type:'NUMC', length:'10'}" label="Routing number of operations in the order"></ui-dg-column>
+   <ui-dg-column sortable field="APLZL" data-abap.bind="{type:'NUMC', length:'8'}" label="Internal counter"></ui-dg-column>
+   <ui-dg-column sortable field="BANFN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BAN', length:'10'}" label="Purchase requisition number"></ui-dg-column>
+   <ui-dg-column sortable field="BNFPO" data-abap.bind="{type:'NUMC', mid:'BAP', length:'5'}" label="Item number of purchase requisition"></ui-dg-column>
+   <ui-dg-column sortable field="ZEBKN" data-abap.bind="{type:'NUMC', length:'2'}" label="Serial number for PReq account assignment segment"></ui-dg-column>
+</ui-datagrid>

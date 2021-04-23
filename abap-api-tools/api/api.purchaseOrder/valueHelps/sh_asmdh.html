@@ -1,0 +1,22 @@
+<!-- SH ASMDH Service by Hierarchy and Wage Type : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.LSTHI" shlp.bind="{type: 'SH', id: 'ASMD'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'18'}"
+          label="Hierarchy Service Number"></ui-combo>
+<ui-combo bind="searchParamLow.LGART" shlp.bind="{type: 'CT', id: 'T512W'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Wage Type"></ui-combo>
+<ui-combo bind="searchParamLow.ASNUM" shlp.bind="{type: 'CT', id: 'ASMD'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ASN', length:'18'}"
+          label="Activity Number"></ui-combo>
+<ui-input bind="searchParamLow.ASKTX" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Service Short Text"></ui-input>
+<ui-combo bind="searchParamLow.SPRAS" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="LSTHI" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'18'}" label="Hierarchy Service Number"></ui-dg-column>
+   <ui-dg-column sortable field="LGART" data-abap.bind="{type:'CHAR', length:'4'}" label="Wage Type"></ui-dg-column>
+   <ui-dg-column sortable field="ASNUM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ASN', length:'18'}" label="Activity Number"></ui-dg-column>
+   <ui-dg-column sortable field="ASKTX" data-abap.bind="{type:'CHAR', length:'40'}" label="Service Short Text"></ui-dg-column>
+   <ui-dg-column sortable field="SPRAS" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" label="Language Key"></ui-dg-column>
+</ui-datagrid>

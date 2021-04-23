@@ -1,0 +1,24 @@
+<!-- SH KREDL Vendors by Country : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.LAND1" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Country Key"></ui-input>
+<ui-input bind="searchParamLow.SORTL" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="Sort field"></ui-input>
+<ui-input bind="searchParamLow.MCOD1" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Search term for matchcode search"></ui-input>
+<ui-input bind="searchParamLow.MCOD3" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="Search term for matchcode search"></ui-input>
+<ui-input bind="searchParamLow.LIFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
+          label="Account Number of Vendor or Creditor"></ui-input>
+<ui-input bind="searchParamLow.BEGRU" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Authorization Group"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="LAND1" data-abap.bind="{type:'CHAR', length:'3'}" label="Country Key"></ui-dg-column>
+   <ui-dg-column sortable field="SORTL" data-abap.bind="{type:'CHAR', length:'10'}" label="Sort field"></ui-dg-column>
+   <ui-dg-column sortable field="MCOD1" data-abap.bind="{type:'CHAR', length:'25'}" label="Search term for matchcode search"></ui-dg-column>
+   <ui-dg-column sortable field="MCOD3" data-abap.bind="{type:'CHAR', length:'25'}" label="Search term for matchcode search"></ui-dg-column>
+   <ui-dg-column sortable field="LIFNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" label="Account Number of Vendor or Creditor"></ui-dg-column>
+</ui-datagrid>

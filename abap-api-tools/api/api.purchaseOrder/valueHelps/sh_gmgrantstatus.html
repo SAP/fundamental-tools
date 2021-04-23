@@ -1,0 +1,26 @@
+<!-- SH GMGRANTSTATUS Search grants by status : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.GRANT_NBR" shlp.bind="{type: 'SH', id: 'GRANTS_GENERIC'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'GM_GRANT_NBR', length:'20'}"
+          label="Grant"></ui-combo>
+<ui-combo bind="searchParamLow.GRANT_TYPE" shlp.bind="{type: 'CT', id: 'GMGRTYPE'}" data-abap.bind="{type:'CHAR', mid:'GM_GRANT_TYPE', length:'2'}"
+          label="Grant Type"></ui-combo>
+<ui-combo bind="searchParamLow.LIFECYCLE_STATUS" shlp.bind="{type: 'SH', id: 'H_TJ02'}" data-abap.bind="{type:'CHAR', length:'5'}"
+          label="Lifecycle Status"></ui-combo>
+<ui-input bind="searchParamLow.TXT30" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Object status"></ui-input>
+<ui-combo bind="searchParamLow.USER_STATUS" shlp.bind="{type: 'CT', id: 'TJ30'}" data-abap.bind="{type:'CHAR', length:'5'}"
+          label="User Status"></ui-combo>
+<ui-input bind="searchParamLow.SHORT_DESC" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Shorter description of the grant"></ui-input>
+<ui-checkbox value.bind="searchParamLow.OUTGOING" label="Outgoing Grant Indicator"></ui-checkbox>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="GRANT_NBR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'GM_GRANT_NBR', length:'20'}" label="Grant"></ui-dg-column>
+   <ui-dg-column sortable field="SHORT_DESC" data-abap.bind="{type:'CHAR', length:'20'}" label="Shorter description of the grant"></ui-dg-column>
+   <ui-dg-column sortable field="TXT30" data-abap.bind="{type:'CHAR', length:'30'}" label="Object status"></ui-dg-column>
+   <ui-dg-column sortable field="GRANT_TYPE" data-abap.bind="{type:'CHAR', mid:'GM_GRANT_TYPE', length:'2'}" label="Grant Type"></ui-dg-column>
+   <ui-dg-column sortable field="USER_STATUS" data-abap.bind="{type:'CHAR', length:'5'}" label="User Status"></ui-dg-column>
+   <ui-dg-column sortable field="OUTGOING" data-abap.bind="{type:'CHAR', length:'1'}" label="Outgoing Grant Indicator"></ui-dg-column>
+</ui-datagrid>

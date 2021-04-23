@@ -1,0 +1,42 @@
+<!-- SH PLKSC Search using material : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material Number"></ui-input>
+<ui-input bind="searchParamLow.WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-input>
+<ui-input bind="searchParamLow.VBELN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}"
+          label="Sales Document"></ui-input>
+<ui-input bind="searchParamLow.POSNR" data-abap.bind="{type:'NUMC', mid:'APO', length:'6'}"
+          label="Sales Document Item"></ui-input>
+<ui-input bind="searchParamLow.PSPNR" data-abap.bind="{type:'NUMC', alpha:'ABPSP', mid:'PEI', length:'8'}"
+          label="Work breakdown structure element (WBS element)"></ui-input>
+<ui-input bind="searchParamLow.PLNTY" data-abap.bind="{type:'CHAR', mid:'PTY', length:'1'}"
+          label="Task List Type"></ui-input>
+<ui-input bind="searchParamLow.PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}"
+          label="Key for Task List Group"></ui-input>
+<ui-input bind="searchParamLow.PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}"
+          label="Group Counter"></ui-input>
+<ui-date date.bind="searchParamLow.DATUV"  label="Valid-From Date"></ui-date>
+<ui-input bind="searchParamLow.KTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Task list description"></ui-input>
+<ui-input bind="searchParamLow.STATU" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Status"></ui-input>
+<ui-input bind="searchParamLow.VERWE" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Task list usage"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" label="Material Number"></ui-dg-column>
+   <ui-dg-column sortable field="WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="VBELN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}" label="Sales Document"></ui-dg-column>
+   <ui-dg-column sortable field="POSNR" data-abap.bind="{type:'NUMC', mid:'APO', length:'6'}" label="Sales Document Item"></ui-dg-column>
+   <ui-dg-column sortable field="PSPNR" data-abap.bind="{type:'NUMC', alpha:'ABPSP', mid:'PEI', length:'8'}" label="Work breakdown structure element (WBS element)"></ui-dg-column>
+   <ui-dg-column sortable field="PLNTY" data-abap.bind="{type:'CHAR', mid:'PTY', length:'1'}" label="Task List Type"></ui-dg-column>
+   <ui-dg-column sortable field="PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}" label="Key for Task List Group"></ui-dg-column>
+   <ui-dg-column sortable field="PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}" label="Group Counter"></ui-dg-column>
+   <ui-dg-column sortable field="DATUV" data-abap.bind="{type:'DATS'}" label="Valid-From Date"></ui-dg-column>
+   <ui-dg-column sortable field="KTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Task list description"></ui-dg-column>
+   <ui-dg-column sortable field="STATU" data-abap.bind="{type:'CHAR', length:'3'}" label="Status"></ui-dg-column>
+   <ui-dg-column sortable field="VERWE" data-abap.bind="{type:'CHAR', length:'3'}" label="Task list usage"></ui-dg-column>
+</ui-datagrid>

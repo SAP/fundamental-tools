@@ -1,0 +1,13 @@
+<!-- SH H_T027A Shipping Instructions : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.EVERS" shlp.bind="{type: 'CT', id: 'T027A'}" data-abap.bind="{type:'CHAR', length:'2'}"
+          label="Shipping Instructions"></ui-combo>
+<ui-input bind="searchParamLow.EVTXT" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Shipping Instructions: Description"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="EVERS" data-abap.bind="{type:'CHAR', length:'2'}" label="Shipping Instructions"></ui-dg-column>
+   <ui-dg-column sortable field="EVTXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Shipping Instructions: Description"></ui-dg-column>
+</ui-datagrid>

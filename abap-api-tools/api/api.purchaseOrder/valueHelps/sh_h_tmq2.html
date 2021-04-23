@@ -1,0 +1,24 @@
+<!-- SH H_TMQ2 Quota arrangement usage : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.USEQU" shlp.bind="{type: 'CT', id: 'TMQ2'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Quota arrangement usage"></ui-combo>
+<ui-checkbox value.bind="searchParamLow.QBEST" label="Purchase order will be included in quota arrangement"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.QLPET" label="Manual SA Deliv. Schedule Line Subject to Quota Arrangement"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.QPLAF" label="Planned order (manual) to be included in quota arrangement"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.QBANF" label="Purchase requisition will be included in quota arrangement"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.QDISP" label="Quota system will be applied during automatic MRP process"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.QFAUF" label="Quota arrangement applied to production order"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.QFIR" label="Invoice Subject to Quota Arrangement"></ui-checkbox>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="USEQU" data-abap.bind="{type:'CHAR', length:'1'}" label="Quota arrangement usage"></ui-dg-column>
+   <ui-dg-column sortable field="QBEST" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchase order will be included in quota arrangement"></ui-dg-column>
+   <ui-dg-column sortable field="QLPET" data-abap.bind="{type:'CHAR', length:'1'}" label="Manual SA Deliv. Schedule Line Subject to Quota Arrangement"></ui-dg-column>
+   <ui-dg-column sortable field="QPLAF" data-abap.bind="{type:'CHAR', length:'1'}" label="Planned order (manual) to be included in quota arrangement"></ui-dg-column>
+   <ui-dg-column sortable field="QBANF" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchase requisition will be included in quota arrangement"></ui-dg-column>
+   <ui-dg-column sortable field="QDISP" data-abap.bind="{type:'CHAR', length:'1'}" label="Quota system will be applied during automatic MRP process"></ui-dg-column>
+   <ui-dg-column sortable field="QFAUF" data-abap.bind="{type:'CHAR', length:'1'}" label="Quota arrangement applied to production order"></ui-dg-column>
+   <ui-dg-column sortable field="QFIR" data-abap.bind="{type:'CHAR', length:'1'}" label="Invoice Subject to Quota Arrangement"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,25 @@
+<!-- SH MEKKM Purchasing Documents for Material : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.MATNR" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+          label="Material number"></ui-combo>
+<ui-combo bind="searchParamLow.WERKS" shlp.bind="{type: 'SH', id: 'H_T001W'}" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-combo>
+<ui-combo bind="searchParamLow.BSTYP" shlp.bind="{type: 'FV', id: 'EBSTYP'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Purchasing Document Category"></ui-combo>
+<ui-combo bind="searchParamLow.BSART" shlp.bind="{type: 'SH', id: 'H_T161'}" data-abap.bind="{type:'CHAR', mid:'BSA', length:'4'}"
+          label="Order Type (Purchasing)"></ui-combo>
+<ui-combo bind="searchParamLow.EBELN" shlp.bind="{type: 'SH', id: 'MEKK_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+          label="Purchasing Document Number"></ui-combo>
+<ui-combo bind="searchParamLow.EBELP" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}"
+          label="Item Number of Purchasing Document"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="MATNR" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" label="Material number"></ui-dg-column>
+   <ui-dg-column sortable field="WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="BSTYP" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchasing Document Category"></ui-dg-column>
+   <ui-dg-column sortable field="BSART" data-abap.bind="{type:'CHAR', mid:'BSA', length:'4'}" label="Order Type (Purchasing)"></ui-dg-column>
+   <ui-dg-column sortable field="EBELN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" label="Purchasing Document Number"></ui-dg-column>
+   <ui-dg-column sortable field="EBELP" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" label="Item Number of Purchasing Document"></ui-dg-column>
+</ui-datagrid>

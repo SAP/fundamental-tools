@@ -1,0 +1,13 @@
+<!-- SH H_TVBUR Sales office : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.VKBUR" data-abap.bind="{type:'CHAR', mid:'VKB', length:'4'}"
+          label="Sales office"></ui-input>
+<ui-input bind="searchParamLow.BEZEI" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Description"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="VKBUR" data-abap.bind="{type:'CHAR', mid:'VKB', length:'4'}" label="Sales office"></ui-dg-column>
+   <ui-dg-column sortable field="BEZEI" data-abap.bind="{type:'CHAR', length:'20'}" label="Description"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,17 @@
+<!-- SH USER_AGRP Users by Roles : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.AGR_NAME" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="Role Name"></ui-input>
+<ui-input bind="searchParamLow.UNAME" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}"
+          label="User Name in User Master Record"></ui-input>
+<ui-date date.bind="searchParamLow.FROM_DAT"  label="Date of validity"></ui-date>
+<ui-date date.bind="searchParamLow.TO_DAT"  label="Date of validity"></ui-date>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="AGR_NAME" data-abap.bind="{type:'CHAR', length:'30'}" label="Role Name"></ui-dg-column>
+   <ui-dg-column sortable field="FROM_DAT" data-abap.bind="{type:'DATS'}" label="Date of validity"></ui-dg-column>
+   <ui-dg-column sortable field="TO_DAT" data-abap.bind="{type:'DATS'}" label="Date of validity"></ui-dg-column>
+   <ui-dg-column sortable field="UNAME" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}" label="User Name in User Master Record"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,28 @@
+<!-- SH MEKKK Purchasing Documents per Cost Center : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.KOSTL" shlp.bind="{type: 'CT', id: 'CSKS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
+          label="Cost Center"></ui-combo>
+<ui-combo bind="searchParamLow.KOKRS" shlp.bind="{type: 'SH', id: 'CSH_TKA01'}" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}"
+          label="Controlling Area"></ui-combo>
+<ui-combo bind="searchParamLow.BSTYP" shlp.bind="{type: 'FV', id: 'EBSTYP'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Purchasing Document Category"></ui-combo>
+<ui-combo bind="searchParamLow.EKORG" shlp.bind="{type: 'SH', id: 'H_T024E'}" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}"
+          label="Purchasing organization"></ui-combo>
+<ui-combo bind="searchParamLow.EBELN" shlp.bind="{type: 'SH', id: 'MEKK_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+          label="Purchasing Document Number"></ui-combo>
+<ui-combo bind="searchParamLow.EBELP" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}"
+          label="Item Number of Purchasing Document"></ui-combo>
+<ui-input bind="searchParamLow.ZEKKN" data-abap.bind="{type:'NUMC', length:'2'}"
+          label="Sequential Number of Account Assignment"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="KOSTL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}" label="Cost Center"></ui-dg-column>
+   <ui-dg-column sortable field="KOKRS" data-abap.bind="{type:'CHAR', mid:'CAC', length:'4'}" label="Controlling Area"></ui-dg-column>
+   <ui-dg-column sortable field="BSTYP" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchasing Document Category"></ui-dg-column>
+   <ui-dg-column sortable field="EKORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" label="Purchasing organization"></ui-dg-column>
+   <ui-dg-column sortable field="EBELN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" label="Purchasing Document Number"></ui-dg-column>
+   <ui-dg-column sortable field="EBELP" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" label="Item Number of Purchasing Document"></ui-dg-column>
+   <ui-dg-column sortable field="ZEKKN" data-abap.bind="{type:'NUMC', length:'2'}" label="Sequential Number of Account Assignment"></ui-dg-column>
+</ui-datagrid>

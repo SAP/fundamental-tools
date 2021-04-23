@@ -1,4 +1,4 @@
-// SH HRPADUN_KOSTWO2 Organizational unit via Personnel Area (NPO) : abap 2.2.0 at: 2021-04-10 21:53:58
+// SH HRPADUN_KOSTWO2 Organizational unit via Personnel Area (NPO) : abap 2.3.0 at: 2021-04-23 11:59:34
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
 const helpOption = [

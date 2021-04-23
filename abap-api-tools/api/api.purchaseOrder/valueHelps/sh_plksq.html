@@ -1,0 +1,28 @@
+<!-- SH PLKSQ Inspection plans : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}"
+          label="Key for Task List Group"></ui-input>
+<ui-input bind="searchParamLow.PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}"
+          label="Group Counter"></ui-input>
+<ui-input bind="searchParamLow.WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
+          label="Plant"></ui-input>
+<ui-input bind="searchParamLow.KTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Task list description"></ui-input>
+<ui-input bind="searchParamLow.VERWE" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Task list usage"></ui-input>
+<ui-input bind="searchParamLow.VAGRP" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Responsible planner group/department"></ui-input>
+<ui-input bind="searchParamLow.STATU" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Status"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="PLNNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}" label="Key for Task List Group"></ui-dg-column>
+   <ui-dg-column sortable field="PLNAL" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}" label="Group Counter"></ui-dg-column>
+   <ui-dg-column sortable field="WERKS" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" label="Plant"></ui-dg-column>
+   <ui-dg-column sortable field="KTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Task list description"></ui-dg-column>
+   <ui-dg-column sortable field="VERWE" data-abap.bind="{type:'CHAR', length:'3'}" label="Task list usage"></ui-dg-column>
+   <ui-dg-column sortable field="VAGRP" data-abap.bind="{type:'CHAR', length:'3'}" label="Responsible planner group/department"></ui-dg-column>
+   <ui-dg-column sortable field="STATU" data-abap.bind="{type:'CHAR', length:'3'}" label="Status"></ui-dg-column>
+</ui-datagrid>

@@ -1,0 +1,13 @@
+<!-- SH H_TVLK Delivery Type for Returns to Vendors : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.LFART" shlp.bind="{type: 'CT', id: 'TVLK'}" data-abap.bind="{type:'CHAR', mid:'ALT', length:'4'}"
+          label="Delivery Type"></ui-combo>
+<ui-input bind="searchParamLow.VTEXT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Description"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="LFART" data-abap.bind="{type:'CHAR', mid:'ALT', length:'4'}" label="Delivery Type"></ui-dg-column>
+   <ui-dg-column sortable field="VTEXT" data-abap.bind="{type:'CHAR', length:'20'}" label="Description"></ui-dg-column>
+</ui-datagrid>

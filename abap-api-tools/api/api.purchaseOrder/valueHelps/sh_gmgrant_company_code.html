@@ -1,0 +1,13 @@
+<!-- SH GMGRANT_COMPANY_CODE Grant lookup by company code : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.GRANT_NBR" shlp.bind="{type: 'SH', id: 'GRANTS_GENERIC'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'GM_GRANT_NBR', length:'20'}"
+          label="Grant"></ui-combo>
+<ui-combo bind="searchParamLow.COMPANY_CODE" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
+          label="Company Code"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="GRANT_NBR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'GM_GRANT_NBR', length:'20'}" label="Grant"></ui-dg-column>
+   <ui-dg-column sortable field="COMPANY_CODE" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" label="Company Code"></ui-dg-column>
+</ui-datagrid>

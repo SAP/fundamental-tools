@@ -26,6 +26,9 @@ import {
   UiConfigTableType,
   AbapConfigType,
 } from "./frontend";
+
+// import { Model } from "./model";
+
 import { fileLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
 
 export let Signature = `abap api`;
@@ -34,6 +37,7 @@ export const Command = Object.freeze({
   call: "call",
   get: "get",
   make: "make",
+  // model: "model",
   copy: "cp",
   remove: "rm",
   languages: "languages",
@@ -85,6 +89,7 @@ export type Arguments = {
   runInBg?: boolean;
   helps?: boolean;
   ts?: boolean;
+  def?: string;
 };
 
 export type AbapCliResult = {
@@ -496,6 +501,33 @@ if (require.main === module)
         new CliHandler(argv as Arguments).run();
       },
     })
+    // .command({
+    //   command: `${Command.model} <def>`,
+    //   describe: "Model definition file path",
+    //   handler: (argv) => {
+    //     const def = (argv as Arguments).def || "";
+    //     if (!def.toLowerCase().includes(".yaml")) {
+    //       argv.def += ".yaml";
+    //     }
+    //     log.info(Command.model, argv);
+    //     const model = new Model(argv as Arguments);
+    //     model.parse();
+    //   },
+    //   builder: (y) => {
+    //     return y
+    //       .positional("spec", {
+    //         type: "string",
+    //         describe: "Path to model definition file",
+    //       })
+    //       .option("d", {
+    //         alias: "debug",
+    //         describe: "Detailed logging",
+    //         type: "boolean",
+    //         default: false,
+    //         nargs: 0,
+    //       });
+    //   },
+    // })
     .command({
       command: `${Command.languages}`,
       describe: "Supported languages",

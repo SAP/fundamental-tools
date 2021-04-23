@@ -1,0 +1,21 @@
+<!-- SH BUHI_TREE_SEARCH_TERM3 Partner in Group Hierarchy : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}"
+          label="Business Partner Number"></ui-input>
+<ui-input bind="searchParamLow.SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Hierarchy Tree ID"></ui-input>
+<ui-input bind="searchParamLow.LANGUAGE" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+          label="Language Key"></ui-input>
+<ui-input bind="searchParamLow.DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of Hierarchy Tree"></ui-input>
+<ui-input bind="searchParamLow.DESCRIPTION2" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="Description of Hierarchy Category"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="SEARCH_TERM" data-abap.bind="{type:'CHAR', length:'20'}" label="Hierarchy Tree ID"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Hierarchy Tree"></ui-dg-column>
+   <ui-dg-column sortable field="LANGUAGE" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" label="Language Key"></ui-dg-column>
+   <ui-dg-column sortable field="DESCRIPTION2" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Hierarchy Category"></ui-dg-column>
+</ui-datagrid>

@@ -41,18 +41,16 @@ RUN locale-gen de_DE && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $
 RUN \
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
   dpkg-reconfigure --frontend=noninteractive locales && \
-  update-locale LANG=en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-
-# cleanup
-RUN rm -rf /tmp/* /var/lib/apt/lists/*
-
-# admin user
-RUN \
+  update-locale LANG=en_US.UTF-8 && \
+  # admin user
   adduser --disabled-password --gecos "" ${adminuser} && \
   usermod -aG www-data,sudo ${adminuser} && \
-  echo "${adminuser} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+  echo "${adminuser} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+  # cleanup
+  rm -rf /tmp/* /var/lib/apt/lists/*
+
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 # nwrfcsdk
 INCLUDE+ common/sapnwrfcsdk.Dockerfile
@@ -73,3 +71,5 @@ INCLUDE+ common/python.Dockerfile
 
 # nvm
 INCLUDE+ common/nodejs.Dockerfile
+
+CMD ["/bin/bash"]

@@ -1,0 +1,25 @@
+<!-- SH CITY_PART District : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.LANGU" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}"
+          label="Language Key"></ui-combo>
+<ui-combo bind="searchParamLow.COUNTRY" shlp.bind="{type: 'CT', id: 'T005'}" data-abap.bind="{type:'CHAR', mid:'LND', length:'3'}"
+          label="Country Key"></ui-combo>
+<ui-combo bind="searchParamLow.CITY_PART" shlp.bind="{type: 'SH', id: 'CITY_PART'}" data-abap.bind="{type:'CHAR', length:'40'}"
+          label="District"></ui-combo>
+<ui-input bind="searchParamLow.MC_CITY" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="City name in Uppercase for Search Help"></ui-input>
+<ui-input bind="searchParamLow.CITY_EXT" data-abap.bind="{type:'CHAR', length:'30'}"
+          label="City name extension"></ui-input>
+<ui-combo bind="searchParamLow.REGION" shlp.bind="{type: 'CT', id: 'T005S'}" data-abap.bind="{type:'CHAR', length:'3'}"
+          label="Region (State, Province, County)"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="CITY_PART" data-abap.bind="{type:'CHAR', length:'40'}" label="District"></ui-dg-column>
+   <ui-dg-column sortable field="MC_CITY" data-abap.bind="{type:'CHAR', length:'25'}" label="City name in Uppercase for Search Help"></ui-dg-column>
+   <ui-dg-column sortable field="CITY_EXT" data-abap.bind="{type:'CHAR', length:'30'}" label="City name extension"></ui-dg-column>
+   <ui-dg-column sortable field="REGION" data-abap.bind="{type:'CHAR', length:'3'}" label="Region (State, Province, County)"></ui-dg-column>
+   <ui-dg-column sortable field="COUNTRY" data-abap.bind="{type:'CHAR', mid:'LND', length:'3'}" label="Country Key"></ui-dg-column>
+   <ui-dg-column sortable field="LANGU" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}" label="Language Key"></ui-dg-column>
+</ui-datagrid>

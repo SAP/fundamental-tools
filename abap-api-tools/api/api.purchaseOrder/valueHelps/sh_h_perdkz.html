@@ -1,0 +1,17 @@
+<!-- SH H_PERDKZ Period Indicator for Shelf Life Expiration Date : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.IPRKZ" shlp.bind="{type: 'SH', id: 'H_PERDKZ'}" data-abap.bind="{type:'CHAR', alpha:'PERKZ', length:'1'}"
+          label="Period Indicator for Shelf Life Expiration Date"></ui-combo>
+<ui-input bind="searchParamLow.IPRKZ_ACT" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="SLED Period indicator active"></ui-input>
+<ui-input bind="searchParamLow.EPRKZ" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Period indicator"></ui-input>
+<ui-input bind="searchParamLow.PRTXT" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Description of date type"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="EPRKZ" data-abap.bind="{type:'CHAR', length:'1'}" label="Period indicator"></ui-dg-column>
+   <ui-dg-column sortable field="PRTXT" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of date type"></ui-dg-column>
+</ui-datagrid>

@@ -1,3 +1,5 @@
+# prettier-ignore
+
 _test:
   - /coe/rbp_fe_datatypes
   - /coe/rbp_fe_datatypes2
@@ -25,6 +27,42 @@ api.serviceNotification:
   - /COE/RBP_PAM_NOTIF_CHANGE # change notification
   - /COE/RBP_PAM_NOTIF_CREATE # create notification
 
+api.purchaseOrder:
+  # 10502                        APS Procurement Order
+  #- BAPI_POSRVAPS_COMPLETEKEY    # Assignment of External Keys to Internal Keys
+  #- BAPI_POSRVAPS_CREATESNPORDER # Create or Change Stock Transfers or Purchase Requisitions for SNP
+  #- BAPI_POSRVAPS_DELMULTI       # Delete One or More Procurement Orders
+  #- BAPI_POSRVAPS_GETLIST3       # Read Procurement Orders for Selection Criteria - With Characteristics
+  #- BAPI_POSRVAPS_REMOVEITEMS    # Delete one or more Procurement Items / Schedule Lines
+  #- BAPI_POSRVAPS_REQUESTLIST2   # Request: Read Procurement Orders for Selection Criteria
+  #- BAPI_POSRVAPS_SAVEMULTI3     # Create and Change External Procurement Orders/Items/Schedule Lines
+
+  # 10502IF                        Procurement Order APS Receiver
+  # [not in MME] BAPI_POSRVAPSIF_RECEIVELIST2 # Receipt of Request Result: Procurement Order Selection
+
+  # 2012                         BAPI in the Enjoy Purchase Order
+  - BAPI_PO_CHANGE               # Change Purchase Order
+  - BAPI_PO_CREATE1              # Create Purchase Order
+  - BAPI_PO_GETDETAIL1           # Detail Information for a Purchase Order
+
+  # MELE                         Interface: Purchasing - Delivery
+  - BAPI_PO_DELETE_HISTORY       # Delete Purchase Order History
+  - BAPI_PO_UPDATE_HISTORY       # Update Purchase Order (Update, Insert)
+
+  # MEWF                         BAPIs for Release of Requisition/PO
+  - BAPI_PO_RELEASE              # Release Purchase Orders
+  - BAPI_PO_RESET_RELEASE        # Cancel Release of Purchase Orders
+
+  # MEWP                         BAPIs Purchase order
+  # [old] BAPI_PO_CREATE         # Create Purchase Order
+  # [old] BAPI_PO_GETDETAIL      # Display Purchase Order Details
+  - BAPI_PO_GETITEMS             # List Purchase Order Items
+  - BAPI_PO_GETITEMSREL          # List Purchase Orders for Release (Approval): New as of 4.0A
+  - BAPI_PO_GETRELINFO           # Display Detailed Release (Approval) Information on Purchase Order
+  - BAPI_PO_GET_LIST             # List Purchase Orders - Only up to 4.0A
+
+  # VVA01                        Separation of Purchasing and Accounting
+  - BAPI_POACCPART_CREATE        # Create FI-Purchase Order
 # businessPartner:
 #   - BAPI_BUSPARTNER_CHANGE
 #   - BAPI_BUSPARTNER_CREATE
@@ -184,16 +222,6 @@ api.serviceNotification:
 #   - CTS_API_CREATE_CHANGE_REQUEST
 #   - BAPI_CTREQUEST_CREATE
 #   - BAPI_CTREQUEST_CREATE_TASKS
-
-# purchaseOrder:
-#   - BAPI_PO_CREATE
-#   - BAPI_PO_GETDETAIL
-#   - BAPI_PO_GETITEMS
-#   - BAPI_PO_GETITEMSREL
-#   - BAPI_PO_GETRELINFO
-#   - BAPI_PO_GET_LIST
-#   - BAPI_PROCOPERATION_GETCATALOGS
-#   - BAPI_PROCOPERATION_GETINFO
 
 # salesOrder:
 #   - BAPI_SALESORDER_CREATEFROMDAT2

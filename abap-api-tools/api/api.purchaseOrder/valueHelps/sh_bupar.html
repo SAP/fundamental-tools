@@ -1,0 +1,30 @@
+<!-- SH BUPAR Partners by BP Role : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-input bind="searchParamLow.RLTYP" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="BP Role"></ui-input>
+<ui-input bind="searchParamLow.RLTITL" data-abap.bind="{type:'CHAR', length:'25'}"
+          label="BP Role Title"></ui-input>
+<ui-input bind="searchParamLow.MC_NAME1" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="Search Help Field 1 (Name 1/Last Name)"></ui-input>
+<ui-input bind="searchParamLow.MC_NAME2" data-abap.bind="{type:'CHAR', length:'35'}"
+          label="Search Help Field 2 (Name 2/First Name)"></ui-input>
+<ui-input bind="searchParamLow.BU_SORT1" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search term 1 for business partner"></ui-input>
+<ui-input bind="searchParamLow.BU_SORT2" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Search term 2 for business partner"></ui-input>
+<ui-input bind="searchParamLow.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}"
+          label="Business Partner Number"></ui-input>
+<ui-date date.bind="searchParamLow.VALDT"  label="Selection Date for Search Helps"></ui-date>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="BU_SORT1" data-abap.bind="{type:'CHAR', length:'20'}" label="Search term 1 for business partner"></ui-dg-column>
+   <ui-dg-column sortable field="BU_SORT2" data-abap.bind="{type:'CHAR', length:'20'}" label="Search term 2 for business partner"></ui-dg-column>
+   <ui-dg-column sortable field="MC_NAME1" data-abap.bind="{type:'CHAR', length:'35'}" label="Search Help Field 1 (Name 1/Last Name)"></ui-dg-column>
+   <ui-dg-column sortable field="MC_NAME2" data-abap.bind="{type:'CHAR', length:'35'}" label="Search Help Field 2 (Name 2/First Name)"></ui-dg-column>
+   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BPA', length:'10'}" label="Business Partner Number"></ui-dg-column>
+   <ui-dg-column sortable field="RLTITL" data-abap.bind="{type:'CHAR', length:'25'}" label="BP Role Title"></ui-dg-column>
+   <ui-dg-column sortable field="RLTYP" data-abap.bind="{type:'CHAR', length:'6'}" label="BP Role"></ui-dg-column>
+   <ui-dg-column sortable field="VALDT" data-abap.bind="{type:'DATS'}" label="Selection Date for Search Helps"></ui-dg-column>
+</ui-datagrid>

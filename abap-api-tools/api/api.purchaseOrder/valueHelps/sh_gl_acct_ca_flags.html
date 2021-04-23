@@ -1,0 +1,26 @@
+<!-- SH GL_ACCT_CA_FLAGS G/L account with delete/lock flag in chart of accounts : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.KTOPL" shlp.bind="{type: 'SH', id: 'H_T004'}" data-abap.bind="{type:'CHAR', mid:'KPL', length:'4'}"
+          label="Chart of Accounts"></ui-combo>
+<ui-combo bind="searchParamLow.SAKNR" shlp.bind="{type: 'SH', id: 'SAKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}"
+          label="G/L Account Number"></ui-combo>
+<ui-input bind="searchParamLow.SAKAN" data-abap.bind="{type:'CHAR', length:'10'}"
+          label="G/L account number, significant length"></ui-input>
+<ui-input bind="searchParamLow.TXT50" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="G/L Account Long Text"></ui-input>
+<ui-checkbox value.bind="searchParamLow.XLOEV" label="Indicator: Account marked for deletion?"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.XSPEA" label="Indicator: account is blocked for creation ?"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.XSPEB" label="Indicator: Is account blocked for posting?"></ui-checkbox>
+<ui-checkbox value.bind="searchParamLow.XSPEP" label="Indicator: account blocked for planning ?"></ui-checkbox>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TXT50" data-abap.bind="{type:'CHAR', length:'50'}" label="G/L Account Long Text"></ui-dg-column>
+   <ui-dg-column sortable field="KTOPL" data-abap.bind="{type:'CHAR', mid:'KPL', length:'4'}" label="Chart of Accounts"></ui-dg-column>
+   <ui-dg-column sortable field="XLOEV" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Account marked for deletion?"></ui-dg-column>
+   <ui-dg-column sortable field="XSPEB" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Is account blocked for posting?"></ui-dg-column>
+   <ui-dg-column sortable field="XSPEA" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: account is blocked for creation ?"></ui-dg-column>
+   <ui-dg-column sortable field="XSPEP" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: account blocked for planning ?"></ui-dg-column>
+   <ui-dg-column sortable field="SAKNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}" label="G/L Account Number"></ui-dg-column>
+</ui-datagrid>

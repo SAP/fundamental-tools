@@ -1,0 +1,16 @@
+<!-- SH H_TTXJ Tax Jurisdiction : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.KALSM" shlp.bind="{type: 'CT', id: 'TTXD'}" data-abap.bind="{type:'CHAR', length:'6'}"
+          label="Costing Sheet"></ui-combo>
+<ui-combo bind="searchParamLow.TXJCD" shlp.bind="{type: 'CT', id: 'TTXJ'}" data-abap.bind="{type:'CHAR', mid:'TXJ', length:'15'}"
+          label="Tax Jurisdiction"></ui-combo>
+<ui-input bind="searchParamLow.TEXT1" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Description"></ui-input>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="KALSM" data-abap.bind="{type:'CHAR', length:'6'}" label="Costing Sheet"></ui-dg-column>
+   <ui-dg-column sortable field="TXJCD" data-abap.bind="{type:'CHAR', mid:'TXJ', length:'15'}" label="Tax Jurisdiction"></ui-dg-column>
+   <ui-dg-column sortable field="TEXT1" data-abap.bind="{type:'CHAR', length:'50'}" label="Description"></ui-dg-column>
+</ui-datagrid>

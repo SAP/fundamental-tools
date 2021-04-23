@@ -1,0 +1,67 @@
+<!-- BAPI_PO_RESET_RELEASE exception: 8  struct: 0  table: 1  var: 5
+
+abap 2.3.0 at: 2021-04-23 11:59:34 -->
+
+<!-- IMPORT PARAMETERS -->
+
+<ui-combo bind="PO_REL_CODE" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', mid:'FAB', length:'2'}"
+          label="Release Code"></ui-combo>
+
+<ui-combo bind="PURCHASEORDER" shlp.bind="{type: 'SH', id: 'MEKK_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+          label="Purchase Order Number"></ui-combo>
+
+<ui-combo bind="USE_EXCEPTIONS" shlp.bind="{type: 'FV', id: 'SELKZ'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Set Exceptions and Issue Error Messages"></ui-combo>
+
+<!-- TABLE PARAMETERS -->
+
+<!-- Parameter: RETURN structure: BAPIRETURN  Return Messages -->
+
+<ui-datagrid data.bind="RETURN" title="Return Messages"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+   <ui-dg-column sortable field="CODE" data-abap.bind="{type:'CHAR', length:'5'}" label="Message code"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+</ui-datagrid>
+
+<ui-input bind="RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+
+<ui-input bind="RETURN.CODE" data-abap.bind="{type:'CHAR', length:'5'}"
+          label="Message code"></ui-input>
+
+<ui-input bind="RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
+          label="Message Text"></ui-input>
+
+<ui-combo bind="RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
+          label="Application log: log number"></ui-combo>
+
+<ui-combo bind="RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
+          label="Application log: Internal message serial number"></ui-combo>
+
+<ui-input bind="RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<ui-input bind="RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
+          label="Message Variable"></ui-input>
+
+<!-- EXPORT PARAMETERS -->
+
+<ui-combo bind="REL_INDICATOR_NEW" shlp.bind="{type: 'CT', id: 'T16FB'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Previous Release Indicator"></ui-combo>
+
+<ui-input bind="REL_STATUS_NEW" data-abap.bind="{type:'CHAR', length:'8'}"
+          label="Previous Release Status"></ui-input>

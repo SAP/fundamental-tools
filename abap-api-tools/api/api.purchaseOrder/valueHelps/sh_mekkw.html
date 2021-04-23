@@ -1,0 +1,22 @@
+<!-- SH MEKKW Purchasing Documents per Supplying Plant : abap 2.3.0 at: 2021-04-23 11:59:34 -->}
+
+<ui-combo bind="searchParamLow.RESWK" shlp.bind="{type: 'SH', id: 'SH_T001W_EXTS'}" data-abap.bind="{type:'CHAR', length:'4'}"
+          label="Supplying (issuing) plant in case of stock transport order"></ui-combo>
+<ui-combo bind="searchParamLow.EKORG" shlp.bind="{type: 'SH', id: 'H_T024E'}" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}"
+          label="Purchasing organization"></ui-combo>
+<ui-combo bind="searchParamLow.BSTYP" shlp.bind="{type: 'FV', id: 'EBSTYP'}" data-abap.bind="{type:'CHAR', length:'1'}"
+          label="Purchasing Document Category"></ui-combo>
+<ui-combo bind="searchParamLow.EKGRP" shlp.bind="{type: 'SH', id: 'H_T024'}" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}"
+          label="Purchasing Group"></ui-combo>
+<ui-combo bind="searchParamLow.EBELN" shlp.bind="{type: 'SH', id: 'MEKK_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+          label="Purchasing Document Number"></ui-combo>
+
+<ui-datagrid data.bind="searchParamLow" title="field.FIELDTEXT"
+             data-summary="false" default-sort=""
+             selectable rowselect.trigger="object.selectObject($event.detail)">
+   <ui-dg-column sortable field="RESWK" data-abap.bind="{type:'CHAR', length:'4'}" label="Supplying (issuing) plant in case of stock transport order"></ui-dg-column>
+   <ui-dg-column sortable field="EKORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" label="Purchasing organization"></ui-dg-column>
+   <ui-dg-column sortable field="BSTYP" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchasing Document Category"></ui-dg-column>
+   <ui-dg-column sortable field="EKGRP" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}" label="Purchasing Group"></ui-dg-column>
+   <ui-dg-column sortable field="EBELN" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" label="Purchasing Document Number"></ui-dg-column>
+</ui-datagrid>

@@ -1,4 +1,4 @@
-// SH KRED_ES_SIMPLE Simple Search for Vendor using Search Engine : abap 2.2.0 at: 2021-04-10 21:53:58
+// SH KRED_ES_SIMPLE Simple Search for Vendor using Search Engine : abap 2.3.0 at: 2021-04-23 11:59:34
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
 const helpOption = [

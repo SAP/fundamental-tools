@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build -t python-39-nwrfcsdk -f python-39-nwrfcsdk.Dockerfile .
-# docker run --name python-39-nwrfcsdk -v /Users/d037732/src:/home/www-admin/src -it python-39-nwrfcsdk
+# docker run --name python-39-nwrfcsdk -v /Users/d037732/src:/home/www-admin/src -it python-39-nwrfcsdk /bin/bash
 #
 # Run:
 # docker start -ai python-39-nwrfcsdk
@@ -41,21 +41,21 @@ RUN locale-gen de_DE && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $
 RUN \
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
   dpkg-reconfigure --frontend=noninteractive locales && \
-  update-locale LANG=en_US.UTF-8
+  update-locale LANG=en_US.UTF-8 && \
+  # admin user
+  adduser --disabled-password --gecos "" ${adminuser} && \
+  usermod -aG www-data,sudo ${adminuser} && \
+  echo "${adminuser} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+  # cleanup
+  rm -rf /tmp/*
+
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 # nwrfcsdk
 INCLUDE+ common/sapnwrfcsdk.Dockerfile
 
-# cleanup
-RUN rm -rf /tmp/*
-
-# admin user
-RUN \
-  adduser --disabled-password --gecos "" ${adminuser} && \
-  usermod -aG www-data,sudo ${adminuser} && \
-  echo "${adminuser} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# work user
 USER ${adminuser}
 WORKDIR /home/${adminuser}
 RUN printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias la='ls -la'\nalias distro='cat /etc/*-release'\n" > .bash_aliases && \
