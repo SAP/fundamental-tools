@@ -231,8 +231,7 @@ abap make aurelia -c my-app # from the first ABAP API step above
 
 - Standard ui components' templates (default ui configurations) can be pure HTML, pure JS or the combination of both. It depends on ui framework and standard usage pattern can be easy changed (custom ui configurations).
 
-
-One example with input, datepicker and checkbox:
+Example with input, datepicker and checkbox:
 
 ```html
 <section class="fd-section">
@@ -246,6 +245,8 @@ One example with input, datepicker and checkbox:
     <ui-date date.bind="DATA_FLEET.EXPIRY_DATE" label="Validity end date"></ui-date>
 </section>
 ```
+
+More examples: [SAP-samples/node-rfc-samples/fundamental-tools](https://github.com/SAP-samples/node-rfc-samples/tree/main/fundamental-tools)
 
 ## Value Helps
 

@@ -22,6 +22,7 @@
 - Components
   - [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
   - [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
+- Examples: [SAP-samples/node-rfc-samples/fundamental-tools](https://github.com/SAP-samples/node-rfc-samples/tree/main/fundamental-tools)
 
 :star: Your star helps!
 
