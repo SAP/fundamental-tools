@@ -52,8 +52,8 @@ RUN \
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-# nwrfcsdk
-INCLUDE+ common/sapnwrfcsdk.Dockerfile
+# sap binaries
+INCLUDE+ common/saplibs.Dockerfile
 
 # work user
 USER ${adminuser}

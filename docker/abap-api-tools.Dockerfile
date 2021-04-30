@@ -18,7 +18,7 @@ RUN \
     printf "\n# node modules\n" >> ~/.bashrc && \
     printf "export PATH=node_modules/.bin:$PATH\n" >> ~/.bashrc
 
-INCLUDE+ common/sapnwrfcsdk.Dockerfile
+INCLUDE+ common/saplibs.Dockerfile
 
 # abap api tools and value helps
 RUN npm install -g abap-api-tools abap-value-help

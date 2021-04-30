@@ -14,10 +14,10 @@
 
 FROM local/c7-systemd
 
-# nvm
-INCLUDE+ common/nodejs.Dockerfile
-
 # python
 INCLUDE+ common/python.Dockerfile
+
+# nvm
+INCLUDE+ common/nodejs.Dockerfile
 
 CMD ["/bin/bash"]

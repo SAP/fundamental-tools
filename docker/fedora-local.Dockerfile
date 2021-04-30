@@ -47,8 +47,8 @@ RUN dnf -y update && \
     dnf -y install ${dev_tools} ${dev_libs} && \
     dnf clean all && rm -rf /var/cache/yum
 
-# nwrfcsdk
-INCLUDE+ common/sapnwrfcsdk.Dockerfile
+# sap binaries
+INCLUDE+ common/saplibs.Dockerfile
 
 # cleanup
 RUN rm -rf /tmp/*
