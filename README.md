@@ -29,7 +29,7 @@
 ## Content <!-- omit in toc -->
 
 - [Prerequisites](#prerequisites)
-- [Installation](./abap-api-tools/README.md#installation)
+- [Download and installation](#download-and-installation)
 - [Usage](./abap-api-tools/README.md#usage)
 - [Examples](./abap-api-tools/README.md#examples)
   - [ABAP Function Module call template](./abap-api-tools/README.md#abap-function-module-call-template)
@@ -41,7 +41,7 @@
 - [Pattern based apps](./doc/app.md)
 - NodeJS and Python [docker images](./docker)
 
-## Prerequisites
+## Requirements
 
 - ABAP backend: from latest releases, down to 4.6C
 - SAP Cloud Platform or on-premise Windows, Linux, Darwin system/notebook
@@ -49,6 +49,14 @@
   - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
   - Python with [PyRFC](https://github.com/SAP/PyRFC)
   - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
+
+## Download and installation
+
+```shell
+npm install -g abap-api-tools
+```
+
+More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/README.md#download-and-installation)
 
 ## Known Issues
 
