@@ -8,8 +8,8 @@
 ARG venv_base=~/.virtualenvs
 ARG py36=3.6.13
 ARG py37=3.7.10
-ARG py38=3.8.9
-ARG py39=3.9.4
+ARG py38=3.8.10
+ARG py39=3.9.5
 ARG py36venv=py36
 ARG py37venv=py37
 ARG py38venv=py38
@@ -31,7 +31,7 @@ RUN \
     # pyenv
     printf '\n#pyenv\nexport PYENV_ROOT="$HOME/.pyenv"\n' >> .bashrc && \
     printf 'export PATH="$PYENV_ROOT/bin:$PATH"\n' >> .bashrc && \
-    printf 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi\n' >> .bashrc && \
+    printf 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init --path)"\nfi\n' >> .bashrc && \
     # pyenv-virtualenv
     printf 'eval "$(pyenv virtualenv-init -)"\n' >> ~/.bashrc && \
     printf 'export PYENV_VIRTUALENV_DISABLE_PROMPT=1\n' >> ~/.bashrc && \
