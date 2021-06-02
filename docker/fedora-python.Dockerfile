@@ -6,7 +6,7 @@
 
 # Build:
 # docker build --rm --no-cache -t fedora-python -f fedora-python.Dockerfile .
-# docker run --name fedora-python -v /Users/d037732/src:/home/www-admin/src -it fedora-python
+# docker run -it --name fedora-python -v /Users/d037732/src:/home/www-admin/src fedora-python /bin/bash --login
 #
 # Run:
 # docker start -ai fedora-python
@@ -17,4 +17,4 @@ FROM local/fedora
 # python
 INCLUDE+ common/python.Dockerfile
 
-CMD ["/bin/bash"]
+SHELL ["/bin/bash"]

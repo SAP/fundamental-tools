@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build -t ubuntu-qa -f ubuntu-qa.Dockerfile .
-# docker run --name ubuntu-qa -v /Users/d037732/src:/home/www-admin/src -it ubuntu-qa
+# docker run -it --name ubuntu-qa -v /Users/d037732/src:/home/www-admin/src ubuntu-qa /bin/bash --login
 #
 # Run:
 # docker start -ai ubuntu-qa
@@ -73,4 +73,4 @@ INCLUDE+ common/python.Dockerfile
 # nvm
 INCLUDE+ common/nodejs.Dockerfile
 
-CMD ["/bin/bash"]
+SHELL ["/bin/bash"]

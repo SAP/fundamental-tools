@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build -t python-39-nwrfcsdk -f python-39-nwrfcsdk.Dockerfile .
-# docker run --name python-39-nwrfcsdk -v /Users/d037732/src:/home/www-admin/src -it python-39-nwrfcsdk /bin/bash
+# docker run -it --name python-39-nwrfcsdk -v /Users/d037732/src:/home/www-admin/src python-39-nwrfcsdk /bin/bash --login
 #
 # Run:
 # docker start -ai python-39-nwrfcsdk

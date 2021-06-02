@@ -19,7 +19,7 @@ COPY --chown=${adminuser}:${adminuser} ${crypto_source} ${sap_target}/${crypto_v
 COPY --chown=${adminuser}:${adminuser} ${sap_host}/sapcar /usr/local/bin/sapcar
 
 RUN printf "\n# sap libs \n" >> ~/.bashrc && \
-  printf "\n# sap libs\nexport SAPNWRFC_HOME=${sap_target}/${nwrfc_version}\nexport PATH=${sap_target}/${crypto_version}:$PATH\n" >> /home/${adminuser}/.bashrc && \
+  printf "\n# sap libs\nexport SAPNWRFC_HOME=${sap_target}/${nwrfc_version}\nexport PATH=${sap_target}/${crypto_version}:\$PATH\n" >> /home/${adminuser}/.bashrc && \
   chmod -R a+r ${sap_target}/${nwrfc_version} && \
   chmod -R a+x ${sap_target}/${nwrfc_version}/bin && \
   chmod -R a+x ${sap_target}/${nwrfc_version}/lib && \

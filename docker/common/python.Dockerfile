@@ -16,6 +16,9 @@ ARG py38venv=py38
 ARG py39venv=py39
 ARG dev_python="pip wheel pytest cython ipython"
 
+# pyenv config files
+COPY --chown=${adminuser}:${adminuser} /common/pyenv /tmp
+
 # as admin user
 
 RUN \
@@ -28,16 +31,15 @@ RUN \
     git clone https://github.com/pyenv/pyenv.git $PYENV_ROOT && \
     git clone https://github.com/pyenv/pyenv-virtualenv.git $PYENV_ROOT/plugins/pyenv-virtualenv && \
     git clone https://github.com/pyenv/pyenv-update.git $PYENV_ROOT/plugins/pyenv-update && \
-    # pyenv
-    printf '\n#pyenv\nexport PYENV_ROOT="$HOME/.pyenv"\n' >> .bashrc && \
-    printf 'export PATH="$PYENV_ROOT/bin:$PATH"\n' >> .bashrc && \
-    printf 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init --path)"\nfi\n' >> .bashrc && \
-    # pyenv-virtualenv
-    printf 'eval "$(pyenv virtualenv-init -)"\n' >> ~/.bashrc && \
-    printf 'export PYENV_VIRTUALENV_DISABLE_PROMPT=1\n' >> ~/.bashrc && \
+    # pyenv config files
+    PROFILE=".profile" && if [ ! -f "$PROFILE" ]; then PROFILE=".bash_profile"; fi && \
+    cat /tmp/profile.sh "$PROFILE" > temp && mv temp "$PROFILE" && \
+    cat /tmp/bashrc.sh >> .bashrc && \
+    echo "pyenv activate ${py39venv}" >> .bashrc && \
     #
     # Build
     #
+    eval "$(pyenv init --path)" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
     # pyenv
     pyenv install ${py36} && \
     pyenv install ${py37} && \
@@ -49,9 +51,9 @@ RUN \
     pyenv virtualenv ${py38} ${py38venv} && \
     pyenv virtualenv ${py39} ${py39venv} && \
     # build tools
-    bash -ic "source ~/.bashrc && \
     pyenv activate ${py36venv} && pip install --upgrade ${dev_python} && \
     pyenv activate ${py37venv} && pip install --upgrade ${dev_python} && \
     pyenv activate ${py38venv} && pip install --upgrade ${dev_python} && \
-    pyenv activate ${py39venv} && pip install --upgrade ${dev_python}" && \
-    printf "pyenv activate ${py39venv}\n" >> ~/.bashrc
+    pyenv activate ${py39venv} && pip install --upgrade ${dev_python}
+
+

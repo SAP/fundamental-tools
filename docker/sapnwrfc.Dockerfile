@@ -6,7 +6,7 @@
 
 # Build:
 # docker build --rm --no-cache -t sapnwrfc -f sapnwrfc.Dockerfile .
-# docker run --name sapnwrfc --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/d037732/src:/home/www-admin/src -it sapnwrfc
+# docker run -it --name sapnwrfc --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/d037732/src:/home/www-admin/src sapnwrfc /bin/bash --login
 #
 # Run:
 # docker start -ai sapnwrfc
@@ -20,4 +20,4 @@ INCLUDE+ common/python.Dockerfile
 # nvm
 INCLUDE+ common/nodejs.Dockerfile
 
-CMD ["/bin/bash"]
+SHELL ["/bin/bash"]
