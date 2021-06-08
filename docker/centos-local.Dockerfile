@@ -80,3 +80,5 @@ WORKDIR /home/${adminuser}
 
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
+
+SHELL ["/bin/bash"]

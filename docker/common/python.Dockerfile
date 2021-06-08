@@ -36,6 +36,7 @@ RUN \
     cat /tmp/profile.sh "$PROFILE" > temp && mv temp "$PROFILE" && \
     cat /tmp/bashrc.sh >> .bashrc && \
     echo "pyenv activate ${py39venv}" >> .bashrc && \
+    sudo rm /tmp/profile.sh /tmp/bashrc.sh && \
     #
     # Build
     #
