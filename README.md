@@ -8,7 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-- [Building standards based app with ABAP programming model](./doc/app.md)
+- [Usage](./abap-api-tools/README.md#usage)
 - By factors less code, unique qualities
 - Works with:
   - [Aurelia](http://aurelia.io/)
@@ -23,6 +23,7 @@
   - [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
   - [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
 - Examples: [SAP-samples/node-rfc-samples/fundamental-tools](https://github.com/SAP-samples/node-rfc-samples/tree/main/fundamental-tools)
+- [Building standards based app with ABAP programming model](./doc/app.md)
 
 :star: Your star helps!
 
