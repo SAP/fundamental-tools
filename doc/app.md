@@ -90,22 +90,22 @@ The NodeJS or Java code is almost identical and data mappings work the same way:
 @app.route('/equipment/<path:path>', methods=['POST'])
 def equipment(path):
     try:
-        payload = json.loads(request.data)
+        req = json.loads(request.data)
 
         if path == 'get':
-            result = client.call('BAPI_EQUI_GETDETAIL', payload)
+            res = client.call('BAPI_EQUI_GETDETAIL', req)
         elif path == 'getlist':
-            result = client.call('BAPI_EQUI_GETLIST', payload)
+            res = client.call('BAPI_EQUI_GETLIST', req)
         elif path == 'change':
-            result = client.call('BAPI_EQUI_CHANG', payload)
+            res = client.call('BAPI_EQUI_CHANG', req)
         elif path == 'install':
-            result = client.call('BAPI_EQUI_INSTALL', payload)
+            res = client.call('BAPI_EQUI_INSTALL', req)
         elif path == 'dismantle':
-            result = client.call('BAPI_EQUI_DISMANTLE', payload)
+            res = client.call('BAPI_EQUI_DISMANTLE', req)
         else:
             raise Exception('not implemented: %s' % path)
 
-        return to_json(result)
+        return to_json(res)
 
     except Exception as e:
         return serverError(e), 500
