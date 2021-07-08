@@ -165,7 +165,7 @@ export class Backend {
     this.Descriptors = {};
     this.Stat = {};
 
-    this.clientConnectionParameters = {};
+    this.clientConnectionParameters = {} as RfcConnectionParameters;
 
     log.debug(
       `backend: ${this.api_name} systemId: ${this.systemId} lang: ${this.argv.lang} : ${this.SPRAS} api: ${this.apilist}`
@@ -173,7 +173,9 @@ export class Backend {
 
     if (this.argv.dest) {
       if (typeof this.argv.dest === "string") {
-        this.clientConnectionParameters = { dest: this.argv.dest };
+        this.clientConnectionParameters = {
+          dest: this.argv.dest,
+        } as RfcConnectionParameters;
         this.systemId = this.argv.dest;
       } else {
         this.clientConnectionParameters = this.argv.dest.connectionParameters;
@@ -743,9 +745,8 @@ export class Backend {
         }
       }
 
-      Parameters[p.functionName as string][
-        p.paramName as string
-      ] = p as ParameterType;
+      Parameters[p.functionName as string][p.paramName as string] =
+        p as ParameterType;
 
       // remove unused properties
       [
