@@ -1,4 +1,4 @@
-// SH /BEV2/EDMATNR_SH_E Excise Duty Material for Description : abap 2.3.0 at: 2021-04-23 11:59:34
+// SH /BEV2/EDMATNR_SH_E Excise Duty Material for Description : abap 2.3.1 at: 2021-07-08 19:01:17
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
 const helpOption = [

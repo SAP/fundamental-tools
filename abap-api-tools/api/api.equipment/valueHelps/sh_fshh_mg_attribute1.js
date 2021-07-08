@@ -1,4 +1,4 @@
-// SH FSHH_MG_ATTRIBUTE1 Fashion Information Field: 1 : abap 2.3.0 at: 2021-04-23 11:59:34
+// SH FSHH_MG_ATTRIBUTE1 Fashion Information Field: 1 : abap 2.3.1 at: 2021-07-08 19:01:17
 
 const helpSign = [{ id: 'I', name: 'Include' }, { id: 'E', name: 'Exclude' }];
 const helpOption = [
