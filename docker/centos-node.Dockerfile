@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build --rm --no-cache -t centos-node -f centos-node.Dockerfile .
-# docker run -it --name centos-node --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/d037732/src:/home/www-admin/src centos-node /bin/bash --login
+# docker run -it --name centos-node --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/D037732SAPDevelop/dev:/home/www-admin/src centos-node /bin/bash --login
 #
 # Run:
 # docker start -ai centos-node

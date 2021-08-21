@@ -14,7 +14,7 @@ FROM fedora
 
 LABEL maintainer="srdjan.boskovic@sap.com"
 LABEL version="2.0"
-LABEL description="Centos 7 QAS"
+LABEL description="Fedora"
 
 # https://github.com/docker-library/docs/tree/master/centos#systemd-integration
 ENV container docker

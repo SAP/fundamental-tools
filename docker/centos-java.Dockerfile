@@ -6,7 +6,7 @@
 
 # Build:
 # docker build --rm --no-cache -t centos-java -f centos-java.Dockerfile .
-# docker run -it --name centos-java --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/d037732/src:/home/www-admin/src centos-java /bin/bash --login
+# docker run -it --name centos-java --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/D037732SAPDevelop/dev:/home/www-admin/src centos-java /bin/bash --login
 #
 # Run:
 # docker start -ai centos-java
