@@ -4,8 +4,8 @@
 - [Centos + Python](./centos-python.Dockerfile)
 - [Fedora + Node](./fedora-node.Dockerfile)
 - [Fedora + Python](./fedora-python.Dockerfile)
-- [python:3.9-slim-buster](./python-39.Dockerfile)
-- [Ubuntu = Node and Python](./ubuntu-test.Dockerfile)
+- [python:3.9-slim-buster](./python-39-nwrfcsdk.Dockerfile)
+- [Ubuntu = Node and Python](./ubuntu-qa.Dockerfile)
 
 > SAP NWRFC SDK is not a part of these images and must not be packed into externaly distributed images or applications.
 
