@@ -163,7 +163,7 @@ export class Frontend {
           this.configPath.uiLocal = true;
           log.debug(`local ui configuration ${this.argv.ui}`);
         } catch (ex) {
-          if (ex.code !== "ENOENT") throw ex; // ignore file not found error
+          if ((ex as NodeJS.ErrnoException).code !== "ENOENT") throw ex; // ignore file not found error
         }
 
         // default ui 2nd
@@ -187,7 +187,7 @@ export class Frontend {
           this.configPath.abapLocal = true;
           log.debug(`local abap configuration ${this.argv.ui}`);
         } catch (ex) {
-          if (ex.code !== "ENOENT") throw ex; // ignore file not found error
+          if ((ex as NodeJS.ErrnoException).code !== "ENOENT") throw ex; // ignore file not found error
         }
 
         // default abap 2nd

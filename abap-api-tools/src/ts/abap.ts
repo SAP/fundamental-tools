@@ -194,7 +194,7 @@ class CliHandler {
       try {
         fs.copyFileSync(sourcePath, targetPath, fs.constants.COPYFILE_EXCL);
       } catch (ex) {
-        if (ex.code !== "EEXIST") throw ex; // ignore already exists error
+        if ((ex as NodeJS.ErrnoException).code !== "EEXIST") throw ex; // ignore already exists error
         throw new Error(`Remove local configuration first: ${tname}`);
       }
     }

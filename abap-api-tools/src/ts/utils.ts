@@ -55,7 +55,7 @@ export function deleteFile(fileName: string): void {
   try {
     fs.unlinkSync(fileName);
   } catch (ex) {
-    if (ex.code !== "ENOENT") throw ex; // ignore file not found error
+    if ((ex as NodeJS.ErrnoException).code !== "ENOENT") throw ex; // ignore file not found error
   }
   log.debug(`deleted ${fileName}`);
 }
