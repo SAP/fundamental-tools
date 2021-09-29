@@ -122,7 +122,10 @@ export class Frontend {
     this.apilist = this.argv.apilist ? this.argv.apilist[this.api_name] : [];
 
     // abap
-    if (!this.abap || isEmpty(this.abap.parameters)) {
+    if (
+      !this.abap ||
+      (isEmpty(this.abap.parameters) && this.argv.cmd !== Command.call)
+    ) {
       try {
         this.abap = annotations_read(this.api_name, this.argv);
       } catch (ex) {
@@ -340,16 +343,13 @@ export class Frontend {
       //
       // flow: rfm
       //
-      log.info(chalk(rfm_name));
-
-      // check local annotations
-      if (!this.abap.parameters[rfm_name]) {
-        log.info(chalk.red(`${rfm_name} annotations not found`));
-        continue;
-      }
+      log.info(
+        chalk(rfm_name),
+        this.abap.parameters[rfm_name] ? "" : "RFM w/o parameters"
+      );
 
       // the longest parameter name
-      const rfm = this.abap.parameters[rfm_name];
+      const rfm = this.abap.parameters[rfm_name] || [];
       let paramNameLen = 0;
       for (const [, Param] of Object.entries(rfm)) {
         if (Param.paramName.length > paramNameLen)
@@ -380,10 +380,14 @@ export class Frontend {
       });
 
       jsWriter.write(
-        `//\n// ${rfm_name} ${JSON.stringify(this.abap.stat[rfm_name])
-          .replace(/"|{|}/g, "")
-          .replace(/,/g, "  ")
-          .replace(/:/g, ": ")}\n//\n// ${Signature}\n//\n`
+        `//\n// ${rfm_name} ${
+          isEmpty(this.abap.stat)
+            ? ""
+            : JSON.stringify(this.abap.stat[rfm_name])
+                .replace(/"|{|}/g, "")
+                .replace(/,/g, "  ")
+                .replace(/:/g, ": ")
+        }\n//\n// ${Signature}\n//\n`
       );
       jsWriter.write("// prettier-ignore");
       jsWriter.write(`const parameters = {`);
