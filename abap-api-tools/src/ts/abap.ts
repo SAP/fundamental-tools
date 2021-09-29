@@ -27,6 +27,8 @@ import {
   AbapConfigType,
 } from "./frontend";
 
+export { AbapCliApi } from "./api";
+
 // import { Model } from "./model";
 
 import { fileLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
@@ -97,7 +99,7 @@ export type AbapCliResult = {
   frontend?: FrontendResultType;
 };
 
-class CliHandler {
+export class CliHandler {
   private argv: Arguments;
 
   constructor(argv: Arguments) {
@@ -202,119 +204,6 @@ class CliHandler {
   }
 }
 
-export class AbapCliApi {
-  private options = {
-    lang: DefaultLanguage,
-    "sort-fields": false,
-    debug: false,
-    helps: false,
-    ts: false,
-  };
-
-  async call(
-    dest: Destination,
-    rfm_names: string | string[],
-    options?: { lang?: string; debug?: boolean; ts?: boolean }
-  ): Promise<AbapCliResult> {
-    if (options) {
-      Object.assign(this.options, options);
-    }
-
-    log.setDefaultLevel(
-      this.options.debug ? log.levels.DEBUG : log.levels.SILENT
-    );
-
-    const args: Arguments = {
-      _: [Command.call],
-      $0: "abap",
-      rfm: typeof rfm_names === "string" ? [rfm_names] : rfm_names,
-      cmd: Command.call,
-      dest: dest,
-      output: "",
-      lang: this.options.lang,
-      debug: this.options.debug,
-      runInBg: true,
-      ts: this.options.ts,
-    };
-
-    const cli = new CliHandler(args);
-
-    const result = await cli.run();
-
-    return result[""];
-  }
-
-  async get(
-    dest: Destination,
-    rfm_names: string | string[],
-    options?: { lang?: string; debug?: boolean; helps?: boolean; ts?: boolean }
-  ): Promise<AbapCliResult> {
-    if (options) {
-      Object.assign(this.options, options);
-    }
-
-    log.setDefaultLevel(
-      this.options.debug ? log.levels.DEBUG : log.levels.SILENT
-    );
-
-    const args: Arguments = {
-      _: [Command.get],
-      $0: "abap",
-      rfm: typeof rfm_names === "string" ? [rfm_names] : rfm_names,
-      cmd: Command.get,
-      dest: dest,
-      output: "",
-      lang: this.options.lang,
-      debug: this.options.debug,
-      runInBg: true,
-      helps: this.options.helps,
-      ts: this.options.ts,
-    };
-
-    const cli = new CliHandler(args);
-
-    const result = await cli.run();
-
-    return result[""];
-  }
-
-  make(
-    annotations: AnnotationsType,
-    ui: string | AbapCliUiConfig,
-    options?: {
-      "sort-fields"?: boolean;
-      debug?: boolean;
-      ts?: boolean;
-    }
-  ): AbapCliResult {
-    if (options) {
-      Object.assign(this.options, options);
-    }
-
-    log.setDefaultLevel(
-      this.options.debug ? log.levels.DEBUG : log.levels.SILENT
-    );
-
-    const args: Arguments = {
-      _: [Command.make],
-      $0: "abap",
-      cmd: Command.make,
-      output: "",
-      apilist: { "": Object.keys(annotations.parameters) },
-      ui: ui,
-      "sort-fields": this.options["sort-fields"],
-      lang: this.options.lang,
-      debug: this.options.debug,
-      runInBg: true,
-      ts: this.options.ts,
-    };
-
-    const frontend = new Frontend({ abap: annotations, argv: args });
-    const result: AbapCliResult = { frontend: frontend.parse() };
-    return result;
-  }
-}
-
 // invoked via CLI
 if (require.main === module)
   yargs(process.argv.slice(2))
@@ -375,8 +264,12 @@ if (require.main === module)
             nargs: 0,
           });
       },
-      handler: (argv) => {
-        new CliHandler(argv as Arguments).run();
+      handler: async (argv) => {
+        try {
+          return await new CliHandler(argv as Arguments).run();
+        } catch (ex) {
+          log.error(ex);
+        }
       },
     })
     .command({
@@ -440,8 +333,12 @@ if (require.main === module)
             nargs: 0,
           });
       },
-      handler: (argv) => {
-        return new CliHandler(argv as Arguments).run();
+      handler: async (argv) => {
+        try {
+          return await new CliHandler(argv as Arguments).run();
+        } catch (ex) {
+          log.error(ex);
+        }
       },
     })
     .command({
@@ -498,7 +395,7 @@ if (require.main === module)
           });
       },
       handler: (argv) => {
-        new CliHandler(argv as Arguments).run();
+        return new CliHandler(argv as Arguments).run();
       },
     })
     // .command({
@@ -648,15 +545,17 @@ if (require.main === module)
         argv.o = argv.output;
       }
 
-      // Write CLI version to output signature string
-      yargs.parse(
-        "--version",
-        (err: Error | undefined, argv: { $0: string }, output: string) => {
-          Signature = `${path.basename(
-            argv.$0
-          )} ${output} at: ${getTimestamp()}`;
-        }
-      );
+      // Write CLI version to output signature string, if not internal testing
+      if (!process.argv[0].endsWith("node")) {
+        yargs.parse(
+          "--version",
+          (err: Error | undefined, argv: { $0: string }, output: string) => {
+            Signature = `${path.basename(
+              argv.$0
+            )} ${output} at: ${getTimestamp()}`;
+          }
+        );
+      }
 
       return true;
     })

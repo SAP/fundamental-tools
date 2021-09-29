@@ -508,7 +508,7 @@ export class Backend {
     } catch (ex) {
       if (
         param.paramType === ParamType.var &&
-        (ex as Record<string, unknown>)["key"] === "NOT_FOUND" // todo: ABAP errors typing
+        (ex as Record<string, string | number>)["key"] === "NOT_FOUND" // todo: ABAP errors typing
       ) {
         param.nativeKey = param.TABNAME;
         return {};
