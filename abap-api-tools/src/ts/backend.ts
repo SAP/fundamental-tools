@@ -213,7 +213,7 @@ export class Backend {
           this.search_help_api = systems[this.systemId].search_help_api;
         }
       } catch (ex) {
-        if (ex.code !== "ENOENT") throw ex; // ignore file not found error
+        if ((ex as NodeJS.ErrnoException).code !== "ENOENT") throw ex; // ignore file not found error
       }
     }
 
@@ -506,7 +506,10 @@ export class Backend {
         return undefined;
       }
     } catch (ex) {
-      if (param.paramType === ParamType.var && ex.key === "NOT_FOUND") {
+      if (
+        param.paramType === ParamType.var &&
+        (ex as Record<string, string | number>)["key"] === "NOT_FOUND" // todo: ABAP errors typing
+      ) {
         param.nativeKey = param.TABNAME;
         return {};
       } else {
@@ -546,7 +549,7 @@ export class Backend {
             path.join(folder_yaml, "texts.yaml")
           ) as TextsCatalogType;
         } catch (ex) {
-          if (ex.code !== "ENOENT") throw ex; // throw if other than file not found
+          if ((ex as NodeJS.ErrnoException).code !== "ENOENT") throw ex; // throw if other than file not found
           throw Error(
             `Texts in primary language not found for ${this.apilist}\nDon't use -t|--text-option with language key, use the -l|--lang instead:\n -t -l <lang>`
           );

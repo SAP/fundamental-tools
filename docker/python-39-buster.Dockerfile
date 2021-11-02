@@ -6,18 +6,18 @@
 
 #
 # Build:
-# docker build -t python-39-nwrfcsdk -f python-39-nwrfcsdk.Dockerfile .
-# docker run -it --name python-39-nwrfcsdk -v /Users/D037732SAPDevelop/dev:/home/www-admin/src python-39-nwrfcsdk /bin/bash --login
+# docker build -t python-39-buster -f python-39-buster.Dockerfile .
+# docker run -it --name python-39-buster -v /Users/D037732SAPDevelop/dev:/home/www-admin/src python-39-buster /bin/bash --login
 #
 # Run:
-# docker start -ai python-39-nwrfcsdk
+# docker start -ai python-39-buster
 #
 
-FROM python:3.9-slim-buster
+FROM python:3.9-buster
 
 ARG adminuser=www-admin
 
-ARG nwrfcsdk=nwrfcsdk-pl7
+ARG nwrfcsdk=nwrfcsdk-pl8
 ARG nwrfc_source=/sap
 ARG nwrfc_target=/usr/local/sap
 
