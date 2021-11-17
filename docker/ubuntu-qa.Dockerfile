@@ -21,9 +21,7 @@ LABEL description="Ubuntu QAS"
 
 ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute2 iputils-ping"
-ARG dev_libs="build-essential make ninja-build libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev"
-
-ENV container docker
+ARG dev_libs="build-essential make ninja-build libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev python3-dev cargo"
 
 # os update and packages
 USER root
@@ -70,7 +68,7 @@ RUN  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias
 # python
 INCLUDE+ common/python.Dockerfile
 
-# nvm
+# nodejs
 INCLUDE+ common/nodejs.Dockerfile
 
 SHELL ["/bin/bash"]

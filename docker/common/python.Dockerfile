@@ -2,26 +2,24 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
+# https://github.com/pyenv/pyenv/wiki/common-build-problems
+# https://cloudwafer.com/blog/installing-openssl-on-centos-7/
 
 # python
 
 ARG venv_base=~/.virtualenvs
-ARG py36=3.6.13
-ARG py37=3.7.10
-ARG py38=3.8.10
-ARG py39=3.9.5
-ARG py36venv=py36
-ARG py37venv=py37
-ARG py38venv=py38
-ARG py39venv=py39
 ARG dev_python="pip wheel pytest cython ipython"
+ARG python_versions="3.10.0 3.9.8 3.8.12 3.7.12 3.6.15"
+ARG python_default="py3.10.0"
+
+ENV TMPDIR /home/${adminuser}/tmp
 
 # pyenv config files
 COPY --chown=${adminuser}:${adminuser} /common/pyenv /tmp
 
 # as admin user
 
-RUN \
+RUN mkdir $TMPDIR; \
     #
     # Clone and configure
     #
@@ -35,26 +33,24 @@ RUN \
     PROFILE=".profile" && if [ ! -f "$PROFILE" ]; then PROFILE=".bash_profile"; fi && \
     cat /tmp/profile.sh "$PROFILE" > temp && mv temp "$PROFILE" && \
     cat /tmp/bashrc.sh >> .bashrc && \
-    echo "pyenv activate ${py39venv}" >> .bashrc && \
+    echo "pyenv activate ${python_default}" >> .bashrc && \
     sudo rm /tmp/profile.sh /tmp/bashrc.sh && \
     #
     # Build
     #
     eval "$(pyenv init --path)" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
+    pythons=(${python_versions}); \
     # pyenv
-    pyenv install ${py36} && \
-    pyenv install ${py37} && \
-    pyenv install ${py38} && \
-    pyenv install ${py39} && \
+    for version in "${pythons[@]}";  \
+    do pyenv install $version; \
+    done; \
     # pyenv-virtualenv
-    pyenv virtualenv ${py36} ${py36venv} && \
-    pyenv virtualenv ${py37} ${py37venv} && \
-    pyenv virtualenv ${py38} ${py38venv} && \
-    pyenv virtualenv ${py39} ${py39venv} && \
+    for version in "${pythons[@]}";  \
+    do pyenv virtualenv $version py$version; \
+    done; \
     # build tools
-    pyenv activate ${py36venv} && pip install --upgrade ${dev_python} && \
-    pyenv activate ${py37venv} && pip install --upgrade ${dev_python} && \
-    pyenv activate ${py38venv} && pip install --upgrade ${dev_python} && \
-    pyenv activate ${py39venv} && pip install --upgrade ${dev_python}
-
-
+    for version in "${pythons[@]}"; \
+    do pyenv activate py$version py$version && pip install --upgrade ${dev_python}; \
+    done; \
+    # cleanup
+    rm -rf $TMPDIR/*

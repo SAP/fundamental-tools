@@ -7,10 +7,10 @@
 #
 # Centos 7 with systemd and SAP NWRFC SDK
 #
-# docker build --rm --no-cache -t local/c7-systemd -f centos-local.Dockerfile .
+# docker build --rm --no-cache -t centos-qa -f centos-qa.Dockerfile .
 #
-# docker run -it --name local-c7-systemd --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/D037732SAPDevelop/dev:/home/www-admin/src local/c7-systemd /bin/bash --login
-# docker start -ai local-c7-systemd
+# docker run -it --name centos-qa --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/D037732SAPDevelop/dev:/home/www-admin/src centos-qa /bin/bash --login
+# docker start -ai centos-qa
 #
 
 FROM centos:7
@@ -28,7 +28,7 @@ ENV TZ=Europe/Berlin
 # admin/work user
 ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
-ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
+ARG dev_libs="uuidd make zlib-devel bzip2 bzip2-devel openssl-devel ncurses-devel sqlite sqlite-devel readline-devel tk-devel libffi-devel xz-devel cargo"
 
 # root
 USER root
@@ -80,6 +80,12 @@ RUN rm -rf /tmp/* && \
 # work user
 USER ${adminuser}
 WORKDIR /home/${adminuser}
+
+# python
+INCLUDE+ common/python.Dockerfile
+
+# nodejs
+INCLUDE+ common/nodejs.Dockerfile
 
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
