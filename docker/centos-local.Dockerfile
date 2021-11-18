@@ -28,7 +28,7 @@ ENV TZ=Europe/Berlin
 # admin/work user
 ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
-ARG dev_libs="uuidd make zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel libffi-devel"
+ARG dev_libs="uuidd make zlib-devel bzip2 bzip2-devel openssl-devel ncurses-devel sqlite sqlite-devel readline-devel tk-devel libffi-devel xz-devel cargo"
 
 # root
 USER root

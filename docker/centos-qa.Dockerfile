@@ -25,6 +25,8 @@ ENV container docker
 # timezone # https://serverfault.com/questions/683605/docker-container-time-timezone-will-not-reflect-changes
 ENV TZ=Europe/Berlin
 
+ENV LC_ALL=en_US.UTF-8
+
 # admin/work user
 ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute iputils"
@@ -44,10 +46,9 @@ RUN \
     # utf-8 locale https://serverfault.com/questions/275403/how-do-i-change-my-locale-to-utf-8-in-centos
     localedef -c -f UTF-8 -i en_US en_US.UTF-8
 
-ENV LC_ALL=en_US.UTF-8
-
 # required packages
-RUN yum -y update && \
+RUN yum -y upgrade ca-certificates && \
+    yum -y update && \
     yum -y groupinstall "Development tools" && \
     yum -y install ${dev_tools} ${dev_libs} \
     # ninja build: https://centos.pkgs.org/7/okey-x86_64/ninja-build-1.8.2-1.el7.x86_64.rpm.html

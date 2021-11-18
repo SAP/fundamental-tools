@@ -2,24 +2,26 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-# https://github.com/pyenv/pyenv/wiki/common-build-problems
-# https://cloudwafer.com/blog/installing-openssl-on-centos-7/
+# pythom 3.10.0
+#   build 1.1.1 for "spot" use:                           https://cloudwafer.com/blog/installing-openssl-on-centos-7/
+#   build 3.10.0 with custom ssl and DESTDIR=$PYENV_ROOT: https://stackoverflow.com/questions/56552390/how-to-fix-ssl-module-in-python-is-not-available-in-centos
 
 # python
 
 ARG venv_base=~/.virtualenvs
 ARG dev_python="pip wheel pytest cython ipython"
-ARG python_versions="3.10.0 3.9.8 3.8.12 3.7.12 3.6.15"
+ARG python_versions="3.9.8 3.8.12 3.7.12 3.6.15"
 ARG python_default="py3.10.0"
+ARG OPENSSLDIR="/usr/local/ssl"
 
-ENV TMPDIR /home/${adminuser}/tmp
+ARG TMPDIR=/home/${adminuser}/tmp
 
 # pyenv config files
 COPY --chown=${adminuser}:${adminuser} /common/pyenv /tmp
 
 # as admin user
 
-RUN mkdir $TMPDIR; \
+RUN \
     #
     # Clone and configure
     #
@@ -36,21 +38,38 @@ RUN mkdir $TMPDIR; \
     echo "pyenv activate ${python_default}" >> .bashrc && \
     sudo rm /tmp/profile.sh /tmp/bashrc.sh && \
     #
-    # Build
+    # pyenv
     #
     eval "$(pyenv init --path)" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
-    pythons=(${python_versions}); \
-    # pyenv
-    for version in "${pythons[@]}";  \
-    do pyenv install $version; \
-    done; \
-    # pyenv-virtualenv
-    for version in "${pythons[@]}";  \
-    do pyenv virtualenv $version py$version; \
-    done; \
-    # build tools
+    # python < 3.10.0
+    pythons=(${python_versions}) && \
     for version in "${pythons[@]}"; \
-    do pyenv activate py$version py$version && pip install --upgrade ${dev_python}; \
-    done; \
+    do \
+    # build
+    pyenv install $version && \
+    # virtualenv
+    pyenv virtualenv $version py$version && \
+    pyenv activate py$version && pip install --upgrade ${dev_python}; \
+    done || exit 1 && \
+    #
+    # python 3.10.0
+    #
+    # build opsnssl for spot use
+    TMPDIR=${TMPDIR} OPENSSLDIR=${OPENSSLDIR} mkdir -p $TMPDIR && cd $TMPDIR && \
+    wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz && \
+    tar -xf openssl-1.1.1c.tar.gz && cd openssl-1.1.1c && \
+    sudo ./config --prefix=$OPENSSLDIR --openssldir=$OPENSSLDIR shared zlib && \
+    sudo make && sudo make install && \
+    # build python
+    sudo yum -y install openssl11 && \
+    cd $TMPDIR && \
+    wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz && \
+    tar xzf Python-3.10.0.tgz && \
+    cd Python-3.10.0 && \
+    ./configure --with-openssl=$OPENSSLDIR --prefix=$PYENV_ROOT/versions/3.10.0 --enable-optimizations && \
+    make altinstall && \
+    # pyenv
+    pyenv virtualenv 3.10.0 py3.10.0 && \
+    pyenv activate py3.10.0 && pip install --upgrade ${dev_python} && \
     # cleanup
     rm -rf $TMPDIR/*
