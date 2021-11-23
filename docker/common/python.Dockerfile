@@ -3,8 +3,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # pythom 3.10.0
-#   build 1.1.1 for "spot" use:                           https://cloudwafer.com/blog/installing-openssl-on-centos-7/
-#   build 3.10.0 with custom ssl and DESTDIR=$PYENV_ROOT: https://stackoverflow.com/questions/56552390/how-to-fix-ssl-module-in-python-is-not-available-in-centos
+#   build openssl 1.1.1 for "spot" use: https://cloudwafer.com/blog/installing-openssl-on-centos-7/
+#   build 3.10.0 with custom ssl path:  https://stackoverflow.com/questions/56552390/how-to-fix-ssl-module-in-python-is-not-available-in-centos
 
 # python
 
@@ -14,7 +14,7 @@ ARG python_versions="3.9.8 3.8.12 3.7.12 3.6.15"
 ARG python_default="py3.10.0"
 ARG OPENSSLDIR="/usr/local/ssl"
 
-ARG TMPDIR=/home/${adminuser}/tmp
+ENV TMPDIR=/home/${adminuser}/tmp
 
 # pyenv config files
 COPY --chown=${adminuser}:${adminuser} /common/pyenv /tmp
@@ -55,7 +55,7 @@ RUN \
     # python 3.10.0
     #
     # build opsnssl for spot use
-    TMPDIR=${TMPDIR} OPENSSLDIR=${OPENSSLDIR} mkdir -p $TMPDIR && cd $TMPDIR && \
+    OPENSSLDIR=${OPENSSLDIR} mkdir -p $TMPDIR && cd $TMPDIR && \
     wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz && \
     tar -xf openssl-1.1.1c.tar.gz && cd openssl-1.1.1c && \
     sudo ./config --prefix=$OPENSSLDIR --openssldir=$OPENSSLDIR shared zlib && \
