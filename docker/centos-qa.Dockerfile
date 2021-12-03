@@ -83,7 +83,7 @@ USER ${adminuser}
 WORKDIR /home/${adminuser}
 
 # python
-INCLUDE+ common/python.Dockerfile
+INCLUDE+ common/python.centos.Dockerfile
 
 # nodejs
 INCLUDE+ common/nodejs.Dockerfile

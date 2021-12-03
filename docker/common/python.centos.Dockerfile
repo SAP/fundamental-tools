@@ -10,7 +10,7 @@
 
 ARG venv_base=~/.virtualenvs
 ARG dev_python="pip wheel pytest cython ipython"
-ARG pyenv_versions="3.10.0 3.9.8 3.8.12 3.7.12 3.6.15"
+ARG pyenv_versions="3.9.8 3.8.12 3.7.12 3.6.15"
 ARG python_default="py3.10.0"
 ARG OPENSSLDIR="/usr/local/ssl"
 
@@ -42,7 +42,7 @@ RUN \
     #
     eval "$(pyenv init --path)" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
     # python < 3.10.0
-    for version in ${pyenv_versions}; \
+    for version in ${pyenv_versions; \
     do \
     # build
     pyenv install $version && \
@@ -50,5 +50,25 @@ RUN \
     pyenv virtualenv $version py$version && \
     pyenv activate py$version && pip install --upgrade ${dev_python}; \
     done || exit 1 && \
+    #
+    # python 3.10.0
+    #
+    # build opsnssl for spot use
+    OPENSSLDIR=${OPENSSLDIR} mkdir -p $TMPDIR && cd $TMPDIR && \
+    wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz && \
+    tar -xf openssl-1.1.1c.tar.gz && cd openssl-1.1.1c && \
+    sudo ./config --prefix=$OPENSSLDIR --openssldir=$OPENSSLDIR shared zlib && \
+    sudo make && sudo make install && \
+    # build python
+    sudo yum -y install openssl11 && \
+    cd $TMPDIR && \
+    wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz && \
+    tar xzf Python-3.10.0.tgz && \
+    cd Python-3.10.0 && \
+    ./configure --with-openssl=$OPENSSLDIR --prefix=$PYENV_ROOT/versions/3.10.0 --enable-optimizations && \
+    make altinstall && \
+    # pyenv
+    pyenv virtualenv 3.10.0 py3.10.0 && \
+    pyenv activate py3.10.0 && pip install --upgrade ${dev_python} && \
     # cleanup
     rm -rf $TMPDIR/*

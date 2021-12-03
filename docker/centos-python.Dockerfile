@@ -15,6 +15,6 @@
 FROM local/c7-systemd
 
 # python
-INCLUDE+ common/python.Dockerfile
+INCLUDE+ common/python.centos.Dockerfile
 
 SHELL ["/bin/bash"]
