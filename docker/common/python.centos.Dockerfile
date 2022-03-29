@@ -10,7 +10,7 @@
 
 ARG venv_base=~/.virtualenvs
 ARG dev_python="pip wheel pytest cython ipython"
-ARG pyenv_versions="3.9.8 3.8.12 3.7.12 3.6.15"
+ARG pyenv_versions="3.10.4 3.9.12 3.8.13 3.7.13 3.6.15"
 ARG python_default="py3.10.0"
 ARG OPENSSLDIR="/usr/local/ssl"
 
@@ -42,7 +42,7 @@ RUN \
     #
     eval "$(pyenv init --path)" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
     # python < 3.10.0
-    for version in ${pyenv_versions; \
+    for version in ${pyenv_versions}; \
     do \
     # build
     pyenv install $version && \

@@ -10,7 +10,7 @@
 
 ARG venv_base=~/.virtualenvs
 ARG dev_python="pip wheel pytest cython ipython"
-ARG pyenv_versions="3.10.0 3.9.8 3.8.12 3.7.12 3.6.15"
+ARG pyenv_versions="3.10.4 3.9.12 3.8.13 3.7.13 3.6.15"
 ARG python_default="py3.10.0"
 ARG OPENSSLDIR="/usr/local/ssl"
 
