@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build -t ubuntu-qa -f ubuntu-qa.Dockerfile .
-# docker run -it --name ubuntu-qa -v /Users/D037732SAPDevelop/dev:/home/www-admin/src ubuntu-qa /bin/bash --login
+# docker run -it --name ubuntu-qa -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src ubuntu-qa /bin/bash --login
 #
 # Run:
 # docker start -ai ubuntu-qa

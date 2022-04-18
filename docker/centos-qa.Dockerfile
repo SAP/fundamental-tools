@@ -9,7 +9,7 @@
 #
 # docker build --rm --no-cache -t centos-qa -f centos-qa.Dockerfile .
 #
-# docker run -it --name centos-qa --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/D037732SAPDevelop/dev:/home/www-admin/src centos-qa /bin/bash --login
+# docker run -it --name centos-qa --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src centos-qa /bin/bash --login
 # docker start -ai centos-qa
 #
 
@@ -83,10 +83,13 @@ USER ${adminuser}
 WORKDIR /home/${adminuser}
 
 # python
-INCLUDE+ common/python.centos.Dockerfile
+INCLUDE+ common/python.Dockerfile
 
 # nodejs
 INCLUDE+ common/nodejs.Dockerfile
+
+# java
+# INCLUDE+ common/java.Dockerfile
 
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]

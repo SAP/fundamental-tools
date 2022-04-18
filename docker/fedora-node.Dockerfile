@@ -6,7 +6,7 @@
 
 # Build:
 # docker build --rm --no-cache -t fedora-node -f fedora-node.Dockerfile .
-# docker run -it --name fedora-node -v /Users/D037732SAPDevelop/dev:/home/www-admin/src fedora-node /bin/bash --login
+# docker run -it --name fedora-node -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src fedora-node /bin/bash --login
 #
 # Run:
 # docker start -ai fedora-node

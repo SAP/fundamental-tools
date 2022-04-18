@@ -6,7 +6,7 @@
 
 # Build:
 # docker build --rm --no-cache -t fedora-python -f fedora-python.Dockerfile .
-# docker run -it --name fedora-python -v /Users/D037732SAPDevelop/dev:/home/www-admin/src fedora-python /bin/bash --login
+# docker run -it --name fedora-python -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src fedora-python /bin/bash --login
 #
 # Run:
 # docker start -ai fedora-python

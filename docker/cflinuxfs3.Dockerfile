@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build -t cflinuxfs3 -f cflinuxfs3.Dockerfile .
-# docker run -it --name cflinuxfs3 -v /Users/D037732SAPDevelop/dev:/home/www-admin/src cflinuxfs3 /bin/bash --login
+# docker run -it --name cflinuxfs3 -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src cflinuxfs3 /bin/bash --login
 #
 # Run:
 # docker start -ai cflinuxfs3

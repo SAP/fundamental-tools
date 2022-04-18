@@ -9,7 +9,7 @@
 #
 # docker build --rm --no-cache -t local/c7-systemd -f centos-local.Dockerfile .
 #
-# docker run -it --name local-c7-systemd --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/D037732SAPDevelop/dev:/home/www-admin/src local/c7-systemd /bin/bash --login
+# docker run -it --name local-c7-systemd --stop-signal SIGRTMIN+3 --tmpfs /tmp --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src local/c7-systemd /bin/bash --login
 # docker start -ai local-c7-systemd
 #
 

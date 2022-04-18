@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build -t python-39-slim-buster -f python-39-slim-buster.Dockerfile .
-# docker run -it --name python-39-slim-buster -v /Users/D037732SAPDevelop/dev:/home/www-admin/src python-39-slim-buster /bin/bash --login
+# docker run -it --name python-39-slim-buster -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src python-39-slim-buster /bin/bash --login
 #
 # Run:
 # docker start -ai python-39-slim-buster

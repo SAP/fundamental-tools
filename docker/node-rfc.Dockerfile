@@ -6,7 +6,7 @@
 
 # Build and run
 # docker build --rm --no-cache -t node-rfc -f node-rfc.Dockerfile .
-# docker run -it --name node-rfc -v /Users/D037732SAPDevelop/dev:/home/src node-rfc /bin/bash --login
+# docker run -it --name node-rfc -v /Users/d037732/SAPDevelop/dev:/home/src node-rfc /bin/bash --login
 # How-to use: check ./README.md
 
 FROM node:latest
