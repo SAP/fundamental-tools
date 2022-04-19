@@ -35,7 +35,7 @@ RUN \
     PROFILE=".profile" && if [ ! -f "$PROFILE" ]; then PROFILE=".bash_profile"; fi && \
     cat /tmp/profile.sh "$PROFILE" > temp && mv temp "$PROFILE" && \
     cat /tmp/bashrc.sh >> .bashrc && \
-    echo "pyenv activate" ${pyenv_default} >> .bashrc && \
+    echo "pyenv activate py${pyenv_default}" >> .bashrc && \
     sudo rm /tmp/profile.sh /tmp/bashrc.sh && \
     #
     # pyenv
@@ -44,7 +44,7 @@ RUN \
     for version in ${pyenv_versions}; \
     do \
     # build
-    if [ "$version" = ${pyenv_default} ] ; then \
+    if [[ "$version" == *"3.10"* ]] ; then \
     # build openssl for spot use
     OPENSSLDIR=${OPENSSLDIR} mkdir -p $TMPDIR && cd $TMPDIR && \
     wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz && \
@@ -57,13 +57,13 @@ RUN \
     tar xzf Python-$version.tgz && \
     cd Python-$version && \
     ./configure --with-openssl=$OPENSSLDIR --prefix=$PYENV_ROOT/versions/$version --enable-optimizations && \
-    make altinstall; \
+    make altinstall || break; \
     else \
-    pyenv install $version; \
+    pyenv install $version || break; \
     fi && \
     # virtualenv
     pyenv virtualenv $version py$version && \
-    pyenv activate py$version && pip install --upgrade ${dev_python}; \
+    pyenv activate py$version && pip install --upgrade ${dev_python} || break; \
     done || exit 1 && \
     # cleanup
     rm -rf $TMPDIR/*

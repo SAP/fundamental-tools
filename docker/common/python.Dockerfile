@@ -43,7 +43,7 @@ RUN \
     pyenv install $version && \
     # virtualenv
     pyenv virtualenv $version py$version && \
-    pyenv activate py$version && pip install --upgrade ${dev_python}; \
+    pyenv activate py$version && pip install --upgrade ${dev_python} || break; \
     done || exit 1 && \
     # cleanup
     rm -rf $TMPDIR/*
