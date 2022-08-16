@@ -13,7 +13,7 @@
 # docker start -ai ubuntu-qa
 #
 
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 LABEL maintainer="srdjan.boskovic@sap.com"
 LABEL version="2.0"
@@ -21,7 +21,7 @@ LABEL description="Ubuntu QAS"
 
 ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute2 iputils-ping"
-ARG dev_libs="build-essential make ninja-build libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev python3-dev cargo"
+ARG dev_libs="build-essential make ninja-build libssl-dev liblzma-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev python3-dev cargo"
 
 # os update and packages
 USER root

@@ -6,8 +6,8 @@
 
 ARG venv_base=~/.virtualenvs
 ARG dev_python="pip wheel pytest cython ipython"
-# 1st version is set as the default one: 3.10.4
-ARG pyenv_versions="3.10.4 3.9.12 3.8.13 3.7.13 3.6.15"
+# 1st version is set as the default one: 3.10.6
+ARG pyenv_versions="3.10.6 3.9.13 3.8.13 3.7.13 3.6.15"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
@@ -30,7 +30,7 @@ RUN \
     PROFILE=".profile" && if [ ! -f "$PROFILE" ]; then PROFILE=".bash_profile"; fi && \
     cat /tmp/profile.sh "$PROFILE" > temp && mv temp "$PROFILE" && \
     cat /tmp/bashrc.sh >> .bashrc && \
-    echo "pyenv activate" `echo ${pyenv_versions} | awk '{print $1;}'` >> .bashrc && \
+    echo "pyenv activate py"`echo ${pyenv_versions} | awk '{print $1;}'` >> .bashrc && \
     sudo rm /tmp/profile.sh /tmp/bashrc.sh && \
     #
     # pyenv
