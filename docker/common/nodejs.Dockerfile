@@ -24,4 +24,4 @@ RUN \
     printf "\n# nvm" >> ~/.bashrc && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     bash -ic "nvm install node && nvm alias default node && nvm install lts/fermium && nvm install lts/gallium" && \
-    printf "\nexport PATH=node_modules/.bin:\$PATH\nnvm use default\n\n" >> ~/.bashrc
+    printf "\nexport PATH=node_modules/.bin:\$PATH\nnvm use 16\n\n" >> ~/.bashrc
