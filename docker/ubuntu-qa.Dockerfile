@@ -44,6 +44,12 @@ RUN \
   adduser --disabled-password --gecos "" ${adminuser} && \
   usermod -aG www-data,sudo ${adminuser} && \
   echo "${adminuser} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+  # install  software-properties-common
+  sudo apt update -y && sudo apt install software-properties-common -y && sudo apt update -y && \
+  # install gcc 9
+  sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y && sudo apt update -y && \
+  sudo apt install gcc-9 g++-9 -y && \
+  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9 && \
   # cleanup
   rm -rf /tmp/* /var/lib/apt/lists/*
 
