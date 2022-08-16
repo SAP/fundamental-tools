@@ -1,36 +1,7 @@
 {
   "name": "abap-value-help",
+  "version": "2.4.0",
   "description": "ABAP Value Help",
-  "version": "1.0.1",
-  "homepage": "https://github.com/sap/fundamental-tools",
-  "author": "SAP",
-  "license": "Apache-2.0",
-  "engines": {
-    "node": ">= 14.0"
-  },
-  "cpu": [
-    "!arm"
-  ],
-  "directories": {
-    "doc": "doc",
-    "test": "test"
-  },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "package.json",
-    "dist"
-  ],
-  "type": "commonjs",
-  "scripts": {
-    "ts": "tsc -p src/ts",
-    "lint": "eslint src/ts",
-    "dep": "npm i --save loglevel node-rfc",
-    "devDep": "npm i --save-dev @types/node  @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
-    "build": "reuse lint && rm -rf dist && npm run ts && npm run lint",
-    "lock": "npm install --package-lock-only",
-    "test": "jest tests --detectOpenHandles"
-  },
   "keywords": [
     "sap",
     "sapcloudplatform",
@@ -41,12 +12,44 @@
     "node",
     "nodejs"
   ],
+  "homepage": "https://github.com/sap/fundamental-tools",
+  "license": "Apache-2.0",
+  "author": "SAP",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "files": [
+    "package.json",
+    "dist"
+  ],
+  "scripts": {
+    "build": "reuse lint && rm -rf dist && npm run ts && npm run lint",
+    "dep": "npm i --save loglevel node-rfc",
+    "devDep": "npm i --save-dev @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint jest typescript",
+    "lint": "eslint src/ts",
+    "test": "jest tests --detectOpenHandles",
+    "ts": "tsc -p src/ts"
+  },
+  "dependencies": {
+    "loglevel": "^1.8.0",
+    "node-rfc": "^2.7.0"
+  },
   "devDependencies": {
-    "@types/node": "^18.7.4",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
-    "@typescript-eslint/parser": "^5.33.0",
+    "@types/node": "^18.7.5",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
     "eslint": "^8.22.0",
     "jest": "^28.1.3",
     "typescript": "^4.7.4"
-  }
+  },
+  "engines": {
+    "node": ">= 14.0"
+  },
+  "cpu": [
+    "!arm"
+  ]
 }
