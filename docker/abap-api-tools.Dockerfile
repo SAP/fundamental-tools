@@ -6,7 +6,7 @@
 
 # How-to use: check ./README.md
 
-FROM node:15
+FROM node:18
 
 ENV container docker
 
