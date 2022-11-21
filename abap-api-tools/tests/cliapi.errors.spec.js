@@ -36,12 +36,12 @@ describe("Integration API errors checks", () => {
       );
     } catch (ex) {
       expect(ex).toEqual(
-        new Error(`Search Help API key not supported: "xdetermine"`)
+        new Error(`Value Help API key not supported: "xdetermine"`)
       );
     }
   });
 
-  test("get : stfc_structure, invalid shlp key", async () => {
+  test.skip("get : stfc_structure, invalid shlp key", async () => {
     expect.assertions(1);
     try {
       await api.get(
@@ -57,7 +57,7 @@ describe("Integration API errors checks", () => {
     } catch (ex) {
       expect(ex).toEqual(
         new Error(
-          `Search help API name too long: "/COE/RBP_FE_SHLP_DOMVALUES_GETXXXXX"`
+          `Value Help API name too long: "/COE/RBP_FE_SHLP_DOMVALUES_GETXXXXX"`
         )
       );
     }
