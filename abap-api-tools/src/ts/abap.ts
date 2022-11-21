@@ -35,15 +35,16 @@ import { fileLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
 
 export let Signature = `abap api`;
 
-export const Command = Object.freeze({
-  call: "call",
-  get: "get",
-  make: "make",
-  // model: "model",
-  copy: "cp",
-  remove: "rm",
-  languages: "languages",
-});
+export const Command: Record<"call" | "get" | "make" | "copy" | "remove" | "languages", string>
+  = Object.freeze({
+    call: "call",
+    get: "get",
+    make: "make",
+    // model: "model",
+    copy: "cp",
+    remove: "rm",
+    languages: "languages",
+  });
 
 export type ApiListType = Record<string, string[]>;
 
@@ -55,14 +56,14 @@ export type AbapCliUiConfig = {
 export type Destination =
   | string
   | {
-      connectionParameters: RfcConnectionParameters;
-      searchHelpApi?: {
-        determine: string;
-        dom_values: string;
-        metadata?: string;
-        search?: string;
-      };
+    connectionParameters: RfcConnectionParameters;
+    searchHelpApi?: {
+      determine: string;
+      dom_values: string;
+      metadata?: string;
+      search?: string;
     };
+  };
 
 export {
   RfcConnectionParameters,
@@ -266,7 +267,7 @@ if (require.main === module)
       },
       handler: async (argv) => {
         try {
-          return await new CliHandler(argv as Arguments).run();
+          return await new CliHandler(Object.assign({} as Arguments, argv)).run() as Promise<void>;
         } catch (ex) {
           log.error(ex);
         }
@@ -335,7 +336,7 @@ if (require.main === module)
       },
       handler: async (argv) => {
         try {
-          return await new CliHandler(argv as Arguments).run();
+          return await new CliHandler(Object.assign({} as Arguments, argv)).run() as Promise<void>;
         } catch (ex) {
           log.error(ex);
         }
@@ -394,37 +395,14 @@ if (require.main === module)
             nargs: 0,
           });
       },
-      handler: (argv) => {
-        return new CliHandler(argv as Arguments).run();
+      handler: async (argv) => {
+        try {
+          return await new CliHandler(Object.assign({} as Arguments, argv)).run() as Promise<void>;
+        } catch (ex) {
+          log.error(ex);
+        }
       },
     })
-    // .command({
-    //   command: `${Command.model} <def>`,
-    //   describe: "Model definition file path",
-    //   handler: (argv) => {
-    //     const def = (argv as Arguments).def || "";
-    //     if (!def.toLowerCase().includes(".yaml")) {
-    //       argv.def += ".yaml";
-    //     }
-    //     log.info(Command.model, argv);
-    //     const model = new Model(argv as Arguments);
-    //     model.parse();
-    //   },
-    //   builder: (y) => {
-    //     return y
-    //       .positional("spec", {
-    //         type: "string",
-    //         describe: "Path to model definition file",
-    //       })
-    //       .option("d", {
-    //         alias: "debug",
-    //         describe: "Detailed logging",
-    //         type: "boolean",
-    //         default: false,
-    //         nargs: 0,
-    //       });
-    //   },
-    // })
     .command({
       command: `${Command.languages}`,
       describe: "Supported languages",
@@ -454,7 +432,7 @@ if (require.main === module)
           });
       },
       handler: (argv) => {
-        new CliHandler(argv as Arguments).copyConfiguration(
+        new CliHandler(Object.assign({} as Arguments, argv)).copyConfiguration(
           argv.ui as string,
           argv.to as string
         );
@@ -478,7 +456,7 @@ if (require.main === module)
           });
       },
       handler: (argv) => {
-        new CliHandler(argv as Arguments).removeConfiguration(
+        new CliHandler(Object.assign({} as Arguments, argv)).removeConfiguration(
           argv.ui as string
         );
       },

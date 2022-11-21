@@ -72,8 +72,13 @@ export function makeDir(dir: string): void {
 }
 
 export function rmDir(dir: string): void {
-  fs.rmSync(dir, { recursive: true, force: true });
-  log.debug(`rmdir ${dir}`);
+  try {
+    fs.rmSync(dir, { recursive: true, force: true });
+    log.debug(`rmdir ${dir}`);
+  } catch (ex) {
+    //
+    log.error('Directory could not be removed', dir);
+  }
 }
 
 export function isEmpty(obj?: unknown[] | Record<string, unknown>): boolean {

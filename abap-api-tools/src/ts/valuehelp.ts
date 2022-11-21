@@ -236,16 +236,14 @@ const helpOption = [
       jsWriter.addindent();
       for (const k of ["FIELDNAME", "DATATYPE", "LENG", "DECIMALS"]) {
         jsWriter.write(
-          `${k}: ${
-            typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
+          `${k}: ${typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
           },`
         );
       }
       for (const k of ["MEMORYID", "PARVA"]) {
         if (k in field && field[k])
           jsWriter.write(
-            `${k}: ${
-              typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
+            `${k}: ${typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
             }`
           );
       }

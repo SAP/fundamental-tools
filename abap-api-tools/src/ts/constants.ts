@@ -88,7 +88,7 @@ export const Languages = Object.freeze({
 export const DefaultLanguage = "en";
 
 // Parameter types
-export const ParamType = Object.freeze({
+export const ParamType: Record<"var" | "struct" | "table" | "exception", string> = Object.freeze({
   var: "var",
   struct: "struct",
   table: "table",
@@ -96,7 +96,7 @@ export const ParamType = Object.freeze({
 });
 
 // Parameter classes
-export const ParamClass = Object.freeze({
+export const ParamClass: Record<"import" | "changing" | "table" | "export" | "exception", string> = Object.freeze({
   import: "I",
   changing: "C",
   table: "T",
@@ -114,7 +114,7 @@ export const ParamClassDesc = Object.freeze({
 });
 
 // value input type may determines the input element tag
-export const ValueInput = Object.freeze({
+export const ValueInput: Record<"binary" | "list", string> = Object.freeze({
   binary: "binary",
   list: "list",
 });

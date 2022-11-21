@@ -108,11 +108,11 @@ type StatCatalogType = Record<
   string,
   | Record<string, number>
   | {
-      var?: number;
-      struct?: number;
-      table?: number;
-      exception?: number;
-    }
+    var?: number;
+    struct?: number;
+    table?: number;
+    exception?: number;
+  }
 >;
 
 type UsageCatalogType = Record<string, string[]>;
@@ -558,11 +558,9 @@ export class Backend {
     }
 
     log.info(
-      `\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${
-        this.argv.textOnly ? "only texts" : ""
-      } ${this.getSearchHelps ? "value helps" : ""}${
-        this.argv.helps ? " w. descriptors" : ""
-      }\n`
+      `\n${chalk.bold(this.api_name)} ${this.systemId} (${this.argv.lang}) ${this.argv.textOnly ? "only texts" : ""
+        } ${this.getSearchHelps ? "value helps" : ""}${this.argv.helps ? " w. descriptors" : ""
+        }\n`
         .replace(/  +/g, " ")
         .replace(/^ +/g, "")
     );
@@ -657,10 +655,10 @@ export class Backend {
       return (
         (a.FUNCNAME as string).localeCompare(b.FUNCNAME as string) ||
         PClass.indexOf(a.PARAMCLASS as string) -
-          PClass.indexOf(b.PARAMCLASS as string) ||
+        PClass.indexOf(b.PARAMCLASS as string) ||
         (a.OPTIONAL as string).localeCompare(b.OPTIONAL as string) ||
         PType.indexOf(a.paramType as string) -
-          PType.indexOf(b.paramType as string) ||
+        PType.indexOf(b.paramType as string) ||
         (a.paramName as string).localeCompare(b.paramName as string)
       );
     });
@@ -782,8 +780,7 @@ export class Backend {
           log.info(
             sprintf(
               "%-15s",
-              `${ParamClassDesc[p.PARAMCLASS as string].toLowerCase()} ${
-                p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
+              `${ParamClassDesc[p.PARAMCLASS as string].toLowerCase()} ${p.paramType === ParamClass.table ? "" : p.paramType // table table -> table
               }`
             ),
             sprintf(`%-${param_name_len}s`, p.paramName),
@@ -791,7 +788,7 @@ export class Backend {
               // native ABAP datatype printed in red
               p.nativeKey
                 ? "Native ABAP datatype. no annotations " + p.PARAMTEXT ||
-                    `No text in language: ${this.argv.lang}`
+                `No text in language: ${this.argv.lang}`
                 : p.PARAMTEXT || `No text in language: ${this.argv.lang}`
             )
           );
@@ -835,9 +832,8 @@ export class Backend {
     const folder_yaml: string = path.join(folder_root, "yaml");
     log.info(
       (textOnly ? "\nAnnotations' texts" : "\nAnnotations") +
-        ` saved to: ${
-          runningInDocker ? folder_yaml.replace(DockerVolume, "") : folder_yaml
-        }`
+      ` saved to: ${runningInDocker ? folder_yaml.replace(DockerVolume, "") : folder_yaml
+      }`
     );
     try {
       const total = {
@@ -899,7 +895,7 @@ export class Backend {
 
   annotations_clean(): void {
     const rootdir = path.join(this.argv.output as string, this.api_name);
-    log.debug("Clean annotations", rootdir);
+    log.debug("Clean annotations", rootdir, this.api_name);
     rmDir(rootdir);
   }
 }

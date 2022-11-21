@@ -327,13 +327,11 @@ export class Frontend {
   parse(): FrontendResultType {
     if (this.flowEcho)
       log.info(
-        `\nfrontend: ${this.argv.ui || ""} using ${
-          this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
-        }${
-          this.argv.ui
-            ? " and " +
-              (this.configPath.uiLocal ? this.configPath.ui : "default ui.yaml")
-            : ""
+        `\nfrontend: ${this.argv.ui || ""} using ${this.configPath.abapLocal ? this.configPath.abap : "default abap.yaml"
+        }${this.argv.ui
+          ? " and " +
+          (this.configPath.uiLocal ? this.configPath.ui : "default ui.yaml")
+          : ""
         }; field names sorted: ${this.argv["sort-fields"] ? "yes" : "no"}\n`
       );
 
@@ -380,13 +378,12 @@ export class Frontend {
       });
 
       jsWriter.write(
-        `//\n// ${rfm_name} ${
-          isEmpty(this.abap.stat)
-            ? ""
-            : JSON.stringify(this.abap.stat[rfm_name])
-                .replace(/"|{|}/g, "")
-                .replace(/,/g, "  ")
-                .replace(/:/g, ": ")
+        `//\n// ${rfm_name} ${isEmpty(this.abap.stat)
+          ? ""
+          : JSON.stringify(this.abap.stat[rfm_name])
+            .replace(/"|{|}/g, "")
+            .replace(/,/g, "  ")
+            .replace(/:/g, ": ")
         }\n//\n// ${Signature}\n//\n`
       );
       jsWriter.write("// prettier-ignore");
@@ -507,8 +504,7 @@ export class Frontend {
 
           if (htmlWriter instanceof Writer) {
             htmlWriter.write(
-              `<!-- Parameter: ${param_name} structure: ${Param.TABNAME} ${
-                Param.FIELDNAME || ""
+              `<!-- Parameter: ${param_name} structure: ${Param.TABNAME} ${Param.FIELDNAME || ""
               } ${Param.PARAMTEXT} -->`
             );
           }
@@ -770,9 +766,9 @@ export class Frontend {
 
     const shlp = m.shlp
       ? JSON.stringify(m.shlp)
-          .replace(/"type":/, "type: ")
-          .replace(/,"id":/, ", id: ")
-          .replace(/"/g, "'")
+        .replace(/"type":/, "type: ")
+        .replace(/,"id":/, ", id: ")
+        .replace(/"/g, "'")
       : "";
 
     const abap = JSON.stringify(m.abap)
@@ -870,8 +866,7 @@ export class Frontend {
         result.abap.unit = "!notfound";
         if (Param.functionName === "valueHelp") {
           log.error(
-            `${Field.format.DATATYPE} unit not found for ${
-              field_name ? field_name : Param.FIELDNAME
+            `${Field.format.DATATYPE} unit not found for ${field_name ? field_name : Param.FIELDNAME
             }`
           );
         } else {
