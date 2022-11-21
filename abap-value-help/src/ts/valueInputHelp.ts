@@ -294,10 +294,10 @@ export class ValueInputHelp {
           if (!Descriptors[helpFound.id]) {
             Descriptors[helpFound.id] = {
               blacklist: "selection",
-              selectionDescriptor: ex,
+              selectionDescriptor: ex as ValueHelpError,
             };
           }
-          log.debug(`Descriptor selection error`, helpFound.id, ex.message);
+          log.debug(`Descriptor selection error`, helpFound.id, (ex as ValueHelpError).message);
         }
 
         // elementary helps
@@ -359,7 +359,7 @@ export class ValueInputHelp {
                 }
               } catch (ex) {
                 D.blacklist = "search";
-                D.resultDescriptor = ex;
+                D.resultDescriptor = ex as ValueHelpError;
                 log.debug(`Value Help search error: ${shlp_key} `, ex);
               } finally {
                 const el: ElementaryHelpsList = {
@@ -851,13 +851,13 @@ export class ValueInputHelp {
     if (result.length > 0) {
       result = _searchOptions.compact
         ? result.sort((a, b) => {
-            return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
-          })
+          return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
+        })
         : result.sort((a, b) => {
-            const va = a[headers[0].field];
-            const vb = b[headers[0].field];
-            return va[0] < vb[0] ? -1 : va[0] > vb[0] ? 1 : 0;
-          });
+          const va = a[headers[0].field];
+          const vb = b[headers[0].field];
+          return va[0] < vb[0] ? -1 : va[0] > vb[0] ? 1 : 0;
+        });
     }
     // search result
     return {
