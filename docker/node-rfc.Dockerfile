@@ -9,7 +9,7 @@
 # docker run -it --name node-rfc -v /Users/d037732/SAPDevelop/dev:/home/src node-rfc /bin/bash --login
 # How-to use: check ./README.md
 
-FROM node:latest
+FROM node:16
 
 ENV container docker
 
