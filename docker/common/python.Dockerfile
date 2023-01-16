@@ -5,9 +5,9 @@
 # python
 
 ARG venv_base=~/.virtualenvs
-ARG dev_python="pip wheel pytest cython ipython"
+ARG dev_python="pip wheel sdist pytest cython ipython"
 # 1st version is set as the default one: 3.11.0
-ARG pyenv_versions="3.11.0 3.10.8 3.9.15 3.8.15 3.7.15"
+ARG pyenv_versions="3.11.1 3.10.9 3.9.16 3.8.16 3.7.16"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
@@ -27,11 +27,9 @@ RUN \
     git clone https://github.com/pyenv/pyenv-virtualenv.git $PYENV_ROOT/plugins/pyenv-virtualenv && \
     git clone https://github.com/pyenv/pyenv-update.git $PYENV_ROOT/plugins/pyenv-update && \
     # pyenv config files
-    PROFILE=".profile" && if [ ! -f "$PROFILE" ]; then PROFILE=".bash_profile"; fi && \
-    cat /tmp/profile.sh "$PROFILE" > temp && mv temp "$PROFILE" && \
     cat /tmp/bashrc.sh >> .bashrc && \
     echo "pyenv activate py"`echo ${pyenv_versions} | awk '{print $1;}'` >> .bashrc && \
-    sudo rm /tmp/profile.sh /tmp/bashrc.sh && \
+    sudo rm /tmp/bashrc.sh && \
     #
     # pyenv
     #

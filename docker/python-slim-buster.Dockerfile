@@ -6,20 +6,16 @@
 
 #
 # Build:
-# docker build -t python-39-slim-buster -f python-39-slim-buster.Dockerfile .
-# docker run -it --name python-39-slim-buster -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src python-39-slim-buster /bin/bash --login
+# docker build --platform=linux/amd64 -t python-311-slim-buster -f python-311-slim-buster.Dockerfile .
+# docker run --platform=linux/amd64 -it --name python-311-slim-buster -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src python-311-slim-buster /bin/bash --login
 #
 # Run:
-# docker start -ai python-39-slim-buster
+# docker start -ai python-311-slim-buster
 #
 
-FROM python:3.9-slim-buster
+FROM python:3.11-slim-buster
 
 ARG adminuser=www-admin
-
-ARG nwrfcsdk=nwrfcsdk-pl7
-ARG nwrfc_source=/sap
-ARG nwrfc_target=/usr/local/sap
 
 ARG dev_python="pip wheel pytest cython ipython"
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute2 iputils-ping"
