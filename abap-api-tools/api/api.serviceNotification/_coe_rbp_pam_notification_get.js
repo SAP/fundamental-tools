@@ -1,7 +1,7 @@
 //
 // /COE/RBP_PAM_NOTIFICATION_GET exception: 0  struct: 1  table: 10  var: 2
 //
-// abap 2.3.0 at: 2021-04-23 11:59:34
+// abap api
 //
 
 // prettier-ignore

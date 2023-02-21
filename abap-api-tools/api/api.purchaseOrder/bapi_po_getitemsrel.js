@@ -1,7 +1,7 @@
 //
 // BAPI_PO_GETITEMSREL exception: 0  struct: 0  table: 3  var: 3
 //
-// abap 2.3.0 at: 2021-04-23 11:59:34
+// abap api
 //
 
 // prettier-ignore

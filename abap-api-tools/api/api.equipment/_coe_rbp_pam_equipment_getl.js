@@ -1,7 +1,7 @@
 //
 // /COE/RBP_PAM_EQUIPMENT_GETL exception: 0  struct: 0  table: 2  var: 3
 //
-// abap 2.3.1 at: 2021-07-08 19:01:17
+// abap api
 //
 
 // prettier-ignore

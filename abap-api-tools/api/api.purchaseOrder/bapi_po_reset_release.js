@@ -1,7 +1,7 @@
 //
 // BAPI_PO_RESET_RELEASE exception: 8  struct: 0  table: 1  var: 5
 //
-// abap 2.3.0 at: 2021-04-23 11:59:34
+// abap api
 //
 
 // prettier-ignore
