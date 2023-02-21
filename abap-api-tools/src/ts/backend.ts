@@ -223,6 +223,7 @@ export class Backend {
         if (
           ![
             "determine",
+            "dom_values",
             "FV_descriptor_get",
             "CT_descriptor_get",
             "SH_descriptor_get",
