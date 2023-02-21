@@ -6,8 +6,8 @@
 
 ARG venv_base=~/.virtualenvs
 ARG dev_python="pip wheel sdist pytest cython ipython"
-# 1st version is set as the default one: 3.11.0
-ARG pyenv_versions="3.11.1 3.10.9 3.9.16 3.8.16 3.7.16"
+# 1st version is set as the default one
+ARG pyenv_versions="3.11.2 3.10.9 3.9.16 3.8.16 3.7.16"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
@@ -35,7 +35,7 @@ RUN \
     #
     eval "$(pyenv init --path)" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
     # python
-    for version in ${pyenv_versions}; \
+    for version in $( echo "$pyenv_versions" ) \
     do \
     # build
     pyenv install $version && \
