@@ -40,7 +40,7 @@ frontend:
         RFCINT1                          :    0, // INT1 (3) INT1 field
         RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
         RFCINT4                          :    0, // INT4 (10) INT4 field
-        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCHEX3                          : Buffer.alloc(3), // RAW (3) HEX field of length 3
         RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
         RFCTIME                          :   "", // TIMS (6) Validity Period
         RFCDATE                          :   "", // DATS (8) Date field
@@ -57,14 +57,14 @@ frontend:
       const RFCTABLE = [];
 
       // prettier-ignore
-      const RFCTABLE = {
+      const RFCTABLE_line = {
         RFCFLOAT                         : "0.0", // FLTP (16.16) Float field
         RFCCHAR1                         :   "", // CHAR (1) Character field of length 1
         RFCINT2                          :    0, // INT2 (5) INT2 field
         RFCINT1                          :    0, // INT1 (3) INT1 field
         RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
         RFCINT4                          :    0, // INT4 (10) INT4 field
-        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCHEX3                          : Buffer.alloc(3), // RAW (3) HEX field of length 3
         RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
         RFCTIME                          :   "", // TIMS (6) Validity Period
         RFCDATE                          :   "", // DATS (8) Date field
@@ -87,7 +87,7 @@ frontend:
         RFCINT1                          :    0, // INT1 (3) INT1 field
         RFCCHAR4                         :   "", // CHAR (4) Character field of length 4
         RFCINT4                          :    0, // INT4 (10) INT4 field
-        RFCHEX3                          : bytes(), // RAW (3) HEX field of length 3
+        RFCHEX3                          : Buffer.alloc(3), // RAW (3) HEX field of length 3
         RFCCHAR2                         :   "", // CHAR (2) Character field of length 2
         RFCTIME                          :   "", // TIMS (6) Validity Period
         RFCDATE                          :   "", // DATS (8) Date field
@@ -95,15 +95,11 @@ frontend:
         RFCDATA2                         :   "", // CHAR (50) Comment
       };
     html: |
-      <!--
-      STFC_STRUCTURE var: 1  struct: 2  table: 1  exception: 0
+      <!-- STFC_STRUCTURE var: 1  struct: 2  table: 1  exception: 0
 
-      abap api
-      -->
+      abap api -->
 
-      <!--
-      IMPORT PARAMETERS
-      -->
+      <!-- IMPORT PARAMETERS -->
 
       <!-- Parameter: IMPORTSTRUCT structure: RFCTEST  Importing structure -->
 
@@ -198,10 +194,7 @@ frontend:
               />
       </div>
 
-
-      <!--
-      TABLE PARAMETERS
-      -->
+      <!-- TABLE PARAMETERS -->
 
       <!-- Parameter: RFCTABLE structure: RFCTEST  Importing/exporting table -->
 
@@ -331,10 +324,7 @@ frontend:
               />
       </div>
 
-
-      <!--
-      EXPORT PARAMETERS
-      -->
+      <!-- EXPORT PARAMETERS -->
 
       <div fd-form-item>
           <label fd-form-label>Exporting response message</label>

@@ -41,7 +41,7 @@ describe("Integration API errors checks", () => {
     }
   });
 
-  test.skip("get : stfc_structure, invalid shlp key", async () => {
+  test("get : stfc_structure, invalid shlp key", async () => {
     expect.assertions(1);
     try {
       await api.get(

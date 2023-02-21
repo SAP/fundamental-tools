@@ -5,7 +5,7 @@
 const AbapCliApi = require("../dist/abap").AbapCliApi;
 
 const loadFromFile = require("./utils").loadFromFile;
-//const saveToFile = require("./utils").saveToFile;
+const saveToFile = require("./utils").saveToFile;
 
 ("use strict");
 
@@ -44,7 +44,7 @@ describe("Integration API", () => {
   test("call: array rfm, destination", async () => {
     expect.assertions(2);
 
-    const expectedFn = "call_stfc_connection_stfc_structure.yaml";
+    const expectedFn = "call_stfc_connection_stfc_structure1.yaml";
     const result = await api.call("MME", ["stfc_connection", "stfc_structure"]);
     //saveToFile(expectedFn, result);
 
