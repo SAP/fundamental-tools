@@ -9,7 +9,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
 - [Usage](./abap-api-tools/README.md#usage)
-- By factors less code, unique qualities
+- By factors less code, more performance
 - Works with:
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
@@ -29,23 +29,17 @@
 
 ## Content <!-- omit in toc -->
 
-- [Prerequisites](#prerequisites)
+- [Requirements](#requirements)
 - [Download and installation](#download-and-installation)
-- [Usage](./abap-api-tools/README.md#usage)
-- [Examples](./abap-api-tools/README.md#examples)
-  - [ABAP Function Module call template](./abap-api-tools/README.md#abap-function-module-call-template)
-  - [ABAP API annotations for ui elements](./abap-api-tools/README.md#abap-api-annotations-for-ui-elements)
-  - [ui elements](./abap-api-tools/README.md#ui-elements)
-- [Custom ui configurations](./abap-api-tools/README.md#custom-ui-configurations)
-- [i18n](./abap-api-tools/README.md#i18n)
-- [Integration](./abap-api-tools/README.md#integration)
-- [Pattern based apps](./doc/app.md)
-- NodeJS and Python [docker images](./docker)
+- [Known Issues](#known-issues)
+- [Getting Support](#getting-support)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Requirements
 
 - ABAP backend: from latest releases, down to 4.6C
-- SAP Cloud Platform or on-premise Windows, Linux, Darwin system/notebook
+- SAP Cloud Platform or on-premise Windows, Linux, Darwin platforms
 - Runtimes
   - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
   - Python with [PyRFC](https://github.com/SAP/PyRFC)

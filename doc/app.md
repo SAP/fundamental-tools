@@ -1,4 +1,4 @@
-# Building an app<!-- omit in toc -->
+# Building an app <!-- omit in toc -->
 
 Conventions' based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
 
