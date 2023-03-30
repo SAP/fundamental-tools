@@ -33,14 +33,11 @@ RUN \
     #
     # pyenv
     #
-    eval "$(pyenv init --path)" && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
+    eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)" && \
     # python
-    for version in $( echo "$pyenv_versions" ) \
-    do \
-    # build
-    pyenv install $version && \
-    # virtualenv
-    pyenv virtualenv $version py$version && \
+    for version in $( echo "$pyenv_versions" ); do \
+    # build virtualenv
+    pyenv install $version && pyenv virtualenv $version py$version && \
     pyenv activate py$version && pip install --upgrade ${dev_python} || break; \
     done || exit 1 && \
     # cleanup

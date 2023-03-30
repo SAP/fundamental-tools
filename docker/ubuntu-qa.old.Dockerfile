@@ -23,9 +23,6 @@ ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute2 iputils-ping"
 ARG dev_libs="build-essential libtool autoconf make ninja-build libssl-dev liblzma-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev python3-dev cargo"
 
-# https://stackoverflow.com/questions/20635472/using-the-run-instruction-in-a-dockerfile-with-source-does-not-work
-SHELL ["/bin/bash", "-c"]
-
 # os update and packages
 USER root
 RUN \
@@ -70,10 +67,10 @@ RUN  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias
   git config --global user.email srdjan.boskovic@sap.com && \
   git config --global pull.rebase false
 
-# nodejs
-INCLUDE+ common/nodejs.Dockerfile
-
 # python
 INCLUDE+ common/python.Dockerfile
+
+# nodejs
+INCLUDE+ common/nodejs.Dockerfile
 
 SHELL ["/bin/bash"]
