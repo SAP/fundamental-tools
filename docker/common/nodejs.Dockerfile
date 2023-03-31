@@ -2,7 +2,12 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-# node js
+# NodeJS and nvv installation
+
+ENV TMPDIR=/home/${adminuser}/tmp
+
+# nvm bashrc config
+COPY --chown=${adminuser}:${adminuser} /common/bashrc_nvm.sh /tmp
 
 # as admin user
 
@@ -13,7 +18,11 @@ RUN \
     sudo apt -y update && sudo apt -y install cmake && \
     # nvm
     NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/') && \
-    printf "\n# nvm" >> ~/.bashrc && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     bash -ic "nvm install node && nvm alias default node && nvm install lts/fermium && nvm install lts/gallium && nvm install lts/hydrogen" && \
-    printf "\nexport PATH=node_modules/.bin:\$PATH\nnvm use node\n\n" >> ~/.bashrc
+    # lsb_release
+    sudo apt install lsb-release -y && \
+    # bashrc
+    cat /tmp/bashrc_nvm.sh >> .bashrc && \
+    echo "nvm use node" >> .bashrc && \
+    sudo rm /tmp/bashrc_nvm.sh

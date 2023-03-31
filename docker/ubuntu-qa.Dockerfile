@@ -47,8 +47,8 @@ RUN \
   adduser --disabled-password --gecos "" ${adminuser} && \
   usermod -aG www-data,sudo ${adminuser} && \
   echo "${adminuser} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-  # install lsb-release and software-properties-common
-  sudo apt update -y && sudo apt install lsb-release software-properties-common -y && sudo apt update -y && \
+  # install software-properties-common
+  sudo apt update -y && sudo apt install software-properties-common -y && sudo apt update -y && \
   # cleanup
   rm -rf /tmp/* /var/lib/apt/lists/*
 
