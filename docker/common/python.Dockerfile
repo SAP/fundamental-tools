@@ -9,7 +9,7 @@
 ARG venv_base=~/.virtualenvs
 ARG dev_python="wheel pytest cython ipython"
 # 1st version is set as the default one
-ARG pyenv_versions="3.11.2 3.10.9 3.9.16 3.8.16 3.7.16"
+ARG pyenv_versions="3.11.2 3.10.10 3.9.16 3.8.16 3.7.16"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
