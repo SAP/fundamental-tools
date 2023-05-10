@@ -1,5 +1,6 @@
 
 # pyenv
+export PATH=$HOME/.local/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
