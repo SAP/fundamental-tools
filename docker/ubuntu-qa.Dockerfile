@@ -68,12 +68,13 @@ RUN  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias
   git config --global http.sslVerify false && \
   git config --global user.name bsrdjan && \
   git config --global user.email srdjan.boskovic@sap.com && \
-  git config --global pull.rebase false
-
-# python
-INCLUDE+ common/python.Dockerfile
+  git config --global pull.rebase false && \
+  git config --global http.postBuffer 1048576000
 
 # nodejs
 INCLUDE+ common/nodejs.Dockerfile
+
+# python
+INCLUDE+ common/python.Dockerfile
 
 SHELL ["/bin/bash"]

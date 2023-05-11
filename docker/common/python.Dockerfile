@@ -21,7 +21,8 @@ RUN \
     # tox and ipython installation
     sudo apt-get update && sudo apt install -y python3-pip python3-venv && \
     python3 -m pip install --user pipx && \
-    PATH=$HOME/.local/bin:$PATH pipx install tox ipython && \
+    PATH=$HOME/.local/bin:$PATH pipx install tox && \
+    PATH=$HOME/.local/bin:$PATH pipx install ipython && \
     # Clone and configure
     PYENV_ROOT=~/.pyenv && PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH && \
     # git
@@ -33,8 +34,9 @@ RUN \
     # pythons and virtualenvs
     for version in $( echo "$pyenv_versions" ); do \
     pyenv install $version && pyenv virtualenv $version py$version && \
-    pyenv activate py$version && pip install --upgrade pip || break; \
+    pyenv activate py$version && pip install --upgrade pip pytest pytest-testdox pytest-html-reporter || break; \
     done || exit 1 && \
+    pyenv global ${pyenv_versions} && \
     # bashrc
     cat /tmp/bashrc_pyenv.sh >> .bashrc && \
     default_version=py`echo ${pyenv_versions} | awk '{print $1;}'` && \
