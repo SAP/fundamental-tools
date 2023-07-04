@@ -6,7 +6,7 @@
 
 #
 # Build:
-# docker build --platform=linux/amd64 -t ubuntu-qa -f ubuntu-qa.Dockerfile .
+# docker build --platform=linux/amd64 --rm --no-cache -t ubuntu-qa -f ubuntu-qa.Dockerfile .
 # docker run --platform=linux/amd64 --network host -it --name ubuntu-qa -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src ubuntu-qa /bin/bash --login
 #
 # Run:

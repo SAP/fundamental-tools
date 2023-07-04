@@ -8,7 +8,7 @@
 
 ARG venv_base=~/.virtualenvs
 # 1st version is set as the default one
-ARG pyenv_versions="3.11.3 3.10.11 3.9.16 3.8.16"
+ARG pyenv_versions="3.11.4 3.10.11 3.9.16 3.8.16"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
@@ -34,7 +34,7 @@ RUN \
     # pythons and virtualenvs
     for version in $( echo "$pyenv_versions" ); do \
     pyenv install $version && pyenv virtualenv $version py$version && \
-    pyenv activate py$version && pip install --upgrade pip pytest pytest-testdox pytest-html-reporter || break; \
+    pyenv activate py$version && pip install --upgrade pip build pytest pytest-testdox pytest-html-reporter || break; \
     done || exit 1 && \
     pyenv global ${pyenv_versions} && \
     # bashrc
