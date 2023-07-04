@@ -11,11 +11,9 @@
 # ~abap  Annotations: field type, length, su3 mid, currency or uom field
 # ~title Table header title: parameter text
 
-# https://sap.github.io/fundamental-vue/#/examples/form
+# https://www.fast.design/docs/components/checkbox
 checkbox: >-
-  <fd-form-item-checkbox label="~label">
-      <fd-checkbox v-model="~bind">
-  </fd-form-item-checkbox>
+  <fast-checkbox v-model="~bind">~label/fast-checkbox>
 
 # https://sap.github.io/fundamental-vue/#/examples/form
 combo: >-
@@ -44,6 +42,15 @@ timepicker: >-
 
 # https://sap.github.io/fundamental-vue/#/examples/form
 input: >-
+  <fd-form-item>
+      <fd-form-label>~label</fd-form-label>
+          <fd-input v-model="~bind"
+              data-abap="~abap"
+              data-shlp="~shlp"
+          />
+  </fd-form-item>
+
+number: >-
   <fd-form-item>
       <fd-form-label>~label</fd-form-label>
           <fd-input v-model="~bind"

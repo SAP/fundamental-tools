@@ -4,14 +4,32 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-combo value.bind="ITEMS_FOR_RELEASE" shlp.bind="{type: 'FV', id: 'SELKZ'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Indicator: Display Purchase Orders Awaiting Release Only"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Indicator: Display Purchase Orders Awaiting Release Only</fd-form-label>
+    <fd-select v-model="ITEMS_FOR_RELEASE"
+        options="{type: 'FV', id: 'SELKZ'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="REL_CODE" shlp.bind="{type: 'CT', id: 'T161E'}" data-abap.bind="{type:'CHAR', mid:'BFC', length:'2'}"
-          label="Release Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release Code</fd-form-label>
+    <fd-select v-model="REL_CODE"
+        options="{type: 'CT', id: 'T161E'}"
+        data-abap="{type:'CHAR', mid:'BFC', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="REL_GROUP" shlp.bind="{type: 'CT', id: 'T16FG'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release Group"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release Group</fd-form-label>
+    <fd-select v-model="REL_GROUP"
+        options="{type: 'CT', id: 'T16FG'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- TABLE PARAMETERS -->
 
@@ -20,317 +38,666 @@ abap api -->
 <ui-datagrid data.bind="PO_HEADERS" title="PO Header Data"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="PO_NUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Purchasing Document Number"></ui-dg-column>
-   <ui-dg-column sortable field="CO_CODE" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" shlp.bind="{type: 'SH', id: 'C_T001'}" label="Company Code"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_CAT" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'EBSTYP'}" label="Purchasing Document Category"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_TYPE" data-abap.bind="{type:'CHAR', mid:'BSA', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T161'}" label="Purchasing Document Type"></ui-dg-column>
-   <ui-dg-column sortable field="CNTRL_IND" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'BSAKZ'}" label="Control indicator for purchasing document type"></ui-dg-column>
-   <ui-dg-column sortable field="DELETE_IND" data-abap.bind="{type:'CHAR', length:'1'}" label="Deletion indicator in purchasing document"></ui-dg-column>
-   <ui-dg-column sortable field="STATUS" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ESTAK'}" label="Status of Purchasing Document"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_ON" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
-   <ui-dg-column sortable field="ITEM_INTVL" data-abap.bind="{type:'NUMC', length:'5'}" label="Item Number Interval"></ui-dg-column>
-   <ui-dg-column sortable field="LAST_ITEM" data-abap.bind="{type:'NUMC', length:'5'}" shlp.bind="{type: 'CH', id: 'EKPO'}" label="Last Item Number"></ui-dg-column>
-   <ui-dg-column sortable field="VENDOR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Vendor's account number"></ui-dg-column>
-   <ui-dg-column sortable field="LANGUAGE" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T002'}" label="Language Key"></ui-dg-column>
-   <ui-dg-column sortable field="PMNTTRMS" data-abap.bind="{type:'CHAR', length:'4'}" label="Terms of Payment Key"></ui-dg-column>
-   <ui-dg-column sortable field="DSCNT1_TO" data-abap.bind="{type:'DEC', length:'3'}" label="Cash discount days 1"></ui-dg-column>
-   <ui-dg-column sortable field="DSCNT2_TO" data-abap.bind="{type:'DEC', length:'3'}" label="Cash discount days 2"></ui-dg-column>
-   <ui-dg-column sortable field="DSCNT3_TO" data-abap.bind="{type:'DEC', length:'3'}" label="Cash discount days 3"></ui-dg-column>
-   <ui-dg-column sortable field="CASH_DISC1" data-abap.bind="{type:'DEC', length:'4.3'}" label="Cash discount percentage 1"></ui-dg-column>
-   <ui-dg-column sortable field="CASH_DISC2" data-abap.bind="{type:'DEC', length:'4.3'}" label="Cash Discount Percentage 2"></ui-dg-column>
-   <ui-dg-column sortable field="PURCH_ORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T024E'}" label="Purchasing organization"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_GROUP" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T024'}" label="Purchasing Group"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
-   <ui-dg-column sortable field="EXCH_RATE" data-abap.bind="{type:'DEC', length:'8.5'}" label="Direct Quoted Exchange Rate"></ui-dg-column>
-   <ui-dg-column sortable field="EX_RATE_FX" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Fixing of Exchange Rate"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_DATE" data-abap.bind="{type:'DATS'}" label="Purchasing Document Date"></ui-dg-column>
-   <ui-dg-column sortable field="VPER_START" data-abap.bind="{type:'DATS'}" label="Start of Validity Period"></ui-dg-column>
-   <ui-dg-column sortable field="VPER_END" data-abap.bind="{type:'DATS'}" label="End of Validity Period"></ui-dg-column>
-   <ui-dg-column sortable field="APPLIC_BY" data-abap.bind="{type:'DATS'}" label="Closing Date for Applications"></ui-dg-column>
-   <ui-dg-column sortable field="QUOT_DEAD" data-abap.bind="{type:'DATS'}" label="Deadline for Submission of Bid/Quotation"></ui-dg-column>
-   <ui-dg-column sortable field="BINDG_PER" data-abap.bind="{type:'DATS'}" label="Binding Period for Quotation"></ui-dg-column>
-   <ui-dg-column sortable field="WARRANTY" data-abap.bind="{type:'DATS'}" label="Warranty Date"></ui-dg-column>
-   <ui-dg-column sortable field="BIDINV_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Bid invitation number"></ui-dg-column>
-   <ui-dg-column sortable field="QUOTATION" data-abap.bind="{type:'CHAR', length:'10'}" label="Quotation Number"></ui-dg-column>
-   <ui-dg-column sortable field="QUOT_DATE" data-abap.bind="{type:'DATS'}" label="Quotation Submission Date"></ui-dg-column>
-   <ui-dg-column sortable field="REF_1" data-abap.bind="{type:'CHAR', length:'12'}" label="Your Reference"></ui-dg-column>
-   <ui-dg-column sortable field="SALES_PERS" data-abap.bind="{type:'CHAR', length:'30'}" label="Responsible Salesperson at Vendor's Office"></ui-dg-column>
-   <ui-dg-column sortable field="TELEPHONE" data-abap.bind="{type:'CHAR', length:'16'}" label="Vendor's Telephone Number"></ui-dg-column>
-   <ui-dg-column sortable field="SUPPL_VEND" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LLI', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Supplying Vendor"></ui-dg-column>
-   <ui-dg-column sortable field="CUSTOMER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" shlp.bind="{type: 'SH', id: 'DEBI'}" label="Customer Number"></ui-dg-column>
-   <ui-dg-column sortable field="AGREEMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Number of principal purchase agreement"></ui-dg-column>
-   <ui-dg-column sortable field="REJ_REASON" data-abap.bind="{type:'CHAR', length:'2'}" label="Reason for rejection of quotations and sales orders"></ui-dg-column>
-   <ui-dg-column sortable field="COMPL_DLV" data-abap.bind="{type:'CHAR', length:'1'}" label="Complete Delivery Stipulated for Each Purchase Order"></ui-dg-column>
-   <ui-dg-column sortable field="GR_MESSAGE" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Goods Receipt Message"></ui-dg-column>
-   <ui-dg-column sortable field="SUPPL_PLNT" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T001W'}" label="Supplying (issuing) plant in case of stock transport order"></ui-dg-column>
-   <ui-dg-column sortable field="RCVG_VEND" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Field not used"></ui-dg-column>
-   <ui-dg-column sortable field="INCOTERMS1" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'SH', id: 'H_TINC'}" label="Incoterms (Part 1)"></ui-dg-column>
-   <ui-dg-column sortable field="INCOTERMS2" data-abap.bind="{type:'CHAR', length:'28'}" label="Incoterms (Part 2)"></ui-dg-column>
-   <ui-dg-column sortable field="TARGET_VAL" data-abap.bind="{type:'DEC', length:'22.4'}" label="Cumulative Planned Value"></ui-dg-column>
-   <ui-dg-column sortable field="COLL_NO" data-abap.bind="{type:'CHAR', length:'10'}" label="Collective Number"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_COND" data-abap.bind="{type:'CHAR', length:'10'}" label="Number of the document condition"></ui-dg-column>
-   <ui-dg-column sortable field="PROCEDURE" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'CT', id: 'T683'}" label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"></ui-dg-column>
-   <ui-dg-column sortable field="UPDATE_GRP" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MCF', length:'6'}" shlp.bind="{type: 'SH', id: 'H_TMCB'}" label="Update group for statistics update"></ui-dg-column>
-   <ui-dg-column sortable field="DIFF_INV" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LRE', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Different Invoicing Party"></ui-dg-column>
-   <ui-dg-column sortable field="EXPORT_NO" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CH', id: 'EIKP'}" label="Number of foreign trade data in MM and SD documents"></ui-dg-column>
-   <ui-dg-column sortable field="OUR_REF" data-abap.bind="{type:'CHAR', length:'12'}" label="Our Reference"></ui-dg-column>
-   <ui-dg-column sortable field="LOGSYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical System"></ui-dg-column>
-   <ui-dg-column sortable field="SUBITEMINT" data-abap.bind="{type:'NUMC', length:'5'}" label="Item Number Interval for Subitems"></ui-dg-column>
-   <ui-dg-column sortable field="MAST_COND" data-abap.bind="{type:'CHAR', length:'1'}" label="Document with time-dependent conditions"></ui-dg-column>
-   <ui-dg-column sortable field="REL_GROUP" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FG'}" label="Release group"></ui-dg-column>
-   <ui-dg-column sortable field="REL_STRAT" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FS'}" label="Release Strategy"></ui-dg-column>
-   <ui-dg-column sortable field="REL_IND" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'CT', id: 'T16FB'}" label="Release Indicator: Purchasing Document"></ui-dg-column>
-   <ui-dg-column sortable field="REL_STATUS" data-abap.bind="{type:'CHAR', length:'8'}" label="Release State"></ui-dg-column>
-   <ui-dg-column sortable field="SUBJ_TO_R" data-abap.bind="{type:'CHAR', length:'1'}" label="Release Not Yet Completely Effected"></ui-dg-column>
-   <ui-dg-column sortable field="TAXR_CNTRY" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T005'}" label="Country for Tax Return"></ui-dg-column>
-   <ui-dg-column sortable field="SCHED_IND" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator for scheduling agreement release documentation"></ui-dg-column>
-   <ui-dg-column sortable field="VEND_NAME" data-abap.bind="{type:'CHAR', length:'35'}" label="Name 1"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO Currency Code"></ui-dg-column>
-   <ui-dg-column sortable field="EXCH_RATE_CM" data-abap.bind="{type:'DEC', length:'8.5'}" label="Indirect Quoted Exchange Rate"></ui-dg-column>
-   <ui-dg-column sortable field="HOLD" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchase order not yet complete"></ui-dg-column>
+<ui-dg-column sortable field="PO_NUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Purchasing Document Number"></ui-dg-column>
+<ui-dg-column sortable field="CO_CODE" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}" shlp.bind="{type: 'SH', id: 'C_T001'}" label="Company Code"></ui-dg-column>
+<ui-dg-column sortable field="DOC_CAT" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'EBSTYP'}" label="Purchasing Document Category"></ui-dg-column>
+<ui-dg-column sortable field="DOC_TYPE" data-abap.bind="{type:'CHAR', mid:'BSA', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T161'}" label="Purchasing Document Type"></ui-dg-column>
+<ui-dg-column sortable field="CNTRL_IND" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'BSAKZ'}" label="Control indicator for purchasing document type"></ui-dg-column>
+<ui-dg-column sortable field="DELETE_IND" data-abap.bind="{type:'CHAR', length:'1'}" label="Deletion indicator in purchasing document"></ui-dg-column>
+<ui-dg-column sortable field="STATUS" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ESTAK'}" label="Status of Purchasing Document"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_ON" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
+<ui-dg-column sortable field="ITEM_INTVL" data-abap.bind="{type:'NUMC', length:'5'}" label="Item Number Interval"></ui-dg-column>
+<ui-dg-column sortable field="LAST_ITEM" data-abap.bind="{type:'NUMC', length:'5'}" shlp.bind="{type: 'CH', id: 'EKPO'}" label="Last Item Number"></ui-dg-column>
+<ui-dg-column sortable field="VENDOR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Vendor's account number"></ui-dg-column>
+<ui-dg-column sortable field="LANGUAGE" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T002'}" label="Language Key"></ui-dg-column>
+<ui-dg-column sortable field="PMNTTRMS" data-abap.bind="{type:'CHAR', length:'4'}" label="Terms of Payment Key"></ui-dg-column>
+<ui-dg-column sortable field="DSCNT1_TO" data-abap.bind="{type:'DEC', length:'3'}" label="Cash discount days 1"></ui-dg-column>
+<ui-dg-column sortable field="DSCNT2_TO" data-abap.bind="{type:'DEC', length:'3'}" label="Cash discount days 2"></ui-dg-column>
+<ui-dg-column sortable field="DSCNT3_TO" data-abap.bind="{type:'DEC', length:'3'}" label="Cash discount days 3"></ui-dg-column>
+<ui-dg-column sortable field="CASH_DISC1" data-abap.bind="{type:'DEC', length:'4.3'}" label="Cash discount percentage 1"></ui-dg-column>
+<ui-dg-column sortable field="CASH_DISC2" data-abap.bind="{type:'DEC', length:'4.3'}" label="Cash Discount Percentage 2"></ui-dg-column>
+<ui-dg-column sortable field="PURCH_ORG" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T024E'}" label="Purchasing organization"></ui-dg-column>
+<ui-dg-column sortable field="PUR_GROUP" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T024'}" label="Purchasing Group"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
+<ui-dg-column sortable field="EXCH_RATE" data-abap.bind="{type:'DEC', length:'8.5'}" label="Direct Quoted Exchange Rate"></ui-dg-column>
+<ui-dg-column sortable field="EX_RATE_FX" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Fixing of Exchange Rate"></ui-dg-column>
+<ui-dg-column sortable field="DOC_DATE" data-abap.bind="{type:'DATS'}" label="Purchasing Document Date"></ui-dg-column>
+<ui-dg-column sortable field="VPER_START" data-abap.bind="{type:'DATS'}" label="Start of Validity Period"></ui-dg-column>
+<ui-dg-column sortable field="VPER_END" data-abap.bind="{type:'DATS'}" label="End of Validity Period"></ui-dg-column>
+<ui-dg-column sortable field="APPLIC_BY" data-abap.bind="{type:'DATS'}" label="Closing Date for Applications"></ui-dg-column>
+<ui-dg-column sortable field="QUOT_DEAD" data-abap.bind="{type:'DATS'}" label="Deadline for Submission of Bid/Quotation"></ui-dg-column>
+<ui-dg-column sortable field="BINDG_PER" data-abap.bind="{type:'DATS'}" label="Binding Period for Quotation"></ui-dg-column>
+<ui-dg-column sortable field="WARRANTY" data-abap.bind="{type:'DATS'}" label="Warranty Date"></ui-dg-column>
+<ui-dg-column sortable field="BIDINV_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Bid invitation number"></ui-dg-column>
+<ui-dg-column sortable field="QUOTATION" data-abap.bind="{type:'CHAR', length:'10'}" label="Quotation Number"></ui-dg-column>
+<ui-dg-column sortable field="QUOT_DATE" data-abap.bind="{type:'DATS'}" label="Quotation Submission Date"></ui-dg-column>
+<ui-dg-column sortable field="REF_1" data-abap.bind="{type:'CHAR', length:'12'}" label="Your Reference"></ui-dg-column>
+<ui-dg-column sortable field="SALES_PERS" data-abap.bind="{type:'CHAR', length:'30'}" label="Responsible Salesperson at Vendor's Office"></ui-dg-column>
+<ui-dg-column sortable field="TELEPHONE" data-abap.bind="{type:'CHAR', length:'16'}" label="Vendor's Telephone Number"></ui-dg-column>
+<ui-dg-column sortable field="SUPPL_VEND" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LLI', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Supplying Vendor"></ui-dg-column>
+<ui-dg-column sortable field="CUSTOMER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" shlp.bind="{type: 'SH', id: 'DEBI'}" label="Customer Number"></ui-dg-column>
+<ui-dg-column sortable field="AGREEMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Number of principal purchase agreement"></ui-dg-column>
+<ui-dg-column sortable field="REJ_REASON" data-abap.bind="{type:'CHAR', length:'2'}" label="Reason for rejection of quotations and sales orders"></ui-dg-column>
+<ui-dg-column sortable field="COMPL_DLV" data-abap.bind="{type:'CHAR', length:'1'}" label="Complete Delivery Stipulated for Each Purchase Order"></ui-dg-column>
+<ui-dg-column sortable field="GR_MESSAGE" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: Goods Receipt Message"></ui-dg-column>
+<ui-dg-column sortable field="SUPPL_PLNT" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T001W'}" label="Supplying (issuing) plant in case of stock transport order"></ui-dg-column>
+<ui-dg-column sortable field="RCVG_VEND" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Field not used"></ui-dg-column>
+<ui-dg-column sortable field="INCOTERMS1" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'SH', id: 'H_TINC'}" label="Incoterms (Part 1)"></ui-dg-column>
+<ui-dg-column sortable field="INCOTERMS2" data-abap.bind="{type:'CHAR', length:'28'}" label="Incoterms (Part 2)"></ui-dg-column>
+<ui-dg-column sortable field="TARGET_VAL" data-abap.bind="{type:'DEC', length:'22.4'}" label="Cumulative Planned Value"></ui-dg-column>
+<ui-dg-column sortable field="COLL_NO" data-abap.bind="{type:'CHAR', length:'10'}" label="Collective Number"></ui-dg-column>
+<ui-dg-column sortable field="DOC_COND" data-abap.bind="{type:'CHAR', length:'10'}" label="Number of the document condition"></ui-dg-column>
+<ui-dg-column sortable field="PROCEDURE" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'CT', id: 'T683'}" label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"></ui-dg-column>
+<ui-dg-column sortable field="UPDATE_GRP" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MCF', length:'6'}" shlp.bind="{type: 'SH', id: 'H_TMCB'}" label="Update group for statistics update"></ui-dg-column>
+<ui-dg-column sortable field="DIFF_INV" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LRE', length:'10'}" shlp.bind="{type: 'SH', id: 'KRED'}" label="Different Invoicing Party"></ui-dg-column>
+<ui-dg-column sortable field="EXPORT_NO" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CH', id: 'EIKP'}" label="Number of foreign trade data in MM and SD documents"></ui-dg-column>
+<ui-dg-column sortable field="OUR_REF" data-abap.bind="{type:'CHAR', length:'12'}" label="Our Reference"></ui-dg-column>
+<ui-dg-column sortable field="LOGSYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical System"></ui-dg-column>
+<ui-dg-column sortable field="SUBITEMINT" data-abap.bind="{type:'NUMC', length:'5'}" label="Item Number Interval for Subitems"></ui-dg-column>
+<ui-dg-column sortable field="MAST_COND" data-abap.bind="{type:'CHAR', length:'1'}" label="Document with time-dependent conditions"></ui-dg-column>
+<ui-dg-column sortable field="REL_GROUP" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FG'}" label="Release group"></ui-dg-column>
+<ui-dg-column sortable field="REL_STRAT" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FS'}" label="Release Strategy"></ui-dg-column>
+<ui-dg-column sortable field="REL_IND" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'CT', id: 'T16FB'}" label="Release Indicator: Purchasing Document"></ui-dg-column>
+<ui-dg-column sortable field="REL_STATUS" data-abap.bind="{type:'CHAR', length:'8'}" label="Release State"></ui-dg-column>
+<ui-dg-column sortable field="SUBJ_TO_R" data-abap.bind="{type:'CHAR', length:'1'}" label="Release Not Yet Completely Effected"></ui-dg-column>
+<ui-dg-column sortable field="TAXR_CNTRY" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T005'}" label="Country for Tax Return"></ui-dg-column>
+<ui-dg-column sortable field="SCHED_IND" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator for scheduling agreement release documentation"></ui-dg-column>
+<ui-dg-column sortable field="VEND_NAME" data-abap.bind="{type:'CHAR', length:'35'}" label="Name 1"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO Currency Code"></ui-dg-column>
+<ui-dg-column sortable field="EXCH_RATE_CM" data-abap.bind="{type:'DEC', length:'8.5'}" label="Indirect Quoted Exchange Rate"></ui-dg-column>
+<ui-dg-column sortable field="HOLD" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchase order not yet complete"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="PO_HEADERS.PO_NUMBER" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchasing Document Number"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.CO_CODE" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
-          label="Company Code"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.DOC_CAT" shlp.bind="{type: 'FV', id: 'EBSTYP'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Purchasing Document Category"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.DOC_TYPE" shlp.bind="{type: 'SH', id: 'H_T161'}" data-abap.bind="{type:'CHAR', mid:'BSA', length:'4'}"
-          label="Purchasing Document Type"></ui-combo>
-
-<ui-checkbox value.bind="PO_HEADERS.CNTRL_IND" label="Control indicator for purchasing document type"></ui-checkbox>
-
-<ui-input value.bind="PO_HEADERS.DELETE_IND" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Deletion indicator in purchasing document"></ui-input>
-
-<ui-combo value.bind="PO_HEADERS.STATUS" shlp.bind="{type: 'FV', id: 'ESTAK'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Status of Purchasing Document"></ui-combo>
-
-<ui-date date.bind="PO_HEADERS.CREATED_ON"  label="Date on Which Record Was Created"></ui-date>
-
-<ui-input value.bind="PO_HEADERS.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of Person who Created the Object"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.ITEM_INTVL" data-abap.bind="{type:'NUMC', length:'5'}"
-          label="Item Number Interval"></ui-input>
-
-<ui-combo value.bind="PO_HEADERS.LAST_ITEM" shlp.bind="{type: 'CH', id: 'EKPO'}" data-abap.bind="{type:'NUMC', length:'5'}"
-          label="Last Item Number"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.VENDOR" shlp.bind="{type: 'SH', id: 'KRED'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
-          label="Vendor's account number"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.LANGUAGE" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
-          label="Language Key"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.PMNTTRMS" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Terms of Payment Key"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.DSCNT1_TO" data-abap.bind="{type:'DEC', length:'3'}"
-          label="Cash discount days 1"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.DSCNT2_TO" data-abap.bind="{type:'DEC', length:'3'}"
-          label="Cash discount days 2"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.DSCNT3_TO" data-abap.bind="{type:'DEC', length:'3'}"
-          label="Cash discount days 3"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.CASH_DISC1" data-abap.bind="{type:'DEC', length:'4.3'}"
-          label="Cash discount percentage 1"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.CASH_DISC2" data-abap.bind="{type:'DEC', length:'4.3'}"
-          label="Cash Discount Percentage 2"></ui-input>
-
-<ui-combo value.bind="PO_HEADERS.PURCH_ORG" shlp.bind="{type: 'SH', id: 'H_T024E'}" data-abap.bind="{type:'CHAR', mid:'EKO', length:'4'}"
-          label="Purchasing organization"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.PUR_GROUP" shlp.bind="{type: 'SH', id: 'H_T024'}" data-abap.bind="{type:'CHAR', mid:'EKG', length:'3'}"
-          label="Purchasing Group"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.EXCH_RATE" data-abap.bind="{type:'DEC', length:'8.5'}"
-          label="Direct Quoted Exchange Rate"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADERS.EX_RATE_FX" label="Indicator: Fixing of Exchange Rate"></ui-checkbox>
-
-<ui-date date.bind="PO_HEADERS.DOC_DATE"  label="Purchasing Document Date"></ui-date>
-
-<ui-date date.bind="PO_HEADERS.VPER_START"  label="Start of Validity Period"></ui-date>
-
-<ui-date date.bind="PO_HEADERS.VPER_END"  label="End of Validity Period"></ui-date>
-
-<ui-date date.bind="PO_HEADERS.APPLIC_BY"  label="Closing Date for Applications"></ui-date>
-
-<ui-date date.bind="PO_HEADERS.QUOT_DEAD"  label="Deadline for Submission of Bid/Quotation"></ui-date>
-
-<ui-date date.bind="PO_HEADERS.BINDG_PER"  label="Binding Period for Quotation"></ui-date>
-
-<ui-date date.bind="PO_HEADERS.WARRANTY"  label="Warranty Date"></ui-date>
-
-<ui-combo value.bind="PO_HEADERS.BIDINV_NO" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Bid invitation number"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.QUOTATION" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Quotation Number"></ui-input>
-
-<ui-date date.bind="PO_HEADERS.QUOT_DATE"  label="Quotation Submission Date"></ui-date>
-
-<ui-input value.bind="PO_HEADERS.REF_1" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Your Reference"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.SALES_PERS" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Responsible Salesperson at Vendor's Office"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.TELEPHONE" data-abap.bind="{type:'CHAR', length:'16'}"
-          label="Vendor's Telephone Number"></ui-input>
-
-<ui-combo value.bind="PO_HEADERS.SUPPL_VEND" shlp.bind="{type: 'SH', id: 'KRED'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LLI', length:'10'}"
-          label="Supplying Vendor"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.CUSTOMER" shlp.bind="{type: 'SH', id: 'DEBI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-          label="Customer Number"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.AGREEMENT" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}"
-          label="Number of principal purchase agreement"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.REJ_REASON" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Reason for rejection of quotations and sales orders"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADERS.COMPL_DLV" label="Complete Delivery Stipulated for Each Purchase Order"></ui-checkbox>
-
-<ui-checkbox value.bind="PO_HEADERS.GR_MESSAGE" label="Indicator: Goods Receipt Message"></ui-checkbox>
-
-<ui-combo value.bind="PO_HEADERS.SUPPL_PLNT" shlp.bind="{type: 'SH', id: 'H_T001W'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Supplying (issuing) plant in case of stock transport order"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.RCVG_VEND" shlp.bind="{type: 'SH', id: 'KRED'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
-          label="Field not used"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.INCOTERMS1" shlp.bind="{type: 'SH', id: 'H_TINC'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Incoterms (Part 1)"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.INCOTERMS2" data-abap.bind="{type:'CHAR', length:'28'}"
-          label="Incoterms (Part 2)"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.TARGET_VAL" data-abap.bind="{type:'DEC', length:'22.4'}"
-          label="Cumulative Planned Value"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.COLL_NO" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Collective Number"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.DOC_COND" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Number of the document condition"></ui-input>
-
-<ui-combo value.bind="PO_HEADERS.PROCEDURE" shlp.bind="{type: 'CT', id: 'T683'}" data-abap.bind="{type:'CHAR', length:'6'}"
-          label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.UPDATE_GRP" shlp.bind="{type: 'SH', id: 'H_TMCB'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MCF', length:'6'}"
-          label="Update group for statistics update"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.DIFF_INV" shlp.bind="{type: 'SH', id: 'KRED'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'LRE', length:'10'}"
-          label="Different Invoicing Party"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.EXPORT_NO" shlp.bind="{type: 'CH', id: 'EIKP'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Number of foreign trade data in MM and SD documents"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.OUR_REF" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Our Reference"></ui-input>
-
-<ui-combo value.bind="PO_HEADERS.LOGSYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-          label="Logical System"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.SUBITEMINT" data-abap.bind="{type:'NUMC', length:'5'}"
-          label="Item Number Interval for Subitems"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADERS.MAST_COND" label="Document with time-dependent conditions"></ui-checkbox>
-
-<ui-combo value.bind="PO_HEADERS.REL_GROUP" shlp.bind="{type: 'CT', id: 'T16FG'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release group"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.REL_STRAT" shlp.bind="{type: 'CT', id: 'T16FS'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release Strategy"></ui-combo>
-
-<ui-combo value.bind="PO_HEADERS.REL_IND" shlp.bind="{type: 'CT', id: 'T16FB'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Release Indicator: Purchasing Document"></ui-combo>
-
-<ui-input value.bind="PO_HEADERS.REL_STATUS" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Release State"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADERS.SUBJ_TO_R" label="Release Not Yet Completely Effected"></ui-checkbox>
-
-<ui-combo value.bind="PO_HEADERS.TAXR_CNTRY" shlp.bind="{type: 'CT', id: 'T005'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Country for Tax Return"></ui-combo>
-
-<ui-checkbox value.bind="PO_HEADERS.SCHED_IND" label="Indicator for scheduling agreement release documentation"></ui-checkbox>
-
-<ui-input value.bind="PO_HEADERS.VEND_NAME" data-abap.bind="{type:'CHAR', length:'35'}"
-          label="Name 1"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO Currency Code"></ui-input>
-
-<ui-input value.bind="PO_HEADERS.EXCH_RATE_CM" data-abap.bind="{type:'DEC', length:'8.5'}"
-          label="Indirect Quoted Exchange Rate"></ui-input>
-
-<ui-checkbox value.bind="PO_HEADERS.HOLD" label="Purchase order not yet complete"></ui-checkbox>
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+    <fd-select v-model="PO_HEADERS.PO_NUMBER"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Company Code</fd-form-label>
+    <fd-select v-model="PO_HEADERS.CO_CODE"
+        options="{type: 'SH', id: 'C_T001'}"
+        data-abap="{type:'CHAR', mid:'BUK', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Category</fd-form-label>
+    <fd-select v-model="PO_HEADERS.DOC_CAT"
+        options="{type: 'FV', id: 'EBSTYP'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Type</fd-form-label>
+    <fd-select v-model="PO_HEADERS.DOC_TYPE"
+        options="{type: 'SH', id: 'H_T161'}"
+        data-abap="{type:'CHAR', mid:'BSA', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item-checkbox label="Control indicator for purchasing document type">
+    <fd-checkbox v-model="PO_HEADERS.CNTRL_IND">
+</fd-form-item-checkbox>
+
+<fd-form-item>
+    <fd-form-label>Deletion indicator in purchasing document</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DELETE_IND"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Status of Purchasing Document</fd-form-label>
+    <fd-select v-model="PO_HEADERS.STATUS"
+        options="{type: 'FV', id: 'ESTAK'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.CREATED_ON"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Item Number Interval</fd-form-label>
+        <fd-input v-model="PO_HEADERS.ITEM_INTVL"
+            data-abap="{type:'NUMC', length:'5'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Last Item Number</fd-form-label>
+    <fd-select v-model="PO_HEADERS.LAST_ITEM"
+        options="{type: 'CH', id: 'EKPO'}"
+        data-abap="{type:'NUMC', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Vendor's account number</fd-form-label>
+    <fd-select v-model="PO_HEADERS.VENDOR"
+        options="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Language Key</fd-form-label>
+    <fd-select v-model="PO_HEADERS.LANGUAGE"
+        options="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Terms of Payment Key</fd-form-label>
+        <fd-input v-model="PO_HEADERS.PMNTTRMS"
+            data-abap="{type:'CHAR', length:'4'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 1</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DSCNT1_TO"
+            data-abap="{type:'DEC', length:'3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 2</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DSCNT2_TO"
+            data-abap="{type:'DEC', length:'3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Cash discount days 3</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DSCNT3_TO"
+            data-abap="{type:'DEC', length:'3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Cash discount percentage 1</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CASH_DISC1"
+            data-abap="{type:'DEC', length:'4.3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Cash Discount Percentage 2</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CASH_DISC2"
+            data-abap="{type:'DEC', length:'4.3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Purchasing organization</fd-form-label>
+    <fd-select v-model="PO_HEADERS.PURCH_ORG"
+        options="{type: 'SH', id: 'H_T024E'}"
+        data-abap="{type:'CHAR', mid:'EKO', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Purchasing Group</fd-form-label>
+    <fd-select v-model="PO_HEADERS.PUR_GROUP"
+        options="{type: 'SH', id: 'H_T024'}"
+        data-abap="{type:'CHAR', mid:'EKG', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="PO_HEADERS.CURRENCY"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Direct Quoted Exchange Rate</fd-form-label>
+        <fd-input v-model="PO_HEADERS.EXCH_RATE"
+            data-abap="{type:'DEC', length:'8.5'}"
+        />
+</fd-form-item>
+
+<fd-form-item-checkbox label="Indicator: Fixing of Exchange Rate">
+    <fd-checkbox v-model="PO_HEADERS.EX_RATE_FX">
+</fd-form-item-checkbox>
+
+<fd-form-item>
+    <fd-form-label>Purchasing Document Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.DOC_DATE"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Start of Validity Period</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.VPER_START"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>End of Validity Period</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.VPER_END"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Closing Date for Applications</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.APPLIC_BY"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Deadline for Submission of Bid/Quotation</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.QUOT_DEAD"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Binding Period for Quotation</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.BINDG_PER"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Warranty Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.WARRANTY"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Bid invitation number</fd-form-label>
+    <fd-select v-model="PO_HEADERS.BIDINV_NO"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Quotation Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.QUOTATION"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Quotation Submission Date</fd-form-label>
+    <fd-date-picker v-model="PO_HEADERS.QUOT_DATE"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Your Reference</fd-form-label>
+        <fd-input v-model="PO_HEADERS.REF_1"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Responsible Salesperson at Vendor's Office</fd-form-label>
+        <fd-input v-model="PO_HEADERS.SALES_PERS"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Vendor's Telephone Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.TELEPHONE"
+            data-abap="{type:'CHAR', length:'16'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Supplying Vendor</fd-form-label>
+    <fd-select v-model="PO_HEADERS.SUPPL_VEND"
+        options="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LLI', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+    <fd-select v-model="PO_HEADERS.CUSTOMER"
+        options="{type: 'SH', id: 'DEBI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Number of principal purchase agreement</fd-form-label>
+    <fd-select v-model="PO_HEADERS.AGREEMENT"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Reason for rejection of quotations and sales orders</fd-form-label>
+        <fd-input v-model="PO_HEADERS.REJ_REASON"
+            data-abap="{type:'CHAR', length:'2'}"
+        />
+</fd-form-item>
+
+<fd-form-item-checkbox label="Complete Delivery Stipulated for Each Purchase Order">
+    <fd-checkbox v-model="PO_HEADERS.COMPL_DLV">
+</fd-form-item-checkbox>
+
+<fd-form-item-checkbox label="Indicator: Goods Receipt Message">
+    <fd-checkbox v-model="PO_HEADERS.GR_MESSAGE">
+</fd-form-item-checkbox>
+
+<fd-form-item>
+    <fd-form-label>Supplying (issuing) plant in case of stock transport order</fd-form-label>
+    <fd-select v-model="PO_HEADERS.SUPPL_PLNT"
+        options="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Field not used</fd-form-label>
+    <fd-select v-model="PO_HEADERS.RCVG_VEND"
+        options="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Incoterms (Part 1)</fd-form-label>
+    <fd-select v-model="PO_HEADERS.INCOTERMS1"
+        options="{type: 'SH', id: 'H_TINC'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Incoterms (Part 2)</fd-form-label>
+        <fd-input v-model="PO_HEADERS.INCOTERMS2"
+            data-abap="{type:'CHAR', length:'28'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Cumulative Planned Value</fd-form-label>
+        <fd-input v-model="PO_HEADERS.TARGET_VAL"
+            data-abap="{type:'DEC', length:'22.4'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Collective Number</fd-form-label>
+        <fd-input v-model="PO_HEADERS.COLL_NO"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Number of the document condition</fd-form-label>
+        <fd-input v-model="PO_HEADERS.DOC_COND"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Procedure (Pricing, Output Control, Acct. Det., Costing,...)</fd-form-label>
+    <fd-select v-model="PO_HEADERS.PROCEDURE"
+        options="{type: 'CT', id: 'T683'}"
+        data-abap="{type:'CHAR', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Update group for statistics update</fd-form-label>
+    <fd-select v-model="PO_HEADERS.UPDATE_GRP"
+        options="{type: 'SH', id: 'H_TMCB'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MCF', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Different Invoicing Party</fd-form-label>
+    <fd-select v-model="PO_HEADERS.DIFF_INV"
+        options="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LRE', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Number of foreign trade data in MM and SD documents</fd-form-label>
+    <fd-select v-model="PO_HEADERS.EXPORT_NO"
+        options="{type: 'CH', id: 'EIKP'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Our Reference</fd-form-label>
+        <fd-input v-model="PO_HEADERS.OUR_REF"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Logical System</fd-form-label>
+    <fd-select v-model="PO_HEADERS.LOGSYSTEM"
+        options="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Item Number Interval for Subitems</fd-form-label>
+        <fd-input v-model="PO_HEADERS.SUBITEMINT"
+            data-abap="{type:'NUMC', length:'5'}"
+        />
+</fd-form-item>
+
+<fd-form-item-checkbox label="Document with time-dependent conditions">
+    <fd-checkbox v-model="PO_HEADERS.MAST_COND">
+</fd-form-item-checkbox>
+
+<fd-form-item>
+    <fd-form-label>Release group</fd-form-label>
+    <fd-select v-model="PO_HEADERS.REL_GROUP"
+        options="{type: 'CT', id: 'T16FG'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Release Strategy</fd-form-label>
+    <fd-select v-model="PO_HEADERS.REL_STRAT"
+        options="{type: 'CT', id: 'T16FS'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Release Indicator: Purchasing Document</fd-form-label>
+    <fd-select v-model="PO_HEADERS.REL_IND"
+        options="{type: 'CT', id: 'T16FB'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Release State</fd-form-label>
+        <fd-input v-model="PO_HEADERS.REL_STATUS"
+            data-abap="{type:'CHAR', length:'8'}"
+        />
+</fd-form-item>
+
+<fd-form-item-checkbox label="Release Not Yet Completely Effected">
+    <fd-checkbox v-model="PO_HEADERS.SUBJ_TO_R">
+</fd-form-item-checkbox>
+
+<fd-form-item>
+    <fd-form-label>Country for Tax Return</fd-form-label>
+    <fd-select v-model="PO_HEADERS.TAXR_CNTRY"
+        options="{type: 'CT', id: 'T005'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item-checkbox label="Indicator for scheduling agreement release documentation">
+    <fd-checkbox v-model="PO_HEADERS.SCHED_IND">
+</fd-form-item-checkbox>
+
+<fd-form-item>
+    <fd-form-label>Name 1</fd-form-label>
+        <fd-input v-model="PO_HEADERS.VEND_NAME"
+            data-abap="{type:'CHAR', length:'35'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>ISO Currency Code</fd-form-label>
+        <fd-input v-model="PO_HEADERS.CURRENCY_ISO"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Indirect Quoted Exchange Rate</fd-form-label>
+        <fd-input v-model="PO_HEADERS.EXCH_RATE_CM"
+            data-abap="{type:'DEC', length:'8.5'}"
+        />
+</fd-form-item>
+
+<fd-form-item-checkbox label="Purchase order not yet complete">
+    <fd-checkbox v-model="PO_HEADERS.HOLD">
+</fd-form-item-checkbox>
 
 <!-- Parameter: PO_ITEMS structure: BAPIEKPOC  Purchase Order Items -->
 
 <ui-datagrid data.bind="PO_ITEMS" title="Purchase Order Items"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of requisitioner/requester"></ui-dg-column>
+<ui-dg-column sortable field="PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of requisitioner/requester"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="PO_ITEMS.PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of requisitioner/requester"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of requisitioner/requester</fd-form-label>
+        <fd-input v-model="PO_ITEMS.PREQ_NAME"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: RETURN structure: BAPIRETURN  Return Messages -->
 
 <ui-datagrid data.bind="RETURN" title="Return Messages"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
-   <ui-dg-column sortable field="CODE" data-abap.bind="{type:'CHAR', length:'5'}" label="Message code"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+<ui-dg-column sortable field="CODE" data-abap.bind="{type:'CHAR', length:'5'}" label="Message code"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+<ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+<ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="RETURN.TYPE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.CODE" data-abap.bind="{type:'CHAR', length:'5'}"
-          label="Message code"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message code</fd-form-label>
+        <fd-input v-model="RETURN.CODE"
+            data-abap="{type:'CHAR', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
-          label="Message Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE"
+            data-abap="{type:'CHAR', length:'220'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Application log: log number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_NO"
+        options="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Application log: Internal message serial number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_MSG_NO"
+        options="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V1"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V2"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V3"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V4"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>

@@ -4,8 +4,14 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-combo value.bind="PURCHASEORDER" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchasing Document Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+    <fd-select v-model="PURCHASEORDER"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- TABLE PARAMETERS -->
 
@@ -14,513 +20,1009 @@ abap api -->
 <ui-datagrid data.bind="POITEMHISTORY" title="Transfer Structure for PO History"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="PO_ITEM" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item Number of Purchasing Document"></ui-dg-column>
-   <ui-dg-column sortable field="SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}" label="Sequential Number of Account Assignment"></ui-dg-column>
-   <ui-dg-column sortable field="PROCESS_ID" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'VGABE'}" label="Transaction/event type, purchase order history"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}" label="Material Document Year"></ui-dg-column>
-   <ui-dg-column sortable field="MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}" label="Number of Material Document"></ui-dg-column>
-   <ui-dg-column sortable field="MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}" label="Item in Material Document"></ui-dg-column>
-   <ui-dg-column sortable field="HIST_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T163B'}" label="Purchase Order History Category"></ui-dg-column>
-   <ui-dg-column sortable field="MOVE_TYPE" data-abap.bind="{type:'CHAR', mid:'BWA', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T156'}" label="Movement type (inventory management)"></ui-dg-column>
-   <ui-dg-column sortable field="PSTNG_DATE" data-abap.bind="{type:'DATS'}" label="Posting Date in the Document"></ui-dg-column>
-   <ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'QUAN', unit:'UNIT', length:'10.3'}" label="Quantity"></ui-dg-column>
-   <ui-dg-column sortable field="VAL_LOCCUR" data-abap.bind="{type:'DEC', length:'22.4'}" label="Amount in local currency"></ui-dg-column>
-   <ui-dg-column sortable field="VAL_FORCUR" data-abap.bind="{type:'DEC', length:'22.4'}" label="Amount in document currency"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
-   <ui-dg-column sortable field="CL_VAL_LOC" data-abap.bind="{type:'DEC', length:'22.4'}" label="GR/IR account clearing value in local currency"></ui-dg-column>
-   <ui-dg-column sortable field="BLOCKED_QY" data-abap.bind="{type:'QUAN', unit:'UNIT', length:'10.3'}" label="Goods Receipt Blocked Stock in Order Unit"></ui-dg-column>
-   <ui-dg-column sortable field="BL_QTY" data-abap.bind="{type:'QUAN', unit:'ORDERPR_UN', length:'10.3'}" label="Quantity in GR blocked stock in order price unit"></ui-dg-column>
-   <ui-dg-column sortable field="DB_CR_IND" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'SHKZG'}" label="Debit/Credit Indicator"></ui-dg-column>
-   <ui-dg-column sortable field="VAL_TYPE" data-abap.bind="{type:'CHAR', mid:'BWT', length:'10'}" shlp.bind="{type: 'SH', id: 'H_T149D'}" label="Valuation type"></ui-dg-column>
-   <ui-dg-column sortable field="NO_MORE_GR" data-abap.bind="{type:'CHAR', length:'1'}" label=""Delivery Completed" Indicator"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC_NO" data-abap.bind="{type:'CHAR', length:'16'}" label="Reference Document Number"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC_YR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', length:'4'}" label="Fiscal Year of a Reference Document"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" label="Document No. of a Reference Document"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC_IT" data-abap.bind="{type:'NUMC', length:'4'}" label="Item of a Reference Document"></ui-dg-column>
-   <ui-dg-column sortable field="MOVE_REAS" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T157D'}" label="Reason for Movement"></ui-dg-column>
-   <ui-dg-column sortable field="ENTRY_DATE" data-abap.bind="{type:'DATS'}" label="Day On Which Accounting Document Was Entered"></ui-dg-column>
-   <ui-dg-column sortable field="ENTRY_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Entry"></ui-dg-column>
-   <ui-dg-column sortable field="IVVAL_LOC" data-abap.bind="{type:'DEC', length:'22.4'}" label="Entered invoice value in local currency"></ui-dg-column>
-   <ui-dg-column sortable field="IVVAL_FOR" data-abap.bind="{type:'DEC', length:'22.4'}" label="Entered invoice value in foreign currency"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Material Number"></ui-dg-column>
-   <ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T001W'}" label="Plant"></ui-dg-column>
-   <ui-dg-column sortable field="CONF_SER" data-abap.bind="{type:'NUMC', length:'4'}" label="Sequential Number of Vendor Confirmation"></ui-dg-column>
-   <ui-dg-column sortable field="CONDITION" data-abap.bind="{type:'CHAR', length:'10'}" label="Number of the document condition"></ui-dg-column>
-   <ui-dg-column sortable field="TAX_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T007A'}" label="Tax on sales/purchases code"></ui-dg-column>
-   <ui-dg-column sortable field="DELIV_QTY" data-abap.bind="{type:'QUAN', unit:'DELIV_UNIT', length:'10.3'}" label="Quantity in Unit of Measure from Delivery Note"></ui-dg-column>
-   <ui-dg-column sortable field="DELIV_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit of Measure From Delivery Note"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Material number"></ui-dg-column>
-   <ui-dg-column sortable field="LOC_CURR" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Local currency key"></ui-dg-column>
-   <ui-dg-column sortable field="BATCH" data-abap.bind="{type:'CHAR', mid:'CHA', length:'10'}" shlp.bind="{type: 'CT', id: 'MCH1'}" label="Batch Number"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_DATE" data-abap.bind="{type:'DATS'}" label="Document Date in Document"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO Currency Code"></ui-dg-column>
-   <ui-dg-column sortable field="LOC_CURR_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO code for local currency"></ui-dg-column>
-   <ui-dg-column sortable field="DELIV_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006I'}" label="ISO code for unit of measure of delivery note"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for MATERIAL Field"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for MATERIAL Field"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for MATERIAL Field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for PUR_MAT Field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for PUR_MAT Field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for PUR_MAT Field"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC_NO_LONG" data-abap.bind="{type:'CHAR', length:'35'}" label="Reference Document Number (for Dependencies see Long Text)"></ui-dg-column>
-   <ui-dg-column sortable field="STK_SEGMENT" data-abap.bind="{type:'CHAR', mid:'SGT_S', length:'16'}" shlp.bind="{type: 'SH', id: 'SGT_CAT_FIELD_POPUP'}" label="Stock Segment"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Number (40 Characters, needed f. technical reasons)"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_LONG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Number (40 Characters, Technical Requirement)"></ui-dg-column>
+<ui-dg-column sortable field="PO_ITEM" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item Number of Purchasing Document"></ui-dg-column>
+<ui-dg-column sortable field="SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}" label="Sequential Number of Account Assignment"></ui-dg-column>
+<ui-dg-column sortable field="PROCESS_ID" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'VGABE'}" label="Transaction/event type, purchase order history"></ui-dg-column>
+<ui-dg-column sortable field="DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}" label="Material Document Year"></ui-dg-column>
+<ui-dg-column sortable field="MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}" label="Number of Material Document"></ui-dg-column>
+<ui-dg-column sortable field="MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}" label="Item in Material Document"></ui-dg-column>
+<ui-dg-column sortable field="HIST_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T163B'}" label="Purchase Order History Category"></ui-dg-column>
+<ui-dg-column sortable field="MOVE_TYPE" data-abap.bind="{type:'CHAR', mid:'BWA', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T156'}" label="Movement type (inventory management)"></ui-dg-column>
+<ui-dg-column sortable field="PSTNG_DATE" data-abap.bind="{type:'DATS'}" label="Posting Date in the Document"></ui-dg-column>
+<ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'QUAN', unit:'UNIT', length:'10.3'}" label="Quantity"></ui-dg-column>
+<ui-dg-column sortable field="VAL_LOCCUR" data-abap.bind="{type:'DEC', length:'22.4'}" label="Amount in local currency"></ui-dg-column>
+<ui-dg-column sortable field="VAL_FORCUR" data-abap.bind="{type:'DEC', length:'22.4'}" label="Amount in document currency"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
+<ui-dg-column sortable field="CL_VAL_LOC" data-abap.bind="{type:'DEC', length:'22.4'}" label="GR/IR account clearing value in local currency"></ui-dg-column>
+<ui-dg-column sortable field="BLOCKED_QY" data-abap.bind="{type:'QUAN', unit:'UNIT', length:'10.3'}" label="Goods Receipt Blocked Stock in Order Unit"></ui-dg-column>
+<ui-dg-column sortable field="BL_QTY" data-abap.bind="{type:'QUAN', unit:'ORDERPR_UN', length:'10.3'}" label="Quantity in GR blocked stock in order price unit"></ui-dg-column>
+<ui-dg-column sortable field="DB_CR_IND" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'SHKZG'}" label="Debit/Credit Indicator"></ui-dg-column>
+<ui-dg-column sortable field="VAL_TYPE" data-abap.bind="{type:'CHAR', mid:'BWT', length:'10'}" shlp.bind="{type: 'SH', id: 'H_T149D'}" label="Valuation type"></ui-dg-column>
+<ui-dg-column sortable field="NO_MORE_GR" data-abap.bind="{type:'CHAR', length:'1'}" label=""Delivery Completed" Indicator"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC_NO" data-abap.bind="{type:'CHAR', length:'16'}" label="Reference Document Number"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC_YR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', length:'4'}" label="Fiscal Year of a Reference Document"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" label="Document No. of a Reference Document"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC_IT" data-abap.bind="{type:'NUMC', length:'4'}" label="Item of a Reference Document"></ui-dg-column>
+<ui-dg-column sortable field="MOVE_REAS" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T157D'}" label="Reason for Movement"></ui-dg-column>
+<ui-dg-column sortable field="ENTRY_DATE" data-abap.bind="{type:'DATS'}" label="Day On Which Accounting Document Was Entered"></ui-dg-column>
+<ui-dg-column sortable field="ENTRY_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Entry"></ui-dg-column>
+<ui-dg-column sortable field="IVVAL_LOC" data-abap.bind="{type:'DEC', length:'22.4'}" label="Entered invoice value in local currency"></ui-dg-column>
+<ui-dg-column sortable field="IVVAL_FOR" data-abap.bind="{type:'DEC', length:'22.4'}" label="Entered invoice value in foreign currency"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Material Number"></ui-dg-column>
+<ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}" shlp.bind="{type: 'SH', id: 'H_T001W'}" label="Plant"></ui-dg-column>
+<ui-dg-column sortable field="CONF_SER" data-abap.bind="{type:'NUMC', length:'4'}" label="Sequential Number of Vendor Confirmation"></ui-dg-column>
+<ui-dg-column sortable field="CONDITION" data-abap.bind="{type:'CHAR', length:'10'}" label="Number of the document condition"></ui-dg-column>
+<ui-dg-column sortable field="TAX_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T007A'}" label="Tax on sales/purchases code"></ui-dg-column>
+<ui-dg-column sortable field="DELIV_QTY" data-abap.bind="{type:'QUAN', unit:'DELIV_UNIT', length:'10.3'}" label="Quantity in Unit of Measure from Delivery Note"></ui-dg-column>
+<ui-dg-column sortable field="DELIV_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit of Measure From Delivery Note"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Material number"></ui-dg-column>
+<ui-dg-column sortable field="LOC_CURR" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Local currency key"></ui-dg-column>
+<ui-dg-column sortable field="BATCH" data-abap.bind="{type:'CHAR', mid:'CHA', length:'10'}" shlp.bind="{type: 'CT', id: 'MCH1'}" label="Batch Number"></ui-dg-column>
+<ui-dg-column sortable field="DOC_DATE" data-abap.bind="{type:'DATS'}" label="Document Date in Document"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO Currency Code"></ui-dg-column>
+<ui-dg-column sortable field="LOC_CURR_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO code for local currency"></ui-dg-column>
+<ui-dg-column sortable field="DELIV_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006I'}" label="ISO code for unit of measure of delivery note"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for MATERIAL Field"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for MATERIAL Field"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for MATERIAL Field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for PUR_MAT Field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for PUR_MAT Field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for PUR_MAT Field"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC_NO_LONG" data-abap.bind="{type:'CHAR', length:'35'}" label="Reference Document Number (for Dependencies see Long Text)"></ui-dg-column>
+<ui-dg-column sortable field="STK_SEGMENT" data-abap.bind="{type:'CHAR', mid:'SGT_S', length:'16'}" shlp.bind="{type: 'SH', id: 'SGT_CAT_FIELD_POPUP'}" label="Stock Segment"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Number (40 Characters, needed f. technical reasons)"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_LONG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Number (40 Characters, Technical Requirement)"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="POITEMHISTORY.PO_ITEM" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}"
-          label="Item Number of Purchasing Document"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Item Number of Purchasing Document</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.PO_ITEM"
+        options="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', mid:'BSP', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}"
-          label="Sequential Number of Account Assignment"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sequential Number of Account Assignment</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.SERIAL_NO"
+            data-abap="{type:'NUMC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.PROCESS_ID" shlp.bind="{type: 'FV', id: 'VGABE'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Transaction/event type, purchase order history"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Transaction/event type, purchase order history</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.PROCESS_ID"
+        options="{type: 'FV', id: 'VGABE'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
-          label="Material Document Year"></ui-input>
+<fd-form-item>
+    <fd-form-label>Material Document Year</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.DOC_YEAR"
+            data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
-          label="Number of Material Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of Material Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.MAT_DOC"
+            data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}"
-          label="Item in Material Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Item in Material Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.MATDOC_ITM"
+            data-abap="{type:'NUMC', mid:'POS', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.HIST_TYPE" shlp.bind="{type: 'SH', id: 'H_T163B'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Purchase Order History Category"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchase Order History Category</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.HIST_TYPE"
+        options="{type: 'SH', id: 'H_T163B'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.MOVE_TYPE" shlp.bind="{type: 'SH', id: 'H_T156'}" data-abap.bind="{type:'CHAR', mid:'BWA', length:'3'}"
-          label="Movement type (inventory management)"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Movement type (inventory management)</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.MOVE_TYPE"
+        options="{type: 'SH', id: 'H_T156'}"
+        data-abap="{type:'CHAR', mid:'BWA', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="POITEMHISTORY.PSTNG_DATE"  label="Posting Date in the Document"></ui-date>
+<fd-form-item>
+    <fd-form-label>Posting Date in the Document</fd-form-label>
+    <fd-date-picker v-model="POITEMHISTORY.PSTNG_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.QUANTITY" data-abap.bind="{type:'QUAN', unit:'UNIT', length:'10.3'}"
-          label="Quantity"></ui-input>
+<fd-form-item>
+    <fd-form-label>Quantity</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.QUANTITY"
+            data-abap="{type:'QUAN', unit:'UNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.VAL_LOCCUR" data-abap.bind="{type:'DEC', length:'22.4'}"
-          label="Amount in local currency"></ui-input>
+<fd-form-item>
+    <fd-form-label>Amount in local currency</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.VAL_LOCCUR"
+            data-abap="{type:'DEC', length:'22.4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.VAL_FORCUR" data-abap.bind="{type:'DEC', length:'22.4'}"
-          label="Amount in document currency"></ui-input>
+<fd-form-item>
+    <fd-form-label>Amount in document currency</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.VAL_FORCUR"
+            data-abap="{type:'DEC', length:'22.4'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.CURRENCY"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.CL_VAL_LOC" data-abap.bind="{type:'DEC', length:'22.4'}"
-          label="GR/IR account clearing value in local currency"></ui-input>
+<fd-form-item>
+    <fd-form-label>GR/IR account clearing value in local currency</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.CL_VAL_LOC"
+            data-abap="{type:'DEC', length:'22.4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.BLOCKED_QY" data-abap.bind="{type:'QUAN', unit:'UNIT', length:'10.3'}"
-          label="Goods Receipt Blocked Stock in Order Unit"></ui-input>
+<fd-form-item>
+    <fd-form-label>Goods Receipt Blocked Stock in Order Unit</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.BLOCKED_QY"
+            data-abap="{type:'QUAN', unit:'UNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.BL_QTY" data-abap.bind="{type:'QUAN', unit:'ORDERPR_UN', length:'10.3'}"
-          label="Quantity in GR blocked stock in order price unit"></ui-input>
+<fd-form-item>
+    <fd-form-label>Quantity in GR blocked stock in order price unit</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.BL_QTY"
+            data-abap="{type:'QUAN', unit:'ORDERPR_UN', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-checkbox value.bind="POITEMHISTORY.DB_CR_IND" label="Debit/Credit Indicator"></ui-checkbox>
+<fd-form-item-checkbox label="Debit/Credit Indicator">
+    <fd-checkbox v-model="POITEMHISTORY.DB_CR_IND">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="POITEMHISTORY.VAL_TYPE" shlp.bind="{type: 'SH', id: 'H_T149D'}" data-abap.bind="{type:'CHAR', mid:'BWT', length:'10'}"
-          label="Valuation type"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Valuation type</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.VAL_TYPE"
+        options="{type: 'SH', id: 'H_T149D'}"
+        data-abap="{type:'CHAR', mid:'BWT', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="POITEMHISTORY.NO_MORE_GR" label=""Delivery Completed" Indicator"></ui-checkbox>
+<fd-form-item-checkbox label=""Delivery Completed" Indicator">
+    <fd-checkbox v-model="POITEMHISTORY.NO_MORE_GR">
+</fd-form-item-checkbox>
 
-<ui-input value.bind="POITEMHISTORY.REF_DOC_NO" data-abap.bind="{type:'CHAR', length:'16'}"
-          label="Reference Document Number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Reference Document Number</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.REF_DOC_NO"
+            data-abap="{type:'CHAR', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.REF_DOC_YR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', length:'4'}"
-          label="Fiscal Year of a Reference Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Fiscal Year of a Reference Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.REF_DOC_YR"
+            data-abap="{type:'NUMC', alpha:'GJAHR', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.REF_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-          label="Document No. of a Reference Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Document No. of a Reference Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.REF_DOC"
+            data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.REF_DOC_IT" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Item of a Reference Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Item of a Reference Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.REF_DOC_IT"
+            data-abap="{type:'NUMC', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.MOVE_REAS" shlp.bind="{type: 'SH', id: 'H_T157D'}" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Reason for Movement"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Reason for Movement</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.MOVE_REAS"
+        options="{type: 'SH', id: 'H_T157D'}"
+        data-abap="{type:'NUMC', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="POITEMHISTORY.ENTRY_DATE"  label="Day On Which Accounting Document Was Entered"></ui-date>
+<fd-form-item>
+    <fd-form-label>Day On Which Accounting Document Was Entered</fd-form-label>
+    <fd-date-picker v-model="POITEMHISTORY.ENTRY_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="POITEMHISTORY.ENTRY_TIME"  label="Time of Entry"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time of Entry</fd-form-label>
+    <fd-time-picker v-model="POITEMHISTORY.ENTRY_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.IVVAL_LOC" data-abap.bind="{type:'DEC', length:'22.4'}"
-          label="Entered invoice value in local currency"></ui-input>
+<fd-form-item>
+    <fd-form-label>Entered invoice value in local currency</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.IVVAL_LOC"
+            data-abap="{type:'DEC', length:'22.4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.IVVAL_FOR" data-abap.bind="{type:'DEC', length:'22.4'}"
-          label="Entered invoice value in foreign currency"></ui-input>
+<fd-form-item>
+    <fd-form-label>Entered invoice value in foreign currency</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.IVVAL_FOR"
+            data-abap="{type:'DEC', length:'22.4'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.MATERIAL" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.MATERIAL"
+        options="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.PLANT" shlp.bind="{type: 'SH', id: 'H_T001W'}" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
-          label="Plant"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Plant</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.PLANT"
+        options="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', mid:'WRK', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.CONF_SER" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Sequential Number of Vendor Confirmation"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sequential Number of Vendor Confirmation</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.CONF_SER"
+            data-abap="{type:'NUMC', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.CONDITION" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Number of the document condition"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of the document condition</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.CONDITION"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.TAX_CODE" shlp.bind="{type: 'CT', id: 'T007A'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Tax on sales/purchases code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Tax on sales/purchases code</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.TAX_CODE"
+        options="{type: 'CT', id: 'T007A'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.DELIV_QTY" data-abap.bind="{type:'QUAN', unit:'DELIV_UNIT', length:'10.3'}"
-          label="Quantity in Unit of Measure from Delivery Note"></ui-input>
+<fd-form-item>
+    <fd-form-label>Quantity in Unit of Measure from Delivery Note</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.DELIV_QTY"
+            data-abap="{type:'QUAN', unit:'DELIV_UNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.DELIV_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measure From Delivery Note"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measure From Delivery Note</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.DELIV_UNIT"
+        options="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.PUR_MAT" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material number</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.PUR_MAT"
+        options="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.LOC_CURR" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', length:'5'}"
-          label="Local currency key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Local currency key</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.LOC_CURR"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.BATCH" shlp.bind="{type: 'CT', id: 'MCH1'}" data-abap.bind="{type:'CHAR', mid:'CHA', length:'10'}"
-          label="Batch Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Batch Number</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.BATCH"
+        options="{type: 'CT', id: 'MCH1'}"
+        data-abap="{type:'CHAR', mid:'CHA', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="POITEMHISTORY.DOC_DATE"  label="Document Date in Document"></ui-date>
+<fd-form-item>
+    <fd-form-label>Document Date in Document</fd-form-label>
+    <fd-date-picker v-model="POITEMHISTORY.DOC_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO Currency Code"></ui-input>
+<fd-form-item>
+    <fd-form-label>ISO Currency Code</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.CURRENCY_ISO"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.LOC_CURR_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO code for local currency"></ui-input>
+<fd-form-item>
+    <fd-form-label>ISO code for local currency</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.LOC_CURR_ISO"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.DELIV_UNIT_ISO" shlp.bind="{type: 'SH', id: 'H_T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO code for unit of measure of delivery note"></ui-combo>
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measure of delivery note</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.DELIV_UNIT_ISO"
+        options="{type: 'SH', id: 'H_T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
-          label="Long Material Number for MATERIAL Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.MATERIAL_EXTERNAL"
+            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="External GUID for MATERIAL Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.MATERIAL_GUID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.MATERIAL_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
-          label="Version Number for MATERIAL Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.MATERIAL_VERSION"
+            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.PUR_MAT_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
-          label="Long Material Number for PUR_MAT Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Long Material Number for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.PUR_MAT_EXTERNAL"
+            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.PUR_MAT_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="External GUID for PUR_MAT Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>External GUID for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.PUR_MAT_GUID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.PUR_MAT_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
-          label="Version Number for PUR_MAT Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Version Number for PUR_MAT Field</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.PUR_MAT_VERSION"
+            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.REF_DOC_NO_LONG" data-abap.bind="{type:'CHAR', length:'35'}"
-          label="Reference Document Number (for Dependencies see Long Text)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Reference Document Number (for Dependencies see Long Text)</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.REF_DOC_NO_LONG"
+            data-abap="{type:'CHAR', length:'35'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORY.STK_SEGMENT" shlp.bind="{type: 'SH', id: 'SGT_CAT_FIELD_POPUP'}" data-abap.bind="{type:'CHAR', mid:'SGT_S', length:'16'}"
-          label="Stock Segment"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Stock Segment</fd-form-label>
+    <fd-select v-model="POITEMHISTORY.STK_SEGMENT"
+        options="{type: 'SH', id: 'SGT_CAT_FIELD_POPUP'}"
+        data-abap="{type:'CHAR', mid:'SGT_S', length:'16'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Material Number (40 Characters, needed f. technical reasons)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.MATERIAL_LONG"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORY.PUR_MAT_LONG" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Material Number (40 Characters, Technical Requirement)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Material Number (40 Characters, Technical Requirement)</fd-form-label>
+        <fd-input v-model="POITEMHISTORY.PUR_MAT_LONG"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: POITEMHISTORYADDON structure: BAPIEKBEADDON  Additional Data of Transfer Structure for PO History -->
 
 <ui-datagrid data.bind="POITEMHISTORYADDON" title="Additional Data of Transfer Structure for PO History"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="PO_ITEM" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item Number of Purchasing Document"></ui-dg-column>
-   <ui-dg-column sortable field="SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}" label="Sequential Number of Account Assignment"></ui-dg-column>
-   <ui-dg-column sortable field="PROCESS_ID" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'VGABE'}" label="Transaction/event type, purchase order history"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}" label="Material Document Year"></ui-dg-column>
-   <ui-dg-column sortable field="MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}" label="Number of Material Document"></ui-dg-column>
-   <ui-dg-column sortable field="MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}" label="Item in Material Document"></ui-dg-column>
-   <ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'QUAN', unit:'PO_UNIT', length:'10.3'}" label="Purchase Order Quantity"></ui-dg-column>
-   <ui-dg-column sortable field="PO_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Order unit"></ui-dg-column>
-   <ui-dg-column sortable field="PO_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Order unit in ISO code"></ui-dg-column>
-   <ui-dg-column sortable field="DLV_QTY_STOCK" data-abap.bind="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}" label="Actual quantity delivered in stockkeeping units"></ui-dg-column>
-   <ui-dg-column sortable field="BASE_UOM" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Base Unit of Measure"></ui-dg-column>
-   <ui-dg-column sortable field="BASE_UOM_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Base unit of measure in ISO code"></ui-dg-column>
-   <ui-dg-column sortable field="DLV_QTY" data-abap.bind="{type:'QUAN', unit:'SALES_UNIT', length:'10.3'}" label="Actual quantity delivered (in sales units)"></ui-dg-column>
-   <ui-dg-column sortable field="SALES_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Sales unit"></ui-dg-column>
-   <ui-dg-column sortable field="SALES_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Sales unit in ISO code"></ui-dg-column>
+<ui-dg-column sortable field="PO_ITEM" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item Number of Purchasing Document"></ui-dg-column>
+<ui-dg-column sortable field="SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}" label="Sequential Number of Account Assignment"></ui-dg-column>
+<ui-dg-column sortable field="PROCESS_ID" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'VGABE'}" label="Transaction/event type, purchase order history"></ui-dg-column>
+<ui-dg-column sortable field="DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}" label="Material Document Year"></ui-dg-column>
+<ui-dg-column sortable field="MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}" label="Number of Material Document"></ui-dg-column>
+<ui-dg-column sortable field="MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}" label="Item in Material Document"></ui-dg-column>
+<ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'QUAN', unit:'PO_UNIT', length:'10.3'}" label="Purchase Order Quantity"></ui-dg-column>
+<ui-dg-column sortable field="PO_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Order unit"></ui-dg-column>
+<ui-dg-column sortable field="PO_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Order unit in ISO code"></ui-dg-column>
+<ui-dg-column sortable field="DLV_QTY_STOCK" data-abap.bind="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}" label="Actual quantity delivered in stockkeeping units"></ui-dg-column>
+<ui-dg-column sortable field="BASE_UOM" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Base Unit of Measure"></ui-dg-column>
+<ui-dg-column sortable field="BASE_UOM_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Base unit of measure in ISO code"></ui-dg-column>
+<ui-dg-column sortable field="DLV_QTY" data-abap.bind="{type:'QUAN', unit:'SALES_UNIT', length:'10.3'}" label="Actual quantity delivered (in sales units)"></ui-dg-column>
+<ui-dg-column sortable field="SALES_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Sales unit"></ui-dg-column>
+<ui-dg-column sortable field="SALES_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Sales unit in ISO code"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="POITEMHISTORYADDON.PO_ITEM" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}"
-          label="Item Number of Purchasing Document"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Item Number of Purchasing Document</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.PO_ITEM"
+        options="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', mid:'BSP', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYADDON.SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}"
-          label="Sequential Number of Account Assignment"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sequential Number of Account Assignment</fd-form-label>
+        <fd-input v-model="POITEMHISTORYADDON.SERIAL_NO"
+            data-abap="{type:'NUMC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYADDON.PROCESS_ID" shlp.bind="{type: 'FV', id: 'VGABE'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Transaction/event type, purchase order history"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Transaction/event type, purchase order history</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.PROCESS_ID"
+        options="{type: 'FV', id: 'VGABE'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYADDON.DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
-          label="Material Document Year"></ui-input>
+<fd-form-item>
+    <fd-form-label>Material Document Year</fd-form-label>
+        <fd-input v-model="POITEMHISTORYADDON.DOC_YEAR"
+            data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYADDON.MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
-          label="Number of Material Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of Material Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORYADDON.MAT_DOC"
+            data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYADDON.MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}"
-          label="Item in Material Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Item in Material Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORYADDON.MATDOC_ITM"
+            data-abap="{type:'NUMC', mid:'POS', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYADDON.QUANTITY" data-abap.bind="{type:'QUAN', unit:'PO_UNIT', length:'10.3'}"
-          label="Purchase Order Quantity"></ui-input>
+<fd-form-item>
+    <fd-form-label>Purchase Order Quantity</fd-form-label>
+        <fd-input v-model="POITEMHISTORYADDON.QUANTITY"
+            data-abap="{type:'QUAN', unit:'PO_UNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYADDON.PO_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Order unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Order unit</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.PO_UNIT"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYADDON.PO_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Order unit in ISO code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Order unit in ISO code</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.PO_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYADDON.DLV_QTY_STOCK" data-abap.bind="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}"
-          label="Actual quantity delivered in stockkeeping units"></ui-input>
+<fd-form-item>
+    <fd-form-label>Actual quantity delivered in stockkeeping units</fd-form-label>
+        <fd-input v-model="POITEMHISTORYADDON.DLV_QTY_STOCK"
+            data-abap="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYADDON.BASE_UOM" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Base Unit of Measure"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Base Unit of Measure</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.BASE_UOM"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYADDON.BASE_UOM_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Base unit of measure in ISO code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Base unit of measure in ISO code</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.BASE_UOM_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYADDON.DLV_QTY" data-abap.bind="{type:'QUAN', unit:'SALES_UNIT', length:'10.3'}"
-          label="Actual quantity delivered (in sales units)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Actual quantity delivered (in sales units)</fd-form-label>
+        <fd-input v-model="POITEMHISTORYADDON.DLV_QTY"
+            data-abap="{type:'QUAN', unit:'SALES_UNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYADDON.SALES_UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Sales unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Sales unit</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.SALES_UNIT"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYADDON.SALES_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Sales unit in ISO code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Sales unit in ISO code</fd-form-label>
+    <fd-select v-model="POITEMHISTORYADDON.SALES_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- Parameter: POITEMHISTORYX structure: BAPIEKBEX  Checkbox Bar of Transfer Structure for PO History -->
 
 <ui-datagrid data.bind="POITEMHISTORYX" title="Checkbox Bar of Transfer Structure for PO History"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="PO_ITEM" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item Number of Purchasing Document"></ui-dg-column>
-   <ui-dg-column sortable field="SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}" label="Sequential Number of Account Assignment"></ui-dg-column>
-   <ui-dg-column sortable field="PROCESS_ID" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'VGABE'}" label="Transaction/event type, purchase order history"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}" label="Material Document Year"></ui-dg-column>
-   <ui-dg-column sortable field="MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}" label="Number of Material Document"></ui-dg-column>
-   <ui-dg-column sortable field="MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}" label="Item in Material Document"></ui-dg-column>
-   <ui-dg-column sortable field="HIST_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="MOVE_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="PSTNG_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="VAL_LOCCUR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="VAL_FORCUR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="CL_VAL_LOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="BLOCKED_QY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="BL_QTY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="DB_CR_IND" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="VAL_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="NO_MORE_GR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC_YR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="REF_DOC_IT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="MOVE_REAS" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="ENTRY_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="ENTRY_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="IVVAL_LOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="IVVAL_FOR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="CONF_SER" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="CONDITION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="TAX_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="DELIV_QTY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="DELIV_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="LOC_CURR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="BATCH" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="DOC_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="LOC_CURR_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="DELIV_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_VERSION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_GUID" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_VERSION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="STK_SEGMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
-   <ui-dg-column sortable field="PUR_MAT_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PO_ITEM" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}" shlp.bind="{type: 'CT', id: 'EKPO'}" label="Item Number of Purchasing Document"></ui-dg-column>
+<ui-dg-column sortable field="SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}" label="Sequential Number of Account Assignment"></ui-dg-column>
+<ui-dg-column sortable field="PROCESS_ID" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'VGABE'}" label="Transaction/event type, purchase order history"></ui-dg-column>
+<ui-dg-column sortable field="DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}" label="Material Document Year"></ui-dg-column>
+<ui-dg-column sortable field="MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}" label="Number of Material Document"></ui-dg-column>
+<ui-dg-column sortable field="MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}" label="Item in Material Document"></ui-dg-column>
+<ui-dg-column sortable field="HIST_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="MOVE_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PSTNG_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="QUANTITY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="VAL_LOCCUR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="VAL_FORCUR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="CL_VAL_LOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="BLOCKED_QY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="BL_QTY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="DB_CR_IND" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="VAL_TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="NO_MORE_GR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC_NO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC_YR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="REF_DOC_IT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="MOVE_REAS" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="ENTRY_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="ENTRY_TIME" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="IVVAL_LOC" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="IVVAL_FOR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PLANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="CONF_SER" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="CONDITION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="TAX_CODE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="DELIV_QTY" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="DELIV_UNIT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="LOC_CURR" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="BATCH" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="DOC_DATE" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="LOC_CURR_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="DELIV_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_VERSION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_EXTERNAL" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_GUID" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_VERSION" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="STK_SEGMENT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
+<ui-dg-column sortable field="PUR_MAT_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="POITEMHISTORYX.PO_ITEM" shlp.bind="{type: 'CT', id: 'EKPO'}" data-abap.bind="{type:'NUMC', mid:'BSP', length:'5'}"
-          label="Item Number of Purchasing Document"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Item Number of Purchasing Document</fd-form-label>
+    <fd-select v-model="POITEMHISTORYX.PO_ITEM"
+        options="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', mid:'BSP', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYX.SERIAL_NO" data-abap.bind="{type:'NUMC', length:'2'}"
-          label="Sequential Number of Account Assignment"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sequential Number of Account Assignment</fd-form-label>
+        <fd-input v-model="POITEMHISTORYX.SERIAL_NO"
+            data-abap="{type:'NUMC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="POITEMHISTORYX.PROCESS_ID" shlp.bind="{type: 'FV', id: 'VGABE'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Transaction/event type, purchase order history"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Transaction/event type, purchase order history</fd-form-label>
+    <fd-select v-model="POITEMHISTORYX.PROCESS_ID"
+        options="{type: 'FV', id: 'VGABE'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYX.DOC_YEAR" data-abap.bind="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
-          label="Material Document Year"></ui-input>
+<fd-form-item>
+    <fd-form-label>Material Document Year</fd-form-label>
+        <fd-input v-model="POITEMHISTORYX.DOC_YEAR"
+            data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYX.MAT_DOC" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
-          label="Number of Material Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of Material Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORYX.MAT_DOC"
+            data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="POITEMHISTORYX.MATDOC_ITM" data-abap.bind="{type:'NUMC', mid:'POS', length:'4'}"
-          label="Item in Material Document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Item in Material Document</fd-form-label>
+        <fd-input v-model="POITEMHISTORYX.MATDOC_ITM"
+            data-abap="{type:'NUMC', mid:'POS', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-checkbox value.bind="POITEMHISTORYX.HIST_TYPE" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.HIST_TYPE">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.MOVE_TYPE" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.MOVE_TYPE">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.PSTNG_DATE" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.PSTNG_DATE">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.QUANTITY" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.QUANTITY">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.VAL_LOCCUR" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.VAL_LOCCUR">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.VAL_FORCUR" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.VAL_FORCUR">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.CURRENCY" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.CURRENCY">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.CL_VAL_LOC" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.CL_VAL_LOC">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.BLOCKED_QY" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.BLOCKED_QY">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.BL_QTY" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.BL_QTY">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.DB_CR_IND" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.DB_CR_IND">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.VAL_TYPE" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.VAL_TYPE">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.NO_MORE_GR" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.NO_MORE_GR">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.REF_DOC_NO" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.REF_DOC_NO">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.REF_DOC_YR" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.REF_DOC_YR">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.REF_DOC" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.REF_DOC">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.REF_DOC_IT" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.REF_DOC_IT">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.MOVE_REAS" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.MOVE_REAS">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.ENTRY_DATE" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.ENTRY_DATE">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.ENTRY_TIME" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.ENTRY_TIME">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.IVVAL_LOC" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.IVVAL_LOC">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.IVVAL_FOR" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.IVVAL_FOR">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.MATERIAL" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.MATERIAL">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.PLANT" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.PLANT">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.CONF_SER" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.CONF_SER">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.CONDITION" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.CONDITION">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.TAX_CODE" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.TAX_CODE">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.DELIV_QTY" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.DELIV_QTY">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.DELIV_UNIT" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.DELIV_UNIT">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.PUR_MAT" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.PUR_MAT">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.LOC_CURR" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.LOC_CURR">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.BATCH" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.BATCH">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.DOC_DATE" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.DOC_DATE">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.CURRENCY_ISO" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.CURRENCY_ISO">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.LOC_CURR_ISO" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.LOC_CURR_ISO">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.DELIV_UNIT_ISO" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.DELIV_UNIT_ISO">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.MATERIAL_EXTERNAL" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.MATERIAL_EXTERNAL">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.MATERIAL_GUID" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.MATERIAL_GUID">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.MATERIAL_VERSION" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.MATERIAL_VERSION">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.PUR_MAT_EXTERNAL" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.PUR_MAT_EXTERNAL">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.PUR_MAT_GUID" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.PUR_MAT_GUID">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.PUR_MAT_VERSION" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.PUR_MAT_VERSION">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.STK_SEGMENT" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.STK_SEGMENT">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.MATERIAL_LONG" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.MATERIAL_LONG">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="POITEMHISTORYX.PUR_MAT_LONG" label="Updated information in related user data field"></ui-checkbox>
+<fd-form-item-checkbox label="Updated information in related user data field">
+    <fd-checkbox v-model="POITEMHISTORYX.PUR_MAT_LONG">
+</fd-form-item-checkbox>
 
 <!-- Parameter: RETURN structure: BAPIRET2  Return Parameter -->
 
 <ui-datagrid data.bind="RETURN" title="Return Parameter"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
-   <ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
-   <ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
-   <ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
+<ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+<ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
+<ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+<ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+<ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
+<ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
+<ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
+<ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="RETURN.TYPE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.ID" shlp.bind="{type: 'CT', id: 'T100A'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Message Class"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Message Class</fd-form-label>
+    <fd-select v-model="RETURN.ID"
+        options="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RETURN.NUMBER" data-abap.bind="{type:'NUMC', length:'3'}"
-          label="Message Number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Number</fd-form-label>
+        <fd-input v-model="RETURN.NUMBER"
+            data-abap="{type:'NUMC', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
-          label="Message Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE"
+            data-abap="{type:'CHAR', length:'220'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Application log: log number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_NO"
+        options="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Application log: Internal message serial number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_MSG_NO"
+        options="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V1"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V2"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V3"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V4"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="Parameter Name"></ui-input>
+<fd-form-item>
+    <fd-form-label>Parameter Name</fd-form-label>
+        <fd-input v-model="RETURN.PARAMETER"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.ROW" data-abap.bind="{type:'INT4', length:'+10'}"
-          label="Lines in parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Lines in parameter</fd-form-label>
+        <fd-input v-model="RETURN.ROW"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Field in parameter"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Field in parameter</fd-form-label>
+    <fd-select v-model="RETURN.FIELD"
+        options="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.SYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-          label="Logical system from which message originates"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Logical system from which message originates</fd-form-label>
+    <fd-select v-model="RETURN.SYSTEM"
+        options="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- Parameter: TOKENREFERENCE structure: CSL_TR_EXS  CSL: Data Element CSL_TR_EXT as Structure (BAPI Tab.Arg.) -->
 
 <ui-datagrid data.bind="TOKENREFERENCE" title="CSL: Data Element CSL_TR_EXT as Structure (BAPI Tab.Arg.)"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TR_EXT" data-abap.bind="{type:'CHAR', length:'255'}" label="CSL: CSL-External Representation of a Token Reference"></ui-dg-column>
+<ui-dg-column sortable field="TR_EXT" data-abap.bind="{type:'CHAR', length:'255'}" label="CSL: CSL-External Representation of a Token Reference"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="TOKENREFERENCE.TR_EXT" data-abap.bind="{type:'CHAR', length:'255'}"
-          label="CSL: CSL-External Representation of a Token Reference"></ui-input>
+<fd-form-item>
+    <fd-form-label>CSL: CSL-External Representation of a Token Reference</fd-form-label>
+        <fd-input v-model="TOKENREFERENCE.TR_EXT"
+            data-abap="{type:'CHAR', length:'255'}"
+        />
+</fd-form-item>

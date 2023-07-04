@@ -4,14 +4,32 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-combo value.bind="PO_REL_CODE" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', mid:'FAB', length:'2'}"
-          label="Release Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release Code</fd-form-label>
+    <fd-select v-model="PO_REL_CODE"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', mid:'FAB', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="PURCHASEORDER" shlp.bind="{type: 'SH', id: 'MEKK_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchase Order Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchase Order Number</fd-form-label>
+    <fd-select v-model="PURCHASEORDER"
+        options="{type: 'SH', id: 'MEKK_C'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="USE_EXCEPTIONS" shlp.bind="{type: 'FV', id: 'SELKZ'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Set Exceptions and Issue Error Messages"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Set Exceptions and Issue Error Messages</fd-form-label>
+    <fd-select v-model="USE_EXCEPTIONS"
+        options="{type: 'FV', id: 'SELKZ'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- TABLE PARAMETERS -->
 
@@ -20,48 +38,98 @@ abap api -->
 <ui-datagrid data.bind="RETURN" title="Return Messages"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
-   <ui-dg-column sortable field="CODE" data-abap.bind="{type:'CHAR', length:'5'}" label="Message code"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+<ui-dg-column sortable field="CODE" data-abap.bind="{type:'CHAR', length:'5'}" label="Message code"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+<ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+<ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="RETURN.TYPE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.CODE" data-abap.bind="{type:'CHAR', length:'5'}"
-          label="Message code"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message code</fd-form-label>
+        <fd-input v-model="RETURN.CODE"
+            data-abap="{type:'CHAR', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
-          label="Message Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE"
+            data-abap="{type:'CHAR', length:'220'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Application log: log number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_NO"
+        options="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Application log: Internal message serial number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_MSG_NO"
+        options="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V1"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V2"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V3"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V4"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
 <!-- EXPORT PARAMETERS -->
 
-<ui-combo value.bind="REL_INDICATOR_NEW" shlp.bind="{type: 'CT', id: 'T16FB'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Previous Release Indicator"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Previous Release Indicator</fd-form-label>
+    <fd-select v-model="REL_INDICATOR_NEW"
+        options="{type: 'CT', id: 'T16FB'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="REL_STATUS_NEW" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Previous Release Status"></ui-input>
+<fd-form-item>
+    <fd-form-label>Previous Release Status</fd-form-label>
+        <fd-input v-model="REL_STATUS_NEW"
+            data-abap="{type:'CHAR', length:'8'}"
+        />
+</fd-form-item>

@@ -4,884 +4,1971 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-checkbox value.bind="IV_CHARACTERISTICS" label=""></ui-checkbox>
+<fd-form-item-checkbox label="">
+    <fd-checkbox v-model="IV_CHARACTERISTICS">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="IV_DOCUMENT" label=""></ui-checkbox>
+<fd-form-item-checkbox label="">
+    <fd-checkbox v-model="IV_DOCUMENT">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="IV_EQUIID" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-          label=""></ui-combo>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+    <fd-select v-model="IV_EQUIID"
+        options="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="IV_WITH_TIMESTATS" label=""></ui-checkbox>
+<fd-form-item-checkbox label="">
+    <fd-checkbox v-model="IV_WITH_TIMESTATS">
+</fd-form-item-checkbox>
 
 <!-- EXPORT PARAMETERS -->
 
 <!-- Parameter: ES_HEADER structure: /COE/RBP_S_PAM_EQUI_HEADER   -->
 
-<ui-combo value.bind="ES_HEADER.AUTHGRP" shlp.bind="{type: 'SH', id: 'H_T370B'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Technical object authorization group"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.OBJECTTYPE" shlp.bind="{type: 'CT', id: 'T370K'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Type of Technical Object"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.INVENTORY" data-abap.bind="{type:'CHAR', length:'25'}"
-          label="Inventory number"></ui-input>
-
-<ui-input value.bind="ES_HEADER.OBJ_SIZE" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Size/dimension"></ui-input>
-
-<ui-input value.bind="ES_HEADER.OBJ_WEIGHT" data-abap.bind="{type:'QUAN', unit:'UNIT_OF_WT', length:'10.3'}"
-          label="Weight of object"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.UNIT_OF_WT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of weight"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO code for unit of measurement"></ui-combo>
-
-<ui-date date.bind="ES_HEADER.ACQDATE"  label="Acquisition date"></ui-date>
-
-<ui-input value.bind="ES_HEADER.ACQUISVAL" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+12.2'}"
-          label="Acquisition Value"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.CURR_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO currency code"></ui-input>
-
-<ui-input value.bind="ES_HEADER.MANFACTURE" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Manufacturer of asset"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.MANCOUNTRY" shlp.bind="{type: 'CT', id: 'T005'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Country of manufacture"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.COUNTR_ISO" shlp.bind="{type: 'SH', id: 'F4_INTCA'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Country ISO code"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.MANSERNO" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Manufacturer serial number"></ui-input>
-
-<ui-input value.bind="ES_HEADER.MANMODEL" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Manufacturer model number"></ui-input>
-
-<ui-input value.bind="ES_HEADER.CONSTYEAR" data-abap.bind="{type:'CHAR', alpha:'GJAHR', length:'4'}"
-          label="Year of construction"></ui-input>
-
-<ui-checkbox value.bind="ES_HEADER.CONSTMONTH" label="Month of construction"></ui-checkbox>
-
-<ui-date date.bind="ES_HEADER.START_FROM"  label="Start-up Date of the Technical Object"></ui-date>
-
-<ui-combo value.bind="ES_HEADER.PLANPLANT" shlp.bind="{type: 'SH', id: 'H_T399I'}" data-abap.bind="{type:'CHAR', mid:'IWK', length:'4'}"
-          label="Maintenance Planning Plant"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.CONSTTYPE" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Construction type material of the object"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.MANPARNO" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Manufacturer part number"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.PLANGROUP" shlp.bind="{type: 'SH', id: 'H_T024I'}" data-abap.bind="{type:'CHAR', mid:'IHG', length:'3'}"
-          label="Planner Group for Customer Service and Plant Maintenance"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.CATPROFILE" shlp.bind="{type: 'CT', id: 'T352B'}" data-abap.bind="{type:'CHAR', length:'9'}"
-          label="Catalog Profile"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.WORK_CTR" shlp.bind="{type: 'CT', id: 'CRID'}" data-abap.bind="{type:'NUMC', length:'8'}"
-          label="Object ID of the Work Center"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Description of Technical Object"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.ABCINDIC" shlp.bind="{type: 'CT', id: 'T370C'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="ABC indicator for technical object"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.SORTFIELD" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Sort field"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.MAINTPLANT" shlp.bind="{type: 'SH', id: 'H_T001W'}" data-abap.bind="{type:'CHAR', mid:'SWK', length:'4'}"
-          label="Maintenance plant"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.MAINTLOC" shlp.bind="{type: 'SH', id: 'H_T499S'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Asset location"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.MAINTROOM" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Room"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.PLSECTN" shlp.bind="{type: 'SH', id: 'H_T357'}" data-abap.bind="{type:'CHAR', mid:'BBE', length:'3'}"
-          label="Plant section"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.PP_WKCTR" shlp.bind="{type: 'CT', id: 'CRID'}" data-abap.bind="{type:'NUMC', length:'8'}"
-          label="Object ID of PP work center"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.BUS_AREA" shlp.bind="{type: 'SH', id: 'H_TGSB'}" data-abap.bind="{type:'CHAR', mid:'GSB', length:'4'}"
-          label="Business Area"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.COSTCENTER" shlp.bind="{type: 'CT', id: 'CSKS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
-          label="Cost Center"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.WBS_ELEM" shlp.bind="{type: 'CT', id: 'PRPS'}" data-abap.bind="{type:'NUMC', alpha:'ABPSP', length:'8'}"
-          label="Work Breakdown Structure Element (WBS Element)"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.COMP_CODE" shlp.bind="{type: 'SH', id: 'C_T001'}" data-abap.bind="{type:'CHAR', mid:'BUK', length:'4'}"
-          label="Company Code"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.ASSET_NO" shlp.bind="{type: 'CT', id: 'ANLH'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AN1', length:'12'}"
-          label="Main Asset Number"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.SUB_NUMBER" shlp.bind="{type: 'CT', id: 'ANLA'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'AN2', length:'4'}"
-          label="Asset Subnumber"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.STANDORDER" shlp.bind="{type: 'SH', id: 'ORDP'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-          label="Standing order number"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.SETTLORDER" shlp.bind="{type: 'SH', id: 'ORDE'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-          label="Settlement order"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.SALES_ORG" shlp.bind="{type: 'SH', id: 'H_TVKO'}" data-abap.bind="{type:'CHAR', mid:'VKO', length:'4'}"
-          label="Sales Organization"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.DISTR_CHAN" shlp.bind="{type: 'SH', id: 'CSH_TVTW'}" data-abap.bind="{type:'CHAR', mid:'VTW', length:'2'}"
-          label="Distribution Channel"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.DIVISION" shlp.bind="{type: 'SH', id: 'CSH_TSPA'}" data-abap.bind="{type:'CHAR', mid:'SPA', length:'2'}"
-          label="Division"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.SALES_OFF" shlp.bind="{type: 'SH', id: 'H_TVBUR'}" data-abap.bind="{type:'CHAR', mid:'VKB', length:'4'}"
-          label="Sales office"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.SALES_GRP" shlp.bind="{type: 'SH', id: 'H_TVKGR'}" data-abap.bind="{type:'CHAR', mid:'VKG', length:'3'}"
-          label="Sales group"></ui-combo>
-
-<ui-date date.bind="ES_HEADER.READ_CRDAT"  label="Date on Which Record Was Created"></ui-date>
-
-<ui-input value.bind="ES_HEADER.READ_CRNAM" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of Person who Created the Object"></ui-input>
-
-<ui-date date.bind="ES_HEADER.READ_CHDAT"  label="Date of Last Change"></ui-date>
-
-<ui-input value.bind="ES_HEADER.READ_CHNAM" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person who changed object"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.READ_ADRNR" shlp.bind="{type: 'CT', id: 'ADRC'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}"
-          label="Address number"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.CONSTTYPE_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
-          label="Long Material Number for CONSTTYPE Field"></ui-input>
-
-<ui-input value.bind="ES_HEADER.CONSTTYPE_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="External GUID for CONSTTYPE Field"></ui-input>
-
-<ui-input value.bind="ES_HEADER.CONSTTYPE_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
-          label="Version Number for CONSTTYPE Field"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.READ_OBJNR" shlp.bind="{type: 'CT', id: 'ONR00'}" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}"
-          label="Object number"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.SHIFT_REPORT_TYPE" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Shift Report Type for Object"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.SHIFT_NOTE_NOTIFICATION_TYPE" shlp.bind="{type: 'CT', id: 'TQ80'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Notification Type for Shift Note for Object"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Start Point"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="End Point"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Length"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.LINEAR_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measurement for Linear Data"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.FIRST_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Type of First Offset"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Value of Offset 1"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.FIRST_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measurement for Offset 1"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.SECOND_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Type of Second Offset"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Value of Offset 2"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.SECOND_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measurement for Offset 2"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.SECOND_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit of Measurement for Offset 2 in ISO Code"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.LINEAR_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit of Measurement for Linear Data in ISO Code"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.FIRST_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit of Measurement for Offset 1 in ISO Code"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.LINEAR_REFERENCE_PATTERN" shlp.bind="{type: 'SH', id: 'EAML_SHLP_LRPID'}" data-abap.bind="{type:'CHAR', mid:'LRP', length:'10'}"
-          label="Linear Reference Pattern"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.MARKER_START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Marker for Start Point"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Distance between Marker and Start Point"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.MARKER_END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Marker for End Point"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Length Spec for Distance between Marker and End Point"></ui-input>
-
-<ui-combo value.bind="ES_HEADER.MARKER_DISTANCE_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit for the Distance from Marker"></ui-combo>
-
-<ui-combo value.bind="ES_HEADER.MARKER_DISTANCE_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit for the Distance from Marker in ISO Code"></ui-combo>
-
-<ui-input value.bind="ES_HEADER.CONSTTYPE_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}"
-          label="Construction type material of the object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Technical object authorization group</fd-form-label>
+    <fd-select v-model="ES_HEADER.AUTHGRP"
+        options="{type: 'SH', id: 'H_T370B'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Type of Technical Object</fd-form-label>
+    <fd-select v-model="ES_HEADER.OBJECTTYPE"
+        options="{type: 'CT', id: 'T370K'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Inventory number</fd-form-label>
+        <fd-input v-model="ES_HEADER.INVENTORY"
+            data-abap="{type:'CHAR', length:'25'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Size/dimension</fd-form-label>
+        <fd-input v-model="ES_HEADER.OBJ_SIZE"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Weight of object</fd-form-label>
+        <fd-input v-model="ES_HEADER.OBJ_WEIGHT"
+            data-abap="{type:'QUAN', unit:'UNIT_OF_WT', length:'10.3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit of weight</fd-form-label>
+    <fd-select v-model="ES_HEADER.UNIT_OF_WT"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>ISO code for unit of measurement</fd-form-label>
+    <fd-select v-model="ES_HEADER.UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Acquisition date</fd-form-label>
+    <fd-date-picker v-model="ES_HEADER.ACQDATE"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Acquisition Value</fd-form-label>
+        <fd-input v-model="ES_HEADER.ACQUISVAL"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+12.2'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="ES_HEADER.CURRENCY"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>ISO currency code</fd-form-label>
+        <fd-input v-model="ES_HEADER.CURR_ISO"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Manufacturer of asset</fd-form-label>
+        <fd-input v-model="ES_HEADER.MANFACTURE"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Country of manufacture</fd-form-label>
+    <fd-select v-model="ES_HEADER.MANCOUNTRY"
+        options="{type: 'CT', id: 'T005'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Country ISO code</fd-form-label>
+    <fd-select v-model="ES_HEADER.COUNTR_ISO"
+        options="{type: 'SH', id: 'F4_INTCA'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Manufacturer serial number</fd-form-label>
+        <fd-input v-model="ES_HEADER.MANSERNO"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Manufacturer model number</fd-form-label>
+        <fd-input v-model="ES_HEADER.MANMODEL"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Year of construction</fd-form-label>
+        <fd-input v-model="ES_HEADER.CONSTYEAR"
+            data-abap="{type:'CHAR', alpha:'GJAHR', length:'4'}"
+        />
+</fd-form-item>
+
+<fd-form-item-checkbox label="Month of construction">
+    <fd-checkbox v-model="ES_HEADER.CONSTMONTH">
+</fd-form-item-checkbox>
+
+<fd-form-item>
+    <fd-form-label>Start-up Date of the Technical Object</fd-form-label>
+    <fd-date-picker v-model="ES_HEADER.START_FROM"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Maintenance Planning Plant</fd-form-label>
+    <fd-select v-model="ES_HEADER.PLANPLANT"
+        options="{type: 'SH', id: 'H_T399I'}"
+        data-abap="{type:'CHAR', mid:'IWK', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Construction type material of the object</fd-form-label>
+    <fd-select v-model="ES_HEADER.CONSTTYPE"
+        options="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Manufacturer part number</fd-form-label>
+        <fd-input v-model="ES_HEADER.MANPARNO"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Planner Group for Customer Service and Plant Maintenance</fd-form-label>
+    <fd-select v-model="ES_HEADER.PLANGROUP"
+        options="{type: 'SH', id: 'H_T024I'}"
+        data-abap="{type:'CHAR', mid:'IHG', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Catalog Profile</fd-form-label>
+    <fd-select v-model="ES_HEADER.CATPROFILE"
+        options="{type: 'CT', id: 'T352B'}"
+        data-abap="{type:'CHAR', length:'9'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Object ID of the Work Center</fd-form-label>
+    <fd-select v-model="ES_HEADER.WORK_CTR"
+        options="{type: 'CT', id: 'CRID'}"
+        data-abap="{type:'NUMC', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Description of Technical Object</fd-form-label>
+        <fd-input v-model="ES_HEADER.DESCRIPT"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>ABC indicator for technical object</fd-form-label>
+    <fd-select v-model="ES_HEADER.ABCINDIC"
+        options="{type: 'CT', id: 'T370C'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Sort field</fd-form-label>
+        <fd-input v-model="ES_HEADER.SORTFIELD"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Maintenance plant</fd-form-label>
+    <fd-select v-model="ES_HEADER.MAINTPLANT"
+        options="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', mid:'SWK', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Asset location</fd-form-label>
+    <fd-select v-model="ES_HEADER.MAINTLOC"
+        options="{type: 'SH', id: 'H_T499S'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Room</fd-form-label>
+        <fd-input v-model="ES_HEADER.MAINTROOM"
+            data-abap="{type:'CHAR', length:'8'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Plant section</fd-form-label>
+    <fd-select v-model="ES_HEADER.PLSECTN"
+        options="{type: 'SH', id: 'H_T357'}"
+        data-abap="{type:'CHAR', mid:'BBE', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Object ID of PP work center</fd-form-label>
+    <fd-select v-model="ES_HEADER.PP_WKCTR"
+        options="{type: 'CT', id: 'CRID'}"
+        data-abap="{type:'NUMC', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Business Area</fd-form-label>
+    <fd-select v-model="ES_HEADER.BUS_AREA"
+        options="{type: 'SH', id: 'H_TGSB'}"
+        data-abap="{type:'CHAR', mid:'GSB', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Cost Center</fd-form-label>
+    <fd-select v-model="ES_HEADER.COSTCENTER"
+        options="{type: 'CT', id: 'CSKS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Work Breakdown Structure Element (WBS Element)</fd-form-label>
+    <fd-select v-model="ES_HEADER.WBS_ELEM"
+        options="{type: 'CT', id: 'PRPS'}"
+        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Company Code</fd-form-label>
+    <fd-select v-model="ES_HEADER.COMP_CODE"
+        options="{type: 'SH', id: 'C_T001'}"
+        data-abap="{type:'CHAR', mid:'BUK', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Main Asset Number</fd-form-label>
+    <fd-select v-model="ES_HEADER.ASSET_NO"
+        options="{type: 'CT', id: 'ANLH'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN1', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Asset Subnumber</fd-form-label>
+    <fd-select v-model="ES_HEADER.SUB_NUMBER"
+        options="{type: 'CT', id: 'ANLA'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN2', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Standing order number</fd-form-label>
+    <fd-select v-model="ES_HEADER.STANDORDER"
+        options="{type: 'SH', id: 'ORDP'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Settlement order</fd-form-label>
+    <fd-select v-model="ES_HEADER.SETTLORDER"
+        options="{type: 'SH', id: 'ORDE'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Sales Organization</fd-form-label>
+    <fd-select v-model="ES_HEADER.SALES_ORG"
+        options="{type: 'SH', id: 'H_TVKO'}"
+        data-abap="{type:'CHAR', mid:'VKO', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Distribution Channel</fd-form-label>
+    <fd-select v-model="ES_HEADER.DISTR_CHAN"
+        options="{type: 'SH', id: 'CSH_TVTW'}"
+        data-abap="{type:'CHAR', mid:'VTW', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Division</fd-form-label>
+    <fd-select v-model="ES_HEADER.DIVISION"
+        options="{type: 'SH', id: 'CSH_TSPA'}"
+        data-abap="{type:'CHAR', mid:'SPA', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Sales office</fd-form-label>
+    <fd-select v-model="ES_HEADER.SALES_OFF"
+        options="{type: 'SH', id: 'H_TVBUR'}"
+        data-abap="{type:'CHAR', mid:'VKB', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Sales group</fd-form-label>
+    <fd-select v-model="ES_HEADER.SALES_GRP"
+        options="{type: 'SH', id: 'H_TVKGR'}"
+        data-abap="{type:'CHAR', mid:'VKG', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="ES_HEADER.READ_CRDAT"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="ES_HEADER.READ_CRNAM"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Date of Last Change</fd-form-label>
+    <fd-date-picker v-model="ES_HEADER.READ_CHDAT"></fd-date-picker>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Name of person who changed object</fd-form-label>
+        <fd-input v-model="ES_HEADER.READ_CHNAM"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Address number</fd-form-label>
+    <fd-select v-model="ES_HEADER.READ_ADRNR"
+        options="{type: 'CT', id: 'ADRC'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Long Material Number for CONSTTYPE Field</fd-form-label>
+        <fd-input v-model="ES_HEADER.CONSTTYPE_EXTERNAL"
+            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>External GUID for CONSTTYPE Field</fd-form-label>
+        <fd-input v-model="ES_HEADER.CONSTTYPE_GUID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Version Number for CONSTTYPE Field</fd-form-label>
+        <fd-input v-model="ES_HEADER.CONSTTYPE_VERSION"
+            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Object number</fd-form-label>
+    <fd-select v-model="ES_HEADER.READ_OBJNR"
+        options="{type: 'CT', id: 'ONR00'}"
+        data-abap="{type:'CHAR', mid:'ONR', length:'22'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Shift Report Type for Object</fd-form-label>
+        <fd-input v-model="ES_HEADER.SHIFT_REPORT_TYPE"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Notification Type for Shift Note for Object</fd-form-label>
+    <fd-select v-model="ES_HEADER.SHIFT_NOTE_NOTIFICATION_TYPE"
+        options="{type: 'CT', id: 'TQ80'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Start Point</fd-form-label>
+    <fd-select v-model="ES_HEADER.START_POINT"
+        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>End Point</fd-form-label>
+    <fd-select v-model="ES_HEADER.END_POINT"
+        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Length</fd-form-label>
+        <fd-input v-model="ES_HEADER.LINEAR_LENGTH"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Linear Data</fd-form-label>
+    <fd-select v-model="ES_HEADER.LINEAR_UNIT"
+        options="{type: 'SH', id: 'EAML_H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Type of First Offset</fd-form-label>
+    <fd-select v-model="ES_HEADER.FIRST_OFFSET_TYPE_CODE"
+        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Value of Offset 1</fd-form-label>
+        <fd-input v-model="ES_HEADER.FIRST_OFFSET_VALUE"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 1</fd-form-label>
+    <fd-select v-model="ES_HEADER.FIRST_OFFSET_UNIT"
+        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Type of Second Offset</fd-form-label>
+    <fd-select v-model="ES_HEADER.SECOND_OFFSET_TYPE_CODE"
+        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Value of Offset 2</fd-form-label>
+        <fd-input v-model="ES_HEADER.SECOND_OFFSET_VALUE"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 2</fd-form-label>
+    <fd-select v-model="ES_HEADER.SECOND_OFFSET_UNIT"
+        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 2 in ISO Code</fd-form-label>
+    <fd-select v-model="ES_HEADER.SECOND_OFFSET_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Linear Data in ISO Code</fd-form-label>
+    <fd-select v-model="ES_HEADER.LINEAR_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 1 in ISO Code</fd-form-label>
+    <fd-select v-model="ES_HEADER.FIRST_OFFSET_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Linear Reference Pattern</fd-form-label>
+    <fd-select v-model="ES_HEADER.LINEAR_REFERENCE_PATTERN"
+        options="{type: 'SH', id: 'EAML_SHLP_LRPID'}"
+        data-abap="{type:'CHAR', mid:'LRP', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Marker for Start Point</fd-form-label>
+    <fd-select v-model="ES_HEADER.MARKER_START_POINT"
+        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Distance between Marker and Start Point</fd-form-label>
+        <fd-input v-model="ES_HEADER.MARKER_DISTANCE_START_POINT"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Marker for End Point</fd-form-label>
+    <fd-select v-model="ES_HEADER.MARKER_END_POINT"
+        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Length Spec for Distance between Marker and End Point</fd-form-label>
+        <fd-input v-model="ES_HEADER.MARKER_DISTANCE_END_POINT"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit for the Distance from Marker</fd-form-label>
+    <fd-select v-model="ES_HEADER.MARKER_DISTANCE_UNIT"
+        options="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Unit for the Distance from Marker in ISO Code</fd-form-label>
+    <fd-select v-model="ES_HEADER.MARKER_DISTANCE_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
+
+<fd-form-item>
+    <fd-form-label>Construction type material of the object</fd-form-label>
+        <fd-input v-model="ES_HEADER.CONSTTYPE_LONG"
+            data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ES_SPECIFIC structure: BAPI_ITOB_EQ_ONLY   -->
 
-<ui-combo value.bind="ES_SPECIFIC.CONFIGMAT" shlp.bind="{type: 'SH', id: 'MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', length:'18'}"
-          label="Configurable Material"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Configurable Material</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.CONFIGMAT"
+        options="{type: 'SH', id: 'MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.MATERIAL" shlp.bind="{type: 'SH', id: 'S_MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.MATERIAL"
+        options="{type: 'SH', id: 'S_MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.SERIALNO" data-abap.bind="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
-          label="Serial Number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Serial Number</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.SERIALNO"
+            data-abap="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.EQUICATGRY" shlp.bind="{type: 'CT', id: 'T370T'}" data-abap.bind="{type:'CHAR', mid:'EQT', length:'1'}"
-          label="Equipment category"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Equipment category</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.EQUICATGRY"
+        options="{type: 'CT', id: 'T370T'}"
+        data-abap="{type:'CHAR', mid:'EQT', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.BATCH" shlp.bind="{type: 'CT', id: 'MCH1'}" data-abap.bind="{type:'CHAR', mid:'CHA', length:'10'}"
-          label="Batch Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Batch Number</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.BATCH"
+        options="{type: 'CT', id: 'MCH1'}"
+        data-abap="{type:'CHAR', mid:'CHA', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.MANDRAWNO" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Manufacturer drawing number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Manufacturer drawing number</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.MANDRAWNO"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ES_SPECIFIC.DELIVDATE"  label="First delivery date of the equipment"></ui-date>
+<fd-form-item>
+    <fd-form-label>First delivery date of the equipment</fd-form-label>
+    <fd-date-picker v-model="ES_SPECIFIC.DELIVDATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-date date.bind="ES_SPECIFIC.FREE_DATE1"  label="Date, intended for SAP internal use"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date, intended for SAP internal use</fd-form-label>
+    <fd-date-picker v-model="ES_SPECIFIC.FREE_DATE1"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.FREE_NOTE1" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Technical information, intended for SAP internal use"></ui-input>
+<fd-form-item>
+    <fd-form-label>Technical information, intended for SAP internal use</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.FREE_NOTE1"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.FREE_NUM1" data-abap.bind="{type:'NUMC', length:'9'}"
-          label="Numerical field, intended for SAP internal use"></ui-input>
+<fd-form-item>
+    <fd-form-label>Numerical field, intended for SAP internal use</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.FREE_NUM1"
+            data-abap="{type:'NUMC', length:'9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.TECHID" data-abap.bind="{type:'CHAR', length:'25'}"
-          label="Technical identification number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Technical identification number</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.TECHID"
+            data-abap="{type:'CHAR', length:'25'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.LICENSE" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Equipment license number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Equipment license number</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.LICENSE"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ES_SPECIFIC.FREE_DATE2"  label="Date, intended for SAP internal use"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date, intended for SAP internal use</fd-form-label>
+    <fd-date-picker v-model="ES_SPECIFIC.FREE_DATE2"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.FREE_NOTE2" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Technical information, intended for SAP internal use"></ui-input>
+<fd-form-item>
+    <fd-form-label>Technical information, intended for SAP internal use</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.FREE_NOTE2"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.FREE_NUM2" data-abap.bind="{type:'NUMC', length:'9'}"
-          label="Numerical field, intended for SAP internal use"></ui-input>
+<fd-form-item>
+    <fd-form-label>Numerical field, intended for SAP internal use</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.FREE_NUM2"
+            data-abap="{type:'NUMC', length:'9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.READ_CUOBJ" data-abap.bind="{type:'NUMC', mid:'CUX', length:'18'}"
-          label="Configuration (internal object number)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Configuration (internal object number)</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.READ_CUOBJ"
+            data-abap="{type:'NUMC', mid:'CUX', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-checkbox value.bind="ES_SPECIFIC.READ_CUREF" label="Referenced Configuration"></ui-checkbox>
+<fd-form-item-checkbox label="Referenced Configuration">
+    <fd-checkbox v-model="ES_SPECIFIC.READ_CUREF">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="ES_SPECIFIC.READ_SUPEQ" shlp.bind="{type: 'CT', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'18'}"
-          label="Superordinate Equipment"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Superordinate Equipment</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.READ_SUPEQ"
+        options="{type: 'CT', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.READ_FLOC" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Functional Location Label"></ui-input>
+<fd-form-item>
+    <fd-form-label>Functional Location Label</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.READ_FLOC"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.INST_POS" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Equipment position at InstallLoc (Superior Equip./FunctLoc)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Equipment position at InstallLoc (Superior Equip./FunctLoc)</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.INST_POS"
+            data-abap="{type:'CHAR', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.CONFIGMAT_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
-          label="Long Material Number for CONFIGMAT Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Long Material Number for CONFIGMAT Field</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.CONFIGMAT_EXTERNAL"
+            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.CONFIGMAT_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="External GUID for CONFIGMAT Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>External GUID for CONFIGMAT Field</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.CONFIGMAT_GUID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.CONFIGMAT_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
-          label="Version Number for CONFIGMAT Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Version Number for CONFIGMAT Field</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.CONFIGMAT_VERSION"
+            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.MATERIAL_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
-          label="Long Material Number for MATERIAL Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.MATERIAL_EXTERNAL"
+            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.MATERIAL_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="External GUID for MATERIAL Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.MATERIAL_GUID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.MATERIAL_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
-          label="Version Number for MATERIAL Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.MATERIAL_VERSION"
+            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.CONFIG_CONTROL_IND" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="General Indicator (Single Character)"></ui-input>
+<fd-form-item>
+    <fd-form-label>General Indicator (Single Character)</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.CONFIG_CONTROL_IND"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="ES_SPECIFIC.IPPE_GUID" data-abap.bind="{type:'RAW', length:'16'}"
-         label="Internal Identification for PVS Objects"></ui-text>
+<fd-form-item>
+    <fd-form-label>Internal Identification for PVS Objects</label>
+    <fd-textarea v-model="ES_SPECIFIC.IPPE_GUID"
+        data-abap="{type:'RAW', length:'16'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.TECHS" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Parameter Variant/Standard Variant"></ui-input>
+<fd-form-item>
+    <fd-form-label>Parameter Variant/Standard Variant</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.TECHS"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.FUNC_ID" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Function Identifier"></ui-input>
+<fd-form-item>
+    <fd-form-label>Function Identifier</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.FUNC_ID"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.UII" shlp.bind="{type: 'SH', id: 'H_UII'}" data-abap.bind="{type:'CHAR', mid:'UII', length:'72'}"
-          label="Unique Item Identifier"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unique Item Identifier</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.UII"
+        options="{type: 'SH', id: 'H_UII'}"
+        data-abap="{type:'CHAR', mid:'UII', length:'72'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.IUID_TYPE" shlp.bind="{type: 'SH', id: 'H_IUID_TYPE'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Structure Type of UII"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Structure Type of UII</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.IUID_TYPE"
+        options="{type: 'SH', id: 'H_IUID_TYPE'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.UII_PLANT" shlp.bind="{type: 'SH', id: 'H_T001W_C'}" data-abap.bind="{type:'CHAR', mid:'WRK', length:'4'}"
-          label="Plant Responsible for UII"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Plant Responsible for UII</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.UII_PLANT"
+        options="{type: 'SH', id: 'H_T001W_C'}"
+        data-abap="{type:'CHAR', mid:'WRK', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.READ_MAINTENANCE_PLAN" shlp.bind="{type: 'SH', id: 'MPLAL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'MPL', length:'12'}"
-          label="Maintenance Plan"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Maintenance Plan</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.READ_MAINTENANCE_PLAN"
+        options="{type: 'SH', id: 'MPLAL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MPL', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_SPECIFIC.READ_MEASURING_POINT" shlp.bind="{type: 'SH', id: 'IMPM'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IPT', length:'12'}"
-          label="Measuring Point"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Measuring Point</fd-form-label>
+    <fd-select v-model="ES_SPECIFIC.READ_MEASURING_POINT"
+        options="{type: 'SH', id: 'IMPM'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IPT', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="ES_SPECIFIC.READ_VALID_FROM"  label="Valid-From Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>Valid-From Date</fd-form-label>
+    <fd-date-picker v-model="ES_SPECIFIC.READ_VALID_FROM"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.CONFIGMAT_LONG" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Configurable Material"></ui-input>
+<fd-form-item>
+    <fd-form-label>Configurable Material</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.CONFIGMAT_LONG"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_SPECIFIC.MATERIAL_LONG" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Material Number (40 Characters, needed f. technical reasons)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
+        <fd-input v-model="ES_SPECIFIC.MATERIAL_LONG"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_BRKDWN_EFF structure: /COE/RBP_T_MCIT_BRKDWN_EFF   -->
 
 <ui-datagrid data.bind="ET_BRKDWN_EFF" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
-   <ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
-   <ui-dg-column sortable field="SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}" label="Period to analyze - month"></ui-dg-column>
-   <ui-dg-column sortable field="EBDNR" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="NBDREP" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ELSTD" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
-   <ui-dg-column sortable field="ELSTT" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
-   <ui-dg-column sortable field="EBGND" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
-   <ui-dg-column sortable field="EBGNT" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
-   <ui-dg-column sortable field="EENDD" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
-   <ui-dg-column sortable field="EENDT" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
-   <ui-dg-column sortable field="TBRMIN" data-abap.bind="{type:'DEC', length:'8'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="TTRMIN" data-abap.bind="{type:'DEC', length:'8'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+<ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+<ui-dg-column sortable field="SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}" label="Period to analyze - month"></ui-dg-column>
+<ui-dg-column sortable field="EBDNR" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="NBDREP" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ELSTD" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
+<ui-dg-column sortable field="ELSTT" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
+<ui-dg-column sortable field="EBGND" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
+<ui-dg-column sortable field="EBGNT" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
+<ui-dg-column sortable field="EENDD" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
+<ui-dg-column sortable field="EENDT" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
+<ui-dg-column sortable field="TBRMIN" data-abap.bind="{type:'DEC', length:'8'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="TTRMIN" data-abap.bind="{type:'DEC', length:'8'}" label="No field text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_BRKDWN_EFF.EQUNR" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-          label="Equipment Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Equipment Number</fd-form-label>
+    <fd-select v-model="ET_BRKDWN_EFF.EQUNR"
+        options="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_BRKDWN_EFF.TPLNR" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-          label="Functional Location"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Functional Location</fd-form-label>
+    <fd-select v-model="ET_BRKDWN_EFF.TPLNR"
+        options="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_EFF.SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}"
-          label="Period to analyze - month"></ui-input>
+<fd-form-item>
+    <fd-form-label>Period to analyze - month</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_EFF.SPMON"
+            data-abap="{type:'NUMC', alpha:'PERI', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_EFF.EBDNR" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_EFF.EBDNR"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_EFF.NBDREP" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_EFF.NBDREP"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_BRKDWN_EFF.ELSTD"  label="System Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>System Date</fd-form-label>
+    <fd-date-picker v-model="ET_BRKDWN_EFF.ELSTD"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_BRKDWN_EFF.ELSTT"  label="System Time"></ui-time>
+<fd-form-item>
+    <fd-form-label>System Time</fd-form-label>
+    <fd-time-picker v-model="ET_BRKDWN_EFF.ELSTT"></fd-time-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_BRKDWN_EFF.EBGND"  label="System Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>System Date</fd-form-label>
+    <fd-date-picker v-model="ET_BRKDWN_EFF.EBGND"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_BRKDWN_EFF.EBGNT"  label="System Time"></ui-time>
+<fd-form-item>
+    <fd-form-label>System Time</fd-form-label>
+    <fd-time-picker v-model="ET_BRKDWN_EFF.EBGNT"></fd-time-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_BRKDWN_EFF.EENDD"  label="System Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>System Date</fd-form-label>
+    <fd-date-picker v-model="ET_BRKDWN_EFF.EENDD"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_BRKDWN_EFF.EENDT"  label="System Time"></ui-time>
+<fd-form-item>
+    <fd-form-label>System Time</fd-form-label>
+    <fd-time-picker v-model="ET_BRKDWN_EFF.EENDT"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_EFF.TBRMIN" data-abap.bind="{type:'DEC', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_EFF.TBRMIN"
+            data-abap="{type:'DEC', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_EFF.TTRMIN" data-abap.bind="{type:'DEC', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_EFF.TTRMIN"
+            data-abap="{type:'DEC', length:'8'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_BRKDWN_REP structure: /COE/RBP_T_MCIT_BRKDWN_REP   -->
 
 <ui-datagrid data.bind="ET_BRKDWN_REP" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
-   <ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
-   <ui-dg-column sortable field="EBDNR" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="QMNUM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CT', id: 'QMEL'}" label="Notification No"></ui-dg-column>
-   <ui-dg-column sortable field="AUSVN" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
-   <ui-dg-column sortable field="AUSBS" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
-   <ui-dg-column sortable field="AUZTV" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
-   <ui-dg-column sortable field="AUZTB" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
-   <ui-dg-column sortable field="AUSZT" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="MAUEH" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit of Measurement"></ui-dg-column>
-   <ui-dg-column sortable field="HAUSZT" data-abap.bind="{type:'DEC', length:'9.2'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="HIDDEN" data-abap.bind="{type:'CHAR', length:'1'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+<ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+<ui-dg-column sortable field="EBDNR" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="QMNUM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CT', id: 'QMEL'}" label="Notification No"></ui-dg-column>
+<ui-dg-column sortable field="AUSVN" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
+<ui-dg-column sortable field="AUSBS" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
+<ui-dg-column sortable field="AUZTV" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
+<ui-dg-column sortable field="AUZTB" data-abap.bind="{type:'TIMS'}" label="System Time"></ui-dg-column>
+<ui-dg-column sortable field="AUSZT" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="MAUEH" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit of Measurement"></ui-dg-column>
+<ui-dg-column sortable field="HAUSZT" data-abap.bind="{type:'DEC', length:'9.2'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="HIDDEN" data-abap.bind="{type:'CHAR', length:'1'}" label="No field text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_BRKDWN_REP.EQUNR" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-          label="Equipment Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Equipment Number</fd-form-label>
+    <fd-select v-model="ET_BRKDWN_REP.EQUNR"
+        options="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_BRKDWN_REP.TPLNR" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-          label="Functional Location"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Functional Location</fd-form-label>
+    <fd-select v-model="ET_BRKDWN_REP.TPLNR"
+        options="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_REP.EBDNR" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_REP.EBDNR"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_BRKDWN_REP.QMNUM" shlp.bind="{type: 'CT', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-          label="Notification No"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Notification No</fd-form-label>
+    <fd-select v-model="ET_BRKDWN_REP.QMNUM"
+        options="{type: 'CT', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="ET_BRKDWN_REP.AUSVN"  label="System Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>System Date</fd-form-label>
+    <fd-date-picker v-model="ET_BRKDWN_REP.AUSVN"></fd-date-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_BRKDWN_REP.AUSBS"  label="System Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>System Date</fd-form-label>
+    <fd-date-picker v-model="ET_BRKDWN_REP.AUSBS"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_BRKDWN_REP.AUZTV"  label="System Time"></ui-time>
+<fd-form-item>
+    <fd-form-label>System Time</fd-form-label>
+    <fd-time-picker v-model="ET_BRKDWN_REP.AUZTV"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_BRKDWN_REP.AUZTB"  label="System Time"></ui-time>
+<fd-form-item>
+    <fd-form-label>System Time</fd-form-label>
+    <fd-time-picker v-model="ET_BRKDWN_REP.AUZTB"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_REP.AUSZT" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_REP.AUSZT"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_BRKDWN_REP.MAUEH" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measurement"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measurement</fd-form-label>
+    <fd-select v-model="ET_BRKDWN_REP.MAUEH"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_REP.HAUSZT" data-abap.bind="{type:'DEC', length:'9.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_REP.HAUSZT"
+            data-abap="{type:'DEC', length:'9.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_BRKDWN_REP.HIDDEN" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_BRKDWN_REP.HIDDEN"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_CHARACT_GROUP structure: /COE/RBP_T_PAM_CHARACT_GROUP   -->
 
 <ui-datagrid data.bind="ET_CHARACT_GROUP" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="CHARACT_GROUP" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'TCMG'}" label="Characteristics Group"></ui-dg-column>
-   <ui-dg-column sortable field="CHARACT_GROUP_NAME" data-abap.bind="{type:'CHAR', length:'40'}" label="Characteristics Group Description"></ui-dg-column>
+<ui-dg-column sortable field="CHARACT_GROUP" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'TCMG'}" label="Characteristics Group"></ui-dg-column>
+<ui-dg-column sortable field="CHARACT_GROUP_NAME" data-abap.bind="{type:'CHAR', length:'40'}" label="Characteristics Group Description"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_CHARACT_GROUP.CHARACT_GROUP" shlp.bind="{type: 'CT', id: 'TCMG'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Characteristics Group"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Characteristics Group</fd-form-label>
+    <fd-select v-model="ET_CHARACT_GROUP.CHARACT_GROUP"
+        options="{type: 'CT', id: 'TCMG'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACT_GROUP.CHARACT_GROUP_NAME" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Characteristics Group Description"></ui-input>
+<fd-form-item>
+    <fd-form-label>Characteristics Group Description</fd-form-label>
+        <fd-input v-model="ET_CHARACT_GROUP.CHARACT_GROUP_NAME"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_CHARACTERISTICS structure: /COE/RBP_T_PAM_CHARACTERISTICS   -->
 
 <ui-datagrid data.bind="ET_CHARACTERISTICS" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="CLASS" data-abap.bind="{type:'CHAR', mid:'KLA', length:'18'}" label="Class number"></ui-dg-column>
-   <ui-dg-column sortable field="CHARACT_GROUP" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'TCMG'}" label="Characteristics Group"></ui-dg-column>
-   <ui-dg-column sortable field="VALUE" data-abap.bind="{type:'CHAR', length:'30'}" label="Characteristic Value"></ui-dg-column>
-   <ui-dg-column sortable field="VALUE_FROM" data-abap.bind="{type:'FLTP', length:'+1.15'}" label="Internal floating point from"></ui-dg-column>
-   <ui-dg-column sortable field="VALUE_TO" data-abap.bind="{type:'FLTP', length:'+1.15'}" label="Internal floating point value to"></ui-dg-column>
-   <ui-dg-column sortable field="NAME_CHAR" data-abap.bind="{type:'CHAR', mid:'FEA', length:'30'}" label="Characteristic Name"></ui-dg-column>
-   <ui-dg-column sortable field="DESCR_CHAR" data-abap.bind="{type:'CHAR', length:'30'}" label="Characteristic description"></ui-dg-column>
-   <ui-dg-column sortable field="ENTRY_OBLIGATORY" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ATXFE'}" label="Entry Required"></ui-dg-column>
-   <ui-dg-column sortable field="ADDITIONAL_VAL" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ATXFE'}" label="Indicator: Additional Values"></ui-dg-column>
-   <ui-dg-column sortable field="UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit of measurement"></ui-dg-column>
-   <ui-dg-column sortable field="UNIT_T_EXT" data-abap.bind="{type:'CHAR', length:'6'}" label="External Unit of Measurement in Technical Format (6-Char.)"></ui-dg-column>
-   <ui-dg-column sortable field="BASE_UOM_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Base unit of measure in ISO code"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO Currency Code"></ui-dg-column>
-   <ui-dg-column sortable field="DATA_TYPE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'FV', id: 'ATFOR'}" label="Data type of characteristic"></ui-dg-column>
-   <ui-dg-column sortable field="NUMBER_DIGITS" data-abap.bind="{type:'INT2', length:'5'}" label="Number of Characters"></ui-dg-column>
-   <ui-dg-column sortable field="NUMBER_DECIMALS" data-abap.bind="{type:'INT2', length:'5'}" label="Number of Decimal Places"></ui-dg-column>
-   <ui-dg-column sortable field="TEMPLATE" data-abap.bind="{type:'CHAR', length:'30'}" label="Value with template"></ui-dg-column>
-   <ui-dg-column sortable field="DIN_KEY" data-abap.bind="{type:'CHAR', length:'3'}" label="Code letter"></ui-dg-column>
-   <ui-dg-column sortable field="DEPARTMENT_VIEW" data-abap.bind="{type:'CHAR', mid:'VIEW', length:'10'}" label="Organizational Area"></ui-dg-column>
-   <ui-dg-column sortable field="SIGN" data-abap.bind="{type:'CHAR', length:'1'}" label="Value with Plus or Minus Sign"></ui-dg-column>
-   <ui-dg-column sortable field="SINGLE_VALUE" data-abap.bind="{type:'CHAR', length:'1'}" label="Single Value"></ui-dg-column>
-   <ui-dg-column sortable field="INTERVALS_ALLOWED" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ATXFE'}" label="Interval Values Allowed"></ui-dg-column>
-   <ui-dg-column sortable field="CASE_SENSITIVE" data-abap.bind="{type:'CHAR', length:'1'}" label="Case Sensitive"></ui-dg-column>
-   <ui-dg-column sortable field="OBJECT_TABLE" data-abap.bind="{type:'CHAR', length:'30'}" label="Table Name"></ui-dg-column>
-   <ui-dg-column sortable field="TABLE_FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field Name"></ui-dg-column>
-   <ui-dg-column sortable field="CHAR_INHERITED" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: characteristic is inherited"></ui-dg-column>
-   <ui-dg-column sortable field="TEMPLATE_LONG" data-abap.bind="{type:'CHAR', length:'70'}" label="Value with template (70 length, technically needed)"></ui-dg-column>
+<ui-dg-column sortable field="CLASS" data-abap.bind="{type:'CHAR', mid:'KLA', length:'18'}" label="Class number"></ui-dg-column>
+<ui-dg-column sortable field="CHARACT_GROUP" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'TCMG'}" label="Characteristics Group"></ui-dg-column>
+<ui-dg-column sortable field="VALUE" data-abap.bind="{type:'CHAR', length:'30'}" label="Characteristic Value"></ui-dg-column>
+<ui-dg-column sortable field="VALUE_FROM" data-abap.bind="{type:'FLTP', length:'+1.15'}" label="Internal floating point from"></ui-dg-column>
+<ui-dg-column sortable field="VALUE_TO" data-abap.bind="{type:'FLTP', length:'+1.15'}" label="Internal floating point value to"></ui-dg-column>
+<ui-dg-column sortable field="NAME_CHAR" data-abap.bind="{type:'CHAR', mid:'FEA', length:'30'}" label="Characteristic Name"></ui-dg-column>
+<ui-dg-column sortable field="DESCR_CHAR" data-abap.bind="{type:'CHAR', length:'30'}" label="Characteristic description"></ui-dg-column>
+<ui-dg-column sortable field="ENTRY_OBLIGATORY" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ATXFE'}" label="Entry Required"></ui-dg-column>
+<ui-dg-column sortable field="ADDITIONAL_VAL" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ATXFE'}" label="Indicator: Additional Values"></ui-dg-column>
+<ui-dg-column sortable field="UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Unit of measurement"></ui-dg-column>
+<ui-dg-column sortable field="UNIT_T_EXT" data-abap.bind="{type:'CHAR', length:'6'}" label="External Unit of Measurement in Technical Format (6-Char.)"></ui-dg-column>
+<ui-dg-column sortable field="BASE_UOM_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Base unit of measure in ISO code"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO Currency Code"></ui-dg-column>
+<ui-dg-column sortable field="DATA_TYPE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'FV', id: 'ATFOR'}" label="Data type of characteristic"></ui-dg-column>
+<ui-dg-column sortable field="NUMBER_DIGITS" data-abap.bind="{type:'INT2', length:'5'}" label="Number of Characters"></ui-dg-column>
+<ui-dg-column sortable field="NUMBER_DECIMALS" data-abap.bind="{type:'INT2', length:'5'}" label="Number of Decimal Places"></ui-dg-column>
+<ui-dg-column sortable field="TEMPLATE" data-abap.bind="{type:'CHAR', length:'30'}" label="Value with template"></ui-dg-column>
+<ui-dg-column sortable field="DIN_KEY" data-abap.bind="{type:'CHAR', length:'3'}" label="Code letter"></ui-dg-column>
+<ui-dg-column sortable field="DEPARTMENT_VIEW" data-abap.bind="{type:'CHAR', mid:'VIEW', length:'10'}" label="Organizational Area"></ui-dg-column>
+<ui-dg-column sortable field="SIGN" data-abap.bind="{type:'CHAR', length:'1'}" label="Value with Plus or Minus Sign"></ui-dg-column>
+<ui-dg-column sortable field="SINGLE_VALUE" data-abap.bind="{type:'CHAR', length:'1'}" label="Single Value"></ui-dg-column>
+<ui-dg-column sortable field="INTERVALS_ALLOWED" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'ATXFE'}" label="Interval Values Allowed"></ui-dg-column>
+<ui-dg-column sortable field="CASE_SENSITIVE" data-abap.bind="{type:'CHAR', length:'1'}" label="Case Sensitive"></ui-dg-column>
+<ui-dg-column sortable field="OBJECT_TABLE" data-abap.bind="{type:'CHAR', length:'30'}" label="Table Name"></ui-dg-column>
+<ui-dg-column sortable field="TABLE_FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field Name"></ui-dg-column>
+<ui-dg-column sortable field="CHAR_INHERITED" data-abap.bind="{type:'CHAR', length:'1'}" label="Indicator: characteristic is inherited"></ui-dg-column>
+<ui-dg-column sortable field="TEMPLATE_LONG" data-abap.bind="{type:'CHAR', length:'70'}" label="Value with template (70 length, technically needed)"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_CHARACTERISTICS.CLASS" data-abap.bind="{type:'CHAR', mid:'KLA', length:'18'}"
-          label="Class number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Class number</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.CLASS"
+            data-abap="{type:'CHAR', mid:'KLA', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.CHARACT_GROUP" shlp.bind="{type: 'CT', id: 'TCMG'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Characteristics Group"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Characteristics Group</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.CHARACT_GROUP"
+        options="{type: 'CT', id: 'TCMG'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.VALUE" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Characteristic Value"></ui-input>
+<fd-form-item>
+    <fd-form-label>Characteristic Value</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.VALUE"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.VALUE_FROM" data-abap.bind="{type:'FLTP', length:'+1.15'}"
-          label="Internal floating point from"></ui-input>
+<fd-form-item>
+    <fd-form-label>Internal floating point from</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.VALUE_FROM"
+            data-abap="{type:'FLTP', length:'+1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.VALUE_TO" data-abap.bind="{type:'FLTP', length:'+1.15'}"
-          label="Internal floating point value to"></ui-input>
+<fd-form-item>
+    <fd-form-label>Internal floating point value to</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.VALUE_TO"
+            data-abap="{type:'FLTP', length:'+1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.NAME_CHAR" data-abap.bind="{type:'CHAR', mid:'FEA', length:'30'}"
-          label="Characteristic Name"></ui-input>
+<fd-form-item>
+    <fd-form-label>Characteristic Name</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.NAME_CHAR"
+            data-abap="{type:'CHAR', mid:'FEA', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.DESCR_CHAR" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Characteristic description"></ui-input>
+<fd-form-item>
+    <fd-form-label>Characteristic description</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.DESCR_CHAR"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.ENTRY_OBLIGATORY" shlp.bind="{type: 'FV', id: 'ATXFE'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Entry Required"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Entry Required</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.ENTRY_OBLIGATORY"
+        options="{type: 'FV', id: 'ATXFE'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.ADDITIONAL_VAL" shlp.bind="{type: 'FV', id: 'ATXFE'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Indicator: Additional Values"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Indicator: Additional Values</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.ADDITIONAL_VAL"
+        options="{type: 'FV', id: 'ATXFE'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.UNIT" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of measurement"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of measurement</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.UNIT"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.UNIT_T_EXT" data-abap.bind="{type:'CHAR', length:'6'}"
-          label="External Unit of Measurement in Technical Format (6-Char.)"></ui-input>
+<fd-form-item>
+    <fd-form-label>External Unit of Measurement in Technical Format (6-Char.)</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.UNIT_T_EXT"
+            data-abap="{type:'CHAR', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.BASE_UOM_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Base unit of measure in ISO code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Base unit of measure in ISO code</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.BASE_UOM_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.CURRENCY"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO Currency Code"></ui-input>
+<fd-form-item>
+    <fd-form-label>ISO Currency Code</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.CURRENCY_ISO"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.DATA_TYPE" shlp.bind="{type: 'FV', id: 'ATFOR'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Data type of characteristic"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Data type of characteristic</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.DATA_TYPE"
+        options="{type: 'FV', id: 'ATFOR'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.NUMBER_DIGITS" data-abap.bind="{type:'INT2', length:'5'}"
-          label="Number of Characters"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of Characters</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.NUMBER_DIGITS"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.NUMBER_DECIMALS" data-abap.bind="{type:'INT2', length:'5'}"
-          label="Number of Decimal Places"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of Decimal Places</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.NUMBER_DECIMALS"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.TEMPLATE" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Value with template"></ui-input>
+<fd-form-item>
+    <fd-form-label>Value with template</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.TEMPLATE"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.DIN_KEY" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Code letter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Code letter</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.DIN_KEY"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.DEPARTMENT_VIEW" data-abap.bind="{type:'CHAR', mid:'VIEW', length:'10'}"
-          label="Organizational Area"></ui-input>
+<fd-form-item>
+    <fd-form-label>Organizational Area</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.DEPARTMENT_VIEW"
+            data-abap="{type:'CHAR', mid:'VIEW', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-checkbox value.bind="ET_CHARACTERISTICS.SIGN" label="Value with Plus or Minus Sign"></ui-checkbox>
+<fd-form-item-checkbox label="Value with Plus or Minus Sign">
+    <fd-checkbox v-model="ET_CHARACTERISTICS.SIGN">
+</fd-form-item-checkbox>
 
-<ui-checkbox value.bind="ET_CHARACTERISTICS.SINGLE_VALUE" label="Single Value"></ui-checkbox>
+<fd-form-item-checkbox label="Single Value">
+    <fd-checkbox v-model="ET_CHARACTERISTICS.SINGLE_VALUE">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.INTERVALS_ALLOWED" shlp.bind="{type: 'FV', id: 'ATXFE'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Interval Values Allowed"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Interval Values Allowed</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.INTERVALS_ALLOWED"
+        options="{type: 'FV', id: 'ATXFE'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="ET_CHARACTERISTICS.CASE_SENSITIVE" label="Case Sensitive"></ui-checkbox>
+<fd-form-item-checkbox label="Case Sensitive">
+    <fd-checkbox v-model="ET_CHARACTERISTICS.CASE_SENSITIVE">
+</fd-form-item-checkbox>
 
-<ui-input value.bind="ET_CHARACTERISTICS.OBJECT_TABLE" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Table Name"></ui-input>
+<fd-form-item>
+    <fd-form-label>Table Name</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.OBJECT_TABLE"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_CHARACTERISTICS.TABLE_FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Field Name"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Field Name</fd-form-label>
+    <fd-select v-model="ET_CHARACTERISTICS.TABLE_FIELD"
+        options="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.CHAR_INHERITED" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Indicator: characteristic is inherited"></ui-input>
+<fd-form-item>
+    <fd-form-label>Indicator: characteristic is inherited</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.CHAR_INHERITED"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_CHARACTERISTICS.TEMPLATE_LONG" data-abap.bind="{type:'CHAR', length:'70'}"
-          label="Value with template (70 length, technically needed)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Value with template (70 length, technically needed)</fd-form-label>
+        <fd-input v-model="ET_CHARACTERISTICS.TEMPLATE_LONG"
+            data-abap="{type:'CHAR', length:'70'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_DOCUMENT structure: /COE/RBP_T_PAM_DOCUMENT   -->
 
 <ui-datagrid data.bind="ET_DOCUMENT" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="CLASS" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'SDOKIOCL'}" label="Document class"></ui-dg-column>
-   <ui-dg-column sortable field="OBJID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
-   <ui-dg-column sortable field="FILE_SIZE" data-abap.bind="{type:'NUMC', length:'12'}" label="File size (in bytes)"></ui-dg-column>
-   <ui-dg-column sortable field="BINARY_FLG" data-abap.bind="{type:'CHAR', length:'1'}" label="Flag for binary files"></ui-dg-column>
-   <ui-dg-column sortable field="FIRST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
-   <ui-dg-column sortable field="LAST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
-   <ui-dg-column sortable field="FILE_NAME" data-abap.bind="{type:'CHAR', length:'255'}" label="Relative storage location of physical document"></ui-dg-column>
-   <ui-dg-column sortable field="MIMETYPE" data-abap.bind="{type:'CHAR', length:'128'}" label="HTML content type"></ui-dg-column>
-   <ui-dg-column sortable field="PROPERTY" data-abap.bind="{type:'CHAR', length:'4'}" label="Component attribute for the application"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTTYPE" data-abap.bind="{type:'CHAR', mid:'CV2', length:'3'}" shlp.bind="{type: 'CT', id: 'TDWA'}" label="Document Type"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTNUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}" shlp.bind="{type: 'CT', id: 'DRAW'}" label="Document number"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTVERSION" data-abap.bind="{type:'CHAR', mid:'CV3', length:'2'}" label="Document version"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTPART" data-abap.bind="{type:'CHAR', mid:'CV4', length:'3'}" label="Document part"></ui-dg-column>
-   <ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'64'}" label="Short Description"></ui-dg-column>
-   <ui-dg-column sortable field="FILE_ID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
+<ui-dg-column sortable field="CLASS" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'SDOKIOCL'}" label="Document class"></ui-dg-column>
+<ui-dg-column sortable field="OBJID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
+<ui-dg-column sortable field="FILE_SIZE" data-abap.bind="{type:'NUMC', length:'12'}" label="File size (in bytes)"></ui-dg-column>
+<ui-dg-column sortable field="BINARY_FLG" data-abap.bind="{type:'CHAR', length:'1'}" label="Flag for binary files"></ui-dg-column>
+<ui-dg-column sortable field="FIRST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
+<ui-dg-column sortable field="LAST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
+<ui-dg-column sortable field="FILE_NAME" data-abap.bind="{type:'CHAR', length:'255'}" label="Relative storage location of physical document"></ui-dg-column>
+<ui-dg-column sortable field="MIMETYPE" data-abap.bind="{type:'CHAR', length:'128'}" label="HTML content type"></ui-dg-column>
+<ui-dg-column sortable field="PROPERTY" data-abap.bind="{type:'CHAR', length:'4'}" label="Component attribute for the application"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTTYPE" data-abap.bind="{type:'CHAR', mid:'CV2', length:'3'}" shlp.bind="{type: 'CT', id: 'TDWA'}" label="Document Type"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTNUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}" shlp.bind="{type: 'CT', id: 'DRAW'}" label="Document number"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTVERSION" data-abap.bind="{type:'CHAR', mid:'CV3', length:'2'}" label="Document version"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTPART" data-abap.bind="{type:'CHAR', mid:'CV4', length:'3'}" label="Document part"></ui-dg-column>
+<ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'64'}" label="Short Description"></ui-dg-column>
+<ui-dg-column sortable field="FILE_ID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_DOCUMENT.CLASS" shlp.bind="{type: 'CT', id: 'SDOKIOCL'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Document class"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Document class</fd-form-label>
+    <fd-select v-model="ET_DOCUMENT.CLASS"
+        options="{type: 'CT', id: 'SDOKIOCL'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.OBJID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="ID for documents and relations"></ui-input>
+<fd-form-item>
+    <fd-form-label>ID for documents and relations</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.OBJID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.FILE_SIZE" data-abap.bind="{type:'NUMC', length:'12'}"
-          label="File size (in bytes)"></ui-input>
+<fd-form-item>
+    <fd-form-label>File size (in bytes)</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FILE_SIZE"
+            data-abap="{type:'NUMC', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-checkbox value.bind="ET_DOCUMENT.BINARY_FLG" label="Flag for binary files"></ui-checkbox>
+<fd-form-item-checkbox label="Flag for binary files">
+    <fd-checkbox v-model="ET_DOCUMENT.BINARY_FLG">
+</fd-form-item-checkbox>
 
-<ui-input value.bind="ET_DOCUMENT.FIRST_LINE" data-abap.bind="{type:'NUMC', length:'12'}"
-          label="Line number in internal table"></ui-input>
+<fd-form-item>
+    <fd-form-label>Line number in internal table</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FIRST_LINE"
+            data-abap="{type:'NUMC', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.LAST_LINE" data-abap.bind="{type:'NUMC', length:'12'}"
-          label="Line number in internal table"></ui-input>
+<fd-form-item>
+    <fd-form-label>Line number in internal table</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.LAST_LINE"
+            data-abap="{type:'NUMC', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.FILE_NAME" data-abap.bind="{type:'CHAR', length:'255'}"
-          label="Relative storage location of physical document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Relative storage location of physical document</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FILE_NAME"
+            data-abap="{type:'CHAR', length:'255'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.MIMETYPE" data-abap.bind="{type:'CHAR', length:'128'}"
-          label="HTML content type"></ui-input>
+<fd-form-item>
+    <fd-form-label>HTML content type</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.MIMETYPE"
+            data-abap="{type:'CHAR', length:'128'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.PROPERTY" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Component attribute for the application"></ui-input>
+<fd-form-item>
+    <fd-form-label>Component attribute for the application</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.PROPERTY"
+            data-abap="{type:'CHAR', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_DOCUMENT.DOCUMENTTYPE" shlp.bind="{type: 'CT', id: 'TDWA'}" data-abap.bind="{type:'CHAR', mid:'CV2', length:'3'}"
-          label="Document Type"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Document Type</fd-form-label>
+    <fd-select v-model="ET_DOCUMENT.DOCUMENTTYPE"
+        options="{type: 'CT', id: 'TDWA'}"
+        data-abap="{type:'CHAR', mid:'CV2', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_DOCUMENT.DOCUMENTNUMBER" shlp.bind="{type: 'CT', id: 'DRAW'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}"
-          label="Document number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Document number</fd-form-label>
+    <fd-select v-model="ET_DOCUMENT.DOCUMENTNUMBER"
+        options="{type: 'CT', id: 'DRAW'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.DOCUMENTVERSION" data-abap.bind="{type:'CHAR', mid:'CV3', length:'2'}"
-          label="Document version"></ui-input>
+<fd-form-item>
+    <fd-form-label>Document version</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.DOCUMENTVERSION"
+            data-abap="{type:'CHAR', mid:'CV3', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.DOCUMENTPART" data-abap.bind="{type:'CHAR', mid:'CV4', length:'3'}"
-          label="Document part"></ui-input>
+<fd-form-item>
+    <fd-form-label>Document part</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.DOCUMENTPART"
+            data-abap="{type:'CHAR', mid:'CV4', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.DESCRIPTION" data-abap.bind="{type:'CHAR', length:'64'}"
-          label="Short Description"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Description</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.DESCRIPTION"
+            data-abap="{type:'CHAR', length:'64'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.FILE_ID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="ID for documents and relations"></ui-input>
+<fd-form-item>
+    <fd-form-label>ID for documents and relations</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FILE_ID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person responsible"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person responsible</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CREATED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}"
-          label="Time of change (UTC)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Time of change (UTC)</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CREATED_AT"
+            data-abap="{type:'NUMC', alpha:'TSTLC', length:'14'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person responsible"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person responsible</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CHANGED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CHANGED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}"
-          label="Time of change (UTC)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Time of change (UTC)</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CHANGED_AT"
+            data-abap="{type:'NUMC', alpha:'TSTLC', length:'14'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_MCIQMADD structure: /COE/RBP_T_MCIQMADD   -->
 
 <ui-datagrid data.bind="ET_MCIQMADD" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="SMOFN" data-abap.bind="{type:'DEC', length:'+9'}" label="No.of recorded notifications"></ui-dg-column>
-   <ui-dg-column sortable field="SMMAB" data-abap.bind="{type:'DEC', length:'+9'}" label="No. of completed notifications"></ui-dg-column>
-   <ui-dg-column sortable field="SABTG" data-abap.bind="{type:'DEC', length:'+9'}" label="No. processing days creation to completion"></ui-dg-column>
-   <ui-dg-column sortable field="SMSAUS" data-abap.bind="{type:'DEC', length:'+9'}" label="Number of actual machine breakdowns"></ui-dg-column>
-   <ui-dg-column sortable field="SAUSZT" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}" label="Time To Repair"></ui-dg-column>
-   <ui-dg-column sortable field="SEQTBR" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}" label="Time Between Repair"></ui-dg-column>
-   <ui-dg-column sortable field="SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}" label="Period to analyze - month"></ui-dg-column>
-   <ui-dg-column sortable field="SGMSAUS" data-abap.bind="{type:'DEC', length:'+9'}" label="Number of machine breakdowns reported"></ui-dg-column>
-   <ui-dg-column sortable field="SGAUSZT" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}" label="Downtime entered"></ui-dg-column>
-   <ui-dg-column sortable field="SUNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit for Breakdown Duration"></ui-dg-column>
-   <ui-dg-column sortable field="SSCODE" data-abap.bind="{type:'DEC', length:'+9'}" label="PMIS: No.of damages"></ui-dg-column>
-   <ui-dg-column sortable field="SUCODE" data-abap.bind="{type:'DEC', length:'+9'}" label="PMIS: No. of cause of damage codes"></ui-dg-column>
-   <ui-dg-column sortable field="SACODE" data-abap.bind="{type:'DEC', length:'+9'}" label="PMIS: number of activity codes"></ui-dg-column>
+<ui-dg-column sortable field="SMOFN" data-abap.bind="{type:'DEC', length:'+9'}" label="No.of recorded notifications"></ui-dg-column>
+<ui-dg-column sortable field="SMMAB" data-abap.bind="{type:'DEC', length:'+9'}" label="No. of completed notifications"></ui-dg-column>
+<ui-dg-column sortable field="SABTG" data-abap.bind="{type:'DEC', length:'+9'}" label="No. processing days creation to completion"></ui-dg-column>
+<ui-dg-column sortable field="SMSAUS" data-abap.bind="{type:'DEC', length:'+9'}" label="Number of actual machine breakdowns"></ui-dg-column>
+<ui-dg-column sortable field="SAUSZT" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}" label="Time To Repair"></ui-dg-column>
+<ui-dg-column sortable field="SEQTBR" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}" label="Time Between Repair"></ui-dg-column>
+<ui-dg-column sortable field="SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}" label="Period to analyze - month"></ui-dg-column>
+<ui-dg-column sortable field="SGMSAUS" data-abap.bind="{type:'DEC', length:'+9'}" label="Number of machine breakdowns reported"></ui-dg-column>
+<ui-dg-column sortable field="SGAUSZT" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}" label="Downtime entered"></ui-dg-column>
+<ui-dg-column sortable field="SUNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit for Breakdown Duration"></ui-dg-column>
+<ui-dg-column sortable field="SSCODE" data-abap.bind="{type:'DEC', length:'+9'}" label="PMIS: No.of damages"></ui-dg-column>
+<ui-dg-column sortable field="SUCODE" data-abap.bind="{type:'DEC', length:'+9'}" label="PMIS: No. of cause of damage codes"></ui-dg-column>
+<ui-dg-column sortable field="SACODE" data-abap.bind="{type:'DEC', length:'+9'}" label="PMIS: number of activity codes"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_MCIQMADD.SMOFN" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="No.of recorded notifications"></ui-input>
+<fd-form-item>
+    <fd-form-label>No.of recorded notifications</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SMOFN"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SMMAB" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="No. of completed notifications"></ui-input>
+<fd-form-item>
+    <fd-form-label>No. of completed notifications</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SMMAB"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SABTG" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="No. processing days creation to completion"></ui-input>
+<fd-form-item>
+    <fd-form-label>No. processing days creation to completion</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SABTG"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SMSAUS" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="Number of actual machine breakdowns"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of actual machine breakdowns</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SMSAUS"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SAUSZT" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}"
-          label="Time To Repair"></ui-input>
+<fd-form-item>
+    <fd-form-label>Time To Repair</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SAUSZT"
+            data-abap="{type:'QUAN', unit:'SUNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SEQTBR" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}"
-          label="Time Between Repair"></ui-input>
+<fd-form-item>
+    <fd-form-label>Time Between Repair</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SEQTBR"
+            data-abap="{type:'QUAN', unit:'SUNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}"
-          label="Period to analyze - month"></ui-input>
+<fd-form-item>
+    <fd-form-label>Period to analyze - month</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SPMON"
+            data-abap="{type:'NUMC', alpha:'PERI', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SGMSAUS" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="Number of machine breakdowns reported"></ui-input>
+<fd-form-item>
+    <fd-form-label>Number of machine breakdowns reported</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SGMSAUS"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SGAUSZT" data-abap.bind="{type:'QUAN', unit:'SUNIT', length:'10.3'}"
-          label="Downtime entered"></ui-input>
+<fd-form-item>
+    <fd-form-label>Downtime entered</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SGAUSZT"
+            data-abap="{type:'QUAN', unit:'SUNIT', length:'10.3'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_MCIQMADD.SUNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit for Breakdown Duration"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit for Breakdown Duration</fd-form-label>
+    <fd-select v-model="ET_MCIQMADD.SUNIT"
+        options="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SSCODE" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="PMIS: No.of damages"></ui-input>
+<fd-form-item>
+    <fd-form-label>PMIS: No.of damages</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SSCODE"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SUCODE" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="PMIS: No. of cause of damage codes"></ui-input>
+<fd-form-item>
+    <fd-form-label>PMIS: No. of cause of damage codes</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SUCODE"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_MCIQMADD.SACODE" data-abap.bind="{type:'DEC', length:'+9'}"
-          label="PMIS: number of activity codes"></ui-input>
+<fd-form-item>
+    <fd-form-label>PMIS: number of activity codes</fd-form-label>
+        <fd-input v-model="ET_MCIQMADD.SACODE"
+            data-abap="{type:'DEC', length:'+9'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_RESULT structure: /COE/RBP_T_MCIT_RESULT   -->
 
 <ui-datagrid data.bind="ET_RESULT" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
-   <ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
-   <ui-dg-column sortable field="SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}" label="Period to analyze - month"></ui-dg-column>
-   <ui-dg-column sortable field="NBDEFF" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="SNBDREP" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="STTRHRS" data-abap.bind="{type:'DEC', length:'11.3'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="STBRHRS" data-abap.bind="{type:'DEC', length:'11.3'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+<ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+<ui-dg-column sortable field="SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}" label="Period to analyze - month"></ui-dg-column>
+<ui-dg-column sortable field="NBDEFF" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="SNBDREP" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="STTRHRS" data-abap.bind="{type:'DEC', length:'11.3'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="STBRHRS" data-abap.bind="{type:'DEC', length:'11.3'}" label="No field text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_RESULT.EQUNR" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-          label="Equipment Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Equipment Number</fd-form-label>
+    <fd-select v-model="ET_RESULT.EQUNR"
+        options="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_RESULT.TPLNR" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-          label="Functional Location"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Functional Location</fd-form-label>
+    <fd-select v-model="ET_RESULT.TPLNR"
+        options="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_RESULT.SPMON" data-abap.bind="{type:'NUMC', alpha:'PERI', length:'6'}"
-          label="Period to analyze - month"></ui-input>
+<fd-form-item>
+    <fd-form-label>Period to analyze - month</fd-form-label>
+        <fd-input v-model="ET_RESULT.SPMON"
+            data-abap="{type:'NUMC', alpha:'PERI', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RESULT.NBDEFF" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_RESULT.NBDEFF"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RESULT.SNBDREP" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_RESULT.SNBDREP"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RESULT.STTRHRS" data-abap.bind="{type:'DEC', length:'11.3'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_RESULT.STTRHRS"
+            data-abap="{type:'DEC', length:'11.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RESULT.STBRHRS" data-abap.bind="{type:'DEC', length:'11.3'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_RESULT.STBRHRS"
+            data-abap="{type:'DEC', length:'11.3'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_RETURN structure: BAPIRET2_TAB   -->
 
 <ui-datagrid data.bind="ET_RETURN" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
-   <ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
-   <ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
-   <ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
+<ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+<ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
+<ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+<ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+<ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
+<ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
+<ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
+<ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="ET_RETURN.TYPE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.ID" shlp.bind="{type: 'CT', id: 'T100A'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Message Class"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Message Class</fd-form-label>
+    <fd-select v-model="ET_RETURN.ID"
+        options="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.NUMBER" data-abap.bind="{type:'NUMC', length:'3'}"
-          label="Message Number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Number</fd-form-label>
+        <fd-input v-model="ET_RETURN.NUMBER"
+            data-abap="{type:'NUMC', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
-          label="Message Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE"
+            data-abap="{type:'CHAR', length:'220'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Application log: log number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_NO"
+        options="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Application log: Internal message serial number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
+        options="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V1"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V2"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V3"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V4"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="Parameter Name"></ui-input>
+<fd-form-item>
+    <fd-form-label>Parameter Name</fd-form-label>
+        <fd-input v-model="ET_RETURN.PARAMETER"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.ROW" data-abap.bind="{type:'INT4', length:'+10'}"
-          label="Lines in parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Lines in parameter</fd-form-label>
+        <fd-input v-model="ET_RETURN.ROW"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Field in parameter"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Field in parameter</fd-form-label>
+    <fd-select v-model="ET_RETURN.FIELD"
+        options="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.SYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-          label="Logical system from which message originates"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Logical system from which message originates</fd-form-label>
+    <fd-select v-model="ET_RETURN.SYSTEM"
+        options="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- Parameter: ET_STARTUP_EQUI structure: /COE/RBP_T_MCIT_STARTUP_EQUI   -->
 
 <ui-datagrid data.bind="ET_STARTUP_EQUI" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
-   <ui-dg-column sortable field="STARTUP" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
-   <ui-dg-column sortable field="SOURCE" data-abap.bind="{type:'CHAR', length:'1'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="EQUNR" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+<ui-dg-column sortable field="STARTUP" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
+<ui-dg-column sortable field="SOURCE" data-abap.bind="{type:'CHAR', length:'1'}" label="No field text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_STARTUP_EQUI.EQUNR" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-          label="Equipment Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Equipment Number</fd-form-label>
+    <fd-select v-model="ET_STARTUP_EQUI.EQUNR"
+        options="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="ET_STARTUP_EQUI.STARTUP"  label="System Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>System Date</fd-form-label>
+    <fd-date-picker v-model="ET_STARTUP_EQUI.STARTUP"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_STARTUP_EQUI.SOURCE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_STARTUP_EQUI.SOURCE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_STARTUP_IFLO structure: /COE/RBP_T_MCIT_STARTUP_IFLO   -->
 
 <ui-datagrid data.bind="ET_STARTUP_IFLO" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
-   <ui-dg-column sortable field="STARTUP" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
-   <ui-dg-column sortable field="SOURCE" data-abap.bind="{type:'CHAR', length:'1'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="TPLNR" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+<ui-dg-column sortable field="STARTUP" data-abap.bind="{type:'DATS'}" label="System Date"></ui-dg-column>
+<ui-dg-column sortable field="SOURCE" data-abap.bind="{type:'CHAR', length:'1'}" label="No field text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_STARTUP_IFLO.TPLNR" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-          label="Functional Location"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Functional Location</fd-form-label>
+    <fd-select v-model="ET_STARTUP_IFLO.TPLNR"
+        options="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="ET_STARTUP_IFLO.STARTUP"  label="System Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>System Date</fd-form-label>
+    <fd-date-picker v-model="ET_STARTUP_IFLO.STARTUP"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_STARTUP_IFLO.SOURCE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_STARTUP_IFLO.SOURCE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_USER_STATUS structure: CWD_TT_ITOB_STATUS   -->
 
 <ui-datagrid data.bind="ET_USER_STATUS" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="STATUS" data-abap.bind="{type:'CHAR', length:'5'}" label="Object status"></ui-dg-column>
-   <ui-dg-column sortable field="TEXT" data-abap.bind="{type:'CHAR', length:'4'}" label="Individual status of an object (short form)"></ui-dg-column>
-   <ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'30'}" label="Object status"></ui-dg-column>
+<ui-dg-column sortable field="STATUS" data-abap.bind="{type:'CHAR', length:'5'}" label="Object status"></ui-dg-column>
+<ui-dg-column sortable field="TEXT" data-abap.bind="{type:'CHAR', length:'4'}" label="Individual status of an object (short form)"></ui-dg-column>
+<ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'30'}" label="Object status"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_USER_STATUS.STATUS" data-abap.bind="{type:'CHAR', length:'5'}"
-          label="Object status"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object status</fd-form-label>
+        <fd-input v-model="ET_USER_STATUS.STATUS"
+            data-abap="{type:'CHAR', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_USER_STATUS.TEXT" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Individual status of an object (short form)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Individual status of an object (short form)</fd-form-label>
+        <fd-input v-model="ET_USER_STATUS.TEXT"
+            data-abap="{type:'CHAR', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_USER_STATUS.DESCRIPTION" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Object status"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object status</fd-form-label>
+        <fd-input v-model="ET_USER_STATUS.DESCRIPTION"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>

@@ -6,383 +6,898 @@ abap api -->
 
 <!-- Parameter: IS_INPUT structure: /COE/RBP_S_FE_RFM_STRUCTURE   -->
 
-<ui-input value.bind="IS_INPUT.ZACCP" data-abap.bind="{type:'ACCP'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZACCP"
+            data-abap="{type:'ACCP'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZCHAR"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="IS_INPUT.ZCLNT" shlp.bind="{type: 'SH', id: 'H_T000'}" data-abap.bind="{type:'CLNT', length:'3'}"
-          label="Client"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Client</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZCLNT"
+        options="{type: 'SH', id: 'H_T000'}"
+        data-abap="{type:'CLNT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZCURR"
+            data-abap="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="IS_INPUT.ZDATS"  label="No field text"></ui-date>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-date-picker v-model="IS_INPUT.ZDATS"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZDEC"
+            data-abap="{type:'DEC', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZFLTP"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZINT1" data-abap.bind="{type:'INT1', length:'3'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZINT1"
+            data-abap="{type:'INT1', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZINT2" data-abap.bind="{type:'INT2', length:'5'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZINT2"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZINT4" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZINT4"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="IS_INPUT.ZLANG" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
-          label="Language Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Language Key</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZLANG"
+        options="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-text value.bind="IS_INPUT.ZLCHR" data-abap.bind="{type:'LCHR', length:'257'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="IS_INPUT.ZLCHR"
+        data-abap="{type:'LCHR', length:'257'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="IS_INPUT.ZLRAW" data-abap.bind="{type:'LRAW', length:'257'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="IS_INPUT.ZLRAW"
+        data-abap="{type:'LRAW', length:'257'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZNUMC"
+            data-abap="{type:'NUMC', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZPREC" data-abap.bind="{type:'PREC', length:'2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZPREC"
+            data-abap="{type:'PREC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZQUAN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="IS_INPUT.ZRAW" data-abap.bind="{type:'RAW', length:'17'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="IS_INPUT.ZRAW"
+        data-abap="{type:'RAW', length:'17'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="IS_INPUT.ZRAWSTRING" data-abap.bind="{type:'RSTR', length:'-1'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="IS_INPUT.ZRAWSTRING"
+        data-abap="{type:'RSTR', length:'-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="IS_INPUT.ZSTRING" data-abap.bind="{type:'STRG', length:'-1'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="IS_INPUT.ZSTRING"
+        data-abap="{type:'STRG', length:'-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="IS_INPUT.ZSSTRING" data-abap.bind="{type:'SSTR', length:'15'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="IS_INPUT.ZSSTRING"
+        data-abap="{type:'SSTR', length:'15'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-time time.bind="IS_INPUT.ZTIMS"  label="No field text"></ui-time>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-time-picker v-model="IS_INPUT.ZTIMS"></fd-time-picker>
+</fd-form-item>
 
-<ui-combo value.bind="IS_INPUT.ZUNIT_DTEL" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Condition unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Condition unit</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZUNIT_DTEL"
+        options="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="IS_INPUT.ZCUKY_DTEL" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZCUKY_DTEL"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="IS_INPUT.ZCHECKBOX" label="Checkbox"></ui-checkbox>
+<fd-form-item-checkbox label="Checkbox">
+    <fd-checkbox v-model="IS_INPUT.ZCHECKBOX">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="IS_INPUT.ZFVAL_LEIN_STATU" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Status of Storage Unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Status of Storage Unit</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZFVAL_LEIN_STATU"
+        options="{type: 'FV', id: 'LEIN_STATU'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="IS_INPUT.ZSHLP_DEBI" shlp.bind="{type: 'SH', id: 'DEBI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-          label="Customer Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZSHLP_DEBI"
+        options="{type: 'SH', id: 'DEBI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="IS_INPUT.ZSHLP_PRODH" shlp.bind="{type: 'SH', id: 'PRODH'}" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}"
-          label="Product hierarchy"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Product hierarchy</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZSHLP_PRODH"
+        options="{type: 'SH', id: 'PRODH'}"
+        data-abap="{type:'CHAR', mid:'VPR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="IS_INPUT.ZSHLP_MAT1" shlp.bind="{type: 'SH', id: 'MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="IS_INPUT.ZSHLP_MAT1"
+        options="{type: 'SH', id: 'MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
-          label="Difference quantity in alternate unit of measure"></ui-input>
+<fd-form-item>
+    <fd-form-label>Difference quantity in alternate unit of measure</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZQUAN_SIGN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZDECF16_MIN"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZDECF16_MAX"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZDECF34_MIN"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZDECF34_MAX"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZFLTP_MIN"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZFLTP_MAX"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IS_INPUT.ZDEC217" data-abap.bind="{type:'DEC', length:'20.7'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="IS_INPUT.ZDEC217"
+            data-abap="{type:'DEC', length:'20.7'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_COUNT" data-abap.bind="{type:'INT4', length:'+10'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_COUNT"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_DECF16" data-abap.bind="{type:'DECFLOAT16'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_DECF16"
+            data-abap="{type:'DECFLOAT16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_GENERATE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_GENERATE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="IV_LANGU" shlp.bind="{type: 'CT', id: 'T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}"
-          label=""></ui-combo>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+    <fd-select v-model="IV_LANGU"
+        options="{type: 'CT', id: 'T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="IV_LANGU_D" shlp.bind="{type: 'CT', id: 'T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}"
-          label=""></ui-combo>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+    <fd-select v-model="IV_LANGU_D"
+        options="{type: 'CT', id: 'T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-text value.bind="IV_STRING" data-abap.bind="{type:'STRING'}"
-         label=""></ui-text>
+<fd-form-item>
+    <fd-form-label></label>
+    <fd-textarea v-model="IV_STRING"
+        data-abap="{type:'STRING'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-input value.bind="IV_STRING_SIZE" data-abap.bind="{type:'INT8'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_STRING_SIZE"
+            data-abap="{type:'INT8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_UNAME" data-abap.bind="{type:'CHAR', length:'12'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_UNAME"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_UNAME_DOM" data-abap.bind="{type:'CHAR', length:'12'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_UNAME_DOM"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="IV_XSTRING" data-abap.bind="{type:'XSTRING'}"
-         label=""></ui-text>
+<fd-form-item>
+    <fd-form-label></label>
+    <fd-textarea v-model="IV_XSTRING"
+        data-abap="{type:'XSTRING'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-input value.bind="IV_XSTRING_SIZE" data-abap.bind="{type:'INT8'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_XSTRING_SIZE"
+            data-abap="{type:'INT8'}"
+        />
+</fd-form-item>
 
 <!-- CHANGING PARAMETERS -->
 
-<ui-input value.bind="CV_INT" data-abap.bind="{type:'INT4', length:'+10'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="CV_INT"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: CS_STRUCT structure: /COE/RBP_S_FE_RFM_STRUCTURE   -->
 
-<ui-input value.bind="CS_STRUCT.ZACCP" data-abap.bind="{type:'ACCP'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZACCP"
+            data-abap="{type:'ACCP'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZCHAR"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="CS_STRUCT.ZCLNT" shlp.bind="{type: 'SH', id: 'H_T000'}" data-abap.bind="{type:'CLNT', length:'3'}"
-          label="Client"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Client</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZCLNT"
+        options="{type: 'SH', id: 'H_T000'}"
+        data-abap="{type:'CLNT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZCURR"
+            data-abap="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="CS_STRUCT.ZDATS"  label="No field text"></ui-date>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-date-picker v-model="CS_STRUCT.ZDATS"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZDEC"
+            data-abap="{type:'DEC', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZFLTP"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZINT1" data-abap.bind="{type:'INT1', length:'3'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZINT1"
+            data-abap="{type:'INT1', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZINT2" data-abap.bind="{type:'INT2', length:'5'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZINT2"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZINT4" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZINT4"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="CS_STRUCT.ZLANG" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
-          label="Language Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Language Key</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZLANG"
+        options="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-text value.bind="CS_STRUCT.ZLCHR" data-abap.bind="{type:'LCHR', length:'257'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="CS_STRUCT.ZLCHR"
+        data-abap="{type:'LCHR', length:'257'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="CS_STRUCT.ZLRAW" data-abap.bind="{type:'LRAW', length:'257'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="CS_STRUCT.ZLRAW"
+        data-abap="{type:'LRAW', length:'257'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZNUMC"
+            data-abap="{type:'NUMC', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZPREC" data-abap.bind="{type:'PREC', length:'2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZPREC"
+            data-abap="{type:'PREC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZQUAN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="CS_STRUCT.ZRAW" data-abap.bind="{type:'RAW', length:'17'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="CS_STRUCT.ZRAW"
+        data-abap="{type:'RAW', length:'17'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="CS_STRUCT.ZRAWSTRING" data-abap.bind="{type:'RSTR', length:'-1'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="CS_STRUCT.ZRAWSTRING"
+        data-abap="{type:'RSTR', length:'-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="CS_STRUCT.ZSTRING" data-abap.bind="{type:'STRG', length:'-1'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="CS_STRUCT.ZSTRING"
+        data-abap="{type:'STRG', length:'-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="CS_STRUCT.ZSSTRING" data-abap.bind="{type:'SSTR', length:'15'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="CS_STRUCT.ZSSTRING"
+        data-abap="{type:'SSTR', length:'15'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-time time.bind="CS_STRUCT.ZTIMS"  label="No field text"></ui-time>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-time-picker v-model="CS_STRUCT.ZTIMS"></fd-time-picker>
+</fd-form-item>
 
-<ui-combo value.bind="CS_STRUCT.ZUNIT_DTEL" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Condition unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Condition unit</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZUNIT_DTEL"
+        options="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CS_STRUCT.ZCUKY_DTEL" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZCUKY_DTEL"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="CS_STRUCT.ZCHECKBOX" label="Checkbox"></ui-checkbox>
+<fd-form-item-checkbox label="Checkbox">
+    <fd-checkbox v-model="CS_STRUCT.ZCHECKBOX">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="CS_STRUCT.ZFVAL_LEIN_STATU" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Status of Storage Unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Status of Storage Unit</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZFVAL_LEIN_STATU"
+        options="{type: 'FV', id: 'LEIN_STATU'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CS_STRUCT.ZSHLP_DEBI" shlp.bind="{type: 'SH', id: 'DEBI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-          label="Customer Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZSHLP_DEBI"
+        options="{type: 'SH', id: 'DEBI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CS_STRUCT.ZSHLP_PRODH" shlp.bind="{type: 'SH', id: 'PRODH'}" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}"
-          label="Product hierarchy"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Product hierarchy</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZSHLP_PRODH"
+        options="{type: 'SH', id: 'PRODH'}"
+        data-abap="{type:'CHAR', mid:'VPR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CS_STRUCT.ZSHLP_MAT1" shlp.bind="{type: 'SH', id: 'MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="CS_STRUCT.ZSHLP_MAT1"
+        options="{type: 'SH', id: 'MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
-          label="Difference quantity in alternate unit of measure"></ui-input>
+<fd-form-item>
+    <fd-form-label>Difference quantity in alternate unit of measure</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZQUAN_SIGN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZDECF16_MIN"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZDECF16_MAX"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZDECF34_MIN"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZDECF34_MAX"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZFLTP_MIN"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZFLTP_MAX"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CS_STRUCT.ZDEC217" data-abap.bind="{type:'DEC', length:'20.7'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CS_STRUCT.ZDEC217"
+            data-abap="{type:'DEC', length:'20.7'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: CT_TABLE structure: /COE/RBP_T_FE_RFM_TABLE_TYPE   -->
 
 <ui-datagrid data.bind="CT_TABLE" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="COUNTER" data-abap.bind="{type:'INT4', length:'+10'}" label="Natural number"></ui-dg-column>
-   <ui-dg-column sortable field="ZACCP" data-abap.bind="{type:'ACCP'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZCLNT" data-abap.bind="{type:'CLNT', length:'3'}" shlp.bind="{type: 'CT', id: 'T000'}" label="Client"></ui-dg-column>
-   <ui-dg-column sortable field="ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDATS" data-abap.bind="{type:'DATS'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZINT1" data-abap.bind="{type:'INT1', length:'3'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZINT2" data-abap.bind="{type:'INT2', length:'5'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZINT4" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZLANG" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T002'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZPREC" data-abap.bind="{type:'PREC', length:'2'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZRAW" data-abap.bind="{type:'RAW', length:'17'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZTIMS" data-abap.bind="{type:'TIMS'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZUNIT_DTEL" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Condition unit"></ui-dg-column>
-   <ui-dg-column sortable field="ZCUKY_DTEL" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
-   <ui-dg-column sortable field="ZCHECKBOX" data-abap.bind="{type:'CHAR', length:'1'}" label="Checkbox"></ui-dg-column>
-   <ui-dg-column sortable field="ZFVAL_LEIN_STATU" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" label="Status of Storage Unit"></ui-dg-column>
-   <ui-dg-column sortable field="ZSHLP_DEBI" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" shlp.bind="{type: 'SH', id: 'C_KUNNR'}" label="Customer Number"></ui-dg-column>
-   <ui-dg-column sortable field="ZSHLP_PRODH" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}" shlp.bind="{type: 'CT', id: 'T179'}" label="Product hierarchy"></ui-dg-column>
-   <ui-dg-column sortable field="ZSHLP_MAT1" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'SH', id: 'S_MAT1'}" label="Material Number"></ui-dg-column>
-   <ui-dg-column sortable field="ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}" label="Difference quantity in alternate unit of measure"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="COUNTER" data-abap.bind="{type:'INT4', length:'+10'}" label="Natural number"></ui-dg-column>
+<ui-dg-column sortable field="ZACCP" data-abap.bind="{type:'ACCP'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZCLNT" data-abap.bind="{type:'CLNT', length:'3'}" shlp.bind="{type: 'CT', id: 'T000'}" label="Client"></ui-dg-column>
+<ui-dg-column sortable field="ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDATS" data-abap.bind="{type:'DATS'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZINT1" data-abap.bind="{type:'INT1', length:'3'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZINT2" data-abap.bind="{type:'INT2', length:'5'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZINT4" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZLANG" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T002'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZPREC" data-abap.bind="{type:'PREC', length:'2'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZRAW" data-abap.bind="{type:'RAW', length:'17'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZTIMS" data-abap.bind="{type:'TIMS'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZUNIT_DTEL" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Condition unit"></ui-dg-column>
+<ui-dg-column sortable field="ZCUKY_DTEL" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
+<ui-dg-column sortable field="ZCHECKBOX" data-abap.bind="{type:'CHAR', length:'1'}" label="Checkbox"></ui-dg-column>
+<ui-dg-column sortable field="ZFVAL_LEIN_STATU" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" label="Status of Storage Unit"></ui-dg-column>
+<ui-dg-column sortable field="ZSHLP_DEBI" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" shlp.bind="{type: 'SH', id: 'C_KUNNR'}" label="Customer Number"></ui-dg-column>
+<ui-dg-column sortable field="ZSHLP_PRODH" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}" shlp.bind="{type: 'CT', id: 'T179'}" label="Product hierarchy"></ui-dg-column>
+<ui-dg-column sortable field="ZSHLP_MAT1" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'SH', id: 'S_MAT1'}" label="Material Number"></ui-dg-column>
+<ui-dg-column sortable field="ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}" label="Difference quantity in alternate unit of measure"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="CT_TABLE.COUNTER" data-abap.bind="{type:'INT4', length:'+10'}"
-          label="Natural number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Natural number</fd-form-label>
+        <fd-input v-model="CT_TABLE.COUNTER"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZACCP" data-abap.bind="{type:'ACCP'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZACCP"
+            data-abap="{type:'ACCP'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZCHAR"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="CT_TABLE.ZCLNT" shlp.bind="{type: 'CT', id: 'T000'}" data-abap.bind="{type:'CLNT', length:'3'}"
-          label="Client"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Client</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZCLNT"
+        options="{type: 'CT', id: 'T000'}"
+        data-abap="{type:'CLNT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZCURR"
+            data-abap="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="CT_TABLE.ZDATS"  label="No field text"></ui-date>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-date-picker v-model="CT_TABLE.ZDATS"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZDEC"
+            data-abap="{type:'DEC', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZFLTP"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZINT1" data-abap.bind="{type:'INT1', length:'3'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZINT1"
+            data-abap="{type:'INT1', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZINT2" data-abap.bind="{type:'INT2', length:'5'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZINT2"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZINT4" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZINT4"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="CT_TABLE.ZLANG" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}"
-          label="No field text"></ui-combo>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZLANG"
+        options="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZNUMC"
+            data-abap="{type:'NUMC', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZPREC" data-abap.bind="{type:'PREC', length:'2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZPREC"
+            data-abap="{type:'PREC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZQUAN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="CT_TABLE.ZRAW" data-abap.bind="{type:'RAW', length:'17'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="CT_TABLE.ZRAW"
+        data-abap="{type:'RAW', length:'17'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-time time.bind="CT_TABLE.ZTIMS"  label="No field text"></ui-time>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-time-picker v-model="CT_TABLE.ZTIMS"></fd-time-picker>
+</fd-form-item>
 
-<ui-combo value.bind="CT_TABLE.ZUNIT_DTEL" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Condition unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Condition unit</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZUNIT_DTEL"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CT_TABLE.ZCUKY_DTEL" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZCUKY_DTEL"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="CT_TABLE.ZCHECKBOX" label="Checkbox"></ui-checkbox>
+<fd-form-item-checkbox label="Checkbox">
+    <fd-checkbox v-model="CT_TABLE.ZCHECKBOX">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="CT_TABLE.ZFVAL_LEIN_STATU" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Status of Storage Unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Status of Storage Unit</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZFVAL_LEIN_STATU"
+        options="{type: 'FV', id: 'LEIN_STATU'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CT_TABLE.ZSHLP_DEBI" shlp.bind="{type: 'SH', id: 'C_KUNNR'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-          label="Customer Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZSHLP_DEBI"
+        options="{type: 'SH', id: 'C_KUNNR'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CT_TABLE.ZSHLP_PRODH" shlp.bind="{type: 'CT', id: 'T179'}" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}"
-          label="Product hierarchy"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Product hierarchy</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZSHLP_PRODH"
+        options="{type: 'CT', id: 'T179'}"
+        data-abap="{type:'CHAR', mid:'VPR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="CT_TABLE.ZSHLP_MAT1" shlp.bind="{type: 'SH', id: 'S_MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="CT_TABLE.ZSHLP_MAT1"
+        options="{type: 'SH', id: 'S_MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
-          label="Difference quantity in alternate unit of measure"></ui-input>
+<fd-form-item>
+    <fd-form-label>Difference quantity in alternate unit of measure</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZQUAN_SIGN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZDECF16_MIN"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZDECF16_MAX"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZDECF34_MIN"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZDECF34_MAX"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZFLTP_MIN"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="CT_TABLE.ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="CT_TABLE.ZFLTP_MAX"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
 <!-- TABLE PARAMETERS -->
 
@@ -391,251 +906,565 @@ abap api -->
 <ui-datagrid data.bind="ET_OUTPUT" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="COUNTER" data-abap.bind="{type:'INT4', length:'+10'}" label="Natural number"></ui-dg-column>
-   <ui-dg-column sortable field="ZACCP" data-abap.bind="{type:'ACCP'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZCLNT" data-abap.bind="{type:'CLNT', length:'3'}" shlp.bind="{type: 'CT', id: 'T000'}" label="Client"></ui-dg-column>
-   <ui-dg-column sortable field="ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDATS" data-abap.bind="{type:'DATS'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZINT1" data-abap.bind="{type:'INT1', length:'3'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZINT2" data-abap.bind="{type:'INT2', length:'5'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZINT4" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZLANG" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T002'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZPREC" data-abap.bind="{type:'PREC', length:'2'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZRAW" data-abap.bind="{type:'RAW', length:'17'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZTIMS" data-abap.bind="{type:'TIMS'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZUNIT_DTEL" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Condition unit"></ui-dg-column>
-   <ui-dg-column sortable field="ZCUKY_DTEL" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
-   <ui-dg-column sortable field="ZCHECKBOX" data-abap.bind="{type:'CHAR', length:'1'}" label="Checkbox"></ui-dg-column>
-   <ui-dg-column sortable field="ZFVAL_LEIN_STATU" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" label="Status of Storage Unit"></ui-dg-column>
-   <ui-dg-column sortable field="ZSHLP_DEBI" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" shlp.bind="{type: 'SH', id: 'C_KUNNR'}" label="Customer Number"></ui-dg-column>
-   <ui-dg-column sortable field="ZSHLP_PRODH" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}" shlp.bind="{type: 'CT', id: 'T179'}" label="Product hierarchy"></ui-dg-column>
-   <ui-dg-column sortable field="ZSHLP_MAT1" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'SH', id: 'S_MAT1'}" label="Material Number"></ui-dg-column>
-   <ui-dg-column sortable field="ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}" label="Difference quantity in alternate unit of measure"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
-   <ui-dg-column sortable field="ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="COUNTER" data-abap.bind="{type:'INT4', length:'+10'}" label="Natural number"></ui-dg-column>
+<ui-dg-column sortable field="ZACCP" data-abap.bind="{type:'ACCP'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZCLNT" data-abap.bind="{type:'CLNT', length:'3'}" shlp.bind="{type: 'CT', id: 'T000'}" label="Client"></ui-dg-column>
+<ui-dg-column sortable field="ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDATS" data-abap.bind="{type:'DATS'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZINT1" data-abap.bind="{type:'INT1', length:'3'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZINT2" data-abap.bind="{type:'INT2', length:'5'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZINT4" data-abap.bind="{type:'INT4', length:'10'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZLANG" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}" shlp.bind="{type: 'SH', id: 'H_T002'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZPREC" data-abap.bind="{type:'PREC', length:'2'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZRAW" data-abap.bind="{type:'RAW', length:'17'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZTIMS" data-abap.bind="{type:'TIMS'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZUNIT_DTEL" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'CT', id: 'T006'}" label="Condition unit"></ui-dg-column>
+<ui-dg-column sortable field="ZCUKY_DTEL" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency Key"></ui-dg-column>
+<ui-dg-column sortable field="ZCHECKBOX" data-abap.bind="{type:'CHAR', length:'1'}" label="Checkbox"></ui-dg-column>
+<ui-dg-column sortable field="ZFVAL_LEIN_STATU" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" label="Status of Storage Unit"></ui-dg-column>
+<ui-dg-column sortable field="ZSHLP_DEBI" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}" shlp.bind="{type: 'SH', id: 'C_KUNNR'}" label="Customer Number"></ui-dg-column>
+<ui-dg-column sortable field="ZSHLP_PRODH" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}" shlp.bind="{type: 'CT', id: 'T179'}" label="Product hierarchy"></ui-dg-column>
+<ui-dg-column sortable field="ZSHLP_MAT1" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'SH', id: 'S_MAT1'}" label="Material Number"></ui-dg-column>
+<ui-dg-column sortable field="ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}" label="Difference quantity in alternate unit of measure"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
+<ui-dg-column sortable field="ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}" label="No field text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_OUTPUT.COUNTER" data-abap.bind="{type:'INT4', length:'+10'}"
-          label="Natural number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Natural number</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.COUNTER"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZACCP" data-abap.bind="{type:'ACCP'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZACCP"
+            data-abap="{type:'ACCP'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZCHAR"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_OUTPUT.ZCLNT" shlp.bind="{type: 'CT', id: 'T000'}" data-abap.bind="{type:'CLNT', length:'3'}"
-          label="Client"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Client</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZCLNT"
+        options="{type: 'CT', id: 'T000'}"
+        data-abap="{type:'CLNT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZCURR"
+            data-abap="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_OUTPUT.ZDATS"  label="No field text"></ui-date>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-date-picker v-model="ET_OUTPUT.ZDATS"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZDEC"
+            data-abap="{type:'DEC', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZFLTP"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZINT1" data-abap.bind="{type:'INT1', length:'3'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZINT1"
+            data-abap="{type:'INT1', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZINT2" data-abap.bind="{type:'INT2', length:'5'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZINT2"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZINT4" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZINT4"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_OUTPUT.ZLANG" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', length:'1'}"
-          label="No field text"></ui-combo>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZLANG"
+        options="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZNUMC"
+            data-abap="{type:'NUMC', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZPREC" data-abap.bind="{type:'PREC', length:'2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZPREC"
+            data-abap="{type:'PREC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZQUAN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="ET_OUTPUT.ZRAW" data-abap.bind="{type:'RAW', length:'17'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="ET_OUTPUT.ZRAW"
+        data-abap="{type:'RAW', length:'17'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-time time.bind="ET_OUTPUT.ZTIMS"  label="No field text"></ui-time>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-time-picker v-model="ET_OUTPUT.ZTIMS"></fd-time-picker>
+</fd-form-item>
 
-<ui-combo value.bind="ET_OUTPUT.ZUNIT_DTEL" shlp.bind="{type: 'CT', id: 'T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Condition unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Condition unit</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZUNIT_DTEL"
+        options="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_OUTPUT.ZCUKY_DTEL" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZCUKY_DTEL"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="ET_OUTPUT.ZCHECKBOX" label="Checkbox"></ui-checkbox>
+<fd-form-item-checkbox label="Checkbox">
+    <fd-checkbox v-model="ET_OUTPUT.ZCHECKBOX">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="ET_OUTPUT.ZFVAL_LEIN_STATU" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Status of Storage Unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Status of Storage Unit</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZFVAL_LEIN_STATU"
+        options="{type: 'FV', id: 'LEIN_STATU'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_OUTPUT.ZSHLP_DEBI" shlp.bind="{type: 'SH', id: 'C_KUNNR'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-          label="Customer Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZSHLP_DEBI"
+        options="{type: 'SH', id: 'C_KUNNR'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_OUTPUT.ZSHLP_PRODH" shlp.bind="{type: 'CT', id: 'T179'}" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}"
-          label="Product hierarchy"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Product hierarchy</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZSHLP_PRODH"
+        options="{type: 'CT', id: 'T179'}"
+        data-abap="{type:'CHAR', mid:'VPR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_OUTPUT.ZSHLP_MAT1" shlp.bind="{type: 'SH', id: 'S_MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="ET_OUTPUT.ZSHLP_MAT1"
+        options="{type: 'SH', id: 'S_MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
-          label="Difference quantity in alternate unit of measure"></ui-input>
+<fd-form-item>
+    <fd-form-label>Difference quantity in alternate unit of measure</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZQUAN_SIGN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZDECF16_MIN"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZDECF16_MAX"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZDECF34_MIN"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZDECF34_MAX"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZFLTP_MIN"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_OUTPUT.ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ET_OUTPUT.ZFLTP_MAX"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_RAW structure: SDOKCNTBINS   -->
 
 <ui-datagrid data.bind="ET_RAW" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="LINE" data-abap.bind="{type:'RAW', length:'1022'}" label="Line for binary document contents, length for upload"></ui-dg-column>
+<ui-dg-column sortable field="LINE" data-abap.bind="{type:'RAW', length:'1022'}" label="Line for binary document contents, length for upload"></ui-dg-column>
 </ui-datagrid>
 
-<ui-text value.bind="ET_RAW.LINE" data-abap.bind="{type:'RAW', length:'1022'}"
-         label="Line for binary document contents, length for upload"></ui-text>
+<fd-form-item>
+    <fd-form-label>Line for binary document contents, length for upload</label>
+    <fd-textarea v-model="ET_RAW.LINE"
+        data-abap="{type:'RAW', length:'1022'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
 <!-- EXPORT PARAMETERS -->
 
-<ui-text value.bind="EV_STRING" data-abap.bind="{type:'STRING'}"
-         label=""></ui-text>
+<fd-form-item>
+    <fd-form-label></label>
+    <fd-textarea v-model="EV_STRING"
+        data-abap="{type:'STRING'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="EV_XSTRING" data-abap.bind="{type:'XSTRING'}"
-         label=""></ui-text>
+<fd-form-item>
+    <fd-form-label></label>
+    <fd-textarea v-model="EV_XSTRING"
+        data-abap="{type:'XSTRING'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
 <!-- Parameter: ES_OUTPUT structure: /COE/RBP_S_FE_RFM_STRUCTURE   -->
 
-<ui-input value.bind="ES_OUTPUT.ZACCP" data-abap.bind="{type:'ACCP'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZACCP"
+            data-abap="{type:'ACCP'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZCHAR" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZCHAR"
+            data-abap="{type:'CHAR', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ES_OUTPUT.ZCLNT" shlp.bind="{type: 'SH', id: 'H_T000'}" data-abap.bind="{type:'CLNT', length:'3'}"
-          label="Client"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Client</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZCLNT"
+        options="{type: 'SH', id: 'H_T000'}"
+        data-abap="{type:'CLNT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZCURR" data-abap.bind="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZCURR"
+            data-abap="{type:'CURR', unit:'ZCUKY_DTEL', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ES_OUTPUT.ZDATS"  label="No field text"></ui-date>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-date-picker v-model="ES_OUTPUT.ZDATS"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZDEC" data-abap.bind="{type:'DEC', length:'7.2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZDEC"
+            data-abap="{type:'DEC', length:'7.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZFLTP" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZFLTP"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZINT1" data-abap.bind="{type:'INT1', length:'3'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZINT1"
+            data-abap="{type:'INT1', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZINT2" data-abap.bind="{type:'INT2', length:'5'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZINT2"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZINT4" data-abap.bind="{type:'INT4', length:'10'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZINT4"
+            data-abap="{type:'INT4', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ES_OUTPUT.ZLANG" shlp.bind="{type: 'SH', id: 'H_T002'}" data-abap.bind="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
-          label="Language Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Language Key</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZLANG"
+        options="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-text value.bind="ES_OUTPUT.ZLCHR" data-abap.bind="{type:'LCHR', length:'257'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="ES_OUTPUT.ZLCHR"
+        data-abap="{type:'LCHR', length:'257'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="ES_OUTPUT.ZLRAW" data-abap.bind="{type:'LRAW', length:'257'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="ES_OUTPUT.ZLRAW"
+        data-abap="{type:'LRAW', length:'257'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZNUMC" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZNUMC"
+            data-abap="{type:'NUMC', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZPREC" data-abap.bind="{type:'PREC', length:'2'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZPREC"
+            data-abap="{type:'PREC', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZQUAN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZQUAN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'4.4'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="ES_OUTPUT.ZRAW" data-abap.bind="{type:'RAW', length:'17'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="ES_OUTPUT.ZRAW"
+        data-abap="{type:'RAW', length:'17'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="ES_OUTPUT.ZRAWSTRING" data-abap.bind="{type:'RSTR', length:'-1'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="ES_OUTPUT.ZRAWSTRING"
+        data-abap="{type:'RSTR', length:'-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="ES_OUTPUT.ZSTRING" data-abap.bind="{type:'STRG', length:'-1'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="ES_OUTPUT.ZSTRING"
+        data-abap="{type:'STRG', length:'-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-text value.bind="ES_OUTPUT.ZSSTRING" data-abap.bind="{type:'SSTR', length:'15'}"
-         label="No field text"></ui-text>
+<fd-form-item>
+    <fd-form-label>No field text</label>
+    <fd-textarea v-model="ES_OUTPUT.ZSSTRING"
+        data-abap="{type:'SSTR', length:'15'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
-<ui-time time.bind="ES_OUTPUT.ZTIMS"  label="No field text"></ui-time>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+    <fd-time-picker v-model="ES_OUTPUT.ZTIMS"></fd-time-picker>
+</fd-form-item>
 
-<ui-combo value.bind="ES_OUTPUT.ZUNIT_DTEL" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Condition unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Condition unit</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZUNIT_DTEL"
+        options="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_OUTPUT.ZCUKY_DTEL" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', mid:'FWS', length:'5'}"
-          label="Currency Key"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency Key</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZCUKY_DTEL"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="ES_OUTPUT.ZCHECKBOX" label="Checkbox"></ui-checkbox>
+<fd-form-item-checkbox label="Checkbox">
+    <fd-checkbox v-model="ES_OUTPUT.ZCHECKBOX">
+</fd-form-item-checkbox>
 
-<ui-combo value.bind="ES_OUTPUT.ZFVAL_LEIN_STATU" shlp.bind="{type: 'FV', id: 'LEIN_STATU'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Status of Storage Unit"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Status of Storage Unit</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZFVAL_LEIN_STATU"
+        options="{type: 'FV', id: 'LEIN_STATU'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_OUTPUT.ZSHLP_DEBI" shlp.bind="{type: 'SH', id: 'DEBI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-          label="Customer Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Customer Number</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZSHLP_DEBI"
+        options="{type: 'SH', id: 'DEBI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_OUTPUT.ZSHLP_PRODH" shlp.bind="{type: 'SH', id: 'PRODH'}" data-abap.bind="{type:'CHAR', mid:'VPR', length:'18'}"
-          label="Product hierarchy"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Product hierarchy</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZSHLP_PRODH"
+        options="{type: 'SH', id: 'PRODH'}"
+        data-abap="{type:'CHAR', mid:'VPR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ES_OUTPUT.ZSHLP_MAT1" shlp.bind="{type: 'SH', id: 'MAT1'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Material Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Material Number</fd-form-label>
+    <fd-select v-model="ES_OUTPUT.ZSHLP_MAT1"
+        options="{type: 'SH', id: 'MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZQUAN_SIGN" data-abap.bind="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
-          label="Difference quantity in alternate unit of measure"></ui-input>
+<fd-form-item>
+    <fd-form-label>Difference quantity in alternate unit of measure</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZQUAN_SIGN"
+            data-abap="{type:'QUAN', unit:'ZUNIT_DTEL', length:'+10.3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZDECF16_MIN" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZDECF16_MIN"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZDECF16_MAX" data-abap.bind="{type:'D16R', length:'8'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZDECF16_MAX"
+            data-abap="{type:'D16R', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZDECF34_MIN" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZDECF34_MIN"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZDECF34_MAX" data-abap.bind="{type:'D34R', length:'16'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZDECF34_MAX"
+            data-abap="{type:'D34R', length:'16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZFLTP_MIN" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZFLTP_MIN"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZFLTP_MAX" data-abap.bind="{type:'FLTP', length:'1.15'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZFLTP_MAX"
+            data-abap="{type:'FLTP', length:'1.15'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_OUTPUT.ZDEC217" data-abap.bind="{type:'DEC', length:'20.7'}"
-          label="No field text"></ui-input>
+<fd-form-item>
+    <fd-form-label>No field text</fd-form-label>
+        <fd-input v-model="ES_OUTPUT.ZDEC217"
+            data-abap="{type:'DEC', length:'20.7'}"
+        />
+</fd-form-item>

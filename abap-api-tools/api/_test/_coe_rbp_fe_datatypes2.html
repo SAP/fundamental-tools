@@ -4,54 +4,112 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-input value.bind="IV_DECF16" data-abap.bind="{type:'DECFLOAT16'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_DECF16"
+            data-abap="{type:'DECFLOAT16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_DECF161" data-abap.bind="{type:'DECFLOAT16'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_DECF161"
+            data-abap="{type:'DECFLOAT16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_DECF34" data-abap.bind="{type:'DECFLOAT34'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_DECF34"
+            data-abap="{type:'DECFLOAT34'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_INT1" data-abap.bind="{type:'INT1', length:'3'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_INT1"
+            data-abap="{type:'INT1', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_INT2" data-abap.bind="{type:'INT2', length:'5'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_INT2"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_INT4" data-abap.bind="{type:'INT4', length:'+10'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_INT4"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="IV_INT8" data-abap.bind="{type:'INT8'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="IV_INT8"
+            data-abap="{type:'INT8'}"
+        />
+</fd-form-item>
 
 <!-- EXPORT PARAMETERS -->
 
-<ui-input value.bind="EV_DECF16" data-abap.bind="{type:'DECFLOAT16'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="EV_DECF16"
+            data-abap="{type:'DECFLOAT16'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="EV_DECF34" data-abap.bind="{type:'DECFLOAT34'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="EV_DECF34"
+            data-abap="{type:'DECFLOAT34'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="EV_INT1" data-abap.bind="{type:'INT1', length:'3'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="EV_INT1"
+            data-abap="{type:'INT1', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="EV_INT2" data-abap.bind="{type:'INT2', length:'5'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="EV_INT2"
+            data-abap="{type:'INT2', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="EV_INT4" data-abap.bind="{type:'INT4', length:'+10'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="EV_INT4"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="EV_INT8" data-abap.bind="{type:'INT8'}"
-          label=""></ui-input>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+        <fd-input v-model="EV_INT8"
+            data-abap="{type:'INT8'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: EXP_ISSUE115 structure: /COE/TT_TABNAME   -->
 
 <ui-datagrid data.bind="EXP_ISSUE115" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="" data-abap.bind="{type:'CHAR', mid:'DTB', length:'30'}" shlp.bind="{type: 'CT', id: 'DD02L'}" label=""></ui-dg-column>
+<ui-dg-column sortable field="" data-abap.bind="{type:'CHAR', mid:'DTB', length:'30'}" shlp.bind="{type: 'CT', id: 'DD02L'}" label=""></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="EXP_ISSUE115" shlp.bind="{type: 'CT', id: 'DD02L'}" data-abap.bind="{type:'CHAR', mid:'DTB', length:'30'}"
-          label=""></ui-combo>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+    <fd-select v-model="EXP_ISSUE115"
+        options="{type: 'CT', id: 'DD02L'}"
+        data-abap="{type:'CHAR', mid:'DTB', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>

@@ -4,11 +4,23 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-combo value.bind="PURCHASEORDER" shlp.bind="{type: 'SH', id: 'MEKK_C'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchase Order Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchase Order Number</fd-form-label>
+    <fd-select v-model="PURCHASEORDER"
+        options="{type: 'SH', id: 'MEKK_C'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="PO_REL_CODE" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', mid:'FAB', length:'2'}"
-          label="Release Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release Code</fd-form-label>
+    <fd-select v-model="PO_REL_CODE"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', mid:'FAB', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- TABLE PARAMETERS -->
 
@@ -17,332 +29,818 @@ abap api -->
 <ui-datagrid data.bind="RELEASE_FINAL" title="Final Release"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="PO_NUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Purchasing Document Number"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE1" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 1"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE2" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 2"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE3" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 3"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE4" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 4"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE5" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 5"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE6" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 6"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE7" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 7"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CODE8" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 8"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX1" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 1"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX2" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 2"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX3" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 3"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX4" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 4"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX5" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 5"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX6" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 6"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX7" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 7"></ui-dg-column>
-   <ui-dg-column sortable field="REL_CD_TX8" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF1" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 1"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF2" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 2"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF3" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 3"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF4" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 4"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF5" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 5"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF6" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 6"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF7" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 7"></ui-dg-column>
-   <ui-dg-column sortable field="REL_WF8" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 8"></ui-dg-column>
+<ui-dg-column sortable field="PO_NUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}" shlp.bind="{type: 'CH', id: 'EKKO'}" label="Purchasing Document Number"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE1" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 1"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE2" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 2"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE3" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 3"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE4" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 4"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE5" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 5"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE6" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 6"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE7" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 7"></ui-dg-column>
+<ui-dg-column sortable field="REL_CODE8" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'T16FC'}" label="Release code 8"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX1" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 1"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX2" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 2"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX3" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 3"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX4" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 4"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX5" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 5"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX6" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 6"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX7" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code 7"></ui-dg-column>
+<ui-dg-column sortable field="REL_CD_TX8" data-abap.bind="{type:'CHAR', length:'20'}" label="Description of release code"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF1" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 1"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF2" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 2"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF3" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 3"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF4" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 4"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF5" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 5"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF6" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 6"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF7" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 7"></ui-dg-column>
+<ui-dg-column sortable field="REL_WF8" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 8"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="RELEASE_FINAL.PO_NUMBER" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchasing Document Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.PO_NUMBER"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE1" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 1"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 1</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE1"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE2" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 2"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 2</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE2"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE3" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 3"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 3</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE3"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE4" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 4"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 4</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE4"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE5" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 5"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 5</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE5"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE6" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 6"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 6</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE6"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE7" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 7"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 7</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE7"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_CODE8" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 8"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 8</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_CODE8"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX1" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 1"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 1</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX1"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX2" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 2"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 2</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX2"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX3" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 3"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 3</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX3"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX4" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 4"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 4</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX4"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX5" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 5"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 5</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX5"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX6" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 6"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 6</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX6"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX7" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 7"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 7</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX7"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_FINAL.REL_CD_TX8" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code</fd-form-label>
+        <fd-input v-model="RELEASE_FINAL.REL_CD_TX8"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF1" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 1"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 1</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF1"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF2" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 2"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 2</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF2"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF3" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 3"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 3</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF3"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF4" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 4"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 4</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF4"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF5" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 5"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 5</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF5"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF6" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 6"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 6</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF6"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF7" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 7"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 7</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF7"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_FINAL.REL_WF8" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 8"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 8</fd-form-label>
+    <fd-select v-model="RELEASE_FINAL.REL_WF8"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- Parameter: RETURN structure: BAPIRETURN  Return Messages -->
 
 <ui-datagrid data.bind="RETURN" title="Return Messages"
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
-   <ui-dg-column sortable field="CODE" data-abap.bind="{type:'CHAR', length:'5'}" label="Message code"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+<ui-dg-column sortable field="CODE" data-abap.bind="{type:'CHAR', length:'5'}" label="Message code"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+<ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+<ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="RETURN.TYPE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.CODE" data-abap.bind="{type:'CHAR', length:'5'}"
-          label="Message code"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message code</fd-form-label>
+        <fd-input v-model="RETURN.CODE"
+            data-abap="{type:'CHAR', length:'5'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
-          label="Message Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE"
+            data-abap="{type:'CHAR', length:'220'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Application log: log number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_NO"
+        options="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Application log: Internal message serial number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="RETURN.LOG_MSG_NO"
+        options="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V1"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V2"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V3"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="RETURN.MESSAGE_V4"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
 <!-- EXPORT PARAMETERS -->
 
 <!-- Parameter: GENERAL_RELEASE_INFO structure: BAPIRLGNPO  General Release Information -->
 
-<ui-combo value.bind="GENERAL_RELEASE_INFO.PO_NUMBER" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchasing Document Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+    <fd-select v-model="GENERAL_RELEASE_INFO.PO_NUMBER"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="GENERAL_RELEASE_INFO.REL_GROUP" shlp.bind="{type: 'CT', id: 'T16FG'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release group"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release group</fd-form-label>
+    <fd-select v-model="GENERAL_RELEASE_INFO.REL_GROUP"
+        options="{type: 'CT', id: 'T16FG'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="GENERAL_RELEASE_INFO.REL_GRP_TX" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release group"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release group</fd-form-label>
+        <fd-input v-model="GENERAL_RELEASE_INFO.REL_GRP_TX"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="GENERAL_RELEASE_INFO.REL_STRAT" shlp.bind="{type: 'CT', id: 'T16FS'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release Strategy"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release Strategy</fd-form-label>
+    <fd-select v-model="GENERAL_RELEASE_INFO.REL_STRAT"
+        options="{type: 'CT', id: 'T16FS'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="GENERAL_RELEASE_INFO.REL_STR_TX" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release strategy"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release strategy</fd-form-label>
+        <fd-input v-model="GENERAL_RELEASE_INFO.REL_STR_TX"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="GENERAL_RELEASE_INFO.REL_IND" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Release indicator"></ui-input>
+<fd-form-item>
+    <fd-form-label>Release indicator</fd-form-label>
+        <fd-input v-model="GENERAL_RELEASE_INFO.REL_IND"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="GENERAL_RELEASE_INFO.REL_IND_TX" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Description of Release Indicator"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of Release Indicator</fd-form-label>
+        <fd-input v-model="GENERAL_RELEASE_INFO.REL_IND_TX"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="GENERAL_RELEASE_INFO.REL_CODE" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', mid:'FAB', length:'2'}"
-          label="Release code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code</fd-form-label>
+    <fd-select v-model="GENERAL_RELEASE_INFO.REL_CODE"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', mid:'FAB', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="GENERAL_RELEASE_INFO.REL_COD_TX" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code</fd-form-label>
+        <fd-input v-model="GENERAL_RELEASE_INFO.REL_COD_TX"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: RELEASE_ALREADY_POSTED structure: BAPIRLCOPO  Releases to Date -->
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.PO_NUMBER" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchasing Document Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.PO_NUMBER"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE1" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 1"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 1</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE1"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE2" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 2"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 2</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE2"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE3" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 3"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 3</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE3"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE4" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 4"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 4</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE4"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE5" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 5"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 5</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE5"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE6" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 6"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 6</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE6"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE7" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 7"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 7</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE7"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_CODE8" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 8"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 8</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE8"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX1" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 1"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 1</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX1"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX2" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 2"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 2</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX2"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX3" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 3"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 3</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX3"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX4" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 4"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 4</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX4"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX5" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 5"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 5</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX5"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX6" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 6"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 6</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX6"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX7" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 7"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 7</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX7"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_ALREADY_POSTED.REL_CD_TX8" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code</fd-form-label>
+        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX8"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF1" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 1"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 1</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF1"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF2" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 2"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 2</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF2"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF3" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 3"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 3</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF3"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF4" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 4"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 4</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF4"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF5" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 5"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 5</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF5"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF6" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 6"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 6</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF6"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF7" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 7"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 7</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF7"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_ALREADY_POSTED.REL_WF8" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 8"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 8</fd-form-label>
+    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF8"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- Parameter: RELEASE_PREREQUISITES structure: BAPIRLCOPO  Release Prerequisites -->
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.PO_NUMBER" shlp.bind="{type: 'CH', id: 'EKKO'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-          label="Purchasing Document Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Purchasing Document Number</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.PO_NUMBER"
+        options="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE1" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 1"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 1</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE1"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE2" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 2"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 2</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE2"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE3" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 3"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 3</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE3"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE4" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 4"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 4</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE4"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE5" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 5"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 5</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE5"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE6" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 6"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 6</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE6"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE7" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 7"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 7</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE7"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_CODE8" shlp.bind="{type: 'CT', id: 'T16FC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Release code 8"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Release code 8</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE8"
+        options="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX1" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 1"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 1</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX1"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX2" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 2"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 2</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX2"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX3" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 3"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 3</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX3"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX4" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 4"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 4</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX4"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX5" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 5"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 5</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX5"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX6" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 6"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 6</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX6"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX7" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code 7"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code 7</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX7"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="RELEASE_PREREQUISITES.REL_CD_TX8" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Description of release code"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of release code</fd-form-label>
+        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX8"
+            data-abap="{type:'CHAR', length:'20'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF1" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 1"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 1</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF1"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF2" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 2"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 2</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF2"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF3" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 3"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 3</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF3"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF4" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 4"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 4</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF4"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF5" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 5"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 5</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF5"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF6" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 6"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 6</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF6"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF7" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 7"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 7</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF7"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="RELEASE_PREREQUISITES.REL_WF8" shlp.bind="{type: 'FV', id: 'FRGWF'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Role resolution for workflow for release code 8"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Role resolution for workflow for release code 8</fd-form-label>
+    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF8"
+        options="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>

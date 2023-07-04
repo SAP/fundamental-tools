@@ -10,7 +10,7 @@ const parameters = {
 // IMPORT PARAMETERS
 
 IS_INPUT           :           {}, // /COE/RBP_S_FE_RFM_STRUCTURE no text (undefined)
-// IV_COUNT        :          100, // INT4 (10) no text (undefined)
+// IV_COUNT        :            0, // INT4 (10) no text (undefined)
 // IV_DECF16       :        "0.0", // DECFLOAT16 no text (undefined)
 // IV_GENERATE     :          'X', // CHAR (1) no text (undefined)
 // IV_LANGU        :          'E', // LANG (1) ALPHA=ISOLA no text (undefined)

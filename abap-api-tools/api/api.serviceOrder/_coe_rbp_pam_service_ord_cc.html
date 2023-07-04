@@ -4,8 +4,14 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-combo value.bind="IV_ORDERID" shlp.bind="{type: 'CT', id: 'AUFK'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
-          label=""></ui-combo>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+    <fd-select v-model="IV_ORDERID"
+        options="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- EXPORT PARAMETERS -->
 
@@ -14,186 +20,376 @@ abap api -->
 <ui-datagrid data.bind="ET_COSTS_DETAILS" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="DEBIT_TYPE" data-abap.bind="{type:'NUMC', length:'1'}" shlp.bind="{type: 'FV', id: 'BP_INOUT'}" label="Debit type"></ui-dg-column>
-   <ui-dg-column sortable field="VALUE_CATEGORY" data-abap.bind="{type:'CHAR', length:'14'}" shlp.bind="{type: 'CT', id: 'TPIR2'}" label="Value category"></ui-dg-column>
-   <ui-dg-column sortable field="CALC_MOTIVE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'TBMOT'}" label="Accounting Indicator"></ui-dg-column>
-   <ui-dg-column sortable field="BUDGET_TYPE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'T022'}" label="Budget Type Budgeting/Planning"></ui-dg-column>
-   <ui-dg-column sortable field="COSTS_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance Costs (Actual) by Value Category"></ui-dg-column>
-   <ui-dg-column sortable field="COSTS_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance Costs (Planned) by Value Category"></ui-dg-column>
-   <ui-dg-column sortable field="COSTS_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance Costs (Estimated) by Value Category"></ui-dg-column>
-   <ui-dg-column sortable field="REVENUES_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance revenue (actual) by value category"></ui-dg-column>
-   <ui-dg-column sortable field="REVENUES_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance revenue (planned) by value category"></ui-dg-column>
-   <ui-dg-column sortable field="REVENUES_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance revenue (estimated) by value category"></ui-dg-column>
-   <ui-dg-column sortable field="SUM_TOTAL_ACT_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Sum total (actual) by value category"></ui-dg-column>
-   <ui-dg-column sortable field="SUM_TOTAL_PLAN_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Sum total (planned) by value category"></ui-dg-column>
-   <ui-dg-column sortable field="SUM_TOTAL_EST_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Sum total (estimated) by value category"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency for diplaying PM order costs"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
-   <ui-dg-column sortable field="TEXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Text"></ui-dg-column>
+<ui-dg-column sortable field="DEBIT_TYPE" data-abap.bind="{type:'NUMC', length:'1'}" shlp.bind="{type: 'FV', id: 'BP_INOUT'}" label="Debit type"></ui-dg-column>
+<ui-dg-column sortable field="VALUE_CATEGORY" data-abap.bind="{type:'CHAR', length:'14'}" shlp.bind="{type: 'CT', id: 'TPIR2'}" label="Value category"></ui-dg-column>
+<ui-dg-column sortable field="CALC_MOTIVE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'TBMOT'}" label="Accounting Indicator"></ui-dg-column>
+<ui-dg-column sortable field="BUDGET_TYPE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'T022'}" label="Budget Type Budgeting/Planning"></ui-dg-column>
+<ui-dg-column sortable field="COSTS_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance Costs (Actual) by Value Category"></ui-dg-column>
+<ui-dg-column sortable field="COSTS_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance Costs (Planned) by Value Category"></ui-dg-column>
+<ui-dg-column sortable field="COSTS_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance Costs (Estimated) by Value Category"></ui-dg-column>
+<ui-dg-column sortable field="REVENUES_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance revenue (actual) by value category"></ui-dg-column>
+<ui-dg-column sortable field="REVENUES_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance revenue (planned) by value category"></ui-dg-column>
+<ui-dg-column sortable field="REVENUES_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Maintenance revenue (estimated) by value category"></ui-dg-column>
+<ui-dg-column sortable field="SUM_TOTAL_ACT_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Sum total (actual) by value category"></ui-dg-column>
+<ui-dg-column sortable field="SUM_TOTAL_PLAN_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Sum total (planned) by value category"></ui-dg-column>
+<ui-dg-column sortable field="SUM_TOTAL_EST_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Sum total (estimated) by value category"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency for diplaying PM order costs"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
+<ui-dg-column sortable field="TEXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_COSTS_DETAILS.DEBIT_TYPE" shlp.bind="{type: 'FV', id: 'BP_INOUT'}" data-abap.bind="{type:'NUMC', length:'1'}"
-          label="Debit type"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Debit type</fd-form-label>
+    <fd-select v-model="ET_COSTS_DETAILS.DEBIT_TYPE"
+        options="{type: 'FV', id: 'BP_INOUT'}"
+        data-abap="{type:'NUMC', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_COSTS_DETAILS.VALUE_CATEGORY" shlp.bind="{type: 'CT', id: 'TPIR2'}" data-abap.bind="{type:'CHAR', length:'14'}"
-          label="Value category"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Value category</fd-form-label>
+    <fd-select v-model="ET_COSTS_DETAILS.VALUE_CATEGORY"
+        options="{type: 'CT', id: 'TPIR2'}"
+        data-abap="{type:'CHAR', length:'14'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_COSTS_DETAILS.CALC_MOTIVE" shlp.bind="{type: 'CT', id: 'TBMOT'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Accounting Indicator"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Accounting Indicator</fd-form-label>
+    <fd-select v-model="ET_COSTS_DETAILS.CALC_MOTIVE"
+        options="{type: 'CT', id: 'TBMOT'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_COSTS_DETAILS.BUDGET_TYPE" shlp.bind="{type: 'CT', id: 'T022'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Budget Type Budgeting/Planning"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Budget Type Budgeting/Planning</fd-form-label>
+    <fd-select v-model="ET_COSTS_DETAILS.BUDGET_TYPE"
+        options="{type: 'CT', id: 'T022'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.COSTS_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Maintenance Costs (Actual) by Value Category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Maintenance Costs (Actual) by Value Category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.COSTS_ACT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.COSTS_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Maintenance Costs (Planned) by Value Category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Maintenance Costs (Planned) by Value Category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.COSTS_PLAN"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.COSTS_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Maintenance Costs (Estimated) by Value Category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Maintenance Costs (Estimated) by Value Category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.COSTS_EST"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.REVENUES_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Maintenance revenue (actual) by value category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Maintenance revenue (actual) by value category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.REVENUES_ACT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.REVENUES_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Maintenance revenue (planned) by value category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Maintenance revenue (planned) by value category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.REVENUES_PLAN"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.REVENUES_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Maintenance revenue (estimated) by value category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Maintenance revenue (estimated) by value category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.REVENUES_EST"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.SUM_TOTAL_ACT_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Sum total (actual) by value category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sum total (actual) by value category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.SUM_TOTAL_ACT_BY_CAT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.SUM_TOTAL_PLAN_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Sum total (planned) by value category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sum total (planned) by value category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.SUM_TOTAL_PLAN_BY_CAT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.SUM_TOTAL_EST_BY_CAT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Sum total (estimated) by value category"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sum total (estimated) by value category</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.SUM_TOTAL_EST_BY_CAT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_COSTS_DETAILS.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', length:'5'}"
-          label="Currency for diplaying PM order costs"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency for diplaying PM order costs</fd-form-label>
+    <fd-select v-model="ET_COSTS_DETAILS.CURRENCY"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO currency code"></ui-input>
+<fd-form-item>
+    <fd-form-label>ISO currency code</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.CURRENCY_ISO"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_DETAILS.TEXT" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Text</fd-form-label>
+        <fd-input v-model="ET_COSTS_DETAILS.TEXT"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_COSTS_SUM structure: BAPI_ALM_ORDER_COSTS_SUM_ET   -->
 
 <ui-datagrid data.bind="ET_COSTS_SUM" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TOTAL_COSTS_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total(actual) maintenance costs"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_COSTS_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total plant maintenance costs (planned)"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_COSTS_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total maintenance costs (estimated)"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_SETTLEMENT_COSTS" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total Settlement Costs (PMCO)"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_REVENUES_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total plant maintenance revenues (actual)"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_REVENUES_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total (planned) maintenance revenues"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_REVENUES_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total maintenance revenue (estimated)"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_SUM_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Actual sum of maintenance order (costs - revenues)"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_SUM_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Plan sum of maintenance order (costs - revenues)"></ui-dg-column>
-   <ui-dg-column sortable field="TOTAL_SUM_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Estimated total of maintenance order (costs - revenue)"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency for diplaying PM order costs"></ui-dg-column>
-   <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_COSTS_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total(actual) maintenance costs"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_COSTS_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total plant maintenance costs (planned)"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_COSTS_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total maintenance costs (estimated)"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_SETTLEMENT_COSTS" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total Settlement Costs (PMCO)"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_REVENUES_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total plant maintenance revenues (actual)"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_REVENUES_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total (planned) maintenance revenues"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_REVENUES_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Total maintenance revenue (estimated)"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_SUM_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Actual sum of maintenance order (costs - revenues)"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_SUM_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Plan sum of maintenance order (costs - revenues)"></ui-dg-column>
+<ui-dg-column sortable field="TOTAL_SUM_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}" label="Estimated total of maintenance order (costs - revenue)"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY" data-abap.bind="{type:'CUKY', length:'5'}" shlp.bind="{type: 'CT', id: 'TCURC'}" label="Currency for diplaying PM order costs"></ui-dg-column>
+<ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_COSTS_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Total(actual) maintenance costs"></ui-input>
+<fd-form-item>
+    <fd-form-label>Total(actual) maintenance costs</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_COSTS_ACT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_COSTS_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Total plant maintenance costs (planned)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Total plant maintenance costs (planned)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_COSTS_PLAN"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_COSTS_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Total maintenance costs (estimated)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Total maintenance costs (estimated)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_COSTS_EST"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_SETTLEMENT_COSTS" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Total Settlement Costs (PMCO)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Total Settlement Costs (PMCO)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_SETTLEMENT_COSTS"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_REVENUES_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Total plant maintenance revenues (actual)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Total plant maintenance revenues (actual)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_REVENUES_ACT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_REVENUES_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Total (planned) maintenance revenues"></ui-input>
+<fd-form-item>
+    <fd-form-label>Total (planned) maintenance revenues</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_REVENUES_PLAN"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_REVENUES_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Total maintenance revenue (estimated)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Total maintenance revenue (estimated)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_REVENUES_EST"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_SUM_ACT" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Actual sum of maintenance order (costs - revenues)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Actual sum of maintenance order (costs - revenues)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_SUM_ACT"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_SUM_PLAN" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Plan sum of maintenance order (costs - revenues)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Plan sum of maintenance order (costs - revenues)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_SUM_PLAN"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.TOTAL_SUM_EST" data-abap.bind="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-          label="Estimated total of maintenance order (costs - revenue)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Estimated total of maintenance order (costs - revenue)</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.TOTAL_SUM_EST"
+            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_COSTS_SUM.CURRENCY" shlp.bind="{type: 'CT', id: 'TCURC'}" data-abap.bind="{type:'CUKY', length:'5'}"
-          label="Currency for diplaying PM order costs"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Currency for diplaying PM order costs</fd-form-label>
+    <fd-select v-model="ET_COSTS_SUM.CURRENCY"
+        options="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_COSTS_SUM.CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="ISO currency code"></ui-input>
+<fd-form-item>
+    <fd-form-label>ISO currency code</fd-form-label>
+        <fd-input v-model="ET_COSTS_SUM.CURRENCY_ISO"
+            data-abap="{type:'CHAR', length:'3'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_RETURN structure: BAPIRETTAB   -->
 
 <ui-datagrid data.bind="ET_RETURN" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
-   <ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
-   <ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
-   <ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
+<ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+<ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
+<ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+<ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+<ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
+<ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
+<ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
+<ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="ET_RETURN.TYPE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.ID" shlp.bind="{type: 'CT', id: 'T100A'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Message Class"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Message Class</fd-form-label>
+    <fd-select v-model="ET_RETURN.ID"
+        options="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.NUMBER" data-abap.bind="{type:'NUMC', length:'3'}"
-          label="Message Number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Number</fd-form-label>
+        <fd-input v-model="ET_RETURN.NUMBER"
+            data-abap="{type:'NUMC', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
-          label="Message Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE"
+            data-abap="{type:'CHAR', length:'220'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Application log: log number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_NO"
+        options="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Application log: Internal message serial number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
+        options="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V1"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V2"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V3"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V4"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="Parameter Name"></ui-input>
+<fd-form-item>
+    <fd-form-label>Parameter Name</fd-form-label>
+        <fd-input v-model="ET_RETURN.PARAMETER"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.ROW" data-abap.bind="{type:'INT4', length:'+10'}"
-          label="Lines in parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Lines in parameter</fd-form-label>
+        <fd-input v-model="ET_RETURN.ROW"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Field in parameter"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Field in parameter</fd-form-label>
+    <fd-select v-model="ET_RETURN.FIELD"
+        options="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.SYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-          label="Logical system from which message originates"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Logical system from which message originates</fd-form-label>
+    <fd-select v-model="ET_RETURN.SYSTEM"
+        options="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>

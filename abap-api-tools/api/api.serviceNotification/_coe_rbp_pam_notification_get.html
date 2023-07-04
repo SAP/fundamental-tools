@@ -4,830 +4,1718 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<ui-combo value.bind="IV_NOTIFNO" shlp.bind="{type: 'CT', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-          label=""></ui-combo>
+<fd-form-item>
+    <fd-form-label></fd-form-label>
+    <fd-select v-model="IV_NOTIFNO"
+        options="{type: 'CT', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-checkbox value.bind="IV_DOCUMENT" label=""></ui-checkbox>
+<fd-form-item-checkbox label="">
+    <fd-checkbox v-model="IV_DOCUMENT">
+</fd-form-item-checkbox>
 
 <!-- EXPORT PARAMETERS -->
 
 <!-- Parameter: ES_HEADER structure: BAPI2080_NOTHDRE   -->
 
-<ui-input value.bind="ES_HEADER.PM_WKCTR_C" data-abap.bind="{type:'CHAR', mid:'AGR', length:'8'}"
-          label="Work center"></ui-input>
+<fd-form-item>
+    <fd-form-label>Work center</fd-form-label>
+        <fd-input v-model="ES_HEADER.PM_WKCTR_C"
+            data-abap="{type:'CHAR', mid:'AGR', length:'8'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ES_HEADER.USERSTATUS_INT" data-abap.bind="{type:'CHAR', length:'5'}"
-          label="Object status"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object status</fd-form-label>
+        <fd-input v-model="ES_HEADER.USERSTATUS_INT"
+            data-abap="{type:'CHAR', length:'5'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_DOCUMENT structure: /COE/RBP_T_PAM_DOCUMENT   -->
 
 <ui-datagrid data.bind="ET_DOCUMENT" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="CLASS" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'SDOKIOCL'}" label="Document class"></ui-dg-column>
-   <ui-dg-column sortable field="OBJID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
-   <ui-dg-column sortable field="FILE_SIZE" data-abap.bind="{type:'NUMC', length:'12'}" label="File size (in bytes)"></ui-dg-column>
-   <ui-dg-column sortable field="BINARY_FLG" data-abap.bind="{type:'CHAR', length:'1'}" label="Flag for binary files"></ui-dg-column>
-   <ui-dg-column sortable field="FIRST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
-   <ui-dg-column sortable field="LAST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
-   <ui-dg-column sortable field="FILE_NAME" data-abap.bind="{type:'CHAR', length:'255'}" label="Relative storage location of physical document"></ui-dg-column>
-   <ui-dg-column sortable field="MIMETYPE" data-abap.bind="{type:'CHAR', length:'128'}" label="HTML content type"></ui-dg-column>
-   <ui-dg-column sortable field="PROPERTY" data-abap.bind="{type:'CHAR', length:'4'}" label="Component attribute for the application"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTTYPE" data-abap.bind="{type:'CHAR', mid:'CV2', length:'3'}" shlp.bind="{type: 'CT', id: 'TDWA'}" label="Document Type"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTNUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}" shlp.bind="{type: 'CT', id: 'DRAW'}" label="Document number"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTVERSION" data-abap.bind="{type:'CHAR', mid:'CV3', length:'2'}" label="Document version"></ui-dg-column>
-   <ui-dg-column sortable field="DOCUMENTPART" data-abap.bind="{type:'CHAR', mid:'CV4', length:'3'}" label="Document part"></ui-dg-column>
-   <ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'64'}" label="Short Description"></ui-dg-column>
-   <ui-dg-column sortable field="FILE_ID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
+<ui-dg-column sortable field="CLASS" data-abap.bind="{type:'CHAR', length:'10'}" shlp.bind="{type: 'CT', id: 'SDOKIOCL'}" label="Document class"></ui-dg-column>
+<ui-dg-column sortable field="OBJID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
+<ui-dg-column sortable field="FILE_SIZE" data-abap.bind="{type:'NUMC', length:'12'}" label="File size (in bytes)"></ui-dg-column>
+<ui-dg-column sortable field="BINARY_FLG" data-abap.bind="{type:'CHAR', length:'1'}" label="Flag for binary files"></ui-dg-column>
+<ui-dg-column sortable field="FIRST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
+<ui-dg-column sortable field="LAST_LINE" data-abap.bind="{type:'NUMC', length:'12'}" label="Line number in internal table"></ui-dg-column>
+<ui-dg-column sortable field="FILE_NAME" data-abap.bind="{type:'CHAR', length:'255'}" label="Relative storage location of physical document"></ui-dg-column>
+<ui-dg-column sortable field="MIMETYPE" data-abap.bind="{type:'CHAR', length:'128'}" label="HTML content type"></ui-dg-column>
+<ui-dg-column sortable field="PROPERTY" data-abap.bind="{type:'CHAR', length:'4'}" label="Component attribute for the application"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTTYPE" data-abap.bind="{type:'CHAR', mid:'CV2', length:'3'}" shlp.bind="{type: 'CT', id: 'TDWA'}" label="Document Type"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTNUMBER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}" shlp.bind="{type: 'CT', id: 'DRAW'}" label="Document number"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTVERSION" data-abap.bind="{type:'CHAR', mid:'CV3', length:'2'}" label="Document version"></ui-dg-column>
+<ui-dg-column sortable field="DOCUMENTPART" data-abap.bind="{type:'CHAR', mid:'CV4', length:'3'}" label="Document part"></ui-dg-column>
+<ui-dg-column sortable field="DESCRIPTION" data-abap.bind="{type:'CHAR', length:'64'}" label="Short Description"></ui-dg-column>
+<ui-dg-column sortable field="FILE_ID" data-abap.bind="{type:'CHAR', length:'32'}" label="ID for documents and relations"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person responsible"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}" label="Time of change (UTC)"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_DOCUMENT.CLASS" shlp.bind="{type: 'CT', id: 'SDOKIOCL'}" data-abap.bind="{type:'CHAR', length:'10'}"
-          label="Document class"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Document class</fd-form-label>
+    <fd-select v-model="ET_DOCUMENT.CLASS"
+        options="{type: 'CT', id: 'SDOKIOCL'}"
+        data-abap="{type:'CHAR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.OBJID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="ID for documents and relations"></ui-input>
+<fd-form-item>
+    <fd-form-label>ID for documents and relations</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.OBJID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.FILE_SIZE" data-abap.bind="{type:'NUMC', length:'12'}"
-          label="File size (in bytes)"></ui-input>
+<fd-form-item>
+    <fd-form-label>File size (in bytes)</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FILE_SIZE"
+            data-abap="{type:'NUMC', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-checkbox value.bind="ET_DOCUMENT.BINARY_FLG" label="Flag for binary files"></ui-checkbox>
+<fd-form-item-checkbox label="Flag for binary files">
+    <fd-checkbox v-model="ET_DOCUMENT.BINARY_FLG">
+</fd-form-item-checkbox>
 
-<ui-input value.bind="ET_DOCUMENT.FIRST_LINE" data-abap.bind="{type:'NUMC', length:'12'}"
-          label="Line number in internal table"></ui-input>
+<fd-form-item>
+    <fd-form-label>Line number in internal table</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FIRST_LINE"
+            data-abap="{type:'NUMC', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.LAST_LINE" data-abap.bind="{type:'NUMC', length:'12'}"
-          label="Line number in internal table"></ui-input>
+<fd-form-item>
+    <fd-form-label>Line number in internal table</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.LAST_LINE"
+            data-abap="{type:'NUMC', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.FILE_NAME" data-abap.bind="{type:'CHAR', length:'255'}"
-          label="Relative storage location of physical document"></ui-input>
+<fd-form-item>
+    <fd-form-label>Relative storage location of physical document</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FILE_NAME"
+            data-abap="{type:'CHAR', length:'255'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.MIMETYPE" data-abap.bind="{type:'CHAR', length:'128'}"
-          label="HTML content type"></ui-input>
+<fd-form-item>
+    <fd-form-label>HTML content type</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.MIMETYPE"
+            data-abap="{type:'CHAR', length:'128'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.PROPERTY" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Component attribute for the application"></ui-input>
+<fd-form-item>
+    <fd-form-label>Component attribute for the application</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.PROPERTY"
+            data-abap="{type:'CHAR', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_DOCUMENT.DOCUMENTTYPE" shlp.bind="{type: 'CT', id: 'TDWA'}" data-abap.bind="{type:'CHAR', mid:'CV2', length:'3'}"
-          label="Document Type"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Document Type</fd-form-label>
+    <fd-select v-model="ET_DOCUMENT.DOCUMENTTYPE"
+        options="{type: 'CT', id: 'TDWA'}"
+        data-abap="{type:'CHAR', mid:'CV2', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_DOCUMENT.DOCUMENTNUMBER" shlp.bind="{type: 'CT', id: 'DRAW'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}"
-          label="Document number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Document number</fd-form-label>
+    <fd-select v-model="ET_DOCUMENT.DOCUMENTNUMBER"
+        options="{type: 'CT', id: 'DRAW'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'CV1', length:'25'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.DOCUMENTVERSION" data-abap.bind="{type:'CHAR', mid:'CV3', length:'2'}"
-          label="Document version"></ui-input>
+<fd-form-item>
+    <fd-form-label>Document version</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.DOCUMENTVERSION"
+            data-abap="{type:'CHAR', mid:'CV3', length:'2'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.DOCUMENTPART" data-abap.bind="{type:'CHAR', mid:'CV4', length:'3'}"
-          label="Document part"></ui-input>
+<fd-form-item>
+    <fd-form-label>Document part</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.DOCUMENTPART"
+            data-abap="{type:'CHAR', mid:'CV4', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.DESCRIPTION" data-abap.bind="{type:'CHAR', length:'64'}"
-          label="Short Description"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Description</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.DESCRIPTION"
+            data-abap="{type:'CHAR', length:'64'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.FILE_ID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="ID for documents and relations"></ui-input>
+<fd-form-item>
+    <fd-form-label>ID for documents and relations</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.FILE_ID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person responsible"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person responsible</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CREATED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}"
-          label="Time of change (UTC)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Time of change (UTC)</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CREATED_AT"
+            data-abap="{type:'NUMC', alpha:'TSTLC', length:'14'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person responsible"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person responsible</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CHANGED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_DOCUMENT.CHANGED_AT" data-abap.bind="{type:'NUMC', alpha:'TSTLC', length:'14'}"
-          label="Time of change (UTC)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Time of change (UTC)</fd-form-label>
+        <fd-input v-model="ET_DOCUMENT.CHANGED_AT"
+            data-abap="{type:'NUMC', alpha:'TSTLC', length:'14'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_EXTENSIONOUT structure: BAPIPAREX_T   -->
 
 <ui-datagrid data.bind="ET_EXTENSIONOUT" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="STRUCTURE" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD02L'}" label="Structure name of  BAPI table extension"></ui-dg-column>
-   <ui-dg-column sortable field="VALUEPART1" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
-   <ui-dg-column sortable field="VALUEPART2" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
-   <ui-dg-column sortable field="VALUEPART3" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
-   <ui-dg-column sortable field="VALUEPART4" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+<ui-dg-column sortable field="STRUCTURE" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD02L'}" label="Structure name of  BAPI table extension"></ui-dg-column>
+<ui-dg-column sortable field="VALUEPART1" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+<ui-dg-column sortable field="VALUEPART2" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+<ui-dg-column sortable field="VALUEPART3" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
+<ui-dg-column sortable field="VALUEPART4" data-abap.bind="{type:'CHAR', length:'240'}" label="Data part of BAPI extension parameter"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_EXTENSIONOUT.STRUCTURE" shlp.bind="{type: 'CT', id: 'DD02L'}" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Structure name o API table extension"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Structure name o API table extension</fd-form-label>
+    <fd-select v-model="ET_EXTENSIONOUT.STRUCTURE"
+        options="{type: 'CT', id: 'DD02L'}"
+        data-abap="{type:'CHAR', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_EXTENSIONOUT.VALUEPART1" data-abap.bind="{type:'CHAR', length:'240'}"
-          label="Data part of BAPI extension parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="ET_EXTENSIONOUT.VALUEPART1"
+            data-abap="{type:'CHAR', length:'240'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_EXTENSIONOUT.VALUEPART2" data-abap.bind="{type:'CHAR', length:'240'}"
-          label="Data part of BAPI extension parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="ET_EXTENSIONOUT.VALUEPART2"
+            data-abap="{type:'CHAR', length:'240'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_EXTENSIONOUT.VALUEPART3" data-abap.bind="{type:'CHAR', length:'240'}"
-          label="Data part of BAPI extension parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="ET_EXTENSIONOUT.VALUEPART3"
+            data-abap="{type:'CHAR', length:'240'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_EXTENSIONOUT.VALUEPART4" data-abap.bind="{type:'CHAR', length:'240'}"
-          label="Data part of BAPI extension parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Data part of BAPI extension parameter</fd-form-label>
+        <fd-input v-model="ET_EXTENSIONOUT.VALUEPART4"
+            data-abap="{type:'CHAR', length:'240'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_NOTICE structure: /COE/RBP_T_PAM_NOTICE_LOG   -->
 
 <ui-datagrid data.bind="ET_NOTICE" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="DATETIME" data-abap.bind="{type:'DEC', length:'15'}" label="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"></ui-dg-column>
-   <ui-dg-column sortable field="TZONE" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'CT', id: 'TTZZ'}" label="Time Zone"></ui-dg-column>
-   <ui-dg-column sortable field="USERID" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}" shlp.bind="{type: 'CT', id: 'USR02'}" label="User Name in User Master Record"></ui-dg-column>
-   <ui-dg-column sortable field="HISTORY_LINE" data-abap.bind="{type:'CHAR', length:'132'}" label="Text Line"></ui-dg-column>
-   <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'STRG', length:'-1'}" label="Text for Note"></ui-dg-column>
+<ui-dg-column sortable field="DATETIME" data-abap.bind="{type:'DEC', length:'15'}" label="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"></ui-dg-column>
+<ui-dg-column sortable field="TZONE" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'CT', id: 'TTZZ'}" label="Time Zone"></ui-dg-column>
+<ui-dg-column sortable field="USERID" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}" shlp.bind="{type: 'CT', id: 'USR02'}" label="User Name in User Master Record"></ui-dg-column>
+<ui-dg-column sortable field="HISTORY_LINE" data-abap.bind="{type:'CHAR', length:'132'}" label="Text Line"></ui-dg-column>
+<ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'STRG', length:'-1'}" label="Text for Note"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_NOTICE.DATETIME" data-abap.bind="{type:'DEC', length:'15'}"
-          label="UTC Time Stamp in Short Form (YYYYMMDDhhmmss)"></ui-input>
+<fd-form-item>
+    <fd-form-label>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</fd-form-label>
+        <fd-input v-model="ET_NOTICE.DATETIME"
+            data-abap="{type:'DEC', length:'15'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTICE.TZONE" shlp.bind="{type: 'CT', id: 'TTZZ'}" data-abap.bind="{type:'CHAR', length:'6'}"
-          label="Time Zone"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Time Zone</fd-form-label>
+    <fd-select v-model="ET_NOTICE.TZONE"
+        options="{type: 'CT', id: 'TTZZ'}"
+        data-abap="{type:'CHAR', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTICE.USERID" shlp.bind="{type: 'CT', id: 'USR02'}" data-abap.bind="{type:'CHAR', mid:'XUS', length:'12'}"
-          label="User Name in User Master Record"></ui-combo>
+<fd-form-item>
+    <fd-form-label>User Name in User Master Record</fd-form-label>
+    <fd-select v-model="ET_NOTICE.USERID"
+        options="{type: 'CT', id: 'USR02'}"
+        data-abap="{type:'CHAR', mid:'XUS', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTICE.HISTORY_LINE" data-abap.bind="{type:'CHAR', length:'132'}"
-          label="Text Line"></ui-input>
+<fd-form-item>
+    <fd-form-label>Text Line</fd-form-label>
+        <fd-input v-model="ET_NOTICE.HISTORY_LINE"
+            data-abap="{type:'CHAR', length:'132'}"
+        />
+</fd-form-item>
 
-<ui-text value.bind="ET_NOTICE.NOTICE" data-abap.bind="{type:'STRG', length:'-1'}"
-         label="Text for Note"></ui-text>
+<fd-form-item>
+    <fd-form-label>Text for Note</label>
+    <fd-textarea v-model="ET_NOTICE.NOTICE"
+        data-abap="{type:'STRG', length:'-1'}"
+        aria-required="true"
+    ></fd-textarea>
+</fd-form-item>
 
 <!-- Parameter: ET_NOTIFACTV structure: ALM_ME_BAPI2080_NOTACTVE_T   -->
 
 <ui-datagrid data.bind="ET_NOTIFACTV" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
-   <ui-dg-column sortable field="ACT_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMMA'}" label="Consecutive Number of Activity"></ui-dg-column>
-   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
-   <ui-dg-column sortable field="ACT_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Activities"></ui-dg-column>
-   <ui-dg-column sortable field="ACT_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Activities"></ui-dg-column>
-   <ui-dg-column sortable field="ACT_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Activity Code"></ui-dg-column>
-   <ui-dg-column sortable field="ACTTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Activity Text"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
-   <ui-dg-column sortable field="START_DATE" data-abap.bind="{type:'DATS'}" label="Start Date"></ui-dg-column>
-   <ui-dg-column sortable field="END_DATE" data-abap.bind="{type:'DATS'}" label="End Date"></ui-dg-column>
-   <ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
-   <ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
-   <ui-dg-column sortable field="START_TIME" data-abap.bind="{type:'TIMS'}" label="Start Time of Activity"></ui-dg-column>
-   <ui-dg-column sortable field="END_TIME" data-abap.bind="{type:'TIMS'}" label="End Time of Activity"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
-   <ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
-   <ui-dg-column sortable field="ACT_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Activity"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_ACTGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_ACTCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Activity Code Short Text"></ui-dg-column>
+<ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
+<ui-dg-column sortable field="ACT_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMMA'}" label="Consecutive Number of Activity"></ui-dg-column>
+<ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+<ui-dg-column sortable field="ACT_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Activities"></ui-dg-column>
+<ui-dg-column sortable field="ACT_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Activities"></ui-dg-column>
+<ui-dg-column sortable field="ACT_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Activity Code"></ui-dg-column>
+<ui-dg-column sortable field="ACTTEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Activity Text"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
+<ui-dg-column sortable field="START_DATE" data-abap.bind="{type:'DATS'}" label="Start Date"></ui-dg-column>
+<ui-dg-column sortable field="END_DATE" data-abap.bind="{type:'DATS'}" label="End Date"></ui-dg-column>
+<ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
+<ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
+<ui-dg-column sortable field="START_TIME" data-abap.bind="{type:'TIMS'}" label="Start Time of Activity"></ui-dg-column>
+<ui-dg-column sortable field="END_TIME" data-abap.bind="{type:'TIMS'}" label="End Time of Activity"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
+<ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
+<ui-dg-column sortable field="ACT_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Activity"></ui-dg-column>
+<ui-dg-column sortable field="TXT_ACTGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
+<ui-dg-column sortable field="TXT_ACTCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Activity Code Short Text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_NOTIFACTV.NOTIF_NO" shlp.bind="{type: 'CH', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-          label="Notification No"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Notification No</fd-form-label>
+    <fd-select v-model="ET_NOTIFACTV.NOTIF_NO"
+        options="{type: 'CH', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFACTV.ACT_KEY" shlp.bind="{type: 'CH', id: 'QMMA'}" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Consecutive Number of Activity"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Consecutive Number of Activity</fd-form-label>
+    <fd-select v-model="ET_NOTIFACTV.ACT_KEY"
+        options="{type: 'CH', id: 'QMMA'}"
+        data-abap="{type:'NUMC', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFACTV.ITEM_KEY" shlp.bind="{type: 'CH', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Item Number in Item Record"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Item Number in Item Record</fd-form-label>
+    <fd-select v-model="ET_NOTIFACTV.ITEM_KEY"
+        options="{type: 'CH', id: 'QMFE'}"
+        data-abap="{type:'NUMC', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFACTV.ACT_CAT_TYP" shlp.bind="{type: 'SH', id: 'H_TQ15'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Catalog Type - Activities"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Catalog Type - Activities</fd-form-label>
+    <fd-select v-model="ET_NOTIFACTV.ACT_CAT_TYP"
+        options="{type: 'SH', id: 'H_TQ15'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFACTV.ACT_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Code Group - Activities"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Code Group - Activities</fd-form-label>
+    <fd-select v-model="ET_NOTIFACTV.ACT_CODEGRP"
+        options="{type: 'CT', id: 'QPGR'}"
+        data-abap="{type:'CHAR', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFACTV.ACT_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Activity Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Activity Code</fd-form-label>
+    <fd-select v-model="ET_NOTIFACTV.ACT_CODE"
+        options="{type: 'CT', id: 'QPCD'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.ACTTEXT" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Activity Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Activity Text</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.ACTTEXT"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of Person who Created the Object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFACTV.CREATED_DATE"  label="Date on Which Record Was Created"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFACTV.CREATED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person who changed object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person who changed object</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.CHANGED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFACTV.CHANGED_DATE"  label="Date of Last Change"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date of Last Change</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFACTV.CHANGED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFACTV.START_DATE"  label="Start Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>Start Date</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFACTV.START_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFACTV.END_DATE"  label="End Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>End Date</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFACTV.END_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Object Long Text Available"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object Long Text Available</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.LONG_TEXT"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.PRILANG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Primary language indicator for text segment"></ui-input>
+<fd-form-item>
+    <fd-form-label>Primary language indicator for text segment</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.PRILANG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFACTV.START_TIME"  label="Start Time of Activity"></ui-time>
+<fd-form-item>
+    <fd-form-label>Start Time of Activity</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFACTV.START_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFACTV.END_TIME"  label="End Time of Activity"></ui-time>
+<fd-form-item>
+    <fd-form-label>End Time of Activity</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFACTV.END_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFACTV.CREATED_TIME"  label="Time, at Which Record Was Added"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time, at Which Record Was Added</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFACTV.CREATED_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFACTV.CHANGED_TIME"  label="Time of Change"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time of Change</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFACTV.CHANGED_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Delete Data Record"></ui-input>
+<fd-form-item>
+    <fd-form-label>Delete Data Record</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.DELETE_FLAG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.ACT_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Sort Number for Activity"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sort Number for Activity</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.ACT_SORT_NO"
+            data-abap="{type:'NUMC', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.TXT_ACTGRP" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Short Description of the Code Group"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Description of the Code Group</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.TXT_ACTGRP"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFACTV.TXT_ACTCD" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Activity Code Short Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Activity Code Short Text</fd-form-label>
+        <fd-input v-model="ET_NOTIFACTV.TXT_ACTCD"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_NOTIFCAUS structure: ALM_ME_BAPI2080_NOTCAUSE_T   -->
 
 <ui-datagrid data.bind="ET_NOTIFCAUS" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
-   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
-   <ui-dg-column sortable field="CAUSE_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMUR'}" label="Sequential Number for Cause"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
-   <ui-dg-column sortable field="CAUSETEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Cause Text"></ui-dg-column>
-   <ui-dg-column sortable field="CAUSE_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Causes"></ui-dg-column>
-   <ui-dg-column sortable field="CAUSE_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Causes"></ui-dg-column>
-   <ui-dg-column sortable field="CAUSE_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Cause Code"></ui-dg-column>
-   <ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
-   <ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
-   <ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
-   <ui-dg-column sortable field="CAUSE_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Cause"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_CAUSEGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_CAUSECD" data-abap.bind="{type:'CHAR', length:'40'}" label="Cause Code Short Text"></ui-dg-column>
+<ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
+<ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+<ui-dg-column sortable field="CAUSE_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMUR'}" label="Sequential Number for Cause"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
+<ui-dg-column sortable field="CAUSETEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Cause Text"></ui-dg-column>
+<ui-dg-column sortable field="CAUSE_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Causes"></ui-dg-column>
+<ui-dg-column sortable field="CAUSE_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Causes"></ui-dg-column>
+<ui-dg-column sortable field="CAUSE_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Cause Code"></ui-dg-column>
+<ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
+<ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
+<ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
+<ui-dg-column sortable field="CAUSE_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Cause"></ui-dg-column>
+<ui-dg-column sortable field="TXT_CAUSEGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
+<ui-dg-column sortable field="TXT_CAUSECD" data-abap.bind="{type:'CHAR', length:'40'}" label="Cause Code Short Text"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_NOTIFCAUS.NOTIF_NO" shlp.bind="{type: 'CH', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-          label="Notification No"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Notification No</fd-form-label>
+    <fd-select v-model="ET_NOTIFCAUS.NOTIF_NO"
+        options="{type: 'CH', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFCAUS.ITEM_KEY" shlp.bind="{type: 'CH', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Item Number in Item Record"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Item Number in Item Record</fd-form-label>
+    <fd-select v-model="ET_NOTIFCAUS.ITEM_KEY"
+        options="{type: 'CH', id: 'QMFE'}"
+        data-abap="{type:'NUMC', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFCAUS.CAUSE_KEY" shlp.bind="{type: 'CH', id: 'QMUR'}" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Sequential Number for Cause"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Sequential Number for Cause</fd-form-label>
+    <fd-select v-model="ET_NOTIFCAUS.CAUSE_KEY"
+        options="{type: 'CH', id: 'QMUR'}"
+        data-abap="{type:'NUMC', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of Person who Created the Object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFCAUS.CREATED_DATE"  label="Date on Which Record Was Created"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFCAUS.CREATED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person who changed object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person who changed object</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.CHANGED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFCAUS.CHANGED_DATE"  label="Date of Last Change"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date of Last Change</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFCAUS.CHANGED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.CAUSETEXT" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Cause Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Cause Text</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.CAUSETEXT"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFCAUS.CAUSE_CAT_TYP" shlp.bind="{type: 'SH', id: 'H_TQ15'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Catalog Type - Causes"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Catalog Type - Causes</fd-form-label>
+    <fd-select v-model="ET_NOTIFCAUS.CAUSE_CAT_TYP"
+        options="{type: 'SH', id: 'H_TQ15'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFCAUS.CAUSE_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Code Group - Causes"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Code Group - Causes</fd-form-label>
+    <fd-select v-model="ET_NOTIFCAUS.CAUSE_CODEGRP"
+        options="{type: 'CT', id: 'QPGR'}"
+        data-abap="{type:'CHAR', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFCAUS.CAUSE_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Cause Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Cause Code</fd-form-label>
+    <fd-select v-model="ET_NOTIFCAUS.CAUSE_CODE"
+        options="{type: 'CT', id: 'QPCD'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Object Long Text Available"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object Long Text Available</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.LONG_TEXT"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.PRILANG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Primary language indicator for text segment"></ui-input>
+<fd-form-item>
+    <fd-form-label>Primary language indicator for text segment</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.PRILANG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFCAUS.CREATED_TIME"  label="Time, at Which Record Was Added"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time, at Which Record Was Added</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFCAUS.CREATED_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFCAUS.CHANGED_TIME"  label="Time of Change"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time of Change</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFCAUS.CHANGED_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Delete Data Record"></ui-input>
+<fd-form-item>
+    <fd-form-label>Delete Data Record</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.DELETE_FLAG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.CAUSE_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Sort Number for Cause"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sort Number for Cause</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.CAUSE_SORT_NO"
+            data-abap="{type:'NUMC', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.TXT_CAUSEGRP" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Short Description of the Code Group"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Description of the Code Group</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.TXT_CAUSEGRP"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFCAUS.TXT_CAUSECD" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Cause Code Short Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Cause Code Short Text</fd-form-label>
+        <fd-input v-model="ET_NOTIFCAUS.TXT_CAUSECD"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_NOTIFPARTNR structure: ALM_ME_BAPI2080_NOTPARTNRE_T   -->
 
 <ui-datagrid data.bind="ET_NOTIFPARTNR" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="OBJECT_NO" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}" shlp.bind="{type: 'CT', id: 'ONR00'}" label="Object number"></ui-dg-column>
-   <ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'SH', id: 'H_TPAR'}" label="Partner Function"></ui-dg-column>
-   <ui-dg-column sortable field="COUNTER" data-abap.bind="{type:'NUMC', length:'6'}" label="Counter for differentiation 6-digit"></ui-dg-column>
-   <ui-dg-column sortable field="OBJECT_TYPE" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'TJ03'}" label="Object Category"></ui-dg-column>
-   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Partner"></ui-dg-column>
-   <ui-dg-column sortable field="ORIGIN" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'INHER'}" label="Data origin indicator"></ui-dg-column>
-   <ui-dg-column sortable field="CREAT_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
-   <ui-dg-column sortable field="POS_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
-   <ui-dg-column sortable field="CH_ON" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
-   <ui-dg-column sortable field="CH_AT" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
-   <ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
-   <ui-dg-column sortable field="ADDR_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}" shlp.bind="{type: 'CT', id: 'ADRC'}" label="Address number"></ui-dg-column>
-   <ui-dg-column sortable field="PARTTIMEZO" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'SH', id: 'VTTZZ'}" label="Time Zone for Partner"></ui-dg-column>
+<ui-dg-column sortable field="OBJECT_NO" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}" shlp.bind="{type: 'CT', id: 'ONR00'}" label="Object number"></ui-dg-column>
+<ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'SH', id: 'H_TPAR'}" label="Partner Function"></ui-dg-column>
+<ui-dg-column sortable field="COUNTER" data-abap.bind="{type:'NUMC', length:'6'}" label="Counter for differentiation 6-digit"></ui-dg-column>
+<ui-dg-column sortable field="OBJECT_TYPE" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'TJ03'}" label="Object Category"></ui-dg-column>
+<ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Partner"></ui-dg-column>
+<ui-dg-column sortable field="ORIGIN" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'INHER'}" label="Data origin indicator"></ui-dg-column>
+<ui-dg-column sortable field="CREAT_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
+<ui-dg-column sortable field="POS_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
+<ui-dg-column sortable field="CH_ON" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
+<ui-dg-column sortable field="CH_AT" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
+<ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
+<ui-dg-column sortable field="ADDR_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}" shlp.bind="{type: 'CT', id: 'ADRC'}" label="Address number"></ui-dg-column>
+<ui-dg-column sortable field="PARTTIMEZO" data-abap.bind="{type:'CHAR', length:'6'}" shlp.bind="{type: 'SH', id: 'VTTZZ'}" label="Time Zone for Partner"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_NOTIFPARTNR.OBJECT_NO" shlp.bind="{type: 'CT', id: 'ONR00'}" data-abap.bind="{type:'CHAR', mid:'ONR', length:'22'}"
-          label="Object number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Object number</fd-form-label>
+    <fd-select v-model="ET_NOTIFPARTNR.OBJECT_NO"
+        options="{type: 'CT', id: 'ONR00'}"
+        data-abap="{type:'CHAR', mid:'ONR', length:'22'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFPARTNR.PARTN_ROLE" shlp.bind="{type: 'SH', id: 'H_TPAR'}" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
-          label="Partner Function"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Partner Function</fd-form-label>
+    <fd-select v-model="ET_NOTIFPARTNR.PARTN_ROLE"
+        options="{type: 'SH', id: 'H_TPAR'}"
+        data-abap="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFPARTNR.COUNTER" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Counter for differentiation 6-digit"></ui-input>
+<fd-form-item>
+    <fd-form-label>Counter for differentiation 6-digit</fd-form-label>
+        <fd-input v-model="ET_NOTIFPARTNR.COUNTER"
+            data-abap="{type:'NUMC', length:'6'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFPARTNR.OBJECT_TYPE" shlp.bind="{type: 'CT', id: 'TJ03'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Object Category"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Object Category</fd-form-label>
+    <fd-select v-model="ET_NOTIFPARTNR.OBJECT_TYPE"
+        options="{type: 'CT', id: 'TJ03'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFPARTNR.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-          label="Partner"></ui-input>
+<fd-form-item>
+    <fd-form-label>Partner</fd-form-label>
+        <fd-input v-model="ET_NOTIFPARTNR.PARTNER"
+            data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFPARTNR.ORIGIN" shlp.bind="{type: 'FV', id: 'INHER'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Data origin indicator"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Data origin indicator</fd-form-label>
+    <fd-select v-model="ET_NOTIFPARTNR.ORIGIN"
+        options="{type: 'FV', id: 'INHER'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFPARTNR.CREAT_DATE"  label="Date on Which Record Was Created"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFPARTNR.CREAT_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFPARTNR.POS_TIME"  label="Time, at Which Record Was Added"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time, at Which Record Was Added</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFPARTNR.POS_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFPARTNR.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of Person who Created the Object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="ET_NOTIFPARTNR.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFPARTNR.CH_ON"  label="Date of Last Change"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date of Last Change</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFPARTNR.CH_ON"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFPARTNR.CH_AT"  label="Time of Change"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time of Change</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFPARTNR.CH_AT"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFPARTNR.CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person who changed object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person who changed object</fd-form-label>
+        <fd-input v-model="ET_NOTIFPARTNR.CHANGED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFPARTNR.DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Delete Data Record"></ui-input>
+<fd-form-item>
+    <fd-form-label>Delete Data Record</fd-form-label>
+        <fd-input v-model="ET_NOTIFPARTNR.DELETE_FLAG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFPARTNR.ADDR_NO" shlp.bind="{type: 'CT', id: 'ADRC'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}"
-          label="Address number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Address number</fd-form-label>
+    <fd-select v-model="ET_NOTIFPARTNR.ADDR_NO"
+        options="{type: 'CT', id: 'ADRC'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFPARTNR.PARTTIMEZO" shlp.bind="{type: 'SH', id: 'VTTZZ'}" data-abap.bind="{type:'CHAR', length:'6'}"
-          label="Time Zone for Partner"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Time Zone for Partner</fd-form-label>
+    <fd-select v-model="ET_NOTIFPARTNR.PARTTIMEZO"
+        options="{type: 'SH', id: 'VTTZZ'}"
+        data-abap="{type:'CHAR', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- Parameter: ET_NOTIFTASK structure: ALM_ME_BAPI2080_NOTTASKE_T   -->
 
 <ui-datagrid data.bind="ET_NOTIFTASK" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
-   <ui-dg-column sortable field="TASK_KEY" data-abap.bind="{type:'NUMC', mid:'IMA', length:'4'}" shlp.bind="{type: 'CH', id: 'QMSM'}" label="Sequential Task Number"></ui-dg-column>
-   <ui-dg-column sortable field="TASK_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Tasks"></ui-dg-column>
-   <ui-dg-column sortable field="TASK_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Tasks"></ui-dg-column>
-   <ui-dg-column sortable field="TASK_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Task Code"></ui-dg-column>
-   <ui-dg-column sortable field="TASK_TEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Text for Task"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
-   <ui-dg-column sortable field="PLND_START_DATE" data-abap.bind="{type:'DATS'}" label="Planned Start Date"></ui-dg-column>
-   <ui-dg-column sortable field="PLND_END_DATE" data-abap.bind="{type:'DATS'}" label="Planned finish date"></ui-dg-column>
-   <ui-dg-column sortable field="OBJECT_NO" data-abap.bind="{type:'CHAR', length:'22'}" shlp.bind="{type: 'CT', id: 'ONR00'}" label="Object Number for Status Management"></ui-dg-column>
-   <ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
-   <ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
-   <ui-dg-column sortable field="PLND_START_TIME" data-abap.bind="{type:'TIMS'}" label="Planned Start Time for Task"></ui-dg-column>
-   <ui-dg-column sortable field="PLND_END_TIME" data-abap.bind="{type:'TIMS'}" label="Planned Finish Time for Task"></ui-dg-column>
-   <ui-dg-column sortable field="CARRIED_OUT_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Person Who Completed the Task"></ui-dg-column>
-   <ui-dg-column sortable field="CARRIED_OUT_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which the Task Was Completed"></ui-dg-column>
-   <ui-dg-column sortable field="CARRIED_OUT_TIME" data-abap.bind="{type:'TIMS'}" label="Time at Which Task Was Completed"></ui-dg-column>
-   <ui-dg-column sortable field="RESUBMIT_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Task Was Resubmitted"></ui-dg-column>
-   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
-   <ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'SH', id: 'H_TPAR'}" label="Function of Person Responsible for Task"></ui-dg-column>
-   <ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Person Responsible for Task (Partner Number)"></ui-dg-column>
-   <ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
-   <ui-dg-column sortable field="TASK_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Task"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_TASKGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_TASKCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Task Code Short Text"></ui-dg-column>
-   <ui-dg-column sortable field="STATUS" data-abap.bind="{type:'CHAR', length:'40'}" label="System Status for Notification"></ui-dg-column>
-   <ui-dg-column sortable field="USERSTATUS_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="User Status Active"></ui-dg-column>
-   <ui-dg-column sortable field="USERSTATUS" data-abap.bind="{type:'CHAR', length:'40'}" label="Field displaying user status"></ui-dg-column>
+<ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
+<ui-dg-column sortable field="TASK_KEY" data-abap.bind="{type:'NUMC', mid:'IMA', length:'4'}" shlp.bind="{type: 'CH', id: 'QMSM'}" label="Sequential Task Number"></ui-dg-column>
+<ui-dg-column sortable field="TASK_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Tasks"></ui-dg-column>
+<ui-dg-column sortable field="TASK_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Tasks"></ui-dg-column>
+<ui-dg-column sortable field="TASK_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Task Code"></ui-dg-column>
+<ui-dg-column sortable field="TASK_TEXT" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Text for Task"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
+<ui-dg-column sortable field="PLND_START_DATE" data-abap.bind="{type:'DATS'}" label="Planned Start Date"></ui-dg-column>
+<ui-dg-column sortable field="PLND_END_DATE" data-abap.bind="{type:'DATS'}" label="Planned finish date"></ui-dg-column>
+<ui-dg-column sortable field="OBJECT_NO" data-abap.bind="{type:'CHAR', length:'22'}" shlp.bind="{type: 'CT', id: 'ONR00'}" label="Object Number for Status Management"></ui-dg-column>
+<ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
+<ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
+<ui-dg-column sortable field="PLND_START_TIME" data-abap.bind="{type:'TIMS'}" label="Planned Start Time for Task"></ui-dg-column>
+<ui-dg-column sortable field="PLND_END_TIME" data-abap.bind="{type:'TIMS'}" label="Planned Finish Time for Task"></ui-dg-column>
+<ui-dg-column sortable field="CARRIED_OUT_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Person Who Completed the Task"></ui-dg-column>
+<ui-dg-column sortable field="CARRIED_OUT_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which the Task Was Completed"></ui-dg-column>
+<ui-dg-column sortable field="CARRIED_OUT_TIME" data-abap.bind="{type:'TIMS'}" label="Time at Which Task Was Completed"></ui-dg-column>
+<ui-dg-column sortable field="RESUBMIT_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Task Was Resubmitted"></ui-dg-column>
+<ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
+<ui-dg-column sortable field="PARTN_ROLE" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}" shlp.bind="{type: 'SH', id: 'H_TPAR'}" label="Function of Person Responsible for Task"></ui-dg-column>
+<ui-dg-column sortable field="PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}" label="Person Responsible for Task (Partner Number)"></ui-dg-column>
+<ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
+<ui-dg-column sortable field="TASK_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Task"></ui-dg-column>
+<ui-dg-column sortable field="TXT_TASKGRP" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
+<ui-dg-column sortable field="TXT_TASKCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Task Code Short Text"></ui-dg-column>
+<ui-dg-column sortable field="STATUS" data-abap.bind="{type:'CHAR', length:'40'}" label="System Status for Notification"></ui-dg-column>
+<ui-dg-column sortable field="USERSTATUS_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="User Status Active"></ui-dg-column>
+<ui-dg-column sortable field="USERSTATUS" data-abap.bind="{type:'CHAR', length:'40'}" label="Field displaying user status"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_NOTIFTASK.NOTIF_NO" shlp.bind="{type: 'CH', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-          label="Notification No"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Notification No</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.NOTIF_NO"
+        options="{type: 'CH', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFTASK.TASK_KEY" shlp.bind="{type: 'CH', id: 'QMSM'}" data-abap.bind="{type:'NUMC', mid:'IMA', length:'4'}"
-          label="Sequential Task Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Sequential Task Number</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.TASK_KEY"
+        options="{type: 'CH', id: 'QMSM'}"
+        data-abap="{type:'NUMC', mid:'IMA', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFTASK.TASK_CAT_TYP" shlp.bind="{type: 'SH', id: 'H_TQ15'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Catalog Type - Tasks"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Catalog Type - Tasks</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.TASK_CAT_TYP"
+        options="{type: 'SH', id: 'H_TQ15'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFTASK.TASK_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Code Group - Tasks"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Code Group - Tasks</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.TASK_CODEGRP"
+        options="{type: 'CT', id: 'QPGR'}"
+        data-abap="{type:'CHAR', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFTASK.TASK_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Task Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Task Code</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.TASK_CODE"
+        options="{type: 'CT', id: 'QPCD'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.TASK_TEXT" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Short Text for Task"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Text for Task</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.TASK_TEXT"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of Person who Created the Object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFTASK.CREATED_DATE"  label="Date on Which Record Was Created"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFTASK.CREATED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person who changed object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person who changed object</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.CHANGED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFTASK.CHANGED_DATE"  label="Date of Last Change"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date of Last Change</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFTASK.CHANGED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFTASK.PLND_START_DATE"  label="Planned Start Date"></ui-date>
+<fd-form-item>
+    <fd-form-label>Planned Start Date</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFTASK.PLND_START_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFTASK.PLND_END_DATE"  label="Planned finish date"></ui-date>
+<fd-form-item>
+    <fd-form-label>Planned finish date</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFTASK.PLND_END_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFTASK.OBJECT_NO" shlp.bind="{type: 'CT', id: 'ONR00'}" data-abap.bind="{type:'CHAR', length:'22'}"
-          label="Object Number for Status Management"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Object Number for Status Management</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.OBJECT_NO"
+        options="{type: 'CT', id: 'ONR00'}"
+        data-abap="{type:'CHAR', length:'22'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Object Long Text Available"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object Long Text Available</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.LONG_TEXT"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.PRILANG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Primary language indicator for text segment"></ui-input>
+<fd-form-item>
+    <fd-form-label>Primary language indicator for text segment</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.PRILANG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFTASK.PLND_START_TIME"  label="Planned Start Time for Task"></ui-time>
+<fd-form-item>
+    <fd-form-label>Planned Start Time for Task</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFTASK.PLND_START_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFTASK.PLND_END_TIME"  label="Planned Finish Time for Task"></ui-time>
+<fd-form-item>
+    <fd-form-label>Planned Finish Time for Task</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFTASK.PLND_END_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.CARRIED_OUT_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Person Who Completed the Task"></ui-input>
+<fd-form-item>
+    <fd-form-label>Person Who Completed the Task</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.CARRIED_OUT_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFTASK.CARRIED_OUT_DATE"  label="Date on Which the Task Was Completed"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date on Which the Task Was Completed</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFTASK.CARRIED_OUT_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFTASK.CARRIED_OUT_TIME"  label="Time at Which Task Was Completed"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time at Which Task Was Completed</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFTASK.CARRIED_OUT_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTIFTASK.RESUBMIT_DATE"  label="Date on Which Task Was Resubmitted"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date on Which Task Was Resubmitted</fd-form-label>
+    <fd-date-picker v-model="ET_NOTIFTASK.RESUBMIT_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFTASK.ITEM_KEY" shlp.bind="{type: 'CH', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Item Number in Item Record"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Item Number in Item Record</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.ITEM_KEY"
+        options="{type: 'CH', id: 'QMFE'}"
+        data-abap="{type:'NUMC', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFTASK.CREATED_TIME"  label="Time, at Which Record Was Added"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time, at Which Record Was Added</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFTASK.CREATED_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTIFTASK.CHANGED_TIME"  label="Time of Change"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time of Change</fd-form-label>
+    <fd-time-picker v-model="ET_NOTIFTASK.CHANGED_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTIFTASK.PARTN_ROLE" shlp.bind="{type: 'SH', id: 'H_TPAR'}" data-abap.bind="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
-          label="Function of Person Responsible for Task"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Function of Person Responsible for Task</fd-form-label>
+    <fd-select v-model="ET_NOTIFTASK.PARTN_ROLE"
+        options="{type: 'SH', id: 'H_TPAR'}"
+        data-abap="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.PARTNER" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-          label="Person Responsible for Task (Partner Number)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Person Responsible for Task (Partner Number)</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.PARTNER"
+            data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Delete Data Record"></ui-input>
+<fd-form-item>
+    <fd-form-label>Delete Data Record</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.DELETE_FLAG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.TASK_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Sort Number for Task"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sort Number for Task</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.TASK_SORT_NO"
+            data-abap="{type:'NUMC', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.TXT_TASKGRP" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Short Description of the Code Group"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Description of the Code Group</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.TXT_TASKGRP"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.TXT_TASKCD" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Task Code Short Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Task Code Short Text</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.TXT_TASKCD"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTIFTASK.STATUS" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="System Status for Notification"></ui-input>
+<fd-form-item>
+    <fd-form-label>System Status for Notification</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.STATUS"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-checkbox value.bind="ET_NOTIFTASK.USERSTATUS_FLAG" label="User Status Active"></ui-checkbox>
+<fd-form-item-checkbox label="User Status Active">
+    <fd-checkbox v-model="ET_NOTIFTASK.USERSTATUS_FLAG">
+</fd-form-item-checkbox>
 
-<ui-input value.bind="ET_NOTIFTASK.USERSTATUS" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Field displaying user status"></ui-input>
+<fd-form-item>
+    <fd-form-label>Field displaying user status</fd-form-label>
+        <fd-input v-model="ET_NOTIFTASK.USERSTATUS"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_NOTITEM structure: ALM_ME_BAPI2080_NOTITEME_T   -->
 
 <ui-datagrid data.bind="ET_NOTITEM" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
-   <ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
-   <ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
-   <ui-dg-column sortable field="DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}" label="Notification Item Short Text"></ui-dg-column>
-   <ui-dg-column sortable field="D_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Problems/Defects"></ui-dg-column>
-   <ui-dg-column sortable field="D_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Problem"></ui-dg-column>
-   <ui-dg-column sortable field="D_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Problem or Damage Code"></ui-dg-column>
-   <ui-dg-column sortable field="DL_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Object Parts"></ui-dg-column>
-   <ui-dg-column sortable field="DL_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Object Parts"></ui-dg-column>
-   <ui-dg-column sortable field="DL_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Part of Object"></ui-dg-column>
-   <ui-dg-column sortable field="ASSEMBLY" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Assembly"></ui-dg-column>
-   <ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
-   <ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
-   <ui-dg-column sortable field="POS_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
-   <ui-dg-column sortable field="CHANGE_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
-   <ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
-   <ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Item"></ui-dg-column>
-   <ui-dg-column sortable field="STXT_GRPCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_PROBCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Problem Code Short Text"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_GRPCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_OBJPTCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Object Part Code Short Text"></ui-dg-column>
-   <ui-dg-column sortable field="CLASSIF" data-abap.bind="{type:'CHAR', length:'18'}" label="Classification"></ui-dg-column>
-   <ui-dg-column sortable field="CLASSIF_DESC" data-abap.bind="{type:'CHAR', mid:'KBZ', length:'40'}" label="Class Description"></ui-dg-column>
-   <ui-dg-column sortable field="INTCLASSNR" data-abap.bind="{type:'NUMC', length:'10'}" shlp.bind="{type: 'CT', id: 'KLAH'}" label="Internal Class Number"></ui-dg-column>
-   <ui-dg-column sortable field="TXT_PART" data-abap.bind="{type:'CHAR', length:'40'}" label="Character field of length 40"></ui-dg-column>
-   <ui-dg-column sortable field="CLASS_TYPE" data-abap.bind="{type:'CHAR', mid:'KAR', length:'3'}" shlp.bind="{type: 'CT', id: 'TCLA'}" label="Class Type"></ui-dg-column>
-   <ui-dg-column sortable field="ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for Field ASSEMBLY"></ui-dg-column>
-   <ui-dg-column sortable field="ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for ASSEMBLY Field"></ui-dg-column>
-   <ui-dg-column sortable field="ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for ASSEMBLY Field"></ui-dg-column>
-   <ui-dg-column sortable field="START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="Start Point"></ui-dg-column>
-   <ui-dg-column sortable field="END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="End Point"></ui-dg-column>
-   <ui-dg-column sortable field="LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}" label="Length"></ui-dg-column>
-   <ui-dg-column sortable field="LINEAR_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" label="Unit of Measurement for Linear Data"></ui-dg-column>
-   <ui-dg-column sortable field="LINEAR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Linear Data in ISO Code"></ui-dg-column>
-   <ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of First Offset"></ui-dg-column>
-   <ui-dg-column sortable field="FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 1"></ui-dg-column>
-   <ui-dg-column sortable field="FIRST_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 1"></ui-dg-column>
-   <ui-dg-column sortable field="FIRST_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 1 in ISO Code"></ui-dg-column>
-   <ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of Second Offset"></ui-dg-column>
-   <ui-dg-column sortable field="SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 2"></ui-dg-column>
-   <ui-dg-column sortable field="SECOND_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 2"></ui-dg-column>
-   <ui-dg-column sortable field="SECOND_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 2 in ISO Code"></ui-dg-column>
-   <ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE_NAME" data-abap.bind="{type:'CHAR', length:'60'}" label="First Offset Type Description"></ui-dg-column>
-   <ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE_NAME" data-abap.bind="{type:'CHAR', length:'60'}" label="Second Offset Type Description"></ui-dg-column>
-   <ui-dg-column sortable field="EQUIPMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
-   <ui-dg-column sortable field="EQUIDESCR" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Technical Object"></ui-dg-column>
-   <ui-dg-column sortable field="FUNCT_LOC" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
-   <ui-dg-column sortable field="FUNCLDESCR" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of functional location"></ui-dg-column>
-   <ui-dg-column sortable field="MARKER_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for Start Point"></ui-dg-column>
-   <ui-dg-column sortable field="MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Distance between Marker and Start Point"></ui-dg-column>
-   <ui-dg-column sortable field="MARKER_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for End Point"></ui-dg-column>
-   <ui-dg-column sortable field="MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Length Spec for Distance between Marker and End Point"></ui-dg-column>
-   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit for the Distance from Marker"></ui-dg-column>
-   <ui-dg-column sortable field="MARKER_DISTANCE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit for the Distance from Marker in ISO Code"></ui-dg-column>
-   <ui-dg-column sortable field="ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}" label="Assembly"></ui-dg-column>
+<ui-dg-column sortable field="NOTIF_NO" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}" shlp.bind="{type: 'CH', id: 'QMEL'}" label="Notification No"></ui-dg-column>
+<ui-dg-column sortable field="ITEM_KEY" data-abap.bind="{type:'NUMC', length:'4'}" shlp.bind="{type: 'CH', id: 'QMFE'}" label="Item Number in Item Record"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of Person who Created the Object"></ui-dg-column>
+<ui-dg-column sortable field="CREATED_DATE" data-abap.bind="{type:'DATS'}" label="Date on Which Record Was Created"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of person who changed object"></ui-dg-column>
+<ui-dg-column sortable field="CHANGED_DATE" data-abap.bind="{type:'DATS'}" label="Date of Last Change"></ui-dg-column>
+<ui-dg-column sortable field="DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}" label="Notification Item Short Text"></ui-dg-column>
+<ui-dg-column sortable field="D_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Problems/Defects"></ui-dg-column>
+<ui-dg-column sortable field="D_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Problem"></ui-dg-column>
+<ui-dg-column sortable field="D_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Problem or Damage Code"></ui-dg-column>
+<ui-dg-column sortable field="DL_CAT_TYP" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'SH', id: 'H_TQ15'}" label="Catalog Type - Object Parts"></ui-dg-column>
+<ui-dg-column sortable field="DL_CODEGRP" data-abap.bind="{type:'CHAR', length:'8'}" shlp.bind="{type: 'CT', id: 'QPGR'}" label="Code Group - Object Parts"></ui-dg-column>
+<ui-dg-column sortable field="DL_CODE" data-abap.bind="{type:'CHAR', length:'4'}" shlp.bind="{type: 'CT', id: 'QPCD'}" label="Part of Object"></ui-dg-column>
+<ui-dg-column sortable field="ASSEMBLY" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}" shlp.bind="{type: 'CT', id: 'MARA'}" label="Assembly"></ui-dg-column>
+<ui-dg-column sortable field="LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Object Long Text Available"></ui-dg-column>
+<ui-dg-column sortable field="PRILANG" data-abap.bind="{type:'CHAR', length:'1'}" label="Primary language indicator for text segment"></ui-dg-column>
+<ui-dg-column sortable field="POS_TIME" data-abap.bind="{type:'TIMS'}" label="Time, at Which Record Was Added"></ui-dg-column>
+<ui-dg-column sortable field="CHANGE_TIME" data-abap.bind="{type:'TIMS'}" label="Time of Change"></ui-dg-column>
+<ui-dg-column sortable field="DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}" label="Delete Data Record"></ui-dg-column>
+<ui-dg-column sortable field="ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}" label="Sort Number for Item"></ui-dg-column>
+<ui-dg-column sortable field="STXT_GRPCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
+<ui-dg-column sortable field="TXT_PROBCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Problem Code Short Text"></ui-dg-column>
+<ui-dg-column sortable field="TXT_GRPCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Short Description of the Code Group"></ui-dg-column>
+<ui-dg-column sortable field="TXT_OBJPTCD" data-abap.bind="{type:'CHAR', length:'40'}" label="Object Part Code Short Text"></ui-dg-column>
+<ui-dg-column sortable field="CLASSIF" data-abap.bind="{type:'CHAR', length:'18'}" label="Classification"></ui-dg-column>
+<ui-dg-column sortable field="CLASSIF_DESC" data-abap.bind="{type:'CHAR', mid:'KBZ', length:'40'}" label="Class Description"></ui-dg-column>
+<ui-dg-column sortable field="INTCLASSNR" data-abap.bind="{type:'NUMC', length:'10'}" shlp.bind="{type: 'CT', id: 'KLAH'}" label="Internal Class Number"></ui-dg-column>
+<ui-dg-column sortable field="TXT_PART" data-abap.bind="{type:'CHAR', length:'40'}" label="Character field of length 40"></ui-dg-column>
+<ui-dg-column sortable field="CLASS_TYPE" data-abap.bind="{type:'CHAR', mid:'KAR', length:'3'}" shlp.bind="{type: 'CT', id: 'TCLA'}" label="Class Type"></ui-dg-column>
+<ui-dg-column sortable field="ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}" label="Long Material Number for Field ASSEMBLY"></ui-dg-column>
+<ui-dg-column sortable field="ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}" label="External GUID for ASSEMBLY Field"></ui-dg-column>
+<ui-dg-column sortable field="ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}" label="Version Number for ASSEMBLY Field"></ui-dg-column>
+<ui-dg-column sortable field="START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="Start Point"></ui-dg-column>
+<ui-dg-column sortable field="END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" label="End Point"></ui-dg-column>
+<ui-dg-column sortable field="LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}" label="Length"></ui-dg-column>
+<ui-dg-column sortable field="LINEAR_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" label="Unit of Measurement for Linear Data"></ui-dg-column>
+<ui-dg-column sortable field="LINEAR_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Linear Data in ISO Code"></ui-dg-column>
+<ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of First Offset"></ui-dg-column>
+<ui-dg-column sortable field="FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 1"></ui-dg-column>
+<ui-dg-column sortable field="FIRST_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 1"></ui-dg-column>
+<ui-dg-column sortable field="FIRST_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 1 in ISO Code"></ui-dg-column>
+<ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE" data-abap.bind="{type:'CHAR', length:'2'}" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" label="Type of Second Offset"></ui-dg-column>
+<ui-dg-column sortable field="SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}" label="Value of Offset 2"></ui-dg-column>
+<ui-dg-column sortable field="SECOND_OFFSET_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" label="Unit of Measurement for Offset 2"></ui-dg-column>
+<ui-dg-column sortable field="SECOND_OFFSET_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit of Measurement for Offset 2 in ISO Code"></ui-dg-column>
+<ui-dg-column sortable field="FIRST_OFFSET_TYPE_CODE_NAME" data-abap.bind="{type:'CHAR', length:'60'}" label="First Offset Type Description"></ui-dg-column>
+<ui-dg-column sortable field="SECOND_OFFSET_TYPE_CODE_NAME" data-abap.bind="{type:'CHAR', length:'60'}" label="Second Offset Type Description"></ui-dg-column>
+<ui-dg-column sortable field="EQUIPMENT" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}" shlp.bind="{type: 'SH', id: 'EQUI'}" label="Equipment Number"></ui-dg-column>
+<ui-dg-column sortable field="EQUIDESCR" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of Technical Object"></ui-dg-column>
+<ui-dg-column sortable field="FUNCT_LOC" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}" shlp.bind="{type: 'SH', id: 'IFLM'}" label="Functional Location"></ui-dg-column>
+<ui-dg-column sortable field="FUNCLDESCR" data-abap.bind="{type:'CHAR', length:'40'}" label="Description of functional location"></ui-dg-column>
+<ui-dg-column sortable field="MARKER_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for Start Point"></ui-dg-column>
+<ui-dg-column sortable field="MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Distance between Marker and Start Point"></ui-dg-column>
+<ui-dg-column sortable field="MARKER_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" label="Marker for End Point"></ui-dg-column>
+<ui-dg-column sortable field="MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}" label="Length Spec for Distance between Marker and End Point"></ui-dg-column>
+<ui-dg-column sortable field="MARKER_DISTANCE_UNIT" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}" shlp.bind="{type: 'SH', id: 'H_T006'}" label="Unit for the Distance from Marker"></ui-dg-column>
+<ui-dg-column sortable field="MARKER_DISTANCE_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Unit for the Distance from Marker in ISO Code"></ui-dg-column>
+<ui-dg-column sortable field="ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}" label="Assembly"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_NOTITEM.NOTIF_NO" shlp.bind="{type: 'CH', id: 'QMEL'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-          label="Notification No"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Notification No</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.NOTIF_NO"
+        options="{type: 'CH', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.ITEM_KEY" shlp.bind="{type: 'CH', id: 'QMFE'}" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Item Number in Item Record"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Item Number in Item Record</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.ITEM_KEY"
+        options="{type: 'CH', id: 'QMFE'}"
+        data-abap="{type:'NUMC', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.CREATED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of Person who Created the Object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of Person who Created the Object</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.CREATED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTITEM.CREATED_DATE"  label="Date on Which Record Was Created"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date on Which Record Was Created</fd-form-label>
+    <fd-date-picker v-model="ET_NOTITEM.CREATED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.CHANGED_BY" data-abap.bind="{type:'CHAR', length:'12'}"
-          label="Name of person who changed object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Name of person who changed object</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.CHANGED_BY"
+            data-abap="{type:'CHAR', length:'12'}"
+        />
+</fd-form-item>
 
-<ui-date date.bind="ET_NOTITEM.CHANGED_DATE"  label="Date of Last Change"></ui-date>
+<fd-form-item>
+    <fd-form-label>Date of Last Change</fd-form-label>
+    <fd-date-picker v-model="ET_NOTITEM.CHANGED_DATE"></fd-date-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.DESCRIPT" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Notification Item Short Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Notification Item Short Text</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.DESCRIPT"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.D_CAT_TYP" shlp.bind="{type: 'SH', id: 'H_TQ15'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Catalog Type - Problems/Defects"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Catalog Type - Problems/Defects</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.D_CAT_TYP"
+        options="{type: 'SH', id: 'H_TQ15'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.D_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Code Group - Problem"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Code Group - Problem</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.D_CODEGRP"
+        options="{type: 'CT', id: 'QPGR'}"
+        data-abap="{type:'CHAR', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.D_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Problem or Damage Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Problem or Damage Code</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.D_CODE"
+        options="{type: 'CT', id: 'QPCD'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.DL_CAT_TYP" shlp.bind="{type: 'SH', id: 'H_TQ15'}" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Catalog Type - Object Parts"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Catalog Type - Object Parts</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.DL_CAT_TYP"
+        options="{type: 'SH', id: 'H_TQ15'}"
+        data-abap="{type:'CHAR', length:'1'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.DL_CODEGRP" shlp.bind="{type: 'CT', id: 'QPGR'}" data-abap.bind="{type:'CHAR', length:'8'}"
-          label="Code Group - Object Parts"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Code Group - Object Parts</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.DL_CODEGRP"
+        options="{type: 'CT', id: 'QPGR'}"
+        data-abap="{type:'CHAR', length:'8'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.DL_CODE" shlp.bind="{type: 'CT', id: 'QPCD'}" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Part of Object"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Part of Object</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.DL_CODE"
+        options="{type: 'CT', id: 'QPCD'}"
+        data-abap="{type:'CHAR', length:'4'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.ASSEMBLY" shlp.bind="{type: 'CT', id: 'MARA'}" data-abap.bind="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-          label="Assembly"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Assembly</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.ASSEMBLY"
+        options="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.LONG_TEXT" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Object Long Text Available"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object Long Text Available</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.LONG_TEXT"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.PRILANG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Primary language indicator for text segment"></ui-input>
+<fd-form-item>
+    <fd-form-label>Primary language indicator for text segment</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.PRILANG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTITEM.POS_TIME"  label="Time, at Which Record Was Added"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time, at Which Record Was Added</fd-form-label>
+    <fd-time-picker v-model="ET_NOTITEM.POS_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-time time.bind="ET_NOTITEM.CHANGE_TIME"  label="Time of Change"></ui-time>
+<fd-form-item>
+    <fd-form-label>Time of Change</fd-form-label>
+    <fd-time-picker v-model="ET_NOTITEM.CHANGE_TIME"></fd-time-picker>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.DELETE_FLAG" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Delete Data Record"></ui-input>
+<fd-form-item>
+    <fd-form-label>Delete Data Record</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.DELETE_FLAG"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.ITEM_SORT_NO" data-abap.bind="{type:'NUMC', length:'4'}"
-          label="Sort Number for Item"></ui-input>
+<fd-form-item>
+    <fd-form-label>Sort Number for Item</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.ITEM_SORT_NO"
+            data-abap="{type:'NUMC', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.STXT_GRPCD" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Short Description of the Code Group"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Description of the Code Group</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.STXT_GRPCD"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.TXT_PROBCD" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Problem Code Short Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Problem Code Short Text</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.TXT_PROBCD"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.TXT_GRPCD" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Short Description of the Code Group"></ui-input>
+<fd-form-item>
+    <fd-form-label>Short Description of the Code Group</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.TXT_GRPCD"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.TXT_OBJPTCD" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Object Part Code Short Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object Part Code Short Text</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.TXT_OBJPTCD"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.CLASSIF" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Classification"></ui-input>
+<fd-form-item>
+    <fd-form-label>Classification</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.CLASSIF"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.CLASSIF_DESC" data-abap.bind="{type:'CHAR', mid:'KBZ', length:'40'}"
-          label="Class Description"></ui-input>
+<fd-form-item>
+    <fd-form-label>Class Description</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.CLASSIF_DESC"
+            data-abap="{type:'CHAR', mid:'KBZ', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.INTCLASSNR" shlp.bind="{type: 'CT', id: 'KLAH'}" data-abap.bind="{type:'NUMC', length:'10'}"
-          label="Internal Class Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Internal Class Number</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.INTCLASSNR"
+        options="{type: 'CT', id: 'KLAH'}"
+        data-abap="{type:'NUMC', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.TXT_PART" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Character field of length 40"></ui-input>
+<fd-form-item>
+    <fd-form-label>Character field of length 40</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.TXT_PART"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.CLASS_TYPE" shlp.bind="{type: 'CT', id: 'TCLA'}" data-abap.bind="{type:'CHAR', mid:'KAR', length:'3'}"
-          label="Class Type"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Class Type</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.CLASS_TYPE"
+        options="{type: 'CT', id: 'TCLA'}"
+        data-abap="{type:'CHAR', mid:'KAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.ASSEMBLY_EXTERNAL" data-abap.bind="{type:'CHAR', alpha:'MATNL', length:'40'}"
-          label="Long Material Number for Field ASSEMBLY"></ui-input>
+<fd-form-item>
+    <fd-form-label>Long Material Number for Field ASSEMBLY</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.ASSEMBLY_EXTERNAL"
+            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.ASSEMBLY_GUID" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="External GUID for ASSEMBLY Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>External GUID for ASSEMBLY Field</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.ASSEMBLY_GUID"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.ASSEMBLY_VERSION" data-abap.bind="{type:'CHAR', alpha:'MATNW', length:'10'}"
-          label="Version Number for ASSEMBLY Field"></ui-input>
+<fd-form-item>
+    <fd-form-label>Version Number for ASSEMBLY Field</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.ASSEMBLY_VERSION"
+            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Start Point"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Start Point</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.START_POINT"
+        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="End Point"></ui-combo>
+<fd-form-item>
+    <fd-form-label>End Point</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.END_POINT"
+        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.LINEAR_LENGTH" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Length"></ui-input>
+<fd-form-item>
+    <fd-form-label>Length</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.LINEAR_LENGTH"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.LINEAR_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measurement for Linear Data"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Linear Data</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.LINEAR_UNIT"
+        options="{type: 'SH', id: 'EAML_H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.LINEAR_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit of Measurement for Linear Data in ISO Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Linear Data in ISO Code</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.LINEAR_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.FIRST_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Type of First Offset"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Type of First Offset</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.FIRST_OFFSET_TYPE_CODE"
+        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.FIRST_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Value of Offset 1"></ui-input>
+<fd-form-item>
+    <fd-form-label>Value of Offset 1</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.FIRST_OFFSET_VALUE"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.FIRST_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measurement for Offset 1"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 1</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.FIRST_OFFSET_UNIT"
+        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.FIRST_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit of Measurement for Offset 1 in ISO Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 1 in ISO Code</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.FIRST_OFFSET_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.SECOND_OFFSET_TYPE_CODE" shlp.bind="{type: 'CT', id: 'EAML_D_OFFSET_TC'}" data-abap.bind="{type:'CHAR', length:'2'}"
-          label="Type of Second Offset"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Type of Second Offset</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.SECOND_OFFSET_TYPE_CODE"
+        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.SECOND_OFFSET_VALUE" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Value of Offset 2"></ui-input>
+<fd-form-item>
+    <fd-form-label>Value of Offset 2</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.SECOND_OFFSET_VALUE"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.SECOND_OFFSET_UNIT" shlp.bind="{type: 'SH', id: 'EAML_H_T006_OFFSET'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit of Measurement for Offset 2"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 2</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.SECOND_OFFSET_UNIT"
+        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.SECOND_OFFSET_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit of Measurement for Offset 2 in ISO Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit of Measurement for Offset 2 in ISO Code</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.SECOND_OFFSET_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.FIRST_OFFSET_TYPE_CODE_NAME" data-abap.bind="{type:'CHAR', length:'60'}"
-          label="First Offset Type Description"></ui-input>
+<fd-form-item>
+    <fd-form-label>First Offset Type Description</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.FIRST_OFFSET_TYPE_CODE_NAME"
+            data-abap="{type:'CHAR', length:'60'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.SECOND_OFFSET_TYPE_CODE_NAME" data-abap.bind="{type:'CHAR', length:'60'}"
-          label="Second Offset Type Description"></ui-input>
+<fd-form-item>
+    <fd-form-label>Second Offset Type Description</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.SECOND_OFFSET_TYPE_CODE_NAME"
+            data-abap="{type:'CHAR', length:'60'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.EQUIPMENT" shlp.bind="{type: 'SH', id: 'EQUI'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-          label="Equipment Number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Equipment Number</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.EQUIPMENT"
+        options="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.EQUIDESCR" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Description of Technical Object"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of Technical Object</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.EQUIDESCR"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.FUNCT_LOC" shlp.bind="{type: 'SH', id: 'IFLM'}" data-abap.bind="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-          label="Functional Location"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Functional Location</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.FUNCT_LOC"
+        options="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.FUNCLDESCR" data-abap.bind="{type:'CHAR', length:'40'}"
-          label="Description of functional location"></ui-input>
+<fd-form-item>
+    <fd-form-label>Description of functional location</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.FUNCLDESCR"
+            data-abap="{type:'CHAR', length:'40'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.MARKER_START_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Marker for Start Point"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Marker for Start Point</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.MARKER_START_POINT"
+        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.MARKER_DISTANCE_START_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Distance between Marker and Start Point"></ui-input>
+<fd-form-item>
+    <fd-form-label>Distance between Marker and Start Point</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.MARKER_DISTANCE_START_POINT"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.MARKER_END_POINT" shlp.bind="{type: 'SH', id: 'EAML_SH_MARKER'}" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Marker for End Point"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Marker for End Point</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.MARKER_END_POINT"
+        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.MARKER_DISTANCE_END_POINT" data-abap.bind="{type:'CHAR', length:'18'}"
-          label="Length Spec for Distance between Marker and End Point"></ui-input>
+<fd-form-item>
+    <fd-form-label>Length Spec for Distance between Marker and End Point</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.MARKER_DISTANCE_END_POINT"
+            data-abap="{type:'CHAR', length:'18'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.MARKER_DISTANCE_UNIT" shlp.bind="{type: 'SH', id: 'H_T006'}" data-abap.bind="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-          label="Unit for the Distance from Marker"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit for the Distance from Marker</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.MARKER_DISTANCE_UNIT"
+        options="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_NOTITEM.MARKER_DISTANCE_UNIT_ISO" shlp.bind="{type: 'CT', id: 'T006I'}" data-abap.bind="{type:'CHAR', length:'3'}"
-          label="Unit for the Distance from Marker in ISO Code"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Unit for the Distance from Marker in ISO Code</fd-form-label>
+    <fd-select v-model="ET_NOTITEM.MARKER_DISTANCE_UNIT_ISO"
+        options="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_NOTITEM.ASSEMBLY_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}"
-          label="Assembly"></ui-input>
+<fd-form-item>
+    <fd-form-label>Assembly</fd-form-label>
+        <fd-input v-model="ET_NOTITEM.ASSEMBLY_LONG"
+            data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
+        />
+</fd-form-item>
 
 <!-- Parameter: ET_RETURN structure: BAPIRETTAB   -->
 
 <ui-datagrid data.bind="ET_RETURN" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
-   <ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
-   <ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
-   <ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
-   <ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
-   <ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
-   <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
+<ui-dg-column sortable field="TYPE" data-abap.bind="{type:'CHAR', length:'1'}" label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-dg-column>
+<ui-dg-column sortable field="ID" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CT', id: 'T100A'}" label="Message Class"></ui-dg-column>
+<ui-dg-column sortable field="NUMBER" data-abap.bind="{type:'NUMC', length:'3'}" label="Message Number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}" label="Message Text"></ui-dg-column>
+<ui-dg-column sortable field="LOG_NO" data-abap.bind="{type:'CHAR', length:'20'}" shlp.bind="{type: 'CH', id: 'BALHDR'}" label="Application log: log number"></ui-dg-column>
+<ui-dg-column sortable field="LOG_MSG_NO" data-abap.bind="{type:'NUMC', length:'6'}" shlp.bind="{type: 'CH', id: 'BALM'}" label="Application log: Internal message serial number"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
+<ui-dg-column sortable field="PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}" label="Parameter Name"></ui-dg-column>
+<ui-dg-column sortable field="ROW" data-abap.bind="{type:'INT4', length:'+10'}" label="Lines in parameter"></ui-dg-column>
+<ui-dg-column sortable field="FIELD" data-abap.bind="{type:'CHAR', length:'30'}" shlp.bind="{type: 'CT', id: 'DD03L'}" label="Field in parameter"></ui-dg-column>
+<ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<ui-input value.bind="ET_RETURN.TYPE" data-abap.bind="{type:'CHAR', length:'1'}"
-          label="Message type: S Success, E Error, W Warning, I Info, A Abort"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
+        <fd-input v-model="ET_RETURN.TYPE"
+            data-abap="{type:'CHAR', length:'1'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.ID" shlp.bind="{type: 'CT', id: 'T100A'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Message Class"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Message Class</fd-form-label>
+    <fd-select v-model="ET_RETURN.ID"
+        options="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.NUMBER" data-abap.bind="{type:'NUMC', length:'3'}"
-          label="Message Number"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Number</fd-form-label>
+        <fd-input v-model="ET_RETURN.NUMBER"
+            data-abap="{type:'NUMC', length:'3'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE" data-abap.bind="{type:'CHAR', length:'220'}"
-          label="Message Text"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Text</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE"
+            data-abap="{type:'CHAR', length:'220'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.LOG_NO" shlp.bind="{type: 'CH', id: 'BALHDR'}" data-abap.bind="{type:'CHAR', length:'20'}"
-          label="Application log: log number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: log number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_NO"
+        options="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.LOG_MSG_NO" shlp.bind="{type: 'CH', id: 'BALM'}" data-abap.bind="{type:'NUMC', length:'6'}"
-          label="Application log: Internal message serial number"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Application log: Internal message serial number</fd-form-label>
+    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
+        options="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V1" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V1"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V2" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V2"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V3" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V3"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}"
-          label="Message Variable"></ui-input>
+<fd-form-item>
+    <fd-form-label>Message Variable</fd-form-label>
+        <fd-input v-model="ET_RETURN.MESSAGE_V4"
+            data-abap="{type:'CHAR', length:'50'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.PARAMETER" data-abap.bind="{type:'CHAR', length:'32'}"
-          label="Parameter Name"></ui-input>
+<fd-form-item>
+    <fd-form-label>Parameter Name</fd-form-label>
+        <fd-input v-model="ET_RETURN.PARAMETER"
+            data-abap="{type:'CHAR', length:'32'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_RETURN.ROW" data-abap.bind="{type:'INT4', length:'+10'}"
-          label="Lines in parameter"></ui-input>
+<fd-form-item>
+    <fd-form-label>Lines in parameter</fd-form-label>
+        <fd-input v-model="ET_RETURN.ROW"
+            data-abap="{type:'INT4', length:'+10'}"
+        />
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.FIELD" shlp.bind="{type: 'CT', id: 'DD03L'}" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Field in parameter"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Field in parameter</fd-form-label>
+    <fd-select v-model="ET_RETURN.FIELD"
+        options="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-combo value.bind="ET_RETURN.SYSTEM" shlp.bind="{type: 'CT', id: 'TBDLS'}" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-          label="Logical system from which message originates"></ui-combo>
+<fd-form-item>
+    <fd-form-label>Logical system from which message originates</fd-form-label>
+    <fd-select v-model="ET_RETURN.SYSTEM"
+        options="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+    >
+    </fd-select>
+</fd-form-item>
 
 <!-- Parameter: ET_SYSSTATUS structure: /COE/RBP_T_PAM_SYSSTATUS   -->
 
 <ui-datagrid data.bind="ET_SYSSTATUS" title=""
              data-summary="false" default-sort=""
              selectable rowselect.trigger="object.selectObject($event.detail)">
-   <ui-dg-column sortable field="SYSSTAUS_INT" data-abap.bind="{type:'CHAR', length:'5'}" shlp.bind="{type: 'CT', id: 'TJ02'}" label="System status"></ui-dg-column>
-   <ui-dg-column sortable field="SYSSTATUS_EXT" data-abap.bind="{type:'CHAR', length:'4'}" label="Individual status of an object (short form)"></ui-dg-column>
-   <ui-dg-column sortable field="SYSSTATUS_TXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Object status"></ui-dg-column>
+<ui-dg-column sortable field="SYSSTAUS_INT" data-abap.bind="{type:'CHAR', length:'5'}" shlp.bind="{type: 'CT', id: 'TJ02'}" label="System status"></ui-dg-column>
+<ui-dg-column sortable field="SYSSTATUS_EXT" data-abap.bind="{type:'CHAR', length:'4'}" label="Individual status of an object (short form)"></ui-dg-column>
+<ui-dg-column sortable field="SYSSTATUS_TXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Object status"></ui-dg-column>
 </ui-datagrid>
 
-<ui-combo value.bind="ET_SYSSTATUS.SYSSTAUS_INT" shlp.bind="{type: 'CT', id: 'TJ02'}" data-abap.bind="{type:'CHAR', length:'5'}"
-          label="System status"></ui-combo>
+<fd-form-item>
+    <fd-form-label>System status</fd-form-label>
+    <fd-select v-model="ET_SYSSTATUS.SYSSTAUS_INT"
+        options="{type: 'CT', id: 'TJ02'}"
+        data-abap="{type:'CHAR', length:'5'}"
+    >
+    </fd-select>
+</fd-form-item>
 
-<ui-input value.bind="ET_SYSSTATUS.SYSSTATUS_EXT" data-abap.bind="{type:'CHAR', length:'4'}"
-          label="Individual status of an object (short form)"></ui-input>
+<fd-form-item>
+    <fd-form-label>Individual status of an object (short form)</fd-form-label>
+        <fd-input v-model="ET_SYSSTATUS.SYSSTATUS_EXT"
+            data-abap="{type:'CHAR', length:'4'}"
+        />
+</fd-form-item>
 
-<ui-input value.bind="ET_SYSSTATUS.SYSSTATUS_TXT" data-abap.bind="{type:'CHAR', length:'30'}"
-          label="Object status"></ui-input>
+<fd-form-item>
+    <fd-form-label>Object status</fd-form-label>
+        <fd-input v-model="ET_SYSSTATUS.SYSSTATUS_TXT"
+            data-abap="{type:'CHAR', length:'30'}"
+        />
+</fd-form-item>
