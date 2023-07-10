@@ -8,7 +8,7 @@
 
 ARG venv_base=~/.virtualenvs
 # 1st version is set as the default one
-ARG pyenv_versions="3.11.4 3.10.11 3.9.16 3.8.16"
+ARG pyenv_versions="3.11.4 3.10.12 3.9.17 3.8.17"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
@@ -22,7 +22,6 @@ RUN \
     sudo apt-get update && sudo apt install -y python3-pip python3-venv && \
     python3 -m pip install --user pipx && \
     PATH=$HOME/.local/bin:$PATH pipx install tox && \
-    PATH=$HOME/.local/bin:$PATH pipx install ipython && \
     # Clone and configure
     PYENV_ROOT=~/.pyenv && PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH && \
     # git
@@ -34,7 +33,7 @@ RUN \
     # pythons and virtualenvs
     for version in $( echo "$pyenv_versions" ); do \
     pyenv install $version && pyenv virtualenv $version py$version && \
-    pyenv activate py$version && pip install --upgrade pip build pytest pytest-testdox pytest-html-reporter || break; \
+    pyenv activate py$version && pip install --upgrade pip build ipython pytest pytest-testdox pytest-html-reporter || break; \
     done || exit 1 && \
     pyenv global ${pyenv_versions} && \
     # bashrc
