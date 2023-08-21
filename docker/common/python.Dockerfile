@@ -7,7 +7,7 @@
 # see bashrc.sh
 
 ARG venv_base=~/.virtualenvs
-# 1st version is set as the default one
+# 1st version will be set as the default one
 ARG pyenv_versions="3.11.4 3.10.12 3.9.17 3.8.17"
 
 ENV TMPDIR=/home/${adminuser}/tmp

@@ -6,18 +6,18 @@
 
 #
 # Build:
-# docker build -t cflinuxfs3 -f cflinuxfs3.Dockerfile .
-# docker run -it --name cflinuxfs3 -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src cflinuxfs3 /bin/bash --login
+# docker build --platform=linux/amd64 -t cflinuxfs4 -f cflinuxfs4.Dockerfile .
+# docker run --platform=linux/amd64 -it --name cflinuxfs4 -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src cflinuxfs4 /bin/bash --login
 #
 # Run:
-# docker start -ai cflinuxfs3
+# docker start -ai cflinuxfs4
 #
 
-FROM cloudfoundry/cflinuxfs3
+FROM cloudfoundry/cflinuxfs4
 
 LABEL maintainer="srdjan.boskovic@sap.com"
 LABEL version="2.0"
-LABEL description="cflinuxfs3"
+LABEL description="cflinuxfs4"
 
 ARG adminuser=www-admin
 ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute2 iputils-ping"
