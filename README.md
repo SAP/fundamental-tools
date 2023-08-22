@@ -8,24 +8,22 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-- [Usage](./abap-api-tools/README.md#usage)
-- By factors less code, more performance
-- Works with:
+- Cloud etensions with by factors less code and by factors more performance
+- Works with any frontend framework
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
   - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
   - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
 - Servers
-  - SAP Cloud Platform
+  - SAP BTP, CAP 
   - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
 - Frameworks: electron, NW.js ...
+- [Usage](./abap-api-tools/README.md#usage)
 - Components
   - [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
   - [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
 - Examples: [SAP-samples/node-rfc-samples/fundamental-tools](https://github.com/SAP-samples/node-rfc-samples/tree/main/fundamental-tools)
 - [Building standards based app with ABAP programming model](./doc/app.md)
-
-:star: Your star helps!
 
 ## Content <!-- omit in toc -->
 
