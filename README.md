@@ -9,6 +9,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
 - Cloud etensions with by factors less code and by factors more performance
+- Business content driven development
 - Works with any frontend framework
   - [Aurelia](http://aurelia.io/)
   - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
