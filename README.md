@@ -1,37 +1,36 @@
 # Fundamental Library for ABAP <!-- omit in toc -->
 
+
+[![node-rfc release](https://img.shields.io/npm/v/abap-api-tools.svg)](https://www.npmjs.com/package/abap-api-tools)
+[![Node.js engines](https://img.shields.io/node/v/abap-api-tools.svg)](https://www.npmjs.com/package/abap-api-tools)
 ![NPM](https://img.shields.io/npm/l/abap-api-tools)
-[![npm](https://img.shields.io/npm/v/abap-api-tools)](https://www.npmjs.com/package/abap-api-tools)
-[![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM)
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
 [![npm](https://img.shields.io/npm/dm/abap-api-tools)](https://www.npmjs.com/package/abap-api-tools)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
+[![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM)
 
-- Build cloud extensions of any complexity, with minimum of code, maximum performance and unique delivery experience
-- Using any frontend components library and design system:
+- Build cloud extensions of any functional and visual complexity, with minimum of code, maximum performance and unique delivery experience
+- Using components of Fundamental Library for ABAP
+  - [abap-api-tools](./abap-api-tools/README.md) design-time CLI tool, app elements generator
+  - [abap-value-help](./abap-value-help/README.md) run-time server API for Generic Value Helps
+- with your frontend components and design system
   - [SAP Fundamenal Library](https://sap.github.io/fundamental/#libraries)
   - [Microsoft FAST](https://www.fast.design/docs/category/integrations/)
   - [UI5 web components for React](https://sap.github.io/ui5-webcomponents-react) ...
-- Any server framework
+- and your server framework
   - [SAP Cloud SDK for JavaScript](https://sap.github.io/cloud-sdk/docs/js/overview)
   - [SAP Cloud Applications Programming Model](https://cap.cloud.sap/)
   - Koa, Spark, Jooby, Django, Pyramid, Flask, Tornado ...
-- [Usage](./abap-api-tools/README.md#usage)
-- Toolikt components
-  - [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
-  - [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
-  - Related components:
-    - [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector)
-    - SAP Open Source Connectors: [Node.js/RFC](https://github.com/SAP/node-rfc) and [Python/RFC](https://github.com/SAP/PyRFC)
-- Examples: [SAP-samples/node-rfc-samples/fundamental-tools](https://github.com/SAP-samples/node-rfc-samples/tree/main/fundamental-tools)
-- [Building standards based app with ABAP programming model](./doc/app.md)
+
+
 
 ## Content <!-- omit in toc -->
 
 - [Requirements](#requirements)
 - [Download and installation](#download-and-installation)
 - [Usage](#usage)
+- [Connectivity](#connectivity)
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
@@ -52,7 +51,15 @@ More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/R
 
 ## Usage
 
-see [Usage](./abap-api-tools/)
+- Cloud extension [example](./doc/app.md)
+- [abap-api-tools CLI usage](./abap-api-tools/README.md#usage)
+
+## Connectivity
+
+- [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector), for use-cases described in [Additional rules and info for NW RFC SDK, point 12](https://wiki.one.int.sap/wiki/display/PIC/UsingConnectors) (SAP VPN url)
+- [SAP Node.js Connector](https://github.com/SAP/node-rfc)
+- [SAP Python Connector](https://github.com/SAP/PyRFC)
+- [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
 
 ## Known Issues
 

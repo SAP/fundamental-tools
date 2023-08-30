@@ -1,52 +1,30 @@
-# Building an app <!-- omit in toc -->
+# Cloud extension example <!-- omit in toc -->
 
-Conventions' based apps solve complex problems by re-usable patterns, rather than using complex frameworks.
+Assume the scenario in which Functional Consultant together with customer defined how one or more ABAP transactions with old UI could be replaced with more convenient and effective app, with new UI.
 
-Without frameworks in between you and your application, what remains are re-usable solution-patterns and basic programming skills of JavaScript or ABAP, you can start with.
+In this example, app shall be provided to manage Equipment, with Variant Characteristics, to be used instead of old UI:
 
-- [Why Conventions?](#why-conventions)
-- [Technical Landscape](#technical-landscape)
-- [Components](#components)
-  - [ABAP API](#abap-api)
-  - [App Server (Java, Node, Python)](#app-server-java-node-python)
-  - [View Model (JS)](#view-model-js)
-  - [View (HTML or JS)](#view-html-or-js)
+<img src="./assets/equipment-oldui.png" width="600px"/>
+
+The new UI with same functionality, up and running on [coevi76/plm3](http://coevi76/plm3) (SAP VPN url), looke like this:
+
+<img src="./assets/equipment-newui.jpg" width="600px"/>
+
+The transition from old to new UI, using SAP Fundamental Library for ABAP, is done in 4 steps, providing four components of new cloud extension app
+
+- [ABAP API](#abap-api) exposed as a set of remote-enabled Function Modules (RFMs)
+- [App server](#app-server-java-node-python), mapping ABAP API to server routes
+- [View Model](#view-model-js), consuming server routes and implementing frontend logic (browser)
+- [View](#view-html-or-js), rendering the View Model (browser)
 - [Value Helps](#value-helps)
-- [App = ABAP API + Server Model + View Model + View](#app--abap-api--server-model--view-model--view)
+- [Low code by design](#low-code-by-design)
 - [Deployment options](#deployment-options)
-
-## Why Conventions?
-
-- By factors less code
-- Copy & adapt instead of "wizzards" configurations and adaptations
-- Diverse functional/visual requirements are hard to cover by generic frameworks and generators
-- The model works the same way with any ui framework and set of ui components. Developer stays in full control of ui components and how ABAP context is injected and used in them
-- Don't like conventions? Frame your conventions into your owm framework, always staying in full control.
-
-## Technical Landscape
-
-<img src="../doc/assets/components.png" width="800px"/>
-
-- SAP standard products:
-  - [JCo](https://support.sap.com/en/product/connectors/jco.html)
-  - [SCC for Java](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/LATEST/en-US/e6c7616abb5710148cfcf3e75d96d596.html)
-- SAP open source based on standard product [SAP NWRFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html)
-  - [PyRFC](https://github.com/SAP/PyRFC)
-  - [node-rfc](https://github.com/SAP/node-rfc)
-
-
-## Components
-
-Apps comprise of four main components or levels:
-
-- ABAP API exposed as a set of remote-enabled Function Modules (RFMs)
-- Java/NodeJS/Python app server, like express, Flask, Jetty etc., mapping ABAP API to server routes
-- JS View Model, consuming server routes (browser)
-- HTML or JS View, rendering the View Model
 
 Let build these four layers, with the little help of [`abap` CLI tool](https://www.npmjs.com/package/abap-api-tools):
 
-### ABAP API
+## ABAP API
+
+Functional Consultant defined a *functional mockup*, describing bussiness functions to be provided by new UI and together with ABAP developer identified BAPIs or other ABAP Function Modules, providing these business functions. The functional mockup can be drawn on paper or old UI elements' screenshots can be used in Excel, Powerpoint etc. It should be validated that
 
 - Localize the ABAP business logic for app functional requirements
 - Expose it via remote-enabled Function Modules
@@ -66,11 +44,10 @@ equipment:
   - BAPI_EQUI_INSTALL # Install Equipment (Functional Location, Superior Equipment)
 ```
 
-Cloud/web knowledge and skills are not required here.
+Cloud/web knowledge and skills are not mandatory here, it is regular ABAP development, like the ui will be implemented in ABAP.
 
-Just a regular ABAP development, like the ui will be implemented in ABAP.
 
-### App Server (Java, Node, Python)
+## App Server (Java, Node, Python)
 
 The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app.
 
@@ -109,13 +86,9 @@ def equipment(path):
 ```
 
 - App server is RFC connected with ABAP system and the programming model is therefore still ABAP, with ABAP data structures, only in another programming language.
-
 - Nice opportunity for ABAP developers to start with NodeJS, Python or Java
-
 - By default ABAP stateful, COMMIT BAPI can be invoked after CHANGE BAPI for example
-
 - ABAP API adaptations, extensions, choreography, orchestration, caching etc. can be added here, covering industry or customer specific requirements
-
 - The server logic sometimes need access to ABAP data stuctures at field level. `abap` CLI [call templates](../abap-api-tools/README.md#abap-function-module-call-template) can help here.
 
 ### View Model (JS)
@@ -273,16 +246,16 @@ Generic and custom Value Helps can be attched to any ui component using `shlp` c
 ></ui-input>
 ```
 
-## App = ABAP API + Server Model + View Model + View
+## Low code by design
 
 Fully functional app shown below, is implemented with ca. 400 lines of code:
 
-| App Component                   |     LoC |
-| ------------------------------- | ------: |
-| Server Model (Node/Java/Python) |      20 |
-| View (HTML)                     |     172 |
-| View Model (ES/TS)              |     213 |
-| **Total**                       | **405** |
+| App Component                 |     LoC |
+| ----------------------------- | ------: |
+| App Server (Node/Java/Python) |      20 |
+| View Model (ES/TS)            |     213 |
+| View (HTML)                   |     172 |
+| **Total**                     | **405** |
 
 Features:
 
@@ -290,10 +263,13 @@ Features:
 - Grouped and ungrouped Classifications/Characteristics read/update
 - Attachments preview/upload/download
 
-The implementation is under full developer's control, without any magic added by `abap` CLI.
+The implementation is under full developer's control, without any magic added by `abap` CLI and without run-time dependencies of this toolkit, except for inevitable Value Helps.
 
-![App](assets/Equipment.jpg)
+![App](assets/equipment-newui.jpg)
 
 ## Deployment options
 
+Above mentioned components can be deployed on-premise or in the cloud, as follows
+
 <img src="../doc/assets/deployments.png" width="640px"/>
+
