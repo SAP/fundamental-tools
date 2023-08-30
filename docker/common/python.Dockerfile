@@ -7,13 +7,14 @@
 # see bashrc.sh
 
 ARG venv_base=~/.virtualenvs
+ARG common_source=/common
 # 1st version will be set as the default one
 ARG pyenv_versions="3.11.4 3.10.12 3.9.17 3.8.17"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
 # pyenv bashrc config
-COPY --chown=${adminuser}:${adminuser} /common/bashrc_pyenv.sh /tmp/
+COPY --chown=${adminuser}:${adminuser} ${common_source}/bashrc_pyenv.sh /tmp/
 
 # as admin user
 

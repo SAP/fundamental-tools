@@ -4,10 +4,12 @@
 
 # NodeJS and nvv installation
 
+ARG common_source=/common
+
 ENV TMPDIR=/home/${adminuser}/tmp
 
 # nvm bashrc config
-COPY --chown=${adminuser}:${adminuser} /common/bashrc_nvm.sh /tmp
+COPY --chown=${adminuser}:${adminuser} ${common_source}/bashrc_nvm.sh /tmp
 
 # as admin user
 
