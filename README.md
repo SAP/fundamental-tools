@@ -55,10 +55,13 @@ More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/R
 
 ## Connectivity
 
-- [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector), for use-cases described in [Additional rules and info for NW RFC SDK, point 12](https://wiki.one.int.sap/wiki/display/PIC/UsingConnectors) (SAP VPN url)
+- [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector)
 - [SAP Node.js Connector](https://github.com/SAP/node-rfc)
 - [SAP Python Connector](https://github.com/SAP/PyRFC)
 - [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
+- and other standard and custom connectivity channels and formats
+
+See also: [deployment options](./doc/app.md#deployment-options)
 
 ## Known Issues
 

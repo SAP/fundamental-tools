@@ -58,6 +58,8 @@ The NodeJS or Java code is almost identical and data mappings work the same way:
 | Structure | Plain JS object           | Python dictionary     | `{ INSTDATE: ”20180327”, EQUI: “1000485” …}`                                                                                                                           |
 | Table     | Array of JS plain objects | Array of Python dicts | `[`<br>&nbsp;&nbsp;&nbsp;&nbsp;```{ INSTDATE: ”20180327”, EQUI: “1000485” …}```,<br>&nbsp;&nbsp;&nbsp;&nbsp;```{ INSTDATE: ”20200912”, EQUI: “1000486” …}``` … <br>`]` |
 
+The app server pattern depends on ABAP API and app requirements and may look like below. Full source is in SAP VPN [plm/equipment/app-server](https://github.wdf.sap.corp/ng-apps/plm3/blob/master/server/serve.py#L157)
+
 ```python
 # Equipment
 @app.route('/equipment/<path:path>', methods=['POST'])
@@ -97,7 +99,7 @@ Via server routes, ABAP data structures reach the View-Model. The programming la
 - Modern object oriented JavaScript makes also this layer doable by ABAP developers interested in JavaScript
 - One the same logic can run on app server or View Model level. With JavaScript servers, even the same code can be shifted back and forth, between app server and view model.
 
-The model pattern depends on ABAP API structure and app requirements, may look like this:
+The view-model pattern depends on ABAP API and app requirements, may look like below and full source is in SAP VPN [plm/equipment/view-model](https://github.wdf.sap.corp/ng-apps/plm3/blob/master/client/src/plm/equipment/model.js)
 
 ```JavaScript
 import { UIApp, UIHttp, UIUtils } from '../../resources/index';
@@ -272,3 +274,15 @@ Above mentioned components can be deployed on-premise or in the cloud, as follow
 
 <img src="../doc/assets/deployments.png" width="640px"/>
 
+RFC connectivity is supported via [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector) run-time platforms
+
+- Java, all use-cases
+- Node.js and Python, use-cases described in [Additional rules and info for NW RFC SDK, point 12](https://wiki.one.int.sap/wiki/display/PIC/UsingConnectors) (SAP VPN url)
+
+For cloud use-cases not listed in above mentioned point 12, [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html) can be used, as described [here](https://github.com/SAP/node-rfc/issues/212#issuecomment-829090667), in addition to alternatives described in same comment.
+
+Local development can be by using SAP Open Source connectors: [SAP Connector for Python](https://github.com/SAP/PyRFC) and [SAP Connector for Node.js](https://github.com/SAP/node-rfc)
+
+### Users solutions
+
+Users' solution you can find in web may be fine but NOT supported by this project, like [SAP RFC to S3 using AWS Lambda](https://catalog.us-east-1.prod.workshops.aws/workshops/79435b9d-cf2e-4afc-a3f6-4eceeaf0865d/en-US/aws-datalakes-for-sap/application-level/2-3-sap-rfc) ...
