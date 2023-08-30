@@ -18,12 +18,9 @@ Without frameworks in between you and your application, what remains are re-usab
 ## Why Conventions?
 
 - By factors less code
-- Convention copy & adapt is a way more effective then learning, configuring and modifying any "wizzard" or generator output like "master/detail", doing the same.
-- Diverse functional/visual requirements are hard to cover by generic framework, wizzard, generator ...
-- The model works the same way with any ui framework. Mostly used with standards-based [Aurelia](https://aurelia.io/), which is
-  - Also conventions based, easy to learn
-  - Practically invisible in applications so that developers can focus on application, not the framework
-  - Support other ui frameworks' templating systems
+- Copy & adapt instead of "wizzards" configurations and adaptations
+- Diverse functional/visual requirements are hard to cover by generic frameworks and generators
+- The model works the same way with any ui framework and set of ui components. Developer stays in full control of ui components and how ABAP context is injected and used in them
 - Don't like conventions? Frame your conventions into your owm framework, always staying in full control.
 
 ## Technical Landscape
