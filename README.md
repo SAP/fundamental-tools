@@ -29,7 +29,7 @@
 - [Requirements](#requirements)
 - [Download and installation](#download-and-installation)
 - [Usage](#usage)
-- [Connectivity](#connectivity)
+- [Connectivity and deployment options](#connectivity-and-deployment-options)
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
@@ -53,15 +53,18 @@ More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/R
 - Cloud extension [example](./doc/app.md)
 - [abap-api-tools CLI usage](./abap-api-tools/README.md#usage)
 
-## Connectivity
+## Connectivity and deployment options
+
+Connectivity options
 
 - [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector)
+- [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html)
 - [SAP Node.js Connector](https://github.com/SAP/node-rfc)
 - [SAP Python Connector](https://github.com/SAP/PyRFC)
 - [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
 - and other standard and custom connectivity channels and formats
 
-See also: [deployment options](./doc/app.md#deployment-options)
+See also: [Deployment options](./doc/app.md#deployment-options)
 
 ## Known Issues
 
