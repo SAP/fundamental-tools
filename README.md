@@ -8,21 +8,22 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](https://www.typescriptlang.org/)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-f8bc45.svg)](https://github.com/prettier/prettier)
 
-- Cloud etensions with by factors less code and by factors more performance
-- Business content driven development, with low-code by design
-- Works with any frontend framework
-  - [Aurelia](http://aurelia.io/)
-  - Angular, React and Vue by [SAP Fundamenal Library](https://sap.github.io/fundamental/)
-  - Angular, React and Vue by [Microsoft FAST](https://www.fast.design/docs/introduction/)
-  - UI5 web components for [React](https://sap.github.io/ui5-webcomponents-react/?path=/story/getting-started--page)
-- Servers
-  - SAP BTP, CAP 
-  - Koa, express, Spark, Jooby, Sanic, Django, Pyramid, Flask, Tornado ...
-- Frameworks: electron, NW.js ...
+- Build cloud extensions of any complexity, with minimum of code, maximum performance and unique delivery experience
+- Using any frontend components library and design system:
+  - [SAP Fundamenal Library](https://sap.github.io/fundamental/#libraries)
+  - [Microsoft FAST](https://www.fast.design/docs/category/integrations/)
+  - [UI5 web components for React](https://sap.github.io/ui5-webcomponents-react) ...
+- Any server framework
+  - [SAP Cloud SDK for JavaScript](https://sap.github.io/cloud-sdk/docs/js/overview)
+  - [SAP Cloud Applications Programming Model](https://cap.cloud.sap/)
+  - Koa, Spark, Jooby, Django, Pyramid, Flask, Tornado ...
 - [Usage](./abap-api-tools/README.md#usage)
-- Components
+- Toolikt components
   - [abap-api-tools](./abap-api-tools/README.md) node CLI tool, app elements generator
   - [abap-value-help](./abap-value-help/README.md) Generic Value Helps server API
+  - Related components:
+    - [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector)
+    - SAP Open Source Connectors: [Node.js/RFC](https://github.com/SAP/node-rfc) and [Python/RFC](https://github.com/SAP/PyRFC)
 - Examples: [SAP-samples/node-rfc-samples/fundamental-tools](https://github.com/SAP-samples/node-rfc-samples/tree/main/fundamental-tools)
 - [Building standards based app with ABAP programming model](./doc/app.md)
 
@@ -30,6 +31,7 @@
 
 - [Requirements](#requirements)
 - [Download and installation](#download-and-installation)
+- [Usage](#usage)
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
@@ -37,12 +39,8 @@
 
 ## Requirements
 
-- ABAP backend: from latest releases, down to 4.6C
-- SAP Cloud Platform or on-premise Windows, Linux, Darwin platforms
-- Runtimes
-  - Java with [SAP Cloud Connector](https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/e6c7616abb5710148cfcf3e75d96d596.html) or [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
-  - Python with [PyRFC](https://github.com/SAP/PyRFC)
-  - NodeJS with [node-rfc](https://github.com/SAP/node-rfc)
+- Backend: ABAP system, from latest releases down to 4.6C
+- Deployment: SAP BTP or on-premise system, with active supported Java, Node.JS or Python runtime
 
 ## Download and installation
 
@@ -51,6 +49,10 @@ npm install -g abap-api-tools
 ```
 
 More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/README.md#download-and-installation)
+
+## Usage
+
+see [Usage](./abap-api-tools/)
 
 ## Known Issues
 
