@@ -1,15 +1,7 @@
-## NodeJS and Python containers
 
-- [Centos + Java](./centos-java.Dockerfile)
-- [Centos + Node](./centos-node.Dockerfile)
-- [Centos + Python](./centos-python.Dockerfile)
-- [Fedora + Node](./fedora-node.Dockerfile)
-- [Fedora + Python](./fedora-python.Dockerfile)
-- [python:3.9-slim-buster](./python-39-slim-buster.Dockerfile)
-- [python:3.9-buster](./python-39-buster.Dockerfile)
-- [Ubuntu with Node and Python](./ubuntu-qa.Dockerfile)
+# SAP NW RFC SDK
 
-> SAP NWRFC SDK is not a part of these images and must not be packed into externaly distributed images or applications.
+:heavy_exclamation_mark: SAP NWRFC SDK is not a part of these images and must not be packed into externaly distributed images or applications.
 
 Exclusive distribution channel is: [SAP NWRFC SDK on SAP Support Portal](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=01200314690100002214&V=MAINT)
 
