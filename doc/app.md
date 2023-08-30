@@ -1,16 +1,18 @@
 # Cloud extension example <!-- omit in toc -->
 
-Assume the scenario in which Functional Consultant together with customer defined how one or more ABAP transactions with old UI could be replaced with more convenient and effective app, with new UI.
+Assume the scenario in which Functional Consultant together with customer defined how one or more ABAP transactions with old UI could be replaced with more convenient and effective app.
 
-In this example, app shall be provided to manage Equipment, with Variant Characteristics, to be used instead of old UI:
+In this example, app shall be provided to maintain Equipment, with Variant Characteristics, as alternative to old UI:
 
 <img src="./assets/equipment-oldui.png" width="600px"/>
 
-The new UI with same functionality, up and running on [coevi76/plm3](http://coevi76/plm3) (SAP VPN url), looke like this:
+The new UI with same functionality ([live @ coevi76/plm3](http://coevi76/plm3) (SAP VPN url)) looks like this:
 
 <img src="./assets/equipment-newui.jpg" width="600px"/>
 
-The transition from old to new UI, using SAP Fundamental Library for ABAP, is done in 4 steps, providing four components of new cloud extension app
+The transition from old to new UI, using SAP Fundamental Library for ABAP, is done in 4 steps, providing four components of new cloud extension app: ABAP API, App Server, View Model and View.
+
+Let build these four layers, with the little help of [`abap` CLI tool](https://www.npmjs.com/package/abap-api-tools):
 
 - [ABAP API](#abap-api) exposed as a set of remote-enabled Function Modules (RFMs)
 - [App server](#app-server-java-node-python), mapping ABAP API to server routes
@@ -20,15 +22,13 @@ The transition from old to new UI, using SAP Fundamental Library for ABAP, is do
 - [Low code by design](#low-code-by-design)
 - [Deployment options](#deployment-options)
 
-Let build these four layers, with the little help of [`abap` CLI tool](https://www.npmjs.com/package/abap-api-tools):
-
 ## ABAP API
 
-Functional Consultant defined a *functional mockup*, describing bussiness functions to be provided by new UI and together with ABAP developer identified BAPIs or other ABAP Function Modules, providing these business functions. The functional mockup can be drawn on paper or old UI elements' screenshots can be used in Excel, Powerpoint etc. It should be validated that
+Functional Consultant starts with *functional mockup*, describing bussiness functions to be provided in new UI. Together with ABAP developer BAPIs or other ABAP building modules are identified, providing required business functions. The functional mockup can be drawn on paper or old UI elements' screenshots can be used in Excel, Powerpoint etc. Tasks of this first step are:
 
-- Localize the ABAP business logic for app functional requirements
-- Expose it via remote-enabled Function Modules
-- Write API names into `my-app.yaml` file (used later)
+- Clarify app functional requirementa and localize ABAP business logic
+- Expose the business logic via remote-enabled Function Modules (ABAP API)
+- Write ABAP API endpoints' names into `my-app.yaml` file (used later)
 
 `my-app.yaml`
 
@@ -46,10 +46,9 @@ equipment:
 
 Cloud/web knowledge and skills are not mandatory here, it is regular ABAP development, like the ui will be implemented in ABAP.
 
-
 ## App Server (Java, Node, Python)
 
-The example below shows Python Flask server, exposing ABAP API for Equipment maintenance app.
+The next steps are server routes, exposing ABAP API. The example below is implemented with Python Flask, exposing ABAP API for Equipment maintenance app.
 
 The NodeJS or Java code is almost identical and data mappings work the same way:
 
