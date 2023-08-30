@@ -22,8 +22,7 @@
   - [SAP Cloud SDK for JavaScript](https://sap.github.io/cloud-sdk/docs/js/overview)
   - [SAP Cloud Applications Programming Model](https://cap.cloud.sap/)
   - Koa, Spark, Jooby, Django, Pyramid, Flask, Tornado ...
-
-
+- Few pre-configured docker containers are available [here](./docker/)
 
 ## Content <!-- omit in toc -->
 
