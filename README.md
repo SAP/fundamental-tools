@@ -11,17 +11,18 @@
 [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM)
 
 - Build cloud extensions of any functional and visual complexity, with minimum of code, maximum performance and unique delivery experience
-- Using components of Fundamental Library for ABAP
-  - [abap-api-tools](./abap-api-tools/README.md) design-time CLI tool, app elements generator
-  - [abap-value-help](./abap-value-help/README.md) run-time server API for Generic Value Helps
-- with your frontend components and design system
-  - [SAP Fundamenal Library](https://sap.github.io/fundamental/#libraries)
-  - [Microsoft FAST](https://www.fast.design/docs/category/integrations/)
-  - [UI5 web components for React](https://sap.github.io/ui5-webcomponents-react) ...
-- and your server framework
+- with any ui framework and design system:
+  - [Angular, React, Vue etc. with SAP design system](https://sap.github.io/fundamental/#libraries)
+  - [Angular, React, Vue etc. with Microsoft design system](https://www.fast.design/docs/category/integrations/)
+  - [UI5 web components](https://sap.github.io/ui5-webcomponents/), [UI5 web components for React](https://sap.github.io/ui5-webcomponents-react) ...
+- and any server framework
   - [SAP Cloud SDK for JavaScript](https://sap.github.io/cloud-sdk/docs/js/overview)
   - [SAP Cloud Applications Programming Model](https://cap.cloud.sap/)
   - Koa, Spark, Jooby, Django, Pyramid, Flask, Tornado ...
+- Using Fundamental Library for ABAP components
+  - [abap-api-tools](./abap-api-tools/README.md) design-time CLI, to enrich your ui componebts with ABAP metadata: data type, length, data binding, user defaults, Value Helps ...
+  - [abap-value-help](./abap-value-help/README.md) run-time API for generic Value Helps
+
 - Few pre-configured docker containers are available [here](./docker/)
 
 ## Content <!-- omit in toc -->
@@ -46,7 +47,7 @@
 npm install -g abap-api-tools
 ```
 
-More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/README.md#download-and-installation)
+More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/README.md#installation)
 
 ## Usage
 
@@ -59,10 +60,8 @@ Connectivity options
 
 - [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector)
 - [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html)
-- [SAP Node.js Connector](https://github.com/SAP/node-rfc)
-- [SAP Python Connector](https://github.com/SAP/PyRFC)
-- [SAP Java Connector](https://support.sap.com/en/product/connectors/jco.html)
-- and other standard and custom connectivity channels and formats
+- SAP connectors for [Node.js](https://github.com/SAP/node-rfc), [Python](https://github.com/SAP/PyRFC), [Java](https://support.sap.com/en/product/connectors/jco.html)
+- and other standard and custom connectivity channels and formats, see ["Feature Matrix" here](https://sap.github.io/cloud-sdk/docs/js/overview)
 
 See also: [Deployment options](./doc/app.md#deployment-options)
 

@@ -1,8 +1,8 @@
-# Cloud extension example <!-- omit in toc -->
+# Cloud extensions using Fundamental Library for ABAP <!-- omit in toc -->
 
 Assume the scenario in which Functional Consultant together with customer defined how one or more ABAP transactions with old UI could be replaced with more convenient and effective app.
 
-In this example, app shall be provided to maintain Equipment, with Variant Characteristics, as alternative to old UI:
+In this example, app shall be used to maintain Equipment, with Variant Characteristics, as alternative to old UI:
 
 <img src="./assets/equipment-oldui.png" width="600px"/>
 
@@ -15,20 +15,24 @@ The transition from old to new UI, using SAP Fundamental Library for ABAP, is do
 Let build these four layers, with the little help of [`abap` CLI tool](https://www.npmjs.com/package/abap-api-tools):
 
 - [ABAP API](#abap-api) exposed as a set of remote-enabled Function Modules (RFMs)
-- [App server](#app-server-java-node-python), mapping ABAP API to server routes
-- [View Model](#view-model-js), consuming server routes and implementing frontend logic (browser)
-- [View](#view-html-or-js), rendering the View Model (browser)
+- [App server](#app-server-java-node-python), expose ABAP API via app server routes
+- [View Model](#view-model-js), consume server routes and run the frontend logic (browser)
+- [View](#view-html-or-js), ui components, rendering the View Model (browser)
 - [Value Helps](#value-helps)
 - [Low code by design](#low-code-by-design)
 - [Deployment options](#deployment-options)
+- [Super Apps](#super-apps)
+- [Users solutions](#users-solutions)
 
 ## ABAP API
 
-Functional Consultant starts with *functional mockup*, describing bussiness functions to be provided in new UI. Together with ABAP developer BAPIs or other ABAP building modules are identified, providing required business functions. The functional mockup can be drawn on paper or old UI elements' screenshots can be used in Excel, Powerpoint etc. Tasks of this first step are:
+Functional Consultant starts with *functional mockup*, describing bussiness functions to be provided in new UI. Together with ABAP developer BAPIs or other ABAP building modules are identified, providing required business functions. The functional mockup can be drawn on paper or old UI elements' screenshots can be used in Excel, Powerpoint, design tools etc. Tasks of this first step are:
 
 - Clarify app functional requirementa and localize ABAP business logic
 - Expose the business logic via remote-enabled Function Modules (ABAP API)
 - Write ABAP API endpoints' names into `my-app.yaml` file (used later)
+
+Assume ABAP endpoints below provide the business logic for our example
 
 `my-app.yaml`
 
@@ -92,16 +96,16 @@ def equipment(path):
 - ABAP API adaptations, extensions, choreography, orchestration, caching etc. can be added here, covering industry or customer specific requirements
 - The server logic sometimes need access to ABAP data stuctures at field level. `abap` CLI [call templates](../abap-api-tools/README.md#abap-function-module-call-template) can help here.
 
-### View Model (JS)
+## View Model (JS)
 
-Via server routes, ABAP data structures reach the View-Model. The programming language is now JavaScript and the business logic processing can be also here done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
+Via server routes, ABAP data structures reach the View-Model of your preferred ui framework. The programming language is now JavaScript and the business logic processing can be also here done the ABAP way. Calling BAPI COMMIT after BAPI CHANGE still possible for example, via server routes now.
 
-- Modern object oriented JavaScript makes also this layer doable by ABAP developers interested in JavaScript
-- One the same logic can run on app server or View Model level. With JavaScript servers, even the same code can be shifted back and forth, between app server and view model.
+- Modern JavaScript makes also this layer doable by ABAP developers interested in JavaScript
+- One the same logic can run on app server or View Model level. With Node.js servers, even the same code can be moved back and forth, between app server and view model.
 
-The view-model pattern depends on ABAP API and app requirements, may look like below and full source is in SAP VPN [plm/equipment/view-model](https://github.wdf.sap.corp/ng-apps/plm3/blob/master/client/src/plm/equipment/model.js)
+The view-model pattern depends on ABAP API and app requirements, may look like below. The full source of this example is in SAP VPN [plm/equipment/view-model](https://github.wdf.sap.corp/ng-apps/plm3/blob/master/client/src/plm/equipment/model.js)
 
-```JavaScript
+```typescript
 import { UIApp, UIHttp, UIUtils } from '../../resources/index';
 
 export class Equipment {
@@ -160,7 +164,7 @@ export class Equipment {
 // get ...
 ```
 
-JS files with View Model initializers of ABAP data structures can be used in app server or View Model logic, for fields' level processing.
+View Model initializers of ABAP data structures are automatically generated by `abap` CLI and can be used in app server or View Model logic, for fields' level processing.
 
 ```JavaScript
 //
@@ -182,15 +186,13 @@ DATA_FLEET = {
   FLEET_LEN                     : 0,  // Maximum fleet object length
 ```
 
-
-### View (HTML or JS)
+## View (HTML or JS)
 
 HTML or JS Views comprise of generic ui components, grouped together into frontend layout elements.
 
+![View rendering](assets/View.png)
 
-![](assets/View.png)
-
-ui components are bound to View Model data structures, which are ABAP data structures. Components' templates can be therefore generated using `abap` CLI [get](../abap-api-tools/README.md#abap-api-annotations-for-ui-elements) and [make](../abap-api-tools/README.md#ui-elements) commands and reused in Views, with or without adaptations:
+Ui components are bound to View Model data from app server routes, thus ABAP data. Ui components' can be therefore generated using `abap` CLI [get](../abap-api-tools/README.md#abap-api-annotations-for-ui-elements) and [make](../abap-api-tools/README.md#ui-elements) commands and reused in Views, with or without adaptations:
 
 ```shell
 abap make aurelia -c my-app # from the first ABAP API step above
@@ -221,11 +223,11 @@ More examples: [SAP-samples/node-rfc-samples/fundamental-tools](https://github.c
 
 ## Value Helps
 
-Generic and custom Value Helps can be attched to any ui component using `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
+Generic and custom Value Helps can be added to any ui component using `shlp` custom attribute: [abap-value-help](../abap-value-help/README.md)
 
-- Generated, adapted or built from scratch in design time
+Default Value Helps are added as ui components markup, automatically generated by `abap` CLI.
 
-- Dynamically generated in run-time
+Value Helps are exposed in run-time, using `abap-value-help` component and consumed by ui components with Value Help markup.
 
 ```html
 <!-- Fixed Domain Values -->
@@ -270,19 +272,29 @@ The implementation is under full developer's control, without any magic added by
 
 ## Deployment options
 
-Above mentioned components can be deployed on-premise or in the cloud, as follows
+Apps can be deployed on-premise or in the cloud, as follows
 
 <img src="../doc/assets/deployments.png" width="640px"/>
 
 RFC connectivity is supported via [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector) run-time platforms
 
 - Java, all use-cases
-- Node.js and Python, use-cases described in [Additional rules and info for NW RFC SDK, point 12](https://wiki.one.int.sap/wiki/display/PIC/UsingConnectors) (SAP VPN url)
+- Node.js and Python, use-cases described in [Additional rules and info for NW RFC SDK, pt. 12](https://wiki.one.int.sap/wiki/display/PIC/UsingConnectors) (SAP VPN url)
 
-For cloud use-cases not listed in above mentioned point 12, [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html) can be used, as described [here](https://github.com/SAP/node-rfc/issues/212#issuecomment-829090667), in addition to alternatives described in same comment.
+For cloud use-cases not listed in pt. 12 above, [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html) can be used, as described [here](https://github.com/SAP/node-rfc/issues/212#issuecomment-829090667), in addition to alternatives described in same comment.
 
-Local development can be by using SAP Open Source connectors: [SAP Connector for Python](https://github.com/SAP/PyRFC) and [SAP Connector for Node.js](https://github.com/SAP/node-rfc)
+Local development can be by using SAP connectors for [Python](https://github.com/SAP/PyRFC), [Node.js](https://github.com/SAP/node-rfc) or [Java](https://support.sap.com/en/product/connectors/jco.html)
 
-### Users solutions
+## Super Apps
 
-Users' solution you can find in web may be fine but NOT supported by this project, like [SAP RFC to S3 using AWS Lambda](https://catalog.us-east-1.prod.workshops.aws/workshops/79435b9d-cf2e-4afc-a3f6-4eceeaf0865d/en-US/aws-datalakes-for-sap/application-level/2-3-sap-rfc) ...
+Althoug already powerfull, the Equipment maintenance with Variant Characteristics and Documents Management, is far from limits this approach handle with ease.
+
+When developed this way, more apps can be combined into super-apps, without noticable impact on performance or maintainability and without other technical debts.
+
+The example below is probably unique case done with SAP technologies, a cockpit super-app, done by assembling Service Notifications, Service Orders and Equipment Maintenance "elementary" apps
+
+![Super App](./assets/super-app.png)
+
+## Users solutions
+
+Users' solution you find in web may work fine but NOT supported by this project, like [SAP RFC to S3 using AWS Lambda](https://catalog.us-east-1.prod.workshops.aws/workshops/79435b9d-cf2e-4afc-a3f6-4eceeaf0865d/en-US/aws-datalakes-for-sap/application-level/2-3-sap-rfc) ...
