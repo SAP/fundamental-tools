@@ -287,11 +287,11 @@ Local development can be by using SAP connectors for [Python](https://github.com
 
 ## Super Apps
 
-Althoug already powerfull, the Equipment maintenance with Variant Characteristics and Documents Management, is far from limits this approach handle with ease.
+Althoug already powerfull, the Equipment maintenance app with Variant Characteristics and Documents Management, is far from limits of what this approach can handle.
 
-When developed this way, more apps can be combined into super-apps, without noticable impact on performance or maintainability and without other technical debts.
+When developed this way, more apps can be assembled into super-apps, without noticable impact on performance or maintainability.
 
-The example below is probably unique case done with SAP technologies, a cockpit super-app, done by assembling Service Notifications, Service Orders and Equipment Maintenance "elementary" apps
+The example below is probably unique case implemented with SAP technologies, a cockpit super-app, assembled from Service Notifications, Service Orders and Equipment Maintenance "elementary" apps, all without iframes.
 
 ![Super App](./assets/super-app.png)
 
