@@ -1,8 +1,8 @@
 import chalk from "chalk";
 import path from "path";
 import { sprintf } from "sprintf-js";
-import { EmptyObject, Writer, isEmpty, log, fileLoad } from "./utils";
-import { ValueHelpFrontend } from "./valuehelp";
+import { EmptyObject, Writer, isEmpty, log, fileLoad } from "./utils.js";
+import { ValueHelpFrontend } from "./valuehelp.js";
 
 import {
   ParamClass,
@@ -11,7 +11,7 @@ import {
   ValueInput,
   Tagname,
   DefaultFolder,
-} from "./constants";
+} from "./constants.js";
 
 import {
   ParameterType,
@@ -22,9 +22,9 @@ import {
   AnnotationsType,
   annotations_read,
   StructureType,
-} from "./backend";
+} from "./backend.js";
 
-import { Command, Arguments, Signature } from "./abap";
+import { Command, Arguments, Signature } from "./abap.js";
 
 type ParamInializer = {
   text: string;

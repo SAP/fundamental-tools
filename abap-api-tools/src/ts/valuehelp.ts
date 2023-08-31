@@ -1,25 +1,27 @@
 import path from "path";
-import { ParamType, ValueInput } from "./constants";
+import { ParamType, ValueInput } from "./constants.js";
 import {
   HelpsCatalogType,
   DescriptorsCatalogType,
   ParameterType,
   FieldType,
   StructureType,
-} from "./backend";
-import { Frontend } from "./frontend";
-import { Signature } from "./abap";
-import { isEmpty, rmDir, makeDir, Writer, log } from "./utils";
+} from "./backend.js";
+import { Frontend } from "./frontend.js";
+import { Signature } from "./abap.js";
+import { isEmpty, rmDir, makeDir, Writer, log } from "./utils.js";
 
 import { ElementaryHelpType, EHDescriptorType } from "abap-value-help";
-import { RfcStructure, RfcTable } from "node-rfc";
+import { RfcStructure } from "node-rfc";
+
+type RfcTableOfStructures = Array<RfcStructure>;
 
 interface IElementaryHelp {
   id: string;
   title: string;
-  selectionFields: RfcTable; // FieldType[];
+  selectionFields: RfcTableOfStructures; // FieldType[];
   selectionParameters: string[];
-  resultFields: RfcTable;
+  resultFields: RfcTableOfStructures;
   resultTable: string;
   blacklisted: boolean;
 }
@@ -106,7 +108,7 @@ const helpOption = [
       selectionFields: [] as RfcStructure[], // FieldType[],
       selectionParameters: [] as string[],
       blacklisted: false,
-      resultFields: [] as RfcTable,
+      resultFields: [] as RfcTableOfStructures,
       resultTable: "",
     };
 
@@ -154,7 +156,7 @@ const helpOption = [
       //default?: string;
       // nativeKey?: string;
     };
-    const resultDescriptor = VH.resultDescriptor as RfcTable;
+    const resultDescriptor = VH.resultDescriptor as RfcTableOfStructures;
     const Field = {} as StructureType;
     for (const field of resultDescriptor) {
       Field[field.FIELDNAME as string] =

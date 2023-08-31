@@ -4,11 +4,11 @@ import path from "path";
 import { sprintf } from "sprintf-js";
 import {
   Client,
-  RfcTable,
+  // RfcTableOfStructures,
   RfcStructure,
   RfcConnectionParameters,
 } from "node-rfc";
-import { Command, Arguments } from "./abap";
+import { Command, Arguments } from "./abap.js";
 import {
   Languages,
   ParamType,
@@ -18,11 +18,18 @@ import {
   DockerVolume,
   runningInDocker,
   ValueInput,
-} from "./constants";
+} from "./constants.js";
 
-import { Alpha, AlphaCatalogType } from "./alpha";
+import { Alpha, AlphaCatalogType } from "./alpha.js";
 
-import { isEmpty, log, fileLoad, fileSave, fileExists, rmDir } from "./utils";
+import {
+  isEmpty,
+  log,
+  fileLoad,
+  fileSave,
+  fileExists,
+  rmDir,
+} from "./utils.js";
 
 import {
   ShlpApiType,
@@ -31,6 +38,8 @@ import {
   FVDescriptorType,
   ValueHelpType,
 } from "abap-value-help";
+
+type RfcTableOfStructures = Array<RfcStructure>;
 
 // Parameter and Field typings
 
@@ -412,7 +421,7 @@ export class Backend {
     param: ParameterType,
     langu = this.SPRAS
   ): Promise<FieldType | StructureType | undefined> {
-    let dfies: RfcStructure | RfcTable = {};
+    let dfies: RfcStructure | RfcTableOfStructures = {};
     try {
       if (param.paramType === ParamType.exception) return undefined;
       log.debug(
@@ -438,11 +447,11 @@ export class Backend {
         }
       } else {
         // structure or table
-        if ((ddif.LINES_DESCR as RfcTable).length > 0) {
+        if ((ddif.LINES_DESCR as RfcTableOfStructures).length > 0) {
           // try LINES_DESCR first, seem to be more "reliable" than DFIES_TAB (no .INCLUDEs)
           dfies = ddif.LINES_DESCR[0].FIELDS;
-        } else if ((ddif.DFIES_TAB as RfcTable).length > 0) {
-          dfies = ddif.DFIES_TAB as RfcTable;
+        } else if ((ddif.DFIES_TAB as RfcTableOfStructures).length > 0) {
+          dfies = ddif.DFIES_TAB as RfcTableOfStructures;
         } else {
           // single field row
           dfies = [ddif.DFIES_WA as RfcStructure];
@@ -579,7 +588,7 @@ export class Backend {
     });
 
     if (
-      (R.FUNC_ERRORS as RfcTable).length > 0 &&
+      (R.FUNC_ERRORS as RfcTableOfStructures).length > 0 &&
       R.FUNC_ERRORS[0].EXCEPTION == "FU_NOT_FOUND"
     ) {
       throw `RFM not found: ${R.FUNC_ERRORS[0].FUNCNAME}`;
@@ -589,13 +598,13 @@ export class Backend {
 
     const Usage = {};
 
-    let i = (R.PARAMETERS as RfcTable).length;
+    let i = (R.PARAMETERS as RfcTableOfStructures).length;
     let param_name_len = 0;
     while (i--) {
       // remove records with name 'CHANGING'
       const p = R.PARAMETERS[i];
       if (p.PARAMETER === "CHANGING") {
-        (R.PARAMETERS as RfcTable).splice(i, 1);
+        (R.PARAMETERS as RfcTableOfStructures).splice(i, 1);
         continue;
       }
       // more intuitive names
@@ -641,25 +650,27 @@ export class Backend {
     }
 
     // Sort by rfm / parameter class / required/optional / parameter type and name
-    (R.PARAMETERS as RfcTable).sort((a: RfcStructure, b: RfcStructure) => {
-      const PClass = ["I", "C", "T", "E", "X"];
-      const PType = [
-        ParamType.var,
-        ParamType.struct,
-        ParamType.table,
-        ParamType.exception,
-      ];
-      return (
-        (a.FUNCNAME as string).localeCompare(b.FUNCNAME as string) ||
-        PClass.indexOf(a.PARAMCLASS as string) -
-          PClass.indexOf(b.PARAMCLASS as string) ||
-        (a.OPTIONAL as string).localeCompare(b.OPTIONAL as string) ||
-        PType.indexOf(a.paramType as string) -
-          PType.indexOf(b.paramType as string) ||
-        (a.paramName as string).localeCompare(b.paramName as string)
-      );
-    });
-    R.PARAMETERS = (R.PARAMETERS as RfcTable).sort();
+    (R.PARAMETERS as RfcTableOfStructures).sort(
+      (a: RfcStructure, b: RfcStructure) => {
+        const PClass = ["I", "C", "T", "E", "X"];
+        const PType = [
+          ParamType.var,
+          ParamType.struct,
+          ParamType.table,
+          ParamType.exception,
+        ];
+        return (
+          (a.FUNCNAME as string).localeCompare(b.FUNCNAME as string) ||
+          PClass.indexOf(a.PARAMCLASS as string) -
+            PClass.indexOf(b.PARAMCLASS as string) ||
+          (a.OPTIONAL as string).localeCompare(b.OPTIONAL as string) ||
+          PType.indexOf(a.paramType as string) -
+            PType.indexOf(b.paramType as string) ||
+          (a.paramName as string).localeCompare(b.paramName as string)
+        );
+      }
+    );
+    R.PARAMETERS = (R.PARAMETERS as RfcTableOfStructures).sort();
 
     //
     // Parse
@@ -669,7 +680,7 @@ export class Backend {
     const Fields = {};
 
     let functionName = "";
-    for (const p of R.PARAMETERS as RfcTable) {
+    for (const p of R.PARAMETERS as RfcTableOfStructures) {
       if (!((p.FUNCNAME as string) in Parameters)) {
         Parameters[p.FUNCNAME as string] = {};
       }

@@ -5,11 +5,11 @@ import {
   Command,
   Destination,
   CliHandler,
-} from "./abap";
-import { AnnotationsType } from "./backend";
-import { Frontend } from "./frontend";
-import { DefaultLanguage } from "./constants";
-import { log } from "./utils";
+} from "./abap.js";
+import { AnnotationsType } from "./backend.js";
+import { Frontend } from "./frontend.js";
+import { DefaultLanguage } from "./constants.js";
+import { log } from "./utils.js";
 
 export class AbapCliApi {
   private options = {

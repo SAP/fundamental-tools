@@ -268,9 +268,7 @@ abap api -->
     <fd-date-picker v-model="ALLVERSIONS.POST_DATE"></fd-date-picker>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Status "version completed"">
-    <fd-checkbox v-model="ALLVERSIONS.COMPLETED">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="ALLVERSIONS.COMPLETED">Status "version completed"/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Version status</fd-form-label>
@@ -486,9 +484,7 @@ abap api -->
     <fd-date-picker v-model="INVPLANHEADER.DATES_FROM"></fd-date-picker>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Billing/Invoice Creation in Advance">
-    <fd-checkbox v-model="INVPLANHEADER.IN_ADVANCE">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="INVPLANHEADER.IN_ADVANCE">Billing/Invoice Creation in Advance/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Rule for Origin of Start Dates</fd-form-label>
@@ -549,9 +545,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Automatic creation of correction dates in billing plan">
-    <fd-checkbox v-model="INVPLANHEADER.AUTO_COR_DAT">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="INVPLANHEADER.AUTO_COR_DAT">Automatic creation of correction dates in billing plan/fast-checkbox>
 
 <!-- Parameter: INVPLANITEM structure: BAPI_INVOICE_PLAN_ITEM  Invoicing Plan: Item Data -->
 
@@ -738,9 +732,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Pricing is OK">
-    <fd-checkbox v-model="INVPLANITEM.PRICING_OK">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="INVPLANITEM.PRICING_OK">Pricing is OK/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Milestone number</fd-form-label>
@@ -835,9 +827,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Deletion Indicator: Purchasing Document Account Assignment">
-    <fd-checkbox v-model="POACCOUNT.DELETE_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POACCOUNT.DELETE_IND">Deletion Indicator: Purchasing Document Account Assignment/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Date on Which Record Was Created</fd-form-label>
@@ -1171,9 +1161,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Final Account Assignment Indicator">
-    <fd-checkbox v-model="POACCOUNT.FINAL_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POACCOUNT.FINAL_IND">Final Account Assignment Indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Final Account Assignment Reason Code</fd-form-label>
@@ -1678,9 +1666,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Subcontracting vendor">
-    <fd-checkbox v-model="POADDRDELIVERY.SC_VENDOR">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POADDRDELIVERY.SC_VENDOR">Subcontracting vendor/fast-checkbox>
 
 <!-- Parameter: POCOMPONENTS structure: BAPIMEPOCOMPONENT  BAPI Structure for Components -->
 
@@ -1773,9 +1759,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Quantity is fixed">
-    <fd-checkbox v-model="POCOMPONENTS.FIXED_QUAN">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOMPONENTS.FIXED_QUAN">Quantity is fixed/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Plant</fd-form-label>
@@ -1855,9 +1839,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Phantom item indicator">
-    <fd-checkbox v-model="POCOMPONENTS.PHANT_ITEM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOMPONENTS.PHANT_ITEM">Phantom item indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Batch Number</fd-form-label>
@@ -2107,9 +2089,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Condition is used for statistics">
-    <fd-checkbox v-model="POCOND.STAT_CON">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOND.STAT_CON">Condition is used for statistics/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Scale Type</fd-form-label>
@@ -2120,9 +2100,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Condition is Relevant for Accrual  (e.g. Freight)">
-    <fd-checkbox v-model="POCOND.ACCRUALS">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOND.ACCRUALS">Condition is Relevant for Accrual  (e.g. Freight)/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Condition for invoice list</fd-form-label>
@@ -2140,13 +2118,9 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Group condition">
-    <fd-checkbox v-model="POCOND.GROUPCOND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOND.GROUPCOND">Group condition/fast-checkbox>
 
-<fd-form-item-checkbox label="Condition update">
-    <fd-checkbox v-model="POCOND.COND_UPDAT">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOND.COND_UPDAT">Condition update/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Access sequence - Access number</fd-form-label>
@@ -2248,17 +2222,11 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Condition for inter-company billing">
-    <fd-checkbox v-model="POCOND.CONDINCOMP">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOND.CONDINCOMP">Condition for inter-company billing/fast-checkbox>
 
-<fd-form-item-checkbox label="Condition for configuration">
-    <fd-checkbox v-model="POCOND.CONDCONFIG">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOND.CONDCONFIG">Condition for configuration/fast-checkbox>
 
-<fd-form-item-checkbox label="Condition changed manually">
-    <fd-checkbox v-model="POCOND.CONDCHAMAN">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCOND.CONDCHAMAN">Condition changed manually/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Condition record number</fd-form-label>
@@ -2483,9 +2451,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Condition is used for statistics">
-    <fd-checkbox v-model="POCONDHEADER.STAT_CON">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONDHEADER.STAT_CON">Condition is used for statistics/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Scale Type</fd-form-label>
@@ -2496,9 +2462,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Condition is Relevant for Accrual  (e.g. Freight)">
-    <fd-checkbox v-model="POCONDHEADER.ACCRUALS">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONDHEADER.ACCRUALS">Condition is Relevant for Accrual  (e.g. Freight)/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Condition for invoice list</fd-form-label>
@@ -2516,13 +2480,9 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Group condition">
-    <fd-checkbox v-model="POCONDHEADER.GROUPCOND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONDHEADER.GROUPCOND">Group condition/fast-checkbox>
 
-<fd-form-item-checkbox label="Condition update">
-    <fd-checkbox v-model="POCONDHEADER.COND_UPDAT">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONDHEADER.COND_UPDAT">Condition update/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Access sequence - Access number</fd-form-label>
@@ -2624,17 +2584,11 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Condition for inter-company billing">
-    <fd-checkbox v-model="POCONDHEADER.CONDINCOMP">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONDHEADER.CONDINCOMP">Condition for inter-company billing/fast-checkbox>
 
-<fd-form-item-checkbox label="Condition for configuration">
-    <fd-checkbox v-model="POCONDHEADER.CONDCONFIG">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONDHEADER.CONDCONFIG">Condition for configuration/fast-checkbox>
 
-<fd-form-item-checkbox label="Condition changed manually">
-    <fd-checkbox v-model="POCONDHEADER.CONDCHAMAN">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONDHEADER.CONDCHAMAN">Condition changed manually/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Condition record number</fd-form-label>
@@ -2760,13 +2714,9 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Indicator: Confirmation is Relevant to Materials Planning">
-    <fd-checkbox v-model="POCONFIRMATION.DISPO_REL">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONFIRMATION.DISPO_REL">Indicator: Confirmation is Relevant to Materials Planning/fast-checkbox>
 
-<fd-form-item-checkbox label="Indicator: Confirmation is GR-Relevant">
-    <fd-checkbox v-model="POCONFIRMATION.RECEIPT_REL">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONFIRMATION.RECEIPT_REL">Indicator: Confirmation is GR-Relevant/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>External Document Number of Vendor Confirmation</fd-form-label>
@@ -2874,9 +2824,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Price Change in Entry Sheet">
-    <fd-checkbox v-model="POCONTRACTLIMITS.PRICE_CHG">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POCONTRACTLIMITS.PRICE_CHG">Price Change in Entry Sheet/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Short Text 1</fd-form-label>
@@ -3168,9 +3116,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Debit/Credit Indicator">
-    <fd-checkbox v-model="POHISTORY.DB_CR_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POHISTORY.DB_CR_IND">Debit/Credit Indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Valuation type</fd-form-label>
@@ -3181,9 +3127,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label=""Delivery Completed" Indicator">
-    <fd-checkbox v-model="POHISTORY.NO_MORE_GR">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POHISTORY.NO_MORE_GR">"Delivery Completed" Indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Reference Document Number</fd-form-label>
@@ -3522,9 +3466,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Debit/Credit Indicator">
-    <fd-checkbox v-model="POHISTORY_MA.DB_CR_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POHISTORY_MA.DB_CR_IND">Debit/Credit Indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Quantity (Floating Point Number - Internal Field)</fd-form-label>
@@ -4217,13 +4159,9 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Price Printout">
-    <fd-checkbox v-model="POITEM.PRNT_PRICE">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.PRNT_PRICE">Price Printout/fast-checkbox>
 
-<fd-form-item-checkbox label="Indicator: Estimated Price">
-    <fd-checkbox v-model="POITEM.EST_PRICE">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.EST_PRICE">Indicator: Estimated Price/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Number of Days for First Reminder/Expediter</fd-form-label>
@@ -4253,9 +4191,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Indicator: Unlimited Overdelivery Allowed">
-    <fd-checkbox v-model="POITEM.UNLIMITED_DLV">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.UNLIMITED_DLV">Indicator: Unlimited Overdelivery Allowed/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Underdelivery Tolerance Limit</fd-form-label>
@@ -4273,13 +4209,9 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label=""Delivery Completed" Indicator">
-    <fd-checkbox v-model="POITEM.NO_MORE_GR">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.NO_MORE_GR">"Delivery Completed" Indicator/fast-checkbox>
 
-<fd-form-item-checkbox label="Final Invoice Indicator">
-    <fd-checkbox v-model="POITEM.FINAL_INV">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.FINAL_INV">Final Invoice Indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Item category in purchasing document</fd-form-label>
@@ -4317,29 +4249,17 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Goods Receipt Indicator">
-    <fd-checkbox v-model="POITEM.GR_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.GR_IND">Goods Receipt Indicator/fast-checkbox>
 
-<fd-form-item-checkbox label="Goods Receipt, Non-Valuated">
-    <fd-checkbox v-model="POITEM.GR_NON_VAL">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.GR_NON_VAL">Goods Receipt, Non-Valuated/fast-checkbox>
 
-<fd-form-item-checkbox label="Invoice receipt indicator">
-    <fd-checkbox v-model="POITEM.IR_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.IR_IND">Invoice receipt indicator/fast-checkbox>
 
-<fd-form-item-checkbox label="Free Item">
-    <fd-checkbox v-model="POITEM.FREE_ITEM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.FREE_ITEM">Free Item/fast-checkbox>
 
-<fd-form-item-checkbox label="Indicator: GR-Based Invoice Verification">
-    <fd-checkbox v-model="POITEM.GR_BASEDIV">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.GR_BASEDIV">Indicator: GR-Based Invoice Verification/fast-checkbox>
 
-<fd-form-item-checkbox label="Order Acknowledgment Requirement">
-    <fd-checkbox v-model="POITEM.ACKN_REQD">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.ACKN_REQD">Order Acknowledgment Requirement/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Order Acknowledgment Number</fd-form-label>
@@ -4391,9 +4311,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Item Does Not Qualify for Cash Discount">
-    <fd-checkbox v-model="POITEM.NO_DISCT">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.NO_DISCT">Item Does Not Qualify for Cash Discount/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Planned Delivery Time in Days</fd-form-label>
@@ -4591,17 +4509,11 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Subcontracting vendor">
-    <fd-checkbox v-model="POITEM.SC_VENDOR">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.SC_VENDOR">Subcontracting vendor/fast-checkbox>
 
-<fd-form-item-checkbox label="Kanban Indicator">
-    <fd-checkbox v-model="POITEM.KANBAN_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.KANBAN_IND">Kanban Indicator/fast-checkbox>
 
-<fd-form-item-checkbox label="Evaluated Receipt Settlement (ERS)">
-    <fd-checkbox v-model="POITEM.ERS">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.ERS">Evaluated Receipt Settlement (ERS)/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Promotion</fd-form-label>
@@ -4667,9 +4579,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Item Relevant to Subsequent (Period-End Rebate) Settlement">
-    <fd-checkbox v-model="POITEM.SETT_ITEM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.SETT_ITEM">Item Relevant to Subsequent (Period-End Rebate) Settlement/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Minimum Remaining Shelf Life</fd-form-label>
@@ -4741,9 +4651,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Returns Item">
-    <fd-checkbox v-model="POITEM.RET_ITEM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.RET_ITEM">Returns Item/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Relevant to Allocation Table</fd-form-label>
@@ -4788,9 +4696,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Produced in-house">
-    <fd-checkbox v-model="POITEM.IN_HOUSE">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.IN_HOUSE">Produced in-house/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Material CFOP category</fd-form-label>
@@ -4815,9 +4721,7 @@ abap api -->
     <fd-date-picker v-model="POITEM.UNTIL_DATE"></fd-date-picker>
 </fd-form-item>
 
-<fd-form-item-checkbox label=""Outward Delivery Completed" Indicator">
-    <fd-checkbox v-model="POITEM.DELIV_COMPL">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.DELIV_COMPL">"Outward Delivery Completed" Indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Partial Delivery at Item Level (Stock Transfer)</fd-form-label>
@@ -4828,9 +4732,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Item blocked for SD delivery">
-    <fd-checkbox v-model="POITEM.SHIP_BLOCKED">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.SHIP_BLOCKED">Item blocked for SD delivery/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Name of requisitioner/requester</fd-form-label>
@@ -4916,9 +4818,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Indicator: suppress rounding in purchase order item">
-    <fd-checkbox v-model="POITEM.NO_ROUNDING">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.NO_ROUNDING">Indicator: suppress rounding in purchase order item/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Price Adoption: 1 = Gross, 2 = Net</fd-form-label>
@@ -4938,9 +4838,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Indicator for Service-Based Invoice Verification">
-    <fd-checkbox v-model="POITEM.SRV_BASED_IV">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.SRV_BASED_IV">Indicator for Service-Based Invoice Verification/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Document number for earmarked funds</fd-form-label>
@@ -4960,9 +4858,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Acceptance At Origin">
-    <fd-checkbox v-model="POITEM.ORIG_ACCEPT">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.ORIG_ACCEPT">Acceptance At Origin/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Allocation Table Number</fd-form-label>
@@ -5035,9 +4931,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Requirement Priority">
-    <fd-checkbox v-model="POITEM.PRIO_REQUIREMENT">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.PRIO_REQUIREMENT">Requirement Priority/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Goods Receipt Reason Code</fd-form-label>
@@ -5189,9 +5083,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Indicator for GI-based goods receipt">
-    <fd-checkbox v-model="POITEM.GI_BASED_GR">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.GI_BASED_GR">Indicator for GI-based goods receipt/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Shipping type</fd-form-label>
@@ -5245,9 +5137,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Tax Subject to Substituição Tributária">
-    <fd-checkbox v-model="POITEM.TAX_SUBJECT_ST">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POITEM.TAX_SUBJECT_ST">Tax Subject to Substituição Tributária/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Requirement Segment</fd-form-label>
@@ -5384,9 +5274,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Price Change in Entry Sheet">
-    <fd-checkbox v-model="POLIMITS.PRICE_CHG">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POLIMITS.PRICE_CHG">Price Change in Entry Sheet/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Free limit</fd-form-label>
@@ -5427,13 +5315,9 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="No limit on standard service type">
-    <fd-checkbox v-model="POLIMITS.SSC_NOLIM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POLIMITS.SSC_NOLIM">No limit on standard service type/fast-checkbox>
 
-<fd-form-item-checkbox label="Price Change in Entry Sheet">
-    <fd-checkbox v-model="POLIMITS.SSC_PRSCHG">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POLIMITS.SSC_PRSCHG">Price Change in Entry Sheet/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Percentage for price determination</fd-form-label>
@@ -5458,13 +5342,9 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="No Limit on Model Specifications">
-    <fd-checkbox v-model="POLIMITS.TMP_NOLIM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POLIMITS.TMP_NOLIM">No Limit on Model Specifications/fast-checkbox>
 
-<fd-form-item-checkbox label="Price Change in Entry Sheet">
-    <fd-checkbox v-model="POLIMITS.TMP_PRSCHG">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POLIMITS.TMP_PRSCHG">Price Change in Entry Sheet/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Percentage for Price Determination</fd-form-label>
@@ -5514,9 +5394,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Deletion Indicator">
-    <fd-checkbox v-model="POPARTNER.DELETE_IND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POPARTNER.DELETE_IND">Deletion Indicator/fast-checkbox>
 
 <!-- Parameter: POSCHEDULE structure: BAPIMEPOSCHEDULE  Delivery Schedule -->
 
@@ -5683,9 +5561,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Purchase requisition closed">
-    <fd-checkbox v-model="POSCHEDULE.REQ_CLOSED">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POSCHEDULE.REQ_CLOSED">Purchase requisition closed/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Goods Receipt End Date</fd-form-label>
@@ -5928,9 +5804,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Unlimited Overfulfillment">
-    <fd-checkbox v-model="POSERVICES.OVF_UNLIM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POSERVICES.OVF_UNLIM">Unlimited Overfulfillment/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Price unit</fd-form-label>
@@ -6040,9 +5914,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Service line refers to standard service catalog limits">
-    <fd-checkbox v-model="POSERVICES.SSC_LIM">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POSERVICES.SSC_LIM">Service line refers to standard service catalog limits/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Entry: Unplanned, limit line</fd-form-label>
@@ -6141,9 +6013,7 @@ abap api -->
     </fd-select>
 </fd-form-item>
 
-<fd-form-item-checkbox label="Price Change in Entry Sheet">
-    <fd-checkbox v-model="POSERVICES.PRICE_CHG">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POSERVICES.PRICE_CHG">Price Change in Entry Sheet/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Material Group</fd-form-label>
@@ -6484,9 +6354,7 @@ abap api -->
         />
 </fd-form-item>
 
-<fd-form-item-checkbox label="Order Combination Indicator">
-    <fd-checkbox v-model="POSHIPPINGEXP.ORDCOMBIND">
-</fd-form-item-checkbox>
+<fast-checkbox v-model="POSHIPPINGEXP.ORDCOMBIND">Order Combination Indicator/fast-checkbox>
 
 <fd-form-item>
     <fd-form-label>Time zone of delivering location</fd-form-label>

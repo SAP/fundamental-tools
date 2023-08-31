@@ -13,34 +13,37 @@ import {
   DefaultFolder,
   runningInDocker,
   DockerVolume,
-} from "./constants";
-import { AnnotationsType, Backend } from "./backend";
+} from "./constants.js";
+import { AnnotationsType, Backend } from "./backend.js";
 import {
   Frontend,
   FrontendResultType,
   UiConfigType,
   UiConfigTableType,
   AbapConfigType,
-} from "./frontend";
+} from "./frontend.js";
 
-export { AbapCliApi } from "./api";
+export { AbapCliApi } from "./api.js";
 
-// import { Model } from "./model";
+import { fileLoad, log, makeDir, deleteFile, getTimestamp } from "./utils.js";
 
-import { fileLoad, log, makeDir, deleteFile, getTimestamp } from "./utils";
+import { resolve } from "path";
+import { fileURLToPath } from "url";
 
 export let Signature = `abap api`;
 
-export const Command: Record<"call" | "get" | "make" | "copy" | "remove" | "languages", string>
-  = Object.freeze({
-    call: "call",
-    get: "get",
-    make: "make",
-    // model: "model",
-    copy: "cp",
-    remove: "rm",
-    languages: "languages",
-  });
+export const Command: Record<
+  "call" | "get" | "make" | "copy" | "remove" | "languages",
+  string
+> = Object.freeze({
+  call: "call",
+  get: "get",
+  make: "make",
+  // model: "model",
+  copy: "cp",
+  remove: "rm",
+  languages: "languages",
+});
 
 export type ApiListType = Record<string, string[]>;
 
@@ -52,14 +55,14 @@ export type AbapCliUiConfig = {
 export type Destination =
   | string
   | {
-    connectionParameters: RfcConnectionParameters;
-    searchHelpApi?: {
-      determine: string;
-      dom_values: string;
-      metadata?: string;
-      search?: string;
+      connectionParameters: RfcConnectionParameters;
+      searchHelpApi?: {
+        determine: string;
+        dom_values: string;
+        metadata?: string;
+        search?: string;
+      };
     };
-  };
 
 export {
   RfcConnectionParameters,
@@ -201,8 +204,12 @@ export class CliHandler {
   }
 }
 
+const pathToThisFile = resolve(fileURLToPath(import.meta.url));
+const pathPassedToNode = resolve(process.argv[1]);
+const isThisFileBeingRunViaCLI = pathToThisFile.includes(pathPassedToNode);
+
 // invoked via CLI
-if (require.main === module)
+if (isThisFileBeingRunViaCLI)
   yargs(process.argv.slice(2))
     .strict(true)
     .demandCommand()
@@ -263,7 +270,9 @@ if (require.main === module)
       },
       handler: async (argv) => {
         try {
-          return await new CliHandler(Object.assign({} as Arguments, argv)).run() as Promise<void>;
+          return (await new CliHandler(
+            Object.assign({} as Arguments, argv)
+          ).run()) as Promise<void>;
         } catch (ex) {
           log.error(ex);
         }
@@ -332,7 +341,9 @@ if (require.main === module)
       },
       handler: async (argv) => {
         try {
-          return await new CliHandler(Object.assign({} as Arguments, argv)).run() as Promise<void>;
+          return (await new CliHandler(
+            Object.assign({} as Arguments, argv)
+          ).run()) as Promise<void>;
         } catch (ex) {
           log.error(ex);
         }
@@ -393,7 +404,9 @@ if (require.main === module)
       },
       handler: async (argv) => {
         try {
-          return await new CliHandler(Object.assign({} as Arguments, argv)).run() as Promise<void>;
+          return (await new CliHandler(
+            Object.assign({} as Arguments, argv)
+          ).run()) as Promise<void>;
         } catch (ex) {
           log.error(ex);
         }
@@ -452,9 +465,9 @@ if (require.main === module)
           });
       },
       handler: (argv) => {
-        new CliHandler(Object.assign({} as Arguments, argv)).removeConfiguration(
-          argv.ui as string
-        );
+        new CliHandler(
+          Object.assign({} as Arguments, argv)
+        ).removeConfiguration(argv.ui as string);
       },
     })
     .check((argv) => {
@@ -521,7 +534,7 @@ if (require.main === module)
 
       // Write CLI version to output signature string, if not internal testing
       if (!process.argv[0].endsWith("node")) {
-        yargs.parse(
+        yargs(process.argv.slice(2)).parse(
           "--version",
           (err: Error | undefined, argv: { $0: string }, output: string) => {
             Signature = `${path.basename(

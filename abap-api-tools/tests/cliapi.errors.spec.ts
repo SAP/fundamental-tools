@@ -1,7 +1,7 @@
-const AbapCliApi = require("../dist/abap").AbapCliApi;
+import { AbapCliApi } from "../dist/abap";
 
-const loadFromFile = require("./utils").loadFromFile;
-const saveToFile = require("./utils").saveToFile;
+import { loadFromFile } from "./utils";
+import { saveToFile } from "./utils";
 
 ("use strict");
 
