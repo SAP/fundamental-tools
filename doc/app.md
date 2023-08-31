@@ -283,7 +283,7 @@ RFC connectivity is supported via [SAP Cloud Connector](https://help.sap.com/doc
 
 For cloud use-cases not listed in pt. 12 above, [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html) can be used, as described [here](https://github.com/SAP/node-rfc/issues/212#issuecomment-829090667), in addition to alternatives described in same comment.
 
-Local development can be by using SAP connectors for [Python](https://github.com/SAP/PyRFC), [Node.js](https://github.com/SAP/node-rfc) or [Java](https://support.sap.com/en/product/connectors/jco.html)
+Local development can be done using SAP connectors for [Python](https://github.com/SAP/PyRFC), [Node.js](https://github.com/SAP/node-rfc) or [Java](https://support.sap.com/en/product/connectors/jco.html) and after testing deployed on cloud, connecting via SAP Cloud Connector or SAP Business Connector from there
 
 ## Super Apps
 
