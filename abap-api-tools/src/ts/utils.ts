@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
-//
-// SPDX-License-Identifier: Apache-2.0
-
 import fs from "fs";
 import yaml from "js-yaml";
 import loglevel from "loglevel";
@@ -77,7 +73,7 @@ export function rmDir(dir: string): void {
     log.debug(`rmdir ${dir}`);
   } catch (ex) {
     //
-    log.error('Directory could not be removed', dir);
+    log.error("Directory could not be removed", dir);
   }
 }
 

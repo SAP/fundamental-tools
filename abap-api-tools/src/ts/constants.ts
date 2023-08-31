@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
-//
-// SPDX-License-Identifier: Apache-2.0
-
 import fs from "fs";
 import path from "path";
 
@@ -88,7 +84,10 @@ export const Languages = Object.freeze({
 export const DefaultLanguage = "en";
 
 // Parameter types
-export const ParamType: Record<"var" | "struct" | "table" | "exception", string> = Object.freeze({
+export const ParamType: Record<
+  "var" | "struct" | "table" | "exception",
+  string
+> = Object.freeze({
   var: "var",
   struct: "struct",
   table: "table",
@@ -96,7 +95,10 @@ export const ParamType: Record<"var" | "struct" | "table" | "exception", string>
 });
 
 // Parameter classes
-export const ParamClass: Record<"import" | "changing" | "table" | "export" | "exception", string> = Object.freeze({
+export const ParamClass: Record<
+  "import" | "changing" | "table" | "export" | "exception",
+  string
+> = Object.freeze({
   import: "I",
   changing: "C",
   table: "T",

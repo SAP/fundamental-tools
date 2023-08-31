@@ -17,7 +17,7 @@ MI  MaPtchcode ID
 IN  Internal Table
 */
 
-import { Client, RfcStructure, RfcTable } from "node-rfc";
+import { Client, RfcStructure } from "node-rfc";
 
 import loglevel from "loglevel";
 
@@ -43,8 +43,10 @@ export type ElementaryHelpType = {
   SCRLENMAX: number;
   SHLPOUTPUT: string;
   ALLOUTPUTS: string[];
-  FIELDDESCR: RfcTable;
+  FIELDDESCR: RfcTableOfStructures;
 };
+
+type RfcTableOfStructures = Array<RfcStructure>;
 
 export type ShlpDefaultsType = Record<string, string>[];
 
@@ -84,7 +86,7 @@ export type SearchResultType = {
   shlpoutput: string;
   maxrows_exceeded: boolean;
   headers: SearchResultHeaderType[];
-  desc: RfcTable;
+  desc: RfcTableOfStructures;
 };
 
 export function isEmpty(obj?: unknown[] | Record<string, unknown>): boolean {
@@ -110,8 +112,8 @@ export type CTDescriptorType = {
 export type EHDescriptorType = {
   blacklist?: "selection" | "search";
   selectionDescriptor?: ElementaryHelpType | ValueHelpError;
-  resultDescriptor?: RfcTable | ValueHelpError;
-  resultLine?: RfcTable;
+  resultDescriptor?: RfcTableOfStructures | ValueHelpError;
+  resultLine?: RfcTableOfStructures;
 };
 
 export type DescriptorType =
@@ -149,7 +151,7 @@ export type ValueHelpType = {
 export type IValueHelp = {
   client: Client;
   shlpApi: ShlpApiType;
-  userParameters?: RfcTable;
+  userParameters?: RfcTableOfStructures;
   logLevel?: loglevel.LogLevelDesc;
 };
 
@@ -162,10 +164,10 @@ export class ValueInputHelp {
     SH_descriptor_get: "/COE/RBP_FE_SHLP_METADATA_GET",
     search: "/COE/RBP_FE_SHLP_GET",
   };
-  private _userParameters: RfcTable = [];
+  private _userParameters: RfcTableOfStructures = [];
 
-  private FixedValues: Record<string, RfcTable> = {};
-  private Descriptors: Record<string, RfcTable> = {};
+  private FixedValues: Record<string, RfcTableOfStructures> = {};
+  private Descriptors: Record<string, RfcTableOfStructures> = {};
   private Elementary: Record<string, ElementaryHelpType> = {};
   private VHFieldCache: Record<string, IValueHelpFound> = {};
 
@@ -185,18 +187,18 @@ export class ValueInputHelp {
         await local.client.call("BAPI_USER_GET_DETAIL", {
           USERNAME: local.client.connectionInfo.user,
         })
-      ).PARAMETER as RfcTable;
+      ).PARAMETER as RfcTableOfStructures;
     }
     return new ValueInputHelp(local);
   }
 
-  async getDomainValues(shlpName: string): Promise<RfcTable> {
+  async getDomainValues(shlpName: string): Promise<RfcTableOfStructures> {
     if (!this.FixedValues[shlpName]) {
       this.FixedValues[shlpName] = (
         await this.client.call(this.shlpApi.FV_descriptor_get, {
           IV_DOMNAME: shlpName,
         })
-      ).ET_VALUES as RfcTable;
+      ).ET_VALUES as RfcTableOfStructures;
     }
     return this.FixedValues[shlpName];
   }
@@ -221,7 +223,7 @@ export class ValueInputHelp {
           await this.client.call(this.shlpApi.FV_descriptor_get as string, {
             IV_DOMNAME: helpFound.SHLPNAME,
           })
-        ).ET_VALUES as RfcTable;
+        ).ET_VALUES as RfcTableOfStructures;
         const domainValues: Record<string, string> = {};
         for (const line of shlp_values) {
           domainValues[line.DOMVALUE_L as string] = line.DDTEXT as string;
@@ -259,10 +261,10 @@ export class ValueInputHelp {
           await this.client.call("BDL_DDIF_TABL_GET", {
             NAME: helpFound.SHLPNAME,
           })
-        ).DD03P_TAB as RfcTable;
+        ).DD03P_TAB as RfcTableOfStructures;
         const valueFields: Record<string, string>[] = [];
         const displayFields = [];
-        for (const tf of tab_fields) {
+        for (const tf of tab_fields as RfcTableOfStructures) {
           if (
             tf.KEYFLAG &&
             tf.FIELDNAME !== ".INCLUDE" &&
@@ -281,7 +283,7 @@ export class ValueInputHelp {
       // SH
       //
       case "SH": {
-        let ET_SHLP: RfcTable = [];
+        let ET_SHLP: Array<RfcStructure> = [];
         log.debug(`  SH: ${helpFound.SHLPNAME}`);
         try {
           ET_SHLP = (
@@ -289,7 +291,7 @@ export class ValueInputHelp {
               IV_SHLPTYPE: helpFound.SHLPTYPE,
               IV_SHLPNAME: helpFound.SHLPNAME,
             })
-          ).ET_SHLP as RfcTable;
+          ).ET_SHLP as RfcTableOfStructures;
         } catch (ex) {
           if (!Descriptors[helpFound.id]) {
             Descriptors[helpFound.id] = {
@@ -297,7 +299,11 @@ export class ValueInputHelp {
               selectionDescriptor: ex as ValueHelpError,
             };
           }
-          log.debug(`Descriptor selection error`, helpFound.id, (ex as ValueHelpError).message);
+          log.debug(
+            `Descriptor selection error`,
+            helpFound.id,
+            (ex as ValueHelpError).message
+          );
         }
 
         // elementary helps
@@ -336,9 +342,11 @@ export class ValueInputHelp {
                   }
                 );
                 // value descriptor
-                D.resultDescriptor = searchResult.ET_VALUE_DESC as RfcTable;
+                D.resultDescriptor =
+                  searchResult.ET_VALUE_DESC as RfcTableOfStructures;
 
-                const value_list = searchResult.ET_VALUE_LIST as RfcTable;
+                const value_list =
+                  searchResult.ET_VALUE_LIST as RfcTableOfStructures;
                 if (value_list.length > 0) {
                   const record_pos = value_list[0].RECORDPOS;
                   let count = 0;
@@ -352,10 +360,9 @@ export class ValueInputHelp {
                     }
                   }
                   // search result "descriptor"
-                  D.resultLine = (searchResult.ET_VALUE_LIST as RfcTable).slice(
-                    0,
-                    count
-                  );
+                  D.resultLine = (
+                    searchResult.ET_VALUE_LIST as RfcTableOfStructures
+                  ).slice(0, count);
                 }
               } catch (ex) {
                 D.blacklist = "search";
@@ -392,7 +399,7 @@ export class ValueInputHelp {
 
         if (SelectionFields) {
           ET_SHLP.map((desc) => {
-            (desc.FIELDDESCR as RfcTable).map((field) => {
+            (desc.FIELDDESCR as RfcTableOfStructures).map((field) => {
               // Collect selection fields
               if (field.TABNAME && field.FIELDNAME) {
                 SelectionFields[`${field.TABNAME} ${field.FIELDNAME}`] = field; // as IValueHelpDetermine
@@ -533,7 +540,7 @@ export class ValueInputHelp {
             IV_SHLPNAME: shlpId.name,
             IV_DEFAULT_SHLPNAME: _options.defaultName,
           })
-        ).ET_SHLP as RfcTable;
+        ).ET_SHLP as RfcTableOfStructures;
 
         for (const elem_shlp of this.Descriptors[shlpName]) {
           const elem_shlpname = `${elem_shlp.SHLPTYPE} ${elem_shlp.SHLPNAME}`;
@@ -561,7 +568,7 @@ export class ValueInputHelp {
 
   public static elementary(
     shlp: RfcStructure,
-    userParameters: RfcTable = []
+    userParameters: RfcTableOfStructures = []
   ): ElementaryHelpType {
     const newhelp: ElementaryHelpType = {
       INTDESCR: shlp.INTDESCR as RfcStructure,
@@ -572,7 +579,7 @@ export class ValueInputHelp {
     };
 
     // all: CH, CT, SH
-    for (const fd of shlp.FIELDDESCR as RfcTable) {
+    for (const fd of shlp.FIELDDESCR as RfcTableOfStructures) {
       // convert to integers
       for (const intfield of [
         "POSITION",
@@ -589,7 +596,7 @@ export class ValueInputHelp {
         fd[intfield] = parseInt(fd[intfield] as string);
 
       // merge INTERFACE to FIELDDESCR
-      for (const fi of shlp.INTERFACE as RfcTable) {
+      for (const fi of shlp.INTERFACE as RfcTableOfStructures) {
         if (fd.FIELDNAME == fi.SHLPFIELD) {
           fd.TOPSHLPNAM = fi.TOPSHLPNAM;
           fd.TOPSHLPFLD = fi.TOPSHLPFLD;
@@ -632,9 +639,9 @@ export class ValueInputHelp {
     //
     if (shlp.SHLPTYPE === "SH") {
       // FIELDDESCR post-processing
-      for (const fd of shlp.FIELDDESCR as RfcTable) {
+      for (const fd of shlp.FIELDDESCR as RfcTableOfStructures) {
         // merge FIELDPROP to FIELDDESCR
-        for (const fp of shlp.FIELDPROP as RfcTable) {
+        for (const fp of shlp.FIELDPROP as RfcTableOfStructures) {
           if (fd.FIELDNAME === fp.FIELDNAME) {
             fd.SHLPOUTPUT = fp.SHLPOUTPUT;
             fd.SHLPSELPOS = fp.SHLPSELPOS;
@@ -657,9 +664,9 @@ export class ValueInputHelp {
     } else if (["CT", "CH"].includes(shlp.SHLPTYPE as string)) {
       let fieldDescShlpOutput = "";
       // FIELDDESCR post-processing
-      for (const fd of shlp.FIELDDESCR as RfcTable) {
+      for (const fd of shlp.FIELDDESCR as RfcTableOfStructures) {
         // merge FIELDPROP to FIELDDESCR
-        for (const fp of shlp.FIELDPROP as RfcTable) {
+        for (const fp of shlp.FIELDPROP as RfcTableOfStructures) {
           if (fd.FIELDNAME === fp.FIELDNAME) {
             fd.SHLPOUTPUT = fp.SHLPOUTPUT;
             fd.SHLPSELPOS = fp.SHLPSELPOS;
@@ -694,9 +701,11 @@ export class ValueInputHelp {
     }
 
     // sort by position
-    newhelp.FIELDDESCR = (shlp.FIELDDESCR as RfcTable).sort((a, b) => {
-      return a.POSITION < b.POSITION ? -1 : a.POSITION > b.POSITION ? 1 : 0;
-    });
+    newhelp.FIELDDESCR = (shlp.FIELDDESCR as RfcTableOfStructures).sort(
+      (a, b) => {
+        return a.POSITION < b.POSITION ? -1 : a.POSITION > b.POSITION ? 1 : 0;
+      }
+    );
 
     // remove multiple outputs if not found
     //if (newhelp["ALLOUTPUTS"].length == 1 ) delete newhelp["ALLOUTPUTS"];
@@ -704,7 +713,7 @@ export class ValueInputHelp {
     return newhelp;
   }
 
-  public get userParameters(): RfcTable {
+  public get userParameters(): RfcTableOfStructures {
     return this._userParameters;
   }
 
@@ -715,7 +724,7 @@ export class ValueInputHelp {
     return this.Elementary[shlpname].INTDESCR.DDTEXT as string;
   }
 
-  getShlpParams(shlpIdent: ShlpIdentType): RfcTable {
+  getShlpParams(shlpIdent: ShlpIdentType): RfcTableOfStructures {
     const shlpname = `${shlpIdent.type} ${shlpIdent.name}`;
     if (!this.Elementary[shlpname])
       throw new Error(`Shlp parameters not found: "${shlpname}"`);
@@ -792,7 +801,8 @@ export class ValueInputHelp {
     let headers: SearchResultHeaderType[] = [];
 
     if (this.Elementary[shlpname].FIELDDESCR[0].SHLPISPOS) {
-      for (const f of this.Elementary[shlpname].FIELDDESCR as RfcTable) {
+      for (const f of this.Elementary[shlpname]
+        .FIELDDESCR as RfcTableOfStructures) {
         headers.push({
           field: f.FIELDNAME as string,
           len: f.LENG as number,
@@ -807,7 +817,8 @@ export class ValueInputHelp {
         });
       }
     } else {
-      for (const f of this.Elementary[shlpname].FIELDDESCR as RfcTable) {
+      for (const f of this.Elementary[shlpname]
+        .FIELDDESCR as RfcTableOfStructures) {
         headers.push({
           field: f.FIELDNAME as string,
           len: f.LENG as number,
@@ -819,7 +830,7 @@ export class ValueInputHelp {
       }
     }
 
-    for (const record of R.ET_VALUE_LIST as RfcTable) {
+    for (const record of R.ET_VALUE_LIST as RfcTableOfStructures) {
       // if record['RECORDPOS'] == '0001':
       //    # this check required because the recordpos starts from
       //    # 0001 but after reaching 9999 rolls down to 0000 and
@@ -838,9 +849,8 @@ export class ValueInputHelp {
       if (_searchOptions.compact) {
         (result_line as string[]).push(record.FIELDVAL as string);
       } else {
-        (result_line as Record<string, string>)[
-          record.FIELDNAME as string
-        ] = record.FIELDVAL as string;
+        (result_line as Record<string, string>)[record.FIELDNAME as string] =
+          record.FIELDVAL as string;
       }
     }
     // last line
@@ -851,13 +861,13 @@ export class ValueInputHelp {
     if (result.length > 0) {
       result = _searchOptions.compact
         ? result.sort((a, b) => {
-          return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
-        })
+            return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0;
+          })
         : result.sort((a, b) => {
-          const va = a[headers[0].field];
-          const vb = b[headers[0].field];
-          return va[0] < vb[0] ? -1 : va[0] > vb[0] ? 1 : 0;
-        });
+            const va = a[headers[0].field];
+            const vb = b[headers[0].field];
+            return va[0] < vb[0] ? -1 : va[0] > vb[0] ? 1 : 0;
+          });
     }
     // search result
     return {
@@ -865,7 +875,7 @@ export class ValueInputHelp {
       shlpoutput: this.Elementary[shlpname].SHLPOUTPUT,
       maxrows_exceeded: (R.EV_MAXROWS_EXCEEDED as string).length > 0,
       headers: headers,
-      desc: R.ET_VALUE_DESC as RfcTable,
+      desc: R.ET_VALUE_DESC as RfcTableOfStructures,
     };
   }
 }

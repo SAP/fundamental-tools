@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2014 SAP SE Srdjan Boskovic <srdjan.boskovic@sap.com>
-//
-// SPDX-License-Identifier: Apache-2.0
-
 import path from "path";
 import { ParamType, ValueInput } from "./constants";
 import {
@@ -161,9 +157,8 @@ const helpOption = [
     const resultDescriptor = VH.resultDescriptor as RfcTable;
     const Field = {} as StructureType;
     for (const field of resultDescriptor) {
-      Field[field.FIELDNAME as string] = ValueHelpFrontend.dfiesFieldToABAP(
-        field
-      );
+      Field[field.FIELDNAME as string] =
+        ValueHelpFrontend.dfiesFieldToABAP(field);
     }
     const table = this.frontend.table_init({ Param: Parameter, Field: Field });
     if (table) {
@@ -236,14 +231,16 @@ const helpOption = [
       jsWriter.addindent();
       for (const k of ["FIELDNAME", "DATATYPE", "LENG", "DECIMALS"]) {
         jsWriter.write(
-          `${k}: ${typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
+          `${k}: ${
+            typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
           },`
         );
       }
       for (const k of ["MEMORYID", "PARVA"]) {
         if (k in field && field[k])
           jsWriter.write(
-            `${k}: ${typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
+            `${k}: ${
+              typeof field[k] === "string" ? '"' + field[k] + '"' : field[k]
             }`
           );
       }
