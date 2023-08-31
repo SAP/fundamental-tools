@@ -22,7 +22,7 @@ Let build these four layers, with the little help of [`abap` CLI tool](https://w
 - [Low code by design](#low-code-by-design)
 - [Deployment options](#deployment-options)
 - [Super Apps](#super-apps)
-- [Users solutions](#users-solutions)
+- [Custom solutions](#custom-solutions)
 
 ## ABAP API
 
@@ -295,6 +295,6 @@ The example below is probably unique case implemented with SAP technologies, a c
 
 ![Super App](./assets/super-app.png)
 
-## Users solutions
+## Custom solutions
 
-Users' solution you find in web may work fine but NOT supported by this project, like [SAP RFC to S3 using AWS Lambda](https://catalog.us-east-1.prod.workshops.aws/workshops/79435b9d-cf2e-4afc-a3f6-4eceeaf0865d/en-US/aws-datalakes-for-sap/application-level/2-3-sap-rfc) ...
+Users' solutions found in web may work but are NOT supported by this project, like [SAP RFC to S3 using AWS Lambda](https://catalog.us-east-1.prod.workshops.aws/workshops/79435b9d-cf2e-4afc-a3f6-4eceeaf0865d/en-US/aws-datalakes-for-sap/application-level/2-3-sap-rfc) 
