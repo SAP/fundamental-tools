@@ -34,6 +34,7 @@
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
 - [License](#license)
 
 ## Requirements
@@ -76,6 +77,10 @@ If you encounter an issue, you can [create a ticket](https://github.com/SAP/fund
 ## Contributing
 
 If you want to contribute, please check the [CONTRIBUTING.md](CONTRIBUTING.md) documentation for contribution guidelines.
+
+## Code of Conduct
+
+See [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ## License
 

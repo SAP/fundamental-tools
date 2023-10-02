@@ -1,4 +1,4 @@
-# Contributing to fundamental-tools
+# Contributing to node-rfc
 
 We're excited that you're interested in contributing to fundamental-tools! Your contribution can make this library even better. Please read the guidelines regarding contributions:
 
