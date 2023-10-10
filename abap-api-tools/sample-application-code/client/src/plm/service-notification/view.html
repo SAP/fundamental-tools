@@ -1,0 +1,52 @@
+<template>
+    <require from="reuse/ui-attachments"></require>
+    <ui-page page-title="Service Notification">
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+                <ui-button class="ui-btn-transparent" icon-prefix="nav-back"
+                           click.delegate="app.router.navigateBack()"></ui-button>
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                <div style="flex: 1; text-align: center;">
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                ${routeTitle}&nbsp;<a href.bind="serviceNotification.href" target="_blank">${serviceNotification.hrefText}</a>
+                </div>
+            </ui-row>
+        </template>
+
+        <template replace-part="page-footer">
+            <ui-row class="navbar footer">
+                <ui-column pull-right>
+                    <!--ui-button transparent click.delegate="notification.get()" label="Get"></ui-button-->
+                    <ui-button transparent click.delegate="serviceNotification.save()" label="Save"></ui-button>
+                </ui-column>
+            </ui-row>
+        </template>
+
+        <ui-content scroll padded class="ui-app-view">
+
+            <ui-row column padded>
+                <ui-tab-panel>
+                    <ui-tab label="Header" separator>
+                        <compose view="./header.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab visible.bind="serviceNotification.__visibleTexts"
+                            label="Texts (${serviceNotification.longtext.length})">
+                        <compose view="./texts.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab visible.bind="serviceNotification.__visibleItems"
+                            label="Items (${serviceNotification.items.length})">
+                        <compose view="./items.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab label="Attachments (${serviceNotification.attachments.length})">
+                        <ui-attachments attachments.bind="serviceNotification.attachments" show-title.bind=false></ui-attachments>
+                    </ui-tab>
+
+                </ui-tab-panel>
+            </ui-row>
+
+        </ui-content>
+    </ui-page>
+</template>

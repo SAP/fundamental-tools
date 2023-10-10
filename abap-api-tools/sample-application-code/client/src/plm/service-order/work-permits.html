@@ -1,0 +1,35 @@
+<template>
+    <ui-row column padded>
+        <ui-datagrid data-list.bind="serviceOrder.permits" title="Work Permits"
+                  selectable rowselect.trigger="serviceOrder.selectWorkPermit($event.detail)"
+                  empty-text="oops ! no recors found">
+            <!-- @formatter:off -->
+            <!--ui-data-column sortable field="PERMIT" display.bind="serviceOrder.lookup" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"10", "shlp":{"type":"CT", "id":"T357G"}}' label="Permit Key">Permit</ui-data-column-->
+
+            <ui-data-column sortable field="ISSUED_BY"                data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' label="Issued by"></ui-data-column>
+            <ui-data-column sortable field="PERM_ISSUE_CREATED_BY"    data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' label="Issue by (user)"></ui-data-column>
+            <ui-data-column sortable field="PERM_ISSUE_CREATED_ON"    data-abap.bind='{"ddic":"DATS", "type":"string", "format":"date"}' label="Issued on"></ui-data-column>
+
+            <ui-data-column sortable resizeable field="ORIGIN"        data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1", "shlp":{"type":"FV", "id":"G_ORIGIN"}}' label="Permit Origin in Order"></ui-data-column>
+
+            <ui-data-column sortable resizeable field="RELEASE"       data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1", "shlp":{"type":"FV", "id":"G_ERROR"}}' label="Valid for Order Release"></ui-data-column>
+            <ui-data-column sortable resizeable field="COMPLETE"      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1", "shlp":{"type":"FV", "id":"G_ERROR"}}' label="Valid for Order Completion"></ui-data-column>
+            <ui-data-column sortable resizeable field="PRINT"         data-abap.bind='{"ddic":"CHAR", type:"string", "format":"boolean"}' label="Printout of Permit Papers"></ui-data-column>
+            <ui-data-column sortable resizeable field="NOT_RELEVANT"  data-abap.bind='{"ddic":"CHAR", type:"string", "format":"boolean"}' label="Irrelevant"></ui-data-column>
+
+            <ui-data-column sortable resizeable field="PROPOSE"       data-abap.bind='{"ddic":"CHAR", type:"string", "format":"boolean"}' label="Proposed During Processing"></ui-data-column>
+
+            <ui-data-column sortable field="PERM_CREATED_BY"          data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' label="Created by"></ui-data-column>
+            <ui-data-column sortable field="PERM_CREATED_ON"          data-abap.bind='{"ddic":"DATS", "type":"string", "format":"date"}' label="Created on"></ui-data-column>
+
+            <ui-data-column sortable field="CHANGED_BY"               data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' label="Changed by"></ui-data-column>
+            <ui-data-column sortable field="CHANGED_ON"               data-abap.bind='{"ddic":"DATS", "type":"string", "format":"date"}' label="Changed on"></ui-data-column>
+            <ui-data-column sortable field="CLASS_NUM"                data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"KLA"}' label="Class number"></ui-data-column>
+            <!-- @formatter:on -->
+        </ui-datagrid>
+    </ui-row>
+
+    <ui-row column padded>
+            <compose show.bind="serviceOrder.permit.show" view="plm/service-order/work-permit-detail.html"></compose>
+    </ui-row>
+</template>

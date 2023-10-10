@@ -1,0 +1,8 @@
+<template class="ui-option">
+    <label for="${__id}" class="ui-option-label">
+        <slot></slot>${label}
+    </label>
+	<input class="ui-option-input" type="${__type}" checked.bind="checked" ref="__input"
+		   id=${__id} value="${value}" change.trigger="inputChanged($event)"/>
+	<span class="ui-check-mark" click.delegate="toggle($event)"></span>
+</template>

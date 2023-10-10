@@ -1,0 +1,128 @@
+<template>
+    <require from="reuse/ui-attachments"></require>
+
+    <ui-row padded>
+        <ui-column padded size="sm-6">
+            <h4>
+                <span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-supplier ui-color-secondary"></span>
+                Manufacturer
+            </h4>
+
+            <ui-input ddic-length="30" ddic-type="CHAR" label="Manufacturer of asset"
+                      value.bind="equipment.ES_HEADER.MANFACTURE">
+            </ui-input>
+
+            <ui-input ddic-length="20" ddic-type="CHAR" label="Manufacturer model number"
+                      value.bind="equipment.ES_HEADER.MANMODEL">
+            </ui-input>
+
+            <ui-input ddic-length="30" ddic-type="CHAR" label="Manufacturer part number"
+                      value.bind="equipment.ES_HEADER.MANPARNO">
+            </ui-input>
+
+            <ui-input ddic-length="30" ddic-type="CHAR" label="Manufacturer serial number"
+                      value.bind="equipment.ES_HEADER.MANSERNO">
+            </ui-input>
+        </ui-column>
+
+        <ui-column padded size="sm-6">
+            <h4>
+                <span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-functional-location ui-color-secondary"></span>
+                Installed at
+            </h4>
+
+            <ui-input ddic-length="40" ddic-type="CHAR" label="Functional Location Label"
+                      value.bind="equipment.ES_SPECIFIC.READ_FLOC" shlp.bind="{type: 'SH', id: 'IFLM'}" mid="IFL">
+            </ui-input>
+
+            <ui-input ddic-length="4" ddic-type="CHAR" label="Maintenance plant"
+                      value.bind="equipment.ES_HEADER.MAINTPLANT"
+                      shlp.bind="{type: 'SH', id: 'H_T001W', valueColumn: 'WERKS'}" mid="SWK">
+            </ui-input>
+
+        </ui-column>
+
+        <ui-column padded size="sm-6">
+            <h4>
+                <span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-order-status ui-color-secondary"></span>
+                Status
+            </h4>
+            <ul class="list-group">
+                <li repeat.for="status of ET_STATUS" class="list-group-item">
+                    ${status.DESCRIPTION} ${status.STATUS} ${status.TEXT}
+                </li>
+            </ul>
+        </ui-column>
+
+        <ui-column padded size="sm-6">
+            <h4>
+                <span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-kpi-corporate-performance ui-color-secondary"></span>
+                MTTR/MTBF (${equipment.KPI.length})
+            </h4>
+            <ul class="list-group">
+                <li repeat.for="line of equipment.KPI" class="list-group-item">
+                    <ui-row>
+                        <ui-column size="sm-6">
+                            ${line.name}
+                        </ui-column>
+                        <ui-column size="md-2">
+                            ${line.value}
+                        </ui-column>
+                    </ui-row>
+                </li>
+            </ul>
+        </ui-column>
+
+        <ui-column padded size="sm-6">
+            <h4>Equi Data</h4>
+
+            <ui-combo clear ddic-length="1" ddic-type="CHAR" label="Equipment category"
+                      value.bind="equipment.ES_SPECIFIC.EQUICATGRY" shlp.bind="{type: 'CT', id: 'T370T'}" mid="EQT">
+            </ui-combo>
+
+            <ui-combo clear ddic-length="10" ddic-type="CHAR" label="Type of Technical Object"
+                      value.bind="equipment.ES_HEADER.OBJECTTYPE" shlp.bind="{type: 'CT', id: 'T370K'}">
+            </ui-combo>
+
+            <ui-combo clear ddic-length="1" ddic-type="CHAR" label="ABC indicator for technical object"
+                      value.bind="equipment.ES_HEADER.ABCINDIC" shlp.bind="{type: 'CT', id: 'T370C'}">
+            </ui-combo>
+
+        </ui-column>
+
+        <ui-column size="sm-6">
+            <!--img if.bind="image.content"
+                 src="data:${image.mimeType};base64,${image.content}" alt="photo"/-->
+
+            <!--embed src="pdfFiles/Test.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"/-->
+            <ui-attachments attachments.bind="equipment.Attachments"></ui-attachments>
+        </ui-column>
+
+        <ui-column size="sm-6">
+            <h4>Characteristics (${equipment.Characteristics.length})</h4>
+            <div class="" repeat.for="charGroup of equipment.Characteristics">
+
+                <ui-panel>
+                    <ui-header light collapse="true">${charGroup.groupDesc} (${charGroup.CHARLIST.length})</ui-header>
+                    <ui-body scroll padded>
+                        <div repeat.for="ch of charGroup.CHARLIST">
+                            <!--span>${ch.DESCR_CHAR} ${ch.DATA_TYPE} sin: ${ch.SINGLE_VALUE} v: ${ch.VALUE} vfrom: ${ch.VALUE_FROM} unit:${ch.UNIT}</span-->
+                            <ui-input if.one-time="ch.DATA_TYPE === 'CHAR' " ddic-type="CHAR"
+                                      label="${ch.DESCR_CHAR}" ddic-length="${ch.NUMBER_DIGITS}"
+                                      value.two-way="ch.VALUE"></ui-input>
+
+                            <ui-input if.one-time="ch.DATA_TYPE === 'NUM' " ddic-type="DEC"
+                                      label="${ch.DESCR_CHAR}"
+                                      ddic-length="${ch.NUMBER_DIGITS}.${NUMBER_DECIMALS}"
+                                      unit="${ch.UNIT}" value.two-way="ch.VALUE_FROM"></ui-input>
+                        </div>
+                    </ui-body>
+                </ui-panel>
+            </div>
+        </ui-column>
+    </ui-row>
+</template>

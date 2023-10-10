@@ -1,0 +1,157 @@
+<template>
+    <require from="reuse/ui-docflow"></require>
+
+    <ui-page>
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+
+                <ui-button class="ui-btn-transparent" icon-prefix="nav-back"
+                           click.delegate="app.router.navigateBack()"></ui-button>
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                <div style="flex: 1; text-align: center;">
+                    <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                    ${bizDoc.type}&nbsp;<a href.bind="bizDoc.href" target="_blank">${bizDoc.hrefText}</a>
+                </div>
+            </ui-row>
+        </template>
+
+        <!--template replace-part="page-footer">
+            <ui-row class="navbar footer">
+                <ui-column pull-right>
+                    <ui-button transparent click.delegate="equipment.save()" label="Save"></ui-button>
+                </ui-column>
+            </ui-row>
+        </template-->
+
+        <ui-content scroll padded class="ui-app-view">
+            <ui-row padded style="height: 100%;">
+
+                <ui-column column padded size="sm-3" style="height: 100%;">
+
+                    <ui-input search data-type="text" ddic-type="CHAR" data-length="40" mixedcase
+                              input.delegate="listFilterChanged($event.target.value) & debounce:200">
+                    </ui-input>
+
+
+                    <ui-panel-group class="ui-margin-v">
+
+                        <ui-panel _collapsed>
+                            <ui-header light>
+                                <ui-header-title><span class="sap-icon sap-icon-notification-2">&nbsp;</span>
+                                    Service Notifications (${serviceNotification.list.length})
+                                </ui-header-title>
+                                <ui-header-tool collapse></ui-header-tool>
+                            </ui-header>
+                            <ui-panel-body _padded _scroll _max-height="8em">
+                                <ul class="ui-master-list">
+                                    <li repeat.for="line of serviceNotification.list"
+                                        class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}">
+                                        <!-- todo: # required if no push state -->
+                                        <a href="#/plm/super-app/service-notification/${line.NOTIFICAT}">
+                                            <div style="display: flex; align-items: center; padding: 1rem">
+                                                <span style="flex:1">${line.DESCRIPT}</span><span>${line.NOTIFICAT}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ui-panel-body>
+                        </ui-panel>
+
+                        <ui-panel collapsed>
+                            <ui-header dark>
+                                <ui-header-title><span class="sap-icon sap-icon-eam-work-order">&nbsp;</span>
+                                    Service Orders (${serviceOrder.list.length})
+                                </ui-header-title>
+                                <ui-header-tool collapse></ui-header-tool>
+                            </ui-header>
+                            <ui-panel-body _padded _scroll _max-height="8em">
+                                <ul class="ui-master-list">
+                                    <li repeat.for="line of serviceOrder.list"
+                                        class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}">
+                                        <a href="#/plm/super-app/service-order/${line.ORDERID}">
+                                            <div style="display: flex; align-items: center; padding: 1rem">
+                                                <span style="flex: 1">${line.SHORT_TEXT}</span><span>${line.ORDERID}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ui-panel-body>
+                        </ui-panel>
+
+                        <ui-panel collapsed>
+                            <ui-header light>
+                                <ui-header-title><span class="sap-icon sap-icon-technical-object">&nbsp;</span>
+                                    Equipment (${equipment.list.length})
+                                </ui-header-title>
+                                <ui-header-tool collapse></ui-header-tool>
+                            </ui-header>
+                            <ui-panel-body _padded _scroll _max-height="8em">
+                                <ul class="ui-master-list">
+                                    <li repeat.for="line of equipment.list"
+                                        class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}">
+                                        <a href="#/plm/super-app/equipment/${line.EQUIPMENT}">
+                                            <div style="display: flex; align-items: center; padding: 1rem">
+                                                <span style="flex: 1">${line.EQUIPMENT_DESCR}</span><span>${line.EQUIPMENT}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ui-panel-body>
+                        </ui-panel>
+
+                        <ui-panel collapsed>
+                            <ui-header secondary>
+                                <ui-header-title><span class="sap-icon sap-icon-quality-issue">&nbsp;</span>
+                                    Symptoms (${solutionFinder.searchResult.ET_SYMPTOM.length})</ui-header-title>
+                                <ui-header-tool collapse></ui-header-tool>
+                            </ui-header>
+                            <ui-panel-body _padded _scroll _max-height="8em">
+                                <ul class="ui-master-list">
+                                    <li repeat.for="line of solutionFinder.searchResult.ET_SYMPTOM"
+                                        class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}">
+                                        <a href="#/plm/super-app/solution-finder/${line.ISMNR}">
+                                            <div style="display: flex; align-items: center; padding: 1rem">
+                                                <span style="flex: 1">${line.ISMTXT}</span><span>${line.ISMNR}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ui-panel-body>
+                        </ui-panel>
+
+                        <ui-panel collapsed>
+                            <ui-header secondary>
+                                <ui-header-title><span class="sap-icon sap-icon-lightbulb">&nbsp;</span>
+                                    Solutions (${solutionFinder.searchResult.ET_SOLUTION.length})</ui-header-title>
+                                <ui-header-tool collapse></ui-header-tool>
+                            </ui-header>
+                            <ui-panel-body padded scroll max-height="8em">
+                                <ul class="ui-master-list">
+                                    <li repeat.for="line of solutionFinder.searchResult.ET_SOLUTION"
+                                        class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}">
+                                        <a href="#/plm/super-app/solution-finder/${line.ISLNR}">
+                                            <div style="display: flex; align-items: center; padding: 1rem">
+                                                <span style="flex: 1">${line.ISLTXT}</span><span>${line.ISLNR}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </ui-panel-body>
+                        </ui-panel>
+
+                    </ui-panel-group>
+
+                </ui-column>
+
+                <ui-column scroll padded size="sm-9">
+                    <router-view swap-order="after"></router-view>
+
+                    <ui-docflow router.bind="router" view-model.ref="__docFlow"></ui-docflow>
+                </ui-column>
+
+            </ui-row>
+
+        </ui-content>
+    </ui-page>
+
+</template>

@@ -1,0 +1,58 @@
+<template>
+    <ui-row>
+        <ui-column full>
+            <h4>Work Permit Detail</h4>
+        </ui-column>
+
+        <ui-column size="md-6">
+            <ui-combo ddic-length="10" ddic-type="CHAR" label="Permit"
+                      value.bind="serviceOrder.permit.PERMIT" lookup="CT_357G">
+            </ui-combo>
+
+            <ui-input value.bind="serviceOrder.permit.ISSUED_BY" shlp.one-time="{type: 'SH', id: 'USER_ADDR'}"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+                      label="Issued by"></ui-input>
+
+            <ui-combo value.bind="serviceOrder.permit.ORIGIN" lookup="FV G_ORIGIN"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+                      label="Permit Origin in Order"></ui-combo>
+
+            <ui-combo value.bind="serviceOrder.permit.RELEASE" lookup="FV G_ERROR"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+                      label="Valid for Order Release"></ui-combo>
+
+            <ui-combo value.bind="serviceOrder.permit.COMPLETE" lookup="FV G_ERROR"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+                      label="Valid for Order Completion"></ui-combo>
+            <ui-checkbox value.bind="serviceOrder.permit.PRINT" label="Printout of Permit Papers"></ui-checkbox>
+
+            <ui-checkbox value.bind="serviceOrder.permit.NOT_RELEVANT" label="Relevance of Permit"></ui-checkbox>
+
+        </ui-column>
+
+        <ui-column size="md-6">
+
+            <ui-date readonly date.bind="serviceOrder.permit.PERM_ISSUE_CREATED_ON" label="Issued on"></ui-date>
+            <ui-input readonly value.bind="serviceOrder.permit.PERM_ISSUE_CREATED_BY" shlp.one-time="{type: 'SH', id: 'USER_ADDR'}"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+                      label="Issued by (user)"></ui-input>
+            <ui-input readonly value.bind="serviceOrder.permit.CLASS_NUM"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"18", "mid":"KLA"}'
+                      label="Class number"></ui-input>
+            <ui-input readonly value.bind="serviceOrder.permit.PERM_CREATED_BY" shlp.one-time="{type: 'SH', id: 'USER_ADDR'}"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+                      label="Created By"></ui-input>
+
+            <ui-date readonly date.bind="serviceOrder.permit.PERM_CREATED_ON" label="Created on"></ui-date>
+
+            <ui-input value.bind="serviceOrder.permit.CHANGED_BY" shlp.one-time="{type: 'SH', id: 'USER_ADDR'}"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+                      label="Last change by"></ui-input>
+
+            <ui-date date.bind="serviceOrder.permit.CHANGED_ON" label="Last change on"></ui-date>
+
+            <ui-checkbox value.bind="serviceOrder.permit.PROPOSE" label="Proposed During Processing"></ui-checkbox>
+
+        </ui-column>
+    </ui-row>
+</template>

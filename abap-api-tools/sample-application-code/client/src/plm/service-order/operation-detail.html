@@ -1,0 +1,573 @@
+<template>
+    <ui-row>
+        <ui-column size="sm-6">
+            <h4>Operation Detail</h4>
+
+            <ui-input ddic-length="4" ddic-type="CHAR" label="Activity Number"
+                      value.bind="serviceOrder.operation.ACTIVITY" conv="NUMCV" mid="VGN">
+            </ui-input>
+
+            <ui-input ddic-length="6" ddic-type="CHAR" label="Activity Type"
+                      value.bind="serviceOrder.operation.ACTTYPE" mid="LAR">
+            </ui-input>
+
+            <ui-input ddic-length="40" ddic-type="CHAR" label="Operation short text"
+                      value.bind="serviceOrder.operation.DESCRIPTION">
+            </ui-input>
+
+            <ui-input ddic-length="8" ddic-type="CHAR" label="Work center"
+                      value.bind="serviceOrder.operation.WORK_CNTR" mid="AGR">
+            </ui-input>
+
+            <ui-date label="Actual start"
+                     date.bind="serviceOrder.operation.ACT_START_DATE"
+                     time.bind="serviceOrder.operation.ACT_START_TIME">
+            </ui-date>
+
+            <ui-date label="Actual finish"
+                     date.bind="serviceOrder.operation.ACT_END_DATE" mid="EDR"
+                     time.bind="serviceOrder.operation.ACT_END_TIME" mid="EZR">
+            </ui-date>
+
+            <ui-input quantity ddic-length="4.1" ddic-type="QUAN" label="Normal duration of the activity"
+                      value.bind="serviceOrder.operation.DURATION_NORMAL"
+                      symbol.bind="serviceOrder.operation.DURATION_NORMAL_UNIT" symbol-shlp="SH H_T006">
+            </ui-input>
+
+            <ui-input quantity ddic-length="6.1" ddic-type="QUAN" label="Work involved in the activity"
+                      value.bind="serviceOrder.operation.WORK_ACTIVITY" symbol.bind="serviceOrder.operation.UN_WORK"
+                      symbol-shlp="SH H_T006">
+            </ui-input>
+
+            <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Actual work"
+                      value.bind="serviceOrder.operation.WORK_ACTUAL" symbol.bind="serviceOrder.operation.UN_WORK"
+                      symbol-shlp="SH H_T006">
+            </ui-input>
+
+            <ui-input quantity ddic-length="6.1" ddic-type="QUAN" label="Forecasted work (actual + remaining)"
+                      value.bind="serviceOrder.operation.WORK_FORECAST" symbol.bind="serviceOrder.operation.UN_WORK"
+                      symbol-shlp="SH H_T006">
+            </ui-input>
+
+            <ui-input numeric ddic-length="10" ddic-type="NUMC" label="Completion confirmation number for the operation"
+                      value.bind="serviceOrder.operation.CONF_NO" mid="RCK">
+            </ui-input>
+
+            <ui-input ddic-length="4" ddic-type="CHAR" label="Control key"
+                      value.bind="serviceOrder.operation.CONTROL_KEY">
+            </ui-input>
+
+            <ui-input disabled ddic-length="40" ddic-type="CHAR" label="System Status"
+                      value.bind="serviceOrder.operation.SYSTEM_STATUS_TEXT">
+            </ui-input>
+
+            <!-- todo ! -->
+            <!--ui-tags disabled autoset.bind="true" label="System Status"
+                     value-property="SYSSTATUS_EXT" display-property="SYSSTATUS_TXT"
+                     options.bind="serviceOrder.operation.systemStatus">
+            </ui-tags-->
+
+            <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Operation quantity in order unit of measure"
+                      value.bind="serviceOrder.operation.QUANTITY" symbol.bind="serviceOrder.operation.BASE_UOM"
+                      symbol-shlp="SH H_T006">
+            </ui-input>
+
+            <!--
+                    <ui-input numeric ddic-length="5" ddic-type="NUMC" label="Item number of principal purchase agreement"
+                    value.bind="serviceOrder.operation.AGMT_ITEM">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Number of principal purchase agreement"
+                    value.bind="serviceOrder.operation.AGREEMENT" conv="ALPHA" mid="KTR">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Assembly"
+                    value.bind="serviceOrder.operation.ASSEMBLY" conv="MATN1">
+                    </ui-input>
+
+                    <ui-input ddic-length="40" ddic-type="CHAR" label="Long Material Number for Field ASSEMBLY"
+                    value.bind="serviceOrder.operation.ASSEMBLY_EXTERNAL" conv="MATNL">
+                    </ui-input>
+
+                    <ui-input ddic-length="32" ddic-type="CHAR" label="External GUID for ASSEMBLY Field"
+                    value.bind="serviceOrder.operation.ASSEMBLY_GUID">
+                    </ui-input>
+
+                    <ui-input ddic-length="40" ddic-type="CHAR" label="Assembly"
+                    value.bind="serviceOrder.operation.ASSEMBLY_LONG">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Version Number for ASSEMBLY Field"
+                    value.bind="serviceOrder.operation.ASSEMBLY_VERSION" conv="MATNW">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+                    value.bind="serviceOrder.operation.BASE_UOM_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="4" ddic-type="CHAR" label="Business Area"
+                    value.bind="serviceOrder.operation.BUS_AREA" mid="GSB">
+                    </ui-input>
+
+                    <ui-input ddic-length="1" ddic-type="CHAR" label="Key for calculation"
+                    value.bind="serviceOrder.operation.CALC_KEY">
+                    </ui-input>
+
+                    <ui-checkbox label="Indicator: No Remaining Work Expected"
+                    value.bind="serviceOrder.operation.COMPLETE">
+                    </ui-checkbox>
+
+                    <ui-input ddic-length="4" ddic-type="CHAR" label="Company Code"
+                    value.bind="serviceOrder.operation.COMP_CODE" mid="BUK">
+                    </ui-input>
+
+
+                    <ui-input ddic-length="1" ddic-type="CHAR" label="Constraint on the finish date of the activity"
+                    value.bind="serviceOrder.operation.CONSTRAINT_TYPE_FINISH">
+                    </ui-input>
+
+                    <ui-input ddic-length="1" ddic-type="CHAR" label="Constraint on the basic start date for the activity"
+                    value.bind="serviceOrder.operation.CONSTRAINT_TYPE_START">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Cost Element"
+                    value.bind="serviceOrder.operation.COST_ELEMENT" conv="ALPHA" mid="KAT">
+                    </ui-input>
+
+                    <ui-input ddic-length="6" ddic-type="CHAR" label="Costing Sheet"
+                    value.bind="serviceOrder.operation.CSTG_SHEET">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO currency code"
+                    value.bind="serviceOrder.operation.CURRENCY_ISO">
+                    </ui-input>
+
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+                    value.bind="serviceOrder.operation.DURATION_NORMAL_UNIT_ISO">
+                    </ui-input>
+
+                    <ui-date ddic-type="DATS" label="Earliest scheduled finish: Execution (date)"
+                    date.bind="serviceOrder.operation.EARL_SCHED_FIN_DATE">
+                    </ui-date>
+
+                    <ui-time ddic-type="TIMS" label="Earliest scheduled finish: Execution (time)"
+                    time.bind="serviceOrder.operation.EARL_SCHED_FIN_TIME">
+                    </ui-time>
+
+                    <ui-date ddic-type="DATS" label="Earliest scheduled start: Execution (date)"
+                    date.bind="serviceOrder.operation.EARL_SCHED_START_DATE">
+                    </ui-date>
+
+                    <ui-time ddic-type="TIMS" label="Earliest scheduled start: Execution (time)"
+                    time.bind="serviceOrder.operation.EARL_SCHED_START_TIME">
+                    </ui-time>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="End Point"
+                    value.bind="serviceOrder.operation.END_POINT">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Equipment Number"
+                    value.bind="serviceOrder.operation.EQUIPMENT" conv="ALPHA" mid="EQN">
+                    </ui-input>
+
+                    <ui-input decimal ddic-length="3" ddic-type="DEC" label="Execution Factor"
+                    value.bind="serviceOrder.operation.EXECFACTOR">
+                    </ui-input>
+
+                    <ui-date ddic-type="DATS" label="Forecast finish date of operation from confirmation"
+                    date.bind="serviceOrder.operation.FCST_FIN_DATE">
+                    </ui-date>
+
+                    <ui-time ddic-type="TIMS" label="Forecast End Time of Operation from Confirmation"
+                    time.bind="serviceOrder.operation.FCST_FIN_TIME">
+                    </ui-time>
+
+                    <ui-input ddic-length="7" ddic-type="CHAR" label="Key word ID for user-defined fields"
+                    value.bind="serviceOrder.operation.FIELD_KEY">
+                    </ui-input>
+
+                    <ui-input ddic-length="40" ddic-type="CHAR" label="Field displaying user status"
+                    value.bind="serviceOrder.operation.FIELD_USER_STATUS">
+                    </ui-input>
+
+                    <ui-time ddic-type="TIMS" label="Basic finish time of the activity"
+                    time.bind="serviceOrder.operation.FINTIMCONS">
+                    </ui-time>
+
+                    <ui-date ddic-type="DATS" label="Constraint for finish of activity (Basic)"
+                    date.bind="serviceOrder.operation.FIN_CONSTR">
+                    </ui-date>
+
+                    <ui-input ddic-length="2" ddic-type="CHAR" label="Type of First Offset"
+                    value.bind="serviceOrder.operation.FIRST_OFFSET_TYPE_CODE">
+                    </ui-input>
+
+                    <ui-input ddic-length="60" ddic-type="CHAR" label="First Offset Type Description"
+                    value.bind="serviceOrder.operation.FIRST_OFFSET_TYPE_CODE_NAME">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="Unit of Measurement for Offset 1 in ISO Code"
+                    value.bind="serviceOrder.operation.FIRST_OFFSET_UNIT_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Value of Offset 1"
+                    value.bind="serviceOrder.operation.FIRST_OFFSET_VALUE">
+                    </ui-input>
+
+                    <ui-input decimal ddic-length="+3" ddic-type="DEC" label="Free float"
+                    value.bind="serviceOrder.operation.FREE_BUFFER">
+                    </ui-input>
+
+                    <ui-input ddic-length="30" ddic-type="CHAR" label="Functional Location"
+                    value.bind="serviceOrder.operation.FUNCT_LOC" conv="TPLNR" mid="IFL">
+                    </ui-input>
+
+                    <ui-input ddic-length="16" ddic-type="CHAR" label="Functional Area"
+                    value.bind="serviceOrder.operation.FUNC_AREA" mid="FBE">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Framework Order"
+                    value.bind="serviceOrder.operation.FW_ORDER" conv="ALPHA">
+                    </ui-input>
+
+                    <ui-input ddic-length="12" ddic-type="CHAR" label="Goods recipient"
+                    value.bind="serviceOrder.operation.GR_RCPT">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Number of purchasing info record"
+                    value.bind="serviceOrder.operation.INFO_REC" conv="ALPHA" mid="INF">
+                    </ui-input>
+
+                    <ui-input ddic-length="8" ddic-type="CHAR" label="Distr.cap.reqmts (plant maint.,process order, network)"
+                    value.bind="serviceOrder.operation.INT_DISTR">
+                    </ui-input>
+
+                    <ui-language ddic-length="1" ddic-type="LANG" label="Language Key"
+                    value.bind="serviceOrder.operation.LANGU" conv="ISOLA" shlp.bind="{type: 'SH', id: 'H_T002'}"
+                    mid="SPR">
+                    </ui-language>
+
+                    <ui-input ddic-length="2" ddic-type="CHAR" label="2-Character SAP Language Code"
+                    value.bind="serviceOrder.operation.LANGU_ISO">
+                    </ui-input>
+
+                    <ui-date ddic-type="DATS" label="Latest scheduled finish: Execution (date)"
+                    date.bind="serviceOrder.operation.LATE_SCHED_FIN_DATE">
+                    </ui-date>
+
+                    <ui-time ddic-type="TIMS" label="Latest scheduled finish: Execution (time)"
+                    time.bind="serviceOrder.operation.LATE_SCHED_FIN_TIME">
+                    </ui-time>
+
+                    <ui-date ddic-type="DATS" label="Latest scheduled start: Execution (date)"
+                    date.bind="serviceOrder.operation.LATE_SCHED_START_DATE">
+                    </ui-date>
+
+                    <ui-time ddic-type="TIMS" label="Latest scheduled start: Execution (time)"
+                    time.bind="serviceOrder.operation.LATE_SCHED_START_TIME">
+                    </ui-time>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Length"
+                    value.bind="serviceOrder.operation.LINEAR_LENGTH">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="Unit of Measurement for Linear Data in ISO Code"
+                    value.bind="serviceOrder.operation.LINEAR_UNIT_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="Maintenance activity type"
+                    value.bind="serviceOrder.operation.MAINTENANCE_ACTIVITY_TYPE">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Length Spec for Distance between Marker and End Point"
+                    value.bind="serviceOrder.operation.MARKER_DISTANCE_END_POINT">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Distance between Marker and Start Point"
+                    value.bind="serviceOrder.operation.MARKER_DISTANCE_START_POINT">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="Unit for the Distance from Marker in ISO Code"
+                    value.bind="serviceOrder.operation.MARKER_DISTANCE_UNIT_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Marker for End Point"
+                    value.bind="serviceOrder.operation.MARKER_END_POINT">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Marker for Start Point"
+                    value.bind="serviceOrder.operation.MARKER_START_POINT">
+                    </ui-input>
+
+                    <ui-input ddic-length="9" ddic-type="CHAR" label="Material Group"
+                    value.bind="serviceOrder.operation.MATL_GROUP" mid="MKL">
+                    </ui-input>
+
+                    <ui-input ddic-length="1" ddic-type="CHAR" label="Reservation Relevance/Generation of Purchase Requisition"
+                    value.bind="serviceOrder.operation.MRP_RELEVANT">
+                    </ui-input>
+
+                    <ui-textarea mixedcase ddic-length="-1" ddic-type="STRG" label="Text for Note"
+                    value.bind="serviceOrder.operation.NOTICE">
+                    </ui-textarea>
+
+                    <ui-input ddic-length="12" ddic-type="CHAR" label="Notification No"
+                    value.bind="serviceOrder.operation.NOTIF_NO" conv="ALPHA" mid="IQM">
+                    </ui-input>
+
+                    <ui-input decimal ddic-length="3" ddic-type="DEC" label="Number of Time Tickets"
+                    value.bind="serviceOrder.operation.NO_OF_TIME_TICKETS">
+                    </ui-input>
+
+                    <ui-input integer ddic-length="3" ddic-type="INT1" label="Number of capacities required"
+                    value.bind="serviceOrder.operation.NUMBER_OF_CAPACITIES">
+                    </ui-input>
+
+                    <ui-input ddic-length="2" ddic-type="CHAR" label="Object Class"
+                    value.bind="serviceOrder.operation.OBJECTCLASS" conv="SCOPE" mid="PCO">
+                    </ui-input>
+
+                    <ui-input quantity ddic-length="+5" ddic-type="QUAN" label="Offset to sub-operation finish"
+                    value.bind="serviceOrder.operation.OFFSET_END" symbol.bind="serviceOrder.operation.OFFSET_END_UNIT"
+                    symbol-shlp="SH H_T006">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+                    value.bind="serviceOrder.operation.OFFSET_END_UNIT_ISO">
+                    </ui-input>
+
+                    <ui-input quantity ddic-length="+5" ddic-type="QUAN" label="Offset to sub-operation start"
+                    value.bind="serviceOrder.operation.OFFSET_START"
+                    symbol.bind="serviceOrder.operation.OFFSET_START_UNIT" symbol-shlp="SH H_T006">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+                    value.bind="serviceOrder.operation.OFFSET_START_UNIT_ISO">
+                    </ui-input>
+
+                    <ui-input numeric ddic-length="5" ddic-type="NUMC" label="Item of resources order"
+                    value.bind="serviceOrder.operation.ORDER_ITEM">
+                    </ui-input>
+
+                    <ui-input ddic-length="6" ddic-type="CHAR" label="Overhead key"
+                    value.bind="serviceOrder.operation.OVERHEAD_KEY">
+                    </ui-input>
+
+                    <ui-input numeric ddic-length="10" ddic-type="NUMC" label="Package number"
+                    value.bind="serviceOrder.operation.PCKG_NO">
+                    </ui-input>
+
+                    <ui-input integer ddic-length="3" ddic-type="INT1" label="Work percentage"
+                    value.bind="serviceOrder.operation.PERCENT_OF_WORK">
+                    </ui-input>
+
+                    <ui-input numeric ddic-length="8" ddic-type="NUMC" label="Personnel number"
+                    value.bind="serviceOrder.operation.PERS_NO" mid="PER">
+                    </ui-input>
+
+                    <ui-input ddic-length="4" ddic-type="CHAR" label="Plant"
+                    value.bind="serviceOrder.operation.PLANT" mid="WRK">
+                    </ui-input>
+
+                    <ui-input decimal ddic-length="3" ddic-type="DEC" label="Planned delivery time in days"
+                    value.bind="serviceOrder.operation.PLND_DELRY">
+                    </ui-input>
+
+                    <ui-input numeric ddic-length="5" ddic-type="NUMC" label="Item Number of Purchase Requisition in Order"
+                    value.bind="serviceOrder.operation.PREQ_ITEM">
+                    </ui-input>
+
+                    <ui-input ddic-length="12" ddic-type="CHAR" label="Name of requisitioner/requester"
+                    value.bind="serviceOrder.operation.PREQ_NAME">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Purchase requisition number"
+                    value.bind="serviceOrder.operation.PREQ_NO" conv="ALPHA">
+                    </ui-input>
+
+                    <ui-input currency ddic-length="10.2" ddic-type="CURR" label="Price"
+                    value.bind="serviceOrder.operation.PRICE" symbol.bind="serviceOrder.operation.CURRENCY"
+                    symbol-shlp="CT TCURC">
+                    </ui-input>
+
+                    <ui-input decimal ddic-length="5" ddic-type="DEC" label="Price unit"
+                    value.bind="serviceOrder.operation.PRICE_UNIT">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Profit Center"
+                    value.bind="serviceOrder.operation.PROFIT_CTR" conv="ALPHA" mid="PRC">
+                    </ui-input>
+
+                    <ui-input ddic-length="4" ddic-type="CHAR" label="Purchasing organization"
+                    value.bind="serviceOrder.operation.PURCH_ORG" mid="EKO">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="Purchasing Group for External Processing Activity"
+                    value.bind="serviceOrder.operation.PUR_GROUP">
+                    </ui-input>
+
+                    <ui-input ddic-length="2" ddic-type="CHAR" label="Type of Second Offset"
+                    value.bind="serviceOrder.operation.SECOND_OFFSET_TYPE_CODE">
+                    </ui-input>
+
+                    <ui-input ddic-length="60" ddic-type="CHAR" label="Second Offset Type Description"
+                    value.bind="serviceOrder.operation.SECOND_OFFSET_TYPE_CODE_NAME">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="Unit of Measurement for Offset 2 in ISO Code"
+                    value.bind="serviceOrder.operation.SECOND_OFFSET_UNIT_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Value of Offset 2"
+                    value.bind="serviceOrder.operation.SECOND_OFFSET_VALUE">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Sort field"
+                    value.bind="serviceOrder.operation.SORT_FLD">
+                    </ui-input>
+
+                    <ui-input ddic-length="7" ddic-type="CHAR" label="Standard text key"
+                    value.bind="serviceOrder.operation.STANDARD_TEXT_KEY">
+                    </ui-input>
+
+                    <ui-date ddic-type="DATS" label="Constraint for activity start (Basic)"
+                    date.bind="serviceOrder.operation.START_CONS">
+                    </ui-date>
+
+                    <ui-input ddic-length="18" ddic-type="CHAR" label="Start Point"
+                    value.bind="serviceOrder.operation.START_POINT">
+                    </ui-input>
+
+                    <ui-input ddic-length="8" ddic-type="CHAR" label="Status Profile"
+                    value.bind="serviceOrder.operation.STAT_PROF">
+                    </ui-input>
+
+                    <ui-time ddic-type="TIMS" label="Constraint for activity start time (Basic)"
+                    time.bind="serviceOrder.operation.STRTTIMCON">
+                    </ui-time>
+
+                    <ui-input ddic-length="4" ddic-type="CHAR" label="Suboperation"
+                    value.bind="serviceOrder.operation.SUB_ACTIVITY" conv="NUMCV">
+                    </ui-input>
+
+                    <ui-input ddic-length="2" ddic-type="CHAR" label="Suitability"
+                    value.bind="serviceOrder.operation.SUITABILITY">
+                    </ui-input>
+
+                    <ui-input ddic-length="1" ddic-type="CHAR" label="Syst.Condition"
+                    value.bind="serviceOrder.operation.SYSTCOND">
+                    </ui-input>
+
+                    <ui-input ddic-length="15" ddic-type="CHAR" label="Tax Jurisdiction"
+                    value.bind="serviceOrder.operation.TAXJURCODE" mid="TXJ">
+                    </ui-input>
+
+                    <ui-input decimal ddic-length="+3" ddic-type="DEC" label="Total float"
+                    value.bind="serviceOrder.operation.TOTAL_BUFFER">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Requirement Tracking Number"
+                    value.bind="serviceOrder.operation.TRACKINGNO">
+                    </ui-input>
+
+                    <ui-input ddic-length="25" ddic-type="CHAR" label="Unloading Point"
+                    value.bind="serviceOrder.operation.UNLOAD_PT">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+                    value.bind="serviceOrder.operation.UN_WORK_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+                    value.bind="serviceOrder.operation.USE04_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+                    value.bind="serviceOrder.operation.USE05_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO currency code"
+                    value.bind="serviceOrder.operation.USE06_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO currency code"
+                    value.bind="serviceOrder.operation.USE07_ISO">
+                    </ui-input>
+
+                    <ui-input ddic-length="20" ddic-type="CHAR" label="User field with 20 characters"
+                    value.bind="serviceOrder.operation.USR00">
+                    </ui-input>
+
+                    <ui-input ddic-length="20" ddic-type="CHAR" label="User field with 20 characters"
+                    value.bind="serviceOrder.operation.USR01">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="User field with 10 characters"
+                    value.bind="serviceOrder.operation.USR02">
+                    </ui-input>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="User field with 10 characters"
+                    value.bind="serviceOrder.operation.USR03">
+                    </ui-input>
+
+                    <ui-input quantity ddic-length="+10.3" ddic-type="QUAN" label="User field for quantity (length 10.3)"
+                    value.bind="serviceOrder.operation.USR04" symbol.bind="serviceOrder.operation.USE04"
+                    symbol-shlp="SH H_T006">
+                    </ui-input>
+
+                    <ui-input quantity ddic-length="+10.3" ddic-type="QUAN" label="User field for quantity (length 10.3)"
+                    value.bind="serviceOrder.operation.USR05" symbol.bind="serviceOrder.operation.USE05"
+                    symbol-shlp="SH H_T006">
+                    </ui-input>
+
+                    <ui-input currency ddic-length="+12.3" ddic-type="CURR" label="User-defined field for values (length 10,3)"
+                    value.bind="serviceOrder.operation.USR06" symbol.bind="serviceOrder.operation.USE06"
+                    symbol-shlp="CT TCURC">
+                    </ui-input>
+
+                    <ui-input currency ddic-length="+12.3" ddic-type="CURR" label="User-defined field for values (length 10,3)"
+                    value.bind="serviceOrder.operation.USR07" symbol.bind="serviceOrder.operation.USE07"
+                    symbol-shlp="CT TCURC">
+                    </ui-input>
+
+                    <ui-date ddic-type="DATS" label="User field for date"
+                    date.bind="serviceOrder.operation.USR08">
+                    </ui-date>
+
+                    <ui-date ddic-type="DATS" label="User field for date"
+                    date.bind="serviceOrder.operation.USR09">
+                    </ui-date>
+
+                    <ui-checkbox label="User-defined field: Indicator for reports"
+                    value.bind="serviceOrder.operation.USR10">
+                    </ui-checkbox>
+
+                    <ui-checkbox label="User-defined field: Indicator for reports"
+                    value.bind="serviceOrder.operation.USR11">
+                    </ui-checkbox>
+
+                    <ui-input ddic-length="10" ddic-type="CHAR" label="Account Number of Vendor or Creditor"
+                    value.bind="serviceOrder.operation.VENDOR_NO" conv="ALPHA" mid="LIF">
+                    </ui-input>
+
+                    <ui-input ddic-length="3" ddic-type="CHAR" label="Wage Group"
+                    value.bind="serviceOrder.operation.WAGEGROUP">
+                    </ui-input>
+
+                    <ui-input ddic-length="4" ddic-type="CHAR" label="Wage type"
+                    value.bind="serviceOrder.operation.WAGETYPE">
+                    </ui-input>
+
+                    <ui-input numeric ddic-length="8" ddic-type="NUMC" label="Work breakdown structure element (WBS element)"
+                    value.bind="serviceOrder.operation.WBS_ELEM" conv="ABPSP">
+                    </ui-input>
+                       -->
+
+        </ui-column>
+
+        <ui-column class="sm-6" showbind="serviceOrder.confirmations.length > 0">
+            <compose view="./confirmations.html"></compose>
+        </ui-column>
+    </ui-row>
+</template>

@@ -1,0 +1,167 @@
+<template>
+    <!-- FROM_ABAP: notification.header -> BAPI2080_NOTHDRE -->
+    <ui-row>
+        <ui-column padded size="sm-6">
+            <h4><span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-order-status ui-color-secondary"></span>
+                Overview
+            </h4>
+
+            <ui-input mixedcase ddic-length="40" ddic-type="CHAR" label="Short Text"
+                      value.bind="serviceNotification.header.SHORT_TEXT">
+            </ui-input>
+
+            <ui-combo clear ddic-length="2" ddic-type="CHAR" label="Notification Type"
+                      disabled.bind="serviceNotification.header.NOTIF_NO.length > 0"
+                      value.two-way="serviceNotification.header.NOTIF_TYPE" mid="QMR"
+                      shlp.bind="{type: 'CT', id: 'NotificationType'}">
+            </ui-combo>
+
+            <ui-combo clear ddic-length="1" ddic-type="CHAR" label="Priority"
+                      value.two-way="serviceNotification.header.PRIORITY"
+                      shlp.bind="{type: 'CT', id: 'NotificationPriority'}">
+            </ui-combo>
+
+            <ui-combo clear ddic-length="4" ddic-type="CHAR" label="User Status"
+                      value.two-way="serviceNotification.header.USERSTATUS_INT"
+                      shlp.bind="{type: 'CT', id: 'NotificationUserStatus'}">
+            </ui-combo>
+
+            <ui-tags disabled autoset.bind="true" label="System Status"
+                     value-property="SYSSTATUS_EXT" display-property="SYSSTATUS_TXT"
+                     options.bind="serviceNotification.systemStatus">
+            </ui-tags>
+
+        </ui-column>
+
+        <ui-column padded size="sm-6">
+            <h4><span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-building ui-color-secondary"></span>
+                Location
+            </h4>
+            <ui-input ddic-length="18" ddic-type="CHAR" label="Equipment Number"
+                      value.bind="serviceNotification.header.EQUIPMENT" conv="ALPHA"
+                      shlp.bind="{type: 'SH', id: 'EQUI', blacklist: 'SH EQUIR', autoselect: 'SH EQUIT'}"
+                      mid="EQN">
+            </ui-input>
+
+            <ui-input ddic-length="30" ddic-type="CHAR" label="Functional Location"
+                      value.bind="serviceNotification.header.FUNCT_LOC" conv="TPLNR"
+                      shlp.bind="{type: 'SH', id: 'IFLM'}"
+                      mid="IFL">
+            </ui-input>
+        </ui-column>
+
+        <ui-column padded size="sm-6">
+            <h4><span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-calendar ui-color-secondary"></span>
+                Schedule
+            </h4>
+
+            <ui-date now label="Date of Notification" date.bind="serviceNotification.header.NOTIF_DATE"></ui-date>
+
+            <ui-date now label="Requested start"
+                     date.bind="serviceNotification.header.DESSTDATE"
+                     time.bind="serviceNotification.header.DESSTTIME">
+            </ui-date>
+
+            <ui-date label="Requested end"
+                     date.bind="serviceNotification.header.DESENDDATE"
+                     time.bind="serviceNotification.header.DESENDTM">
+            </ui-date>
+
+            <ui-date if.bind="__action !== 'create'" label="Completion at"
+                     date.bind="serviceNotification.header.COMPDATE"
+                     time.bind="serviceNotification.header.COMPTIME">
+            </ui-date>
+
+        </ui-column>
+
+        <ui-column padded size="sm-6">
+            <h4><span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-broken-link ui-color-secondary"></span>
+                Breakdown
+            </h4>
+
+            <ui-checkbox label="Breakdown Indicator" value.bind="serviceNotification.header.BREAKDOWN"></ui-checkbox>
+
+            <ui-date label="Start"
+                     date.bind="serviceNotification.header.STRMLFNDATE"
+                     time.bind="serviceNotification.header.STRMLFNTIME">
+            </ui-date>
+            <ui-date label="End"
+                     date.bind="serviceNotification.header.ENDMLFNDATE"
+                     time.bind="serviceNotification.header.ENDMLFNTIME">
+            </ui-date>
+        </ui-column>
+
+        <ui-column size="sm-6">
+            <h4><span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-customer ui-color-secondary"></span>
+                Responsible
+            </h4>
+            <ui-combo clear ddic-length="8" ddic-type="CHAR" label="Main work center"
+                      value.bind="serviceNotification.header.PM_WKCTR" mid="VAP"
+                      shlp.bind="{type: 'CT', id: 'CRHD_V1'}">
+            </ui-combo>
+            <ui-input mixedcase value.bind="serviceNotification.header.REPORTEDBY"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+                      label="Reported by">
+            </ui-input>
+        </ui-column>
+
+        <ui-column size="sm-6">
+            <h4><span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-cause ui-color-secondary"></span>
+                Damage/Cause Codes
+            </h4>
+
+            <ui-combo clear ddic-length="4" ddic-type="CHAR" label="Object Part"
+                      value.bind="serviceNotification.is_notitem.DL_CODE"
+                      shlp.bind="{type: 'CT', id: 'CatalogParts'}">
+            </ui-combo>
+
+            <ui-combo clear ddic-length="4" ddic-type="CHAR" label="Damage"
+                      value.bind="serviceNotification.is_notitem._code_damage"
+                      shlp.bind="{type: 'CT', id: 'CatalogDamage'}">
+            </ui-combo>
+
+            <ui-input mixedcase value.bind="serviceNotification.is_notitem._text_damage"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+                      label="Damage Text">
+            </ui-input>
+
+            <ui-combo clear ddic-length="4" ddic-type="CHAR" label="Cause"
+                      value.bind="serviceNotification.is_notitem._code_cause"
+                      shlp.bind="{type: 'CT', id: 'CatalogCause'}">
+            </ui-combo>
+
+            <ui-input mixedcase value.bind="serviceNotification.is_notitem._text_cause"
+                      data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+                      label="Cause Text">
+            </ui-input>
+        </ui-column>
+
+        <ui-column size="sm-6">
+            <h4><span role="presentation" aria-hidden="true" class="sap-icon sap-icon-feed ui-color-secondary"></span>
+                Notes (Long Text)
+            </h4>
+
+            <ui-textarea mixedcase ddic-length="132" ddic-type="STRG" label="Long Text"
+                         value.two-way="serviceNotification.text">
+            </ui-textarea>
+
+            <div class="ui-feed">
+                <div class="ui-feed-line" repeat.for="lt of serviceNotification.longtext">
+                    <p>
+                        <small>${lt.historyLine} ${lt.datum}</small>
+                    </p>
+                    <ui-textarea mixedcase readonly ddic-length="132" rows=3 value.one-time="lt.message"></ui-textarea>
+                </div>
+            </div>
+        </ui-column>
+
+    </ui-row>
+
+</template>
+

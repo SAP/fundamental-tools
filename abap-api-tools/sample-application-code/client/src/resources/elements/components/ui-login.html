@@ -1,0 +1,57 @@
+<template>
+    <div class='ui-login-bg'>
+
+        <div class="ui-login-form">
+
+            <ui-row>
+                <ui-column size="md-12">
+                    <span class="ui-text-center">${error}</span>
+                </ui-column>
+            </ui-row>
+
+            <ui-row>
+                <ui-column text-center size="md-10" class="ui-login-message">
+                    <slot></slot>
+                </ui-column>
+
+                <ui-column text-center size="md-2" class="ui-login-icon">
+                    <span class="sap-icon sap-icon-locked"></span>
+                </ui-column>
+            </ui-row>
+
+            <ui-form transparent submit.trigger="doLogin()" validate.bind="model.validation">
+
+                <ui-row>
+                    <input type="text" class="form-control tcompl form-control-${state}" id="uname"
+                           placeholder="Username"
+                           value.bind="model.User.username" validate="User.username">
+                    <small class="text-muted text-help">
+                        ${state}&nbsp;
+                    </small>
+                </ui-row>
+                <ui-row>
+                    <input type="password" class="form-control tcompl form-control-${state}" id="pwd"
+                           placeholder="Password"
+                           value.bind="model.User.password" validate="User.password">
+                    <small class="text-muted text-help">
+                        ${state}&nbsp;
+                    </small>
+                </ui-row>
+
+                <ui-row>
+                    <ui-combo clear options.bind="languages" icon-property="iso2" icon-class="ui-flag"
+                              prefix-icon="ui-flag ${model.User.locale}"
+                              display-property="name" value-property="locale" value.bind="model.User.locale">
+                    </ui-combo>
+                </ui-row>
+
+
+                <ui-row>
+                    <ui-button accept click.delegate="doLogin()" label="Login"></ui-button>
+                </ui-row>
+            </ui-form>
+
+        </div>
+
+    </div>
+</template>

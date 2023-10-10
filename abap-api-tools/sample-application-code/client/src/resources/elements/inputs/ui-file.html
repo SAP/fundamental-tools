@@ -1,0 +1,40 @@
+<template class="ui-file-input">
+    <label class="ui-label" ref="__label">
+        <span><slot></slot></span>
+    </label>
+    <div class="ui-control-wrapper">
+
+        <ui-column repeat.for="file of __files">
+            <ul class="ui-master-list">
+                <li class="ui-master-list-item">
+
+                    <div style="display: flex; align-items: center">
+                        <span class="sap-icon sap-icon-2x sap-icon-${file.icon} ui-color-secondary"
+                              style="flex: 0 0 2rem;"></span>
+                        <div style="line-height: 1.5; margin-left: 0.5rem; flex: 1;">
+                            <span class="ui-font-small">${file.name}, ${file.size | bytes}</span>
+                            <ui-input mixedcase value.bind="file.description" ddic-length="40" placeholder="Description"></ui-input>
+                            <!--div class="ui-color-secondary">${file.description}</div-->
+                            <div class="ui-font-small ui-color-secondary">${file.file.lastModifiedDate | dateFormat:'MMM
+                                Do YYYY'}
+                            </div>
+                        </div>
+                        <img if.bind="preview && file.ext.indexOf('jp' !== -1)" style="width: 100px; height: 100px;" src.bind="file.url">
+                        <ui-button if.bind="!autoload" transparent icon-prefix="upload-to-cloud"
+                                   click.delegate="__upload()"></ui-button>
+                        <ui-button if.bind="!autoload" transparent button-class="ui-text-danger" icon-prefix="delete"
+                                   click.delegate="__remove($index)"></ui-button>
+                    </div>
+                </li>
+            </ul>
+        </ui-column>
+        <div class="ui-file-drop-zone ${__dragging?'dragging':''}" ref="__dropZone" click.trigger="__input.click()"
+             dragover.trigger="__dragEnter($event)" dragleave.trigger="__dragExit($event)"
+             drop.trigger="__drop($event)">
+            <span><span class="sap-icon sap-icon-upload-to-cloud"></span>&nbsp;${title}&nbsp;</span>
+        </div>
+        <input type="file" ref="__input" class="ui-file-input-el" change.trigger="__fileChoose()"/>
+    </div>
+
+    <div class="ui-file-list"></div>
+</template>

@@ -1,0 +1,99 @@
+<template class="service-order">
+
+    <ui-page view-model.ref="__page">
+
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+                    <ui-button class="ui-btn-transparent" icon-prefix="nav-back"
+                               click.delegate="app.router.navigateBack()"></ui-button>
+                <div style="flex: 1; text-align: center;">
+                    My Orders (${listFilterFound ? listFilterFound + ' of ' :
+                    ''}${serviceOrder.list.length})
+                    <a href.bind="serviceOrder.href"
+                       target="_blank">${serviceOrder.hrefText}</a>
+                </div>
+            </ui-row>
+        </template>
+
+        <template replace-part="page-footer">
+            <ui-row class="navbar footer">
+                <ui-column pull-right>
+                    <ui-button disabled transparent click.delegate="serviceOrder.save()"
+                               label="Save"></ui-button>
+                </ui-column>
+            </ui-row>
+        </template>
+
+
+        <ui-content scroll padded class="ui-app-view">
+            <ui-row>
+
+                    <ui-column size="md-4">
+                        <ui-input search data-type="text" ddic-type="CHAR" data-length="40"
+                                  input.delegate="listFilterChanged($event.target.value, serviceOrder.list) & debounce:200">
+                        </ui-input>
+
+                        <ul class="ui-master-list">
+                            <li repeat.for="line of serviceOrder.list"
+                                class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}"
+                                click.delegate="listClick($index, line.ORDERID)">
+
+                                <div class="ui-master-list-item-line line-3">
+                                    <span style="flex:1" class="ui-color-primary">${line.SHORT_TEXT}</span>
+                                    <span class="ui-color-secondary">${line.ORDERID} </span>
+                                </div>
+
+                                <div class="ui-color-primary ui-font-1125">
+                                    ${line.PRIO_DESC}
+                                </div>
+
+                                <div class="ui-color-secondary">
+                                    ${line.ENTER_DATE | dateFormat} ${line.U_STATUS} ::
+                                    ${line.PMACTTYPE}
+                                    Changed by: ${line.CHANGED_BY} on: ${line.CHANGE_DATE}
+                                </div>
+                            </li>
+                        </ul>
+                    </ui-column>
+
+                    <ui-column size="md-8" scroll>
+
+                        <ui-tab-panel>
+                            <ui-tab label="Header" separator>
+                                <compose view="plm/service-order/header-opc.html"></compose>
+                            </ui-tab>
+
+                            <ui-tab _icon="sap-icon sap-icon-accept" _item-class="sapMITBFilterPositive"
+                                    label="Operations (${serviceOrder.operations.length})">
+                                <compose view="plm/service-order/operations.html"></compose>
+                            </ui-tab>
+
+                            <ui-tab _icon="sap-icon sap-icon-calendar" _item-class="sapMITBFilterCritical"
+                                    label="Components (${serviceOrder.components.length})">
+                                <compose view="plm/service-order/components.html"></compose>
+                            </ui-tab>
+
+                            <ui-tab _icon="sap-icon sap-icon-wrench" item-class="sapMITBFilterNegative"
+                                    label="Attachments (${serviceOrder.Attachments.length})">
+                                <ui-attachments attachments.bind="serviceOrder.Attachments" show-title.bind=false></ui-attachments>
+                            </ui-tab>
+
+                            <ui-tab _icon="sap-icon sap-icon-wrench" item-class="sapMITBFilterNegative"
+                                    label="Classification (${serviceOrder.classification.length})"
+                                    if.bind="serviceOrder.classification.length > 0">
+                            </ui-tab>
+
+                            <ui-tab _icon="sap-icon sap-icon-permission" item-class="sapMITBFilterPositive"
+                                    label="Permits (${serviceOrder.permits.length})"
+                                    show.bind="serviceOrder.permits.length > 0">
+                                <compose view="plm/service-order/work-permits.html"></compose>
+                            </ui-tab>
+
+                        </ui-tab-panel>
+
+                    </ui-column>
+            </ui-row>
+
+        </ui-content>
+    </ui-page>
+</template>

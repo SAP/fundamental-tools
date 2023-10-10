@@ -1,0 +1,99 @@
+<template>
+
+    <compose view="plm/service-order/header.html"></compose>
+
+    <ui-row padded>
+        <ui-column size="md-12">
+            <h4>
+                <span role="presentation" aria-hidden="true"
+                      class="sap-icon sap-icon-wrench sap-icon-2x ui-accent5"></span>
+                Operations (${serviceOrder.operations.length})
+            </h4>
+
+            <ul class="ui-master-list">
+                <li repeat.for="operation of serviceOrder.operations"
+                    class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}"
+                    show.bind="$index < 3 || serviceOrder.showAllOperations">
+
+                    <ui-row class="ui-master-list-item-line">
+
+                        <ui-button disabled.bind="operation.components.length === 0"
+                                   badge.bind="operation.components.length"
+                                   transparent icon-prefix="product sap-icon-2x ui-accent5"
+                                   click.delegate="serviceOrder.showComponents(operation, $index)"></ui-button>
+                        <ui-button transparent icon-prefix="edit sap-icon-1375"
+                                   click.delegate="serviceOrder.editOperation(operation, $index)"></ui-button>
+                        <ui-button transparent icon-prefix="delete sap-icon-1375" button-class="ui-accent3"
+                                   click.delegate="serviceOrder.deleteOperation(operation, $index)"></ui-button>
+                        <ui-column full class="ui-color-primary ui-master-list-item-line">
+                            <ui-row>
+                                <ui-column padded size="md-6">
+                                <span class="ui-list-label">Activity number (type):
+                                    <span class="ui-list-value ui-color-primary">${operation.ACTIVITY} (${operation.ACTTYPE})</span>
+                                </span>
+
+                                <span class="ui-list-label">Description:
+                                    <span class="ui-list-value ui-color-secondary">${operation.DESCRIPTION}</span>
+                                </span>
+                                </ui-column>
+
+                                <ui-column padded size="md-6">
+                                <span class="ui-list-label">Work Center:
+                                    <span class="ui-list-value ui-color-secondary">${operation.WORK_CNTR}</span>
+                                </span>
+
+                                <span class="ui-list-label">Start/end date:
+                                    <span class="ui-list-value ui-color-secondary">${operation.ACT_START_DATE | dateFormat} ${operation.ACT_START_TIME | timeFormat} - ${operation.ACT_END_DATE | dateFormat}  ${operation.ACT_END_TIME | timeFormat}</span>
+                                </span>
+                                </ui-column>
+
+
+                                <ui-column padded size="md-6">
+                                <span class="ui-list-label">Duration:
+                                    <span class="ui-list-value ui-color-secondary">${operation.DURATION_NORMAL} ${operation.DURATION_NORMAL_UNIT}</span>
+                                </span>
+
+                                <span class="ui-list-label">Work Activity:
+                                    <span class="ui-list-value ui-color-secondary">${operation.WORK_ACTIVITY}, actual: ${operation.WORK_ACTUAL}, forecast: ${operation.WORK_FORECAST}</span>
+                                </span>
+                                </ui-column>
+                            </ui-row>
+
+                            <ui-row column>
+                                <div show.bind="operation.showDetail">
+                                    <ui-row>
+                                        <compose view="plm/service-order/operation-detail.html"></compose>
+                                    </ui-row>
+                                </div>
+                                <div show.bind="operation.showComponents">
+                                    <h5>
+                                        Components
+                                    </h5>
+                                    <ui-row repeat.for="c of operation.components">
+                                        <ui-column size="md-6">
+                                            <span class="ui-list-label">Quantity:
+                                                <span class="ui-list-value ui-color-secondary"> ${c.REQUIREMENT_QUANTITY} ${c.REQUIREMENT_QUANTITY_UNIT} of ${c.MATL_DESC} (${c.MATERIAL})</span>
+                                            </span>
+                                        </ui-column>
+                                        <ui-column size="md-6">
+                                            <span class="ui-list-label">Required by:
+                                                <span class="ui-list-value ui-color-secondary"> ${c.REQ_DATE | dateFormat} ${c.REQ_TIME | timeFormat}</span>
+                                            </span>
+                                        </ui-column>
+                                    </ui-row>
+                                </div>
+                            </ui-row>
+                        </ui-column>
+
+                    </ui-row>
+                </li>
+                <ui-button emphasized
+                           label="Show ${serviceOrder.operations.length - 3} more ..."
+                           show.bind="serviceOrder.operations.length > 3 && ! serviceOrder.showAllOperations"
+                           click.delegate="serviceOrder.showAllOperations = true"></ui-button>
+            </ul>
+
+        </ui-column>
+    </ui-row>
+
+</template>

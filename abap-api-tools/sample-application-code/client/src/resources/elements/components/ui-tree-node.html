@@ -1,0 +1,29 @@
+<template class="ui-tree-item">
+
+    <div class="ui-tree-item-link" if.bind="node.isVisible">
+        <a class="ui-node-checkbox ${node.checked<1?'off':''} ${node.checked==1?'on':''} ${node.checked==2?'partial':''}"
+           if.bind="options.showCheckbox && node.level>=options.checkboxLevel"
+           click.trigger="itemSelect()">
+            <span class="sap-icon"></span>
+        </a>
+
+        <a class="ui-link ${!options.showCheckbox && node.active?'ui-active':''} ${node.children.length ? 'ui-bold':''}"
+           data-id="${node.id}" click.trigger="itemSelect()">
+            <span class="sap-icon" if.bind="node.isLeaf"></span>
+            <span class="ui-icon ${node.iconGlyph}" if.bind="node.iconGlyph"></span>
+            <span innerhtml.bind="node.name"></span>
+        </a>
+
+        <a class="ui-expander ${node.expanded?'expanded':''}"
+           if.bind="!node.leaf"
+           click.trigger="node.expanded=!node.expanded">
+            <span class="sap-icon"></span>
+        </a>
+
+    </div>
+    <div class="ui-tree-level" if.bind="node.isVisible && !node.leaf && node.expanded">
+        <tree-node repeat.for="child of node.children | sort:'name'"
+                   node.bind="child"
+                   options.bind="options"></tree-node>
+    </div>
+</template>

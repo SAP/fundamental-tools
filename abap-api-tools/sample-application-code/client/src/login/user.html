@@ -1,0 +1,50 @@
+<template>
+    <template replace-part="app-header">App Header</template>
+
+    <ui-page page-title="Page Title" view-model.ref="__page">
+
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+
+                <ui-button transparent click.delegate="app.router.navigateBack()" icon-prefix="sap-icon sap-icon-arrow-left"></ui-button>
+                ${app.User.fullName} (<a href.bind="url" target="_blank">${app.User.username}, ${app.User.role.AGR_TEXT}</a>)
+            </ui-row>
+        </template>
+
+        <template replace-part="page-footer">
+            Footer
+        </template>
+
+        <ui-content scroll padded class="ui-app-view">
+            <ui-row column padded>
+                <h2>Roles (${app.User.roles.length})</h2>
+                <ul class="ui-master-list" ref="__list">
+                    <li repeat.for="role of app.User.roles">
+                        <div class="ui-color-primary ui-master-list-item-line">
+                            <span class="ui-color-primary">${role.AGR_NAME}</span>
+                            <span class="ui-color-primary">${role.AGR_TEXT}</span>
+                            <span class="ui-color-primary">${role.FROM_DAT | dateFormat}</span>
+                            <span class="ui-color-secondary ui-push-right">${role.TO_DAT | dateFormat}</span>
+                        </div>
+                    </li>
+                </ul>
+            </ui-row>
+
+            <ui-row column padded>
+
+                <h2>Parameters (${paramLen})</h2>
+                <ul class="ui-master-list" ref="__list">
+                    <li repeat.for="id of app.User.params | keys">
+                        <div class="ui-color-primary ui-master-list-item-line">
+                            <span class="ui-color-primary">${id}&nbsp;${app.User.params[id].value}</span>
+                            <span class="ui-color-secondary ui-push-right">${app.User.params[id].text}</span>
+                        </div>
+                    </li>
+                </ul>
+
+            </ui-row>
+
+        </ui-content>
+    </ui-page>
+</template>
+

@@ -1,0 +1,367 @@
+<template>
+    <h4>Component Detail</h4>
+
+    <ui-input ddic-length="18" ddic-type="CHAR" label="Material Number"
+              value.bind="serviceOrder.component.MATERIAL" conv="MATN1" mid="MAT">
+    </ui-input>
+
+    <ui-input ddic-length="40" ddic-type="CHAR" label="Material description"
+              value.bind="serviceOrder.component.MATL_DESC">
+    </ui-input>
+
+    <ui-input ddic-length="9" ddic-type="CHAR" label="Material Group"
+              value.bind="serviceOrder.component.MATL_GROUP" mid="MKL">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Item category (bill of material)"
+              value.bind="serviceOrder.component.ITEM_CAT">
+    </ui-input>
+
+    <ui-input ddic-length="4" ddic-type="CHAR" label="BOM item number"
+              value.bind="serviceOrder.component.ITEM_NUMBER" conv="NUMCV">
+    </ui-input>
+
+    <ui-input quantity ddic-length="+10.3" ddic-type="QUAN" label="Requirement Quantity of Component"
+              value.bind="serviceOrder.component.REQUIREMENT_QUANTITY"
+              symbol.bind="serviceOrder.component.REQUIREMENT_QUANTITY_UNIT" symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-date label="Requirements date for the component"
+             date.bind="serviceOrder.component.REQ_DATE"
+             time.bind="serviceOrder.component.REQ_TIME"></ui-date>
+
+    <!--ui-input numeric ddic-length="10" ddic-type="NUMC" label="Number of reservation/dependent requirements"
+              value.bind="serviceOrder.component.RESERV_NO" mid="RES">
+    </ui-input>
+
+    <ui-input numeric ddic-length="4" ddic-type="NUMC" label="Item Number of Reservation / Dependent Requirements"
+              value.bind="serviceOrder.component.RES_ITEM" mid="RPO">
+    </ui-input-->
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Purchase requisition number"
+              value.bind="serviceOrder.component.PREQ_NO" conv="ALPHA" mid="BAN">
+    </ui-input>
+
+    <ui-input ddic-length="12" ddic-type="CHAR" label="Name of requisitioner/requester"
+              value.bind="serviceOrder.component.PREQ_NAME">
+    </ui-input>
+
+    <ui-input numeric ddic-length="5" ddic-type="NUMC" label="Item number of purchase requisition"
+              value.bind="serviceOrder.component.PREQ_ITEM" mid="BAP">
+    </ui-input>
+
+    <ui-input currency ddic-length="+14.2" ddic-type="CURR" label="Price in component currency"
+              value.bind="serviceOrder.component.PRICE" symbol.bind="serviceOrder.component.CURRENCY"
+              symbol-shlp="CT TCURC">
+    </ui-input>
+
+    <!--ui-input ddic-length="10" ddic-type="CHAR" label="G/L Account Number"
+              value.bind="serviceOrder.component.GL_ACCOUNT" conv="ALPHA" mid="SAK">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Number of purchasing info record"
+              value.bind="serviceOrder.component.INFO_REC" conv="ALPHA" mid="INF">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Account assignment category"
+              value.bind="serviceOrder.component.ACCTASSCAT" mid="KNT">
+    </ui-input>
+
+    <ui-input ddic-length="4" ddic-type="CHAR" label="Activity Number"
+              value.bind="serviceOrder.component.ACTIVITY" conv="NUMCV" mid="VGN">
+    </ui-input>
+
+    <ui-input numeric ddic-length="5" ddic-type="NUMC" label="Item number of principal purchase agreement"
+              value.bind="serviceOrder.component.AGMT_ITEM">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Number of principal purchase agreement"
+              value.bind="serviceOrder.component.AGREEMENT" conv="ALPHA" mid="KTR">
+    </ui-input>
+
+    <ui-checkbox label="Alternative item indicator"
+                 value.bind="serviceOrder.component.ALT_ITEM">
+    </ui-checkbox>
+
+    <ui-checkbox label="Indicator: Backflush"
+                 value.bind="serviceOrder.component.BACKFLUSH">
+    </ui-checkbox>
+
+    <ui-input quantity ddic-length="+10.3" ddic-type="QUAN" label="Requirement Quantity of Component"
+              value.bind="serviceOrder.component.BASE_QTY" symbol.bind="serviceOrder.component.BASE_UOM"
+              symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+              value.bind="serviceOrder.component.BASE_UOM_ISO">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Batch Number"
+              value.bind="serviceOrder.component.BATCH" mid="CHA">
+    </ui-input>
+
+    <ui-checkbox label="Indicator: bulk material"
+                 value.bind="serviceOrder.component.BULK_MAT">
+    </ui-checkbox>
+
+    <ui-input quantity ddic-length="+10.3" ddic-type="QUAN" label="Committed quantity"
+              value.bind="serviceOrder.component.COMMITED_QUAN"
+              symbol.bind="serviceOrder.component.REQUIREMENT_QUANTITY_UNIT" symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Consumption posting"
+              value.bind="serviceOrder.component.CONSUMPT">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Indicator for Relevancy to Costing"
+              value.bind="serviceOrder.component.COST_RELEVANT">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO currency code"
+              value.bind="serviceOrder.component.CURRENCY_ISO">
+    </ui-input>
+
+    <ui-checkbox label="Item is deleted"
+                 value.bind="serviceOrder.component.DELETE_IND">
+    </ui-checkbox>
+
+    <ui-input decimal ddic-length="3" ddic-type="DEC" label="Delivery time in days"
+              value.bind="serviceOrder.component.DELIVERY_DAYS">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Quantity of Goods Received"
+              value.bind="serviceOrder.component.DELIV_QTY" symbol.bind="serviceOrder.component.ORIGINAL_UOM"
+              symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Direct procurement indicator for dialog display"
+              value.bind="serviceOrder.component.DIR_PROCUR">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Discontinuation type"
+              value.bind="serviceOrder.component.DISCONTINUATION">
+    </ui-input>
+
+    <ui-checkbox label="Quantity is fixed"
+                 value.bind="serviceOrder.component.FIXED_QUAN">
+    </ui-checkbox>
+
+
+    <ui-input decimal ddic-length="3" ddic-type="DEC" label="Goods receipt processing time in days"
+              value.bind="serviceOrder.component.GR_PR_TIME">
+    </ui-input>
+
+    <ui-input ddic-length="12" ddic-type="CHAR" label="Goods recipient"
+              value.bind="serviceOrder.component.GR_RCPT">
+    </ui-input>
+
+
+    <ui-input ddic-length="40" ddic-type="CHAR" label="BOM Item Text (Line 1)"
+              value.bind="serviceOrder.component.ITEM_TEXT1">
+    </ui-input>
+
+    <ui-input decimal ddic-length="+3" ddic-type="DEC" label="Lead-time offset for operation"
+              value.bind="serviceOrder.component.LEAD_TIME_OFFSET_OPR">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+              value.bind="serviceOrder.component.LEAD_TIME_OFFSET_OPR_UNIT_ISO">
+    </ui-input>
+
+    <ui-checkbox label="Manual Maintenance of Requirement Date"
+                 value.bind="serviceOrder.component.MANUAL_REQUIREMENTS_DATE">
+    </ui-checkbox>
+
+    <ui-input ddic-length="40" ddic-type="CHAR" label="Long Material Number for MATERIAL Field"
+              value.bind="serviceOrder.component.MATERIAL_EXTERNAL" conv="MATNL">
+    </ui-input>
+
+    <ui-input ddic-length="32" ddic-type="CHAR" label="External GUID for MATERIAL Field"
+              value.bind="serviceOrder.component.MATERIAL_GUID">
+    </ui-input>
+
+    <ui-input ddic-length="40" ddic-type="CHAR" label="Material Number (40 Characters, needed f. technical reasons)"
+              value.bind="serviceOrder.component.MATERIAL_LONG">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Version Number for MATERIAL Field"
+              value.bind="serviceOrder.component.MATERIAL_VERSION" conv="MATNW">
+    </ui-input>
+
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Material Provision Indicator"
+              value.bind="serviceOrder.component.MAT_PROVISION">
+    </ui-input>
+
+    <ui-checkbox label="Goods movement for reservation allowed"
+                 value.bind="serviceOrder.component.MOVEMENT">
+    </ui-checkbox>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="Movement type (inventory management)"
+              value.bind="serviceOrder.component.MOVE_TYPE" mid="BWA">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Reservation Relevance/Generation of Purchase Requisition"
+              value.bind="serviceOrder.component.MRP_RELEVANT">
+    </ui-input>
+
+    <ui-textarea mixedcase ddic-length="-1" ddic-type="STRG" label="Text for Note"
+                 value.bind="serviceOrder.component.NOTICE">
+    </ui-textarea>
+
+    <ui-input ddic-length="12" ddic-type="CHAR" label="Order Number"
+              value.bind="serviceOrder.component.ORDERID" conv="ALPHA" mid="ANR">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Required quantity"
+              value.bind="serviceOrder.component.ORIGINAL_QTY" symbol.bind="serviceOrder.component.ORIGINAL_UOM"
+              symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+              value.bind="serviceOrder.component.ORIGINAL_UOM_ISO">
+    </ui-input>
+
+    <ui-input ddic-length="4" ddic-type="CHAR" label="Plant"
+              value.bind="serviceOrder.component.PLANT" mid="WRK">
+    </ui-input>
+
+
+    <ui-input decimal ddic-length="5" ddic-type="DEC" label="Price unit"
+              value.bind="serviceOrder.component.PRICE_UNIT">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Indicator: Purchase Order Exists"
+              value.bind="serviceOrder.component.PURCHASE_ORDER_EXISTS">
+    </ui-input>
+
+    <ui-input ddic-length="4" ddic-type="CHAR" label="Purchasing organization"
+              value.bind="serviceOrder.component.PURCH_ORG" mid="EKO">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="Purchasing group"
+              value.bind="serviceOrder.component.PUR_GROUP" mid="EKG">
+    </ui-input>
+
+    <ui-input quantity ddic-length="+4.1" ddic-type="QUAN" label="Time Interval Between Relationships"
+              value.bind="serviceOrder.component.RELATIONSHIP_INTERVAL"
+              symbol.bind="serviceOrder.component.RELATIONSHIP_UNIT" symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input ddic-length="2" ddic-type="CHAR" label="Type of relationship"
+              value.bind="serviceOrder.component.RELATIONSHIP_TYPE" conv="AOBAR">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+              value.bind="serviceOrder.component.RELATIONSHIP_UNIT_ISO">
+    </ui-input>
+
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+              value.bind="serviceOrder.component.REQUIREMENT_QUANTITY_UNIT_ISO">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Record type"
+              value.bind="serviceOrder.component.RES_TYPE">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Sales Order Number"
+              value.bind="serviceOrder.component.SALES_ORD" conv="ALPHA" mid="AUN">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Sort String"
+              value.bind="serviceOrder.component.SORT_STRING">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Special stock indicator for dialog display"
+              value.bind="serviceOrder.component.SPECIAL_STOCK">
+    </ui-input>
+
+    <ui-input ddic-length="4" ddic-type="CHAR" label="Storage location"
+              value.bind="serviceOrder.component.STGE_LOC" mid="LAG">
+    </ui-input>
+
+    <ui-input numeric ddic-length="6" ddic-type="NUMC" label="Item number in Sales Order"
+              value.bind="serviceOrder.component.S_ORD_ITEM" mid="KPO">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Requirement Tracking Number"
+              value.bind="serviceOrder.component.TRACKINGNO">
+    </ui-input>
+
+    <ui-input ddic-length="25" ddic-type="CHAR" label="Unloading Point"
+              value.bind="serviceOrder.component.UNLOAD_PT">
+    </ui-input>
+
+    <ui-input decimal ddic-length="3" ddic-type="DEC" label="Usage probability in % (alternative item)"
+              value.bind="serviceOrder.component.USAGE_PROB">
+    </ui-input>
+
+    <ui-input ddic-length="1" ddic-type="CHAR" label="Valuation of Special Stock"
+              value.bind="serviceOrder.component.VALUATION_SPEC_STOCK">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+              value.bind="serviceOrder.component.VAR_SIZE_COMP_MEASURE_UNIT_ISO">
+    </ui-input>
+
+    <ui-input ddic-length="35" ddic-type="CHAR" label="Material Number Used by Vendor"
+              value.bind="serviceOrder.component.VENDOR_MAT">
+    </ui-input>
+
+    <ui-input ddic-length="10" ddic-type="CHAR" label="Account Number of Vendor or Creditor"
+              value.bind="serviceOrder.component.VENDOR_NO" conv="ALPHA" mid="LIF">
+    </ui-input>
+
+    <ui-input ddic-length="2" ddic-type="CHAR" label="Formula key"
+              value.bind="serviceOrder.component.VSI_FORMULA">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Number of variable-size items"
+              value.bind="serviceOrder.component.VSI_NO" symbol.bind="serviceOrder.component.ROAME"
+              symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Required quantity"
+              value.bind="serviceOrder.component.VSI_ORIGINAL_QTY"
+              symbol.bind="serviceOrder.component.REQUIREMENT_QUANTITY_UNIT" symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Quantity of variable-size item"
+              value.bind="serviceOrder.component.VSI_QTY"
+              symbol.bind="serviceOrder.component.VAR_SIZE_COMP_MEASURE_UNIT" symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Size 1"
+              value.bind="serviceOrder.component.VSI_SIZE1" symbol.bind="serviceOrder.component.VSI_SIZE_UNIT"
+              symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Size 2"
+              value.bind="serviceOrder.component.VSI_SIZE2" symbol.bind="serviceOrder.component.VSI_SIZE_UNIT"
+              symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Size 3"
+              value.bind="serviceOrder.component.VSI_SIZE3" symbol.bind="serviceOrder.component.VSI_SIZE_UNIT"
+              symbol-shlp="SH H_T006">
+    </ui-input>
+
+    <ui-input ddic-length="3" ddic-type="CHAR" label="ISO code for unit of measurement"
+              value.bind="serviceOrder.component.VSI_SIZE_UNIT_ISO">
+    </ui-input>
+
+    <ui-input numeric ddic-length="8" ddic-type="NUMC" label="WBS Element"
+              value.bind="serviceOrder.component.WBS_ELEM" conv="ABPSP">
+    </ui-input>
+
+    <ui-checkbox label="Final issue for this reservation"
+                 value.bind="serviceOrder.component.WITHDRAWN">
+    </ui-checkbox>
+
+    <ui-input quantity ddic-length="10.3" ddic-type="QUAN" label="Quantity withdrawn"
+              value.bind="serviceOrder.component.WITHD_QUAN"
+              symbol.bind="serviceOrder.component.REQUIREMENT_QUANTITY_UNIT" symbol-shlp="SH H_T006">
+    </ui-input>
+    -->
+</template>

@@ -1,0 +1,37 @@
+<template>
+    <ui-row column padded>
+        <ui-datagrid __title="" data-list.bind="serviceOrder.components" data-summary="false" default-sort="" selectable
+                     rowselect.trigger="serviceOrder.selectComponent($event.detail)"
+                     empty-text="OOPS!!! No matching records found.">
+            <!-- @formatter:off -->
+            <ui-data-column sortable data-id="MATERIAL"             data-type="text"               ddic-type="CHAR" data-length="18"   align="start" conv="MATN1">Material</ui-data-column>
+            <ui-data-column sortable data-id="MATL_DESC"            data-type="text"               ddic-type="CHAR" data-length="40"   align="start">Material description</ui-data-column>
+            <ui-data-column sortable data-id="MATL_GROUP"           data-type="text"               ddic-type="CHAR" data-length="9"    align="start">Matl Group</ui-data-column>
+
+            <ui-data-column sortable data-id="ITEM_CAT"             data-type="text"               ddic-type="CHAR" data-length="1"    align="start">ICt</ui-data-column>
+            <ui-data-column sortable data-id="ITEM_NUMBER"          data-type="text"               ddic-type="CHAR" data-length="4"    align="start" conv="NUMCV">Item</ui-data-column>
+
+            <ui-data-column sortable data-id="REQUIREMENT_QUANTITY" data-type="number" data-format="quantity" ddic-type="QUAN" data-length="+10.3" data-symbol="REQUIREMENT_QUANTITY_UNIT"  align="end">Reqmt Qty</ui-data-column>
+
+            <ui-data-column sortable data-id="REQ_DATE"             data-type="date"               ddic-type="DATS" data-length="8"    align="end">ReqmtsDate</ui-data-column>
+            <ui-data-column sortable data-id="REQ_TIME"             data-type="time"               ddic-type="TIMS" data-length="6"    align="start">Time req'd</ui-data-column>
+            <!--
+            <ui-data-column data-id="RESERV_NO"            data-type="text" data-format="numeric" ddic-type="NUMC" data-length="10"   align="start">Reserv.no.</ui-data-column>
+            <ui-data-column data-id="RES_ITEM"             data-type="text" data-format="numeric" ddic-type="NUMC" data-length="4"    align="start">Itm</ui-data-column>
+            -->
+            <ui-data-column sortable data-id="PREQ_NO"              data-type="text"               ddic-type="CHAR" data-length="10"   align="start" conv="ALPHA">Purch.req.</ui-data-column>
+            <ui-data-column sortable data-id="PREQ_NAME"            data-type="text"               ddic-type="CHAR" data-length="12"   align="start">Requisnr.</ui-data-column>
+            <ui-data-column sortable data-id="PREQ_ITEM"            data-type="text" data-format="numeric" ddic-type="NUMC" data-length="5"    align="start">Item</ui-data-column>
+            <ui-data-column sortable data-id="PRICE"                data-type="number" data-format="currency" ddic-type="CURR" data-length="+14.2" data-symbol="CURRENCY"                   align="end">Price</ui-data-column>
+            <!--
+            <ui-data-column data-id="GL_ACCOUNT"           data-type="text"               ddic-type="CHAR" data-length="10"   align="start" conv="ALPHA">G/L Acct</ui-data-column>
+            <ui-data-column data-id="INFO_REC"             data-type="text"               ddic-type="CHAR" data-length="10"   align="start" conv="ALPHA">Info rec.</ui-data-column>
+            -->
+        <!-- @formatter:on -->
+        </ui-datagrid>
+    </ui-row>
+
+    <ui-row column padded>
+        <compose if.bind="serviceOrder.component.show" view="plm/service-order/component-detail.html"></compose>
+    </ui-row>
+</template>

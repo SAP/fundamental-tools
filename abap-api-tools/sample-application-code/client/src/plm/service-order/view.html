@@ -1,0 +1,104 @@
+<template>
+    <ui-page page-title="Service Order" view-model.ref="__page">
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+                <ui-button class="ui-btn-transparent" icon-prefix="nav-back"
+                           click.delegate="app.router.navigateBack()"></ui-button>
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                <div style="flex: 1; text-align: center;">
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                ${routeTitle}&nbsp;<a href.bind="serviceOrder.href" target="_blank">${serviceOrder.hrefText}</a>
+                </div>
+            </ui-row>
+        </template>
+
+        <template replace-part="page-footer">
+            <ui-row class="navbar footer">
+                <ui-column pull-right>
+                    <ui-button transparent click.delegate="save()" label="Save"></ui-button>
+                </ui-column>
+            </ui-row>
+        </template>
+
+        <ui-content scroll padded class="ui-app-view">
+
+            <ui-row column padded>
+                <ui-tab-panel>
+
+                    <ui-tab label="Header" separator>
+                            <compose view="plm/service-order/header-opc.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab label="Operations (${serviceOrder.operations.length})">
+                        <compose view="plm/service-order/operations.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab label="Components (${serviceOrder.components.length})" item-class="sapMITBFilterCritical">
+                        <compose view="plm/service-order/components.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab  label="Attachments (${serviceOrder.attachments.length})" icon="sap-icon sap-icon-wrench" item-class="sapMITBFilterNegative">
+                    </ui-tab>
+
+                    <ui-tab label="Classification (${serviceOrder.classification.length})" icon="sap-icon sap-icon-wrench" item-class="sapMITBFilterNegative">
+                    </ui-tab>
+
+                    <ui-tab label="Header (all)">
+                        <ui-column padded>
+                            <ui-row>
+                                <compose view="plm/service-order/header-all.html"></compose>
+                            </ui-row>
+                        </ui-column>
+                    </ui-tab>
+                </ui-tab-panel>
+            </ui-row>
+
+            <require from="reuse/ui-attachments"></require>
+
+            <ui-row column padded>
+                <ui-tab-panel>
+
+                    <ui-tab label="Header" separator>
+                        <compose view="plm/service-order/header-opc.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab _icon="sap-icon sap-icon-accept" _item-class="sapMITBFilterPositive"
+                            label="Operations (${serviceOrder.operations.length})">
+                        <compose view="plm/service-order/operations.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab _icon="sap-icon sap-icon-calendar" _item-class="sapMITBFilterCritical"
+                            label="Components (${serviceOrder.components.length})">
+                        <compose view="plm/service-order/components.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab _icon="sap-icon sap-icon-wrench" item-class="sapMITBFilterNegative"
+                            label="Attachments (${serviceOrder.Attachments.length})">
+                        <ui-attachments attachments.bind="serviceOrder.Attachments" show-title.bind=false></ui-attachments>
+                    </ui-tab>
+
+                    <ui-tab _icon="sap-icon sap-icon-wrench" item-class="sapMITBFilterNegative"
+                            label="Classification (${serviceOrder.classification.length})"
+                            if.bind="serviceOrder.classification.length > 0">
+                    </ui-tab>
+
+                    <ui-tab _icon="sap-icon sap-icon-permission" item-class="sapMITBFilterPositive"
+                            label="Permits (${serviceOrder.permits.length})"
+                            show.bind="serviceOrder.permits.length > 0">
+                        <compose view="plm/service-order/work-permits.html"></compose>
+                    </ui-tab>
+
+                    <ui-tab label="Confirmations (${serviceOrder.confirmations.length})"
+                            show.bind="serviceOrder.confirmations.length > 0">
+                        <compose view="plm/service-order/confirmations.html"></compose>
+                    </ui-tab>
+
+
+                </ui-tab-panel>
+            </ui-row>
+
+
+
+        </ui-content>
+    </ui-page>
+</template>

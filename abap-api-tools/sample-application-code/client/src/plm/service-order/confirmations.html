@@ -1,0 +1,24 @@
+<template>
+    <h4>Confirmations</h4>
+    <ui-row column padded>
+        <!-- ET_CONFIRMATIONS /COE/RBP_T_PAM_ALM_CONFIRM_KEY ?de: BAPI-Struktur Schlüssel der Rückmeldung -->
+        <ui-datagrid data-list.bind="serviceOrder.confirmations" title="Confirmtions" _empty-text="oops ! no recors found"
+                     data-summary="false" default-sort=""
+                     selectable rowselect.trigger="serviceOrder.selectConfirmation($event.detail)">
+            <!-- @formatter:off -->
+            <ui-data-column sortable field="OPERATION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"VGN", "alpha":"NUMCV"}' label="Operation"></ui-data-column>
+            <ui-data-column sortable field="CONF_NO" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"10", "mid":"RCK"}' label="Confirmation"></ui-data-column>
+            <ui-data-column sortable field="CONF_CNT" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8", "mid":"RZL"}' label="Conf. #"></ui-data-column>
+            <ui-data-column sortable field="CONF_TEXT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' label="Short textext"></ui-data-column>
+            <ui-data-column sortable field="CREATED_BY" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' label="Created by"></ui-data-column>
+            <ui-data-column sortable field="CREATED_DATE" data-abap.bind='{"ddic":"DATS", "type":"string", "format":"date"}' label="Created On"></ui-data-column>
+            <ui-data-column sortable field="FIN_CONF" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1", "shlp":{"type":"FV", "id":"AUERU_VS"}}' label="Partial/Final"></ui-data-column>
+            <!-- @formatter:on -->
+        </ui-datagrid>
+    </ui-row>
+
+    <ui-row column padded>
+        <compose if.bind="serviceOrder.confirmation.show" view="plm/service-order/confirmation-detail.html"></compose>
+    </ui-row>
+
+</template>

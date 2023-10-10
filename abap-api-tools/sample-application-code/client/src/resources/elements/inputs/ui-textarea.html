@@ -1,0 +1,77 @@
+<template class="ui-input-group">
+    <label class="ui-label" ref="__label" for="${__id}">
+        <span><slot></slot>${label}</span>
+    </label>
+    <div class="ui-control-wrapper">
+        <div class="ui-input-control">
+            <div class="ui-addon" if.bind="prefixText || prefixIcon">
+                <span if.bind="prefixIcon" class="ui-icon ${prefixIcon}"></span>
+                <span if.bind="prefixText" innerhtml.bind="prefixText"></span>
+            </div>
+            <div class="ui-addon ui-option ui-checkbox" if.bind="__checkbox">
+                <input class="ui-option-input" type="checkbox" checked.bind="checked" id="${__id+'-chk'}" ref="__chkbox" />
+                <span class="ui-check-mark"></span>
+            </div>
+            <div class="ui-input-wrapper">
+                <textarea class="ui-input" id="${__id}" autocomplete="off" rows.bind="rows" dir="${dir}" value.bind="__value" name="${name}" placeholder.bind="placeholder" ref="__input" keydown.trigger="keyDown($event)" blur.trigger="__focus=false"></textarea>
+                <span class="ui-clear fi-ui-close-light ${__value?'show-clear':''}" click.trigger="clearInput()" if.bind="__clear"></span>
+
+                <div class="ui-list floating" css.bind="{width:'200px', 'max-height':'300px', right:'auto', left:__listCss.left, top:__listCss.top}" show.bind="__focus && !readonly" mousewheel.trigger="$event.cancelBubble = true" mousedown.trigger="__clicked($event)"
+                     ref="__list">
+                    <div repeat.for="opt of __autoComplete" class="ui-list-item" data-value="${opt}">
+                        <span class="ui-text ui-col-fill" innerhtml.bind="opt"></span></div>
+                </div>
+            </div>
+            <div class="ui-addon" if.bind="suffixIcon || suffixText">
+                <span if.bind="suffixIcon" class="ui-icon ${suffixIcon}"></span>
+                <span if.bind="suffixText" innerhtml.bind="suffixText"></span>
+            </div>
+            <button if.bind="buttonText || buttonIcon" click.trigger="onAddonClick($event)" class="ui-addon ui-addon-button">
+                <span if.bind="buttonIcon" class="${buttonIcon}"></span>
+                <span if.bind="buttonText" innerhtml.bind="buttonText"></span>
+            </button>
+        </div>
+        <div if.bind="helpText" innerhtml.bind="helpText" class="ui-input-help"></div>
+    </div>
+</template>
+
+<!--template class="ui-input-group">
+    <label class="ui-label" ref="__label" for="${__id}">
+        <span><content></content></span>
+    </label>
+    <div class="ui-control-wrapper">
+        <div class="ui-input-control">
+            <div class="ui-addon" if.bind="prefixText || prefixIcon">
+                <span if.bind="prefixIcon" class="ui-icon ${prefixIcon}"></span>
+                <span if.bind="prefixText" innerhtml.bind="prefixText"></span>
+            </div>
+            <div class="ui-addon ui-option ui-checkbox" if.bind="__checkbox">
+                <input class="ui-option-input" type="checkbox" checked.bind="checked"
+                       id="${__id+'-chk'}" ref="__chkbox"/>
+                <span class="ui-check-mark"></span>
+            </div>
+            <div class="ui-input-wrapper">
+				<textarea class="ui-input" id="${__id}" autocomplete="off" rows.bind="rows" dir="${dir}"
+                          value.bind="__viewValue" placeholder.bind="placeholder" ref="__input"></textarea>
+				<span class="ui-clear fi-ui-close-light ${__viewValue?'show-clear':''}"
+                      click.trigger="clearInput()" if.bind="__clear"></span>
+                <div class="ui-list floating" css.bind="{width:'200px', 'max-height':'300px', right:'auto', left:__listCss.left, top:__listCss.top}" show.bind="__focus && !readonly" mousewheel.trigger="$event.cancelBubble = true" mousedown.trigger="__clicked($event)"
+                     ref="__list">
+                    <div repeat.for="opt of __autoComplete" class="ui-list-item" data-value="${opt}">
+                        <span class="ui-text ui-col-fill" innerhtml.bind="opt"></span></div>
+                </div>
+            </div>
+            <div class="ui-addon" if.bind="suffixIcon || suffixText">
+                <span if.bind="suffixIcon" class="ui-icon ${suffixIcon}"></span>
+                <span if.bind="suffixText" innerhtml.bind="suffixText"></span>
+            </div>
+            <button if.bind="buttonText || buttonIcon" click.trigger="onAddonClick($event)"
+                    class="ui-addon ui-addon-button">
+                <span if.bind="buttonIcon" class="${buttonIcon}"></span>
+                <span if.bind="buttonText" innerhtml.bind="buttonText"></span>
+            </button>
+        </div>
+        <div if.bind="helpText" innerhtml.bind="helpText"
+             class="ui-input-help"></div>
+    </div>
+</template-->

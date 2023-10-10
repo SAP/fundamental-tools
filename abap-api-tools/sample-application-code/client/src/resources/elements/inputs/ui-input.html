@@ -1,0 +1,43 @@
+<template class="ui-input-group ${__focus?'ui-focus':''}">
+	<label class="ui-label" ref="__label" for="${__id}" if.bind="label">
+        <span>${label}<slot></slot></span>
+	</label>
+	<div class="ui-control-wrapper">
+		<div class="ui-input-control">
+			<div class="ui-addon" if.bind="prefixText || prefixIcon">
+				<span if.bind="prefixIcon" class="${prefixIcon}"></span>
+				<span if.bind="prefixText" innerhtml.bind="prefixText"></span>
+			</div>
+			<div class="ui-addon ui-option ui-checkbox" if.bind="__checkbox">
+				<input class="ui-option-input" type="checkbox" checked.bind="checked" id="${__id+'-chk'}" ref="__chkbox" />
+				<span class="ui-check-mark"></span>
+			</div>
+			<div class="ui-input-wrapper">
+				<input class="ui-input" id="${__id}" type="${__type}" autocomplete="off" size="1" name="${name}"
+                       value.bind="__value" placeholder.bind="placeholder" ref="__input" dir="${dir}"
+                       hover.trigger="alert(1)" />
+				<span class="ui-clear sap-icon sap-icon-decline ${__value?'show-clear':''}" click.trigger="clearInput()" if.bind="__clear"></span>
+			</div>
+			<div class="ui-addon" if.bind="centerIcon || centerText">
+				<span if.bind="centerIcon" class="${centerIcon}"></span>
+				<span if.bind="centerText" innerhtml.bind="centerText"></span>
+			</div>
+			<div class="ui-input-wrapper" if.bind="__dual">
+				<input class="ui-input" id="${__id+'-second'}" type="${__type}" size="1" dir="${dir}" name="${nameSecond}" autocomplete="off" value.bind="__value2" placeholder.bind="placeholderSecond" ref="__input2" />
+				<span class="ui-clear sap-icon sap-icon-decline ui-clear2 ${__value2?'show-clear':''}" click.trigger="clearInput(true)" if.bind="__clear"></span>
+			</div>
+			<div class="ui-addon" if.bind="suffixIcon || suffixText" click.trigger="onAddonClick($event)" >
+				<span if.bind="suffixIcon" class="${suffixIcon}"></span>
+				<span if.bind="suffixText" innerhtml.bind="suffixText"></span>
+			</div>
+			<div class="ui-unit" if.bind="unit">
+				<span>${unit}</span>
+			</div>
+			<button if.bind="buttonText || buttonIcon" class="ui-addon ui-addon-button" click.trigger="onAddonClick($event)" >
+				<span if.bind="buttonIcon" class="${buttonIcon}"></span>
+				<span if.bind="buttonText" innerhtml.bind="buttonText"></span>
+			</button>
+		</div>
+		<div if.bind="helpText" innerhtml.bind="helpText" class="ui-input-help"></div>
+	</div>
+</template>

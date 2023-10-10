@@ -1,0 +1,23 @@
+<template>
+    <ui-row column padded>
+        <h4 if.bind="showTitle && flow.length > 0">Document Flow</h4>
+
+        <ul class="ui-master-list">
+            <li ifbind="flowFlat.headers > 0">
+                <ui-row style="padding: 0.25rem;">
+                    <ui-column size="md-2" repeat.for="header of flowFlat.headers">${header.name}</ui-column>
+                </ui-row>
+            </li>
+            <li repeat.for="flowLine of flowFlat.flow">
+                <ui-row style="padding: 0.25rem; border-bottom: 1px solid gainsboro;">
+                    <ui-column size="md-2" repeat.for="bizDoc of flowLine">
+                        <a href.bind="bizDoc.href" target="_blank">
+                            <span class="${bizDoc.icon}" if.bind="bizDoc.DOC_ID"></span> ${bizDoc.DOC_ID}
+                        </a>
+                    </ui-column>
+                </ui-row>
+            </li>
+        </ul>
+</ui-row>
+
+</template>

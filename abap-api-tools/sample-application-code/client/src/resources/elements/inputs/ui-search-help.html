@@ -1,0 +1,78 @@
+<template>
+
+    <ai-dialog class="ui-search-help-dialog">
+        <ai-dialog-header>
+            <ui-row stretch>
+                <ui-combo options.bind="helpSelector" value.bind="shlpname"
+                          disabled.bind="helpSelectorDisabled"
+                          select.delegate="selectHelp($event.detail.id)"></ui-combo>
+            </ui-row>
+        </ai-dialog-header>
+
+        <ai-dialog-body>
+            <!-- Search Parameters -->
+            <ui-row middle repeat.for="searchParam of searchParams" if.bind="!shlp.hide" class="ui-f4-param">
+                <ui-column size="md-4" class="ui-param-text">${searchParam.FIELDTEXT}</ui-column>
+                <ui-combo options.bind="helpSign" value.bind="searchParam.SIGN"></ui-combo>
+                <ui-combo options.bind="helpOption" value.bind="searchParam.OPTION"></ui-combo>
+
+                <ui-column fill>
+                    <ui-input clear if.bind="searchParam.DATATYPE !== 'DATS' && searchParam.DATATYPE !== 'TIMS' "
+                              id="${searchParam.FIELDNAME}_low"
+                              ddic-type="${searchParam.DATATYPE}"
+                              ddic-length="${searchParam.LENG}"
+                              value.two-way="searchParam.LOW">
+                    </ui-input>
+                    <ui-input clear if.bind="searchParam.DATATYPE !== 'DATS' && searchParam.DATATYPE !== 'TIMS' "
+                              show.bind="(searchParam.OPTION ==='BT') || (searchParam.OPTION ==='NB')"
+                              id="${searchParam.FIELDNAME}_high"
+                              ddic-type="${searchParam.DATATYPE}"
+                              ddic-length="${searchParam.LENG}"
+                              value.two-way="searchParam.HIGH">
+                    </ui-input>
+                    <ui-date clear if.bind="searchParam.DATATYPE === 'DATS' || searchParam.DATATYPE === 'TIMS' "
+                             id="${searchParam.FIELDNAME}_low"
+                             ddic-type="${searchParam.DATATYPE}"
+                             ddic-length="${searchParam.LENG}"
+                             date.two-way="searchParam.LOW">
+                    </ui-date>
+                    <ui-date clear if.bind="searchParam.DATATYPE === 'DATS' || searchParam.DATATYPE === 'TIMS' "
+                             show.bind="(searchParam.OPTION ==='BT') || (searchParam.OPTION ==='NB')"
+                             id="${searchParam.FIELDNAME}_high"
+                             ddic-type="${searchParam.DATATYPE}"
+                             ddic-length="${searchParam.LENG}"
+                             date.two-way="searchParam.HIGH">
+                    </ui-date>
+                </ui-column>
+            </ui-row>
+            <ui-row middle class="ui-f4-param">
+                <ui-column size="md-4" class="ui-param-text">Max. rows</ui-column>
+                <ui-input ddic-type="INT2" ddic-length="4" value.bind="maxRows"></ui-input></ui-column>
+            </ui-row>
+            <ui-row middle>
+                <ui-button reject      click.delegate="cancel()" icon-suffix="sap-icon sap-icon-delete" label="Cancel"></ui-button>
+                <ui-button default     click.delegate="search()" icon-suffix="sap-icon sap-icon-search" label="Search"></ui-button>
+                <ui-button accept      click.delegate="confirm()" icon-suffix="sap-icon sap-icon-accept" label="Confirm: ${selectedValue}" show.bind="selectedValue"></ui-button>
+                <!--ui-column auto class="ui-selected-value ui-pull-right">${selectedValue}</ui-column-->
+                <ui-column auto class="ui-pull-right" show.bind="searchResult.length">Found ${searchResult.length}</ui-column>
+            </ui-row>
+
+            <!-- Search Result -->
+            <ui-row column class="ui-f4-result">
+
+                <ui-body scroll>
+                    <ui-datagrid __title="${searchResult.length} records"
+                                 selectable rowselect.trigger="rowSelect($event)"
+                                 empty-text="No records found" ref="__result"></ui-datagrid>
+
+                </ui-body>
+            </ui-row>
+        </ai-dialog-body>
+
+        <ai-dialog-footer>
+            <ui-row>
+
+            </ui-row>
+        </ai-dialog-footer>
+    </ai-dialog>
+</template>

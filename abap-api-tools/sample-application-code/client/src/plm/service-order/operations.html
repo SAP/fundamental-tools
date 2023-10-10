@@ -1,0 +1,40 @@
+<template>
+    <!--h4>Operations (${serviceOrder.operations.length})</h4-->
+
+    <ui-row>
+        <ui-datagrid __title="" data-list.bind="serviceOrder.operations" data-summary="false" default-sort=""
+                     selectable
+                     rowselect.trigger="serviceOrder.selectOperation($event.detail)"
+                     empty-text="OOPS!!! No matching records found.">
+            <!-- @formatter:off -->
+            <ui-data-column sortable esizeable data-id="ACTIVITY"             data-type="text"               ddic-type="CHAR" data-length="4"    align="start" conv="NUMCV">Act</ui-data-column>
+            <ui-data-column sortable esizeable data-id="ACTTYPE"              data-type="text"               ddic-type="CHAR" data-length="6"    align="start">ActTyp</ui-data-column>
+
+            <ui-data-column sortable esizeable data-id="DESCRIPTION"          data-type="text"               ddic-type="CHAR" data-length="40"   align="start">Operation short text</ui-data-column>
+            <ui-data-column sortable esizeable data-id="WORK_CNTR"            data-type="text"               ddic-type="CHAR" data-length="8"    align="start">Work ctr</ui-data-column>
+
+            <ui-data-column sortable esizeable data-id="ACT_START_DATE"       data-type="date"               ddic-type="DATS" data-length="8"    align="end">Act. Start</ui-data-column>
+            <ui-data-column sortable esizeable data-id="ACT_START_TIME"       data-type="time"               ddic-type="TIMS" data-length="6"    align="start">Act. Start</ui-data-column>
+            <ui-data-column sortable esizeable data-id="ACT_END_DATE"         data-type="date"               ddic-type="DATS" data-length="8"    align="end">Act.finish</ui-data-column>
+            <ui-data-column sortable esizeable data-id="ACT_END_TIME"         data-type="time"               ddic-type="TIMS" data-length="6"    align="start">Act.Finish</ui-data-column>
+
+            <ui-data-column sortable esizeable data-id="DURATION_NORMAL"      data-type="number" data-format="quantity" ddic-type="QUAN" data-length="4.1" data-symbol="DURATION_NORMAL_UNIT"       align="end">NorDur</ui-data-column>
+            <!--ui-data-column data-id="DURATION_NORMAL_UNIT_ISO" data-type="text"               ddic-type="CHAR" data-length="3"    align="start">ISO</ui-data-column-->
+
+            <ui-data-column sortable esizeable data-id="WORK_ACTIVITY"        data-type="number" data-format="quantity" ddic-type="QUAN" data-length="6.1" data-symbol="UN_WORK" align="end">Work</ui-data-column>
+            <ui-data-column sortable esizeable data-id="WORK_ACTUAL"          data-type="number" data-format="quantity" ddic-type="QUAN" data-length="10.3"data-symbol="UN_WORK" align="end">Actual work</ui-data-column>
+            <ui-data-column sortable esizeable data-id="WORK_FORECAST"        data-type="number" data-format="quantity" ddic-type="QUAN" data-length="6.1" data-symbol="UN_WORK" align="end">Fcst work</ui-data-column>
+
+            <ui-data-column sortable esizeable data-id="CONF_NO"              data-type="text" data-format="numeric" ddic-type="NUMC" data-length="10"   align="start">Confirm.</ui-data-column>
+            <ui-data-column sortable esizeable data-id="CONTROL_KEY"          data-type="text"               ddic-type="CHAR" data-length="4"    align="start">Ctrl</ui-data-column>
+
+            <ui-data-column sortable esizeable data-id="SYSTEM_STATUS_TEXT"   data-type="text"               ddic-type="CHAR" data-length="40"   align="start">System Status</ui-data-column>
+            <ui-data-column sortable esizeable data-id="QUANTITY"             data-type="number" data-format="quantity" ddic-type="QUAN" data-length="10.3"data-symbol="BASE_UOM"                   align="end">Quantity</ui-data-column>
+            <!-- @formatter:on -->
+        </ui-datagrid>
+    </ui-row>
+
+    <ui-row padded>
+        <compose if.bind="serviceOrder.operation.show" view="plm/service-order/operation-detail.html"></compose>
+    </ui-row>
+</template>

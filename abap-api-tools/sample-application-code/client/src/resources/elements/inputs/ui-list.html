@@ -1,0 +1,40 @@
+<template class="ui-input-group">
+    <label class="ui-label" ref="__label">
+        <span><slot></slot></span>
+    </label>
+    <div class="ui-control-wrapper">
+        <div class="ui-input-control ui-list-dual">
+            <div class="ui-input-wrapper">
+                <input class="ui-input" id="${__id}" autocomplete="off" size="1" focus.trigger="__gotFocus()" blur.trigger="__lostFocus()" click.trigger="__gotFocus()" keydown.trigger="keyDown($event)" value.bind="__searchText" placeholder.bind="placeholder" ref="__input"
+                    input.trigger="__searchTextChanged() & debounce:200" name="${name}" show.bind="__searchable" />
+                <div class="ui-list ui-dual" dragover.trigger="__dragEnter($event)" drop.trigger="__moveLeft(__model)" ref="__list">
+                    <div class="ui-list-group" dragstart.delegate="__dragStart($event, true)" dblclick.delegate="addEl($event)">
+                        <div model.bind="opt" repeat.for="opt of __options | sort:displayProperty" class="ui-list-item" data-value="${opt[valueProperty]}" draggable="true">
+                            <span class="ui-icon ${iconClass} ${opt[iconProperty]}" if.bind="iconProperty"></span>
+                            <span class="ui-text ui-col-fill" innerhtml.bind="opt['__display'] || opt[displayProperty]"></span>
+                        </div>
+                    </div>
+                    <p class="ui-text-muted ui-pad-all" if.bind="__noResult">${emptyText}</p>
+                </div>
+            </div>
+            <div class="ui-addon ui-list-controls">
+                <button class="ui-addon-button" disabled.bind="value.length==0" click.trigger="removeAll()"><span class="fi-ui-page-first-line"></span></button>
+                <!-- <button class="ui-addon-button" disabled.bind="!availableModel"><span class="fi-ui-page-prev-line"></span></button>
+                <button class="ui-addon-button" disabled.bind="!selectedModel"><span class="fi-ui-page-next-line"></span></button> -->
+                <button class="ui-addon-button" disabled.bind="__options.length==0" click.trigger="addAll()"><span class="fi-ui-page-last-line"></span></button>
+            </div>
+            <div class="ui-input-wrapper">
+                <div class="ui-list ui-dual" dragover.trigger="__dragEnter($event)" drop.trigger="__moveRight(__model)">
+                    <div class="ui-list-group" dragstart.delegate="__dragStart($event, false)" dblclick.delegate="removeEl($event)">
+                        <div model.bind="opt" repeat.for="opt of __value | sort:displayProperty" class="ui-list-item" data-value="${opt[valueProperty]}" draggable="true">
+                            <span class="ui-icon ${iconClass} ${opt[iconProperty]}" if.bind="iconProperty"></span>
+                            <small if.bind="__modeCopy">&nbsp;(${opt[countProperty] || 1})</small>
+                            <span class="ui-text ui-col-fill" innerhtml.bind="opt[displayProperty]"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div if.bind="helpText" innerhtml.bind="helpText" class="ui-input-help"></div>
+    </div>
+</template>

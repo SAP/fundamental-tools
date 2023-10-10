@@ -1,0 +1,56 @@
+<template class="ui-input-group ui-date-input">
+	<label class="ui-label" ref="__label" for="${__id}" if.bind="label">
+		<span><slot></slot>${label}</span>
+	</label>
+	<div class="ui-control-wrapper">
+		<div class="ui-input-control">
+
+            <div class="ui-addon" if.bind="prefixIcon || prefixText">
+                <span if.bind="prefixIcon" class="${prefixIcon}"></span>
+                <span if.bind="prefixText" innerhtml.bind="prefixText"></span>
+            </div>
+
+			<div class="ui-addon ui-option ui-checkbox" if.bind="__checkbox">
+				<input class="ui-option-input" type="checkbox" checked.bind="checked"
+					   id="${__id+'-chk'}" ref="__chkbox"/>
+				<span class="ui-check-mark"></span>
+			</div>
+			<div class="ui-input-wrapper">
+				<input class="ui-input" id="${__id}" type.bind="__type" autocomplete="off" size="1"
+					   click.trigger="__startFocus=true" readonly dir="ltr"
+					   focus.trigger="__startFocus=true" blur.trigger="__startFocus=false"
+					   value.bind="__value" placeholder.bind="placeholder" ref="__input"/>
+				<span class="ui-clear sap-icon sap-icon-decline ${__value?'show-clear':''}"
+					  click.trigger="clearInput()" if.bind="__clear"></span>
+
+				<ui-date-view date.bind="__date" class="floating"
+							  showing.bind="__startFocus" showtime.bind="__showtime" options.bind="__dateStart"
+							  mousedown.trigger="$event.target.parentElement.firstElementChild.focus()"></ui-date-view>
+			</div>
+			<!--div class="ui-addon ui-small-caps" if.bind="__dual" click.trigger="__input2.focus()">to</div>
+			<div class="ui-input-wrapper" if.bind="__dual">
+				<input class="ui-input" id="${__id+'-second'}" type.bind="__type" size="1"
+					   click.trigger="__endFocus=true" readonly dir="ltr"
+					   focus.trigger="__endFocus=true" blur.trigger="__endFocus=false"
+					   autocomplete="off" value.bind="__value2" placeholder.bind="placeholderSecond" ref="__input2"/>
+				<span class="ui-clear sap-icon sap-icon-decline ui-clear2 ${__value2?'show-clear':''}"
+					  click.trigger="clearInput(true)" if.bind="__clear"></span>
+
+				<ui-date-view date.bind="dateEnd" class="floating"
+							  showing.bind="__endFocus" options.bind="__dateEnd"
+							  mousedown.trigger="$event.target.parentElement.firstElementChild.focus()"></ui-date-view>
+			</div-->
+            <div class="ui-addon ui-date-addon" click.trigger="__input.focus()">
+                <span class="sap-icon sap-icon-${__showtime ? 'history' : 'calendar'}"></span>
+                <!--span class="date">${__today}</span-->
+            </div>
+			<button if.bind="buttonText || buttonIcon" click.trigger="onAddonClick($event)"
+					class="ui-addon ui-addon-button">
+				<span if.bind="buttonIcon" class="${buttonIcon}"></span>
+				<span if.bind="buttonText" innerhtml.bind="buttonText"></span>
+			</button>
+		</div>
+		<div if.bind="helpText" innerhtml.bind="helpText"
+			 class="ui-input-help"></div>
+	</div>
+</template>

@@ -1,0 +1,29 @@
+<template class="ui-pager" ref="__pager">
+    <div class="btn-toolbar">
+        <div class="btn-group btn-group-sm" role="group">
+            <button type="button" class="btn btn-sm btn-secondary"
+                    disabled.bind="current==1" click.trigger="fireChange(0)">
+                <span class="sap-icon sap-icon-media-rewind"></span>
+            </button>
+            <button class="btn btn-secondary"
+                    disabled.bind="current==1" click.trigger="fireChange(-1)">
+                <span class="sap-icon sap-icon-media-reverse"></span>
+            </button>
+            <div class="btn ui-input">
+                    <input class="form-control form-control-sm text-center" size="3" value.bind="current"
+                           keypress.trigger="keyCheck($event)"/>
+            </div>
+            <div class="btn ui-total">
+                <span > of 5</span>
+            </div>
+            <button class="btn btn-secondary"
+                    disabled.bind="current===total" click.trigger="fireChange(1)">
+                <span class="sap-icon sap-icon-media-play"></span>
+            </button>
+            <button class="btn btn-secondary"
+                    disabled.bind="current===total" click.trigger="fireChange(2)">
+                <span class="sap-icon sap-icon-media-forward"></span>
+            </button>
+        </div>
+    </div>
+</template>

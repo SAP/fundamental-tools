@@ -1,0 +1,17 @@
+<template class="ui-menu" click.trigger="onClick($event)">
+	<p class="ui-menu-title" if.bind="router.title">${router.title}</p>
+	<div repeat.for="route of router.navigation">
+		<hr if.bind="route.settings.sectionStart" />
+		<p class="ui-menu-section" if.bind="route.settings.sectionTitle">${route.settings.sectionTitle}</p>
+
+		<a class="ui-menu-link ${isActive(route, router.currentInstruction)?'ui-active':''}" data-disabled="${route.settings.disabled}" href.bind="route.href">
+			<span class="ui-icon ${route.settings.icon}"></span>&nbsp;${route.settings.menuTitle || route.title}</a>
+	</div>
+
+	<div repeat.for="link of menu">
+		<hr if.bind="link==='-'" />
+		<p class="ui-menu-section" if.bind="link.length && link!=='-'">${link}</p>
+		<a if.bind="link.text" class="ui-menu-link ${link.isActive ? 'ui-active' : ''}" data-id="${link.id}" href.bind="link.href || 'javascript:;'">
+			<span class="ui-icon ${link.icon}"></span>&nbsp;${link.text}</a>
+	</div>
+</template>

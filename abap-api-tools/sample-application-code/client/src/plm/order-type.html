@@ -1,0 +1,25 @@
+<template>
+    <ai-dialog>
+        <ai-dialog-header>${createDialog.title}</ai-dialog-header>
+
+        <ai-dialog-body>
+            <!--form submit.trigger="controller.ok(answer)">
+                <input type="text" value.bind="answer" style="width: 100%; line-height: 16px; font-size: 16px"
+                       attach-focus>
+            </form-->
+
+            <ui-combo clear ddic-length="4" ddic-type="CHAR" label="Order Type"
+                      value.two-way="createDialog.orderType" mid="QMR"
+                      shlp.bind="{type: 'CT', id: 'ServiceOrderType'}">
+            </ui-combo>
+
+        </ai-dialog-body>
+
+        <ai-dialog-footer>
+            <ui-row class="navbar footer">
+                <ui-button transparent click.trigger="controller.cancel()" label="Cancel"></ui-button>
+                <ui-button transparent click.trigger="controller.ok(answer)" label="Ok"></ui-button>
+            </ui-row>
+        </ai-dialog-footer>
+    </ai-dialog>
+</template>

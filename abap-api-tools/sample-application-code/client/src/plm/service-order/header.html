@@ -1,0 +1,93 @@
+<template>
+    <ui-row>
+        <ui-column padded size="md-6">
+            <h4>
+                    <span role="presentation" aria-hidden="true"
+                          class="sap-icon sap-icon-order-status ui-color-secondary"></span>
+                Overview ${serviceOrder.header.ORDER_TYPE}
+            </h4>
+
+            <ui-input ddic-length="4" ddic-type="CHAR" label="Order Type" shlp.bind="{type: 'SH', id: 'AUART'}"
+                      value.bind="serviceOrder.header.ORDER_TYPE" mid="AAI">
+            </ui-input>
+
+            <ui-input ddic-length="3" ddic-type="CHAR" label="Maintenance activity type"
+                      value.bind="serviceOrder.header.PMACTTYPE"
+                      shlp.bind="{type: 'SH', id: 'H_T350I', selection: [['SPRAS', 'I', 'EQ', 'E', '']]}">
+            </ui-input>
+
+            <ui-input ddic-length="1" ddic-type="CHAR" label="Priority"
+                      value.bind="serviceOrder.header.PRIORITY" mid="PRIOK">
+            </ui-input>
+
+            <ui-input ddic-length="40" ddic-type="CHAR" label="User status"
+                      value.bind="serviceOrder.header.USERSTATUS">
+            </ui-input>
+            <!--ui-combo value.two-way="serviceOrder.header.ORDER_TYPE & signal:'order-detail'" lookup="orderType">Order Type</ui-combo>
+            <ui-combo clear value.bind="serviceOrder.header.PMACTTYPE"  lookup="activityType">Activity Type</ui-combo>
+            <ui-combo clear value.bind="serviceOrder.header.PRIORITY"   lookup="priority">Priority</ui-combo>
+            <ui-combo clear value.bind="serviceOrder.header.USERSTATUS" lookup="userStatus">User Status</ui-combo-->
+        </ui-column>
+
+        <ui-column padded size="md-6">
+            <h4>
+                    <span role="presentation" aria-hidden="true"
+                          class="sap-icon sap-icon-customer ui-color-secondary"></span>
+                Responsible
+            </h4>
+
+            <ui-combo clear ddic-length="8" ddic-type="CHAR" label="Main work center for maintenance tasks"
+                      value.bind="serviceOrder.header.MN_WK_CTR" mid="VAP" lookup="workCenter">
+            </ui-combo>
+
+            <ui-input ddic-length="12" ddic-type="CHAR" label="Entered by"
+                      shlp.one-time="{type: 'SH', id: 'USER_ADDR'}"
+                      value.bind="serviceOrder.header.ENTERED_BY">
+            </ui-input>
+        </ui-column>
+
+        <ui-column padded size="md-6">
+            <h4>
+                    <span role="presentation" aria-hidden="true"
+                          class="sap-icon sap-icon-calendar ui-color-secondary"></span>
+                Schedule
+            </h4>
+
+            <ui-date label="Scheduled start" date.bind="serviceOrder.header.PRODUCTION_START_DATE"></ui-date>
+
+            <ui-date label="Scheduled finish" date.bind="serviceOrder.header.PRODUCTION_FINISH_DATE"></ui-date>
+        </ui-column>
+
+        <ui-column padded size="md-6">
+            <h4>
+                    <span role="presentation" aria-hidden="true"
+                          class="sap-icon sap-icon-building ui-color-secondary"></span>
+                Location
+            </h4>
+
+            <ui-input ddic-length="18" ddic-type="CHAR" label="Equipment Number"
+                      value.bind="serviceOrder.header.EQUIPMENT" conv="ALPHA"
+                      shlp.bind="{type: 'SH', id: 'EQUI'}" mid="EQN">
+            </ui-input>
+
+            <ui-input ddic-length="30" ddic-type="CHAR" label="Functional Location"
+                      value.bind="serviceOrder.header.FUNCT_LOC" conv="TPLNR"
+                      shlp.bind="{type: 'SH', id: 'IFLM'}" mid="IFL">
+            </ui-input>
+        </ui-column>
+    </ui-row>
+
+    <ui-row>
+        <ui-column padded size="md-6">
+            <ui-textarea rows="5" required label="Short Description"
+                         placeholder="Title (short text) here"
+                         maxlength=40 showchars=true
+                         value.two-way="serviceOrder.subject"></ui-textarea>
+        </ui-column>
+        <ui-column padded size="md-6">
+            <ui-textarea rows="5" required label="Additional Details"
+                         value.two-way="serviceOrder.message"></ui-textarea>
+        </ui-column>
+    </ui-row>
+
+</template>

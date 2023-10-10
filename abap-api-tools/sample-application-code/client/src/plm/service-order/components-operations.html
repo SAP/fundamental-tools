@@ -1,0 +1,49 @@
+<template class="components">
+
+    <!--h3>Operations: ${serviceOrder.operations.length}</h3-->
+    <ul class="ui-master-list">
+        <li class="ui-master-list-item" repeat.for="operation of serviceOrder.operations">
+            <h4>${operation.ACTIVITY} ${operation.CONTROL_KEY}</h4>
+            ${operation.DESCRIPTION} ${operation.ZZNOTICE}
+            <br>
+            ${operation.WORK.CNTR}
+            <br>
+            Capacities: ${operation.NUMBER_OF_CAPACITIES}
+            Duration: ${operation.DURATION_NORMAL}
+            Total work: ${operation.WORK_ACTIVITY}
+            <!--p repeat.for="k of operation | keys">${k}: ${operation[k]}</p-->
+
+            <!-- Scheduling -->
+            <div>
+                Start ${operation.EARL_SCHED_START_DATE | dateFormat} ${operation.EARL_SCHED_START_TIME | clockFormat}
+                <br>
+                Finish ${operation.EARL_SCHED_FIN_DATE | dateFormat} ${operation.EARL_SCHED_FIN_TIME | clockFormat}
+            </div>
+        </li>
+    </ul>
+
+    <h3 if.bind="serviceOrder.components.length > 0">Components: ${serviceOrder.components.length}</h3>
+    <ui-row repeat.for="component of serviceOrder.components">
+        <h3>${component.MATERIAL} ${component.MATL_DESC}</h3>
+        <br>
+        Required by: ${component.REQ_DATE | dateFormat} ${component.REQ_TIME | clockFormat}
+        <br>
+        Details: ${component.ZZNOTICE}
+        <br>
+        <ui-input
+                 caption="Quantity" abaptype="QUAN" len="+10.3"
+                 value.two-way="component.REQUIREMENT_QUANTITY" unit.one-way="component.REQUIREMENT_QUANTITY_UNIT" unitshlp="SH H_T006">
+        </ui-input>
+
+        <ui-input
+                 caption="Price" abaptype="CURR" len="+14.2"
+                 value.two-way="component.PRICE" unit.one-way="component.CURRENCY" unitshlp="CT TCURC">
+        </ui-input>
+        <div>
+            Recipient ${component.GR_RCPT}
+            <br>
+            Unloading Point ${component.UNLOAD_PT}
+        </div>
+
+    </ui-row>
+</template>

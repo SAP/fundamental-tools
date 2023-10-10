@@ -1,0 +1,69 @@
+<template>
+    <h4>Confirmation Detail ${serviceOrder.confirmation.CONF_NO} / ${serviceOrder.confirmation.CONF_CNT}
+        <span>
+        <ui-button click.delegate="serviceOrder.editConfirmation()"   icon-suffix="sap-icon sap-icon-edit sap-icon-2x" ></ui-button>
+        <ui-button click.delegate="serviceOrder.createConfirmation()" icon-suffix="sap-icon sap-icon-save sap-icon-2x" ></ui-button>
+        </span></h4>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" mixedcase value.two-way="serviceOrder.confirmation.CONF_TEXT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+              label="Stort text"></ui-input>
+
+    <ui-textarea disabled.bind="serviceOrder.confirmation._disabled" mixedcase ddic-length="132" rows="3" label="Long Text"
+                 value.two-way="serviceOrder.confirmation.LONGTEXT"></ui-textarea>
+
+    <ui-date disabled.bind="serviceOrder.confirmation._disabled"
+             date.bind="serviceOrder.confirmation.EXEC_START_DATE"
+             time.bind="serviceOrder.confirmation.EXEC_START_TIME"
+             label="Confirmed Execution Start"></ui-date>
+
+    <ui-date disabled.bind="serviceOrder.confirmation._disabled"
+             date.bind="serviceOrder.confirmation.EXEC_FIN_DATE"
+             time.bind="serviceOrder.confirmation.EXEC_FIN_TIME"
+             label="Confirmed Execution Finish"></ui-date>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.CREATED_BY" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+              label="Created by"></ui-input>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.ACTUAL_DUR"
+              unit.bind="serviceOrder.confirmation.UN_ACT_DUR"
+              data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"4.1"}'
+              label="Actual Duration for Confirmation"></ui-input>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.ACT_TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"6"}'
+              label="Activity Type for Confirmation"></ui-input>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.ACT_WORK"
+              unit.bind="serviceOrder.confirmation.UN_WORK"
+              data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"6.1"}'
+              label="Actual work"></ui-input>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.CREATED_BY" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+              label="Name of Person who Created the Object"></ui-input>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.PERS_NO" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8", "mid":"PER"}'
+              label="Personnel number"></ui-input>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" mixedcase value.bind="serviceOrder.confirmation.NAME" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+              label="Name of employee"></ui-input>
+
+    <ui-date disabled.bind="serviceOrder.confirmation._disabled" date.bind="serviceOrder.confirmation.CREATED_DATE"
+             time.bind="serviceOrder.confirmation.CREATED_TIME"
+             label="Created On"></ui-date>
+
+    <ui-checkbox disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.CLEAR_RES" label="Clear open Res."></ui-checkbox>
+
+    <ui-checkbox disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.COMPLETE" label="Completed"></ui-checkbox>
+
+    <ui-combo disabled.bind="serviceOrder.confirmation._disabled" value.two-way="serviceOrder.confirmation.FIN_CONF" shlp.bind='{"type":"FV", "id":"AUERU_VS"}'
+              data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+              label="Partial/Final Confirmation"></ui-combo> ${serviceOrder.confirmation.FIN_CONF}
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.ACT_WORK"
+              unit.bind="serviceOrder.confirmation.UN_WORK" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"6.1"}'
+              label="Actual work"></ui-input>
+
+    <ui-input disabled.bind="serviceOrder.confirmation._disabled" value.bind="serviceOrder.confirmation.REM_WORK"
+              unit.bind="serviceOrder.confirmation.UN_REM_WRK" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"6.1"}'
+              label="Remaining work"></ui-input>
+
+</template>

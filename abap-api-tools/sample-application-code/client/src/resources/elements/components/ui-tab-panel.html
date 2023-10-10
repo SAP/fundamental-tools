@@ -1,0 +1,25 @@
+<template class="ui-tab-panel">
+    <style>
+        .sapMITBFilter .sapMITBText {width: inherit; }
+    </style>
+    <div class="ui-tab-header" ref="__tabButtons">
+        <div class="ui-tab ${tab.isSelected?'ui-active':''} ${tab.visible === false?'ui-none':''} sapMITBFilter sapMITBItem sapMITBVertical ${tab.itemClass}"
+             tabindex="0" aria-expanded="true" aria-selected="true"
+             repeat.for="tab of tabs" data-index="${$index}" click.trigger="activeTab = $index">
+            <div if.bind="tab.icon">
+                <span class="sapMITBFilterIcon ${tab.icon}"></span>
+                <span class="sapMITBCount top-left">${tab.topLeft}</span>
+                <span class="sapMITBCount top-right">${tab.topRight}</span>
+                <span class="sapMITBCount bottom-left">${tab.bottomLeft}</span>
+                <span class="sapMITBCount bottom-right">${tab.bottomRight}</span>
+            </div>
+            <div class="sapMITBText">${tab.label}</div>
+            <div class="sapMITBContentArrow"></div>
+        </div>
+    </div>
+
+    <div class="ui-tab-body" ref="__tabs">
+        <slot></slot>
+    </div>
+</template>
+

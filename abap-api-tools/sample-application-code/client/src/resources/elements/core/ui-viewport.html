@@ -1,0 +1,60 @@
+<template role="main" class="ui-viewport" click.delegate="__hideMenu($event)">
+    <header class="ui-app-header">
+        <!-- sidebar -->
+        <div style="display: flex; align-items: center;">
+            <ui-button transparent route="#/plm/shell" icon-prefix="home"></ui-button>
+            <ui-button transparent click.trigger="__showMenu($event)" icon-prefix="menu2"></ui-button>
+            <!-- logo -->
+            <div class="ui-app-logo"></div>
+        </div>
+
+        <slot></slot>
+
+        <ui-button transparent label.bind="app.User.fullName" icon-prefix="sap-icon sap-icon-employee"
+            menuclick.delegate="appMenu($event)" menu-class="app-header-selector" right show.bind="app.IsAuthenticated">
+            <menu href="#/user" icon="sap-icon sap-icon-employee ui-font-1375">
+                User Preferences
+            </menu>
+            <menu icon="sap-icon sap-icon-edit ui-font-1375">
+                Personalize Home Page
+            </menu>
+            <menu icon="sap-icon sap-icon-sys-find ui-font-1375">
+                App Finder
+            </menu>
+            <menu href="mailto:srdjan.boskovic@sap.com?subject=Feedback to Fiori Accelerator&body=Attach the screenshot if possible"
+                icon="sap-icon sap-icon-marketing-campaign ui-font-1375">
+                Feedback
+            </menu>
+            <menu id="logout" icon="sap-icon sap-icon-log ui-font-1375">
+                Log off
+            </menu>
+        </ui-button>
+
+    </header>
+
+    <router-view role="region" swap-order="after" class="ui-router-view"></router-view>
+
+    <div class="ui-taskbar" if.bind="showTaskbar">
+        <template replaceable part="quick-links"></template>
+    </div>
+
+    <footer class="ui-app-footer">
+        <small>Version ${app.release.version}</small>
+        <!--small innerhtml.bind="copyright"></small-->
+        <small>${app.IsHttpInUse ? 'HTTP' : ''}</small>
+        <small>${app.IsAuthenticated ? app.User.username + ' @ ' + app.__ashost + ' : ' + app.__abapsysid + ' (' +
+            app.__abapBackend.client + ') ' + app.__commitHash : ''}</small>
+    </footer>
+
+    <div class="ui-app-menu-shim"></div>
+    <compose view="./ui-app-menu.html" class="ui-app-menu ui-menu ui-scroll"></compose>
+
+    <div class="ui-dialog-container"></div>
+    <div class="ui-overlay-container"></div>
+    <div class="ui-loading-shim" if.bind="router.isNavigating || app.IsHttpInUse">
+        <div class="ui-loader">
+            <span class="ui-spin fi-ui-cog-black"></span>
+            <span class="ui-spin-opp fi-ui-cog-black second"></span>
+        </div>
+    </div>
+</template>

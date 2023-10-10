@@ -1,0 +1,189 @@
+<template>
+    <require from="reuse/ui-docflow"></require>
+
+    <ui-page>
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+                <ui-button class="ui-btn-transparent" icon-prefix="nav-back"
+                           click.delegate="app.router.navigateBack()"></ui-button>
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                <div style="flex: 1; text-align: center;">
+                    My Confirmations (${listFilterFound ? listFilterFound + ' of ' :''}${serviceOrder.list.length})
+                    <a href.bind="serviceOrder.href"
+                        target="_blank">${serviceOrder.hrefText}</a>
+                </div>
+            </ui-row>
+        </template>
+
+        <template replace-part="page-footer">
+            <ui-row class="navbar footer">
+                <ui-column pull-right>
+                    <ui-button show.bind="!serviceOrder.confirmation._disabled" transparent click.delegate="serviceOrder.createConfirmation()" label="Create Confirmation"></ui-button>
+                </ui-column>
+            </ui-row>
+        </template>
+
+        <ui-content scroll padded class="ui-app-view">
+            <ui-row padded>
+
+                <ui-column column padded size="sm-4">
+
+                    <ui-input search data-type="text" ddic-type="CHAR" data-length="40" mixedcase
+                              input.delegate="listFilterChanged($event.target.value, serviceOrder.list) & debounce:200">
+                    </ui-input>
+
+                    <!--h4><span class="sap-icon sap-icon-notification-2">&nbsp;</span>Service Notifications</h4-->
+                    <ul class="ui-master-list">
+                        <li repeat.for="line of serviceOrder.list"
+                            class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}"
+                            click.delegate="listClick($index, line.ORDERID)">
+
+                            <div class="ui-master-list-item-line line-3">
+                                <span style="flex:1" class="ui-color-primary">${line.SHORT_TEXT}</span>
+                                <span class="ui-color-secondary">${line.ORDERID} </span>
+                            </div>
+
+                            <div class="ui-color-primary ui-font-1125">
+                                ${line.PRIO_DESC}
+                            </div>
+
+                            <div class="ui-color-secondary">
+                                ${line.ENTER_DATE | dateFormat} ${line.U_STATUS} ::
+                                ${line.PMACTTYPE}
+                                Changed by: ${line.CHANGED_BY} on: ${line.CHANGE_DATE}
+                            </div>
+                            <!--a href="#/plm/service-notification/${line.NOTIFICAT}">
+                                <div style="display: flex; align-items: center; padding: 1rem">
+                                    <span style="flex:1">${line.DESCRIPT}</span><span>${line.NOTIFICAT}</span>
+                                </div>
+                            </a-->
+
+                            <div class="ui-color-primary ui-master-list-item-line">
+                                <span class="ui-color-primary">${line.DESCRIPT}</span>
+                                <span class="ui-color-secondary ui-push-right">${line.NOTIFICAT}</span>
+                                <!--span class="ui-color-primary">${line.NOTIF_TYPE}</span>
+                                <span class="ui-color-primary">${line.PRIORITY}</span>
+                                <span class="ui-color-primary">${line.FUNCLDESCR}</span>
+                                <span class="ui-color-primary">${line.FUNCLOC}</span>
+                                <span class="ui-color-primary">${line.EQUIDESCR}</span>
+                                <span class="ui-color-primary">${line.EQUIPMENT}</span>
+                                <span class="ui-color-primary">${line.S_STATUS}</span>
+                                <span class="ui-color-primary">${line.U_STATUS}</span-->
+                            </div>
+
+                            <!--div class="ui-color-primary ui-font-1125 ui-master-list-item-line">
+                                ${line.DESCRIPT}
+                            </div-->
+
+                            <div class="ui-master-list-item-line ui-color-secondary" if.one-time="line.NOTIFDATE">
+                                Date:
+                                <span class="pm-order-${line.__orderDate}">
+                                    ${line.NOTIFDATE | dateFormat}
+                                </span>
+                                <span class="pm-order-${line.__orderDate}" >
+                                    ${line.NOTIFTIME | timeFormat}
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+
+                </ui-column>
+
+                <ui-column scroll padded size="sm-8">
+
+                    <compose view="../service-order/confirmations.html"></compose>
+
+                    <!--
+                    <p>Confirmations: ${serviceOrder.confirmations.length}</p>
+
+                    <ui-datagrid data-list.bind="serviceOrder.confirmations" title="Confirmtions" empty-text="oops ! no recors found"
+                              data-summary="false" default-sort=""
+                              selectable rowselect.trigger="serviceOrder.selectConfirmation($event.detail)">
+                        <ui-data-column sortable field="OPERATION" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"4", "mid":"VGN", "alpha":"NUMCV"}' label="Operation"></ui-data-column>
+                        <ui-data-column sortable field="CONF_NO" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"10", "mid":"RCK"}' label="Confirmation"></ui-data-column>
+                        <ui-data-column sortable field="CONF_CNT" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8", "mid":"RZL"}' label="Conf. #"></ui-data-column>
+                        <ui-data-column sortable field="CONF_TEXT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}' label="Short textext"></ui-data-column>
+                        <ui-data-column sortable field="CREATED_BY" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}' label="Created by"></ui-data-column>
+                        <ui-data-column sortable field="CREATED_DATE" data-abap.bind='{"ddic":"DATS", "type":"string", "format":"date"}' label="Created On"></ui-data-column>
+                        <ui-data-column sortable field="FIN_CONF" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1", "shlp":{"type":"FV", "id":"AUERU_VS"}}' label="Partial/Final"></ui-data-column>
+                    </ui-datagrid>
+
+                    <ui-input value.bind="serviceOrder.confirmation.CONF_TEXT" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+                              label="Stort text"></ui-input>
+
+                    <ui-date date.bind="serviceOrder.confirmation.EXEC_START_DATE"
+                             time.bind="serviceOrder.confirmation.EXEC_START_TIME"
+                             label="Confirmed Execution Start"></ui-date>
+
+                    <ui-date date.bind="serviceOrder.confirmation.EXEC_FIN_DATE"
+                             time.bind="serviceOrder.confirmation.EXEC_FIN_TIME"
+                             label="Confirmed Execution Finish"></ui-date>
+
+                    <ui-input value.bind="serviceOrder.confirmation.CREATED_BY"
+                              data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+                              label="Created by"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.ACTUAL_DUR" unit.bind="serviceOrder.confirmation.UN_ACT_DUR" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"4.1"}'
+                              label="Actual Duration for Confirmation"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.ACT_TYPE" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"6"}'
+                              label="Activity Type for Confirmation"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.ACT_WORK" unit.bind="serviceOrder.confirmation.UN_WORK" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"6.1"}'
+                              label="Actual work"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.CREATED_BY" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"12"}'
+                              label="Name of Person who Created the Object"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.PERS_NO" data-abap.bind='{"ddic":"NUMC", "type":"string", "format":"numeric", "length":"8", "mid":"PER"}'
+                              label="Personnel number"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.NAME" data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"40"}'
+                              label="Name of employee"></ui-input>
+
+                    <ui-date date.bind="serviceOrder.confirmation.CREATED_DATE"
+                             time.bind="serviceOrder.confirmation.CREATED_TIME"
+                             label="Created On"></ui-date>
+
+                    <ui-checkbox value.bind="serviceOrder.confirmation.CLEAR_RES" label="Clear open Res."></ui-checkbox>
+
+                    <ui-checkbox value.bind="serviceOrder.confirmation.COMPLETE" label="Completed"></ui-checkbox>
+
+                    <ui-input value.bind="serviceOrder.confirmation.FIN_CONF" shlp.bind='{"type":"FV", "id":"AUERU_VS"}'
+                              data-abap.bind='{"ddic":"CHAR", "type":"string", "length":"1"}'
+                              label="Partial/Final Confirmation"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.ACT_WORK" unit.bind="serviceOrder.confirmation.UN_WORK" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"6.1"}'
+                              label="Actual work"></ui-input>
+
+                    <ui-input value.bind="serviceOrder.confirmation.REM_WORK" unit.bind="serviceOrder.confirmation.UN_REM_WRK" data-abap.bind='{"ddic":"QUAN", "type":"number", "format":"quantity", "length":"6.1"}'
+                              label="Remaining work"></ui-input>
+
+                    <ui-tab-panel>
+                        <ui-tab label="Header" separator>
+                            <compose view="./header.html"></compose>
+                        </ui-tab>
+
+                        <ui-tab _icon="sap-icon sap-icon-accept" _item-class="sapMITBFilterPositive"
+                                visible.bind="serviceOrder.__visibleTexts"
+                                label="Texts (${serviceOrder.longtext.length})">
+                            <compose view="./texts.html"></compose>
+                        </ui-tab>
+
+                        <ui-tab _icon="sap-icon sap-icon-calendar" _item-class="sapMITBFilterCritical"
+                                visible.bind="serviceOrder.__visibleItems"
+                                label="Items (${serviceOrder.items.length})">
+                            <compose view="./items.html"></compose>
+                        </ui-tab>
+                    </ui-tab-panel>
+
+                    <ui-docflow router.bind="router" view-model.ref="__docFlow"></ui-docflow>
+  -->
+                </ui-column>
+
+            </ui-row>
+
+        </ui-content>
+    </ui-page>
+
+</template>

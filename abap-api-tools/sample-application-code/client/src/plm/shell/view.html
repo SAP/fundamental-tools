@@ -1,0 +1,196 @@
+<template>
+    <ui-page class="ui-scroll ui-shell">
+        <ui-content padded>
+
+            <ui-shell-panel title="Service Notifications and Orders">
+                <ui-row padded>
+
+                    <ui-shell-tile route="plm/service-notification/list">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">My Notifications</div>
+                            <div class="ui-subtitle">past week (${lastWeek | dateFormat})</div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-activity-2"></div>
+                            <div class="ui-tile-number ui-positive">${serviceNotification.list.length}</div>
+                        </div>
+                        <div class="ui-tile-info ui-critical">${serviceNotification.stat.red} critical</div>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/service-order/list">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">My Orders</div>
+                            <div class="ui-subtitle">past week</div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-eam-work-order"></div>
+                            <div class="ui-tile-number ui-positive">${serviceOrder.list.length}</div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/service-confirmation/list">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">My Confirmations</div>
+                            <div class="ui-subtitle">past week</div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-create-entry-time"></div>
+                            <div class="ui-tile-number ui-positive">${serviceOrder.list.length}</div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                    </ui-shell-tile>
+                </ui-row>
+
+                <ui-row padded>
+                    <ui-shell-tile route="plm/service-notification/create">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">Create Service Notification</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-activity-2"></div>
+                            <div class="ui-tile-number ui-positive"></div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/service-order/create">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">Create Service Order</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-activity-2"></div>
+                            <div class="ui-tile-number ui-positive"></div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                    </ui-shell-tile>
+
+                </ui-row>
+
+                <ui-row>
+
+                    <ui-shell-tile route="plm/equipment">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">Equipment</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-technical-object"></div>
+                            <!--div class="ui-tile-icon sap-icon sap-icon-wrench"></div-->
+                            <div class="ui-tile-number ui-positive">${model.equiList.length}</div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+
+                        <template replace-part="pullover">Show & Edit Equipment Master</template>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/super-app">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">super App</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-database"></div>
+                            <div class="ui-tile-number ui-positive"></div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/equipment/ie04">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">super Installer & Dismantler</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-technical-object"></div>
+                            <!--div class="ui-tile-icon sap-icon sap-icon-wrench"></div-->
+                            <!--div class="ui-tile-number ui-positive">${model.equiList.length}</div-->
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+
+                        <template replace-part="pullover">Mass-enabled Install/Dismantle</template>
+                    </ui-shell-tile>
+
+                </ui-row>
+
+            </ui-shell-panel>
+            <!--
+            <ui-shell-panel title="${app.User.role.AGR_TEXT}">
+                <ui-row padded>
+                    <ui-shell-tile route="plm/equipment">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">Equipment</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-technical-object"></div>
+                            <div class="ui-tile-number ui-positive">${model.equiList.length}</div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+
+                        <template replace-part="pullover">Show & Edit Equipment Master</template>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/service-notification">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">Service Notification</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-activity-2"></div>
+                            <div class="ui-tile-number ui-positive"></div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/service-order">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">View/Edit Service Order</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-eam-work-order"></div>
+                            <div class="ui-tile-number ui-positive"></div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                        <template replace-part="pullover">View/Edit Order</template>
+                    </ui-shell-tile>
+
+                    <ui-shell-tile route="plm/service-order/create">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">Create Service Order</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-eam-work-order"></div>
+                            <div class="ui-tile-number ui-positive"></div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                        <template replace-part="pullover">Create Service Order</template>
+                    </ui-shell-tile>
+
+                </ui-row>
+
+                <ui-row padded>
+
+                    <ui-shell-tile route="plm/esearch">
+                        <div class="ui-tile-header">
+                            <div class="ui-title">Solution Finder</div>
+                            <div class="ui-subtitle"></div>
+                        </div>
+                        <div class="ui-tile-data">
+                            <div class="ui-tile-icon sap-icon sap-icon-idea-wall"></div>
+                            <div class="ui-tile-number ui-positive"></div>
+                        </div>
+                        <div class="ui-tile-info ui-critical"></div>
+                    </ui-shell-tile>
+                </ui-row>
+
+            </ui-shell-panel>
+            -->
+
+        </ui-content>
+    </ui-page>
+</template>

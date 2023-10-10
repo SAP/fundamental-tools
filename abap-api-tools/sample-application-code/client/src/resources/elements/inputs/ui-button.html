@@ -1,0 +1,9 @@
+<template class="ui-button-control">
+    <button class="ui-button ui-button-${theme} ${buttonClass}" ref="__button" click.trigger="fireClick($event)" data-value.bind="value">
+        <span if.one-time="iconPrefix" class="sap-icon sap-icon-${iconPrefix}"></span>
+        <span innerhtml.bind="label" if.bind="label"></span>
+        <span if.one-time="iconSuffix" class="sap-icon sap-icon-${iconSuffix}"></span>
+    </button>
+    <span class="ui-badge" if.bind="badge">${badge}</span>
+    <ui-menu class.bind=menuClass floating if.bind="__hasMenu" menu.bind="__menu" options.bind="options" ref="__menuEl"></ui-menu>
+</template>

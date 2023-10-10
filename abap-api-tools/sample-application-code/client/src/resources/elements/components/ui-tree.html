@@ -1,0 +1,16 @@
+<template class="ui-tree-panel">
+
+    <div class="ui-search">
+        <ui-input filter search clear label-hide class="ui-auto"
+                  value.bind="searchText & debounce:200"></ui-input>
+    </div>
+
+    <div class="ui-tree-level">
+
+        <tree-node repeat.for="child of root.children | sort:'name'"
+                   node.bind="child"
+                   options.bind="options"></tree-node>
+
+    </div>
+
+</template>

@@ -1,0 +1,106 @@
+<template>
+    <require from="reuse/ui-docflow"></require>
+
+    <ui-page>
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+                <ui-button class="ui-btn-transparent" icon-prefix="nav-back"
+                           click.delegate="app.router.navigateBack()"></ui-button>
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                <div style="flex: 1; text-align: center;">
+                    My Incidents (${listFilterFound ? listFilterFound + ' of ' :''}${serviceNotification.list.length})
+                    <a href.bind="serviceNotification.href"
+                        target="_blank">${serviceNotification.hrefText}</a>
+                </div>
+            </ui-row>
+        </template>
+
+        <template replace-part="page-footer">
+            <ui-row class="navbar footer">
+                <ui-column pull-right>
+                    <ui-button transparent click.delegate="serviceNotification.serviceOrderCreate()" label="Create Service Order"></ui-button>
+                    <ui-button transparent click.delegate="serviceNotification.save()" label="Save"></ui-button>
+                </ui-column>
+            </ui-row>
+        </template>
+
+        <ui-content scroll padded class="ui-app-view">
+            <ui-row padded>
+
+                <ui-column column padded size="sm-4">
+
+                    <ui-input search data-type="text" ddic-type="CHAR" data-length="40" mixedcase
+                              input.delegate="listFilterChanged($event.target.value, serviceNotification.list) & debounce:200">
+                    </ui-input>
+
+                    <!--h4><span class="sap-icon sap-icon-notification-2">&nbsp;</span>Service Notifications</h4-->
+                    <ul class="ui-master-list">
+                        <li repeat.for="line of serviceNotification.list"
+                            class="ui-master-list-item ${line.__hidden ? 'ui-none' : ''}"
+                            click.delegate="listClick($index, line.NOTIFICAT)">
+
+                            <!--a href="#/plm/service-notification/${line.NOTIFICAT}">
+                                <div style="display: flex; align-items: center; padding: 1rem">
+                                    <span style="flex:1">${line.DESCRIPT}</span><span>${line.NOTIFICAT}</span>
+                                </div>
+                            </a-->
+                            <div class="ui-color-primary ui-master-list-item-line line-3">
+                                <span style="flex:1;" class="ui-color-primary">${line.DESCRIPT}</span>
+                                <span class="ui-color-secondary ui-push-right">${line.NOTIFICAT}</span>
+                                <!--span class="ui-color-primary">${line.NOTIF_TYPE}</span>
+                                <span class="ui-color-primary">${line.PRIORITY}</span>
+                                <span class="ui-color-primary">${line.FUNCLDESCR}</span>
+                                <span class="ui-color-primary">${line.FUNCLOC}</span>
+                                <span class="ui-color-primary">${line.EQUIDESCR}</span>
+                                <span class="ui-color-primary">${line.EQUIPMENT}</span>
+                                <span class="ui-color-primary">${line.S_STATUS}</span>
+                                <span class="ui-color-primary">${line.U_STATUS}</span-->
+                            </div>
+
+                            <!--div class="ui-color-primary ui-font-1125 ui-master-list-item-line">
+                                ${line.DESCRIPT}
+                            </div-->
+
+                            <div class="ui-master-list-item-line ui-color-secondary" if.one-time="line.NOTIFDATE">
+                                Date:
+                                <span class="pm-order-${line.__orderDate}">
+                                    ${line.NOTIFDATE | dateFormat}
+                                </span>
+                                <span class="pm-order-${line.__orderDate}" >
+                                    ${line.NOTIFTIME | timeFormat}
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+
+                </ui-column>
+
+                <ui-column scroll padded size="sm-8">
+
+                    <ui-tab-panel>
+                        <ui-tab label="Header" separator>
+                            <compose view="./header.html"></compose>
+                        </ui-tab>
+
+                        <ui-tab _icon="sap-icon sap-icon-accept" _item-class="sapMITBFilterPositive"
+                                visible.bind="serviceNotification.__visibleTexts"
+                                label="Texts (${serviceNotification.longtext.length})">
+                            <compose view="./texts.html"></compose>
+                        </ui-tab>
+
+                        <ui-tab _icon="sap-icon sap-icon-calendar" _item-class="sapMITBFilterCritical"
+                                visible.bind="serviceNotification.__visibleItems"
+                                label="Items (${serviceNotification.items.length})">
+                            <compose view="./items.html"></compose>
+                        </ui-tab>
+                    </ui-tab-panel>
+
+                    <ui-docflow router.bind="router" view-model.ref="__docFlow"></ui-docflow>
+                </ui-column>
+
+            </ui-row>
+
+        </ui-content>
+    </ui-page>
+
+</template>

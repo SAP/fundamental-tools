@@ -1,0 +1,12 @@
+<template class="ui-switch-control">
+	<label class="ui-switch" ref="__switch">
+		<input ref="__input" id.bind="__id" type="checkbox"
+			   class="ui-switch-input" checked.bind="checked"
+			   focus.trigger="onFocus()" blur.trigger="onBlur()" change.trigger="valueChanged($event)"/>
+		<span class="ui-switch-label" data-on="${labelOn}" data-off="${labelOff}"></span>
+		<span class="ui-switch-handle"></span>
+	</label>
+	<label for.bind="__id" ref="__label">
+		<slot></slot>
+	</label>
+</template>

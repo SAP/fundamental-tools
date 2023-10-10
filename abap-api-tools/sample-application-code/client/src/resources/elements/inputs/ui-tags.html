@@ -1,0 +1,45 @@
+<template class="ui-input-group">
+	<label class="ui-label" ref="__label" for="${__id}">
+		<span>${label}<slot></slot></span>
+	</label>
+	<div class="ui-control-wrapper">
+		<div class="ui-input-control">
+			<div class="ui-addon" if.bind="prefixText || prefixIcon">
+				<span if.bind="prefixIcon" class="${prefixIcon}"></span>
+				<span if.bind="prefixText" innerhtml.bind="prefixText"></span>
+			</div>
+			<div class="ui-addon ui-option ui-checkbox" if.bind="__checkbox">
+				<input class="ui-option-input" type="checkbox" checked.bind="checked" id="${__id+'-chk'}" ref="__chkbox" />
+				<span class="ui-check-mark"></span>
+			</div>
+			<div class="ui-input-wrapper">
+				<div class="ui-input ui-tags" ref="__tagInput" click.trigger="inputClicked($event)">
+					<button class="ui-tag" model.bind="tag" value.bind="tag[valueProperty] || tag" repeat.for="tag of __tags">${tag[displayProperty] || tag}</button>
+					<input id="${__id}" type.bind="__type" autocomplete="off" size="1" click.trigger="__gotFocus()" focus.trigger="__gotFocus()" blur.trigger="__lostFocus()" keydown.trigger="keyDown($event)" value.bind="__searchText" placeholder.bind="placeholder" ref="__input"
+									dir="${dir}" input.trigger="__searchTextChanged() & debounce:200" />
+				</div>
+				<span class="ui-clear sap-icon sap-icon-decline ${value?'show-clear':''}" click.trigger="clearInput()" if.bind="__clear"></span>
+
+				<div class="ui-list floating ${__reverse?'reverse':''}" show.bind="__focus && !readonly" mousewheel.trigger="$event.cancelBubble = true" if.bind="!__noList" mousedown.trigger="__clicked($event)" ref="__list">
+					<div class="ui-list-group">
+						<compose containerless view="./ui-list-item.html" if.bind="!__isGrouped" repeat.for="opt of __isGrouped?[]:__options"></compose>
+						<compose containerless view="./ui-list-group.html" if.bind="__isGrouped" repeat.for="key of __options | keys"></compose>
+					</div>
+					<!--<div class="ui-list-option" model.bind="opt" if.bind="__options | isArray"-->
+					<!--repeat.for="opt of __options" value.bind="opt[valueProperty] || opt">-->
+					<!--<span innerhtml.bind="opt[displayProperty] || opt"></span></div>-->
+					<p class="ui-text-muted ui-pad-all" if.bind="__noResult">${emptyText}</p>
+				</div>
+			</div>
+			<div class="ui-addon" if.bind="suffixIcon || suffixText">
+				<span if.bind="suffixIcon" class="${suffixIcon}"></span>
+				<span if.bind="suffixText" innerhtml.bind="suffixText"></span>
+			</div>
+			<button if.bind="buttonText || buttonIcon" click.trigger="onAddonClick($event)" class="ui-addon ui-addon-button">
+				<span if.bind="buttonIcon" class="${buttonIcon}"></span>
+				<span if.bind="buttonText" innerhtml.bind="buttonText"></span>
+			</button>
+		</div>
+		<div if.bind="helpText" innerhtml.bind="helpText" class="ui-input-help"></div>
+	</div>
+</template>

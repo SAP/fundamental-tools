@@ -1,0 +1,33 @@
+<template click.trigger="onClick($event)">
+	<div if.bind="appState.IsAuthenticated" class="ui-auth-info">
+		<div class="ui-text-center ui-pad-all">
+			<div class="ui-app-logo" if.bind="router.options.showLogo"></div>
+		</div>
+		<p>Logged in as ${app.User.username}</p>
+
+		<p class="ui-font-small">
+			<span if.bind="appState.UserGroupLabel">${app.UserGroupLabel}&nbsp;&nbsp;</span>
+			<span if.bind="appState.IpAddress">(${app.IpAddress})</span>
+		</p>
+	</div>
+
+	<div repeat.for="route of router.navigation">
+		<hr if.bind="route.settings.sectionStart"/>
+		<p class="ui-menu-section" if.bind="route.settings.sectionTitle">${route.settings.sectionTitle}</p>
+
+		<a class="ui-menu-link ${route.isActive?'ui-active':''}"
+		   data-disabled="${route.settings.disabled}" href.bind="route.href">
+			<span class="ui-icon ${route.settings.icon}"></span>&nbsp;${route.settings.menuTitle || route.title}</a>
+	</div>
+
+	<div if.bind="router.options.showAuthentication && !appState.IsAuthenticated">
+		<hr/>
+		<a class="ui-menu-link ui-strong" href="#/login">
+			<span class="sap-icon sap-icon-log"></span> Sign In</a>
+	</div>
+	<div if.bind="router.options.showAuthentication && appState.IsAuthenticated">
+		<hr/>
+		<a class="ui-menu-link ui-strong" click.trigger="logout()">
+			<span class="sap-icon sap-icon-reject"></span> Sign Out</a>
+	</div>
+</template>

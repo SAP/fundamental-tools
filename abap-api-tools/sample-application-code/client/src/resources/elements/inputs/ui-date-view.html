@@ -1,0 +1,65 @@
+<template class="ui-date-control">
+	<div class="ui-date-view" show.bind="showing">
+		<div class="ui-date-wrapper" click.delegate="datePanelClick($event)">
+			<div ref="__dates">
+				<div class="header">
+					<span class="prev prevmonth ui-calendar ${__disablePrev?'disabled':''}"></span>
+					<span class="label setmonth">${m.months(__month)} ${__year}</span>
+					<span class="next nextmonth ui-calendar ${__disableNext?'disabled':''}"></span>
+				</div>
+				<div class="weekdays">
+					<span class="week">#</span>
+					<span repeat.for="d of 7">${m.weekdaysMin(d)}</span>
+				</div>
+				<div repeat.for="w of 6" class="dates">
+					<span class="week">${m(__start).add(w,'week').week()}</span>
+					<span repeat.for="d of 7" date.bind="x" class.bind="getDateClass(x=m(__start).add(w,'week').add(d,'day'), __current, __month)">${x.date()}</span>
+				</div>
+				<div class="footer">
+					<span class="settoday">Today</span>
+				</div>
+			</div>
+			<div ref="__months" class="ui-hide alt-view">
+				<div class="header">
+					<span class="prev prevyear ui-calendar ${__disablePrev?'disabled':''}"></span>
+					<span class="label setyear">${__year}</span>
+					<span class="next nextyear ui-calendar ${__disableNext?'disabled':''}"></span>
+				</div>
+				<div repeat.for="w of 4" class="months">
+					<span repeat.for="d of 3" month.bind="x" class.bind="getMonthClass(x=m().set('year',__current.year()).set('month',(w*3)+d), __current, __year)">${m.months(x.month())}</span>
+				</div>
+				<div class="footer">
+					<span class="cancelselect">Cancel</span>
+				</div>
+			</div>
+			<div ref="__years" class="ui-hide alt-view">
+				<div class="header">
+					<span class="prev prevdecade ui-calendar ${__disablePrev?'disabled':''}"></span>
+					<span class="label nohover">${__decade}-${__decade+19}</span>
+					<span class="next nextdecade ui-calendar ${__disableNext?'disabled':''}"></span>
+				</div>
+				<div repeat.for="w of 5" class="years">
+					<span repeat.for="d of 4" year.bind="x" class.bind="getYearClass(x=m().set('year',__decade+((w*4)+d)), __current, __decade)">${x.year()}</span>
+				</div>
+				<div class="footer">
+					<span class="cancelselect">Cancel</span>
+				</div>
+			</div>
+		</div>
+		<div class="ui-time-wrapper" click.delegate="timePanelClick($event)" if.bind="showtime">
+			<div ref="__time" class="ui-time">
+				<div>
+					<span class="sap-icon sap-icon-slim-arrow-up uphour"></span>
+					<span class="ui-hour">${__hour | number:'{00}'}</span>
+					<span class="sap-icon sap-icon-slim-arrow-down downhour"></span>
+				</div>
+				<div class="ui-sep">:</div>
+				<div>
+					<span class="sap-icon sap-icon-slim-arrow-up upmin"></span>
+					<span class="ui-min">${__minute | number:'{00}'}</span>
+					<span class="sap-icon sap-icon-slim-arrow-down downmin"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

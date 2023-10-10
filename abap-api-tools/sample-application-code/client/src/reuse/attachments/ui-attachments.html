@@ -1,0 +1,34 @@
+<template>
+    <h4>Attachments &nbsp; <span if.bind="showTitle && attachments.length > 0">(${attachments.length})</span></h4>
+    <img if.bind="imageUrl" src.bind="imageUrl" alt="Photo"/>
+
+    <ul class="ui-master-list">
+        <li repeat.for="att of attachments" class="ui-master-list-item">
+
+            <div style="display: flex; align-items: center">
+                <span class="sap-icon sap-icon-2x sap-icon-${att.icon} ui-color-secondary" style="flex: 0 0 2rem;"></span>
+                <div style="line-height: 1.5; margin-left: 0.5rem; flex: 1;">
+                    <a class="ui-font-small" href="api/dms?CLASS=${att.CLASS}&OBJID=${att.OBJID}&MIMETYPE=${att.MIMETYPE}&format=file"
+                       download="${att.FILE_NAME}">${att.FILE_NAME}, ${att.FILE_SIZE | bytes }, ${att.MIMETYPE} </a>
+                    <div class="ui-color-secondary">${att.DESCRIPTION}</div>
+                    <div class="ui-font-small ui-color-secondary">${att.CHANGED_AT | dateFormat:'MMM Do YYYY'}, ${att.CHANGED_BY}</div>
+                </div>
+                <ui-button transparent icon-prefix="display" click.delegate="dms(att, 'get')"></ui-button>
+                <ui-button transparent button-class="ui-text-danger" icon-prefix="delete" click.delegate="dms(att, 'delete', $index)"></ui-button>
+                <!--ui-button transparent icon-prefix="upload" click.delegate="dms(att, 'put')"></ui-button-->
+                <!--ui-button transparent reject icon-prefix="delete" click.delegate="dms(att, 'delete', $index)"></ui-button-->
+            </div>
+
+
+            <div if.bind="att.show">
+                <video if.bind="att.video" src="${att.src}"
+                       width="600" height="480" alt="video"
+                       controls autoplay type="${att.MIMETYPE}"></video>
+                <embed if.bind="!att.video" src="${att.src}"
+                       width="600" height="480" alt="pdf"></embed>
+            </div>
+
+        </li>
+    </ul>
+    <ui-file files.bind="files" upload.call="dms(false, 'post')"></ui-file>
+</template>

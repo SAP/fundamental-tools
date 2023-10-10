@@ -1,0 +1,90 @@
+<template>
+    <ui-page page-title="Equipment Install/Dismantle">
+
+        <template replace-part="page-header">
+            <ui-row class="navbar header">
+                <ui-button class="ui-btn-transparent" icon-prefix="nav-back" click.delegate="app.router.navigateBack()"></ui-button>
+                <!--ui-button transparent click.delegate="toggleSidebar()" icon-prefix="menu2"></ui-button-->
+                <div style="flex: 1; text-align: center;">
+                    ${routeTitle}&nbsp;
+                </div>
+            </ui-row>
+        </template>
+
+        <template replace-part="page-footer">
+            <ui-row class="navbar footer">
+                <ui-column pull-right>
+                    <ui-button transparent click.delegate="postInstalls()" label="Install ${installList.length} items" show.bind="installList.length > 0"></ui-button>
+                    <ui-button transparent click.delegate="postDismantles()" label="Dismantle ${dismantleList.length} items" show.bind="dismantleList.length > 0"></ui-button>
+                </ui-column>
+            </ui-row>
+        </template>
+
+        <ui-content scroll padded class="ui-app-view">
+
+            <ui-tab-panel>
+
+                <ui-tab label="Install">
+                    <ui-row>
+                        <ui-file files.bind="files" preview.bind="false" autoload.bind="true" title="Drop Equi XLS here or click to browse" upload.call="getInstallList()"></ui-file>
+                    </ui-row>
+
+                    <ui-row column padded show.bind="__showInstall">
+                        <h2>${installList.length} items to install</h2>
+                        <ui-row>
+                            <ui-datagrid title="Install" data-list.bind="installList" data-summary="false" default-sort="" selectable rowselect.trigger="selectInstallDetail($event.detail)" empty-text="OOPS!!! No matching records found.">
+                                <!-- @formatter:off -->
+                                <ui-data-column sortable data-id="equiId" data-type="text" data-length="8" align="start">Equipment #</ui-data-column>
+                                <ui-data-column sortable data-id="material" data-type="text" data-length="4" align="start">Material #</ui-data-column>
+                                <ui-data-column sortable data-id="serialNr" data-type="text" data-length="4" align="start">Serial #</ui-data-column>
+
+                                <ui-data-column sortable data-id="supEquiId" data-type="text" data-length="8" align="start">Sup. Equipment #</ui-data-column>
+                                <ui-data-column sortable data-id="supLocId" data-type="text" data-length="24" align="start">Sup. Location #</ui-data-column>
+
+                                <ui-data-column sortable data-id="notificationId" data-type="text" data-length="8" align="start">Notification #</ui-data-column>
+                                <ui-data-column sortable data-id="workOrderId" data-type="text" data-length="8" align="start">Work Order #</ui-data-column>
+                                <ui-data-column data-id="__status" data-type="text" data-length="2" labels.one-time="__statusIcons" align="start"></ui-data-column>
+                                <!-- @formatter:on -->
+                            </ui-datagrid>
+                        </ui-row>
+
+                        <ui-row show.bind="__showInstallDetail">
+                            <ui-column size="sm-6">
+                                <h4>Install Detail</h4>
+
+                                <ui-input ddic-length="18" ddic-type="CHAR" label="Equipment #" value.bind="installDetail.equiId" shlp.bind="{type: 'SH', id: 'EQUI', blacklist: 'SH EQUIR', autoselect: 'SH EQUIT'}">
+                                </ui-input>
+
+                                <ui-input ddic-length="4" ddic-type="CHAR" label="Material #" value.bind="installDetail.material">
+                                </ui-input>
+
+                                <ui-input ddic-length="4" ddic-type="CHAR" label="Serial #" value.bind="installDetail.serialNr">
+                                </ui-input>
+
+                                <ui-input ddic-length="18" ddic-type="CHAR" label="Sup. Equipment #" value.bind="installDetail.supEquiId" shlp.bind="{type: 'SH', id: 'EQUI', blacklist: 'SH EQUIR', autoselect: 'SH EQUIT'}">
+                                </ui-input>
+
+                                <ui-input ddic-length="30" ddic-type="CHAR" label="Sup. Location #" value.bind="installDetail.supLocId" shlp.bind="{type: 'SH', id: 'IFLM'}">
+                                </ui-input>
+
+                                <ui-input ddic-length="4" ddic-type="CHAR" label="Notification #" value.bind="installDetail.notificationID">
+                                </ui-input>
+                                <ui-input ddic-length="4" ddic-type="CHAR" label="Work Order #" value.bind="installDetail.workOrderId">
+                                </ui-input>
+
+                            </ui-column>
+
+                        </ui-row>
+
+                    </ui-row>
+
+                </ui-tab>
+
+                <ui-tab label="Dismantle">
+                </ui-tab>
+            </ui-tab-panel>
+
+
+        </ui-content>
+    </ui-page>
+</template>

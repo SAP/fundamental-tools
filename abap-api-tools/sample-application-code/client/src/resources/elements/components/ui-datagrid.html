@@ -1,0 +1,84 @@
+<template class="ui-datagrid" mousedown.delegate="resizeStart($event)">
+
+    <div class="ui-datagrid-wrapper">
+        <table ref="__table" height="100%">
+            <colgroup>
+                <col repeat.for="col of columns" data-index="${$index}" width="${(col.width || col.minWidth || '250')}" />
+                <col width="auto" />
+            </colgroup>
+
+            <thead>
+            <tr>
+                <td repeat.for="col of columns" data-index="${$index}" css.bind="{'left':col.edge+'px'}" class="${col.__locked ? 'sticky':''} ui-text-${col.__align} ${isLastLocked(col.__locked, $index)?'last-of-type':''}">
+                    <div>
+							<span class="${col.__sortable===true?'sortable':''} ${col.dataId==__sortColumn?__sortOrder:''}" click.trigger="sort($event, col)">
+						${col.__title}&nbsp;</span>
+                        <span class="resizer ${col.__resizeable===true?'enable':'disable'}" data-index="${$index}"></span>
+                    </div>
+                </td>
+                <td css.bind="{'min-width': '20px'}">
+                    <div><span>&nbsp;</span></div>
+                </td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr if.bind="__data.length==0">
+                <td colspan="${columns.length+1}" class="ui-empty-text">
+                    <h3 class="ui-text-muted" innerhtml.bind="emptyText"></h3>
+                </td>
+            </tr>
+            <tr repeat.for="model of __data" class="${allowSelect?'ui-datagrid-row':''}" click.delegate="rowSelect(model)">
+                <td repeat.for="col of columns" data-index="${$index}" css.bind="{'left':col.edge+'px'}" class="dg-col ${col.__locked ? 'sticky':''} ui-text-${col.__align} ${isLastLocked(col.__locked, $index)?'last-of-type':''}">
+
+                    <div if.bind="col.__button" class="ui-button-bar" click.trigger="linkClicked($event, col.dataId, model)" innerhtml.bind="buildButton(model[col.dataId], col, model) & signal:__id">
+                    </div>
+                    <div class="ui-selectable ${col.class}" if.bind="!col.__button && !col.__link">
+                        <span innerhtml.bind="format(model[col.dataId], col, model) & signal:__id"></span>&nbsp;
+                    </div>
+                    <div if.bind="col.__link">
+                        <a class="ui-link" click.trigger="linkClicked($event, col.dataId, model)" innerhtml.bind="format(model[col.dataId], col, model) & signal:__id"></a>
+                    </div>
+
+                </td>
+                <!--td css.bind="{'min-width': '20px'}">
+                    <div>&nbsp;</div>
+                </td-->
+            </tr>
+            <tr>
+                <td repeat.for="col of columns" css.bind="{'left':col.edge+'px'}" class="${col.__locked ? 'sticky':''} ui-text-${col.__align} ${isLastLocked(col.__locked, $index)?'last-of-type':''}">
+                    <div>&nbsp;</div>
+                </td>
+                <td css.bind="{'min-width': '20px'}">
+                    <div>&nbsp;</div>
+                </td>
+            </tr>
+            </tbody>
+
+            <tfoot if.bind="summaryRow">
+            <tr>
+                <td repeat.for="col of columns" data-index="${$index}" css.bind="{'left':col.edge+'px'}" class="${col.__locked ? 'sticky':''} ui-text-${col.__align} ${isLastLocked(col.__locked, $index)?'last-of-type':''}">
+                    <div innerhtml.bind="summary(col) & signal:__id"></div>
+                </td>
+                <td c  .bind="{'min-width': '20px'}">
+                    <div>&nbsp;</div>
+                </td>
+            </tr>
+            </tfoot>
+
+        </table>
+    </div>
+    <div class="ui-hide" ref="__columns">
+        <slot></slot>
+    </div>
+
+    <div class="ui-ghost ui-hide" ref="__ghost"></div>
+    <div class="ui-indicator ui-hide" ref="__indicator"></div>
+
+    <div class="ui-loading-shim" if.bind="__isProcessing">
+        <div class="ui-loader">
+            <span class="ui-spin fi-ui-cog-black"></span>
+            <span class="ui-spin-opp fi-ui-cog-black second"></span>
+        </div>
+    </div>
+</template>
