@@ -33,7 +33,7 @@ Few pre-configured docker containers with RFC connectivity are provided in [dock
 
 ## Content <!-- omit in toc -->
 
-- [Requirements](#requirements)
+- [Prerequisites](#prerequisites)
 - [Download and installation](#download-and-installation)
 - [Usage](#usage)
 - [Deployment](#deployment)
@@ -43,11 +43,12 @@ Few pre-configured docker containers with RFC connectivity are provided in [dock
 - [Code of Conduct](#code-of-conduct)
 - [License](#license)
 
-## Requirements
+## Prerequisites
 
 - Backend: ABAP system on-premise or in the cloud (like SAP S/4HANA Cloud or Steampunk)
 - Frontend: Web app built using above mentioned frameworks
 - No run-time dependencies. Check respective web and server frameworks, mentioned above, for their dependencies and prerequisites
+- Web components "understanding" custom attributes for ABAP metadata and Value Helps are currently [implemented using Aurelia web framework](https://github.com/SAP/fundamental-tools/tree/main/abap-api-tools/sample-application-code/client/src/resources) and can be ported to other web frameworks with much reuse.
 
 ## Download and installation
 
@@ -79,7 +80,6 @@ Node.JS or Python application requires custom buildpack, with [SAP NW RFC SDK](h
 
 - [WebSocket RFC – RFC For the Internet](https://blogs.sap.com/2021/07/19/websocket-rfc-rfc-for-the-internet/)
 - [WebSocket RFC to Cloud Using SAP Business Connector](https://blogs.sap.com/?p=1616280)
-
 
 ## Known Issues
 

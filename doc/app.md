@@ -17,6 +17,8 @@ The transition from old to new UI is done in 4 steps, providing four app compone
 Let build these four layers, with Aurelia web framework and Python flask server, using [`abap` CLI tool](https://www.npmjs.com/package/abap-api-tools) and have deeper look into low-code, super-apps ...
 
 - [ABAP API](#abap-api)
+  - [Features](#features)
+  - [API](#api)
 - [App Server (Java, Node, Python)](#app-server-java-node-python)
 - [View Model (JS)](#view-model-js)
 - [View (HTML or JS)](#view-html-or-js)
@@ -32,7 +34,16 @@ Functional mockup can be sketched on paper or old UI elements' screenshots can b
 
 - Clarify app functional requirementa and localize ABAP business logic
 - Expose the business logic via ABAP RFMs (ABAP API)
-- Write ABAP RFM names into `sample-application.yaml`, like:
+- Write ABAP RFM names into `sample-application.yaml`
+
+### Features
+
+- Equipment read/update
+- Grouped and ungrouped Classifications/Characteristics read/update
+- Show MTTR/MTBF times
+- Attachments preview/upload/download
+
+### API
 
 `sample-application.yaml`
 
@@ -260,12 +271,8 @@ Fully functional app shown below, is implemented with ca. 400 lines of code:
 | [View (HTML)](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/sample-application-code/client/src/plm/equipment/view.html)                                                                    |      150 |
 | **Total**                                                                                                                                                                                                      | **~400** |
 
-Features:
-
-- Equipment read/update
-- Grouped and ungrouped Classifications/Characteristics read/update
-- Show MTTR/MTBF times
-- Attachments preview/upload/download
+It is around 98% less code (40-50 times) required at ABAP level, because the plain ABAP business logic is exposed, without or with minimum technical overhead.
+Around 92% less code (10-20 times) is required at Web level, by straightforward ABAP data consumption, with ui components in design-time enriched by ABAP metadata.
 
 The implementation is under full developer's control, without any magic added by `abap` CLI and without run-time dependencies of this toolkit, except for inevitable Value Helps.
 
@@ -280,5 +287,3 @@ When developed this way, more apps can be assembled into so called super-apps, w
 The example below is probably unique case implemented with SAP technologies, a cockpit super-app, assembled from Service Notifications, Service Orders and Equipment Maintenance "elementary" apps, all without iframes.
 
 ![Super App](./assets/super-app.png)
-
-
