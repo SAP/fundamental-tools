@@ -22,6 +22,7 @@
   - Core reuse components
     - [Inputs](client/src/resources/elements/inputs)
     - [Custom Attributes](client/src/resources/attributes)
+      - [Value Helps](client/src/resources/attributes/ui-lookup.js)
     - [Value Converters](client/src/resources/value-converters)
     - [Utilities](client/src/resources/utils)
   - Application reuse components
