@@ -1,5 +1,5 @@
 //
-// /COE/RBP_PAM_EQUIP_HIER_GET exception: 0  struct: 0  table: 4  var: 3
+// /COE/RBP_PAM_EQUIP_HIER_GET var: 3  struct: 0  table: 4  exception: 0
 //
 // abap api
 //
@@ -9,16 +9,16 @@ const parameters = {
 
 // IMPORT PARAMETERS
 
-IV_LOCATION         :           "", // CHAR (30) ALPHA=TPLNR no text (undefined) SU3=IFL
-// IV_DEF_VAL       :           "", // CHAR (1) no text (undefined)
-// IV_EQUIP_TYPE    :           "", // CHAR (9) no text (undefined) SU3=MKL
+IV_LOCATION         :           "", // CHAR (30) ALPHA=TPLNR no text (en) SU3=IFL
+// IV_DEF_VAL       :           "", // CHAR (1) no text (en)
+// IV_EQUIP_TYPE    :           "", // CHAR (9) no text (en) SU3=MKL
 
 // TABLE PARAMETERS
 
-ET_DEF_VAL          :           [], // /COE/RBP_T_PAM_DEF_VALS_EQ no text (undefined)
-ET_EQUIP_LIST       :           [], // /COE/RBP_T_PAM_EQUI_DAT_HIER_L no text (undefined)
-ET_FUNC_LOC_LIST    :           [], // /COE/RBP_T_PAM_FUNC_LOC_EQUI_L no text (undefined)
-ET_RETURN           :           [], // BAPIRET2_TAB no text (undefined)
+ET_DEF_VAL          :           [], // /COE/RBP_T_PAM_DEF_VALS_EQ no text (en)
+ET_EQUIP_LIST       :           [], // /COE/RBP_T_PAM_EQUI_DAT_HIER_L no text (en)
+ET_FUNC_LOC_LIST    :           [], // /COE/RBP_T_PAM_FUNC_LOC_EQUI_L no text (en)
+ET_RETURN           :           [], // BAPIRET2_TAB no text (en)
 };
 
 const result = await client.call("/COE/RBP_PAM_EQUIP_HIER_GET", parameters);

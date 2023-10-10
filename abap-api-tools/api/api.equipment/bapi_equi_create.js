@@ -1,5 +1,5 @@
 //
-// BAPI_EQUI_CREATE exception: 0  struct: 8  table: 2  var: 3
+// BAPI_EQUI_CREATE var: 3  struct: 8  table: 2  exception: 0
 //
 // abap api
 //

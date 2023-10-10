@@ -4,863 +4,695 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label></label>
-    <fd-textarea v-model="IV_NOTICE"
-        data-abap="{type:'STRING'}"
-        aria-required="true"
-    ></fd-textarea>
-</fd-form-item>
+<FormItem label="">
+    <TextArea value={this.IV_NOTICE}
+          data-abap="{type:'STRING'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label></fd-form-label>
-        <fd-input v-model="IV_USER_STATUS"
-            data-abap="{type:'CHAR', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="">
+    <Input value={this.IV_USER_STATUS}
+          data-abap="{type:'CHAR', length:'4'}"
+    />
+</FormItem>
 
 <!-- Parameter: IS_HEADER structure: BAPI_ALM_ORDER_HEADERS_I   -->
 
-<fd-form-item>
-    <fd-form-label>Order Number</fd-form-label>
-    <fd-select v-model="IS_HEADER.ORDERID"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Order Type</fd-form-label>
-    <fd-select v-model="IS_HEADER.ORDER_TYPE"
-        options="{type: 'CT', id: 'T003O'}"
-        data-abap="{type:'CHAR', mid:'AAT', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance Planning Plant</fd-form-label>
-    <fd-select v-model="IS_HEADER.PLANPLANT"
-        options="{type: 'CT', id: 'T001W'}"
-        data-abap="{type:'CHAR', mid:'IWK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Scenario or Subscreen Category</fd-form-label>
-    <fd-select v-model="IS_HEADER.SCENARIO"
-        options="{type: 'CT', id: 'TQBT'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Business Area</fd-form-label>
-    <fd-select v-model="IS_HEADER.BUS_AREA"
-        options="{type: 'CT', id: 'TGSB'}"
-        data-abap="{type:'CHAR', mid:'GSB', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Main work center for maintenance tasks</fd-form-label>
-        <fd-input v-model="IS_HEADER.MN_WK_CTR"
-            data-abap="{type:'CHAR', mid:'VAP', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plant associated with main work center</fd-form-label>
-    <fd-select v-model="IS_HEADER.PLANT"
-        options="{type: 'CT', id: 'T001W'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance activity type</fd-form-label>
-    <fd-select v-model="IS_HEADER.PMACTTYPE"
-        options="{type: 'SH', id: 'H_T350I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Planner Group for Customer Service and Plant Maintenance</fd-form-label>
-    <fd-select v-model="IS_HEADER.PLANGROUP"
-        options="{type: 'CT', id: 'T024I'}"
-        data-abap="{type:'CHAR', mid:'IHG', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Syst.Condition</fd-form-label>
-    <fd-select v-model="IS_HEADER.SYSTCOND"
-        options="{type: 'CT', id: 'T357M'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Functional Location</fd-form-label>
-    <fd-select v-model="IS_HEADER.FUNCT_LOC"
-        options="{type: 'SH', id: 'IFLM'}"
-        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Equipment Number</fd-form-label>
-    <fd-select v-model="IS_HEADER.EQUIPMENT"
-        options="{type: 'SH', id: 'EQUI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Serial Number</fd-form-label>
-        <fd-input v-model="IS_HEADER.SERIALNO"
-            data-abap="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material Number</fd-form-label>
-    <fd-select v-model="IS_HEADER.MATERIAL"
-        options="{type: 'SH', id: 'S_MAT1'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Assembly</fd-form-label>
-    <fd-select v-model="IS_HEADER.ASSEMBLY"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Additional Device Data</fd-form-label>
-        <fd-input v-model="IS_HEADER.DEVICEDATA"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance plant</fd-form-label>
-    <fd-select v-model="IS_HEADER.MAINTPLANT"
-        options="{type: 'CT', id: 'T001W'}"
-        data-abap="{type:'CHAR', mid:'SWK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Asset location</fd-form-label>
-    <fd-select v-model="IS_HEADER.LOCATION"
-        options="{type: 'CT', id: 'T499S'}"
-        data-abap="{type:'CHAR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Room</fd-form-label>
-        <fd-input v-model="IS_HEADER.MAINTROOM"
-            data-abap="{type:'CHAR', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plant section</fd-form-label>
-    <fd-select v-model="IS_HEADER.PLSECTN"
-        options="{type: 'CT', id: 'T357'}"
-        data-abap="{type:'CHAR', mid:'BBE', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work center</fd-form-label>
-        <fd-input v-model="IS_HEADER.LOC_WK_CTR"
-            data-abap="{type:'CHAR', mid:'AGR', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ABC indicator for technical object</fd-form-label>
-    <fd-select v-model="IS_HEADER.ABCINDIC"
-        options="{type: 'CT', id: 'T370C'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sort field</fd-form-label>
-        <fd-input v-model="IS_HEADER.SORTFIELD"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Profit Center</fd-form-label>
-    <fd-select v-model="IS_HEADER.PROFIT_CTR"
-        options="{type: 'SH', id: 'PRCTR_EMPTY'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Responsible cost center</fd-form-label>
-    <fd-select v-model="IS_HEADER.RESPCCTR"
-        options="{type: 'CT', id: 'CSKS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Functional Area</fd-form-label>
-    <fd-select v-model="IS_HEADER.FUNC_AREA"
-        options="{type: 'CT', id: 'TFKB'}"
-        data-abap="{type:'CHAR', mid:'FBE', length:'16'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of superior network</fd-form-label>
-    <fd-select v-model="IS_HEADER.SUPERIOR_NETWORK"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Activity number in network and standard network</fd-form-label>
-        <fd-input v-model="IS_HEADER.SUPERIOR_ACTIVITY"
-            data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work Breakdown Structure Element (WBS Element)</fd-form-label>
-    <fd-select v-model="IS_HEADER.WBS_ELEM"
-        options="{type: 'CT', id: 'PRPS'}"
-        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Processing group</fd-form-label>
-    <fd-select v-model="IS_HEADER.PROCESSING_GROUP"
-        options="{type: 'CT', id: 'TKO08'}"
-        data-abap="{type:'NUMC', mid:'AKR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Tax Jurisdiction</fd-form-label>
-    <fd-select v-model="IS_HEADER.TAXJURCODE"
-        options="{type: 'CT', id: 'TTXJ'}"
-        data-abap="{type:'CHAR', mid:'TXJ', length:'15'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Company Code</fd-form-label>
-    <fd-select v-model="IS_HEADER.LOC_COMP_CODE"
-        options="{type: 'SH', id: 'C_T001'}"
-        data-abap="{type:'CHAR', mid:'BUK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Main Asset Number</fd-form-label>
-    <fd-select v-model="IS_HEADER.ASSET_NO"
-        options="{type: 'CT', id: 'ANLH'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN1', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Asset Subnumber</fd-form-label>
-    <fd-select v-model="IS_HEADER.SUB_NUMBER"
-        options="{type: 'CT', id: 'ANLA'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN2', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Business Area</fd-form-label>
-    <fd-select v-model="IS_HEADER.LOC_BUS_AREA"
-        options="{type: 'CT', id: 'TGSB'}"
-        data-abap="{type:'CHAR', mid:'GSB', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cost Center</fd-form-label>
-    <fd-select v-model="IS_HEADER.COSTCENTER"
-        options="{type: 'CT', id: 'CSKS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work Breakdown Structure Element (WBS Element)</fd-form-label>
-    <fd-select v-model="IS_HEADER.LOC_WBS_ELEM"
-        options="{type: 'CT', id: 'PRPS'}"
-        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Standing order number</fd-form-label>
-    <fd-select v-model="IS_HEADER.STANDORDER"
-        options="{type: 'SH', id: 'ORDP'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Settlement order</fd-form-label>
-    <fd-select v-model="IS_HEADER.SETTLORDER"
-        options="{type: 'SH', id: 'ORDE'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales Organization</fd-form-label>
-    <fd-select v-model="IS_HEADER.SALESORG"
-        options="{type: 'SH', id: 'C_VKORG'}"
-        data-abap="{type:'CHAR', mid:'VKO', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Distribution Channel</fd-form-label>
-    <fd-select v-model="IS_HEADER.DISTR_CHAN"
-        options="{type: 'SH', id: 'C_VTWEG'}"
-        data-abap="{type:'CHAR', mid:'VTW', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Division</fd-form-label>
-    <fd-select v-model="IS_HEADER.DIVISION"
-        options="{type: 'SH', id: 'C_SPART'}"
-        data-abap="{type:'CHAR', mid:'SPA', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance order planning indicator</fd-form-label>
-    <fd-select v-model="IS_HEADER.ORDPLANID"
-        options="{type: 'FV', id: 'AUF_PLKNZ'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic start date</fd-form-label>
-    <fd-date-picker v-model="IS_HEADER.START_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic finish date</fd-form-label>
-    <fd-date-picker v-model="IS_HEADER.FINISH_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic Start (Time)</fd-form-label>
-    <fd-time-picker v-model="IS_HEADER.BASICSTART"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic finish (time)</fd-form-label>
-    <fd-time-picker v-model="IS_HEADER.BASIC_FIN"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Priority</fd-form-label>
-    <fd-select v-model="IS_HEADER.PRIORITY"
-        options="{type: 'CT', id: 'T356'}"
-        data-abap="{type:'CHAR', mid:'PRIOK', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Revision for Plant Maintenance and Customer Service</fd-form-label>
-    <fd-select v-model="IS_HEADER.REVISION"
-        options="{type: 'CT', id: 'T352R'}"
-        data-abap="{type:'CHAR', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version of Available Capacity</fd-form-label>
-    <fd-select v-model="IS_HEADER.VERSION"
-        options="{type: 'CT', id: 'TC36'}"
-        data-abap="{type:'NUMC', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Scheduling type</fd-form-label>
-    <fd-select v-model="IS_HEADER.SCHED_TYPE"
-        options="{type: 'CT', id: 'T482'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fast-checkbox v-model="IS_HEADER.AUTOSCHED">Indicator: Schedule automatically/fast-checkbox>
-
-<fast-checkbox v-model="IS_HEADER.CAP_REQMTS">Indicator: Calculate capacity requirements/fast-checkbox>
-
-<fast-checkbox v-model="IS_HEADER.SCHEDULING_EXACT_BREAK_TIMES">Indicator:  Scheduling allowing for breaks/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Reservation Relevance/Generation of Purchase Requisition</fd-form-label>
-    <fd-select v-model="IS_HEADER.MRP_RELEVANT"
-        options="{type: 'FV', id: 'AUDISP'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales Order Number</fd-form-label>
-    <fd-select v-model="IS_HEADER.SALES_ORD"
-        options="{type: 'CT', id: 'VBUK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item number in Sales Order</fd-form-label>
-        <fd-input v-model="IS_HEADER.S_ORD_ITEM"
-            data-abap="{type:'NUMC', mid:'KPO', length:'6'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Accounting Indicator</fd-form-label>
-    <fd-select v-model="IS_HEADER.CALC_MOTIVE"
-        options="{type: 'CT', id: 'TBMOT'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Investment measure profile</fd-form-label>
-    <fd-select v-model="IS_HEADER.INVEST_PROFILE"
-        options="{type: 'CT', id: 'TAPRF'}"
-        data-abap="{type:'CHAR', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Scale of investment objects</fd-form-label>
-    <fd-select v-model="IS_HEADER.SCALE"
-        options="{type: 'CT', id: 'TAIF5'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Reason for investment</fd-form-label>
-    <fd-select v-model="IS_HEADER.INV_REASON"
-        options="{type: 'CT', id: 'T087I'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Reason for environmental investment</fd-form-label>
-    <fd-select v-model="IS_HEADER.ENVIR_INVEST"
-        options="{type: 'CT', id: 'T087K'}"
-        data-abap="{type:'CHAR', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Estimated total costs of order</fd-form-label>
-        <fd-input v-model="IS_HEADER.ESTIMATED_COSTS"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Order Currency</fd-form-label>
-    <fd-select v-model="IS_HEADER.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="IS_HEADER.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Costing Sheet</fd-form-label>
-    <fd-select v-model="IS_HEADER.CSTG_SHEET"
-        options="{type: 'CT', id: 'T683'}"
-        data-abap="{type:'CHAR', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Overhead key</fd-form-label>
-        <fd-input v-model="IS_HEADER.OVERHEAD_KEY"
-            data-abap="{type:'CHAR', length:'6'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Results Analysis Key</fd-form-label>
-    <fd-select v-model="IS_HEADER.RES_ANAL_KEY"
-        options="{type: 'CT', id: 'TKKAA'}"
-        data-abap="{type:'CHAR', mid:'ACS', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Description</fd-form-label>
-        <fd-input v-model="IS_HEADER.SHORT_TEXT"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Long Material Number for Field ASSEMBLY</fd-form-label>
-        <fd-input v-model="IS_HEADER.ASSEMBLY_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>External GUID for ASSEMBLY Field</fd-form-label>
-        <fd-input v-model="IS_HEADER.ASSEMBLY_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version Number for ASSEMBLY Field</fd-form-label>
-        <fd-input v-model="IS_HEADER.ASSEMBLY_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="IS_HEADER.MATERIAL_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
-        <fd-input v-model="IS_HEADER.MATERIAL_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="IS_HEADER.MATERIAL_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Notification No</fd-form-label>
-    <fd-select v-model="IS_HEADER.NOTIF_NO"
-        options="{type: 'CT', id: 'QMEL'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>PM Order: Reference Date</fd-form-label>
-    <fd-date-picker v-model="IS_HEADER.TECO_REF_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Time of Reference Date</fd-form-label>
-    <fd-time-picker v-model="IS_HEADER.TECO_REF_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Factory Calendar</fd-form-label>
-    <fd-select v-model="IS_HEADER.CALID"
-        options="{type: 'CT', id: 'TFACD'}"
-        data-abap="{type:'CHAR', mid:'FCI', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Calendar Selection for Order</fd-form-label>
-    <fd-select v-model="IS_HEADER.KALSN"
-        options="{type: 'FV', id: 'KALSN'}"
-        data-abap="{type:'NUMC', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of Superior Order</fd-form-label>
-    <fd-select v-model="IS_HEADER.SUPERIOR_ORDERID"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'UAF', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Notification Type</fd-form-label>
-    <fd-select v-model="IS_HEADER.NOTIF_TYPE"
-        options="{type: 'CT', id: 'TQ80'}"
-        data-abap="{type:'CHAR', mid:'QMR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Start Point</fd-form-label>
-    <fd-select v-model="IS_HEADER.START_POINT"
-        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>End Point</fd-form-label>
-    <fd-select v-model="IS_HEADER.END_POINT"
-        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Length</fd-form-label>
-        <fd-input v-model="IS_HEADER.LINEAR_LENGTH"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Linear Data</fd-form-label>
-    <fd-select v-model="IS_HEADER.LINEAR_UNIT"
-        options="{type: 'SH', id: 'EAML_H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Linear Data in ISO Code</fd-form-label>
-    <fd-select v-model="IS_HEADER.LINEAR_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Type of First Offset</fd-form-label>
-    <fd-select v-model="IS_HEADER.FIRST_OFFSET_TYPE_CODE"
-        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Value of Offset 1</fd-form-label>
-        <fd-input v-model="IS_HEADER.FIRST_OFFSET_VALUE"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 1</fd-form-label>
-    <fd-select v-model="IS_HEADER.FIRST_OFFSET_UNIT"
-        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 1 in ISO Code</fd-form-label>
-    <fd-select v-model="IS_HEADER.FIRST_OFFSET_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Type of Second Offset</fd-form-label>
-    <fd-select v-model="IS_HEADER.SECOND_OFFSET_TYPE_CODE"
-        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Value of Offset 2</fd-form-label>
-        <fd-input v-model="IS_HEADER.SECOND_OFFSET_VALUE"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 2</fd-form-label>
-    <fd-select v-model="IS_HEADER.SECOND_OFFSET_UNIT"
-        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 2 in ISO Code</fd-form-label>
-    <fd-select v-model="IS_HEADER.SECOND_OFFSET_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Marker for Start Point</fd-form-label>
-    <fd-select v-model="IS_HEADER.MARKER_START_POINT"
-        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Distance between Marker and Start Point</fd-form-label>
-        <fd-input v-model="IS_HEADER.MARKER_DISTANCE_START_POINT"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Marker for End Point</fd-form-label>
-    <fd-select v-model="IS_HEADER.MARKER_END_POINT"
-        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Length Spec for Distance between Marker and End Point</fd-form-label>
-        <fd-input v-model="IS_HEADER.MARKER_DISTANCE_END_POINT"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for the Distance from Marker</fd-form-label>
-    <fd-select v-model="IS_HEADER.MARKER_DISTANCE_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for the Distance from Marker in ISO Code</fd-form-label>
-    <fd-select v-model="IS_HEADER.MARKER_DISTANCE_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Reference order number</fd-form-label>
-    <fd-select v-model="IS_HEADER.REFERENCE_ORDER"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANV', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
-        <fd-input v-model="IS_HEADER.MATERIAL_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Assembly</fd-form-label>
-        <fd-input v-model="IS_HEADER.ASSEMBLY_LONG"
-            data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Order Number">
+    <ComboBox value={this.IS_HEADER.ORDERID}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Order Type">
+    <ComboBox value={this.IS_HEADER.ORDER_TYPE}
+        items="{type: 'CT', id: 'T003O'}"
+        data-abap="{type:'CHAR', mid:'AAT', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance Planning Plant">
+    <ComboBox value={this.IS_HEADER.PLANPLANT}
+        items="{type: 'CT', id: 'T001W'}"
+        data-abap="{type:'CHAR', mid:'IWK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Scenario or Subscreen Category">
+    <ComboBox value={this.IS_HEADER.SCENARIO}
+        items="{type: 'CT', id: 'TQBT'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Business Area">
+    <ComboBox value={this.IS_HEADER.BUS_AREA}
+        items="{type: 'CT', id: 'TGSB'}"
+        data-abap="{type:'CHAR', mid:'GSB', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Main work center for maintenance tasks">
+    <Input value={this.IS_HEADER.MN_WK_CTR}
+          data-abap="{type:'CHAR', mid:'VAP', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Plant associated with main work center">
+    <ComboBox value={this.IS_HEADER.PLANT}
+        items="{type: 'CT', id: 'T001W'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance activity type">
+    <ComboBox value={this.IS_HEADER.PMACTTYPE}
+        items="{type: 'SH', id: 'H_T350I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <ComboBox value={this.IS_HEADER.PLANGROUP}
+        items="{type: 'CT', id: 'T024I'}"
+        data-abap="{type:'CHAR', mid:'IHG', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Syst.Condition">
+    <ComboBox value={this.IS_HEADER.SYSTCOND}
+        items="{type: 'CT', id: 'T357M'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Functional Location">
+    <ComboBox value={this.IS_HEADER.FUNCT_LOC}
+        items="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Equipment Number">
+    <ComboBox value={this.IS_HEADER.EQUIPMENT}
+        items="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Serial Number">
+    <Input value={this.IS_HEADER.SERIALNO}
+          data-abap="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Material Number">
+    <ComboBox value={this.IS_HEADER.MATERIAL}
+        items="{type: 'SH', id: 'S_MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Assembly">
+    <ComboBox value={this.IS_HEADER.ASSEMBLY}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Additional Device Data">
+    <Input value={this.IS_HEADER.DEVICEDATA}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Maintenance plant">
+    <ComboBox value={this.IS_HEADER.MAINTPLANT}
+        items="{type: 'CT', id: 'T001W'}"
+        data-abap="{type:'CHAR', mid:'SWK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Asset location">
+    <ComboBox value={this.IS_HEADER.LOCATION}
+        items="{type: 'CT', id: 'T499S'}"
+        data-abap="{type:'CHAR', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Room">
+    <Input value={this.IS_HEADER.MAINTROOM}
+          data-abap="{type:'CHAR', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Plant section">
+    <ComboBox value={this.IS_HEADER.PLSECTN}
+        items="{type: 'CT', id: 'T357'}"
+        data-abap="{type:'CHAR', mid:'BBE', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Work center">
+    <Input value={this.IS_HEADER.LOC_WK_CTR}
+          data-abap="{type:'CHAR', mid:'AGR', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="ABC indicator for technical object">
+    <ComboBox value={this.IS_HEADER.ABCINDIC}
+        items="{type: 'CT', id: 'T370C'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sort field">
+    <Input value={this.IS_HEADER.SORTFIELD}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
+
+<FormItem label="Profit Center">
+    <ComboBox value={this.IS_HEADER.PROFIT_CTR}
+        items="{type: 'SH', id: 'PRCTR_EMPTY'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Responsible cost center">
+    <ComboBox value={this.IS_HEADER.RESPCCTR}
+        items="{type: 'CT', id: 'CSKS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Functional Area">
+    <ComboBox value={this.IS_HEADER.FUNC_AREA}
+        items="{type: 'CT', id: 'TFKB'}"
+        data-abap="{type:'CHAR', mid:'FBE', length:'16'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of superior network">
+    <ComboBox value={this.IS_HEADER.SUPERIOR_NETWORK}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Activity number in network and standard network">
+    <Input value={this.IS_HEADER.SUPERIOR_ACTIVITY}
+          data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Work Breakdown Structure Element (WBS Element)">
+    <ComboBox value={this.IS_HEADER.WBS_ELEM}
+        items="{type: 'CT', id: 'PRPS'}"
+        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Processing group">
+    <ComboBox value={this.IS_HEADER.PROCESSING_GROUP}
+        items="{type: 'CT', id: 'TKO08'}"
+        data-abap="{type:'NUMC', mid:'AKR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Tax Jurisdiction">
+    <ComboBox value={this.IS_HEADER.TAXJURCODE}
+        items="{type: 'CT', id: 'TTXJ'}"
+        data-abap="{type:'CHAR', mid:'TXJ', length:'15'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Company Code">
+    <ComboBox value={this.IS_HEADER.LOC_COMP_CODE}
+        items="{type: 'SH', id: 'C_T001'}"
+        data-abap="{type:'CHAR', mid:'BUK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Main Asset Number">
+    <ComboBox value={this.IS_HEADER.ASSET_NO}
+        items="{type: 'CT', id: 'ANLH'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN1', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Asset Subnumber">
+    <ComboBox value={this.IS_HEADER.SUB_NUMBER}
+        items="{type: 'CT', id: 'ANLA'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN2', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Business Area">
+    <ComboBox value={this.IS_HEADER.LOC_BUS_AREA}
+        items="{type: 'CT', id: 'TGSB'}"
+        data-abap="{type:'CHAR', mid:'GSB', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Cost Center">
+    <ComboBox value={this.IS_HEADER.COSTCENTER}
+        items="{type: 'CT', id: 'CSKS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Work Breakdown Structure Element (WBS Element)">
+    <ComboBox value={this.IS_HEADER.LOC_WBS_ELEM}
+        items="{type: 'CT', id: 'PRPS'}"
+        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Standing order number">
+    <ComboBox value={this.IS_HEADER.STANDORDER}
+        items="{type: 'SH', id: 'ORDP'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Settlement order">
+    <ComboBox value={this.IS_HEADER.SETTLORDER}
+        items="{type: 'SH', id: 'ORDE'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sales Organization">
+    <ComboBox value={this.IS_HEADER.SALESORG}
+        items="{type: 'SH', id: 'C_VKORG'}"
+        data-abap="{type:'CHAR', mid:'VKO', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Distribution Channel">
+    <ComboBox value={this.IS_HEADER.DISTR_CHAN}
+        items="{type: 'SH', id: 'C_VTWEG'}"
+        data-abap="{type:'CHAR', mid:'VTW', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Division">
+    <ComboBox value={this.IS_HEADER.DIVISION}
+        items="{type: 'SH', id: 'C_SPART'}"
+        data-abap="{type:'CHAR', mid:'SPA', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance order planning indicator">
+    <ComboBox value={this.IS_HEADER.ORDPLANID}
+        items="{type: 'FV', id: 'AUF_PLKNZ'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Basic start date">
+    <DatePicker value={this.IS_HEADER.START_DATE}/>
+</FormItem>
+
+<FormItem label="Basic finish date">
+    <DatePicker value={this.IS_HEADER.FINISH_DATE}/>
+</FormItem>
+
+<FormItem label="Basic Start (Time)">
+    <TimePicker value={this.IS_HEADER.BASICSTART}/>
+</FormItem>
+
+<FormItem label="Basic finish (time)">
+    <TimePicker value={this.IS_HEADER.BASIC_FIN}/>
+</FormItem>
+
+<FormItem label="Priority">
+    <ComboBox value={this.IS_HEADER.PRIORITY}
+        items="{type: 'CT', id: 'T356'}"
+        data-abap="{type:'CHAR', mid:'PRIOK', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Revision for Plant Maintenance and Customer Service">
+    <ComboBox value={this.IS_HEADER.REVISION}
+        items="{type: 'CT', id: 'T352R'}"
+        data-abap="{type:'CHAR', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Version of Available Capacity">
+    <ComboBox value={this.IS_HEADER.VERSION}
+        items="{type: 'CT', id: 'TC36'}"
+        data-abap="{type:'NUMC', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Scheduling type">
+    <ComboBox value={this.IS_HEADER.SCHED_TYPE}
+        items="{type: 'CT', id: 'T482'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Indicator: Schedule automatically">
+    <CheckBox value={this.IS_HEADER.AUTOSCHED}/>
+</FormItem>
+
+<FormItem label="Indicator: Calculate capacity requirements">
+    <CheckBox value={this.IS_HEADER.CAP_REQMTS}/>
+</FormItem>
+
+<FormItem label="Indicator:  Scheduling allowing for breaks">
+    <CheckBox value={this.IS_HEADER.SCHEDULING_EXACT_BREAK_TIMES}/>
+</FormItem>
+
+<FormItem label="Reservation Relevance/Generation of Purchase Requisition">
+    <ComboBox value={this.IS_HEADER.MRP_RELEVANT}
+        items="{type: 'FV', id: 'AUDISP'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sales Order Number">
+    <ComboBox value={this.IS_HEADER.SALES_ORD}
+        items="{type: 'CT', id: 'VBUK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Item number in Sales Order">
+    <Input value={this.IS_HEADER.S_ORD_ITEM}
+          data-abap="{type:'NUMC', mid:'KPO', length:'6'}"
+    />
+</FormItem>
+
+<FormItem label="Accounting Indicator">
+    <ComboBox value={this.IS_HEADER.CALC_MOTIVE}
+        items="{type: 'CT', id: 'TBMOT'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Investment measure profile">
+    <ComboBox value={this.IS_HEADER.INVEST_PROFILE}
+        items="{type: 'CT', id: 'TAPRF'}"
+        data-abap="{type:'CHAR', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Scale of investment objects">
+    <ComboBox value={this.IS_HEADER.SCALE}
+        items="{type: 'CT', id: 'TAIF5'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Reason for investment">
+    <ComboBox value={this.IS_HEADER.INV_REASON}
+        items="{type: 'CT', id: 'T087I'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Reason for environmental investment">
+    <ComboBox value={this.IS_HEADER.ENVIR_INVEST}
+        items="{type: 'CT', id: 'T087K'}"
+        data-abap="{type:'CHAR', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Estimated total costs of order">
+    <Input value={this.IS_HEADER.ESTIMATED_COSTS}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
+    />
+</FormItem>
+
+<FormItem label="Order Currency">
+    <ComboBox value={this.IS_HEADER.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO currency code">
+    <Input value={this.IS_HEADER.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Costing Sheet">
+    <ComboBox value={this.IS_HEADER.CSTG_SHEET}
+        items="{type: 'CT', id: 'T683'}"
+        data-abap="{type:'CHAR', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Overhead key">
+    <Input value={this.IS_HEADER.OVERHEAD_KEY}
+          data-abap="{type:'CHAR', length:'6'}"
+    />
+</FormItem>
+
+<FormItem label="Results Analysis Key">
+    <ComboBox value={this.IS_HEADER.RES_ANAL_KEY}
+        items="{type: 'CT', id: 'TKKAA'}"
+        data-abap="{type:'CHAR', mid:'ACS', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Description">
+    <Input value={this.IS_HEADER.SHORT_TEXT}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Long Material Number for Field ASSEMBLY">
+    <Input value={this.IS_HEADER.ASSEMBLY_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="External GUID for ASSEMBLY Field">
+    <Input value={this.IS_HEADER.ASSEMBLY_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
+
+<FormItem label="Version Number for ASSEMBLY Field">
+    <Input value={this.IS_HEADER.ASSEMBLY_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Long Material Number for MATERIAL Field">
+    <Input value={this.IS_HEADER.MATERIAL_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="External GUID for MATERIAL Field">
+    <Input value={this.IS_HEADER.MATERIAL_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
+
+<FormItem label="Version Number for MATERIAL Field">
+    <Input value={this.IS_HEADER.MATERIAL_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Notification No">
+    <ComboBox value={this.IS_HEADER.NOTIF_NO}
+        items="{type: 'CT', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="PM Order: Reference Date">
+    <DatePicker value={this.IS_HEADER.TECO_REF_DATE}/>
+</FormItem>
+
+<FormItem label="Time of Reference Date">
+    <TimePicker value={this.IS_HEADER.TECO_REF_TIME}/>
+</FormItem>
+
+<FormItem label="Factory Calendar">
+    <ComboBox value={this.IS_HEADER.CALID}
+        items="{type: 'CT', id: 'TFACD'}"
+        data-abap="{type:'CHAR', mid:'FCI', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Calendar Selection for Order">
+    <ComboBox value={this.IS_HEADER.KALSN}
+        items="{type: 'FV', id: 'KALSN'}"
+        data-abap="{type:'NUMC', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of Superior Order">
+    <ComboBox value={this.IS_HEADER.SUPERIOR_ORDERID}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'UAF', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Notification Type">
+    <ComboBox value={this.IS_HEADER.NOTIF_TYPE}
+        items="{type: 'CT', id: 'TQ80'}"
+        data-abap="{type:'CHAR', mid:'QMR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Start Point">
+    <ComboBox value={this.IS_HEADER.START_POINT}
+        items="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="End Point">
+    <ComboBox value={this.IS_HEADER.END_POINT}
+        items="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Length">
+    <Input value={this.IS_HEADER.LINEAR_LENGTH}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Linear Data">
+    <ComboBox value={this.IS_HEADER.LINEAR_UNIT}
+        items="{type: 'SH', id: 'EAML_H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Linear Data in ISO Code">
+    <ComboBox value={this.IS_HEADER.LINEAR_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Type of First Offset">
+    <ComboBox value={this.IS_HEADER.FIRST_OFFSET_TYPE_CODE}
+        items="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Value of Offset 1">
+    <Input value={this.IS_HEADER.FIRST_OFFSET_VALUE}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 1">
+    <ComboBox value={this.IS_HEADER.FIRST_OFFSET_UNIT}
+        items="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 1 in ISO Code">
+    <ComboBox value={this.IS_HEADER.FIRST_OFFSET_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Type of Second Offset">
+    <ComboBox value={this.IS_HEADER.SECOND_OFFSET_TYPE_CODE}
+        items="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Value of Offset 2">
+    <Input value={this.IS_HEADER.SECOND_OFFSET_VALUE}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 2">
+    <ComboBox value={this.IS_HEADER.SECOND_OFFSET_UNIT}
+        items="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 2 in ISO Code">
+    <ComboBox value={this.IS_HEADER.SECOND_OFFSET_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Marker for Start Point">
+    <ComboBox value={this.IS_HEADER.MARKER_START_POINT}
+        items="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Distance between Marker and Start Point">
+    <Input value={this.IS_HEADER.MARKER_DISTANCE_START_POINT}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Marker for End Point">
+    <ComboBox value={this.IS_HEADER.MARKER_END_POINT}
+        items="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Length Spec for Distance between Marker and End Point">
+    <Input value={this.IS_HEADER.MARKER_DISTANCE_END_POINT}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for the Distance from Marker">
+    <ComboBox value={this.IS_HEADER.MARKER_DISTANCE_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit for the Distance from Marker in ISO Code">
+    <ComboBox value={this.IS_HEADER.MARKER_DISTANCE_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Reference order number">
+    <ComboBox value={this.IS_HEADER.REFERENCE_ORDER}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANV', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Material Number (40 Characters, needed f. technical reasons)">
+    <Input value={this.IS_HEADER.MATERIAL_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Assembly">
+    <Input value={this.IS_HEADER.ASSEMBLY_LONG}
+          data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
+    />
+</FormItem>
 
 <!-- Parameter: IT_COMPONENTS structure: /COE/RBP_T_PAM_ORDER_COMP   -->
 
@@ -943,556 +775,466 @@ abap api -->
 <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'STRG', length:'-1'}" label="Text for Note"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Number of reservation/dependent requirements</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.RESERV_NO"
-        options="{type: 'CT', id: 'RESB'}"
-        data-abap="{type:'NUMC', mid:'RES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item Number of Reservation / Dependent Requirements</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.RES_ITEM"
-            data-abap="{type:'NUMC', mid:'RPO', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Record type</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.RES_TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="IT_COMPONENTS.MOVEMENT">Goods movement for reservation allowed/fast-checkbox>
-
-<fast-checkbox v-model="IT_COMPONENTS.WITHDRAWN">Final issue for this reservation/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Material Number</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.MATERIAL"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plant</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.PLANT"
-        options="{type: 'SH', id: 'H_T001W'}"
-        data-abap="{type:'CHAR', mid:'WRK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Storage location</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.STGE_LOC"
-        options="{type: 'SH', id: 'H_T001L'}"
-        data-abap="{type:'CHAR', mid:'LAG', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Batch Number</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.BATCH"
-        options="{type: 'SH', id: 'H_MCHA'}"
-        data-abap="{type:'CHAR', mid:'CHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fast-checkbox v-model="IT_COMPONENTS.FIXED_QUAN">Quantity is fixed/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Currency Key</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales Order Number</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.SALES_ORD"
-        options="{type: 'CH', id: 'VBUK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item number in Sales Order</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.S_ORD_ITEM"
-            data-abap="{type:'NUMC', mid:'KPO', length:'6'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>G/L Account Number</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.GL_ACCOUNT"
-        options="{type: 'SH', id: 'C_SAKNR'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Required quantity</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.ORIGINAL_QUANTITY"
-            data-abap="{type:'QUAN', unit:'MEINS', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item category (bill of material)</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.ITEM_CAT"
-        options="{type: 'SH', id: 'H_T418'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>BOM item number</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.ITEM_NUMBER"
-            data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>BOM Item Text (Line 1)</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.ITEM_TEXT1"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Indicator for Relevancy to Costing</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.COST_RELEVANT"
-        options="{type: 'CT', id: 'TCK08'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Usage probability in % (alternative item)</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.USAGE_PROB"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sort String</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.SORT_STRING"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="IT_COMPONENTS.BULK_MAT">Indicator: bulk material/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Material Provision Indicator</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.MAT_PROVISION"
-        options="{type: 'SH', id: 'H_T417'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>WBS Element</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.WBS_ELEM"
-        options="{type: 'CT', id: 'PRPS'}"
-        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Activity Number</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.ACTIVITY"
-            data-abap="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Price in component currency</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.PRICE"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Price unit</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.PRICE_UNIT"
-            data-abap="{type:'DEC', length:'5'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="IT_COMPONENTS.BACKFLUSH">Indicator: Backflush/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Purchasing group</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.PUR_GROUP"
-        options="{type: 'SH', id: 'H_T024'}"
-        data-abap="{type:'CHAR', mid:'EKG', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Delivery time in days</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.DELIVERY_DAYS"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Goods recipient</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.GR_RCPT"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unloading Point</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.UNLOAD_PT"
-            data-abap="{type:'CHAR', length:'25'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material Group</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.MATL_GROUP"
-        options="{type: 'SH', id: 'H_T023'}"
-        data-abap="{type:'CHAR', mid:'MKL', length:'9'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Goods receipt processing time in days</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.GR_PR_TIME"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Account Number of Vendor or Creditor</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.VENDOR_NO"
-        options="{type: 'SH', id: 'KRED'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of purchasing info record</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.INFO_REC"
-        options="{type: 'CH', id: 'EINA'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Lead-time offset for operation</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.LEAD_TIME_OFFSET_OPR"
-            data-abap="{type:'DEC', length:'+3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for lead-time offset for operation</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.LEAD_TIME_OFFSET_OPR_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.LEAD_TIME_OFFSET_OPR_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Name of requisitioner/requester</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.PREQ_NAME"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Requirement Tracking Number</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.TRACKINGNO"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Purchasing organization</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.PURCH_ORG"
-        options="{type: 'SH', id: 'H_T024E'}"
-        data-abap="{type:'CHAR', mid:'EKO', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material description</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.MATL_DESC"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Requirement Quantity of Component</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.REQUIREMENT_QUANTITY"
-            data-abap="{type:'QUAN', unit:'REQUIREMENT_QUANTITY_UNIT', length:'+10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Base Unit of Measure</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.REQUIREMENT_QUANTITY_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.REQUIREMENT_QUANTITY_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of principal purchase agreement</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.AGREEMENT"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item number of principal purchase agreement</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.AGMT_ITEM"
-        options="{type: 'CT', id: 'EKPO'}"
-        data-abap="{type:'NUMC', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Type of relationship</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.RELATIONSHIP_TYPE"
-            data-abap="{type:'CHAR', alpha:'AOBAR', length:'2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for the time interval between relationships</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.RELATIONSHIP_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.RELATIONSHIP_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Time Interval Between Relationships</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.RELATIONSHIP_INTERVAL"
-            data-abap="{type:'QUAN', unit:'RELATIONSHIP_UNIT', length:'+4.1'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Reservation Relevance/Generation of Purchase Requisition</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.MRP_RELEVANT"
-        options="{type: 'FV', id: 'AUDISP'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Direct procurement indicator for dialog display</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.DIR_PROCUR"
-        options="{type: 'FV', id: 'CO_DBSKZ_D'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Special stock indicator for dialog display</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.SPECIAL_STOCK"
-        options="{type: 'FV', id: 'CO_SOBKZ_D'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Size 1</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.VSI_SIZE1"
-            data-abap="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of measure for sizes 1 to 3</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.VSI_SIZE_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.VSI_SIZE_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Formula key</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.VSI_FORMULA"
-        options="{type: 'CT', id: 'T418F'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Size 2</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.VSI_SIZE2"
-            data-abap="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of variable-size items</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.VSI_NO"
-            data-abap="{type:'QUAN', unit:'ROAME', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Size 3</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.VSI_SIZE3"
-            data-abap="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Quantity of variable-size item</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.VSI_QTY"
-            data-abap="{type:'QUAN', unit:'VAR_SIZE_COMP_MEASURE_UNIT', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of measure for variable-size component</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.VAR_SIZE_COMP_MEASURE_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_COMPONENTS.VAR_SIZE_COMP_MEASURE_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.MATERIAL_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.MATERIAL_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.MATERIAL_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Requirements date for the component</fd-form-label>
-    <fd-date-picker v-model="IT_COMPONENTS.REQ_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Time that reservation quantity required</fd-form-label>
-    <fd-time-picker v-model="IT_COMPONENTS.REQ_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fast-checkbox v-model="IT_COMPONENTS.MANUAL_REQUIREMENTS_DATE">Manual Maintenance of Requirement Date/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
-        <fd-input v-model="IT_COMPONENTS.MATERIAL_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Text for Note</label>
-    <fd-textarea v-model="IT_COMPONENTS.NOTICE"
-        data-abap="{type:'STRG', length:'-1'}"
-        aria-required="true"
-    ></fd-textarea>
-</fd-form-item>
+<FormItem label="Number of reservation/dependent requirements">
+    <ComboBox value={this.IT_COMPONENTS.RESERV_NO}
+        items="{type: 'CT', id: 'RESB'}"
+        data-abap="{type:'NUMC', mid:'RES', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Item Number of Reservation / Dependent Requirements">
+    <Input value={this.IT_COMPONENTS.RES_ITEM}
+          data-abap="{type:'NUMC', mid:'RPO', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Record type">
+    <Input value={this.IT_COMPONENTS.RES_TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
+
+<FormItem label="Goods movement for reservation allowed">
+    <CheckBox value={this.IT_COMPONENTS.MOVEMENT}/>
+</FormItem>
+
+<FormItem label="Final issue for this reservation">
+    <CheckBox value={this.IT_COMPONENTS.WITHDRAWN}/>
+</FormItem>
+
+<FormItem label="Material Number">
+    <ComboBox value={this.IT_COMPONENTS.MATERIAL}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Plant">
+    <ComboBox value={this.IT_COMPONENTS.PLANT}
+        items="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', mid:'WRK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Storage location">
+    <ComboBox value={this.IT_COMPONENTS.STGE_LOC}
+        items="{type: 'SH', id: 'H_T001L'}"
+        data-abap="{type:'CHAR', mid:'LAG', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Batch Number">
+    <ComboBox value={this.IT_COMPONENTS.BATCH}
+        items="{type: 'SH', id: 'H_MCHA'}"
+        data-abap="{type:'CHAR', mid:'CHA', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Quantity is fixed">
+    <CheckBox value={this.IT_COMPONENTS.FIXED_QUAN}/>
+</FormItem>
+
+<FormItem label="Currency Key">
+    <ComboBox value={this.IT_COMPONENTS.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO currency code">
+    <Input value={this.IT_COMPONENTS.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Sales Order Number">
+    <ComboBox value={this.IT_COMPONENTS.SALES_ORD}
+        items="{type: 'CH', id: 'VBUK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Item number in Sales Order">
+    <Input value={this.IT_COMPONENTS.S_ORD_ITEM}
+          data-abap="{type:'NUMC', mid:'KPO', length:'6'}"
+    />
+</FormItem>
+
+<FormItem label="G/L Account Number">
+    <ComboBox value={this.IT_COMPONENTS.GL_ACCOUNT}
+        items="{type: 'SH', id: 'C_SAKNR'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'SAK', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Required quantity">
+    <Input value={this.IT_COMPONENTS.ORIGINAL_QUANTITY}
+          data-abap="{type:'QUAN', unit:'MEINS', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Item category (bill of material)">
+    <ComboBox value={this.IT_COMPONENTS.ITEM_CAT}
+        items="{type: 'SH', id: 'H_T418'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="BOM item number">
+    <Input value={this.IT_COMPONENTS.ITEM_NUMBER}
+          data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="BOM Item Text (Line 1)">
+    <Input value={this.IT_COMPONENTS.ITEM_TEXT1}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Indicator for Relevancy to Costing">
+    <ComboBox value={this.IT_COMPONENTS.COST_RELEVANT}
+        items="{type: 'CT', id: 'TCK08'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Usage probability in % (alternative item)">
+    <Input value={this.IT_COMPONENTS.USAGE_PROB}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Sort String">
+    <Input value={this.IT_COMPONENTS.SORT_STRING}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Indicator: bulk material">
+    <CheckBox value={this.IT_COMPONENTS.BULK_MAT}/>
+</FormItem>
+
+<FormItem label="Material Provision Indicator">
+    <ComboBox value={this.IT_COMPONENTS.MAT_PROVISION}
+        items="{type: 'SH', id: 'H_T417'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="WBS Element">
+    <ComboBox value={this.IT_COMPONENTS.WBS_ELEM}
+        items="{type: 'CT', id: 'PRPS'}"
+        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Activity Number">
+    <Input value={this.IT_COMPONENTS.ACTIVITY}
+          data-abap="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Price in component currency">
+    <Input value={this.IT_COMPONENTS.PRICE}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Price unit">
+    <Input value={this.IT_COMPONENTS.PRICE_UNIT}
+          data-abap="{type:'DEC', length:'5'}"
+    />
+</FormItem>
+
+<FormItem label="Indicator: Backflush">
+    <CheckBox value={this.IT_COMPONENTS.BACKFLUSH}/>
+</FormItem>
+
+<FormItem label="Purchasing group">
+    <ComboBox value={this.IT_COMPONENTS.PUR_GROUP}
+        items="{type: 'SH', id: 'H_T024'}"
+        data-abap="{type:'CHAR', mid:'EKG', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Delivery time in days">
+    <Input value={this.IT_COMPONENTS.DELIVERY_DAYS}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Goods recipient">
+    <Input value={this.IT_COMPONENTS.GR_RCPT}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Unloading Point">
+    <Input value={this.IT_COMPONENTS.UNLOAD_PT}
+          data-abap="{type:'CHAR', length:'25'}"
+    />
+</FormItem>
+
+<FormItem label="Material Group">
+    <ComboBox value={this.IT_COMPONENTS.MATL_GROUP}
+        items="{type: 'SH', id: 'H_T023'}"
+        data-abap="{type:'CHAR', mid:'MKL', length:'9'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Goods receipt processing time in days">
+    <Input value={this.IT_COMPONENTS.GR_PR_TIME}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Account Number of Vendor or Creditor">
+    <ComboBox value={this.IT_COMPONENTS.VENDOR_NO}
+        items="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of purchasing info record">
+    <ComboBox value={this.IT_COMPONENTS.INFO_REC}
+        items="{type: 'CH', id: 'EINA'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Lead-time offset for operation">
+    <Input value={this.IT_COMPONENTS.LEAD_TIME_OFFSET_OPR}
+          data-abap="{type:'DEC', length:'+3'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for lead-time offset for operation">
+    <ComboBox value={this.IT_COMPONENTS.LEAD_TIME_OFFSET_OPR_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_COMPONENTS.LEAD_TIME_OFFSET_OPR_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Name of requisitioner/requester">
+    <Input value={this.IT_COMPONENTS.PREQ_NAME}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Requirement Tracking Number">
+    <Input value={this.IT_COMPONENTS.TRACKINGNO}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Purchasing organization">
+    <ComboBox value={this.IT_COMPONENTS.PURCH_ORG}
+        items="{type: 'SH', id: 'H_T024E'}"
+        data-abap="{type:'CHAR', mid:'EKO', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Material description">
+    <Input value={this.IT_COMPONENTS.MATL_DESC}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Requirement Quantity of Component">
+    <Input value={this.IT_COMPONENTS.REQUIREMENT_QUANTITY}
+          data-abap="{type:'QUAN', unit:'REQUIREMENT_QUANTITY_UNIT', length:'+10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Base Unit of Measure">
+    <ComboBox value={this.IT_COMPONENTS.REQUIREMENT_QUANTITY_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_COMPONENTS.REQUIREMENT_QUANTITY_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of principal purchase agreement">
+    <ComboBox value={this.IT_COMPONENTS.AGREEMENT}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Item number of principal purchase agreement">
+    <ComboBox value={this.IT_COMPONENTS.AGMT_ITEM}
+        items="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Type of relationship">
+    <Input value={this.IT_COMPONENTS.RELATIONSHIP_TYPE}
+          data-abap="{type:'CHAR', alpha:'AOBAR', length:'2'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for the time interval between relationships">
+    <ComboBox value={this.IT_COMPONENTS.RELATIONSHIP_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_COMPONENTS.RELATIONSHIP_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Time Interval Between Relationships">
+    <Input value={this.IT_COMPONENTS.RELATIONSHIP_INTERVAL}
+          data-abap="{type:'QUAN', unit:'RELATIONSHIP_UNIT', length:'+4.1'}"
+    />
+</FormItem>
+
+<FormItem label="Reservation Relevance/Generation of Purchase Requisition">
+    <ComboBox value={this.IT_COMPONENTS.MRP_RELEVANT}
+        items="{type: 'FV', id: 'AUDISP'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Direct procurement indicator for dialog display">
+    <ComboBox value={this.IT_COMPONENTS.DIR_PROCUR}
+        items="{type: 'FV', id: 'CO_DBSKZ_D'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Special stock indicator for dialog display">
+    <ComboBox value={this.IT_COMPONENTS.SPECIAL_STOCK}
+        items="{type: 'FV', id: 'CO_SOBKZ_D'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Size 1">
+    <Input value={this.IT_COMPONENTS.VSI_SIZE1}
+          data-abap="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of measure for sizes 1 to 3">
+    <ComboBox value={this.IT_COMPONENTS.VSI_SIZE_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_COMPONENTS.VSI_SIZE_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Formula key">
+    <ComboBox value={this.IT_COMPONENTS.VSI_FORMULA}
+        items="{type: 'CT', id: 'T418F'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Size 2">
+    <Input value={this.IT_COMPONENTS.VSI_SIZE2}
+          data-abap="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Number of variable-size items">
+    <Input value={this.IT_COMPONENTS.VSI_NO}
+          data-abap="{type:'QUAN', unit:'ROAME', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Size 3">
+    <Input value={this.IT_COMPONENTS.VSI_SIZE3}
+          data-abap="{type:'QUAN', unit:'VSI_SIZE_UNIT', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Quantity of variable-size item">
+    <Input value={this.IT_COMPONENTS.VSI_QTY}
+          data-abap="{type:'QUAN', unit:'VAR_SIZE_COMP_MEASURE_UNIT', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of measure for variable-size component">
+    <ComboBox value={this.IT_COMPONENTS.VAR_SIZE_COMP_MEASURE_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_COMPONENTS.VAR_SIZE_COMP_MEASURE_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Long Material Number for MATERIAL Field">
+    <Input value={this.IT_COMPONENTS.MATERIAL_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="External GUID for MATERIAL Field">
+    <Input value={this.IT_COMPONENTS.MATERIAL_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
+
+<FormItem label="Version Number for MATERIAL Field">
+    <Input value={this.IT_COMPONENTS.MATERIAL_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Requirements date for the component">
+    <DatePicker value={this.IT_COMPONENTS.REQ_DATE}/>
+</FormItem>
+
+<FormItem label="Time that reservation quantity required">
+    <TimePicker value={this.IT_COMPONENTS.REQ_TIME}/>
+</FormItem>
+
+<FormItem label="Manual Maintenance of Requirement Date">
+    <CheckBox value={this.IT_COMPONENTS.MANUAL_REQUIREMENTS_DATE}/>
+</FormItem>
+
+<FormItem label="Material Number (40 Characters, needed f. technical reasons)">
+    <Input value={this.IT_COMPONENTS.MATERIAL_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Text for Note">
+    <TextArea value={this.IT_COMPONENTS.NOTICE}
+          data-abap="{type:'STRG', length:'-1'}"
+    />
+</FormItem>
 
 <!-- Parameter: IT_NOTICE_NOTIFICATION structure: RE_T_TEXTLINE   -->
 
@@ -1502,12 +1244,11 @@ abap api -->
 <ui-dg-column sortable field="" data-abap.bind="{type:'CHAR', length:'132'}" label=""></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label></fd-form-label>
-        <fd-input v-model="IT_NOTICE_NOTIFICATION"
-            data-abap="{type:'CHAR', length:'132'}"
-        />
-</fd-form-item>
+<FormItem label="">
+    <Input value={this.IT_NOTICE_NOTIFICATION}
+          data-abap="{type:'CHAR', length:'132'}"
+    />
+</FormItem>
 
 <!-- Parameter: IT_OPERATIONS structure: /COE/RBP_T_PAM_ORDER_OPER   -->
 
@@ -1637,961 +1378,780 @@ abap api -->
 <ui-dg-column sortable field="NOTICE" data-abap.bind="{type:'STRG', length:'-1'}" label="Text for Note"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Activity Number</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.ACTIVITY"
-            data-abap="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Suboperation</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.SUB_ACTIVITY"
-            data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Control key</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.CONTROL_KEY"
-        options="{type: 'CT', id: 'T430'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work center</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.WORK_CNTR"
-            data-abap="{type:'CHAR', mid:'AGR', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plant</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.PLANT"
-        options="{type: 'SH', id: 'H_T001W_C'}"
-        data-abap="{type:'CHAR', mid:'WRK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Standard text key</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.STANDARD_TEXT_KEY"
-        options="{type: 'CT', id: 'T435'}"
-        data-abap="{type:'CHAR', length:'7'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Operation short text</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.DESCRIPTION"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Language Key</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.LANGU"
-        options="{type: 'SH', id: 'H_T002'}"
-        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>2-Character SAP Language Code</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.LANGU_ISO"
-            data-abap="{type:'CHAR', length:'2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of Time Tickets</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.NO_OF_TIME_TICKETS"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Wage type</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.WAGETYPE"
-            data-abap="{type:'CHAR', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Suitability</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.SUITABILITY"
-        options="{type: 'CT', id: 'T423'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Wage Group</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.WAGEGROUP"
-        options="{type: 'CT', id: 'T421'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sort field</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.SORT_FLD"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Account Number of Vendor or Creditor</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.VENDOR_NO"
-        options="{type: 'SH', id: 'KRED_C'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Operation quantity in order unit of measure</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.QUANTITY"
-            data-abap="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Base Unit of Measure</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.BASE_UOM"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.BASE_UOM_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Price</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.PRICE"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Price unit</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.PRICE_UNIT"
-            data-abap="{type:'DEC', length:'5'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cost Element</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.COST_ELEMENT"
-        options="{type: 'CT', id: 'CSKA'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KAT', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Currency Key</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of purchasing info record</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.INFO_REC"
-        options="{type: 'SH', id: 'MEIN_C'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Purchasing organization</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.PURCH_ORG"
-        options="{type: 'CT', id: 'T024E'}"
-        data-abap="{type:'CHAR', mid:'EKO', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Purchasing Group for External Processing Activity</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.PUR_GROUP"
-        options="{type: 'CT', id: 'T024'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material Group</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.MATL_GROUP"
-        options="{type: 'SH', id: 'S_WBWG'}"
-        data-abap="{type:'CHAR', mid:'MKL', length:'9'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of principal purchase agreement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.AGREEMENT"
-        options="{type: 'CT', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item number of principal purchase agreement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.AGMT_ITEM"
-        options="{type: 'CT', id: 'EKPO'}"
-        data-abap="{type:'NUMC', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Name of requisitioner/requester</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.PREQ_NAME"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Requirement Tracking Number</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.TRACKINGNO"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of capacities required</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.NUMBER_OF_CAPACITIES"
-            data-abap="{type:'INT1', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work percentage</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.PERCENT_OF_WORK"
-            data-abap="{type:'INT1', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Key for calculation</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.CALC_KEY"
-        options="{type: 'FV', id: 'INDET'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Activity Type</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.ACTTYPE"
-        options="{type: 'SH', id: 'LART_EMPTY'}"
-        data-abap="{type:'CHAR', mid:'LAR', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Syst.Condition</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.SYSTCOND"
-        options="{type: 'CT', id: 'T357M'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Assembly</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.ASSEMBLY"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Distr.cap.reqmts (plant maint.,process order, network)</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.INT_DISTR"
-        options="{type: 'CT', id: 'TC29'}"
-        data-abap="{type:'CHAR', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Goods recipient</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.GR_RCPT"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unloading Point</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.UNLOAD_PT"
-            data-abap="{type:'CHAR', length:'25'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Personnel number</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.PERS_NO"
-            data-abap="{type:'NUMC', mid:'PER', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Framework Order</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.FW_ORDER"
-        options="{type: 'CT', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item of framework order</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.ORDER_ITEM"
-        options="{type: 'CT', id: 'EKPO'}"
-        data-abap="{type:'NUMC', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Planned delivery time in days</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.PLND_DELRY"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Normal duration of the activity</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.DURATION_NORMAL"
-            data-abap="{type:'QUAN', unit:'DURATION_NORMAL_UNIT', length:'4.1'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Normal duration/unit</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.DURATION_NORMAL_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.DURATION_NORMAL_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Constraint on the basic start date for the activity</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.CONSTRAINT_TYPE_START"
-        options="{type: 'FV', id: 'RESTRIKSTR'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Constraint on the finish date of the activity</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.CONSTRAINT_TYPE_FINISH"
-        options="{type: 'FV', id: 'RESTRIKEND'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work involved in the activity</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.WORK_ACTIVITY"
-            data-abap="{type:'QUAN', unit:'UN_WORK', length:'6.1'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for work</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.UN_WORK"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.UN_WORK_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Constraint for activity start (Basic)</fd-form-label>
-    <fd-date-picker v-model="IT_OPERATIONS.START_CONS"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Constraint for activity start time (Basic)</fd-form-label>
-    <fd-time-picker v-model="IT_OPERATIONS.STRTTIMCON"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Constraint for finish of activity (Basic)</fd-form-label>
-    <fd-date-picker v-model="IT_OPERATIONS.FIN_CONSTR"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic finish time of the activity</fd-form-label>
-    <fd-time-picker v-model="IT_OPERATIONS.FINTIMCONS"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Execution Factor</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.EXECFACTOR"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Reservation Relevance/Generation of Purchase Requisition</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.MRP_RELEVANT"
-        options="{type: 'FV', id: 'AUDISP'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Key word ID for user-defined fields</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.FIELD_KEY"
-        options="{type: 'CT', id: 'TCN00'}"
-        data-abap="{type:'CHAR', length:'7'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field with 20 characters</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR00"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field with 20 characters</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR01"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field with 10 characters</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR02"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field with 10 characters</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR03"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field for quantity (length 10.3)</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR04"
-            data-abap="{type:'QUAN', unit:'USE04', length:'+10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field: Unit for quantity fields</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.USE04"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.USE04_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field for quantity (length 10.3)</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR05"
-            data-abap="{type:'QUAN', unit:'USE05', length:'+10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field: Unit for quantity fields</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.USE05"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.USE05_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User-defined field for values (length 10,3)</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR06"
-            data-abap="{type:'CURR', unit:'USE06', length:'+12.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field: Unit for value fields</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.USE06"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USE06_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User-defined field for values (length 10,3)</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USR07"
-            data-abap="{type:'CURR', unit:'USE07', length:'+12.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field: Unit for value fields</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.USE07"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.USE07_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field for date</fd-form-label>
-    <fd-date-picker v-model="IT_OPERATIONS.USR08"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User field for date</fd-form-label>
-    <fd-date-picker v-model="IT_OPERATIONS.USR09"></fd-date-picker>
-</fd-form-item>
-
-<fast-checkbox v-model="IT_OPERATIONS.USR10">User-defined field: Indicator for reports/fast-checkbox>
-
-<fast-checkbox v-model="IT_OPERATIONS.USR11">User-defined field: Indicator for reports/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Long Material Number for Field ASSEMBLY</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.ASSEMBLY_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>External GUID for ASSEMBLY Field</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.ASSEMBLY_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version Number for ASSEMBLY Field</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.ASSEMBLY_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Equipment Number</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.EQUIPMENT"
-        options="{type: 'SH', id: 'EQUI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Functional Location Label</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.FUNCT_LOC"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Indicator: External Processing Operation with Subcontracting</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.SUBCONTRACTING"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Start Point</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.START_POINT"
-        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>End Point</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.END_POINT"
-        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Length</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.LINEAR_LENGTH"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Linear Data</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.LINEAR_UNIT"
-        options="{type: 'SH', id: 'EAML_H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Linear Data in ISO Code</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.LINEAR_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Type of First Offset</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.FIRST_OFFSET_TYPE_CODE"
-        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Value of Offset 1</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.FIRST_OFFSET_VALUE"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 1</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.FIRST_OFFSET_UNIT"
-        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 1 in ISO Code</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.FIRST_OFFSET_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Type of Second Offset</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.SECOND_OFFSET_TYPE_CODE"
-        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Value of Offset 2</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.SECOND_OFFSET_VALUE"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 2</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.SECOND_OFFSET_UNIT"
-        options="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 2 in ISO Code</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.SECOND_OFFSET_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Marker for Start Point</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.MARKER_START_POINT"
-        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Distance between Marker and Start Point</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.MARKER_DISTANCE_START_POINT"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Marker for End Point</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.MARKER_END_POINT"
-        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Length Spec for Distance between Marker and End Point</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.MARKER_DISTANCE_END_POINT"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for the Distance from Marker</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.MARKER_DISTANCE_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for the Distance from Marker in ISO Code</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.MARKER_DISTANCE_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance activity type</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.MAINTENANCE_ACTIVITY_TYPE"
-        options="{type: 'SH', id: 'H_T350I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Business Area</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.BUS_AREA"
-        options="{type: 'CT', id: 'TGSB'}"
-        data-abap="{type:'CHAR', mid:'GSB', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work breakdown structure element (WBS element)</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.WBS_ELEM"
-        options="{type: 'CT', id: 'PRPS'}"
-        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Profit Center</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.PROFIT_CTR"
-        options="{type: 'SH', id: 'PRCTR_EMPTY'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Costing Sheet</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.CSTG_SHEET"
-        options="{type: 'CT', id: 'T683'}"
-        data-abap="{type:'CHAR', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Overhead key</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.OVERHEAD_KEY"
-            data-abap="{type:'CHAR', length:'6'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Tax Jurisdiction</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.TAXJURCODE"
-        options="{type: 'CT', id: 'TTXJ'}"
-        data-abap="{type:'CHAR', mid:'TXJ', length:'15'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Object Class</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.OBJECTCLASS"
-        options="{type: 'FV', id: 'SCOPE_CV'}"
-        data-abap="{type:'CHAR', alpha:'SCOPE', mid:'PCO', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Functional Area</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.FUNC_AREA"
-        options="{type: 'CT', id: 'TFKB'}"
-        data-abap="{type:'CHAR', mid:'FBE', length:'16'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Offset to sub-operation start</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.OFFSET_START"
-            data-abap="{type:'QUAN', unit:'OFFSET_START_UNIT', length:'+5'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for offset to start</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.OFFSET_START_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.OFFSET_START_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Offset to sub-operation finish</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.OFFSET_END"
-            data-abap="{type:'QUAN', unit:'OFFSET_END_UNIT', length:'+5'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for offset to finish</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.OFFSET_END_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="IT_OPERATIONS.OFFSET_END_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Assembly</fd-form-label>
-        <fd-input v-model="IT_OPERATIONS.ASSEMBLY_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Text for Note</label>
-    <fd-textarea v-model="IT_OPERATIONS.NOTICE"
-        data-abap="{type:'STRG', length:'-1'}"
-        aria-required="true"
-    ></fd-textarea>
-</fd-form-item>
+<FormItem label="Activity Number">
+    <Input value={this.IT_OPERATIONS.ACTIVITY}
+          data-abap="{type:'CHAR', alpha:'NUMCV', mid:'VGN', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Suboperation">
+    <Input value={this.IT_OPERATIONS.SUB_ACTIVITY}
+          data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Control key">
+    <ComboBox value={this.IT_OPERATIONS.CONTROL_KEY}
+        items="{type: 'CT', id: 'T430'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Work center">
+    <Input value={this.IT_OPERATIONS.WORK_CNTR}
+          data-abap="{type:'CHAR', mid:'AGR', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Plant">
+    <ComboBox value={this.IT_OPERATIONS.PLANT}
+        items="{type: 'SH', id: 'H_T001W_C'}"
+        data-abap="{type:'CHAR', mid:'WRK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Standard text key">
+    <ComboBox value={this.IT_OPERATIONS.STANDARD_TEXT_KEY}
+        items="{type: 'CT', id: 'T435'}"
+        data-abap="{type:'CHAR', length:'7'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Operation short text">
+    <Input value={this.IT_OPERATIONS.DESCRIPTION}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Language Key">
+    <ComboBox value={this.IT_OPERATIONS.LANGU}
+        items="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="2-Character SAP Language Code">
+    <Input value={this.IT_OPERATIONS.LANGU_ISO}
+          data-abap="{type:'CHAR', length:'2'}"
+    />
+</FormItem>
+
+<FormItem label="Number of Time Tickets">
+    <Input value={this.IT_OPERATIONS.NO_OF_TIME_TICKETS}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Wage type">
+    <Input value={this.IT_OPERATIONS.WAGETYPE}
+          data-abap="{type:'CHAR', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Suitability">
+    <ComboBox value={this.IT_OPERATIONS.SUITABILITY}
+        items="{type: 'CT', id: 'T423'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Wage Group">
+    <ComboBox value={this.IT_OPERATIONS.WAGEGROUP}
+        items="{type: 'CT', id: 'T421'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sort field">
+    <Input value={this.IT_OPERATIONS.SORT_FLD}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Account Number of Vendor or Creditor">
+    <ComboBox value={this.IT_OPERATIONS.VENDOR_NO}
+        items="{type: 'SH', id: 'KRED_C'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Operation quantity in order unit of measure">
+    <Input value={this.IT_OPERATIONS.QUANTITY}
+          data-abap="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Base Unit of Measure">
+    <ComboBox value={this.IT_OPERATIONS.BASE_UOM}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_OPERATIONS.BASE_UOM_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Price">
+    <Input value={this.IT_OPERATIONS.PRICE}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
+    />
+</FormItem>
+
+<FormItem label="Price unit">
+    <Input value={this.IT_OPERATIONS.PRICE_UNIT}
+          data-abap="{type:'DEC', length:'5'}"
+    />
+</FormItem>
+
+<FormItem label="Cost Element">
+    <ComboBox value={this.IT_OPERATIONS.COST_ELEMENT}
+        items="{type: 'CT', id: 'CSKA'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KAT', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Currency Key">
+    <ComboBox value={this.IT_OPERATIONS.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO currency code">
+    <Input value={this.IT_OPERATIONS.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Number of purchasing info record">
+    <ComboBox value={this.IT_OPERATIONS.INFO_REC}
+        items="{type: 'SH', id: 'MEIN_C'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'INF', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Purchasing organization">
+    <ComboBox value={this.IT_OPERATIONS.PURCH_ORG}
+        items="{type: 'CT', id: 'T024E'}"
+        data-abap="{type:'CHAR', mid:'EKO', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Purchasing Group for External Processing Activity">
+    <ComboBox value={this.IT_OPERATIONS.PUR_GROUP}
+        items="{type: 'CT', id: 'T024'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Material Group">
+    <ComboBox value={this.IT_OPERATIONS.MATL_GROUP}
+        items="{type: 'SH', id: 'S_WBWG'}"
+        data-abap="{type:'CHAR', mid:'MKL', length:'9'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of principal purchase agreement">
+    <ComboBox value={this.IT_OPERATIONS.AGREEMENT}
+        items="{type: 'CT', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Item number of principal purchase agreement">
+    <ComboBox value={this.IT_OPERATIONS.AGMT_ITEM}
+        items="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Name of requisitioner/requester">
+    <Input value={this.IT_OPERATIONS.PREQ_NAME}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Requirement Tracking Number">
+    <Input value={this.IT_OPERATIONS.TRACKINGNO}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Number of capacities required">
+    <Input value={this.IT_OPERATIONS.NUMBER_OF_CAPACITIES}
+          data-abap="{type:'INT1', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Work percentage">
+    <Input value={this.IT_OPERATIONS.PERCENT_OF_WORK}
+          data-abap="{type:'INT1', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Key for calculation">
+    <ComboBox value={this.IT_OPERATIONS.CALC_KEY}
+        items="{type: 'FV', id: 'INDET'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Activity Type">
+    <ComboBox value={this.IT_OPERATIONS.ACTTYPE}
+        items="{type: 'SH', id: 'LART_EMPTY'}"
+        data-abap="{type:'CHAR', mid:'LAR', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Syst.Condition">
+    <ComboBox value={this.IT_OPERATIONS.SYSTCOND}
+        items="{type: 'CT', id: 'T357M'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Assembly">
+    <ComboBox value={this.IT_OPERATIONS.ASSEMBLY}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Distr.cap.reqmts (plant maint.,process order, network)">
+    <ComboBox value={this.IT_OPERATIONS.INT_DISTR}
+        items="{type: 'CT', id: 'TC29'}"
+        data-abap="{type:'CHAR', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Goods recipient">
+    <Input value={this.IT_OPERATIONS.GR_RCPT}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Unloading Point">
+    <Input value={this.IT_OPERATIONS.UNLOAD_PT}
+          data-abap="{type:'CHAR', length:'25'}"
+    />
+</FormItem>
+
+<FormItem label="Personnel number">
+    <Input value={this.IT_OPERATIONS.PERS_NO}
+          data-abap="{type:'NUMC', mid:'PER', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Framework Order">
+    <ComboBox value={this.IT_OPERATIONS.FW_ORDER}
+        items="{type: 'CT', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Item of framework order">
+    <ComboBox value={this.IT_OPERATIONS.ORDER_ITEM}
+        items="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Planned delivery time in days">
+    <Input value={this.IT_OPERATIONS.PLND_DELRY}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Normal duration of the activity">
+    <Input value={this.IT_OPERATIONS.DURATION_NORMAL}
+          data-abap="{type:'QUAN', unit:'DURATION_NORMAL_UNIT', length:'4.1'}"
+    />
+</FormItem>
+
+<FormItem label="Normal duration/unit">
+    <ComboBox value={this.IT_OPERATIONS.DURATION_NORMAL_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_OPERATIONS.DURATION_NORMAL_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Constraint on the basic start date for the activity">
+    <ComboBox value={this.IT_OPERATIONS.CONSTRAINT_TYPE_START}
+        items="{type: 'FV', id: 'RESTRIKSTR'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Constraint on the finish date of the activity">
+    <ComboBox value={this.IT_OPERATIONS.CONSTRAINT_TYPE_FINISH}
+        items="{type: 'FV', id: 'RESTRIKEND'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Work involved in the activity">
+    <Input value={this.IT_OPERATIONS.WORK_ACTIVITY}
+          data-abap="{type:'QUAN', unit:'UN_WORK', length:'6.1'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for work">
+    <ComboBox value={this.IT_OPERATIONS.UN_WORK}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_OPERATIONS.UN_WORK_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Constraint for activity start (Basic)">
+    <DatePicker value={this.IT_OPERATIONS.START_CONS}/>
+</FormItem>
+
+<FormItem label="Constraint for activity start time (Basic)">
+    <TimePicker value={this.IT_OPERATIONS.STRTTIMCON}/>
+</FormItem>
+
+<FormItem label="Constraint for finish of activity (Basic)">
+    <DatePicker value={this.IT_OPERATIONS.FIN_CONSTR}/>
+</FormItem>
+
+<FormItem label="Basic finish time of the activity">
+    <TimePicker value={this.IT_OPERATIONS.FINTIMCONS}/>
+</FormItem>
+
+<FormItem label="Execution Factor">
+    <Input value={this.IT_OPERATIONS.EXECFACTOR}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Reservation Relevance/Generation of Purchase Requisition">
+    <ComboBox value={this.IT_OPERATIONS.MRP_RELEVANT}
+        items="{type: 'FV', id: 'AUDISP'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Key word ID for user-defined fields">
+    <ComboBox value={this.IT_OPERATIONS.FIELD_KEY}
+        items="{type: 'CT', id: 'TCN00'}"
+        data-abap="{type:'CHAR', length:'7'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="User field with 20 characters">
+    <Input value={this.IT_OPERATIONS.USR00}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
+
+<FormItem label="User field with 20 characters">
+    <Input value={this.IT_OPERATIONS.USR01}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
+
+<FormItem label="User field with 10 characters">
+    <Input value={this.IT_OPERATIONS.USR02}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="User field with 10 characters">
+    <Input value={this.IT_OPERATIONS.USR03}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="User field for quantity (length 10.3)">
+    <Input value={this.IT_OPERATIONS.USR04}
+          data-abap="{type:'QUAN', unit:'USE04', length:'+10.3'}"
+    />
+</FormItem>
+
+<FormItem label="User field: Unit for quantity fields">
+    <ComboBox value={this.IT_OPERATIONS.USE04}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_OPERATIONS.USE04_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="User field for quantity (length 10.3)">
+    <Input value={this.IT_OPERATIONS.USR05}
+          data-abap="{type:'QUAN', unit:'USE05', length:'+10.3'}"
+    />
+</FormItem>
+
+<FormItem label="User field: Unit for quantity fields">
+    <ComboBox value={this.IT_OPERATIONS.USE05}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_OPERATIONS.USE05_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="User-defined field for values (length 10,3)">
+    <Input value={this.IT_OPERATIONS.USR06}
+          data-abap="{type:'CURR', unit:'USE06', length:'+12.3'}"
+    />
+</FormItem>
+
+<FormItem label="User field: Unit for value fields">
+    <ComboBox value={this.IT_OPERATIONS.USE06}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO currency code">
+    <Input value={this.IT_OPERATIONS.USE06_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="User-defined field for values (length 10,3)">
+    <Input value={this.IT_OPERATIONS.USR07}
+          data-abap="{type:'CURR', unit:'USE07', length:'+12.3'}"
+    />
+</FormItem>
+
+<FormItem label="User field: Unit for value fields">
+    <ComboBox value={this.IT_OPERATIONS.USE07}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO currency code">
+    <Input value={this.IT_OPERATIONS.USE07_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="User field for date">
+    <DatePicker value={this.IT_OPERATIONS.USR08}/>
+</FormItem>
+
+<FormItem label="User field for date">
+    <DatePicker value={this.IT_OPERATIONS.USR09}/>
+</FormItem>
+
+<FormItem label="User-defined field: Indicator for reports">
+    <CheckBox value={this.IT_OPERATIONS.USR10}/>
+</FormItem>
+
+<FormItem label="User-defined field: Indicator for reports">
+    <CheckBox value={this.IT_OPERATIONS.USR11}/>
+</FormItem>
+
+<FormItem label="Long Material Number for Field ASSEMBLY">
+    <Input value={this.IT_OPERATIONS.ASSEMBLY_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="External GUID for ASSEMBLY Field">
+    <Input value={this.IT_OPERATIONS.ASSEMBLY_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
+
+<FormItem label="Version Number for ASSEMBLY Field">
+    <Input value={this.IT_OPERATIONS.ASSEMBLY_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Equipment Number">
+    <ComboBox value={this.IT_OPERATIONS.EQUIPMENT}
+        items="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Functional Location Label">
+    <Input value={this.IT_OPERATIONS.FUNCT_LOC}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Indicator: External Processing Operation with Subcontracting">
+    <Input value={this.IT_OPERATIONS.SUBCONTRACTING}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
+
+<FormItem label="Start Point">
+    <ComboBox value={this.IT_OPERATIONS.START_POINT}
+        items="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="End Point">
+    <ComboBox value={this.IT_OPERATIONS.END_POINT}
+        items="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Length">
+    <Input value={this.IT_OPERATIONS.LINEAR_LENGTH}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Linear Data">
+    <ComboBox value={this.IT_OPERATIONS.LINEAR_UNIT}
+        items="{type: 'SH', id: 'EAML_H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Linear Data in ISO Code">
+    <ComboBox value={this.IT_OPERATIONS.LINEAR_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Type of First Offset">
+    <ComboBox value={this.IT_OPERATIONS.FIRST_OFFSET_TYPE_CODE}
+        items="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Value of Offset 1">
+    <Input value={this.IT_OPERATIONS.FIRST_OFFSET_VALUE}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 1">
+    <ComboBox value={this.IT_OPERATIONS.FIRST_OFFSET_UNIT}
+        items="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 1 in ISO Code">
+    <ComboBox value={this.IT_OPERATIONS.FIRST_OFFSET_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Type of Second Offset">
+    <ComboBox value={this.IT_OPERATIONS.SECOND_OFFSET_TYPE_CODE}
+        items="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Value of Offset 2">
+    <Input value={this.IT_OPERATIONS.SECOND_OFFSET_VALUE}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 2">
+    <ComboBox value={this.IT_OPERATIONS.SECOND_OFFSET_UNIT}
+        items="{type: 'SH', id: 'EAML_H_T006_OFFSET'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 2 in ISO Code">
+    <ComboBox value={this.IT_OPERATIONS.SECOND_OFFSET_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Marker for Start Point">
+    <ComboBox value={this.IT_OPERATIONS.MARKER_START_POINT}
+        items="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Distance between Marker and Start Point">
+    <Input value={this.IT_OPERATIONS.MARKER_DISTANCE_START_POINT}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Marker for End Point">
+    <ComboBox value={this.IT_OPERATIONS.MARKER_END_POINT}
+        items="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Length Spec for Distance between Marker and End Point">
+    <Input value={this.IT_OPERATIONS.MARKER_DISTANCE_END_POINT}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for the Distance from Marker">
+    <ComboBox value={this.IT_OPERATIONS.MARKER_DISTANCE_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit for the Distance from Marker in ISO Code">
+    <ComboBox value={this.IT_OPERATIONS.MARKER_DISTANCE_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance activity type">
+    <ComboBox value={this.IT_OPERATIONS.MAINTENANCE_ACTIVITY_TYPE}
+        items="{type: 'SH', id: 'H_T350I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Business Area">
+    <ComboBox value={this.IT_OPERATIONS.BUS_AREA}
+        items="{type: 'CT', id: 'TGSB'}"
+        data-abap="{type:'CHAR', mid:'GSB', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Work breakdown structure element (WBS element)">
+    <ComboBox value={this.IT_OPERATIONS.WBS_ELEM}
+        items="{type: 'CT', id: 'PRPS'}"
+        data-abap="{type:'NUMC', alpha:'ABPSP', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Profit Center">
+    <ComboBox value={this.IT_OPERATIONS.PROFIT_CTR}
+        items="{type: 'SH', id: 'PRCTR_EMPTY'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Costing Sheet">
+    <ComboBox value={this.IT_OPERATIONS.CSTG_SHEET}
+        items="{type: 'CT', id: 'T683'}"
+        data-abap="{type:'CHAR', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Overhead key">
+    <Input value={this.IT_OPERATIONS.OVERHEAD_KEY}
+          data-abap="{type:'CHAR', length:'6'}"
+    />
+</FormItem>
+
+<FormItem label="Tax Jurisdiction">
+    <ComboBox value={this.IT_OPERATIONS.TAXJURCODE}
+        items="{type: 'CT', id: 'TTXJ'}"
+        data-abap="{type:'CHAR', mid:'TXJ', length:'15'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Object Class">
+    <ComboBox value={this.IT_OPERATIONS.OBJECTCLASS}
+        items="{type: 'FV', id: 'SCOPE_CV'}"
+        data-abap="{type:'CHAR', alpha:'SCOPE', mid:'PCO', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Functional Area">
+    <ComboBox value={this.IT_OPERATIONS.FUNC_AREA}
+        items="{type: 'CT', id: 'TFKB'}"
+        data-abap="{type:'CHAR', mid:'FBE', length:'16'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Offset to sub-operation start">
+    <Input value={this.IT_OPERATIONS.OFFSET_START}
+          data-abap="{type:'QUAN', unit:'OFFSET_START_UNIT', length:'+5'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for offset to start">
+    <ComboBox value={this.IT_OPERATIONS.OFFSET_START_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_OPERATIONS.OFFSET_START_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Offset to sub-operation finish">
+    <Input value={this.IT_OPERATIONS.OFFSET_END}
+          data-abap="{type:'QUAN', unit:'OFFSET_END_UNIT', length:'+5'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for offset to finish">
+    <ComboBox value={this.IT_OPERATIONS.OFFSET_END_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.IT_OPERATIONS.OFFSET_END_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Assembly">
+    <Input value={this.IT_OPERATIONS.ASSEMBLY_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Text for Note">
+    <TextArea value={this.IT_OPERATIONS.NOTICE}
+          data-abap="{type:'STRG', length:'-1'}"
+    />
+</FormItem>
 
 <!-- Parameter: IT_PERMIT structure: BAPI_ALM_ORDER_PERMIT_T   -->
 
@@ -2605,36 +2165,34 @@ abap api -->
 <ui-dg-column sortable field="NOT_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Relevance of Permit"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Permit Key</fd-form-label>
-    <fd-select v-model="IT_PERMIT.PERMIT"
-        options="{type: 'CT', id: 'T357G'}"
-        data-abap="{type:'CHAR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Permit Key">
+    <ComboBox value={this.IT_PERMIT.PERMIT}
+        items="{type: 'CT', id: 'T357G'}"
+        data-abap="{type:'CHAR', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Indicator: Valid for Order Release</fd-form-label>
-    <fd-select v-model="IT_PERMIT.RELEASE"
-        options="{type: 'FV', id: 'G_ERROR'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Indicator: Valid for Order Release">
+    <ComboBox value={this.IT_PERMIT.RELEASE}
+        items="{type: 'FV', id: 'G_ERROR'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Indicator: Valid for Order Completion</fd-form-label>
-    <fd-select v-model="IT_PERMIT.COMPLETE"
-        options="{type: 'FV', id: 'G_ERROR'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Indicator: Valid for Order Completion">
+    <ComboBox value={this.IT_PERMIT.COMPLETE}
+        items="{type: 'FV', id: 'G_ERROR'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fast-checkbox v-model="IT_PERMIT.PRINT">Printout of Permit Papers/fast-checkbox>
+<FormItem label="Printout of Permit Papers">
+    <CheckBox value={this.IT_PERMIT.PRINT}/>
+</FormItem>
 
-<fast-checkbox v-model="IT_PERMIT.NOT_RELEVANT">Relevance of Permit/fast-checkbox>
+<FormItem label="Relevance of Permit">
+    <CheckBox value={this.IT_PERMIT.NOT_RELEVANT}/>
+</FormItem>
 
 <!-- Parameter: IT_PERMIT_ISSUE structure: BAPI_ALM_ORDER_PERMITISSUE_T   -->
 
@@ -2645,21 +2203,18 @@ abap api -->
 <ui-dg-column sortable field="ISSUED_BY" data-abap.bind="{type:'CHAR', length:'12'}" label="Permit Issued By"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Permit Key</fd-form-label>
-    <fd-select v-model="IT_PERMIT_ISSUE.PERMIT"
-        options="{type: 'CT', id: 'T357G'}"
-        data-abap="{type:'CHAR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Permit Key">
+    <ComboBox value={this.IT_PERMIT_ISSUE.PERMIT}
+        items="{type: 'CT', id: 'T357G'}"
+        data-abap="{type:'CHAR', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Permit Issued By</fd-form-label>
-        <fd-input v-model="IT_PERMIT_ISSUE.ISSUED_BY"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
+<FormItem label="Permit Issued By">
+    <Input value={this.IT_PERMIT_ISSUE.ISSUED_BY}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
 
 <!-- Parameter: IT_PERMIT_X structure: BAPI_ALM_ORDER_PERMIT_UP_T   -->
 
@@ -2673,42 +2228,44 @@ abap api -->
 <ui-dg-column sortable field="NOT_RELEVANT" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Permit Key</fd-form-label>
-    <fd-select v-model="IT_PERMIT_X.PERMIT"
-        options="{type: 'CT', id: 'T357G'}"
-        data-abap="{type:'CHAR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Permit Key">
+    <ComboBox value={this.IT_PERMIT_X.PERMIT}
+        items="{type: 'CT', id: 'T357G'}"
+        data-abap="{type:'CHAR', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fast-checkbox v-model="IT_PERMIT_X.RELEASE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IT_PERMIT_X.RELEASE}/>
+</FormItem>
 
-<fast-checkbox v-model="IT_PERMIT_X.COMPLETE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IT_PERMIT_X.COMPLETE}/>
+</FormItem>
 
-<fast-checkbox v-model="IT_PERMIT_X.PRINT">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IT_PERMIT_X.PRINT}/>
+</FormItem>
 
-<fast-checkbox v-model="IT_PERMIT_X.NOT_RELEVANT">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.IT_PERMIT_X.NOT_RELEVANT}/>
+</FormItem>
 
 <!-- EXPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label></fd-form-label>
-    <fd-select v-model="EV_NOTIF_NO"
-        options="{type: 'CT', id: 'QMEL'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="">
+    <ComboBox value={this.EV_NOTIF_NO}
+        items="{type: 'CT', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label></fd-form-label>
-    <fd-select v-model="EV_ORDERID"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="">
+    <ComboBox value={this.EV_ORDERID}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: ET_RETURN structure: BAPIRETTAB   -->
 
@@ -2731,110 +2288,91 @@ abap api -->
 <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="ET_RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.ET_RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Class</fd-form-label>
-    <fd-select v-model="ET_RETURN.ID"
-        options="{type: 'CT', id: 'T100A'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Message Class">
+    <ComboBox value={this.ET_RETURN.ID}
+        items="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Number</fd-form-label>
-        <fd-input v-model="ET_RETURN.NUMBER"
-            data-abap="{type:'NUMC', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="Message Number">
+    <Input value={this.ET_RETURN.NUMBER}
+          data-abap="{type:'NUMC', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.ET_RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.ET_RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.ET_RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Parameter Name</fd-form-label>
-        <fd-input v-model="ET_RETURN.PARAMETER"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="Parameter Name">
+    <Input value={this.ET_RETURN.PARAMETER}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Lines in parameter</fd-form-label>
-        <fd-input v-model="ET_RETURN.ROW"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Lines in parameter">
+    <Input value={this.ET_RETURN.ROW}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Field in parameter</fd-form-label>
-    <fd-select v-model="ET_RETURN.FIELD"
-        options="{type: 'CT', id: 'DD03L'}"
-        data-abap="{type:'CHAR', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Field in parameter">
+    <ComboBox value={this.ET_RETURN.FIELD}
+        items="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Logical system from which message originates</fd-form-label>
-    <fd-select v-model="ET_RETURN.SYSTEM"
-        options="{type: 'CT', id: 'TBDLS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Logical system from which message originates">
+    <ComboBox value={this.ET_RETURN.SYSTEM}
+        items="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>

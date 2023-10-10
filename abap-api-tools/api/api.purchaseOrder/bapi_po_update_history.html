@@ -4,14 +4,12 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-    <fd-select v-model="PURCHASEORDER"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchasing Document Number">
+    <ComboBox value={this.PURCHASEORDER}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
 <!-- TABLE PARAMETERS -->
 
@@ -74,383 +72,321 @@ abap api -->
 <ui-dg-column sortable field="PUR_MAT_LONG" data-abap.bind="{type:'CHAR', length:'40'}" label="Material Number (40 Characters, Technical Requirement)"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Item Number of Purchasing Document</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.PO_ITEM"
-        options="{type: 'CT', id: 'EKPO'}"
-        data-abap="{type:'NUMC', mid:'BSP', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Item Number of Purchasing Document">
+    <ComboBox value={this.POITEMHISTORY.PO_ITEM}
+        items="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', mid:'BSP', length:'5'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sequential Number of Account Assignment</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.SERIAL_NO"
-            data-abap="{type:'NUMC', length:'2'}"
-        />
-</fd-form-item>
+<FormItem label="Sequential Number of Account Assignment">
+    <Input value={this.POITEMHISTORY.SERIAL_NO}
+          data-abap="{type:'NUMC', length:'2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Transaction/event type, purchase order history</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.PROCESS_ID"
-        options="{type: 'FV', id: 'VGABE'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Transaction/event type, purchase order history">
+    <ComboBox value={this.POITEMHISTORY.PROCESS_ID}
+        items="{type: 'FV', id: 'VGABE'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Document Year</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.DOC_YEAR"
-            data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Material Document Year">
+    <Input value={this.POITEMHISTORY.DOC_YEAR}
+          data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Number of Material Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.MAT_DOC"
-            data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Number of Material Document">
+    <Input value={this.POITEMHISTORY.MAT_DOC}
+          data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Item in Material Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.MATDOC_ITM"
-            data-abap="{type:'NUMC', mid:'POS', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Item in Material Document">
+    <Input value={this.POITEMHISTORY.MATDOC_ITM}
+          data-abap="{type:'NUMC', mid:'POS', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Purchase Order History Category</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.HIST_TYPE"
-        options="{type: 'SH', id: 'H_T163B'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchase Order History Category">
+    <ComboBox value={this.POITEMHISTORY.HIST_TYPE}
+        items="{type: 'SH', id: 'H_T163B'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Movement type (inventory management)</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.MOVE_TYPE"
-        options="{type: 'SH', id: 'H_T156'}"
-        data-abap="{type:'CHAR', mid:'BWA', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Movement type (inventory management)">
+    <ComboBox value={this.POITEMHISTORY.MOVE_TYPE}
+        items="{type: 'SH', id: 'H_T156'}"
+        data-abap="{type:'CHAR', mid:'BWA', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Posting Date in the Document</fd-form-label>
-    <fd-date-picker v-model="POITEMHISTORY.PSTNG_DATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Posting Date in the Document">
+    <DatePicker value={this.POITEMHISTORY.PSTNG_DATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Quantity</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.QUANTITY"
-            data-abap="{type:'QUAN', unit:'UNIT', length:'10.3'}"
-        />
-</fd-form-item>
+<FormItem label="Quantity">
+    <Input value={this.POITEMHISTORY.QUANTITY}
+          data-abap="{type:'QUAN', unit:'UNIT', length:'10.3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Amount in local currency</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.VAL_LOCCUR"
-            data-abap="{type:'DEC', length:'22.4'}"
-        />
-</fd-form-item>
+<FormItem label="Amount in local currency">
+    <Input value={this.POITEMHISTORY.VAL_LOCCUR}
+          data-abap="{type:'DEC', length:'22.4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Amount in document currency</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.VAL_FORCUR"
-            data-abap="{type:'DEC', length:'22.4'}"
-        />
-</fd-form-item>
+<FormItem label="Amount in document currency">
+    <Input value={this.POITEMHISTORY.VAL_FORCUR}
+          data-abap="{type:'DEC', length:'22.4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Currency Key</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Currency Key">
+    <ComboBox value={this.POITEMHISTORY.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>GR/IR account clearing value in local currency</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.CL_VAL_LOC"
-            data-abap="{type:'DEC', length:'22.4'}"
-        />
-</fd-form-item>
+<FormItem label="GR/IR account clearing value in local currency">
+    <Input value={this.POITEMHISTORY.CL_VAL_LOC}
+          data-abap="{type:'DEC', length:'22.4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Goods Receipt Blocked Stock in Order Unit</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.BLOCKED_QY"
-            data-abap="{type:'QUAN', unit:'UNIT', length:'10.3'}"
-        />
-</fd-form-item>
+<FormItem label="Goods Receipt Blocked Stock in Order Unit">
+    <Input value={this.POITEMHISTORY.BLOCKED_QY}
+          data-abap="{type:'QUAN', unit:'UNIT', length:'10.3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Quantity in GR blocked stock in order price unit</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.BL_QTY"
-            data-abap="{type:'QUAN', unit:'ORDERPR_UN', length:'10.3'}"
-        />
-</fd-form-item>
+<FormItem label="Quantity in GR blocked stock in order price unit">
+    <Input value={this.POITEMHISTORY.BL_QTY}
+          data-abap="{type:'QUAN', unit:'ORDERPR_UN', length:'10.3'}"
+    />
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORY.DB_CR_IND">Debit/Credit Indicator/fast-checkbox>
+<FormItem label="Debit/Credit Indicator">
+    <CheckBox value={this.POITEMHISTORY.DB_CR_IND}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Valuation type</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.VAL_TYPE"
-        options="{type: 'SH', id: 'H_T149D'}"
-        data-abap="{type:'CHAR', mid:'BWT', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Valuation type">
+    <ComboBox value={this.POITEMHISTORY.VAL_TYPE}
+        items="{type: 'SH', id: 'H_T149D'}"
+        data-abap="{type:'CHAR', mid:'BWT', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORY.NO_MORE_GR">"Delivery Completed" Indicator/fast-checkbox>
+<FormItem label=""Delivery Completed" Indicator">
+    <CheckBox value={this.POITEMHISTORY.NO_MORE_GR}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Reference Document Number</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.REF_DOC_NO"
-            data-abap="{type:'CHAR', length:'16'}"
-        />
-</fd-form-item>
+<FormItem label="Reference Document Number">
+    <Input value={this.POITEMHISTORY.REF_DOC_NO}
+          data-abap="{type:'CHAR', length:'16'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Fiscal Year of a Reference Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.REF_DOC_YR"
-            data-abap="{type:'NUMC', alpha:'GJAHR', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Fiscal Year of a Reference Document">
+    <Input value={this.POITEMHISTORY.REF_DOC_YR}
+          data-abap="{type:'NUMC', alpha:'GJAHR', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Document No. of a Reference Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.REF_DOC"
-            data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Document No. of a Reference Document">
+    <Input value={this.POITEMHISTORY.REF_DOC}
+          data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Item of a Reference Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.REF_DOC_IT"
-            data-abap="{type:'NUMC', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Item of a Reference Document">
+    <Input value={this.POITEMHISTORY.REF_DOC_IT}
+          data-abap="{type:'NUMC', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Reason for Movement</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.MOVE_REAS"
-        options="{type: 'SH', id: 'H_T157D'}"
-        data-abap="{type:'NUMC', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Reason for Movement">
+    <ComboBox value={this.POITEMHISTORY.MOVE_REAS}
+        items="{type: 'SH', id: 'H_T157D'}"
+        data-abap="{type:'NUMC', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Day On Which Accounting Document Was Entered</fd-form-label>
-    <fd-date-picker v-model="POITEMHISTORY.ENTRY_DATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Day On Which Accounting Document Was Entered">
+    <DatePicker value={this.POITEMHISTORY.ENTRY_DATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Time of Entry</fd-form-label>
-    <fd-time-picker v-model="POITEMHISTORY.ENTRY_TIME"></fd-time-picker>
-</fd-form-item>
+<FormItem label="Time of Entry">
+    <TimePicker value={this.POITEMHISTORY.ENTRY_TIME}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Entered invoice value in local currency</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.IVVAL_LOC"
-            data-abap="{type:'DEC', length:'22.4'}"
-        />
-</fd-form-item>
+<FormItem label="Entered invoice value in local currency">
+    <Input value={this.POITEMHISTORY.IVVAL_LOC}
+          data-abap="{type:'DEC', length:'22.4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Entered invoice value in foreign currency</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.IVVAL_FOR"
-            data-abap="{type:'DEC', length:'22.4'}"
-        />
-</fd-form-item>
+<FormItem label="Entered invoice value in foreign currency">
+    <Input value={this.POITEMHISTORY.IVVAL_FOR}
+          data-abap="{type:'DEC', length:'22.4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Number</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.MATERIAL"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Material Number">
+    <ComboBox value={this.POITEMHISTORY.MATERIAL}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Plant</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.PLANT"
-        options="{type: 'SH', id: 'H_T001W'}"
-        data-abap="{type:'CHAR', mid:'WRK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Plant">
+    <ComboBox value={this.POITEMHISTORY.PLANT}
+        items="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', mid:'WRK', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sequential Number of Vendor Confirmation</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.CONF_SER"
-            data-abap="{type:'NUMC', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Sequential Number of Vendor Confirmation">
+    <Input value={this.POITEMHISTORY.CONF_SER}
+          data-abap="{type:'NUMC', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Number of the document condition</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.CONDITION"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Number of the document condition">
+    <Input value={this.POITEMHISTORY.CONDITION}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Tax on sales/purchases code</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.TAX_CODE"
-        options="{type: 'CT', id: 'T007A'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Tax on sales/purchases code">
+    <ComboBox value={this.POITEMHISTORY.TAX_CODE}
+        items="{type: 'CT', id: 'T007A'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Quantity in Unit of Measure from Delivery Note</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.DELIV_QTY"
-            data-abap="{type:'QUAN', unit:'DELIV_UNIT', length:'10.3'}"
-        />
-</fd-form-item>
+<FormItem label="Quantity in Unit of Measure from Delivery Note">
+    <Input value={this.POITEMHISTORY.DELIV_QTY}
+          data-abap="{type:'QUAN', unit:'DELIV_UNIT', length:'10.3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Unit of Measure From Delivery Note</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.DELIV_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Unit of Measure From Delivery Note">
+    <ComboBox value={this.POITEMHISTORY.DELIV_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material number</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.PUR_MAT"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Material number">
+    <ComboBox value={this.POITEMHISTORY.PUR_MAT}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Local currency key</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.LOC_CURR"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Local currency key">
+    <ComboBox value={this.POITEMHISTORY.LOC_CURR}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Batch Number</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.BATCH"
-        options="{type: 'CT', id: 'MCH1'}"
-        data-abap="{type:'CHAR', mid:'CHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Batch Number">
+    <ComboBox value={this.POITEMHISTORY.BATCH}
+        items="{type: 'CT', id: 'MCH1'}"
+        data-abap="{type:'CHAR', mid:'CHA', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Document Date in Document</fd-form-label>
-    <fd-date-picker v-model="POITEMHISTORY.DOC_DATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Document Date in Document">
+    <DatePicker value={this.POITEMHISTORY.DOC_DATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ISO Currency Code</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="ISO Currency Code">
+    <Input value={this.POITEMHISTORY.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ISO code for local currency</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.LOC_CURR_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="ISO code for local currency">
+    <Input value={this.POITEMHISTORY.LOC_CURR_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measure of delivery note</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.DELIV_UNIT_ISO"
-        options="{type: 'SH', id: 'H_T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="ISO code for unit of measure of delivery note">
+    <ComboBox value={this.POITEMHISTORY.DELIV_UNIT_ISO}
+        items="{type: 'SH', id: 'H_T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.MATERIAL_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Long Material Number for MATERIAL Field">
+    <Input value={this.POITEMHISTORY.MATERIAL_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.MATERIAL_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="External GUID for MATERIAL Field">
+    <Input value={this.POITEMHISTORY.MATERIAL_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.MATERIAL_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Version Number for MATERIAL Field">
+    <Input value={this.POITEMHISTORY.MATERIAL_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Long Material Number for PUR_MAT Field</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.PUR_MAT_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Long Material Number for PUR_MAT Field">
+    <Input value={this.POITEMHISTORY.PUR_MAT_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>External GUID for PUR_MAT Field</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.PUR_MAT_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="External GUID for PUR_MAT Field">
+    <Input value={this.POITEMHISTORY.PUR_MAT_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Version Number for PUR_MAT Field</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.PUR_MAT_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Version Number for PUR_MAT Field">
+    <Input value={this.POITEMHISTORY.PUR_MAT_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Reference Document Number (for Dependencies see Long Text)</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.REF_DOC_NO_LONG"
-            data-abap="{type:'CHAR', length:'35'}"
-        />
-</fd-form-item>
+<FormItem label="Reference Document Number (for Dependencies see Long Text)">
+    <Input value={this.POITEMHISTORY.REF_DOC_NO_LONG}
+          data-abap="{type:'CHAR', length:'35'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Stock Segment</fd-form-label>
-    <fd-select v-model="POITEMHISTORY.STK_SEGMENT"
-        options="{type: 'SH', id: 'SGT_CAT_FIELD_POPUP'}"
-        data-abap="{type:'CHAR', mid:'SGT_S', length:'16'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Stock Segment">
+    <ComboBox value={this.POITEMHISTORY.STK_SEGMENT}
+        items="{type: 'SH', id: 'SGT_CAT_FIELD_POPUP'}"
+        data-abap="{type:'CHAR', mid:'SGT_S', length:'16'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.MATERIAL_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Material Number (40 Characters, needed f. technical reasons)">
+    <Input value={this.POITEMHISTORY.MATERIAL_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Number (40 Characters, Technical Requirement)</fd-form-label>
-        <fd-input v-model="POITEMHISTORY.PUR_MAT_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Material Number (40 Characters, Technical Requirement)">
+    <Input value={this.POITEMHISTORY.PUR_MAT_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
 <!-- Parameter: POITEMHISTORYADDON structure: BAPIEKBEADDON  Additional Data of Transfer Structure for PO History -->
 
@@ -474,126 +410,103 @@ abap api -->
 <ui-dg-column sortable field="SALES_UNIT_ISO" data-abap.bind="{type:'CHAR', length:'3'}" shlp.bind="{type: 'CT', id: 'T006I'}" label="Sales unit in ISO code"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Item Number of Purchasing Document</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.PO_ITEM"
-        options="{type: 'CT', id: 'EKPO'}"
-        data-abap="{type:'NUMC', mid:'BSP', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Item Number of Purchasing Document">
+    <ComboBox value={this.POITEMHISTORYADDON.PO_ITEM}
+        items="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', mid:'BSP', length:'5'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sequential Number of Account Assignment</fd-form-label>
-        <fd-input v-model="POITEMHISTORYADDON.SERIAL_NO"
-            data-abap="{type:'NUMC', length:'2'}"
-        />
-</fd-form-item>
+<FormItem label="Sequential Number of Account Assignment">
+    <Input value={this.POITEMHISTORYADDON.SERIAL_NO}
+          data-abap="{type:'NUMC', length:'2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Transaction/event type, purchase order history</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.PROCESS_ID"
-        options="{type: 'FV', id: 'VGABE'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Transaction/event type, purchase order history">
+    <ComboBox value={this.POITEMHISTORYADDON.PROCESS_ID}
+        items="{type: 'FV', id: 'VGABE'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Document Year</fd-form-label>
-        <fd-input v-model="POITEMHISTORYADDON.DOC_YEAR"
-            data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Material Document Year">
+    <Input value={this.POITEMHISTORYADDON.DOC_YEAR}
+          data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Number of Material Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORYADDON.MAT_DOC"
-            data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Number of Material Document">
+    <Input value={this.POITEMHISTORYADDON.MAT_DOC}
+          data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Item in Material Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORYADDON.MATDOC_ITM"
-            data-abap="{type:'NUMC', mid:'POS', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Item in Material Document">
+    <Input value={this.POITEMHISTORYADDON.MATDOC_ITM}
+          data-abap="{type:'NUMC', mid:'POS', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Purchase Order Quantity</fd-form-label>
-        <fd-input v-model="POITEMHISTORYADDON.QUANTITY"
-            data-abap="{type:'QUAN', unit:'PO_UNIT', length:'10.3'}"
-        />
-</fd-form-item>
+<FormItem label="Purchase Order Quantity">
+    <Input value={this.POITEMHISTORYADDON.QUANTITY}
+          data-abap="{type:'QUAN', unit:'PO_UNIT', length:'10.3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Order unit</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.PO_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Order unit">
+    <ComboBox value={this.POITEMHISTORYADDON.PO_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Order unit in ISO code</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.PO_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Order unit in ISO code">
+    <ComboBox value={this.POITEMHISTORYADDON.PO_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Actual quantity delivered in stockkeeping units</fd-form-label>
-        <fd-input v-model="POITEMHISTORYADDON.DLV_QTY_STOCK"
-            data-abap="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}"
-        />
-</fd-form-item>
+<FormItem label="Actual quantity delivered in stockkeeping units">
+    <Input value={this.POITEMHISTORYADDON.DLV_QTY_STOCK}
+          data-abap="{type:'QUAN', unit:'BASE_UOM', length:'10.3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Base Unit of Measure</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.BASE_UOM"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Base Unit of Measure">
+    <ComboBox value={this.POITEMHISTORYADDON.BASE_UOM}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Base unit of measure in ISO code</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.BASE_UOM_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Base unit of measure in ISO code">
+    <ComboBox value={this.POITEMHISTORYADDON.BASE_UOM_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Actual quantity delivered (in sales units)</fd-form-label>
-        <fd-input v-model="POITEMHISTORYADDON.DLV_QTY"
-            data-abap="{type:'QUAN', unit:'SALES_UNIT', length:'10.3'}"
-        />
-</fd-form-item>
+<FormItem label="Actual quantity delivered (in sales units)">
+    <Input value={this.POITEMHISTORYADDON.DLV_QTY}
+          data-abap="{type:'QUAN', unit:'SALES_UNIT', length:'10.3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sales unit</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.SALES_UNIT"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Sales unit">
+    <ComboBox value={this.POITEMHISTORYADDON.SALES_UNIT}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sales unit in ISO code</fd-form-label>
-    <fd-select v-model="POITEMHISTORYADDON.SALES_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Sales unit in ISO code">
+    <ComboBox value={this.POITEMHISTORYADDON.SALES_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: POITEMHISTORYX structure: BAPIEKBEX  Checkbox Bar of Transfer Structure for PO History -->
 
@@ -653,141 +566,223 @@ abap api -->
 <ui-dg-column sortable field="PUR_MAT_LONG" data-abap.bind="{type:'CHAR', length:'1'}" label="Updated information in related user data field"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Item Number of Purchasing Document</fd-form-label>
-    <fd-select v-model="POITEMHISTORYX.PO_ITEM"
-        options="{type: 'CT', id: 'EKPO'}"
-        data-abap="{type:'NUMC', mid:'BSP', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Item Number of Purchasing Document">
+    <ComboBox value={this.POITEMHISTORYX.PO_ITEM}
+        items="{type: 'CT', id: 'EKPO'}"
+        data-abap="{type:'NUMC', mid:'BSP', length:'5'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sequential Number of Account Assignment</fd-form-label>
-        <fd-input v-model="POITEMHISTORYX.SERIAL_NO"
-            data-abap="{type:'NUMC', length:'2'}"
-        />
-</fd-form-item>
+<FormItem label="Sequential Number of Account Assignment">
+    <Input value={this.POITEMHISTORYX.SERIAL_NO}
+          data-abap="{type:'NUMC', length:'2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Transaction/event type, purchase order history</fd-form-label>
-    <fd-select v-model="POITEMHISTORYX.PROCESS_ID"
-        options="{type: 'FV', id: 'VGABE'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Transaction/event type, purchase order history">
+    <ComboBox value={this.POITEMHISTORYX.PROCESS_ID}
+        items="{type: 'FV', id: 'VGABE'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Document Year</fd-form-label>
-        <fd-input v-model="POITEMHISTORYX.DOC_YEAR"
-            data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Material Document Year">
+    <Input value={this.POITEMHISTORYX.DOC_YEAR}
+          data-abap="{type:'NUMC', alpha:'GJAHR', mid:'MJA', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Number of Material Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORYX.MAT_DOC"
-            data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Number of Material Document">
+    <Input value={this.POITEMHISTORYX.MAT_DOC}
+          data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MBN', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Item in Material Document</fd-form-label>
-        <fd-input v-model="POITEMHISTORYX.MATDOC_ITM"
-            data-abap="{type:'NUMC', mid:'POS', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Item in Material Document">
+    <Input value={this.POITEMHISTORYX.MATDOC_ITM}
+          data-abap="{type:'NUMC', mid:'POS', length:'4'}"
+    />
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.HIST_TYPE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.HIST_TYPE}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.MOVE_TYPE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.MOVE_TYPE}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.PSTNG_DATE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.PSTNG_DATE}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.QUANTITY">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.QUANTITY}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.VAL_LOCCUR">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.VAL_LOCCUR}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.VAL_FORCUR">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.VAL_FORCUR}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.CURRENCY">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.CURRENCY}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.CL_VAL_LOC">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.CL_VAL_LOC}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.BLOCKED_QY">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.BLOCKED_QY}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.BL_QTY">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.BL_QTY}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.DB_CR_IND">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.DB_CR_IND}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.VAL_TYPE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.VAL_TYPE}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.NO_MORE_GR">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.NO_MORE_GR}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.REF_DOC_NO">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.REF_DOC_NO}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.REF_DOC_YR">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.REF_DOC_YR}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.REF_DOC">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.REF_DOC}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.REF_DOC_IT">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.REF_DOC_IT}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.MOVE_REAS">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.MOVE_REAS}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.ENTRY_DATE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.ENTRY_DATE}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.ENTRY_TIME">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.ENTRY_TIME}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.IVVAL_LOC">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.IVVAL_LOC}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.IVVAL_FOR">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.IVVAL_FOR}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.MATERIAL">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.MATERIAL}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.PLANT">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.PLANT}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.CONF_SER">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.CONF_SER}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.CONDITION">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.CONDITION}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.TAX_CODE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.TAX_CODE}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.DELIV_QTY">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.DELIV_QTY}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.DELIV_UNIT">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.DELIV_UNIT}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.PUR_MAT">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.PUR_MAT}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.LOC_CURR">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.LOC_CURR}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.BATCH">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.BATCH}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.DOC_DATE">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.DOC_DATE}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.CURRENCY_ISO">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.CURRENCY_ISO}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.LOC_CURR_ISO">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.LOC_CURR_ISO}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.DELIV_UNIT_ISO">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.DELIV_UNIT_ISO}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.MATERIAL_EXTERNAL">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.MATERIAL_EXTERNAL}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.MATERIAL_GUID">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.MATERIAL_GUID}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.MATERIAL_VERSION">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.MATERIAL_VERSION}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.PUR_MAT_EXTERNAL">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.PUR_MAT_EXTERNAL}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.PUR_MAT_GUID">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.PUR_MAT_GUID}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.PUR_MAT_VERSION">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.PUR_MAT_VERSION}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.STK_SEGMENT">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.STK_SEGMENT}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.MATERIAL_LONG">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.MATERIAL_LONG}/>
+</FormItem>
 
-<fast-checkbox v-model="POITEMHISTORYX.PUR_MAT_LONG">Updated information in related user data field/fast-checkbox>
+<FormItem label="Updated information in related user data field">
+    <CheckBox value={this.POITEMHISTORYX.PUR_MAT_LONG}/>
+</FormItem>
 
 <!-- Parameter: RETURN structure: BAPIRET2  Return Parameter -->
 
@@ -810,113 +805,94 @@ abap api -->
 <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Class</fd-form-label>
-    <fd-select v-model="RETURN.ID"
-        options="{type: 'CT', id: 'T100A'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Message Class">
+    <ComboBox value={this.RETURN.ID}
+        items="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Number</fd-form-label>
-        <fd-input v-model="RETURN.NUMBER"
-            data-abap="{type:'NUMC', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="Message Number">
+    <Input value={this.RETURN.NUMBER}
+          data-abap="{type:'NUMC', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Parameter Name</fd-form-label>
-        <fd-input v-model="RETURN.PARAMETER"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="Parameter Name">
+    <Input value={this.RETURN.PARAMETER}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Lines in parameter</fd-form-label>
-        <fd-input v-model="RETURN.ROW"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Lines in parameter">
+    <Input value={this.RETURN.ROW}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Field in parameter</fd-form-label>
-    <fd-select v-model="RETURN.FIELD"
-        options="{type: 'CT', id: 'DD03L'}"
-        data-abap="{type:'CHAR', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Field in parameter">
+    <ComboBox value={this.RETURN.FIELD}
+        items="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Logical system from which message originates</fd-form-label>
-    <fd-select v-model="RETURN.SYSTEM"
-        options="{type: 'CT', id: 'TBDLS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Logical system from which message originates">
+    <ComboBox value={this.RETURN.SYSTEM}
+        items="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: TOKENREFERENCE structure: CSL_TR_EXS  CSL: Data Element CSL_TR_EXT as Structure (BAPI Tab.Arg.) -->
 
@@ -926,9 +902,8 @@ abap api -->
 <ui-dg-column sortable field="TR_EXT" data-abap.bind="{type:'CHAR', length:'255'}" label="CSL: CSL-External Representation of a Token Reference"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>CSL: CSL-External Representation of a Token Reference</fd-form-label>
-        <fd-input v-model="TOKENREFERENCE.TR_EXT"
-            data-abap="{type:'CHAR', length:'255'}"
-        />
-</fd-form-item>
+<FormItem label="CSL: CSL-External Representation of a Token Reference">
+    <Input value={this.TOKENREFERENCE.TR_EXT}
+          data-abap="{type:'CHAR', length:'255'}"
+    />
+</FormItem>

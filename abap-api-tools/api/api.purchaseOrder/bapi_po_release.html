@@ -4,41 +4,33 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label>Release Code</fd-form-label>
-    <fd-select v-model="PO_REL_CODE"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', mid:'FAB', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release Code">
+    <ComboBox value={this.PO_REL_CODE}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', mid:'FAB', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Purchase Order Number</fd-form-label>
-    <fd-select v-model="PURCHASEORDER"
-        options="{type: 'SH', id: 'MEKK_C'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchase Order Number">
+    <ComboBox value={this.PURCHASEORDER}
+        items="{type: 'SH', id: 'MEKK_C'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Commit Work Yes/No</fd-form-label>
-    <fd-select v-model="NO_COMMIT"
-        options="{type: 'FV', id: 'SELKZ'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Commit Work Yes/No">
+    <ComboBox value={this.NO_COMMIT}
+        items="{type: 'FV', id: 'SELKZ'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Set Exceptions and Issue Error Messages</fd-form-label>
-    <fd-select v-model="USE_EXCEPTIONS"
-        options="{type: 'FV', id: 'SELKZ'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Set Exceptions and Issue Error Messages">
+    <ComboBox value={this.USE_EXCEPTIONS}
+        items="{type: 'FV', id: 'SELKZ'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
 <!-- TABLE PARAMETERS -->
 
@@ -58,94 +50,79 @@ abap api -->
 <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message code</fd-form-label>
-        <fd-input v-model="RETURN.CODE"
-            data-abap="{type:'CHAR', length:'5'}"
-        />
-</fd-form-item>
+<FormItem label="Message code">
+    <Input value={this.RETURN.CODE}
+          data-abap="{type:'CHAR', length:'5'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
 <!-- EXPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label>New Release Indicator</fd-form-label>
-    <fd-select v-model="REL_INDICATOR_NEW"
-        options="{type: 'CT', id: 'T16FB'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="New Release Indicator">
+    <ComboBox value={this.REL_INDICATOR_NEW}
+        items="{type: 'CT', id: 'T16FB'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>New Release Status</fd-form-label>
-        <fd-input v-model="REL_STATUS_NEW"
-            data-abap="{type:'CHAR', length:'8'}"
-        />
-</fd-form-item>
+<FormItem label="New Release Status">
+    <Input value={this.REL_STATUS_NEW}
+          data-abap="{type:'CHAR', length:'8'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Return Value, Return Value After ABAP Statements</fd-form-label>
-        <fd-input v-model="RET_CODE"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Return Value, Return Value After ABAP Statements">
+    <Input value={this.RET_CODE}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>

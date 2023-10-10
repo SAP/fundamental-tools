@@ -4,30 +4,29 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fast-checkbox v-model="IV_TOTALS">/fast-checkbox>
+<FormItem label="">
+    <CheckBox value={this.IV_TOTALS}/>
+</FormItem>
 
 <!-- Parameter: IS_DISPLAY_PARAMETERS structure: BAPI_ALM_LIST_NAVIGATION_IN   -->
 
-<fd-form-item>
-    <fd-form-label>Row Index of Internal Tables</fd-form-label>
-        <fd-input v-model="IS_DISPLAY_PARAMETERS.PAGELENGTH"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Row Index of Internal Tables">
+    <Input value={this.IS_DISPLAY_PARAMETERS.PAGELENGTH}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Current List Page</fd-form-label>
-        <fd-input v-model="IS_DISPLAY_PARAMETERS.SHOW_PAGE_NUMBER"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Current List Page">
+    <Input value={this.IS_DISPLAY_PARAMETERS.SHOW_PAGE_NUMBER}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Also determine data if selection conditions are unchanged</fd-form-label>
-        <fd-input v-model="IS_DISPLAY_PARAMETERS.FORCE_REFRESH"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Also determine data if selection conditions are unchanged">
+    <Input value={this.IS_DISPLAY_PARAMETERS.FORCE_REFRESH}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
 <!-- Parameter: IT_SORTORDER structure: ABAP_SORTORDER_TAB   -->
 
@@ -39,27 +38,23 @@ abap api -->
 <ui-dg-column sortable field="ASTEXT" data-abap.bind="{type:'CHAR', length:'1'}" label="Sorting: 'X' (AS TEXT) or ' ' (Not AS TEXT (Default))"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>NAme of component by which to sort</label>
-    <fd-textarea v-model="IT_SORTORDER.NAME"
-        data-abap="{type:'SSTR', length:'255'}"
-        aria-required="true"
-    ></fd-textarea>
-</fd-form-item>
+<FormItem label="NAme of component by which to sort">
+    <TextArea value={this.IT_SORTORDER.NAME}
+          data-abap="{type:'SSTR', length:'255'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sort Direction: 'X' (Descend.) or '  ' (Ascending (Default))</fd-form-label>
-        <fd-input v-model="IT_SORTORDER.DESCENDING"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Sort Direction: 'X' (Descend.) or '  ' (Ascending (Default))">
+    <Input value={this.IT_SORTORDER.DESCENDING}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sorting: 'X' (AS TEXT) or ' ' (Not AS TEXT (Default))</fd-form-label>
-        <fd-input v-model="IT_SORTORDER.ASTEXT"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Sorting: 'X' (AS TEXT) or ' ' (Not AS TEXT (Default))">
+    <Input value={this.IT_SORTORDER.ASTEXT}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
 <!-- TABLE PARAMETERS -->
 
@@ -233,1241 +228,1009 @@ abap api -->
 <ui-dg-column sortable field="SERVICE_MATERIAL_LONG" data-abap.bind="{type:'CHAR', mid:'MAT', length:'40'}" label="Service product"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Order Number</fd-form-label>
-    <fd-select v-model="ET_RESULT.ORDERID"
-        options="{type: 'CH', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Order Type</fd-form-label>
-    <fd-select v-model="ET_RESULT.ORDER_TYPE"
-        options="{type: 'CT', id: 'T003O'}"
-        data-abap="{type:'CHAR', mid:'AAT', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Order Currency</fd-form-label>
-    <fd-select v-model="ET_RESULT.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="ET_RESULT.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Entered by</fd-form-label>
-        <fd-input v-model="ET_RESULT.ENTERED_BY"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Created on</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.ENTER_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Last changed by</fd-form-label>
-        <fd-input v-model="ET_RESULT.CHANGED_BY"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Change date for Order Master</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.CHANGE_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Description</fd-form-label>
-        <fd-input v-model="ET_RESULT.SHORT_TEXT"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="ET_RESULT.LONG_TEXT_FLAG">Long Text Exists/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Company Code</fd-form-label>
-    <fd-select v-model="ET_RESULT.COMP_CODE"
-        options="{type: 'SH', id: 'C_T001'}"
-        data-abap="{type:'CHAR', mid:'BUK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plant</fd-form-label>
-    <fd-select v-model="ET_RESULT.PLANT"
-        options="{type: 'SH', id: 'H_T001W_C'}"
-        data-abap="{type:'CHAR', mid:'WRK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Business Area</fd-form-label>
-    <fd-select v-model="ET_RESULT.BUS_AREA"
-        options="{type: 'SH', id: 'H_TGSB'}"
-        data-abap="{type:'CHAR', mid:'GSB', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Controlling Area</fd-form-label>
-    <fd-select v-model="ET_RESULT.CO_AREA"
-        options="{type: 'CT', id: 'TKA01'}"
-        data-abap="{type:'CHAR', mid:'CAC', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Responsible cost center</fd-form-label>
-    <fd-select v-model="ET_RESULT.RESPCCTR"
-        options="{type: 'CT', id: 'CSKS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fast-checkbox v-model="ET_RESULT.DELETION_FLAG">Deletion flag/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Costing Sheet</fd-form-label>
-    <fd-select v-model="ET_RESULT.CSTG_SHEET"
-        options="{type: 'CT', id: 'T683'}"
-        data-abap="{type:'CHAR', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Overhead key</fd-form-label>
-        <fd-input v-model="ET_RESULT.OVERHEAD_KEY"
-            data-abap="{type:'CHAR', length:'6'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ABC indicator for technical object</fd-form-label>
-    <fd-select v-model="ET_RESULT.ABCINDIC"
-        options="{type: 'CT', id: 'T370C'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sort field</fd-form-label>
-        <fd-input v-model="ET_RESULT.SORTFIELD"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Priority</fd-form-label>
-    <fd-select v-model="ET_RESULT.PRIORITY"
-        options="{type: 'CT', id: 'T356'}"
-        data-abap="{type:'CHAR', mid:'PRIOK', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Equipment Number</fd-form-label>
-    <fd-select v-model="ET_RESULT.EQUIPMENT"
-        options="{type: 'SH', id: 'EQUI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Assembly</fd-form-label>
-    <fd-select v-model="ET_RESULT.ASSEMBLY"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Syst.Condition</fd-form-label>
-    <fd-select v-model="ET_RESULT.SYSTCOND"
-        options="{type: 'CT', id: 'T357M'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance Planning Plant</fd-form-label>
-    <fd-select v-model="ET_RESULT.PLANPLANT"
-        options="{type: 'CT', id: 'T001W'}"
-        data-abap="{type:'CHAR', mid:'IWK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Planner Group for Customer Service and Plant Maintenance</fd-form-label>
-    <fd-select v-model="ET_RESULT.PLANGROUP"
-        options="{type: 'CT', id: 'T024I'}"
-        data-abap="{type:'CHAR', mid:'IHG', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Responsible planner group/department</fd-form-label>
-    <fd-select v-model="ET_RESULT.RESP_PLANNER_GROUP"
-        options="{type: 'SH', id: 'H_T024A'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Main work center for maintenance tasks</fd-form-label>
-        <fd-input v-model="ET_RESULT.MN_WK_CTR"
-            data-abap="{type:'CHAR', mid:'VAP', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plant associated with main work center</fd-form-label>
-    <fd-select v-model="ET_RESULT.MN_WK_PLANT"
-        options="{type: 'CT', id: 'T001W'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Customer Number</fd-form-label>
-    <fd-select v-model="ET_RESULT.CUSTOMER"
-        options="{type: 'SH', id: 'DEBI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Name of Person Reponsible for System</fd-form-label>
-        <fd-input v-model="ET_RESULT.SYSTEM_RESP"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Planned Breakdown Duration</fd-form-label>
-        <fd-input v-model="ET_RESULT.PLANNED_DOWN_TIME"
-            data-abap="{type:'DEC', length:'10.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Date until which the system is available</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.SYSTEM_AVAILABLE_TO_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Date from which the system is available</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.SYSTEM_AVAILABLE_FROM_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Time until which the system is available</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.SYSTEM_AVAILABLE_TO_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Time from Which System is Available</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.SYSTEM_AVAILABLE_FROM_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cost Center</fd-form-label>
-    <fd-select v-model="ET_RESULT.COSTCENTER"
-        options="{type: 'CT', id: 'CSKS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance plant</fd-form-label>
-    <fd-select v-model="ET_RESULT.MAINTPLANT"
-        options="{type: 'CT', id: 'T001W'}"
-        data-abap="{type:'CHAR', mid:'SWK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Location of maintenance object</fd-form-label>
-    <fd-select v-model="ET_RESULT.MAINTLOC"
-        options="{type: 'SH', id: 'H_T499S'}"
-        data-abap="{type:'CHAR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Room</fd-form-label>
-        <fd-input v-model="ET_RESULT.MAINTROOM"
-            data-abap="{type:'CHAR', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plant section</fd-form-label>
-    <fd-select v-model="ET_RESULT.PLSECTN"
-        options="{type: 'CT', id: 'T357'}"
-        data-abap="{type:'CHAR', mid:'BBE', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Functional Location Label</fd-form-label>
-        <fd-input v-model="ET_RESULT.FUNCLOC"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Main Asset Number</fd-form-label>
-    <fd-select v-model="ET_RESULT.ASSET_NO"
-        options="{type: 'CT', id: 'ANLH'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN1', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Asset Subnumber</fd-form-label>
-    <fd-select v-model="ET_RESULT.SUB_NUMBER"
-        options="{type: 'CT', id: 'ANLA'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN2', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Revision for Plant Maintenance and Customer Service</fd-form-label>
-    <fd-select v-model="ET_RESULT.REVISION"
-        options="{type: 'CH', id: 'T352R'}"
-        data-abap="{type:'CHAR', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance Plan</fd-form-label>
-    <fd-select v-model="ET_RESULT.MAINTPLAN"
-        options="{type: 'CH', id: 'MPLA'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MPL', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance item</fd-form-label>
-    <fd-select v-model="ET_RESULT.MAINTITEM"
-        options="{type: 'SH', id: 'MPOSL'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MPS', length:'16'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>System status line</fd-form-label>
-        <fd-input v-model="ET_RESULT.S_STATUS"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>User Status Line</fd-form-label>
-        <fd-input v-model="ET_RESULT.U_STATUS"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work center</fd-form-label>
-        <fd-input v-model="ET_RESULT.WORK_CNTR"
-            data-abap="{type:'CHAR', mid:'AGR', length:'8'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic finish date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.FINISH_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic start date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.START_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Scheduled finish</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.PRODUCTION_FINISH_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Scheduled start</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.PRODUCTION_START_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Actual start date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.ACTUAL_START_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Confirmed Order Finish Date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.CONFIRMED_FINISH_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Responsible planner group/department</fd-form-label>
-    <fd-select v-model="ET_RESULT.PLANNER_GROUP"
-        options="{type: 'SH', id: 'H_T024A'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Actual release date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.ACTUAL_RELEASE_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance activity type</fd-form-label>
-    <fd-select v-model="ET_RESULT.PMACTTYPE"
-        options="{type: 'SH', id: 'H_T350I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Notification No</fd-form-label>
-    <fd-select v-model="ET_RESULT.NOTIF_NO"
-        options="{type: 'CT', id: 'QMEL'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>PM request: History date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.HISTORY_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Description of Technical Object</fd-form-label>
-        <fd-input v-model="ET_RESULT.EQUIDESCR"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Description of functional location</fd-form-label>
-        <fd-input v-model="ET_RESULT.FUNCLDESCR"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Name for list displays</fd-form-label>
-        <fd-input v-model="ET_RESULT.NAME_LIST"
-            data-abap="{type:'CHAR', length:'35'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>First telephone no.: dialling code+number</fd-form-label>
-        <fd-input v-model="ET_RESULT.TEL1_NUMBR"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>City postal code</fd-form-label>
-        <fd-input v-model="ET_RESULT.POSTL_COD1"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>City</fd-form-label>
-    <fd-select v-model="ET_RESULT.CITY"
-        options="{type: 'SH', id: 'CLCITYNAME'}"
-        data-abap="{type:'CHAR', length:'40'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>District</fd-form-label>
-    <fd-select v-model="ET_RESULT.DISTRICT"
-        options="{type: 'SH', id: 'CITY_PART'}"
-        data-abap="{type:'CHAR', length:'40'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Country Key</fd-form-label>
-    <fd-select v-model="ET_RESULT.COUNTRY"
-        options="{type: 'CT', id: 'T005'}"
-        data-abap="{type:'CHAR', mid:'LND', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Country ISO code</fd-form-label>
-    <fd-select v-model="ET_RESULT.COUNTRYISO"
-        options="{type: 'SH', id: 'F4_INTCA'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Region (State, Province, County)</fd-form-label>
-    <fd-select v-model="ET_RESULT.REGION"
-        options="{type: 'CT', id: 'T005S'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Street</fd-form-label>
-    <fd-select v-model="ET_RESULT.STREET"
-        options="{type: 'SH', id: 'CLSTRTNAME'}"
-        data-abap="{type:'CHAR', length:'60'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Profitability Segment Number (CO-PA)</fd-form-label>
-        <fd-input v-model="ET_RESULT.PROFIT_SEGM_NO"
-            data-abap="{type:'NUMC', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Total(actual) maintenance costs</fd-form-label>
-        <fd-input v-model="ET_RESULT.TOTAL_COSTS_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Total plant maintenance costs (planned)</fd-form-label>
-        <fd-input v-model="ET_RESULT.TOTAL_COSTS_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Total Settlement Costs (PMCO)</fd-form-label>
-        <fd-input v-model="ET_RESULT.TOTAL_SETTLEMENT_COSTS"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Total plant maintenance revenues (actual)</fd-form-label>
-        <fd-input v-model="ET_RESULT.TOTAL_REVENUES_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Total (planned) maintenance revenues</fd-form-label>
-        <fd-input v-model="ET_RESULT.TOTAL_REVENUES_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Actual sum of maintenance order (costs - revenues)</fd-form-label>
-        <fd-input v-model="ET_RESULT.TOTAL_SUM_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Plan sum of maintenance order (costs - revenues)</fd-form-label>
-        <fd-input v-model="ET_RESULT.TOTAL_SUM_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Object number</fd-form-label>
-    <fd-select v-model="ET_RESULT.OBJECT_NO"
-        options="{type: 'CH', id: 'ONR00'}"
-        data-abap="{type:'CHAR', mid:'ONR', length:'22'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales Document</fd-form-label>
-    <fd-select v-model="ET_RESULT.SALES_DOC_NUMBER"
-        options="{type: 'CH', id: 'VBUK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales Document Item</fd-form-label>
-    <fd-select v-model="ET_RESULT.SALES_ITM_NUMBER"
-        options="{type: 'CH', id: 'VBUP'}"
-        data-abap="{type:'NUMC', mid:'APO', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Leading Order in Current Processing</fd-form-label>
-    <fd-select v-model="ET_RESULT.LEADING_ORDERID"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of Superior Order</fd-form-label>
-    <fd-select v-model="ET_RESULT.SUPERIOR_ORDERID"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'UAF', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Confirmed Order Finish (Time)</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.ACTUAL_FINISH_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Actual start time</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.ACTUAL_START_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Scheduled Finish (Time)</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.PRODUCTION_FINISH_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Scheduled Start (Time)</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.PRODUCTION_START_TIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Key for Task List Group</fd-form-label>
-    <fd-select v-model="ET_RESULT.TASK_LIST_GROUP"
-        options="{type: 'SH', id: 'PLKS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Group Counter</fd-form-label>
-        <fd-input v-model="ET_RESULT.GROUP_COUNTER"
-            data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance order planning indicator</fd-form-label>
-    <fd-select v-model="ET_RESULT.ORDPLANID"
-        options="{type: 'FV', id: 'AUF_PLKNZ'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>PM Order: Reference Date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.REFDATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work Breakdown Structure Element (WBS Element) for List</fd-form-label>
-        <fd-input v-model="ET_RESULT.WBS_ELEMENT"
-            data-abap="{type:'CHAR', mid:'PRO', length:'24'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of superior network</fd-form-label>
-    <fd-select v-model="ET_RESULT.SUPERIOR_NETWORK"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Superior activity</fd-form-label>
-        <fd-input v-model="ET_RESULT.SUPERIOR_ACTIVITY"
-            data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Estimated total costs of order</fd-form-label>
-        <fd-input v-model="ET_RESULT.ESTIMATED_COSTS"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales Organization</fd-form-label>
-    <fd-select v-model="ET_RESULT.SALESORG"
-        options="{type: 'SH', id: 'C_VKORG'}"
-        data-abap="{type:'CHAR', mid:'VKO', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Distribution Channel</fd-form-label>
-    <fd-select v-model="ET_RESULT.DISTR_CHAN"
-        options="{type: 'SH', id: 'C_VTWEG'}"
-        data-abap="{type:'CHAR', mid:'VTW', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Division</fd-form-label>
-    <fd-select v-model="ET_RESULT.DIVISION"
-        options="{type: 'SH', id: 'C_SPART'}"
-        data-abap="{type:'CHAR', mid:'SPA', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic finish (time)</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.BASIC_FIN"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Basic Start (Time)</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.BASICSTART"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Time of Reference Date</fd-form-label>
-    <fd-time-picker v-model="ET_RESULT.REFTIME"></fd-time-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Accounting Indicator</fd-form-label>
-    <fd-select v-model="ET_RESULT.CALC_MOTIVE"
-        options="{type: 'CT', id: 'TBMOT'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Address number</fd-form-label>
-    <fd-select v-model="ET_RESULT.ADDR_NO"
-        options="{type: 'CT', id: 'ADRC'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material Number</fd-form-label>
-    <fd-select v-model="ET_RESULT.MATERIAL"
-        options="{type: 'SH', id: 'S_MAT1'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Serial Number</fd-form-label>
-        <fd-input v-model="ET_RESULT.SERIALNO"
-            data-abap="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Additional Device Data</fd-form-label>
-        <fd-input v-model="ET_RESULT.DEVICEID"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales office</fd-form-label>
-    <fd-select v-model="ET_RESULT.SALES_OFF"
-        options="{type: 'CT', id: 'TVBUR'}"
-        data-abap="{type:'CHAR', mid:'VKB', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Sales group</fd-form-label>
-    <fd-select v-model="ET_RESULT.SALES_GRP"
-        options="{type: 'CT', id: 'TVKGR'}"
-        data-abap="{type:'CHAR', mid:'VKG', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material description</fd-form-label>
-        <fd-input v-model="ET_RESULT.MATL_DESC"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Assembly Description</fd-form-label>
-        <fd-input v-model="ET_RESULT.ASSMBL_DESC"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Paging Status</fd-form-label>
-    <fd-select v-model="ET_RESULT.PAGESTATUS"
-        options="{type: 'FV', id: 'PAGESTAT'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Work breakdown structure element (WBS element) order header</fd-form-label>
-        <fd-input v-model="ET_RESULT.WBS_ELEMENT_HEAD"
-            data-abap="{type:'CHAR', mid:'PRO', length:'24'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Reservation Relevance/Generation of Purchase Requisition</fd-form-label>
-    <fd-select v-model="ET_RESULT.MRP_RELEVANT"
-        options="{type: 'FV', id: 'AUDISP'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Maintenance Processing Phase</fd-form-label>
-    <fd-select v-model="ET_RESULT.PHASE"
-        options="{type: 'FV', id: 'PM_PHASE'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Priority Type</fd-form-label>
-    <fd-select v-model="ET_RESULT.PRIOTYPE"
-        options="{type: 'CT', id: 'T356A'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Priority Text</fd-form-label>
-        <fd-input v-model="ET_RESULT.PRIO_DESC"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Customer purchase order number</fd-form-label>
-        <fd-input v-model="ET_RESULT.PURCH_NO_C"
-            data-abap="{type:'CHAR', length:'35'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Customer purchase order date</fd-form-label>
-    <fd-date-picker v-model="ET_RESULT.PURCH_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Service product</fd-form-label>
-    <fd-select v-model="ET_RESULT.SERVICE_MATERIAL"
-        options="{type: 'SH', id: 'MAT1'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Description of Service Product</fd-form-label>
-        <fd-input v-model="ET_RESULT.SERVICE_MATL_DESC"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Service product quantity</fd-form-label>
-        <fd-input v-model="ET_RESULT.SERVICE_MATL_QUANTITY"
-            data-abap="{type:'QUAN', unit:'SERVCIE_UOM', length:'10.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Base Unit of Measure</fd-form-label>
-    <fd-select v-model="ET_RESULT.SERVCIE_UOM"
-        options="{type: 'CT', id: 'T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO code for unit of measurement</fd-form-label>
-    <fd-select v-model="ET_RESULT.SERVCIE_UOM_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fast-checkbox v-model="ET_RESULT.BILLING_FORM">Billing form/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Responsible planner group/department</fd-form-label>
-    <fd-select v-model="ET_RESULT.PLAN_PLANNER_GROUP"
-        options="{type: 'SH', id: 'H_T024A'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Profit Center</fd-form-label>
-    <fd-select v-model="ET_RESULT.PROFIT_CTR"
-        options="{type: 'SH', id: 'PRCTR_EMPTY'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Object list number</fd-form-label>
-    <fd-select v-model="ET_RESULT.OBJECTLIST_NO"
-        options="{type: 'CT', id: 'SER00'}"
-        data-abap="{type:'INT4', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Client</fd-form-label>
-    <fd-select v-model="ET_RESULT.CLIENT"
-        options="{type: 'CT', id: 'T000'}"
-        data-abap="{type:'CLNT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Long Material Number for Field ASSEMBLY</fd-form-label>
-        <fd-input v-model="ET_RESULT.ASSEMBLY_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>External GUID for ASSEMBLY Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.ASSEMBLY_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version Number for ASSEMBLY Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.ASSEMBLY_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Long Material Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.MATERIAL_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>External GUID for MATERIAL Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.MATERIAL_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version Number for MATERIAL Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.MATERIAL_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Long Material Number for SERVICE_MATERIAL Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.SERVICE_MATERIAL_EXTERNAL"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>External GUID for SERVICE_MATERIAL Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.SERVICE_MATERIAL_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Version Number for SERVICE_MATERIAL Field</fd-form-label>
-        <fd-input v-model="ET_RESULT.SERVICE_MATERIAL_VERSION"
-            data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Start Point</fd-form-label>
-    <fd-select v-model="ET_RESULT.START_POINT"
-        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>End Point</fd-form-label>
-    <fd-select v-model="ET_RESULT.END_POINT"
-        options="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Length</fd-form-label>
-        <fd-input v-model="ET_RESULT.LINEAR_LENGTH"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Linear Data</fd-form-label>
-    <fd-select v-model="ET_RESULT.LINEAR_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Linear Data in ISO Code</fd-form-label>
-    <fd-select v-model="ET_RESULT.LINEAR_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Type of First Offset</fd-form-label>
-    <fd-select v-model="ET_RESULT.FIRST_OFFSET_TYPE_CODE"
-        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Value of Offset 1</fd-form-label>
-        <fd-input v-model="ET_RESULT.FIRST_OFFSET_VALUE"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 1</fd-form-label>
-    <fd-select v-model="ET_RESULT.FIRST_OFFSET_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 1 in ISO Code</fd-form-label>
-    <fd-select v-model="ET_RESULT.FIRST_OFFSET_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Type of Second Offset</fd-form-label>
-    <fd-select v-model="ET_RESULT.SECOND_OFFSET_TYPE_CODE"
-        options="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Value of Offset 2</fd-form-label>
-        <fd-input v-model="ET_RESULT.SECOND_OFFSET_VALUE"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 2</fd-form-label>
-    <fd-select v-model="ET_RESULT.SECOND_OFFSET_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit of Measurement for Offset 2 in ISO Code</fd-form-label>
-    <fd-select v-model="ET_RESULT.SECOND_OFFSET_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>First Offset Type Description</fd-form-label>
-        <fd-input v-model="ET_RESULT.FIRST_OFFSET_TYPE_CODE_NAME"
-            data-abap="{type:'CHAR', length:'60'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Second Offset Type Description</fd-form-label>
-        <fd-input v-model="ET_RESULT.SECOND_OFFSET_TYPE_CODE_NAME"
-            data-abap="{type:'CHAR', length:'60'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Marker for Start Point</fd-form-label>
-    <fd-select v-model="ET_RESULT.MARKER_START_POINT"
-        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Distance between Marker and Start Point</fd-form-label>
-        <fd-input v-model="ET_RESULT.MARKER_DISTANCE_START_POINT"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Marker for End Point</fd-form-label>
-    <fd-select v-model="ET_RESULT.MARKER_END_POINT"
-        options="{type: 'SH', id: 'EAML_SH_MARKER'}"
-        data-abap="{type:'CHAR', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Length Spec for Distance between Marker and End Point</fd-form-label>
-        <fd-input v-model="ET_RESULT.MARKER_DISTANCE_END_POINT"
-            data-abap="{type:'CHAR', length:'18'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for the Distance from Marker</fd-form-label>
-    <fd-select v-model="ET_RESULT.MARKER_DISTANCE_UNIT"
-        options="{type: 'SH', id: 'H_T006'}"
-        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Unit for the Distance from Marker in ISO Code</fd-form-label>
-    <fd-select v-model="ET_RESULT.MARKER_DISTANCE_UNIT_ISO"
-        options="{type: 'CT', id: 'T006I'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Assembly</fd-form-label>
-        <fd-input v-model="ET_RESULT.ASSEMBLY_LONG"
-            data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Material Number (40 Characters, needed f. technical reasons)</fd-form-label>
-        <fd-input v-model="ET_RESULT.MATERIAL_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Service product</fd-form-label>
-        <fd-input v-model="ET_RESULT.SERVICE_MATERIAL_LONG"
-            data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Order Number">
+    <ComboBox value={this.ET_RESULT.ORDERID}
+        items="{type: 'CH', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Order Type">
+    <ComboBox value={this.ET_RESULT.ORDER_TYPE}
+        items="{type: 'CT', id: 'T003O'}"
+        data-abap="{type:'CHAR', mid:'AAT', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Order Currency">
+    <ComboBox value={this.ET_RESULT.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO currency code">
+    <Input value={this.ET_RESULT.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Entered by">
+    <Input value={this.ET_RESULT.ENTERED_BY}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Created on">
+    <DatePicker value={this.ET_RESULT.ENTER_DATE}/>
+</FormItem>
+
+<FormItem label="Last changed by">
+    <Input value={this.ET_RESULT.CHANGED_BY}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Change date for Order Master">
+    <DatePicker value={this.ET_RESULT.CHANGE_DATE}/>
+</FormItem>
+
+<FormItem label="Description">
+    <Input value={this.ET_RESULT.SHORT_TEXT}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Long Text Exists">
+    <CheckBox value={this.ET_RESULT.LONG_TEXT_FLAG}/>
+</FormItem>
+
+<FormItem label="Company Code">
+    <ComboBox value={this.ET_RESULT.COMP_CODE}
+        items="{type: 'SH', id: 'C_T001'}"
+        data-abap="{type:'CHAR', mid:'BUK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Plant">
+    <ComboBox value={this.ET_RESULT.PLANT}
+        items="{type: 'SH', id: 'H_T001W_C'}"
+        data-abap="{type:'CHAR', mid:'WRK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Business Area">
+    <ComboBox value={this.ET_RESULT.BUS_AREA}
+        items="{type: 'SH', id: 'H_TGSB'}"
+        data-abap="{type:'CHAR', mid:'GSB', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Controlling Area">
+    <ComboBox value={this.ET_RESULT.CO_AREA}
+        items="{type: 'CT', id: 'TKA01'}"
+        data-abap="{type:'CHAR', mid:'CAC', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Responsible cost center">
+    <ComboBox value={this.ET_RESULT.RESPCCTR}
+        items="{type: 'CT', id: 'CSKS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Deletion flag">
+    <CheckBox value={this.ET_RESULT.DELETION_FLAG}/>
+</FormItem>
+
+<FormItem label="Costing Sheet">
+    <ComboBox value={this.ET_RESULT.CSTG_SHEET}
+        items="{type: 'CT', id: 'T683'}"
+        data-abap="{type:'CHAR', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Overhead key">
+    <Input value={this.ET_RESULT.OVERHEAD_KEY}
+          data-abap="{type:'CHAR', length:'6'}"
+    />
+</FormItem>
+
+<FormItem label="ABC indicator for technical object">
+    <ComboBox value={this.ET_RESULT.ABCINDIC}
+        items="{type: 'CT', id: 'T370C'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sort field">
+    <Input value={this.ET_RESULT.SORTFIELD}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
+
+<FormItem label="Priority">
+    <ComboBox value={this.ET_RESULT.PRIORITY}
+        items="{type: 'CT', id: 'T356'}"
+        data-abap="{type:'CHAR', mid:'PRIOK', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Equipment Number">
+    <ComboBox value={this.ET_RESULT.EQUIPMENT}
+        items="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Assembly">
+    <ComboBox value={this.ET_RESULT.ASSEMBLY}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Syst.Condition">
+    <ComboBox value={this.ET_RESULT.SYSTCOND}
+        items="{type: 'CT', id: 'T357M'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance Planning Plant">
+    <ComboBox value={this.ET_RESULT.PLANPLANT}
+        items="{type: 'CT', id: 'T001W'}"
+        data-abap="{type:'CHAR', mid:'IWK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <ComboBox value={this.ET_RESULT.PLANGROUP}
+        items="{type: 'CT', id: 'T024I'}"
+        data-abap="{type:'CHAR', mid:'IHG', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Responsible planner group/department">
+    <ComboBox value={this.ET_RESULT.RESP_PLANNER_GROUP}
+        items="{type: 'SH', id: 'H_T024A'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Main work center for maintenance tasks">
+    <Input value={this.ET_RESULT.MN_WK_CTR}
+          data-abap="{type:'CHAR', mid:'VAP', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Plant associated with main work center">
+    <ComboBox value={this.ET_RESULT.MN_WK_PLANT}
+        items="{type: 'CT', id: 'T001W'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Customer Number">
+    <ComboBox value={this.ET_RESULT.CUSTOMER}
+        items="{type: 'SH', id: 'DEBI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Name of Person Reponsible for System">
+    <Input value={this.ET_RESULT.SYSTEM_RESP}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Planned Breakdown Duration">
+    <Input value={this.ET_RESULT.PLANNED_DOWN_TIME}
+          data-abap="{type:'DEC', length:'10.2'}"
+    />
+</FormItem>
+
+<FormItem label="Date until which the system is available">
+    <DatePicker value={this.ET_RESULT.SYSTEM_AVAILABLE_TO_DATE}/>
+</FormItem>
+
+<FormItem label="Date from which the system is available">
+    <DatePicker value={this.ET_RESULT.SYSTEM_AVAILABLE_FROM_DATE}/>
+</FormItem>
+
+<FormItem label="Time until which the system is available">
+    <TimePicker value={this.ET_RESULT.SYSTEM_AVAILABLE_TO_TIME}/>
+</FormItem>
+
+<FormItem label="Time from Which System is Available">
+    <TimePicker value={this.ET_RESULT.SYSTEM_AVAILABLE_FROM_TIME}/>
+</FormItem>
+
+<FormItem label="Cost Center">
+    <ComboBox value={this.ET_RESULT.COSTCENTER}
+        items="{type: 'CT', id: 'CSKS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KOS', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance plant">
+    <ComboBox value={this.ET_RESULT.MAINTPLANT}
+        items="{type: 'CT', id: 'T001W'}"
+        data-abap="{type:'CHAR', mid:'SWK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Location of maintenance object">
+    <ComboBox value={this.ET_RESULT.MAINTLOC}
+        items="{type: 'SH', id: 'H_T499S'}"
+        data-abap="{type:'CHAR', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Room">
+    <Input value={this.ET_RESULT.MAINTROOM}
+          data-abap="{type:'CHAR', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Plant section">
+    <ComboBox value={this.ET_RESULT.PLSECTN}
+        items="{type: 'CT', id: 'T357'}"
+        data-abap="{type:'CHAR', mid:'BBE', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Functional Location Label">
+    <Input value={this.ET_RESULT.FUNCLOC}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Main Asset Number">
+    <ComboBox value={this.ET_RESULT.ASSET_NO}
+        items="{type: 'CT', id: 'ANLH'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN1', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Asset Subnumber">
+    <ComboBox value={this.ET_RESULT.SUB_NUMBER}
+        items="{type: 'CT', id: 'ANLA'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AN2', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Revision for Plant Maintenance and Customer Service">
+    <ComboBox value={this.ET_RESULT.REVISION}
+        items="{type: 'CH', id: 'T352R'}"
+        data-abap="{type:'CHAR', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance Plan">
+    <ComboBox value={this.ET_RESULT.MAINTPLAN}
+        items="{type: 'CH', id: 'MPLA'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MPL', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance item">
+    <ComboBox value={this.ET_RESULT.MAINTITEM}
+        items="{type: 'SH', id: 'MPOSL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MPS', length:'16'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="System status line">
+    <Input value={this.ET_RESULT.S_STATUS}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="User Status Line">
+    <Input value={this.ET_RESULT.U_STATUS}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Work center">
+    <Input value={this.ET_RESULT.WORK_CNTR}
+          data-abap="{type:'CHAR', mid:'AGR', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Basic finish date">
+    <DatePicker value={this.ET_RESULT.FINISH_DATE}/>
+</FormItem>
+
+<FormItem label="Basic start date">
+    <DatePicker value={this.ET_RESULT.START_DATE}/>
+</FormItem>
+
+<FormItem label="Scheduled finish">
+    <DatePicker value={this.ET_RESULT.PRODUCTION_FINISH_DATE}/>
+</FormItem>
+
+<FormItem label="Scheduled start">
+    <DatePicker value={this.ET_RESULT.PRODUCTION_START_DATE}/>
+</FormItem>
+
+<FormItem label="Actual start date">
+    <DatePicker value={this.ET_RESULT.ACTUAL_START_DATE}/>
+</FormItem>
+
+<FormItem label="Confirmed Order Finish Date">
+    <DatePicker value={this.ET_RESULT.CONFIRMED_FINISH_DATE}/>
+</FormItem>
+
+<FormItem label="Responsible planner group/department">
+    <ComboBox value={this.ET_RESULT.PLANNER_GROUP}
+        items="{type: 'SH', id: 'H_T024A'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Actual release date">
+    <DatePicker value={this.ET_RESULT.ACTUAL_RELEASE_DATE}/>
+</FormItem>
+
+<FormItem label="Maintenance activity type">
+    <ComboBox value={this.ET_RESULT.PMACTTYPE}
+        items="{type: 'SH', id: 'H_T350I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Notification No">
+    <ComboBox value={this.ET_RESULT.NOTIF_NO}
+        items="{type: 'CT', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="PM request: History date">
+    <DatePicker value={this.ET_RESULT.HISTORY_DATE}/>
+</FormItem>
+
+<FormItem label="Description of Technical Object">
+    <Input value={this.ET_RESULT.EQUIDESCR}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Description of functional location">
+    <Input value={this.ET_RESULT.FUNCLDESCR}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Name for list displays">
+    <Input value={this.ET_RESULT.NAME_LIST}
+          data-abap="{type:'CHAR', length:'35'}"
+    />
+</FormItem>
+
+<FormItem label="First telephone no.: dialling code+number">
+    <Input value={this.ET_RESULT.TEL1_NUMBR}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
+
+<FormItem label="City postal code">
+    <Input value={this.ET_RESULT.POSTL_COD1}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="City">
+    <ComboBox value={this.ET_RESULT.CITY}
+        items="{type: 'SH', id: 'CLCITYNAME'}"
+        data-abap="{type:'CHAR', length:'40'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="District">
+    <ComboBox value={this.ET_RESULT.DISTRICT}
+        items="{type: 'SH', id: 'CITY_PART'}"
+        data-abap="{type:'CHAR', length:'40'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Country Key">
+    <ComboBox value={this.ET_RESULT.COUNTRY}
+        items="{type: 'CT', id: 'T005'}"
+        data-abap="{type:'CHAR', mid:'LND', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Country ISO code">
+    <ComboBox value={this.ET_RESULT.COUNTRYISO}
+        items="{type: 'SH', id: 'F4_INTCA'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Region (State, Province, County)">
+    <ComboBox value={this.ET_RESULT.REGION}
+        items="{type: 'CT', id: 'T005S'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Street">
+    <ComboBox value={this.ET_RESULT.STREET}
+        items="{type: 'SH', id: 'CLSTRTNAME'}"
+        data-abap="{type:'CHAR', length:'60'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Profitability Segment Number (CO-PA)">
+    <Input value={this.ET_RESULT.PROFIT_SEGM_NO}
+          data-abap="{type:'NUMC', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Total(actual) maintenance costs">
+    <Input value={this.ET_RESULT.TOTAL_COSTS_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Total plant maintenance costs (planned)">
+    <Input value={this.ET_RESULT.TOTAL_COSTS_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Total Settlement Costs (PMCO)">
+    <Input value={this.ET_RESULT.TOTAL_SETTLEMENT_COSTS}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Total plant maintenance revenues (actual)">
+    <Input value={this.ET_RESULT.TOTAL_REVENUES_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Total (planned) maintenance revenues">
+    <Input value={this.ET_RESULT.TOTAL_REVENUES_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Actual sum of maintenance order (costs - revenues)">
+    <Input value={this.ET_RESULT.TOTAL_SUM_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Plan sum of maintenance order (costs - revenues)">
+    <Input value={this.ET_RESULT.TOTAL_SUM_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
+
+<FormItem label="Object number">
+    <ComboBox value={this.ET_RESULT.OBJECT_NO}
+        items="{type: 'CH', id: 'ONR00'}"
+        data-abap="{type:'CHAR', mid:'ONR', length:'22'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sales Document">
+    <ComboBox value={this.ET_RESULT.SALES_DOC_NUMBER}
+        items="{type: 'CH', id: 'VBUK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'AUN', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sales Document Item">
+    <ComboBox value={this.ET_RESULT.SALES_ITM_NUMBER}
+        items="{type: 'CH', id: 'VBUP'}"
+        data-abap="{type:'NUMC', mid:'APO', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Leading Order in Current Processing">
+    <ComboBox value={this.ET_RESULT.LEADING_ORDERID}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of Superior Order">
+    <ComboBox value={this.ET_RESULT.SUPERIOR_ORDERID}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'UAF', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Confirmed Order Finish (Time)">
+    <TimePicker value={this.ET_RESULT.ACTUAL_FINISH_TIME}/>
+</FormItem>
+
+<FormItem label="Actual start time">
+    <TimePicker value={this.ET_RESULT.ACTUAL_START_TIME}/>
+</FormItem>
+
+<FormItem label="Scheduled Finish (Time)">
+    <TimePicker value={this.ET_RESULT.PRODUCTION_FINISH_TIME}/>
+</FormItem>
+
+<FormItem label="Scheduled Start (Time)">
+    <TimePicker value={this.ET_RESULT.PRODUCTION_START_TIME}/>
+</FormItem>
+
+<FormItem label="Key for Task List Group">
+    <ComboBox value={this.ET_RESULT.TASK_LIST_GROUP}
+        items="{type: 'SH', id: 'PLKS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PLN', length:'8'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Group Counter">
+    <Input value={this.ET_RESULT.GROUP_COUNTER}
+          data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PAL', length:'2'}"
+    />
+</FormItem>
+
+<FormItem label="Maintenance order planning indicator">
+    <ComboBox value={this.ET_RESULT.ORDPLANID}
+        items="{type: 'FV', id: 'AUF_PLKNZ'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="PM Order: Reference Date">
+    <DatePicker value={this.ET_RESULT.REFDATE}/>
+</FormItem>
+
+<FormItem label="Work Breakdown Structure Element (WBS Element) for List">
+    <Input value={this.ET_RESULT.WBS_ELEMENT}
+          data-abap="{type:'CHAR', mid:'PRO', length:'24'}"
+    />
+</FormItem>
+
+<FormItem label="Number of superior network">
+    <ComboBox value={this.ET_RESULT.SUPERIOR_NETWORK}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Superior activity">
+    <Input value={this.ET_RESULT.SUPERIOR_ACTIVITY}
+          data-abap="{type:'CHAR', alpha:'NUMCV', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Estimated total costs of order">
+    <Input value={this.ET_RESULT.ESTIMATED_COSTS}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'10.2'}"
+    />
+</FormItem>
+
+<FormItem label="Sales Organization">
+    <ComboBox value={this.ET_RESULT.SALESORG}
+        items="{type: 'SH', id: 'C_VKORG'}"
+        data-abap="{type:'CHAR', mid:'VKO', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Distribution Channel">
+    <ComboBox value={this.ET_RESULT.DISTR_CHAN}
+        items="{type: 'SH', id: 'C_VTWEG'}"
+        data-abap="{type:'CHAR', mid:'VTW', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Division">
+    <ComboBox value={this.ET_RESULT.DIVISION}
+        items="{type: 'SH', id: 'C_SPART'}"
+        data-abap="{type:'CHAR', mid:'SPA', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Basic finish (time)">
+    <TimePicker value={this.ET_RESULT.BASIC_FIN}/>
+</FormItem>
+
+<FormItem label="Basic Start (Time)">
+    <TimePicker value={this.ET_RESULT.BASICSTART}/>
+</FormItem>
+
+<FormItem label="Time of Reference Date">
+    <TimePicker value={this.ET_RESULT.REFTIME}/>
+</FormItem>
+
+<FormItem label="Accounting Indicator">
+    <ComboBox value={this.ET_RESULT.CALC_MOTIVE}
+        items="{type: 'CT', id: 'TBMOT'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Address number">
+    <ComboBox value={this.ET_RESULT.ADDR_NO}
+        items="{type: 'CT', id: 'ADRC'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ADR', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Material Number">
+    <ComboBox value={this.ET_RESULT.MATERIAL}
+        items="{type: 'SH', id: 'S_MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Serial Number">
+    <Input value={this.ET_RESULT.SERIALNO}
+          data-abap="{type:'CHAR', alpha:'GERNR', mid:'SER', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Additional Device Data">
+    <Input value={this.ET_RESULT.DEVICEID}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Sales office">
+    <ComboBox value={this.ET_RESULT.SALES_OFF}
+        items="{type: 'CT', id: 'TVBUR'}"
+        data-abap="{type:'CHAR', mid:'VKB', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Sales group">
+    <ComboBox value={this.ET_RESULT.SALES_GRP}
+        items="{type: 'CT', id: 'TVKGR'}"
+        data-abap="{type:'CHAR', mid:'VKG', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Material description">
+    <Input value={this.ET_RESULT.MATL_DESC}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Assembly Description">
+    <Input value={this.ET_RESULT.ASSMBL_DESC}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Paging Status">
+    <ComboBox value={this.ET_RESULT.PAGESTATUS}
+        items="{type: 'FV', id: 'PAGESTAT'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Work breakdown structure element (WBS element) order header">
+    <Input value={this.ET_RESULT.WBS_ELEMENT_HEAD}
+          data-abap="{type:'CHAR', mid:'PRO', length:'24'}"
+    />
+</FormItem>
+
+<FormItem label="Reservation Relevance/Generation of Purchase Requisition">
+    <ComboBox value={this.ET_RESULT.MRP_RELEVANT}
+        items="{type: 'FV', id: 'AUDISP'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Maintenance Processing Phase">
+    <ComboBox value={this.ET_RESULT.PHASE}
+        items="{type: 'FV', id: 'PM_PHASE'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Priority Type">
+    <ComboBox value={this.ET_RESULT.PRIOTYPE}
+        items="{type: 'CT', id: 'T356A'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Priority Text">
+    <Input value={this.ET_RESULT.PRIO_DESC}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
+
+<FormItem label="Customer purchase order number">
+    <Input value={this.ET_RESULT.PURCH_NO_C}
+          data-abap="{type:'CHAR', length:'35'}"
+    />
+</FormItem>
+
+<FormItem label="Customer purchase order date">
+    <DatePicker value={this.ET_RESULT.PURCH_DATE}/>
+</FormItem>
+
+<FormItem label="Service product">
+    <ComboBox value={this.ET_RESULT.SERVICE_MATERIAL}
+        items="{type: 'SH', id: 'MAT1'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Description of Service Product">
+    <Input value={this.ET_RESULT.SERVICE_MATL_DESC}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Service product quantity">
+    <Input value={this.ET_RESULT.SERVICE_MATL_QUANTITY}
+          data-abap="{type:'QUAN', unit:'SERVCIE_UOM', length:'10.3'}"
+    />
+</FormItem>
+
+<FormItem label="Base Unit of Measure">
+    <ComboBox value={this.ET_RESULT.SERVCIE_UOM}
+        items="{type: 'CT', id: 'T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="ISO code for unit of measurement">
+    <ComboBox value={this.ET_RESULT.SERVCIE_UOM_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Billing form">
+    <CheckBox value={this.ET_RESULT.BILLING_FORM}/>
+</FormItem>
+
+<FormItem label="Responsible planner group/department">
+    <ComboBox value={this.ET_RESULT.PLAN_PLANNER_GROUP}
+        items="{type: 'SH', id: 'H_T024A'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Profit Center">
+    <ComboBox value={this.ET_RESULT.PROFIT_CTR}
+        items="{type: 'SH', id: 'PRCTR_EMPTY'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'PRC', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Object list number">
+    <ComboBox value={this.ET_RESULT.OBJECTLIST_NO}
+        items="{type: 'CT', id: 'SER00'}"
+        data-abap="{type:'INT4', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Client">
+    <ComboBox value={this.ET_RESULT.CLIENT}
+        items="{type: 'CT', id: 'T000'}"
+        data-abap="{type:'CLNT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Long Material Number for Field ASSEMBLY">
+    <Input value={this.ET_RESULT.ASSEMBLY_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="External GUID for ASSEMBLY Field">
+    <Input value={this.ET_RESULT.ASSEMBLY_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
+
+<FormItem label="Version Number for ASSEMBLY Field">
+    <Input value={this.ET_RESULT.ASSEMBLY_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Long Material Number for MATERIAL Field">
+    <Input value={this.ET_RESULT.MATERIAL_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="External GUID for MATERIAL Field">
+    <Input value={this.ET_RESULT.MATERIAL_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
+
+<FormItem label="Version Number for MATERIAL Field">
+    <Input value={this.ET_RESULT.MATERIAL_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Long Material Number for SERVICE_MATERIAL Field">
+    <Input value={this.ET_RESULT.SERVICE_MATERIAL_EXTERNAL}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="External GUID for SERVICE_MATERIAL Field">
+    <Input value={this.ET_RESULT.SERVICE_MATERIAL_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
+
+<FormItem label="Version Number for SERVICE_MATERIAL Field">
+    <Input value={this.ET_RESULT.SERVICE_MATERIAL_VERSION}
+          data-abap="{type:'CHAR', alpha:'MATNW', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Start Point">
+    <ComboBox value={this.ET_RESULT.START_POINT}
+        items="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="End Point">
+    <ComboBox value={this.ET_RESULT.END_POINT}
+        items="{type: 'SH', id: 'EAML_SH_LINEAR_POINT'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Length">
+    <Input value={this.ET_RESULT.LINEAR_LENGTH}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Linear Data">
+    <ComboBox value={this.ET_RESULT.LINEAR_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Linear Data in ISO Code">
+    <ComboBox value={this.ET_RESULT.LINEAR_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Type of First Offset">
+    <ComboBox value={this.ET_RESULT.FIRST_OFFSET_TYPE_CODE}
+        items="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Value of Offset 1">
+    <Input value={this.ET_RESULT.FIRST_OFFSET_VALUE}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 1">
+    <ComboBox value={this.ET_RESULT.FIRST_OFFSET_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 1 in ISO Code">
+    <ComboBox value={this.ET_RESULT.FIRST_OFFSET_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Type of Second Offset">
+    <ComboBox value={this.ET_RESULT.SECOND_OFFSET_TYPE_CODE}
+        items="{type: 'CT', id: 'EAML_D_OFFSET_TC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Value of Offset 2">
+    <Input value={this.ET_RESULT.SECOND_OFFSET_VALUE}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 2">
+    <ComboBox value={this.ET_RESULT.SECOND_OFFSET_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit of Measurement for Offset 2 in ISO Code">
+    <ComboBox value={this.ET_RESULT.SECOND_OFFSET_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="First Offset Type Description">
+    <Input value={this.ET_RESULT.FIRST_OFFSET_TYPE_CODE_NAME}
+          data-abap="{type:'CHAR', length:'60'}"
+    />
+</FormItem>
+
+<FormItem label="Second Offset Type Description">
+    <Input value={this.ET_RESULT.SECOND_OFFSET_TYPE_CODE_NAME}
+          data-abap="{type:'CHAR', length:'60'}"
+    />
+</FormItem>
+
+<FormItem label="Marker for Start Point">
+    <ComboBox value={this.ET_RESULT.MARKER_START_POINT}
+        items="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Distance between Marker and Start Point">
+    <Input value={this.ET_RESULT.MARKER_DISTANCE_START_POINT}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Marker for End Point">
+    <ComboBox value={this.ET_RESULT.MARKER_END_POINT}
+        items="{type: 'SH', id: 'EAML_SH_MARKER'}"
+        data-abap="{type:'CHAR', length:'18'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Length Spec for Distance between Marker and End Point">
+    <Input value={this.ET_RESULT.MARKER_DISTANCE_END_POINT}
+          data-abap="{type:'CHAR', length:'18'}"
+    />
+</FormItem>
+
+<FormItem label="Unit for the Distance from Marker">
+    <ComboBox value={this.ET_RESULT.MARKER_DISTANCE_UNIT}
+        items="{type: 'SH', id: 'H_T006'}"
+        data-abap="{type:'UNIT', alpha:'CUNIT', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Unit for the Distance from Marker in ISO Code">
+    <ComboBox value={this.ET_RESULT.MARKER_DISTANCE_UNIT_ISO}
+        items="{type: 'CT', id: 'T006I'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Assembly">
+    <Input value={this.ET_RESULT.ASSEMBLY_LONG}
+          data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Material Number (40 Characters, needed f. technical reasons)">
+    <Input value={this.ET_RESULT.MATERIAL_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
+
+<FormItem label="Service product">
+    <Input value={this.ET_RESULT.SERVICE_MATERIAL_LONG}
+          data-abap="{type:'CHAR', mid:'MAT', length:'40'}"
+    />
+</FormItem>
 
 <!-- Parameter: ET_RETURN structure: BAPIRET2   -->
 
@@ -1490,113 +1253,94 @@ abap api -->
 <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="ET_RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.ET_RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Class</fd-form-label>
-    <fd-select v-model="ET_RETURN.ID"
-        options="{type: 'CT', id: 'T100A'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Message Class">
+    <ComboBox value={this.ET_RETURN.ID}
+        items="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Number</fd-form-label>
-        <fd-input v-model="ET_RETURN.NUMBER"
-            data-abap="{type:'NUMC', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="Message Number">
+    <Input value={this.ET_RETURN.NUMBER}
+          data-abap="{type:'NUMC', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.ET_RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.ET_RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.ET_RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Parameter Name</fd-form-label>
-        <fd-input v-model="ET_RETURN.PARAMETER"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="Parameter Name">
+    <Input value={this.ET_RETURN.PARAMETER}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Lines in parameter</fd-form-label>
-        <fd-input v-model="ET_RETURN.ROW"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Lines in parameter">
+    <Input value={this.ET_RETURN.ROW}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Field in parameter</fd-form-label>
-    <fd-select v-model="ET_RETURN.FIELD"
-        options="{type: 'CT', id: 'DD03L'}"
-        data-abap="{type:'CHAR', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Field in parameter">
+    <ComboBox value={this.ET_RETURN.FIELD}
+        items="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Logical system from which message originates</fd-form-label>
-    <fd-select v-model="ET_RETURN.SYSTEM"
-        options="{type: 'CT', id: 'TBDLS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Logical system from which message originates">
+    <ComboBox value={this.ET_RETURN.SYSTEM}
+        items="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: ET_TEMPLATE structure: BAPI_ALM_ORDER_LISTHEAD_RANGES   -->
 
@@ -1610,42 +1354,36 @@ abap api -->
 <ui-dg-column sortable field="HIGH_VALUE" data-abap.bind="{type:'CHAR', length:'45'}" label="ABAP: Selection Value (LOW or HIGH Value, External Format)"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Component name</fd-form-label>
-    <fd-select v-model="ET_TEMPLATE.FIELD_NAME"
-        options="{type: 'CT', id: 'DD03L'}"
-        data-abap="{type:'CHAR', mid:'DFD', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Component name">
+    <ComboBox value={this.ET_TEMPLATE.FIELD_NAME}
+        items="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', mid:'DFD', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: ID: I/E (include/exclude values)</fd-form-label>
-        <fd-input v-model="ET_TEMPLATE.SIGN"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: ID: I/E (include/exclude values)">
+    <Input value={this.ET_TEMPLATE.SIGN}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: Selection option (EQ/BT/CP/...)</fd-form-label>
-        <fd-input v-model="ET_TEMPLATE.OPTION"
-            data-abap="{type:'CHAR', length:'2'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: Selection option (EQ/BT/CP/...)">
+    <Input value={this.ET_TEMPLATE.OPTION}
+          data-abap="{type:'CHAR', length:'2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: Selection Value (LOW or HIGH Value, External Format)</fd-form-label>
-        <fd-input v-model="ET_TEMPLATE.LOW_VALUE"
-            data-abap="{type:'CHAR', length:'45'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: Selection Value (LOW or HIGH Value, External Format)">
+    <Input value={this.ET_TEMPLATE.LOW_VALUE}
+          data-abap="{type:'CHAR', length:'45'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: Selection Value (LOW or HIGH Value, External Format)</fd-form-label>
-        <fd-input v-model="ET_TEMPLATE.HIGH_VALUE"
-            data-abap="{type:'CHAR', length:'45'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: Selection Value (LOW or HIGH Value, External Format)">
+    <Input value={this.ET_TEMPLATE.HIGH_VALUE}
+          data-abap="{type:'CHAR', length:'45'}"
+    />
+</FormItem>
 
 <!-- Parameter: ET_TOTALS structure: /COE/RBP_S_PAM_ORDER_LIST_TTLS   -->
 
@@ -1656,19 +1394,17 @@ abap api -->
 <ui-dg-column sortable field="TOTAL" data-abap.bind="{type:'INT4', length:'10'}" label="Total Number"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Individual status of an object (short form)</fd-form-label>
-        <fd-input v-model="ET_TOTALS.USER_STATUS"
-            data-abap="{type:'CHAR', length:'4'}"
-        />
-</fd-form-item>
+<FormItem label="Individual status of an object (short form)">
+    <Input value={this.ET_TOTALS.USER_STATUS}
+          data-abap="{type:'CHAR', length:'4'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Total Number</fd-form-label>
-        <fd-input v-model="ET_TOTALS.TOTAL"
-            data-abap="{type:'INT4', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Total Number">
+    <Input value={this.ET_TOTALS.TOTAL}
+          data-abap="{type:'INT4', length:'10'}"
+    />
+</FormItem>
 
 <!-- Parameter: IT_RANGES structure: BAPI_ALM_ORDER_LISTHEAD_RANGES   -->
 
@@ -1682,78 +1418,67 @@ abap api -->
 <ui-dg-column sortable field="HIGH_VALUE" data-abap.bind="{type:'CHAR', length:'45'}" label="ABAP: Selection Value (LOW or HIGH Value, External Format)"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Component name</fd-form-label>
-    <fd-select v-model="IT_RANGES.FIELD_NAME"
-        options="{type: 'CT', id: 'DD03L'}"
-        data-abap="{type:'CHAR', mid:'DFD', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Component name">
+    <ComboBox value={this.IT_RANGES.FIELD_NAME}
+        items="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', mid:'DFD', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: ID: I/E (include/exclude values)</fd-form-label>
-        <fd-input v-model="IT_RANGES.SIGN"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: ID: I/E (include/exclude values)">
+    <Input value={this.IT_RANGES.SIGN}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: Selection option (EQ/BT/CP/...)</fd-form-label>
-        <fd-input v-model="IT_RANGES.OPTION"
-            data-abap="{type:'CHAR', length:'2'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: Selection option (EQ/BT/CP/...)">
+    <Input value={this.IT_RANGES.OPTION}
+          data-abap="{type:'CHAR', length:'2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: Selection Value (LOW or HIGH Value, External Format)</fd-form-label>
-        <fd-input v-model="IT_RANGES.LOW_VALUE"
-            data-abap="{type:'CHAR', length:'45'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: Selection Value (LOW or HIGH Value, External Format)">
+    <Input value={this.IT_RANGES.LOW_VALUE}
+          data-abap="{type:'CHAR', length:'45'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ABAP: Selection Value (LOW or HIGH Value, External Format)</fd-form-label>
-        <fd-input v-model="IT_RANGES.HIGH_VALUE"
-            data-abap="{type:'CHAR', length:'45'}"
-        />
-</fd-form-item>
+<FormItem label="ABAP: Selection Value (LOW or HIGH Value, External Format)">
+    <Input value={this.IT_RANGES.HIGH_VALUE}
+          data-abap="{type:'CHAR', length:'45'}"
+    />
+</FormItem>
 
 <!-- EXPORT PARAMETERS -->
 
 <!-- Parameter: ES_NAVIGATION_DATA structure: BAPI_ALM_LIST_NAVIGATION_RET   -->
 
-<fd-form-item>
-    <fd-form-label>Row Index of Internal Tables</fd-form-label>
-        <fd-input v-model="ES_NAVIGATION_DATA.NUMBER_OF_HITS"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Row Index of Internal Tables">
+    <Input value={this.ES_NAVIGATION_DATA.NUMBER_OF_HITS}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Row Index of Internal Tables</fd-form-label>
-        <fd-input v-model="ES_NAVIGATION_DATA.FIRST_SHOWN_HIT"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Row Index of Internal Tables">
+    <Input value={this.ES_NAVIGATION_DATA.FIRST_SHOWN_HIT}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Row Index of Internal Tables</fd-form-label>
-        <fd-input v-model="ES_NAVIGATION_DATA.LAST_SHOWN_HIT"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Row Index of Internal Tables">
+    <Input value={this.ES_NAVIGATION_DATA.LAST_SHOWN_HIT}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Current List Page</fd-form-label>
-        <fd-input v-model="ES_NAVIGATION_DATA.ACTUAL_PAGE"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Current List Page">
+    <Input value={this.ES_NAVIGATION_DATA.ACTUAL_PAGE}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Current List Page</fd-form-label>
-        <fd-input v-model="ES_NAVIGATION_DATA.LAST_PAGE"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Current List Page">
+    <Input value={this.ES_NAVIGATION_DATA.LAST_PAGE}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>

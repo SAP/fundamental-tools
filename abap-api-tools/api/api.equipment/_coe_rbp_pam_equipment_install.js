@@ -1,5 +1,5 @@
 //
-// /COE/RBP_PAM_EQUIPMENT_INSTALL exception: 0  struct: 0  table: 1  var: 2
+// /COE/RBP_PAM_EQUIPMENT_INSTALL var: 2  struct: 0  table: 1  exception: 0
 //
 // abap api
 //
@@ -9,12 +9,12 @@ const parameters = {
 
 // IMPORT PARAMETERS
 
-// IV_EQUIID        :           "", // CHAR (18) ALPHA=ALPHA no text (undefined) SU3=EQN
-// IV_FUNC_LOCATION :           "", // CHAR (30) ALPHA=TPLNR no text (undefined) SU3=IFL
+// IV_EQUIID        :           "", // CHAR (18) ALPHA=ALPHA no text (en) SU3=EQN
+// IV_FUNC_LOCATION :           "", // CHAR (30) ALPHA=TPLNR no text (en) SU3=IFL
 
 // EXPORT PARAMETERS
 
-// ET_RETURN        :           [], // BAPIRET2_TAB no text (undefined)
+// ET_RETURN        :           [], // BAPIRET2_TAB no text (en)
 };
 
 const result = await client.call("/COE/RBP_PAM_EQUIPMENT_INSTALL", parameters);

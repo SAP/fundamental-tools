@@ -4,233 +4,190 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label>Account Assignment Category</fd-form-label>
-    <fd-select v-model="ACCTASSCAT"
-        options="{type: 'SH', id: 'H_T163K'}"
-        data-abap="{type:'CHAR', mid:'KNT', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Account Assignment Category">
+    <ComboBox value={this.ACCTASSCAT}
+        items="{type: 'SH', id: 'H_T163K'}"
+        data-abap="{type:'CHAR', mid:'KNT', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Creator</fd-form-label>
-        <fd-input v-model="CREATED_BY"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
+<FormItem label="Creator">
+    <Input value={this.CREATED_BY}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Including Deleted Items</fd-form-label>
-    <fd-select v-model="DELETED_ITEMS"
-        options="{type: 'FV', id: 'SELKZ'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Including Deleted Items">
+    <ComboBox value={this.DELETED_ITEMS}
+        items="{type: 'FV', id: 'SELKZ'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>As of PO Date</fd-form-label>
-    <fd-date-picker v-model="DOC_DATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="As of PO Date">
+    <DatePicker value={this.DOC_DATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Order Type</fd-form-label>
-    <fd-select v-model="DOC_TYPE"
-        options="{type: 'SH', id: 'H_T161'}"
-        data-abap="{type:'CHAR', mid:'BSA', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Order Type">
+    <ComboBox value={this.DOC_TYPE}
+        items="{type: 'SH', id: 'H_T161'}"
+        data-abap="{type:'CHAR', mid:'BSA', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Item Category</fd-form-label>
-    <fd-select v-model="ITEM_CAT"
-        options="{type: 'SH', id: 'H_T163'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Item Category">
+    <ComboBox value={this.ITEM_CAT}
+        items="{type: 'SH', id: 'H_T163'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Items with Still-Open Goods Receipt Only</fd-form-label>
-    <fd-select v-model="ITEMS_OPEN_FOR_RECEIPT"
-        options="{type: 'FV', id: 'SELKZ'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Items with Still-Open Goods Receipt Only">
+    <ComboBox value={this.ITEMS_OPEN_FOR_RECEIPT}
+        items="{type: 'FV', id: 'SELKZ'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Group</fd-form-label>
-    <fd-select v-model="MAT_GRP"
-        options="{type: 'SH', id: 'H_T023'}"
-        data-abap="{type:'CHAR', mid:'MKL', length:'9'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Material Group">
+    <ComboBox value={this.MAT_GRP}
+        items="{type: 'SH', id: 'H_T023'}"
+        data-abap="{type:'CHAR', mid:'MKL', length:'9'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material</fd-form-label>
-    <fd-select v-model="MATERIAL"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Material">
+    <ComboBox value={this.MATERIAL}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Number (40 Characters, Necessary for Technical Reasons)</fd-form-label>
-        <fd-input v-model="MATERIAL_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Material Number (40 Characters, Necessary for Technical Reasons)">
+    <Input value={this.MATERIAL_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Plant</fd-form-label>
-    <fd-select v-model="PLANT"
-        options="{type: 'SH', id: 'H_T001W'}"
-        data-abap="{type:'CHAR', mid:'WRK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Plant">
+    <ComboBox value={this.PLANT}
+        items="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', mid:'WRK', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label></fd-form-label>
-        <fd-input v-model="PREQ_NAME"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
+<FormItem label="">
+    <Input value={this.PREQ_NAME}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Purchasing Group</fd-form-label>
-    <fd-select v-model="PUR_GROUP"
-        options="{type: 'SH', id: 'H_T024'}"
-        data-abap="{type:'CHAR', mid:'EKG', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchasing Group">
+    <ComboBox value={this.PUR_GROUP}
+        items="{type: 'SH', id: 'H_T024'}"
+        data-abap="{type:'CHAR', mid:'EKG', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Number</fd-form-label>
-    <fd-select v-model="PUR_MAT"
-        options="{type: 'CT', id: 'MARA'}"
-        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Material Number">
+    <ComboBox value={this.PUR_MAT}
+        items="{type: 'CT', id: 'MARA'}"
+        data-abap="{type:'CHAR', alpha:'MATN1', mid:'MAT', length:'18'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Number (40 Characters, Technical Requirement)</fd-form-label>
-        <fd-input v-model="PUR_MAT_LONG"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Material Number (40 Characters, Technical Requirement)">
+    <Input value={this.PUR_MAT_LONG}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Purchasing Organization</fd-form-label>
-    <fd-select v-model="PURCH_ORG"
-        options="{type: 'SH', id: 'H_T024E'}"
-        data-abap="{type:'CHAR', mid:'EKO', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchasing Organization">
+    <ComboBox value={this.PURCH_ORG}
+        items="{type: 'SH', id: 'H_T024E'}"
+        data-abap="{type:'CHAR', mid:'EKO', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Purchase Order Number</fd-form-label>
-    <fd-select v-model="PURCHASEORDER"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchase Order Number">
+    <ComboBox value={this.PURCHASEORDER}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Short Text</fd-form-label>
-        <fd-input v-model="SHORT_TEXT"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Short Text">
+    <Input value={this.SHORT_TEXT}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Supplying Plant</fd-form-label>
-    <fd-select v-model="SUPPL_PLANT"
-        options="{type: 'SH', id: 'H_T001W'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Supplying Plant">
+    <ComboBox value={this.SUPPL_PLANT}
+        items="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Requirement Tracking Number</fd-form-label>
-        <fd-input v-model="TRACKINGNO"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Requirement Tracking Number">
+    <Input value={this.TRACKINGNO}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Vendor</fd-form-label>
-    <fd-select v-model="VENDOR"
-        options="{type: 'SH', id: 'KRED'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Vendor">
+    <ComboBox value={this.VENDOR}
+        items="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Also Provide Header Data</fd-form-label>
-    <fd-select v-model="WITH_PO_HEADERS"
-        options="{type: 'FV', id: 'SELKZ'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Also Provide Header Data">
+    <ComboBox value={this.WITH_PO_HEADERS}
+        items="{type: 'FV', id: 'SELKZ'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: MATERIAL_EVG structure: BAPIMGVMATNR  Long Material Number -->
 
-<fd-form-item>
-    <fd-form-label>External Long Material Number</fd-form-label>
-        <fd-input v-model="MATERIAL_EVG.MATERIAL_EXT"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="External Long Material Number">
+    <Input value={this.MATERIAL_EVG.MATERIAL_EXT}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Version Number</fd-form-label>
-        <fd-input v-model="MATERIAL_EVG.MATERIAL_VERS"
-            data-abap="{type:'CHAR', alpha:'MATNW', mid:'MATVERS', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Material Version Number">
+    <Input value={this.MATERIAL_EVG.MATERIAL_VERS}
+          data-abap="{type:'CHAR', alpha:'MATNW', mid:'MATVERS', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material number (external GUID)</fd-form-label>
-        <fd-input v-model="MATERIAL_EVG.MATERIAL_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="Material number (external GUID)">
+    <Input value={this.MATERIAL_EVG.MATERIAL_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
 <!-- Parameter: PUR_MAT_EVG structure: BAPIMGVMATNR  Long Material Number -->
 
-<fd-form-item>
-    <fd-form-label>External Long Material Number</fd-form-label>
-        <fd-input v-model="PUR_MAT_EVG.MATERIAL_EXT"
-            data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="External Long Material Number">
+    <Input value={this.PUR_MAT_EVG.MATERIAL_EXT}
+          data-abap="{type:'CHAR', alpha:'MATNL', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material Version Number</fd-form-label>
-        <fd-input v-model="PUR_MAT_EVG.MATERIAL_VERS"
-            data-abap="{type:'CHAR', alpha:'MATNW', mid:'MATVERS', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Material Version Number">
+    <Input value={this.PUR_MAT_EVG.MATERIAL_VERS}
+          data-abap="{type:'CHAR', alpha:'MATNW', mid:'MATVERS', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Material number (external GUID)</fd-form-label>
-        <fd-input v-model="PUR_MAT_EVG.MATERIAL_GUID"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="Material number (external GUID)">
+    <Input value={this.PUR_MAT_EVG.MATERIAL_GUID}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
 <!-- TABLE PARAMETERS -->
 
@@ -242,12 +199,11 @@ abap api -->
 <ui-dg-column sortable field="PREQ_NAME" data-abap.bind="{type:'CHAR', length:'12'}" label="Name of requisitioner/requester"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Name of requisitioner/requester</fd-form-label>
-        <fd-input v-model="PO_ITEMS.PREQ_NAME"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
+<FormItem label="Name of requisitioner/requester">
+    <Input value={this.PO_ITEMS.PREQ_NAME}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
 
 <!-- Parameter: PO_HEADERS structure: BAPIEKKOL  Table of PO Header Data -->
 
@@ -325,484 +281,412 @@ abap api -->
 <ui-dg-column sortable field="HOLD" data-abap.bind="{type:'CHAR', length:'1'}" label="Purchase order not yet complete"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-    <fd-select v-model="PO_HEADERS.PO_NUMBER"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Company Code</fd-form-label>
-    <fd-select v-model="PO_HEADERS.CO_CODE"
-        options="{type: 'SH', id: 'C_T001'}"
-        data-abap="{type:'CHAR', mid:'BUK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Purchasing Document Category</fd-form-label>
-    <fd-select v-model="PO_HEADERS.DOC_CAT"
-        options="{type: 'FV', id: 'EBSTYP'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Purchasing Document Type</fd-form-label>
-    <fd-select v-model="PO_HEADERS.DOC_TYPE"
-        options="{type: 'SH', id: 'H_T161'}"
-        data-abap="{type:'CHAR', mid:'BSA', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fast-checkbox v-model="PO_HEADERS.CNTRL_IND">Control indicator for purchasing document type/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Deletion indicator in purchasing document</fd-form-label>
-        <fd-input v-model="PO_HEADERS.DELETE_IND"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Status of Purchasing Document</fd-form-label>
-    <fd-select v-model="PO_HEADERS.STATUS"
-        options="{type: 'FV', id: 'ESTAK'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Date on Which Record Was Created</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.CREATED_ON"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Name of Person who Created the Object</fd-form-label>
-        <fd-input v-model="PO_HEADERS.CREATED_BY"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item Number Interval</fd-form-label>
-        <fd-input v-model="PO_HEADERS.ITEM_INTVL"
-            data-abap="{type:'NUMC', length:'5'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Last Item Number</fd-form-label>
-    <fd-select v-model="PO_HEADERS.LAST_ITEM"
-        options="{type: 'CH', id: 'EKPO'}"
-        data-abap="{type:'NUMC', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Vendor's account number</fd-form-label>
-    <fd-select v-model="PO_HEADERS.VENDOR"
-        options="{type: 'SH', id: 'KRED'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Language Key</fd-form-label>
-    <fd-select v-model="PO_HEADERS.LANGUAGE"
-        options="{type: 'SH', id: 'H_T002'}"
-        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Terms of Payment Key</fd-form-label>
-        <fd-input v-model="PO_HEADERS.PMNTTRMS"
-            data-abap="{type:'CHAR', length:'4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cash discount days 1</fd-form-label>
-        <fd-input v-model="PO_HEADERS.DSCNT1_TO"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cash discount days 2</fd-form-label>
-        <fd-input v-model="PO_HEADERS.DSCNT2_TO"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cash discount days 3</fd-form-label>
-        <fd-input v-model="PO_HEADERS.DSCNT3_TO"
-            data-abap="{type:'DEC', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cash discount percentage 1</fd-form-label>
-        <fd-input v-model="PO_HEADERS.CASH_DISC1"
-            data-abap="{type:'DEC', length:'4.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cash Discount Percentage 2</fd-form-label>
-        <fd-input v-model="PO_HEADERS.CASH_DISC2"
-            data-abap="{type:'DEC', length:'4.3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Purchasing organization</fd-form-label>
-    <fd-select v-model="PO_HEADERS.PURCH_ORG"
-        options="{type: 'SH', id: 'H_T024E'}"
-        data-abap="{type:'CHAR', mid:'EKO', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Purchasing Group</fd-form-label>
-    <fd-select v-model="PO_HEADERS.PUR_GROUP"
-        options="{type: 'SH', id: 'H_T024'}"
-        data-abap="{type:'CHAR', mid:'EKG', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Currency Key</fd-form-label>
-    <fd-select v-model="PO_HEADERS.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', mid:'FWS', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Direct Quoted Exchange Rate</fd-form-label>
-        <fd-input v-model="PO_HEADERS.EXCH_RATE"
-            data-abap="{type:'DEC', length:'8.5'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="PO_HEADERS.EX_RATE_FX">Indicator: Fixing of Exchange Rate/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Purchasing Document Date</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.DOC_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Start of Validity Period</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.VPER_START"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>End of Validity Period</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.VPER_END"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Closing Date for Applications</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.APPLIC_BY"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Deadline for Submission of Bid/Quotation</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.QUOT_DEAD"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Binding Period for Quotation</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.BINDG_PER"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Warranty Date</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.WARRANTY"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Bid invitation number</fd-form-label>
-    <fd-select v-model="PO_HEADERS.BIDINV_NO"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Quotation Number</fd-form-label>
-        <fd-input v-model="PO_HEADERS.QUOTATION"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Quotation Submission Date</fd-form-label>
-    <fd-date-picker v-model="PO_HEADERS.QUOT_DATE"></fd-date-picker>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Your Reference</fd-form-label>
-        <fd-input v-model="PO_HEADERS.REF_1"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Responsible Salesperson at Vendor's Office</fd-form-label>
-        <fd-input v-model="PO_HEADERS.SALES_PERS"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Vendor's Telephone Number</fd-form-label>
-        <fd-input v-model="PO_HEADERS.TELEPHONE"
-            data-abap="{type:'CHAR', length:'16'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Supplying Vendor</fd-form-label>
-    <fd-select v-model="PO_HEADERS.SUPPL_VEND"
-        options="{type: 'SH', id: 'KRED'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LLI', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Customer Number</fd-form-label>
-    <fd-select v-model="PO_HEADERS.CUSTOMER"
-        options="{type: 'SH', id: 'DEBI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of principal purchase agreement</fd-form-label>
-    <fd-select v-model="PO_HEADERS.AGREEMENT"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Reason for rejection of quotations and sales orders</fd-form-label>
-        <fd-input v-model="PO_HEADERS.REJ_REASON"
-            data-abap="{type:'CHAR', length:'2'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="PO_HEADERS.COMPL_DLV">Complete Delivery Stipulated for Each Purchase Order/fast-checkbox>
-
-<fast-checkbox v-model="PO_HEADERS.GR_MESSAGE">Indicator: Goods Receipt Message/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Supplying (issuing) plant in case of stock transport order</fd-form-label>
-    <fd-select v-model="PO_HEADERS.SUPPL_PLNT"
-        options="{type: 'SH', id: 'H_T001W'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Field not used</fd-form-label>
-    <fd-select v-model="PO_HEADERS.RCVG_VEND"
-        options="{type: 'SH', id: 'KRED'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Incoterms (Part 1)</fd-form-label>
-    <fd-select v-model="PO_HEADERS.INCOTERMS1"
-        options="{type: 'SH', id: 'H_TINC'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Incoterms (Part 2)</fd-form-label>
-        <fd-input v-model="PO_HEADERS.INCOTERMS2"
-            data-abap="{type:'CHAR', length:'28'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Cumulative Planned Value</fd-form-label>
-        <fd-input v-model="PO_HEADERS.TARGET_VAL"
-            data-abap="{type:'DEC', length:'22.4'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Collective Number</fd-form-label>
-        <fd-input v-model="PO_HEADERS.COLL_NO"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of the document condition</fd-form-label>
-        <fd-input v-model="PO_HEADERS.DOC_COND"
-            data-abap="{type:'CHAR', length:'10'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Procedure (Pricing, Output Control, Acct. Det., Costing,...)</fd-form-label>
-    <fd-select v-model="PO_HEADERS.PROCEDURE"
-        options="{type: 'CT', id: 'T683'}"
-        data-abap="{type:'CHAR', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Update group for statistics update</fd-form-label>
-    <fd-select v-model="PO_HEADERS.UPDATE_GRP"
-        options="{type: 'SH', id: 'H_TMCB'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MCF', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Different Invoicing Party</fd-form-label>
-    <fd-select v-model="PO_HEADERS.DIFF_INV"
-        options="{type: 'SH', id: 'KRED'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LRE', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Number of foreign trade data in MM and SD documents</fd-form-label>
-    <fd-select v-model="PO_HEADERS.EXPORT_NO"
-        options="{type: 'CH', id: 'EIKP'}"
-        data-abap="{type:'CHAR', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Our Reference</fd-form-label>
-        <fd-input v-model="PO_HEADERS.OUR_REF"
-            data-abap="{type:'CHAR', length:'12'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Logical System</fd-form-label>
-    <fd-select v-model="PO_HEADERS.LOGSYSTEM"
-        options="{type: 'CT', id: 'TBDLS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Item Number Interval for Subitems</fd-form-label>
-        <fd-input v-model="PO_HEADERS.SUBITEMINT"
-            data-abap="{type:'NUMC', length:'5'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="PO_HEADERS.MAST_COND">Document with time-dependent conditions/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Release group</fd-form-label>
-    <fd-select v-model="PO_HEADERS.REL_GROUP"
-        options="{type: 'CT', id: 'T16FG'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Release Strategy</fd-form-label>
-    <fd-select v-model="PO_HEADERS.REL_STRAT"
-        options="{type: 'CT', id: 'T16FS'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Release Indicator: Purchasing Document</fd-form-label>
-    <fd-select v-model="PO_HEADERS.REL_IND"
-        options="{type: 'CT', id: 'T16FB'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Release State</fd-form-label>
-        <fd-input v-model="PO_HEADERS.REL_STATUS"
-            data-abap="{type:'CHAR', length:'8'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="PO_HEADERS.SUBJ_TO_R">Release Not Yet Completely Effected/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Country for Tax Return</fd-form-label>
-    <fd-select v-model="PO_HEADERS.TAXR_CNTRY"
-        options="{type: 'CT', id: 'T005'}"
-        data-abap="{type:'CHAR', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
-
-<fast-checkbox v-model="PO_HEADERS.SCHED_IND">Indicator for scheduling agreement release documentation/fast-checkbox>
-
-<fd-form-item>
-    <fd-form-label>Name 1</fd-form-label>
-        <fd-input v-model="PO_HEADERS.VEND_NAME"
-            data-abap="{type:'CHAR', length:'35'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>ISO Currency Code</fd-form-label>
-        <fd-input v-model="PO_HEADERS.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
-
-<fd-form-item>
-    <fd-form-label>Indirect Quoted Exchange Rate</fd-form-label>
-        <fd-input v-model="PO_HEADERS.EXCH_RATE_CM"
-            data-abap="{type:'DEC', length:'8.5'}"
-        />
-</fd-form-item>
-
-<fast-checkbox v-model="PO_HEADERS.HOLD">Purchase order not yet complete/fast-checkbox>
+<FormItem label="Purchasing Document Number">
+    <ComboBox value={this.PO_HEADERS.PO_NUMBER}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Company Code">
+    <ComboBox value={this.PO_HEADERS.CO_CODE}
+        items="{type: 'SH', id: 'C_T001'}"
+        data-abap="{type:'CHAR', mid:'BUK', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Purchasing Document Category">
+    <ComboBox value={this.PO_HEADERS.DOC_CAT}
+        items="{type: 'FV', id: 'EBSTYP'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Purchasing Document Type">
+    <ComboBox value={this.PO_HEADERS.DOC_TYPE}
+        items="{type: 'SH', id: 'H_T161'}"
+        data-abap="{type:'CHAR', mid:'BSA', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Control indicator for purchasing document type">
+    <CheckBox value={this.PO_HEADERS.CNTRL_IND}/>
+</FormItem>
+
+<FormItem label="Deletion indicator in purchasing document">
+    <Input value={this.PO_HEADERS.DELETE_IND}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
+
+<FormItem label="Status of Purchasing Document">
+    <ComboBox value={this.PO_HEADERS.STATUS}
+        items="{type: 'FV', id: 'ESTAK'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Date on Which Record Was Created">
+    <DatePicker value={this.PO_HEADERS.CREATED_ON}/>
+</FormItem>
+
+<FormItem label="Name of Person who Created the Object">
+    <Input value={this.PO_HEADERS.CREATED_BY}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Item Number Interval">
+    <Input value={this.PO_HEADERS.ITEM_INTVL}
+          data-abap="{type:'NUMC', length:'5'}"
+    />
+</FormItem>
+
+<FormItem label="Last Item Number">
+    <ComboBox value={this.PO_HEADERS.LAST_ITEM}
+        items="{type: 'CH', id: 'EKPO'}"
+        data-abap="{type:'NUMC', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Vendor's account number">
+    <ComboBox value={this.PO_HEADERS.VENDOR}
+        items="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Language Key">
+    <ComboBox value={this.PO_HEADERS.LANGUAGE}
+        items="{type: 'SH', id: 'H_T002'}"
+        data-abap="{type:'LANG', alpha:'ISOLA', mid:'SPR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Terms of Payment Key">
+    <Input value={this.PO_HEADERS.PMNTTRMS}
+          data-abap="{type:'CHAR', length:'4'}"
+    />
+</FormItem>
+
+<FormItem label="Cash discount days 1">
+    <Input value={this.PO_HEADERS.DSCNT1_TO}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Cash discount days 2">
+    <Input value={this.PO_HEADERS.DSCNT2_TO}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Cash discount days 3">
+    <Input value={this.PO_HEADERS.DSCNT3_TO}
+          data-abap="{type:'DEC', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Cash discount percentage 1">
+    <Input value={this.PO_HEADERS.CASH_DISC1}
+          data-abap="{type:'DEC', length:'4.3'}"
+    />
+</FormItem>
+
+<FormItem label="Cash Discount Percentage 2">
+    <Input value={this.PO_HEADERS.CASH_DISC2}
+          data-abap="{type:'DEC', length:'4.3'}"
+    />
+</FormItem>
+
+<FormItem label="Purchasing organization">
+    <ComboBox value={this.PO_HEADERS.PURCH_ORG}
+        items="{type: 'SH', id: 'H_T024E'}"
+        data-abap="{type:'CHAR', mid:'EKO', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Purchasing Group">
+    <ComboBox value={this.PO_HEADERS.PUR_GROUP}
+        items="{type: 'SH', id: 'H_T024'}"
+        data-abap="{type:'CHAR', mid:'EKG', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Currency Key">
+    <ComboBox value={this.PO_HEADERS.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', mid:'FWS', length:'5'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Direct Quoted Exchange Rate">
+    <Input value={this.PO_HEADERS.EXCH_RATE}
+          data-abap="{type:'DEC', length:'8.5'}"
+    />
+</FormItem>
+
+<FormItem label="Indicator: Fixing of Exchange Rate">
+    <CheckBox value={this.PO_HEADERS.EX_RATE_FX}/>
+</FormItem>
+
+<FormItem label="Purchasing Document Date">
+    <DatePicker value={this.PO_HEADERS.DOC_DATE}/>
+</FormItem>
+
+<FormItem label="Start of Validity Period">
+    <DatePicker value={this.PO_HEADERS.VPER_START}/>
+</FormItem>
+
+<FormItem label="End of Validity Period">
+    <DatePicker value={this.PO_HEADERS.VPER_END}/>
+</FormItem>
+
+<FormItem label="Closing Date for Applications">
+    <DatePicker value={this.PO_HEADERS.APPLIC_BY}/>
+</FormItem>
+
+<FormItem label="Deadline for Submission of Bid/Quotation">
+    <DatePicker value={this.PO_HEADERS.QUOT_DEAD}/>
+</FormItem>
+
+<FormItem label="Binding Period for Quotation">
+    <DatePicker value={this.PO_HEADERS.BINDG_PER}/>
+</FormItem>
+
+<FormItem label="Warranty Date">
+    <DatePicker value={this.PO_HEADERS.WARRANTY}/>
+</FormItem>
+
+<FormItem label="Bid invitation number">
+    <ComboBox value={this.PO_HEADERS.BIDINV_NO}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Quotation Number">
+    <Input value={this.PO_HEADERS.QUOTATION}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Quotation Submission Date">
+    <DatePicker value={this.PO_HEADERS.QUOT_DATE}/>
+</FormItem>
+
+<FormItem label="Your Reference">
+    <Input value={this.PO_HEADERS.REF_1}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Responsible Salesperson at Vendor's Office">
+    <Input value={this.PO_HEADERS.SALES_PERS}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
+
+<FormItem label="Vendor's Telephone Number">
+    <Input value={this.PO_HEADERS.TELEPHONE}
+          data-abap="{type:'CHAR', length:'16'}"
+    />
+</FormItem>
+
+<FormItem label="Supplying Vendor">
+    <ComboBox value={this.PO_HEADERS.SUPPL_VEND}
+        items="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LLI', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Customer Number">
+    <ComboBox value={this.PO_HEADERS.CUSTOMER}
+        items="{type: 'SH', id: 'DEBI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of principal purchase agreement">
+    <ComboBox value={this.PO_HEADERS.AGREEMENT}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KTR', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Reason for rejection of quotations and sales orders">
+    <Input value={this.PO_HEADERS.REJ_REASON}
+          data-abap="{type:'CHAR', length:'2'}"
+    />
+</FormItem>
+
+<FormItem label="Complete Delivery Stipulated for Each Purchase Order">
+    <CheckBox value={this.PO_HEADERS.COMPL_DLV}/>
+</FormItem>
+
+<FormItem label="Indicator: Goods Receipt Message">
+    <CheckBox value={this.PO_HEADERS.GR_MESSAGE}/>
+</FormItem>
+
+<FormItem label="Supplying (issuing) plant in case of stock transport order">
+    <ComboBox value={this.PO_HEADERS.SUPPL_PLNT}
+        items="{type: 'SH', id: 'H_T001W'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Field not used">
+    <ComboBox value={this.PO_HEADERS.RCVG_VEND}
+        items="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LIF', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Incoterms (Part 1)">
+    <ComboBox value={this.PO_HEADERS.INCOTERMS1}
+        items="{type: 'SH', id: 'H_TINC'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Incoterms (Part 2)">
+    <Input value={this.PO_HEADERS.INCOTERMS2}
+          data-abap="{type:'CHAR', length:'28'}"
+    />
+</FormItem>
+
+<FormItem label="Cumulative Planned Value">
+    <Input value={this.PO_HEADERS.TARGET_VAL}
+          data-abap="{type:'DEC', length:'22.4'}"
+    />
+</FormItem>
+
+<FormItem label="Collective Number">
+    <Input value={this.PO_HEADERS.COLL_NO}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Number of the document condition">
+    <Input value={this.PO_HEADERS.DOC_COND}
+          data-abap="{type:'CHAR', length:'10'}"
+    />
+</FormItem>
+
+<FormItem label="Procedure (Pricing, Output Control, Acct. Det., Costing,...)">
+    <ComboBox value={this.PO_HEADERS.PROCEDURE}
+        items="{type: 'CT', id: 'T683'}"
+        data-abap="{type:'CHAR', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Update group for statistics update">
+    <ComboBox value={this.PO_HEADERS.UPDATE_GRP}
+        items="{type: 'SH', id: 'H_TMCB'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'MCF', length:'6'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Different Invoicing Party">
+    <ComboBox value={this.PO_HEADERS.DIFF_INV}
+        items="{type: 'SH', id: 'KRED'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'LRE', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Number of foreign trade data in MM and SD documents">
+    <ComboBox value={this.PO_HEADERS.EXPORT_NO}
+        items="{type: 'CH', id: 'EIKP'}"
+        data-abap="{type:'CHAR', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Our Reference">
+    <Input value={this.PO_HEADERS.OUR_REF}
+          data-abap="{type:'CHAR', length:'12'}"
+    />
+</FormItem>
+
+<FormItem label="Logical System">
+    <ComboBox value={this.PO_HEADERS.LOGSYSTEM}
+        items="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Item Number Interval for Subitems">
+    <Input value={this.PO_HEADERS.SUBITEMINT}
+          data-abap="{type:'NUMC', length:'5'}"
+    />
+</FormItem>
+
+<FormItem label="Document with time-dependent conditions">
+    <CheckBox value={this.PO_HEADERS.MAST_COND}/>
+</FormItem>
+
+<FormItem label="Release group">
+    <ComboBox value={this.PO_HEADERS.REL_GROUP}
+        items="{type: 'CT', id: 'T16FG'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Release Strategy">
+    <ComboBox value={this.PO_HEADERS.REL_STRAT}
+        items="{type: 'CT', id: 'T16FS'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Release Indicator: Purchasing Document">
+    <ComboBox value={this.PO_HEADERS.REL_IND}
+        items="{type: 'CT', id: 'T16FB'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Release State">
+    <Input value={this.PO_HEADERS.REL_STATUS}
+          data-abap="{type:'CHAR', length:'8'}"
+    />
+</FormItem>
+
+<FormItem label="Release Not Yet Completely Effected">
+    <CheckBox value={this.PO_HEADERS.SUBJ_TO_R}/>
+</FormItem>
+
+<FormItem label="Country for Tax Return">
+    <ComboBox value={this.PO_HEADERS.TAXR_CNTRY}
+        items="{type: 'CT', id: 'T005'}"
+        data-abap="{type:'CHAR', length:'3'}">
+    </ComboBox>
+</FormItem>
+
+<FormItem label="Indicator for scheduling agreement release documentation">
+    <CheckBox value={this.PO_HEADERS.SCHED_IND}/>
+</FormItem>
+
+<FormItem label="Name 1">
+    <Input value={this.PO_HEADERS.VEND_NAME}
+          data-abap="{type:'CHAR', length:'35'}"
+    />
+</FormItem>
+
+<FormItem label="ISO Currency Code">
+    <Input value={this.PO_HEADERS.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
+
+<FormItem label="Indirect Quoted Exchange Rate">
+    <Input value={this.PO_HEADERS.EXCH_RATE_CM}
+          data-abap="{type:'DEC', length:'8.5'}"
+    />
+</FormItem>
+
+<FormItem label="Purchase order not yet complete">
+    <CheckBox value={this.PO_HEADERS.HOLD}/>
+</FormItem>
 
 <!-- Parameter: RETURN structure: BAPIRETURN  Return Messages -->
 
@@ -820,69 +704,58 @@ abap api -->
 <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message code</fd-form-label>
-        <fd-input v-model="RETURN.CODE"
-            data-abap="{type:'CHAR', length:'5'}"
-        />
-</fd-form-item>
+<FormItem label="Message code">
+    <Input value={this.RETURN.CODE}
+          data-abap="{type:'CHAR', length:'5'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>

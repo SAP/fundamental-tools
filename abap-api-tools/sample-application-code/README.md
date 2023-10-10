@@ -1,13 +1,13 @@
 # Sample Application Code
 
 - Built with [abap-api-tools](https://github.com/SAP/fundamental-tools) and [Aurelia](https://aurelia.io/) ui framework
-- Live: http://coevi76/plm3 from Walldorf VPN only !
+- Live: http://coevi76/plm3 from Walldorf VPN only
 
 <a href="http://coevi76/plm3" style="margin-left: 3rem">
   <img src="assets/Equipment.jpg" alt="Fundamental Library App" width="256"/>
 </a>
 
-## Code Sections
+## Code Sections Navigator
 
 - [Server](server/serve.py)
 

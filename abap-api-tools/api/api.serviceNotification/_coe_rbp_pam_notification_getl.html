@@ -4,139 +4,127 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fast-checkbox v-model="IV_COMPLETE">/fast-checkbox>
+<FormItem label="">
+    <CheckBox value={this.IV_COMPLETE}/>
+</FormItem>
 
-<fast-checkbox v-model="IV_IN_PROCESS">/fast-checkbox>
+<FormItem label="">
+    <CheckBox value={this.IV_IN_PROCESS}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label></fd-form-label>
-    <fd-date-picker v-model="IV_NOTIFICATION_DATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="">
+    <DatePicker value={this.IV_NOTIFICATION_DATE}/>
+</FormItem>
 
-<fast-checkbox v-model="IV_OUTSTANDING">/fast-checkbox>
+<FormItem label="">
+    <CheckBox value={this.IV_OUTSTANDING}/>
+</FormItem>
 
-<fast-checkbox v-model="IV_POSTPONED">/fast-checkbox>
+<FormItem label="">
+    <CheckBox value={this.IV_POSTPONED}/>
+</FormItem>
 
 <!-- Parameter: IS_CUSTOMER structure: /COE/RBP_S_PAM_NOTIF_CUSTOMER   -->
 
-<fd-form-item>
-    <fd-form-label>Customer Number</fd-form-label>
-    <fd-select v-model="IS_CUSTOMER.CUSTOMERNO"
-        options="{type: 'SH', id: 'C_KUNNR'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Customer Number">
+    <ComboBox value={this.IS_CUSTOMER.CUSTOMERNO}
+        items="{type: 'SH', id: 'C_KUNNR'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: IS_EQUIPMENT structure: /COE/RBP_S_PAM_NOTIF_EQUI   -->
 
-<fd-form-item>
-    <fd-form-label>Equipment Number</fd-form-label>
-    <fd-select v-model="IS_EQUIPMENT.EQUIPMENT"
-        options="{type: 'SH', id: 'EQUI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Equipment Number">
+    <ComboBox value={this.IS_EQUIPMENT.EQUIPMENT}
+        items="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: IS_FUNCLOC structure: /COE/RBP_S_PAM_NOTIF_FUNCLOC   -->
 
-<fd-form-item>
-    <fd-form-label>Functional Location</fd-form-label>
-    <fd-select v-model="IS_FUNCLOC.FUNCLOC_INT"
-        options="{type: 'SH', id: 'IFLM'}"
-        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Functional Location">
+    <ComboBox value={this.IS_FUNCLOC.FUNCLOC_INT}
+        items="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Functional Location Label</fd-form-label>
-        <fd-input v-model="IS_FUNCLOC.FUNCLOC_EXT"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Functional Location Label">
+    <Input value={this.IS_FUNCLOC.FUNCLOC_EXT}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Labeling system for functional locations</fd-form-label>
-    <fd-select v-model="IS_FUNCLOC.FUNCLOC_LABEL_SYST"
-        options="{type: 'FV', id: 'ILOM_ALKEY'}"
-        data-abap="{type:'CHAR', mid:'ILOM_ALKEY', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Labeling system for functional locations">
+    <ComboBox value={this.IS_FUNCLOC.FUNCLOC_LABEL_SYST}
+        items="{type: 'FV', id: 'ILOM_ALKEY'}"
+        data-abap="{type:'CHAR', mid:'ILOM_ALKEY', length:'1'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: IS_PARTNER structure: /COE/RBP_S_PAM_NOTIF_PARTNER   -->
 
-<fd-form-item>
-    <fd-form-label>Number of contact person</fd-form-label>
-        <fd-input v-model="IS_PARTNER.PARTNER"
-            data-abap="{type:'NUMC', mid:'VPA', length:'10'}"
-        />
-</fd-form-item>
+<FormItem label="Number of contact person">
+    <Input value={this.IS_PARTNER.PARTNER}
+          data-abap="{type:'NUMC', mid:'VPA', length:'10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Partner Function</fd-form-label>
-    <fd-select v-model="IS_PARTNER.PARTNERFUNCTION"
-        options="{type: 'CT', id: 'TPAR'}"
-        data-abap="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Partner Function">
+    <ComboBox value={this.IS_PARTNER.PARTNERFUNCTION}
+        items="{type: 'CT', id: 'TPAR'}"
+        data-abap="{type:'CHAR', alpha:'PARVW', mid:'PAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Partner</fd-form-label>
-        <fd-input v-model="IS_PARTNER.PARTNER_USER"
-            data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
-        />
-</fd-form-item>
+<FormItem label="Partner">
+    <Input value={this.IS_PARTNER.PARTNER_USER}
+          data-abap="{type:'CHAR', alpha:'ALPHA', length:'12'}"
+    />
+</FormItem>
 
 <!-- Parameter: IS_PLANGROUP structure: /COE/RBP_S_PAM_NOTIF_PLANGRP   -->
 
-<fd-form-item>
-    <fd-form-label>Planner Group for Customer Service and Plant Maintenance</fd-form-label>
-    <fd-select v-model="IS_PLANGROUP.PLANGROUP"
-        options="{type: 'CT', id: 'T024I'}"
-        data-abap="{type:'CHAR', mid:'IHG', length:'3'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Planner Group for Customer Service and Plant Maintenance">
+    <ComboBox value={this.IS_PLANGROUP.PLANGROUP}
+        items="{type: 'CT', id: 'T024I'}"
+        data-abap="{type:'CHAR', mid:'IHG', length:'3'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Maintenance Planning Plant</fd-form-label>
-    <fd-select v-model="IS_PLANGROUP.PLANPLANT"
-        options="{type: 'CT', id: 'T001W'}"
-        data-abap="{type:'CHAR', mid:'IWK', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Maintenance Planning Plant">
+    <ComboBox value={this.IS_PLANGROUP.PLANPLANT}
+        items="{type: 'CT', id: 'T001W'}"
+        data-abap="{type:'CHAR', mid:'IWK', length:'4'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: IS_SORTFIELD structure: /COE/RBP_S_PAM_NOTIF_SORTF   -->
 
-<fast-checkbox v-model="IS_SORTFIELD.SIGN">Inclusion/exclusion criterion SIGN for range tables/fast-checkbox>
+<FormItem label="Inclusion/exclusion criterion SIGN for range tables">
+    <CheckBox value={this.IS_SORTFIELD.SIGN}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Selection operator OPTION for range tables</fd-form-label>
-    <fd-select v-model="IS_SORTFIELD.OPTION"
-        options="{type: 'FV', id: 'BAPIOPTION'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Selection operator OPTION for range tables">
+    <ComboBox value={this.IS_SORTFIELD.OPTION}
+        items="{type: 'FV', id: 'BAPIOPTION'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sort field</fd-form-label>
-        <fd-input v-model="IS_SORTFIELD.LOW"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
+<FormItem label="Sort field">
+    <Input value={this.IS_SORTFIELD.LOW}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sort field</fd-form-label>
-        <fd-input v-model="IS_SORTFIELD.HIGH"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
+<FormItem label="Sort field">
+    <Input value={this.IS_SORTFIELD.HIGH}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
 
 <!-- TABLE PARAMETERS -->
 
@@ -169,163 +157,133 @@ abap api -->
 <ui-dg-column sortable field="EXTERNAL_NUMBER" data-abap.bind="{type:'CHAR', length:'40'}" label="Functional Location Label"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Notification No</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.NOTIFICAT"
-        options="{type: 'CH', id: 'QMEL'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Notification No">
+    <ComboBox value={this.ET_NOTIFICATION.NOTIFICAT}
+        items="{type: 'CH', id: 'QMEL'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'IQM', length:'12'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Notification Type</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.NOTIF_TYPE"
-        options="{type: 'CT', id: 'TQ80'}"
-        data-abap="{type:'CHAR', mid:'QMR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Notification Type">
+    <ComboBox value={this.ET_NOTIFICATION.NOTIF_TYPE}
+        items="{type: 'CT', id: 'TQ80'}"
+        data-abap="{type:'CHAR', mid:'QMR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Functional Location</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.FUNCLOC"
-        options="{type: 'SH', id: 'IFLM'}"
-        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Functional Location">
+    <ComboBox value={this.ET_NOTIFICATION.FUNCLOC}
+        items="{type: 'SH', id: 'IFLM'}"
+        data-abap="{type:'CHAR', alpha:'TPLNR', mid:'IFL', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Equipment Number</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.EQUIPMENT"
-        options="{type: 'SH', id: 'EQUI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Equipment Number">
+    <ComboBox value={this.ET_NOTIFICATION.EQUIPMENT}
+        items="{type: 'SH', id: 'EQUI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'EQN', length:'18'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Customer Number</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.CUSTOMER"
-        options="{type: 'SH', id: 'DEBI'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Customer Number">
+    <ComboBox value={this.ET_NOTIFICATION.CUSTOMER}
+        items="{type: 'SH', id: 'DEBI'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'KUN', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Short Text</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.DESCRIPT"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Short Text">
+    <Input value={this.ET_NOTIFICATION.DESCRIPT}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Customer purchase order number</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.PURCH_NO"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Customer purchase order number">
+    <Input value={this.ET_NOTIFICATION.PURCH_NO}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Customer purchase order date</fd-form-label>
-    <fd-date-picker v-model="ET_NOTIFICATION.PURCH_DATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Customer purchase order date">
+    <DatePicker value={this.ET_NOTIFICATION.PURCH_DATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>System status line</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.S_STATUS"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="System status line">
+    <Input value={this.ET_NOTIFICATION.S_STATUS}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>User Status Line</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.U_STATUS"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="User Status Line">
+    <Input value={this.ET_NOTIFICATION.U_STATUS}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of Technical Object</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.EQUIDESCR"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Description of Technical Object">
+    <Input value={this.ET_NOTIFICATION.EQUIDESCR}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of functional location</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.FUNCLDESCR"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Description of functional location">
+    <Input value={this.ET_NOTIFICATION.FUNCLDESCR}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Date of Notification</fd-form-label>
-    <fd-date-picker v-model="ET_NOTIFICATION.NOTIFDATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Date of Notification">
+    <DatePicker value={this.ET_NOTIFICATION.NOTIFDATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Time of Notification</fd-form-label>
-    <fd-time-picker v-model="ET_NOTIFICATION.NOTIFTIME"></fd-time-picker>
-</fd-form-item>
+<FormItem label="Time of Notification">
+    <TimePicker value={this.ET_NOTIFICATION.NOTIFTIME}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Priority Type</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.PRIOTYPE"
-        options="{type: 'CT', id: 'T356A'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Priority Type">
+    <ComboBox value={this.ET_NOTIFICATION.PRIOTYPE}
+        items="{type: 'CT', id: 'T356A'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Priority</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.PRIORITY"
-        options="{type: 'SH', id: 'H_T356'}"
-        data-abap="{type:'CHAR', mid:'PRIOK', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Priority">
+    <ComboBox value={this.ET_NOTIFICATION.PRIORITY}
+        items="{type: 'SH', id: 'H_T356'}"
+        data-abap="{type:'CHAR', mid:'PRIOK', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Date for Notification Completion</fd-form-label>
-    <fd-date-picker v-model="ET_NOTIFICATION.COMPLETION"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Date for Notification Completion">
+    <DatePicker value={this.ET_NOTIFICATION.COMPLETION}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Required start date</fd-form-label>
-    <fd-date-picker v-model="ET_NOTIFICATION.STARTDATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Required start date">
+    <DatePicker value={this.ET_NOTIFICATION.STARTDATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Required End Date</fd-form-label>
-    <fd-date-picker v-model="ET_NOTIFICATION.ENDDATE"></fd-date-picker>
-</fd-form-item>
+<FormItem label="Required End Date">
+    <DatePicker value={this.ET_NOTIFICATION.ENDDATE}/>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Customer purchase order number</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.PURCH_NO_C"
-            data-abap="{type:'CHAR', length:'35'}"
-        />
-</fd-form-item>
+<FormItem label="Customer purchase order number">
+    <Input value={this.ET_NOTIFICATION.PURCH_NO_C}
+          data-abap="{type:'CHAR', length:'35'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Key for a Scenario</fd-form-label>
-    <fd-select v-model="ET_NOTIFICATION.SCENARIO"
-        options="{type: 'CT', id: 'TQ81'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Key for a Scenario">
+    <ComboBox value={this.ET_NOTIFICATION.SCENARIO}
+        items="{type: 'CT', id: 'TQ81'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Functional Location Label</fd-form-label>
-        <fd-input v-model="ET_NOTIFICATION.EXTERNAL_NUMBER"
-            data-abap="{type:'CHAR', length:'40'}"
-        />
-</fd-form-item>
+<FormItem label="Functional Location Label">
+    <Input value={this.ET_NOTIFICATION.EXTERNAL_NUMBER}
+          data-abap="{type:'CHAR', length:'40'}"
+    />
+</FormItem>
 
 <!-- EXPORT PARAMETERS -->
 
@@ -350,110 +308,91 @@ abap api -->
 <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="ET_RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.ET_RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Class</fd-form-label>
-    <fd-select v-model="ET_RETURN.ID"
-        options="{type: 'CT', id: 'T100A'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Message Class">
+    <ComboBox value={this.ET_RETURN.ID}
+        items="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Number</fd-form-label>
-        <fd-input v-model="ET_RETURN.NUMBER"
-            data-abap="{type:'NUMC', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="Message Number">
+    <Input value={this.ET_RETURN.NUMBER}
+          data-abap="{type:'NUMC', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.ET_RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.ET_RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.ET_RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Parameter Name</fd-form-label>
-        <fd-input v-model="ET_RETURN.PARAMETER"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="Parameter Name">
+    <Input value={this.ET_RETURN.PARAMETER}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Lines in parameter</fd-form-label>
-        <fd-input v-model="ET_RETURN.ROW"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Lines in parameter">
+    <Input value={this.ET_RETURN.ROW}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Field in parameter</fd-form-label>
-    <fd-select v-model="ET_RETURN.FIELD"
-        options="{type: 'CT', id: 'DD03L'}"
-        data-abap="{type:'CHAR', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Field in parameter">
+    <ComboBox value={this.ET_RETURN.FIELD}
+        items="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Logical system from which message originates</fd-form-label>
-    <fd-select v-model="ET_RETURN.SYSTEM"
-        options="{type: 'CT', id: 'TBDLS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Logical system from which message originates">
+    <ComboBox value={this.ET_RETURN.SYSTEM}
+        items="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>

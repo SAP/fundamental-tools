@@ -4,23 +4,19 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label>Purchase Order Number</fd-form-label>
-    <fd-select v-model="PURCHASEORDER"
-        options="{type: 'SH', id: 'MEKK_C'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchase Order Number">
+    <ComboBox value={this.PURCHASEORDER}
+        items="{type: 'SH', id: 'MEKK_C'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release Code</fd-form-label>
-    <fd-select v-model="PO_REL_CODE"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', mid:'FAB', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release Code">
+    <ComboBox value={this.PO_REL_CODE}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', mid:'FAB', length:'2'}">
+    </ComboBox>
+</FormItem>
 
 <!-- TABLE PARAMETERS -->
 
@@ -56,214 +52,172 @@ abap api -->
 <ui-dg-column sortable field="REL_WF8" data-abap.bind="{type:'CHAR', length:'1'}" shlp.bind="{type: 'FV', id: 'FRGWF'}" label="Role resolution for workflow for release code 8"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.PO_NUMBER"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchasing Document Number">
+    <ComboBox value={this.RELEASE_FINAL.PO_NUMBER}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 1</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE1"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 1">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE1}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 2</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE2"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 2">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE2}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 3</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE3"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 3">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE3}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 4</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE4"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 4">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE4}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 5</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE5"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 5">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE5}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 6</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE6"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 6">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE6}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 7</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE7"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 7">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE7}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 8</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_CODE8"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 8">
+    <ComboBox value={this.RELEASE_FINAL.REL_CODE8}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 1</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX1"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 1">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX1}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 2</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX2"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 2">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX2}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 3</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX3"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 3">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX3}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 4</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX4"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 4">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX4}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 5</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX5"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 5">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX5}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 6</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX6"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 6">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX6}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 7</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX7"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 7">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX7}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code</fd-form-label>
-        <fd-input v-model="RELEASE_FINAL.REL_CD_TX8"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code">
+    <Input value={this.RELEASE_FINAL.REL_CD_TX8}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 1</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF1"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 1">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF1}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 2</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF2"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 2">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF2}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 3</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF3"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 3">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF3}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 4</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF4"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 4">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF4}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 5</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF5"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 5">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF5}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 6</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF6"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 6">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF6}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 7</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF7"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 7">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF7}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 8</fd-form-label>
-    <fd-select v-model="RELEASE_FINAL.REL_WF8"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 8">
+    <ComboBox value={this.RELEASE_FINAL.REL_WF8}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: RETURN structure: BAPIRETURN  Return Messages -->
 
@@ -281,566 +235,458 @@ abap api -->
 <ui-dg-column sortable field="MESSAGE_V4" data-abap.bind="{type:'CHAR', length:'50'}" label="Message Variable"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message code</fd-form-label>
-        <fd-input v-model="RETURN.CODE"
-            data-abap="{type:'CHAR', length:'5'}"
-        />
-</fd-form-item>
+<FormItem label="Message code">
+    <Input value={this.RETURN.CODE}
+          data-abap="{type:'CHAR', length:'5'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
 <!-- EXPORT PARAMETERS -->
 
 <!-- Parameter: GENERAL_RELEASE_INFO structure: BAPIRLGNPO  General Release Information -->
 
-<fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-    <fd-select v-model="GENERAL_RELEASE_INFO.PO_NUMBER"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchasing Document Number">
+    <ComboBox value={this.GENERAL_RELEASE_INFO.PO_NUMBER}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release group</fd-form-label>
-    <fd-select v-model="GENERAL_RELEASE_INFO.REL_GROUP"
-        options="{type: 'CT', id: 'T16FG'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release group">
+    <ComboBox value={this.GENERAL_RELEASE_INFO.REL_GROUP}
+        items="{type: 'CT', id: 'T16FG'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release group</fd-form-label>
-        <fd-input v-model="GENERAL_RELEASE_INFO.REL_GRP_TX"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release group">
+    <Input value={this.GENERAL_RELEASE_INFO.REL_GRP_TX}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release Strategy</fd-form-label>
-    <fd-select v-model="GENERAL_RELEASE_INFO.REL_STRAT"
-        options="{type: 'CT', id: 'T16FS'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release Strategy">
+    <ComboBox value={this.GENERAL_RELEASE_INFO.REL_STRAT}
+        items="{type: 'CT', id: 'T16FS'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release strategy</fd-form-label>
-        <fd-input v-model="GENERAL_RELEASE_INFO.REL_STR_TX"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release strategy">
+    <Input value={this.GENERAL_RELEASE_INFO.REL_STR_TX}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release indicator</fd-form-label>
-        <fd-input v-model="GENERAL_RELEASE_INFO.REL_IND"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Release indicator">
+    <Input value={this.GENERAL_RELEASE_INFO.REL_IND}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of Release Indicator</fd-form-label>
-        <fd-input v-model="GENERAL_RELEASE_INFO.REL_IND_TX"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
+<FormItem label="Description of Release Indicator">
+    <Input value={this.GENERAL_RELEASE_INFO.REL_IND_TX}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code</fd-form-label>
-    <fd-select v-model="GENERAL_RELEASE_INFO.REL_CODE"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', mid:'FAB', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code">
+    <ComboBox value={this.GENERAL_RELEASE_INFO.REL_CODE}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', mid:'FAB', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code</fd-form-label>
-        <fd-input v-model="GENERAL_RELEASE_INFO.REL_COD_TX"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code">
+    <Input value={this.GENERAL_RELEASE_INFO.REL_COD_TX}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
 <!-- Parameter: RELEASE_ALREADY_POSTED structure: BAPIRLCOPO  Releases to Date -->
 
-<fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.PO_NUMBER"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchasing Document Number">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.PO_NUMBER}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 1</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE1"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 1">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE1}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 2</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE2"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 2">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE2}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 3</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE3"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 3">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE3}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 4</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE4"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 4">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE4}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 5</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE5"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 5">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE5}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 6</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE6"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 6">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE6}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 7</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE7"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 7">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE7}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 8</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_CODE8"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 8">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_CODE8}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 1</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX1"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 1">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX1}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 2</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX2"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 2">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX2}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 3</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX3"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 3">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX3}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 4</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX4"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 4">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX4}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 5</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX5"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 5">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX5}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 6</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX6"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 6">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX6}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 7</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX7"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 7">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX7}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code</fd-form-label>
-        <fd-input v-model="RELEASE_ALREADY_POSTED.REL_CD_TX8"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code">
+    <Input value={this.RELEASE_ALREADY_POSTED.REL_CD_TX8}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 1</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF1"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 1">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF1}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 2</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF2"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 2">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF2}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 3</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF3"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 3">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF3}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 4</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF4"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 4">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF4}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 5</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF5"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 5">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF5}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 6</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF6"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 6">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF6}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 7</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF7"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 7">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF7}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 8</fd-form-label>
-    <fd-select v-model="RELEASE_ALREADY_POSTED.REL_WF8"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 8">
+    <ComboBox value={this.RELEASE_ALREADY_POSTED.REL_WF8}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
 <!-- Parameter: RELEASE_PREREQUISITES structure: BAPIRLCOPO  Release Prerequisites -->
 
-<fd-form-item>
-    <fd-form-label>Purchasing Document Number</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.PO_NUMBER"
-        options="{type: 'CH', id: 'EKKO'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Purchasing Document Number">
+    <ComboBox value={this.RELEASE_PREREQUISITES.PO_NUMBER}
+        items="{type: 'CH', id: 'EKKO'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'BES', length:'10'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 1</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE1"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 1">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE1}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 2</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE2"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 2">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE2}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 3</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE3"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 3">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE3}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 4</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE4"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 4">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE4}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 5</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE5"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 5">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE5}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 6</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE6"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 6">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE6}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 7</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE7"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 7">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE7}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Release code 8</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_CODE8"
-        options="{type: 'CT', id: 'T16FC'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Release code 8">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_CODE8}
+        items="{type: 'CT', id: 'T16FC'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 1</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX1"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 1">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX1}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 2</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX2"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 2">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX2}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 3</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX3"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 3">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX3}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 4</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX4"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 4">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX4}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 5</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX5"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 5">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX5}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 6</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX6"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 6">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX6}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code 7</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX7"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code 7">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX7}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Description of release code</fd-form-label>
-        <fd-input v-model="RELEASE_PREREQUISITES.REL_CD_TX8"
-            data-abap="{type:'CHAR', length:'20'}"
-        />
-</fd-form-item>
+<FormItem label="Description of release code">
+    <Input value={this.RELEASE_PREREQUISITES.REL_CD_TX8}
+          data-abap="{type:'CHAR', length:'20'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 1</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF1"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 1">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF1}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 2</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF2"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 2">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF2}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 3</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF3"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 3">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF3}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 4</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF4"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 4">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF4}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 5</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF5"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 5">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF5}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 6</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF6"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 6">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF6}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 7</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF7"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 7">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF7}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Role resolution for workflow for release code 8</fd-form-label>
-    <fd-select v-model="RELEASE_PREREQUISITES.REL_WF8"
-        options="{type: 'FV', id: 'FRGWF'}"
-        data-abap="{type:'CHAR', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Role resolution for workflow for release code 8">
+    <ComboBox value={this.RELEASE_PREREQUISITES.REL_WF8}
+        items="{type: 'FV', id: 'FRGWF'}"
+        data-abap="{type:'CHAR', length:'1'}">
+    </ComboBox>
+</FormItem>

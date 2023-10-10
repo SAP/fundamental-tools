@@ -4,14 +4,12 @@ abap api -->
 
 <!-- IMPORT PARAMETERS -->
 
-<fd-form-item>
-    <fd-form-label></fd-form-label>
-    <fd-select v-model="IV_ORDERID"
-        options="{type: 'CT', id: 'AUFK'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="">
+    <ComboBox value={this.IV_ORDERID}
+        items="{type: 'CT', id: 'AUFK'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', mid:'ANR', length:'12'}">
+    </ComboBox>
+</FormItem>
 
 <!-- EXPORT PARAMETERS -->
 
@@ -38,127 +36,106 @@ abap api -->
 <ui-dg-column sortable field="TEXT" data-abap.bind="{type:'CHAR', length:'30'}" label="Text"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Debit type</fd-form-label>
-    <fd-select v-model="ET_COSTS_DETAILS.DEBIT_TYPE"
-        options="{type: 'FV', id: 'BP_INOUT'}"
-        data-abap="{type:'NUMC', length:'1'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Debit type">
+    <ComboBox value={this.ET_COSTS_DETAILS.DEBIT_TYPE}
+        items="{type: 'FV', id: 'BP_INOUT'}"
+        data-abap="{type:'NUMC', length:'1'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Value category</fd-form-label>
-    <fd-select v-model="ET_COSTS_DETAILS.VALUE_CATEGORY"
-        options="{type: 'CT', id: 'TPIR2'}"
-        data-abap="{type:'CHAR', length:'14'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Value category">
+    <ComboBox value={this.ET_COSTS_DETAILS.VALUE_CATEGORY}
+        items="{type: 'CT', id: 'TPIR2'}"
+        data-abap="{type:'CHAR', length:'14'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Accounting Indicator</fd-form-label>
-    <fd-select v-model="ET_COSTS_DETAILS.CALC_MOTIVE"
-        options="{type: 'CT', id: 'TBMOT'}"
-        data-abap="{type:'CHAR', length:'2'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Accounting Indicator">
+    <ComboBox value={this.ET_COSTS_DETAILS.CALC_MOTIVE}
+        items="{type: 'CT', id: 'TBMOT'}"
+        data-abap="{type:'CHAR', length:'2'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Budget Type Budgeting/Planning</fd-form-label>
-    <fd-select v-model="ET_COSTS_DETAILS.BUDGET_TYPE"
-        options="{type: 'CT', id: 'T022'}"
-        data-abap="{type:'CHAR', length:'4'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Budget Type Budgeting/Planning">
+    <ComboBox value={this.ET_COSTS_DETAILS.BUDGET_TYPE}
+        items="{type: 'CT', id: 'T022'}"
+        data-abap="{type:'CHAR', length:'4'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Maintenance Costs (Actual) by Value Category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.COSTS_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Maintenance Costs (Actual) by Value Category">
+    <Input value={this.ET_COSTS_DETAILS.COSTS_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Maintenance Costs (Planned) by Value Category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.COSTS_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Maintenance Costs (Planned) by Value Category">
+    <Input value={this.ET_COSTS_DETAILS.COSTS_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Maintenance Costs (Estimated) by Value Category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.COSTS_EST"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Maintenance Costs (Estimated) by Value Category">
+    <Input value={this.ET_COSTS_DETAILS.COSTS_EST}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Maintenance revenue (actual) by value category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.REVENUES_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Maintenance revenue (actual) by value category">
+    <Input value={this.ET_COSTS_DETAILS.REVENUES_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Maintenance revenue (planned) by value category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.REVENUES_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Maintenance revenue (planned) by value category">
+    <Input value={this.ET_COSTS_DETAILS.REVENUES_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Maintenance revenue (estimated) by value category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.REVENUES_EST"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Maintenance revenue (estimated) by value category">
+    <Input value={this.ET_COSTS_DETAILS.REVENUES_EST}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sum total (actual) by value category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.SUM_TOTAL_ACT_BY_CAT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Sum total (actual) by value category">
+    <Input value={this.ET_COSTS_DETAILS.SUM_TOTAL_ACT_BY_CAT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sum total (planned) by value category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.SUM_TOTAL_PLAN_BY_CAT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Sum total (planned) by value category">
+    <Input value={this.ET_COSTS_DETAILS.SUM_TOTAL_PLAN_BY_CAT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Sum total (estimated) by value category</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.SUM_TOTAL_EST_BY_CAT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Sum total (estimated) by value category">
+    <Input value={this.ET_COSTS_DETAILS.SUM_TOTAL_EST_BY_CAT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Currency for diplaying PM order costs</fd-form-label>
-    <fd-select v-model="ET_COSTS_DETAILS.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Currency for diplaying PM order costs">
+    <ComboBox value={this.ET_COSTS_DETAILS.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="ISO currency code">
+    <Input value={this.ET_COSTS_DETAILS.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Text</fd-form-label>
-        <fd-input v-model="ET_COSTS_DETAILS.TEXT"
-            data-abap="{type:'CHAR', length:'30'}"
-        />
-</fd-form-item>
+<FormItem label="Text">
+    <Input value={this.ET_COSTS_DETAILS.TEXT}
+          data-abap="{type:'CHAR', length:'30'}"
+    />
+</FormItem>
 
 <!-- Parameter: ET_COSTS_SUM structure: BAPI_ALM_ORDER_COSTS_SUM_ET   -->
 
@@ -179,91 +156,78 @@ abap api -->
 <ui-dg-column sortable field="CURRENCY_ISO" data-abap.bind="{type:'CHAR', length:'3'}" label="ISO currency code"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Total(actual) maintenance costs</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_COSTS_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Total(actual) maintenance costs">
+    <Input value={this.ET_COSTS_SUM.TOTAL_COSTS_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Total plant maintenance costs (planned)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_COSTS_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Total plant maintenance costs (planned)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_COSTS_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Total maintenance costs (estimated)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_COSTS_EST"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Total maintenance costs (estimated)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_COSTS_EST}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Total Settlement Costs (PMCO)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_SETTLEMENT_COSTS"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Total Settlement Costs (PMCO)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_SETTLEMENT_COSTS}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Total plant maintenance revenues (actual)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_REVENUES_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Total plant maintenance revenues (actual)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_REVENUES_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Total (planned) maintenance revenues</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_REVENUES_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Total (planned) maintenance revenues">
+    <Input value={this.ET_COSTS_SUM.TOTAL_REVENUES_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Total maintenance revenue (estimated)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_REVENUES_EST"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Total maintenance revenue (estimated)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_REVENUES_EST}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Actual sum of maintenance order (costs - revenues)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_SUM_ACT"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Actual sum of maintenance order (costs - revenues)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_SUM_ACT}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Plan sum of maintenance order (costs - revenues)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_SUM_PLAN"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Plan sum of maintenance order (costs - revenues)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_SUM_PLAN}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Estimated total of maintenance order (costs - revenue)</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.TOTAL_SUM_EST"
-            data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
-        />
-</fd-form-item>
+<FormItem label="Estimated total of maintenance order (costs - revenue)">
+    <Input value={this.ET_COSTS_SUM.TOTAL_SUM_EST}
+          data-abap="{type:'CURR', unit:'CURRENCY', length:'+14.2'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Currency for diplaying PM order costs</fd-form-label>
-    <fd-select v-model="ET_COSTS_SUM.CURRENCY"
-        options="{type: 'CT', id: 'TCURC'}"
-        data-abap="{type:'CUKY', length:'5'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Currency for diplaying PM order costs">
+    <ComboBox value={this.ET_COSTS_SUM.CURRENCY}
+        items="{type: 'CT', id: 'TCURC'}"
+        data-abap="{type:'CUKY', length:'5'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>ISO currency code</fd-form-label>
-        <fd-input v-model="ET_COSTS_SUM.CURRENCY_ISO"
-            data-abap="{type:'CHAR', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="ISO currency code">
+    <Input value={this.ET_COSTS_SUM.CURRENCY_ISO}
+          data-abap="{type:'CHAR', length:'3'}"
+    />
+</FormItem>
 
 <!-- Parameter: ET_RETURN structure: BAPIRETTAB   -->
 
@@ -286,110 +250,91 @@ abap api -->
 <ui-dg-column sortable field="SYSTEM" data-abap.bind="{type:'CHAR', alpha:'ALPHA', length:'10'}" shlp.bind="{type: 'CT', id: 'TBDLS'}" label="Logical system from which message originates"></ui-dg-column>
 </ui-datagrid>
 
-<fd-form-item>
-    <fd-form-label>Message type: S Success, E Error, W Warning, I Info, A Abort</fd-form-label>
-        <fd-input v-model="ET_RETURN.TYPE"
-            data-abap="{type:'CHAR', length:'1'}"
-        />
-</fd-form-item>
+<FormItem label="Message type: S Success, E Error, W Warning, I Info, A Abort">
+    <Input value={this.ET_RETURN.TYPE}
+          data-abap="{type:'CHAR', length:'1'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Class</fd-form-label>
-    <fd-select v-model="ET_RETURN.ID"
-        options="{type: 'CT', id: 'T100A'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Message Class">
+    <ComboBox value={this.ET_RETURN.ID}
+        items="{type: 'CT', id: 'T100A'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Number</fd-form-label>
-        <fd-input v-model="ET_RETURN.NUMBER"
-            data-abap="{type:'NUMC', length:'3'}"
-        />
-</fd-form-item>
+<FormItem label="Message Number">
+    <Input value={this.ET_RETURN.NUMBER}
+          data-abap="{type:'NUMC', length:'3'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Text</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE"
-            data-abap="{type:'CHAR', length:'220'}"
-        />
-</fd-form-item>
+<FormItem label="Message Text">
+    <Input value={this.ET_RETURN.MESSAGE}
+          data-abap="{type:'CHAR', length:'220'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: log number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_NO"
-        options="{type: 'CH', id: 'BALHDR'}"
-        data-abap="{type:'CHAR', length:'20'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: log number">
+    <ComboBox value={this.ET_RETURN.LOG_NO}
+        items="{type: 'CH', id: 'BALHDR'}"
+        data-abap="{type:'CHAR', length:'20'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Application log: Internal message serial number</fd-form-label>
-    <fd-select v-model="ET_RETURN.LOG_MSG_NO"
-        options="{type: 'CH', id: 'BALM'}"
-        data-abap="{type:'NUMC', length:'6'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Application log: Internal message serial number">
+    <ComboBox value={this.ET_RETURN.LOG_MSG_NO}
+        items="{type: 'CH', id: 'BALM'}"
+        data-abap="{type:'NUMC', length:'6'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V1"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V1}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V2"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V2}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V3"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V3}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Message Variable</fd-form-label>
-        <fd-input v-model="ET_RETURN.MESSAGE_V4"
-            data-abap="{type:'CHAR', length:'50'}"
-        />
-</fd-form-item>
+<FormItem label="Message Variable">
+    <Input value={this.ET_RETURN.MESSAGE_V4}
+          data-abap="{type:'CHAR', length:'50'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Parameter Name</fd-form-label>
-        <fd-input v-model="ET_RETURN.PARAMETER"
-            data-abap="{type:'CHAR', length:'32'}"
-        />
-</fd-form-item>
+<FormItem label="Parameter Name">
+    <Input value={this.ET_RETURN.PARAMETER}
+          data-abap="{type:'CHAR', length:'32'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Lines in parameter</fd-form-label>
-        <fd-input v-model="ET_RETURN.ROW"
-            data-abap="{type:'INT4', length:'+10'}"
-        />
-</fd-form-item>
+<FormItem label="Lines in parameter">
+    <Input value={this.ET_RETURN.ROW}
+          data-abap="{type:'INT4', length:'+10'}"
+    />
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Field in parameter</fd-form-label>
-    <fd-select v-model="ET_RETURN.FIELD"
-        options="{type: 'CT', id: 'DD03L'}"
-        data-abap="{type:'CHAR', length:'30'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Field in parameter">
+    <ComboBox value={this.ET_RETURN.FIELD}
+        items="{type: 'CT', id: 'DD03L'}"
+        data-abap="{type:'CHAR', length:'30'}">
+    </ComboBox>
+</FormItem>
 
-<fd-form-item>
-    <fd-form-label>Logical system from which message originates</fd-form-label>
-    <fd-select v-model="ET_RETURN.SYSTEM"
-        options="{type: 'CT', id: 'TBDLS'}"
-        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}"
-    >
-    </fd-select>
-</fd-form-item>
+<FormItem label="Logical system from which message originates">
+    <ComboBox value={this.ET_RETURN.SYSTEM}
+        items="{type: 'CT', id: 'TBDLS'}"
+        data-abap="{type:'CHAR', alpha:'ALPHA', length:'10'}">
+    </ComboBox>
+</FormItem>

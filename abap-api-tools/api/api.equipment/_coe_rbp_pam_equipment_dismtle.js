@@ -1,5 +1,5 @@
 //
-// /COE/RBP_PAM_EQUIPMENT_DISMTLE exception: 0  struct: 0  table: 1  var: 1
+// /COE/RBP_PAM_EQUIPMENT_DISMTLE var: 1  struct: 0  table: 1  exception: 0
 //
 // abap api
 //
@@ -9,11 +9,11 @@ const parameters = {
 
 // IMPORT PARAMETERS
 
-// IV_EQUIID :           "", // CHAR (18) ALPHA=ALPHA no text (undefined) SU3=EQN
+// IV_EQUIID :           "", // CHAR (18) ALPHA=ALPHA no text (en) SU3=EQN
 
 // EXPORT PARAMETERS
 
-// ET_RETURN :           [], // BAPIRET2_TAB no text (undefined)
+// ET_RETURN :           [], // BAPIRET2_TAB no text (en)
 };
 
 const result = await client.call("/COE/RBP_PAM_EQUIPMENT_DISMTLE", parameters);
