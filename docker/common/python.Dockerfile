@@ -9,7 +9,7 @@
 ARG venv_base=~/.virtualenvs
 ARG common_source=/common
 # 1st version will be set as the default one
-ARG pyenv_versions="3.11.4 3.10.12 3.9.17 3.8.17"
+ARG pyenv_versions="3.12.0 3.11.6 3.10.13 3.9.18 3.8.18"
 
 ENV TMPDIR=/home/${adminuser}/tmp
 
