@@ -264,12 +264,12 @@ Value Helps are exposed via `abap-value-help` run-time API and consumed by ui co
 
 Fully functional app shown below, is implemented with ca. 400 lines of code:
 
-| App Component                                                                                                                                     |      LoC |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | -------: |
-| [App Server (Node/Java/Python)](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/sample-application-code/server/serve.py#L48)    |       20 |
-| [View Model (ES/TS)](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/sample-application-code/client/src/plm/equipment/model.js) |      192 |
-| [View (HTML)](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/sample-application-code/client/src/plm/equipment/view.html)       |      150 |
-| **Total**                                                                                                                                         | **~400** |
+| App Component                                                                                                                                           |      LoC |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------: |
+| [App Server (Node/Java/Python)](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/web-application-code-explorer/server/serve.py#L48)    |       20 |
+| [View Model (ES/TS)](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/web-application-code-explorer/client/src/plm/equipment/model.js) |      192 |
+| [View (HTML)](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/web-application-code-explorer/client/src/plm/equipment/view.html)       |      150 |
+| **Total**                                                                                                                                               | **~400** |
 
 It is around 98% less code (40-50 times) required at ABAP level, because the plain ABAP business logic is exposed, without or with minimum technical overhead.
 Around 92% less code (10-20 times) is required at Web level, by straightforward ABAP data consumption, with ui components in design-time enriched by ABAP metadata.
