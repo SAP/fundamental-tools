@@ -1,5 +1,5 @@
 //
-// /COE/RBP_PAM_EQUIPMENT_GETL var: 3  struct: 0  table: 2  exception: 0
+// /COE/RBP_PAM_EQUIPMENT_GETL exception: 0  struct: 0  table: 2  var: 3
 //
 // abap api
 //
@@ -9,14 +9,14 @@ const parameters = {
 
 // IMPORT PARAMETERS
 
-// IV_EQUIPMENT_DESCR :           "", // CHAR (40) no text (en)
-// IV_FUNC_LOC        :           "", // CHAR (30) ALPHA=TPLNR no text (en) SU3=IFL
-// IV_PLANT           :           "", // CHAR (4) no text (en) SU3=WRK
+// IV_EQUIPMENT_DESCR :           "", // CHAR (40) no text (undefined)
+// IV_FUNC_LOC        :           "", // CHAR (30) ALPHA=TPLNR no text (undefined) SU3=IFL
+// IV_PLANT           :           "", // CHAR (4) no text (undefined) SU3=WRK
 
 // EXPORT PARAMETERS
 
-// ET_EQUIPMENT       :           [], // /COE/RBP_T_PAM_EQUIPMENT no text (en)
-// ET_RETURN          :           [], // BAPIRET2_TAB no text (en)
+// ET_EQUIPMENT       :           [], // /COE/RBP_T_PAM_EQUIPMENT no text (undefined)
+// ET_RETURN          :           [], // BAPIRET2_TAB no text (undefined)
 };
 
 const result = await client.call("/COE/RBP_PAM_EQUIPMENT_GETL", parameters);

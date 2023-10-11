@@ -76,11 +76,11 @@ RFC connectivity from on-premise web application to ABAP system requires platfor
 
 <img src="doc/assets/deployment-on-premise.png" width="640px"/>
 
-RFC connectivity from cloud Java applications is supported by [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector). The same support for Node.JS and Python applications is enabled for certain usage scenarios only. The usage scenario shall be therefore aligned with SAP development or custom buildpack can be used as described below.
+RFC connectivity from cloud Java applications is supported by [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector). The same is for Node.JS and Python applications enabled for certain usage scenarios only. The usage scenario shall be therefore aligned with SAP development or [custom buildpack](https://docs.cloudfoundry.org/buildpacks/custom.html) can be used.
 
 <img src="doc/assets/deployment-cloud.png" width="640px"/>
 
-The custom buildpack includes [SAP NW RFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html) binaries, added to `LD_LIBRARY_PATH`. The application can use [WebSocket RFC](https://blogs.sap.com/2021/07/19/websocket-rfc-rfc-for-the-internet/) connection parameters, to reach ABAP on-premise system with WebSocket RFC support, outside company firewall. If WebSocket RFC protocol is not supported by ABAP system, or connection outside firewall not wanted, the [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html) shall be installed on-premise, inside the firewall. For more info check SAP blogs
+The [custom buildpack](https://docs.cloudfoundry.org/buildpacks/custom.html) includes [SAP NW RFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html) binaries, added to `LD_LIBRARY_PATH`. The application can use [WebSocket RFC](https://blogs.sap.com/2021/07/19/websocket-rfc-rfc-for-the-internet/) connection parameters, to reach ABAP on-premise system with WebSocket RFC support, outside company firewall. If WebSocket RFC protocol is not supported by ABAP system, or connection outside firewall not wanted, the [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html) shall be installed on-premise, inside the firewall. For more info check SAP blogs
 
 - [WebSocket RFC – RFC For the Internet](https://blogs.sap.com/2021/07/19/websocket-rfc-rfc-for-the-internet/)
 - [WebSocket RFC to Cloud Using SAP Business Connector](https://blogs.sap.com/?p=1616280)

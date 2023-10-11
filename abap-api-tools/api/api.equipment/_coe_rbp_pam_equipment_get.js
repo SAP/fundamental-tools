@@ -1,5 +1,5 @@
 //
-// /COE/RBP_PAM_EQUIPMENT_GET var: 4  struct: 2  table: 11  exception: 0
+// /COE/RBP_PAM_EQUIPMENT_GET exception: 0  struct: 2  table: 11  var: 4
 //
 // abap api
 //
@@ -9,26 +9,26 @@ const parameters = {
 
 // IMPORT PARAMETERS
 
-// IV_CHARACTERISTICS :           "", // CHAR (1) no text (en)
-// IV_DOCUMENT        :           "", // CHAR (1) no text (en)
-// IV_EQUIID          :           "", // CHAR (18) ALPHA=ALPHA no text (en) SU3=EQN
-// IV_WITH_TIMESTATS  :           "", // CHAR (1) no text (en)
+// IV_CHARACTERISTICS :           "", // CHAR (1) no text (undefined)
+// IV_DOCUMENT        :           "", // CHAR (1) no text (undefined)
+// IV_EQUIID          :           "", // CHAR (18) ALPHA=ALPHA no text (undefined) SU3=EQN
+// IV_WITH_TIMESTATS  :           "", // CHAR (1) no text (undefined)
 
 // EXPORT PARAMETERS
 
-// ES_HEADER          :           {}, // /COE/RBP_S_PAM_EQUI_HEADER no text (en)
-// ES_SPECIFIC        :           {}, // BAPI_ITOB_EQ_ONLY no text (en)
-// ET_BRKDWN_EFF      :           [], // /COE/RBP_T_MCIT_BRKDWN_EFF no text (en)
-// ET_BRKDWN_REP      :           [], // /COE/RBP_T_MCIT_BRKDWN_REP no text (en)
-// ET_CHARACT_GROUP   :           [], // /COE/RBP_T_PAM_CHARACT_GROUP no text (en)
-// ET_CHARACTERISTICS :           [], // /COE/RBP_T_PAM_CHARACTERISTICS no text (en)
-// ET_DOCUMENT        :           [], // /COE/RBP_T_PAM_DOCUMENT no text (en)
-// ET_MCIQMADD        :           [], // /COE/RBP_T_MCIQMADD no text (en)
-// ET_RESULT          :           [], // /COE/RBP_T_MCIT_RESULT no text (en)
-// ET_RETURN          :           [], // BAPIRET2_TAB no text (en)
-// ET_STARTUP_EQUI    :           [], // /COE/RBP_T_MCIT_STARTUP_EQUI no text (en)
-// ET_STARTUP_IFLO    :           [], // /COE/RBP_T_MCIT_STARTUP_IFLO no text (en)
-// ET_USER_STATUS     :           [], // CWD_TT_ITOB_STATUS no text (en)
+// ES_HEADER          :           {}, // /COE/RBP_S_PAM_EQUI_HEADER no text (undefined)
+// ES_SPECIFIC        :           {}, // BAPI_ITOB_EQ_ONLY no text (undefined)
+// ET_BRKDWN_EFF      :           [], // /COE/RBP_T_MCIT_BRKDWN_EFF no text (undefined)
+// ET_BRKDWN_REP      :           [], // /COE/RBP_T_MCIT_BRKDWN_REP no text (undefined)
+// ET_CHARACT_GROUP   :           [], // /COE/RBP_T_PAM_CHARACT_GROUP no text (undefined)
+// ET_CHARACTERISTICS :           [], // /COE/RBP_T_PAM_CHARACTERISTICS no text (undefined)
+// ET_DOCUMENT        :           [], // /COE/RBP_T_PAM_DOCUMENT no text (undefined)
+// ET_MCIQMADD        :           [], // /COE/RBP_T_MCIQMADD no text (undefined)
+// ET_RESULT          :           [], // /COE/RBP_T_MCIT_RESULT no text (undefined)
+// ET_RETURN          :           [], // BAPIRET2_TAB no text (undefined)
+// ET_STARTUP_EQUI    :           [], // /COE/RBP_T_MCIT_STARTUP_EQUI no text (undefined)
+// ET_STARTUP_IFLO    :           [], // /COE/RBP_T_MCIT_STARTUP_IFLO no text (undefined)
+// ET_USER_STATUS     :           [], // CWD_TT_ITOB_STATUS no text (undefined)
 };
 
 const result = await client.call("/COE/RBP_PAM_EQUIPMENT_GET", parameters);

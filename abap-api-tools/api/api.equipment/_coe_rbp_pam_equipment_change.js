@@ -1,5 +1,5 @@
 //
-// /COE/RBP_PAM_EQUIPMENT_CHANGE var: 1  struct: 4  table: 2  exception: 0
+// /COE/RBP_PAM_EQUIPMENT_CHANGE exception: 0  struct: 4  table: 2  var: 1
 //
 // abap api
 //
@@ -9,16 +9,16 @@ const parameters = {
 
 // IMPORT PARAMETERS
 
-IV_EQUIID             :           "", // CHAR (18) ALPHA=ALPHA no text (en) SU3=EQN
-IS_DATA_SPECIFIC      :           {}, // BAPI_ITOB_EQ_ONLY no text (en)
-IS_DATA_SPECIFIC_X    :           {}, // BAPI_ITOB_EQ_ONLYX no text (en)
-IS_HEADER             :           {}, // /COE/RBP_S_PAM_EQUI_HEADER no text (en)
-IS_HEADER_X           :           {}, // /COE/RBP_S_PAM_EQUI_HEADERX no text (en)
-IT_CHARACTERISTICS    :           [], // /COE/RBP_T_PAM_CHARACT_FOR_CHG no text (en)
+IV_EQUIID             :           "", // CHAR (18) ALPHA=ALPHA no text (undefined) SU3=EQN
+IS_DATA_SPECIFIC      :           {}, // BAPI_ITOB_EQ_ONLY no text (undefined)
+IS_DATA_SPECIFIC_X    :           {}, // BAPI_ITOB_EQ_ONLYX no text (undefined)
+IS_HEADER             :           {}, // /COE/RBP_S_PAM_EQUI_HEADER no text (undefined)
+IS_HEADER_X           :           {}, // /COE/RBP_S_PAM_EQUI_HEADERX no text (undefined)
+IT_CHARACTERISTICS    :           [], // /COE/RBP_T_PAM_CHARACT_FOR_CHG no text (undefined)
 
 // EXPORT PARAMETERS
 
-// ET_RETURN          :           [], // BAPIRET2_TAB no text (en)
+// ET_RETURN          :           [], // BAPIRET2_TAB no text (undefined)
 };
 
 const result = await client.call("/COE/RBP_PAM_EQUIPMENT_CHANGE", parameters);
