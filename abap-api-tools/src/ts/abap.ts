@@ -206,7 +206,10 @@ export class CliHandler {
 
 const pathToThisFile = resolve(fileURLToPath(import.meta.url));
 const pathPassedToNode = resolve(process.argv[1]);
-const isThisFileBeingRunViaCLI = pathToThisFile.includes(pathPassedToNode);
+const isThisFileBeingRunViaCLI =
+  process.platform === "darwin"
+    ? pathPassedToNode.indexOf("abap.js") == -1
+    : pathToThisFile.includes(pathPassedToNode);
 
 // invoked via CLI
 if (isThisFileBeingRunViaCLI)
