@@ -33,6 +33,7 @@ Few pre-configured docker containers with RFC connectivity are provided in [dock
 
 ## Content <!-- omit in toc -->
 
+- SAP Community: [blog](https://blogs.sap.com/2023/10/12/powerful-web-applications-with-old-and-new-abap-systems)
 - [Prerequisites](#prerequisites)
 - [Download and installation](#download-and-installation)
 - [Usage](#usage)
