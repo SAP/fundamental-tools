@@ -17,8 +17,8 @@ RUN \
     # nvm
     NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/') && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
-    bash -ic "nvm install node && nvm alias default node && nvm install 18 && nvm install 16" && \
+    bash -ic "nvm install node && nvm install 20 && nvm install v18.18.2 && nvm && alias cfdefault v18.18.2" && \
     # bashrc
     cat /tmp/bashrc_nvm.sh >> .bashrc && \
-    echo "nvm use node" >> .bashrc && \
+    echo "nvm use cfdefault" >> .bashrc && \
     sudo rm /tmp/bashrc_nvm.sh
