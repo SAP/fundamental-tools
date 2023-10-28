@@ -7,7 +7,7 @@
 #
 # Build:
 # docker build --platform=linux/amd64 -t btp-cflinuxfs4 -f btp-cflinuxfs4.Dockerfile .
-# docker run --platform=linux/amd64 -it --name btp-cflinuxfs4 -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src btp-cflinuxfs4 /bin/bash --login
+# docker run --platform=linux/amd64 -it --name btp-cflinuxfs4 -p 3000:3000 -p:80:80 -p 443:443 -p 8080:8080 -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src btp-cflinuxfs4 /bin/bash --login
 #
 # Run:
 # docker start -ai btp-cflinuxfs4
@@ -59,7 +59,8 @@ ENV LC_ALL en_US.UTF-8
 USER ${adminuser}
 WORKDIR /home/${adminuser}
 
-RUN  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias la='ls -la'\nalias distro='cat /etc/*-release'\n" > .bash_aliases && \
+RUN mkdir /home/${adminuser}/tmp; \
+  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias la='ls -la'\nalias distro='cat /etc/*-release'\n" > .bash_aliases && \
   printf "\n# colors\nexport TERM=xterm-256color\n" >> ~/.bashrc && \
   # git configuration
   git config --global http.sslVerify false && \
@@ -69,6 +70,12 @@ RUN  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias
 
 # # python
 # INCLUDE+ common/python.Dockerfile
+
+# cf cli
+RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
+  echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
+  sudo apt-get update && \
+  sudo apt-get install cf8-cli
 
 # nvm
 INCLUDE+ common/nodejs.Dockerfile
