@@ -59,7 +59,7 @@ ENV LC_ALL en_US.UTF-8
 USER ${adminuser}
 WORKDIR /home/${adminuser}
 
-RUN mkdir /home/${adminuser}/tmp; \
+RUN \
   printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias la='ls -la'\nalias distro='cat /etc/*-release'\n" > .bash_aliases && \
   printf "\n# colors\nexport TERM=xterm-256color\n" >> ~/.bashrc && \
   # git configuration
@@ -71,11 +71,12 @@ RUN mkdir /home/${adminuser}/tmp; \
 # # python
 # INCLUDE+ common/python.Dockerfile
 
-# cf cli
-RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
-  echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
-  sudo apt-get update && \
-  sudo apt-get install cf8-cli
+# # cf cli - if needed
+# RUN mkdir /home/${adminuser}/tmp; \
+#   wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
+#   echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
+#   sudo apt-get update && \
+#   sudo apt-get install cf8-cli
 
 # nvm
 INCLUDE+ common/nodejs.Dockerfile
