@@ -66,25 +66,7 @@ More info: [abap-api-tools/README.md#download-and-installation](abap-api-tools/R
 
 ## Deployment
 
-Web applications developed this way can be deployed on-premise or in the cloud. For cloud deployment the connecton parameters are different and cloud services available in cloud only (eg. audit log etc.) are not available on premise.
-
-RFC connectivity from on-premise web application to ABAP system requires platform specific RFC connector
-
-- Java: [SAP JCo](https://support.sap.com/en/product/connectors/jco.html)
-- Microsoft NET: [SAP NCo](https://support.sap.com/en/product/connectors/msnet.html)
-- Python: [SAP/PyRFC](https://github.com/SAP/PyRFC) open source
-- Node.JS: [SAP/node-rfc](https://github.com/SAP/node-rfc) open source
-
-<img src="doc/assets/deployment-on-premise.png" width="640px"/>
-
-RFC connectivity from cloud Java applications is supported by [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/cloud-connector). The same is for Node.JS and Python applications enabled for certain usage scenarios only. The usage scenario shall be therefore aligned with SAP development or [custom buildpack](https://docs.cloudfoundry.org/buildpacks/custom.html) can be used.
-
-<img src="doc/assets/deployment-cloud.png" width="640px"/>
-
-The [custom buildpack](https://docs.cloudfoundry.org/buildpacks/custom.html) includes [SAP NW RFC SDK](https://support.sap.com/en/product/connectors/nwrfcsdk.html) binaries, added to `LD_LIBRARY_PATH`. The application can use [WebSocket RFC](https://blogs.sap.com/2021/07/19/websocket-rfc-rfc-for-the-internet/) connection parameters, to reach ABAP on-premise system with WebSocket RFC support, outside company firewall. If WebSocket RFC protocol is not supported by ABAP system, or connection outside firewall not wanted, the [SAP Business Connector](https://support.sap.com/en/product/connectors/bc.html) shall be installed on-premise, inside the firewall. For more info check SAP blogs
-
-- [WebSocket RFC – RFC For the Internet](https://blogs.sap.com/2021/07/19/websocket-rfc-rfc-for-the-internet/)
-- [WebSocket RFC to Cloud Using SAP Business Connector](https://blogs.sap.com/?p=1616280)
+Check **Deployment options** section in [Powerful web applications with old and new ABAP systems](https://blogs.sap.com/2023/10/12/powerful-web-applications-with-old-and-new-abap-systems/)
 
 ## Known Issues
 
