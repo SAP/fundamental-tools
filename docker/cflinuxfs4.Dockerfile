@@ -67,8 +67,8 @@ RUN  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias
   git config --global user.email srdjan.boskovic@sap.com && \
   git config --global pull.rebase false
 
-# # python
-# INCLUDE+ common/python.Dockerfile
+# python
+INCLUDE+ common/python.Dockerfile
 
 # nvm
 INCLUDE+ common/nodejs.Dockerfile

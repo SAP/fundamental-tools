@@ -78,6 +78,9 @@ RUN \
 #   sudo apt-get update && \
 #   sudo apt-get install cf8-cli
 
+# python
+INCLUDE+ common/python.Dockerfile
+
 # nvm
 INCLUDE+ common/nodejs.Dockerfile
 
