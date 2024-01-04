@@ -1,7 +1,5 @@
 # abap api tools<!-- omit in toc -->
 
-![License](https://img.shields.io/npm/l/abap-api-tools)
-
 CLI tool for [conventions' based applications](https://github.com/SAP/fundamental-tools/blob/main/doc/app.md)
 
 - BAPI/RFM call templates ([What is BAPI/RFM?](https://sap.github.io/cloud-sdk/docs/java/features/bapi-and-rfc/bapi-and-rfc-overview/))
@@ -29,7 +27,6 @@ CLI tool for [conventions' based applications](https://github.com/SAP/fundamenta
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -434,6 +431,3 @@ If you encounter an issue, you can [create a ticket](https://github.com/SAP/fund
 
 If you want to contribute, please check the [CONTRIBUTING.md](https://github.com/SAP/fundamental-tools#contributing) documentation for contribution guidelines.
 
-## License
-
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the [LICENSE file](https://github.com/SAP/fundamental-tools#license).

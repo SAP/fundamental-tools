@@ -6,22 +6,22 @@
 
 #
 # Build:
-# docker build --platform=linux/amd64 -t cflinuxfs4 -f cflinuxfs4.Dockerfile .
-# docker run --platform=linux/amd64 -it --name cflinuxfs4-server -p 7001:7001 -p:80:80 -p 443:443 -p 8080:8080 -p 3000:3000 -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src cflinuxfs4 /bin/bash --login
+# docker build --platform=linux/amd64 -t cflinuxfs3 -f cflinuxfs3.Dockerfile .
+# docker run --platform=linux/amd64 -it --name cflinuxfs3 -p 7001:7001 -p:80:80 -p 443:443 -p 8080:8080 -v /Users/d037732/SAPDevelop/dev:/home/www-admin/src cflinuxfs3 /bin/bash --login
 #
 # Run:
-# docker start -ai cflinuxfs4
+# docker start -ai cflinuxfs3
 #
 
-FROM cloudfoundry/cflinuxfs4
+FROM cloudfoundry/cflinuxfs3
 
 LABEL maintainer="srdjan.boskovic@sap.com"
 LABEL version="2.0"
-LABEL description="cflinuxfs4"
+LABEL description="cflinuxfs3"
 
 ARG adminuser=www-admin
-ARG dev_tools="sudo curl wget git unzip vim tree tmux iproute2 iputils-ping"
-ARG dev_libs="build-essential make ninja-build libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev"
+ARG dev_tools="sudo curl wget git unzip tree tmux iproute2 iputils-ping"
+ARG dev_libs="build-essential make ninja-build libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev xz-utils tk-dev"
 
 ENV container docker
 
@@ -67,10 +67,17 @@ RUN  printf "alias e=exit\nalias ..=cd..\nalias :q=exit\nalias ll='ls -l'\nalias
   git config --global user.email srdjan.boskovic@sap.com && \
   git config --global pull.rebase false
 
+# # cf cli - if needed
+RUN mkdir /home/${adminuser}/tmp; \
+  wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
+  echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
+  sudo apt-get update && \
+  sudo apt-get install cf8-cli
+
 # python
-INCLUDE+ common/python.Dockerfile
+INCLUDE+ common/python2.Dockerfile
 
 # nvm
-INCLUDE+ common/nodejs.Dockerfile
+# INCLUDE+ common/nodejs.Dockerfile
 
 SHELL ["/bin/bash"]

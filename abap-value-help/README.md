@@ -1,6 +1,5 @@
 # ABAP Value Help <!-- omit in toc -->
 
-![License](https://img.shields.io/npm/l/abap-value-help)
 [![npm](https://img.shields.io/npm/v/abap-value-help)](https://www.npmjs.com/package/abap-value-help)
 [![Slack](https://img.shields.io/badge/slack-ui--fundamentals-blue.svg?logo=slack)](https://join.slack.com/t/ui-fundamentals/shared_invite/enQtNTIzOTU0Mzc2NTc5LWQzZWI5MWFhYjE5OTc4YzliN2JhOTc1ZjQxZTg1YjZiMWZiYzRkNjMwYzgyMmFkYmNhZDVjMWE5MDIzOWEzMmM)
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/fundamental-tools)](https://api.reuse.software/info/github.com/SAP/fundamental-tools)
@@ -26,7 +25,6 @@ Generic Value Helps for [conventions' based applications](https://github.com/SAP
 - [Known Issues](#known-issues)
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -181,7 +179,3 @@ If you encounter an issue, you can [create a ticket](https://github.com/SAP/fund
 ## Contributing
 
 If you want to contribute, please check the [CONTRIBUTING.md](https://github.com/SAP/fundamental-tools#contributing) documentation for contribution guidelines.
-
-## License
-
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the [LICENSE file](https://github.com/SAP/fundamental-tools#license).

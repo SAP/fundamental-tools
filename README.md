@@ -42,7 +42,6 @@ Few pre-configured docker containers with RFC connectivity are provided in [dock
 - [Getting Support](#getting-support)
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
-- [License](#license)
 
 ## Prerequisites
 
@@ -83,7 +82,3 @@ If you want to contribute, please check the [CONTRIBUTING.md](CONTRIBUTING.md) d
 ## Code of Conduct
 
 See [Code of Conduct](./CODE_OF_CONDUCT.md)
-
-## License
-
-Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE file](LICENSES/Apache-2.0.txt).
