@@ -223,7 +223,7 @@ DATA_FLEET = {
 
 ## View (HTML or JS)
 
-HTML or JS Views comprise of web components, grouped together into frontend layout elements.
+HTML or JS Views comprise of web components, grouped together into frontend layout elements and here is our Equipment app [View]([url](https://github.com/SAP/fundamental-tools/blob/main/abap-api-tools/web-application-code-explorer/client/src/plm/equipment/view.html))
 
 ![View rendering](assets/View.png)
 
