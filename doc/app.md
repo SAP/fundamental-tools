@@ -2,7 +2,11 @@
 
 Assume the scenario in one or more ABAP transactions should be replaced with more convenient and effective web application.
 
-In this example, app shall be used to maintain Equipment, as alternative to old Dynpro screens
+In this example, app shall be used to specialize and extend Equipment standard GUI, with three new features:
+
+- Grouped and ungrouped Classifications/Characteristics read/update
+- Show MTTR/MTBF times
+- Attachments preview/upload/download
 
 <img src="assets/equipment-oldui.png" width="600px"/>
 
