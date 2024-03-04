@@ -13,7 +13,7 @@ Build powerful on-premise and cloud extensions of any ABAP system, with minimum 
 
 This repository provides two NPM packages
 
-- [abap-api-tools](./abap-api-tools/README.md) design-time CLI, to enrich your ui componebts with ABAP metadata: data type, length, data binding, user defaults, Value Helps ...
+- [abap-api-tools](./abap-api-tools/README.md) design-time CLI, to enrich your ui components with ABAP metadata: data type, length, data binding, user defaults, Value Helps ...
 - [abap-value-help](./abap-value-help/README.md) run-time API for generic ABAP Value Helps
 
 used to build cloud extensions of ABAP backend systems, using
